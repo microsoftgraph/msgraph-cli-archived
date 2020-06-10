@@ -11,24 +11,20 @@ from collections import OrderedDict
 
 from knack import CLICommandsLoader
 
-# from msgraph.cli.core import AzCommandsLoader
+from msgraph.cli.core import GraphCommandsLoader
 from azext_msgraphuserscontacts.generated._help import helps  # pylint: disable=unused-import
 from knack.commands import CommandGroup
 
 
-class UsersContactsCommandsLoader(CLICommandsLoader):
+class UsersContactsCommandsLoader(GraphCommandsLoader):
     def load_command_table(self, args):
-        # from azext_msgraphuserscontacts.generated.commands import load_command_table
-        # load_command_table(self, args)
-        # try:
-        #     from azext_msgraphuserscontacts.manual.commands import load_command_table as load_command_table_manual
-        #     load_command_table_manual(self, args)
-        # except ImportError:
-        #     pass
-        with CommandGroup(self, 'hello', '__main__#{}') as g:
-            g.command('world', 'hello_command_handler')
-        return OrderedDict(self.command_table)
-        print('UserContacts', self.command_table)
+        from azext_msgraphuserscontacts.generated.commands import load_command_table
+        load_command_table(self, args)
+        try:
+            from azext_msgraphuserscontacts.manual.commands import load_command_table as load_command_table_manual
+            load_command_table_manual(self, args)
+        except ImportError:
+            pass
         return self.command_table
 
     def load_arguments(self, command):
@@ -39,8 +35,6 @@ class UsersContactsCommandsLoader(CLICommandsLoader):
             load_arguments_manual(self, command)
         except ImportError:
             pass
-
-
 
 
 COMMAND_LOADER_CLS = UsersContactsCommandsLoader
