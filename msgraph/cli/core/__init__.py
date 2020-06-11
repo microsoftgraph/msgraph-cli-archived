@@ -40,6 +40,7 @@ class GraphCommandsLoader(CLICommandsLoader):
         client_factory = kwargs.get('client_factory', None)
 
         def default_command_handler(command_args):
+            command_args.pop('cmd')
             op = self.get_op_handler(operation)
             op_args = get_arg_list(op)
             client = client_factory(None, command_args) if client_factory else None

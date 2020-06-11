@@ -143,3 +143,6 @@ class GraphCliCommand(CLICommand):
         self.exception_handler = kwargs.get('exception_handler', None)
         self.confirmation = kwargs.get('confirmation', False)
         self.command_kwargs = kwargs
+
+    def __call__(self, *args, **kwargs):
+        return self.handler(*args, **kwargs)

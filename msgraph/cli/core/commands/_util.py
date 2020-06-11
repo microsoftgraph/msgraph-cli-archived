@@ -1,7 +1,12 @@
+import argparse
+import base64
 import inspect
 from importlib import import_module
 
 from knack.cli import logger
+from knack.util import CLIError
+
+from msgraph.cli.core.commands.validators import IterateValue
 
 
 def _load_command_loader(loader, args, name, prefix):
@@ -53,3 +58,47 @@ def augment_no_wait_handler_args(no_wait_enabled, handler, handler_args):
     if 'polling' in h_args and no_wait_enabled:
         # support autorest 3
         handler_args['polling'] = False
+
+
+def read_file_content(file_path, allow_binary=False):
+    from codecs import open as codecs_open
+    # Note, always put 'utf-8-sig' first, so that BOM in WinOS won't cause trouble.
+    for encoding in ['utf-8-sig', 'utf-8', 'utf-16', 'utf-16le', 'utf-16be']:
+        try:
+            with codecs_open(file_path, encoding=encoding) as f:
+                logger.debug("attempting to read file %s as %s", file_path, encoding)
+                return f.read()
+        except (UnicodeError, UnicodeDecodeError):
+            pass
+
+    if allow_binary:
+        try:
+            with open(file_path, 'rb') as input_file:
+                logger.debug("attempting to read file %s as binary", file_path)
+                return base64.b64encode(input_file.read()).decode("utf-8")
+        except Exception:  # pylint: disable=broad-except
+            pass
+    raise CLIError('Failed to decode file {} - unknown decoding'.format(file_path))
+
+
+def _explode_list_args(args):
+    '''Iterate through each attribute member of args and create a copy with
+    the IterateValues 'flattened' to only contain a single value
+
+    Ex.
+        { a1:'x', a2:IterateValue(['y', 'z']) } => [{ a1:'x', a2:'y'),{ a1:'x', a2:'z'}]
+    '''
+    list_args = {argname: argvalue for argname, argvalue in vars(args).items()
+                 if isinstance(argvalue, IterateValue)}
+    if not list_args:
+        yield args
+    else:
+        values = list(zip(*list_args.values()))
+        for key in list_args:
+            delattr(args, key)
+
+        for value in values:
+            new_ns = argparse.Namespace(**vars(args))
+            for key_index, key in enumerate(list_args.keys()):
+                setattr(new_ns, key, value[key_index])
+            yield new_ns
