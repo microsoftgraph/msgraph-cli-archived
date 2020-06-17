@@ -34,8 +34,9 @@ class CliCommandType(object):
 class GraphCommandGroup(CommandGroup):
     def __init__(self, command_loader, group_name, **kwargs):
         merged_kwargs = self._merge_kwargs(kwargs, base_kwargs=command_loader.module_kwargs)
-        operations_tmpl = merged_kwargs.pop('command_type').settings.pop('operations_tmpl')
+        operations_tmpl = merged_kwargs.pop('operations_tmpl', None)
         super(GraphCommandGroup, self).__init__(command_loader, group_name, operations_tmpl, **merged_kwargs)
+
         self.group_kwargs = merged_kwargs
         if operations_tmpl:
             self.group_kwargs['operations_tmpl'] = operations_tmpl

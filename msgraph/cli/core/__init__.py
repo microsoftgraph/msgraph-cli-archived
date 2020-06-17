@@ -12,10 +12,14 @@ from msgraph.cli.core.commands._util import get_arg_list
 from msgraph.cli.core.commands.client_factory import resolve_client_arg_name
 from msgraph.cli.core.commands.parameters import GraphArgumentContext
 
+EXCLUDED_PARAMS = ['self', 'raw', 'polling', 'custom_headers', 'operation_config',
+                   'content_version', 'kwargs', 'client', 'no_wait']
+
 
 class GraphCommandsLoader(CLICommandsLoader):
     def __init__(self, cli_ctx=None, command_group_cls=None, argument_context_cls=None, **kwargs):
-        super(GraphCommandsLoader, self).__init__(cli_ctx=cli_ctx, command_cls=GraphCliCommand)
+        super(GraphCommandsLoader, self).__init__(
+            cli_ctx=cli_ctx, command_cls=GraphCliCommand, excluded_command_handler_args=EXCLUDED_PARAMS)
         self.module_kwargs = kwargs
         self._command_group_cls = command_group_cls or GraphCommandGroup
         self._argument_context_cls = ArgumentsContext
@@ -40,10 +44,11 @@ class GraphCommandsLoader(CLICommandsLoader):
         client_factory = kwargs.get('client_factory', None)
 
         def default_command_handler(command_args):
-            command_args.pop('cmd')
-            op = self.get_op_handler(operation)
+            op = handler or self.get_op_handler(operation, operation_group=kwargs.get('operation_group'))
             op_args = get_arg_list(op)
-            client = client_factory(None, command_args) if client_factory else None
+            cmd = command_args.get('cmd') if 'cmd' in op_args else command_args.pop('cmd')
+            client = client_factory(cmd.cli_ctx, command_args) if client_factory else None
+
             if client:
                 client_arg_name = resolve_client_arg_name(operation, kwargs)
                 if client_arg_name in op_args:

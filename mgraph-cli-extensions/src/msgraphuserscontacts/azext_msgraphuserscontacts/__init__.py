@@ -17,6 +17,14 @@ from knack.commands import CommandGroup
 
 
 class UsersContactsCommandsLoader(GraphCommandsLoader):
+    def __init__(self, cli_ctx=None):
+        from msgraph.cli.core.commands import CliCommandType
+        from azext_msgraphuserscontacts.generated._client_factory import cf_msgraphuserscontacts
+        msgraphuserscontacts_custom = CliCommandType(
+            operations_tmpl='azext_msgraphuserscontacts.custom#{}',
+            client_factory=cf_msgraphuserscontacts)
+        super(UsersContactsCommandsLoader, self).__init__(cli_ctx=cli_ctx,
+                                                          custom_command_type=msgraphuserscontacts_custom)
     def load_command_table(self, args):
         from azext_msgraphuserscontacts.generated.commands import load_command_table
         load_command_table(self, args)
