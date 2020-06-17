@@ -27,6 +27,7 @@ def resolve_client_arg_name(operation, kwargs):
         raise ValueError('Unrecognized operation: {}'.format(operation))
     return client_arg_name
 
+
 def get_mgmt_service_client(cli_ctx,
                              client_type,
                              subscription_bound=True,
