@@ -1,1 +1,0 @@
-from azext_msgraphuserscontacts import COMMAND_LOADER_CLS

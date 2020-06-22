@@ -6,7 +6,6 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 from typing import TYPE_CHECKING
-import warnings
 
 from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
@@ -18,13 +17,13 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Iterable, List, Optional, TypeVar, Union
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class UserContactOperations(object):
-    """UserContactOperations operations.
+class UserContactFolderContactOperations(object):
+    """UserContactFolderContactOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -48,33 +47,36 @@ class UserContactOperations(object):
     def list_extension(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum39"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum20"]]]
         select=None,  # type: Optional[List[str]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.CollectionOfExtension0"]
+        # type: (...) -> Iterable["models.CollectionOfExtension"]
         """Get extensions from users.
 
         Get extensions from users.
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~Microsoft.Graph.PowerShell.models.Enum39]
+        :type orderby: list[str or ~Microsoft.Graph.PowerShell.models.Enum20]
         :param select: Select properties to be returned.
         :type select: list[str]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfExtension0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~Microsoft.Graph.PowerShell.models.CollectionOfExtension0]
+        :return: An iterator like instance of either CollectionOfExtension or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~Microsoft.Graph.PowerShell.models.CollectionOfExtension]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfExtension0"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfExtension"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -84,6 +86,7 @@ class UserContactOperations(object):
                 url = self.list_extension.metadata['url']  # type: ignore
                 path_format_arguments = {
                     'user-id': self._serialize.url("user_id", user_id, 'str'),
+                    'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
                     'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
                 }
                 url = self._client.format_url(url, **path_format_arguments)
@@ -118,7 +121,7 @@ class UserContactOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfExtension0', pipeline_response)
+            deserialized = self._deserialize('CollectionOfExtension', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -140,11 +143,12 @@ class UserContactOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_extension.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/extensions'}  # type: ignore
+    list_extension.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/extensions'}  # type: ignore
 
     def create_extension(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         id=None,  # type: Optional[str]
         **kwargs  # type: Any
@@ -156,6 +160,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param id: Read-only.
@@ -176,6 +182,7 @@ class UserContactOperations(object):
         url = self.create_extension.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -208,11 +215,12 @@ class UserContactOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_extension.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/extensions'}  # type: ignore
+    create_extension.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/extensions'}  # type: ignore
 
     def get_extension(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         extension_id,  # type: str
         select=None,  # type: Optional[List[str]]
@@ -226,6 +234,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param extension_id: key: extension-id of extension.
@@ -247,6 +257,7 @@ class UserContactOperations(object):
         url = self.get_extension.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
             'extension-id': self._serialize.url("extension_id", extension_id, 'str'),
         }
@@ -279,11 +290,12 @@ class UserContactOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_extension.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/extensions/{extension-id}'}  # type: ignore
+    get_extension.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/extensions/{extension-id}'}  # type: ignore
 
     def update_extension(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         extension_id,  # type: str
         id=None,  # type: Optional[str]
@@ -296,6 +308,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param extension_id: key: extension-id of extension.
@@ -318,6 +332,7 @@ class UserContactOperations(object):
         url = self.update_extension.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
             'extension-id': self._serialize.url("extension_id", extension_id, 'str'),
         }
@@ -347,38 +362,41 @@ class UserContactOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_extension.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/extensions/{extension-id}'}  # type: ignore
+    update_extension.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/extensions/{extension-id}'}  # type: ignore
 
     def list_multi_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum40"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum41"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum21"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum22"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.CollectionOfMultiValueLegacyExtendedProperty1"]
+        # type: (...) -> Iterable["models.CollectionOfMultiValueLegacyExtendedProperty"]
         """Get multiValueExtendedProperties from users.
 
         Get multiValueExtendedProperties from users.
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~Microsoft.Graph.PowerShell.models.Enum40]
+        :type orderby: list[str or ~Microsoft.Graph.PowerShell.models.Enum21]
         :param select: Select properties to be returned.
-        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum41]
+        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum22]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfMultiValueLegacyExtendedProperty1 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~Microsoft.Graph.PowerShell.models.CollectionOfMultiValueLegacyExtendedProperty1]
+        :return: An iterator like instance of either CollectionOfMultiValueLegacyExtendedProperty or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~Microsoft.Graph.PowerShell.models.CollectionOfMultiValueLegacyExtendedProperty]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMultiValueLegacyExtendedProperty1"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMultiValueLegacyExtendedProperty"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -388,6 +406,7 @@ class UserContactOperations(object):
                 url = self.list_multi_value_extended_property.metadata['url']  # type: ignore
                 path_format_arguments = {
                     'user-id': self._serialize.url("user_id", user_id, 'str'),
+                    'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
                     'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
                 }
                 url = self._client.format_url(url, **path_format_arguments)
@@ -422,7 +441,7 @@ class UserContactOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfMultiValueLegacyExtendedProperty1', pipeline_response)
+            deserialized = self._deserialize('CollectionOfMultiValueLegacyExtendedProperty', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -444,11 +463,12 @@ class UserContactOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/multiValueExtendedProperties'}  # type: ignore
+    list_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/multiValueExtendedProperties'}  # type: ignore
 
     def create_multi_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         id=None,  # type: Optional[str]
         value=None,  # type: Optional[List[str]]
@@ -461,6 +481,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param id: Read-only.
@@ -483,6 +505,7 @@ class UserContactOperations(object):
         url = self.create_multi_value_extended_property.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -515,14 +538,15 @@ class UserContactOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/multiValueExtendedProperties'}  # type: ignore
+    create_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/multiValueExtendedProperties'}  # type: ignore
 
     def get_multi_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         multi_value_legacy_extended_property_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum42"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum23"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -533,13 +557,15 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param multi_value_legacy_extended_property_id: key: multiValueLegacyExtendedProperty-id of
          multiValueLegacyExtendedProperty.
         :type multi_value_legacy_extended_property_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum42]
+        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum23]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -555,6 +581,7 @@ class UserContactOperations(object):
         url = self.get_multi_value_extended_property.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
             'multiValueLegacyExtendedProperty-id': self._serialize.url("multi_value_legacy_extended_property_id", multi_value_legacy_extended_property_id, 'str'),
         }
@@ -587,11 +614,12 @@ class UserContactOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/multiValueExtendedProperties/{multiValueLegacyExtendedProperty-id}'}  # type: ignore
+    get_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/multiValueExtendedProperties/{multiValueLegacyExtendedProperty-id}'}  # type: ignore
 
     def update_multi_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         multi_value_legacy_extended_property_id,  # type: str
         id=None,  # type: Optional[str]
@@ -605,6 +633,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param multi_value_legacy_extended_property_id: key: multiValueLegacyExtendedProperty-id of
@@ -630,6 +660,7 @@ class UserContactOperations(object):
         url = self.update_multi_value_extended_property.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
             'multiValueLegacyExtendedProperty-id': self._serialize.url("multi_value_legacy_extended_property_id", multi_value_legacy_extended_property_id, 'str'),
         }
@@ -659,13 +690,14 @@ class UserContactOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/multiValueExtendedProperties/{multiValueLegacyExtendedProperty-id}'}  # type: ignore
+    update_multi_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/multiValueExtendedProperties/{multiValueLegacyExtendedProperty-id}'}  # type: ignore
 
     def get_photo(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum43"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum24"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -676,10 +708,12 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum43]
+        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum24]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -695,6 +729,7 @@ class UserContactOperations(object):
         url = self.get_photo.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -726,11 +761,12 @@ class UserContactOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_photo.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/photo'}  # type: ignore
+    get_photo.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/photo'}  # type: ignore
 
     def update_photo(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         id=None,  # type: Optional[str]
         height=None,  # type: Optional[int]
@@ -744,6 +780,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param id: Read-only.
@@ -768,6 +806,7 @@ class UserContactOperations(object):
         url = self.update_photo.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -796,38 +835,41 @@ class UserContactOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_photo.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/photo'}  # type: ignore
+    update_photo.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/photo'}  # type: ignore
 
     def list_single_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum44"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum45"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum25"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum26"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> Iterable["models.CollectionOfSingleValueLegacyExtendedProperty1"]
+        # type: (...) -> Iterable["models.CollectionOfSingleValueLegacyExtendedProperty"]
         """Get singleValueExtendedProperties from users.
 
         Get singleValueExtendedProperties from users.
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~Microsoft.Graph.PowerShell.models.Enum44]
+        :type orderby: list[str or ~Microsoft.Graph.PowerShell.models.Enum25]
         :param select: Select properties to be returned.
-        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum45]
+        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum26]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfSingleValueLegacyExtendedProperty1 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~Microsoft.Graph.PowerShell.models.CollectionOfSingleValueLegacyExtendedProperty1]
+        :return: An iterator like instance of either CollectionOfSingleValueLegacyExtendedProperty or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~Microsoft.Graph.PowerShell.models.CollectionOfSingleValueLegacyExtendedProperty]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSingleValueLegacyExtendedProperty1"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSingleValueLegacyExtendedProperty"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -837,6 +879,7 @@ class UserContactOperations(object):
                 url = self.list_single_value_extended_property.metadata['url']  # type: ignore
                 path_format_arguments = {
                     'user-id': self._serialize.url("user_id", user_id, 'str'),
+                    'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
                     'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
                 }
                 url = self._client.format_url(url, **path_format_arguments)
@@ -871,7 +914,7 @@ class UserContactOperations(object):
             return request
 
         def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfSingleValueLegacyExtendedProperty1', pipeline_response)
+            deserialized = self._deserialize('CollectionOfSingleValueLegacyExtendedProperty', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -893,11 +936,12 @@ class UserContactOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_single_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/singleValueExtendedProperties'}  # type: ignore
+    list_single_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/singleValueExtendedProperties'}  # type: ignore
 
     def create_single_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         id=None,  # type: Optional[str]
         value=None,  # type: Optional[str]
@@ -910,6 +954,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param id: Read-only.
@@ -932,6 +978,7 @@ class UserContactOperations(object):
         url = self.create_single_value_extended_property.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -964,14 +1011,15 @@ class UserContactOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_single_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/singleValueExtendedProperties'}  # type: ignore
+    create_single_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/singleValueExtendedProperties'}  # type: ignore
 
     def get_single_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         single_value_legacy_extended_property_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum46"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum27"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -982,13 +1030,15 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param single_value_legacy_extended_property_id: key: singleValueLegacyExtendedProperty-id of
          singleValueLegacyExtendedProperty.
         :type single_value_legacy_extended_property_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum46]
+        :type select: list[str or ~Microsoft.Graph.PowerShell.models.Enum27]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1004,6 +1054,7 @@ class UserContactOperations(object):
         url = self.get_single_value_extended_property.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
             'singleValueLegacyExtendedProperty-id': self._serialize.url("single_value_legacy_extended_property_id", single_value_legacy_extended_property_id, 'str'),
         }
@@ -1036,11 +1087,12 @@ class UserContactOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_single_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/singleValueExtendedProperties/{singleValueLegacyExtendedProperty-id}'}  # type: ignore
+    get_single_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/singleValueExtendedProperties/{singleValueLegacyExtendedProperty-id}'}  # type: ignore
 
     def update_single_value_extended_property(
         self,
         user_id,  # type: str
+        contact_folder_id,  # type: str
         contact_id,  # type: str
         single_value_legacy_extended_property_id,  # type: str
         id=None,  # type: Optional[str]
@@ -1054,6 +1106,8 @@ class UserContactOperations(object):
 
         :param user_id: key: user-id of user.
         :type user_id: str
+        :param contact_folder_id: key: contactFolder-id of contactFolder.
+        :type contact_folder_id: str
         :param contact_id: key: contact-id of contact.
         :type contact_id: str
         :param single_value_legacy_extended_property_id: key: singleValueLegacyExtendedProperty-id of
@@ -1079,6 +1133,7 @@ class UserContactOperations(object):
         url = self.update_single_value_extended_property.metadata['url']  # type: ignore
         path_format_arguments = {
             'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
             'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
             'singleValueLegacyExtendedProperty-id': self._serialize.url("single_value_legacy_extended_property_id", single_value_legacy_extended_property_id, 'str'),
         }
@@ -1108,4 +1163,4 @@ class UserContactOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_single_value_extended_property.metadata = {'url': '/users/{user-id}/contacts/{contact-id}/singleValueExtendedProperties/{singleValueLegacyExtendedProperty-id}'}  # type: ignore
+    update_single_value_extended_property.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/singleValueExtendedProperties/{singleValueLegacyExtendedProperty-id}'}  # type: ignore
