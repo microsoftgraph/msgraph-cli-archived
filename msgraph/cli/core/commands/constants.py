@@ -7,3 +7,6 @@ CLI_COMMAND_KWARGS = ['transform', 'table_transformer', 'confirmation', 'excepti
                       'client_factory', 'operations_tmpl', 'no_wait_param', 'supports_no_wait', 'validator',
                       'client_arg_name', 'doc_string_source', 'deprecate_info',
                       'supports_local_cache', 'model_path'] + CLI_COMMON_KWARGS
+
+EXCLUDED_PARAMS = ['self', 'raw', 'polling', 'custom_headers', 'operation_config',
+                   'content_version', 'kwargs', 'client', 'no_wait']

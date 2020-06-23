@@ -11,9 +11,7 @@ from msgraph.cli.core.commands import GraphCommandGroup, GraphCliCommand
 from msgraph.cli.core.commands._util import get_arg_list
 from msgraph.cli.core.commands.client_factory import resolve_client_arg_name
 from msgraph.cli.core.commands.parameters import GraphArgumentContext
-
-EXCLUDED_PARAMS = ['self', 'raw', 'polling', 'custom_headers', 'operation_config',
-                   'content_version', 'kwargs', 'client', 'no_wait']
+from .commands.constants import EXCLUDED_PARAMS
 
 
 class GraphCommandsLoader(CLICommandsLoader):
