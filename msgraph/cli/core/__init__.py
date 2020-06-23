@@ -30,24 +30,31 @@ class GraphCommandsLoader(CLICommandsLoader):
         return self._command_group_cls(self, group_name, **kwargs)
 
     def _cli_command(self, name, operation=None, handler=None, argument_loader=None, description_loader=None, **kwargs):
-        kwargs['deprecate_info'] = Deprecated.ensure_new_style_deprecation(self.cli_ctx, kwargs, 'command')
+        kwargs['deprecate_info'] = Deprecated.ensure_new_style_deprecation(
+            self.cli_ctx, kwargs, 'command')
 
         if operation and not isinstance(operation, six.string_types):
-            raise TypeError("Operation must be a string. Got '{}'".format(operation))
+            raise TypeError(
+                "Operation must be a string. Got '{}'".format(operation))
         if handler and not callable(handler):
-            raise TypeError("Handler must be a callable. Got '{}'".format(operation))
+            raise TypeError(
+                "Handler must be a callable. Got '{}'".format(operation))
         if bool(operation) == bool(handler):
-            raise TypeError("Must specify exactly one of either 'operation' or 'handler'")
+            raise TypeError(
+                "Must specify exactly one of either 'operation' or 'handler'")
 
         name = ' '.join(name.split())
 
         client_factory = kwargs.get('client_factory', None)
 
         def default_command_handler(command_args):
-            op = handler or self.get_op_handler(operation, operation_group=kwargs.get('operation_group'))
+            op = handler or self.get_op_handler(
+                operation, operation_group=kwargs.get('operation_group'))
             op_args = get_arg_list(op)
-            cmd = command_args.get('cmd') if 'cmd' in op_args else command_args.pop('cmd')
-            client = client_factory(cmd.cli_ctx, command_args) if client_factory else None
+            cmd = command_args.get(
+                'cmd') if 'cmd' in op_args else command_args.pop('cmd')
+            client = client_factory(
+                cmd.cli_ctx, command_args) if client_factory else None
 
             if client:
                 client_arg_name = resolve_client_arg_name(operation, kwargs)
@@ -56,18 +63,22 @@ class GraphCommandsLoader(CLICommandsLoader):
             return op(**command_args)
 
         def default_arguments_loader():
-            op = handler or self.get_op_handler(operation, operation_group=kwargs.get('operation_group'))
-            cmd_args = list(extract_args_from_signature(op, excluded_params=self.excluded_command_handler_args))
+            op = handler or self.get_op_handler(
+                operation, operation_group=kwargs.get('operation_group'))
+            cmd_args = list(extract_args_from_signature(
+                op, excluded_params=self.excluded_command_handler_args))
             return cmd_args
 
         def default_description_loader():
-            op = handler or self.get_op_handler(operation, operation_group=kwargs.get('operation_group'))
+            op = handler or self.get_op_handler(
+                operation, operation_group=kwargs.get('operation_group'))
             return extract_full_summary_from_signature(op)
 
         kwargs['arguments_loader'] = argument_loader or default_arguments_loader
         kwargs['description_loader'] = description_loader or default_description_loader
 
-        self.command_table[name] = self.command_cls(self, name, handler or default_command_handler, **kwargs)
+        self.command_table[name] = self.command_cls(
+            self, name, handler or default_command_handler, **kwargs)
 
     def argument_context(self, scope, **kwargs):
         return self._argument_context_cls(self, scope, **kwargs)
@@ -82,7 +93,8 @@ class GraphCommandsLoader(CLICommandsLoader):
                 command.arguments[argument_name] = argument_definition
 
             for argument_name in command.arguments:
-                overrides = master_arg_registry.get_cli_argument(command_name, argument_name)
+                overrides = master_arg_registry.get_cli_argument(
+                    command_name, argument_name)
                 command.update_argument(argument_name, overrides)
 
     def get_op_handler(self, operation, operation_group=None):
