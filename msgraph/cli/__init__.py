@@ -16,7 +16,7 @@ class MainCommandsLoader(CLICommandsLoader):
         super(MainCommandsLoader, self).__init__(cli_ctx)
         self.cmd_to_loader_map = {}
         self.loaders = []
-        self.command_table=dict()
+        self.command_table = dict()
 
     # pylint: disable=too-many-statements
     def load_command_table(self, args):
@@ -56,13 +56,18 @@ class MainCommandsLoader(CLICommandsLoader):
                     for cmd in loader.command_table.values():
                         cmd.load_arguments()  # this loads the arguments via reflection
                     loader.skip_applicability = True
-                    loader.load_arguments('')  # this adds entries to the argument registries
+                    # this adds entries to the argument registries
+                    loader.load_arguments('')
                 else:
                     loader.command_name = command
-                    self.command_table[command].load_arguments()  # this loads the arguments via reflection
-                    loader.load_arguments(command)  # this adds entries to the argument registries
-                self.argument_registry.arguments.update(loader.argument_registry.arguments)
-                self.extra_argument_registry.update(loader.extra_argument_registry)
+                    # this loads the arguments via reflection
+                    self.command_table[command].load_arguments()
+                    # this adds entries to the argument registries
+                    loader.load_arguments(command)
+                self.argument_registry.arguments.update(
+                    loader.argument_registry.arguments)
+                self.extra_argument_registry.update(
+                    loader.extra_argument_registry)
                 loader._update_command_definitions()  # pylint: disable=protected-access
 
     def _update_command_table_from_modules(self, args):
@@ -72,10 +77,11 @@ class MainCommandsLoader(CLICommandsLoader):
         try:
             modules = import_module('command_modules')
             installed_command_modules = [modname for _, modname, _ in
-                                             pkgutil.iter_modules(modules.__path__)
-                                             if modname not in BLACKLISTED_MODS]
+                                         pkgutil.iter_modules(modules.__path__)
+                                         if modname not in BLACKLISTED_MODS]
             for module in installed_command_modules:
-                command_table, group_table = _load_module_command_loader(self, args, module)
+                command_table, group_table = _load_module_command_loader(
+                    self, args, module)
                 self.command_table.update(command_table)
                 self.command_group_table.update(group_table)
         except ImportError as e:
