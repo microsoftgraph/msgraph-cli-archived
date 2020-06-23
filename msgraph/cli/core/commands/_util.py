@@ -2,11 +2,10 @@ import argparse
 import base64
 import inspect
 from importlib import import_module
-
 from knack.cli import logger
 from knack.util import CLIError
-
 from msgraph.cli.core.commands.validators import IterateValue
+from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS
 
 
 def _load_command_loader(loader, args, name, prefix):
@@ -16,7 +15,8 @@ def _load_command_loader(loader, args, name, prefix):
 
     if loader_cls:
         command_loader = loader_cls(cli_ctx=loader.cli_ctx)
-        loader.loaders.append(command_loader)  # This will be used by interactive
+        # This will be used by interactive
+        loader.loaders.append(command_loader)
         command_table = command_loader.load_command_table(args)
         if command_table:
             for cmd in list(command_table.keys()):
@@ -26,7 +26,8 @@ def _load_command_loader(loader, args, name, prefix):
                 # else:
                 loader.cmd_to_loader_map[cmd] = [command_loader]
     else:
-        logger.debug("Module '%s' is missing `COMMAND_LOADER_CLS` entry.", name)
+        logger.debug(
+            "Module '%s' is missing `COMMAND_LOADER_CLS` entry.", name)
     return command_table, command_loader.command_group_table
 
 
@@ -47,6 +48,7 @@ def get_arg_list(op):
         sig = inspect.getargspec(op)  # pylint: disable=deprecated-method
         return sig.args
 
+
 def augment_no_wait_handler_args(no_wait_enabled, handler, handler_args):
     """ Populates handler_args with the appropriate args for no wait """
     h_args = get_arg_list(handler)
@@ -66,7 +68,8 @@ def read_file_content(file_path, allow_binary=False):
     for encoding in ['utf-8-sig', 'utf-8', 'utf-16', 'utf-16le', 'utf-16be']:
         try:
             with codecs_open(file_path, encoding=encoding) as f:
-                logger.debug("attempting to read file %s as %s", file_path, encoding)
+                logger.debug("attempting to read file %s as %s",
+                             file_path, encoding)
                 return f.read()
         except (UnicodeError, UnicodeDecodeError):
             pass
@@ -78,7 +81,8 @@ def read_file_content(file_path, allow_binary=False):
                 return base64.b64encode(input_file.read()).decode("utf-8")
         except Exception:  # pylint: disable=broad-except
             pass
-    raise CLIError('Failed to decode file {} - unknown decoding'.format(file_path))
+    raise CLIError(
+        'Failed to decode file {} - unknown decoding'.format(file_path))
 
 
 def _explode_list_args(args):
@@ -102,3 +106,13 @@ def _explode_list_args(args):
             for key_index, key in enumerate(list_args.keys()):
                 setattr(new_ns, key, value[key_index])
             yield new_ns
+
+
+def _merge_kwargs(patch_kwargs, base_kwargs, supported_kwargs=None):
+    merged_kwargs = base_kwargs.copy()
+    merged_kwargs.update(patch_kwargs)
+    unrecognized_kwargs = [x for x in merged_kwargs if x not in (
+        supported_kwargs or CLI_COMMON_KWARGS)]
+    if unrecognized_kwargs:
+        raise TypeError('unrecognized kwargs: {}'.format(unrecognized_kwargs))
+    return merged_kwargs
