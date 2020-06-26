@@ -2,7 +2,6 @@ import sys
 
 from msgraph.cli.core import get_default_cli
 
-
 mg_cli = get_default_cli()
 
 
