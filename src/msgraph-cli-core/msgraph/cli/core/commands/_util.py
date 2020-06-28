@@ -32,7 +32,7 @@ def _load_command_loader(loader, args, name, prefix):
 
 
 def _load_module_command_loader(loader, args, mod):
-    return _load_command_loader(loader, args, mod, 'command_modules.')
+    return _load_command_loader(loader, args, mod, 'msgraph.cli.command_modules.')
 
 
 def get_command_type_kwarg(custom_command=False):

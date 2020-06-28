@@ -28,6 +28,9 @@ from msgraph.cli.core.commands._util import _load_module_command_loader
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
 
 
+__version__ = '1.0.0'
+
+
 class MainCommandsLoader(CLICommandsLoader):
     def __init__(self, cli_ctx=None):
         super(MainCommandsLoader, self).__init__(cli_ctx)
@@ -92,7 +95,7 @@ class MainCommandsLoader(CLICommandsLoader):
         BLACKLISTED_MODS = ['context', 'shell', 'documentdb', 'component']
 
         try:
-            modules = import_module('command_modules')
+            modules = import_module('msgraph.cli.command_modules')
             installed_command_modules = [modname for _, modname, _ in
                                          pkgutil.iter_modules(modules.__path__)
                                          if modname not in BLACKLISTED_MODS]
