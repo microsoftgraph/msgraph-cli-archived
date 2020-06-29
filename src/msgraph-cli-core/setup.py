@@ -47,6 +47,7 @@ DEPENDENCIES = [
     'adal~=1.2',
     'argcomplete~=1.8',
     'azure-cli-telemetry',
+    'azure-identity',
     'colorama>=0.3.9',
     'humanfriendly>=4.7,<9.0',
     'jmespath',

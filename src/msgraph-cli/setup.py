@@ -2,6 +2,7 @@ from __future__ import print_function
 from codecs import open
 from setuptools import setup, find_packages
 import sys
+import os
 
 
 VERSION = "1.0.0"
@@ -78,6 +79,10 @@ setup(
     classifiers=CLASSIFIERS,
     scripts=[
         'mg.bat',
+    ],
+    dependency_links=[
+        os.path.join(os.getcwd(), 'msgraph-cli-extensions/src/msgraphusercontacts/dist',
+                     'msgraphuserscontacts-0.1.0-py3-none-any.whl')
     ],
     packages=find_packages(
         exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),

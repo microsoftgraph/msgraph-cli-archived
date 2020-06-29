@@ -10,10 +10,10 @@ if "%CLI_VERSION%"=="" (
   goto ERROR
 )
 
-set PYTHON_VERSION=3.6.6
+set PYTHON_VERSION=3.8.3
 
 set WIX_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/msi/wix310-binaries-mirror.zip"
-set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python366-32.zip"
+set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python383-32.zip"
 set PROPAGATE_ENV_CHANGE_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/propagate_env_change.zip"
 
 :: Set up the output directory and temp. directories
@@ -115,8 +115,8 @@ popd
 
 echo Creating the wbin (Windows binaries) folder that will be added to the path...
 mkdir %BUILDING_DIR%\wbin
-copy %REPO_ROOT%\build_scripts\windows\scripts\az.cmd %BUILDING_DIR%\wbin\
-copy %REPO_ROOT%\build_scripts\windows\scripts\az %BUILDING_DIR%\wbin\
+copy %REPO_ROOT%\build_scripts\windows\scripts\mg.cmd %BUILDING_DIR%\wbin\
+copy %REPO_ROOT%\build_scripts\windows\scripts\mg %BUILDING_DIR%\wbin\
 if %errorlevel% neq 0 goto ERROR
 copy %REPO_ROOT%\build_scripts\windows\resources\CLI_LICENSE.rtf %BUILDING_DIR%
 copy %REPO_ROOT%\build_scripts\windows\resources\ThirdPartyNotices.txt %BUILDING_DIR%
