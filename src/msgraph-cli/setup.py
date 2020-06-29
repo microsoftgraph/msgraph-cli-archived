@@ -42,6 +42,7 @@ DEPENDENCIES = [
     'antlr4-python3-runtime~=4.7.2',
     'colorama~=0.4.1',
     'cryptography>=2.3.1,<3.0.0',
+    'msgraphusersuser',
     'fabric~=2.4',
     'jsmin~=2.2.2',
     'knack==0.7.1',
@@ -79,10 +80,6 @@ setup(
     classifiers=CLASSIFIERS,
     scripts=[
         'mg.bat',
-    ],
-    dependency_links=[
-        os.path.join(os.getcwd(), 'msgraph-cli-extensions/src/msgraphusercontacts/dist',
-                     'msgraphuserscontacts-0.1.0-py3-none-any.whl')
     ],
     packages=find_packages(
         exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),

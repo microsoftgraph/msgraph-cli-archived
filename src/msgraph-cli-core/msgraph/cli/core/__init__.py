@@ -99,6 +99,7 @@ class MainCommandsLoader(CLICommandsLoader):
             installed_command_modules = [modname for _, modname, _ in
                                          pkgutil.iter_modules(modules.__path__)
                                          if modname not in BLACKLISTED_MODS]
+            print(installed_command_modules)
             for module in installed_command_modules:
                 command_table, group_table = _load_module_command_loader(
                     self, args, module)
