@@ -1,7 +1,7 @@
 from azure.identity import InteractiveBrowserCredential
 from knack.cli import logger
 from knack.util import CLIError
-# from msgraphcore import GraphSession
+from msgraph.core import GraphSession
 
 
 def resolve_client_arg_name(operation, kwargs):
@@ -41,8 +41,8 @@ def get_mgmt_service_client(cli_ctx,
                             aux_subscriptions=None,
                             aux_tenants=None,
                             **kwargs):
-    # browser_credential = InteractiveBrowserCredential(
-    #     client_id='f7218512-c727-4138-9fb9-a0fe2500650c')
-    # graph_session = GraphSession(browser_credential)
-    client = client_type({})
+    browser_credential = InteractiveBrowserCredential(
+        client_id='f7218512-c727-4138-9fb9-a0fe2500650c')
+    graph_session = GraphSession(browser_credential)
+    client = client_type({}, browser_credential)
     return client
