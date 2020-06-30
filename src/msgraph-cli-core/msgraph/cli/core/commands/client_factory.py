@@ -44,5 +44,5 @@ def get_mgmt_service_client(cli_ctx,
     browser_credential = InteractiveBrowserCredential(
         client_id='f7218512-c727-4138-9fb9-a0fe2500650c')
     graph_session = GraphSession(browser_credential)
-    client = client_type({}, browser_credential)
+    client = client_type({}, session=graph_session)
     return client

@@ -91,7 +91,7 @@ robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 %BUILDING_DIR%\python.exe -m pip install wheel
 echo Building CLI packages...
 set CLI_SRC=%REPO_ROOT%\src
-for %%a in (%CLI_SRC%\msgraph-cli %CLI_SRC%\msgraph-cli-core) do (
+for %%a in (%CLI_SRC%\msgraph-cli %CLI_SRC%\msgraph-cli-core %CLI_SRC%\msgraph-core) do (
    pushd %%a
    %BUILDING_DIR%\python.exe setup.py bdist_wheel -d %TEMP_SCRATCH_FOLDER%
    popd

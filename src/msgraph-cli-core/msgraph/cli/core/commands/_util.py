@@ -9,9 +9,7 @@ from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS
 
 
 def _load_command_loader(loader, args, name, prefix):
-    print(prefix+name)
     module = import_module(prefix + name)
-    print(module)
     loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
     command_table = {}
 
@@ -34,7 +32,6 @@ def _load_command_loader(loader, args, name, prefix):
 
 
 def _load_module_command_loader(loader, args, mod):
-    print(mod)
     return _load_command_loader(loader, args, mod, 'msgraph.cli.command_modules.')
 
 
