@@ -78,7 +78,7 @@ with open('HISTORY.md', 'r', encoding='utf-8') as f:
 setup(
     name='msgraph-cli-core',
     version=VERSION,
-    description='Microsoft Azure Command-Line Tools Core Module',
+    description='Microsoft Graph Command-Line Tools Core Module',
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     author='Microsoft Corporation',
