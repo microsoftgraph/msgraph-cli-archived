@@ -10,7 +10,7 @@ from setuptools import sandbox
 path_to_extensions = path.join(os.getcwd(), 'msgraph-cli-extensions', 'src')
 
 
-def install_extension(extensions_directory=sys.argv[1]):
+def install_extension(extensions_directory=path_to_extensions):
     extensions = os.listdir(extensions_directory)
     for extension in extensions:
         sandbox.run_setup(path.join(path_to_extensions, extension,
@@ -23,4 +23,9 @@ def add_to_manifest():
     pass
 
 
-install_extension()
+args = sys.argv
+
+if len(args) > 1:
+    install_extension(extensions_directory=sys.argv[1])
+else:
+    install_extension()

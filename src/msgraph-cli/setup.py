@@ -42,7 +42,6 @@ DEPENDENCIES = [
     'antlr4-python3-runtime~=4.7.2',
     'colorama~=0.4.1',
     'cryptography>=2.3.1,<3.0.0',
-    'msgraphusersuser',
     'fabric~=2.4',
     'jsmin~=2.2.2',
     'knack==0.7.1',

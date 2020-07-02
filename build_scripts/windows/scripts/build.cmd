@@ -91,6 +91,7 @@ robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 %BUILDING_DIR%\python.exe -m pip install wheel
 echo Building CLI packages...
 set CLI_SRC=%REPO_ROOT%\src
+set EXTENSIONS_SRC=%REPO_ROOT%\msgraph-cli-extensions
 for %%a in (%CLI_SRC%\msgraph-cli %CLI_SRC%\msgraph-cli-core %CLI_SRC%\msgraph-core) do (
    pushd %%a
    %BUILDING_DIR%\python.exe setup.py bdist_wheel -d %TEMP_SCRATCH_FOLDER%
@@ -108,6 +109,11 @@ echo All modules: %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall pycparser==2.18
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --no-cache-dir %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall urllib3==1.24.2
+
+echo Installing generated extensions
+pushd %REPO_ROOT%
+%BUILDING_DIR%\python.exe %REPO_ROOT%\install_extensions.py 
+popd
 
 pushd %BUILDING_DIR%
 %BUILDING_DIR%\python.exe %~dp0\patch_models_v2.py
