@@ -95,10 +95,11 @@ class MainCommandsLoader(CLICommandsLoader):
         BLACKLISTED_MODS = ['context', 'shell', 'documentdb', 'component']
 
         try:
-            modules = import_module('msgraph.cli.command_modules')
-            installed_command_modules = [modname for _, modname, _ in
-                                         pkgutil.iter_modules(modules.__path__)
-                                         if modname not in BLACKLISTED_MODS]
+            # modules = import_module('msgraph.cli.command_modules')
+            # installed_command_modules = ['modname for _, modname, _ in
+            #                              pkgutil.iter_modules(modules.__path__)
+            #                              if modname not in BLACKLISTED_MODS']
+            installed_command_modules = ['azext_msgraphusersuser']
             for module in installed_command_modules:
                 command_table, group_table = _load_module_command_loader(
                     self, args, module)
