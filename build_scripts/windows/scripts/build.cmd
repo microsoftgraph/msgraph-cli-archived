@@ -10,10 +10,10 @@ if "%CLI_VERSION%"=="" (
   goto ERROR
 )
 
-set PYTHON_VERSION=3.8.3
+set PYTHON_VERSION=3.6.6
 
 set WIX_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/msi/wix310-binaries-mirror.zip"
-set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python383-32.zip"
+set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python366-32.zip"
 set PROPAGATE_ENV_CHANGE_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/propagate_env_change.zip"
 
 :: Set up the output directory and temp. directories
