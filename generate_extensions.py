@@ -62,6 +62,7 @@ az:
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
   client-base-url-bound: false
+  cli-core-lib: msgraph.cli.core
 az-output-folder: $(azure-cli-extension-folder)/src/{file_name}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}/vendored_sdks/{file_name}"
 ```
