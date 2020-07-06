@@ -133,3 +133,6 @@ dmypy.json
 out/
 artifacts/
 app.py
+
+# Generated extensions
+msgraph-cli-extensions/
