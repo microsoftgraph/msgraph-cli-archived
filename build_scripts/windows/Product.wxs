@@ -67,7 +67,7 @@
       <Directory Id="ProgramFilesFolder">
         <Directory Id="SDKFOLDER" Name="Microsoft SDKs">
           <Directory Id="MSGRAPHFOLDER" Name="Msgraph">
-            <Directory Id="MSGRAPHCLIFOLDER" Name="CLI2">
+            <Directory Id="MSGRAPHCLIFOLDER" Name="CLI">
               <Directory Id="DynamicCliDir"/>
               <Directory Id="BIN" Name="Bin" />
             </Directory>
