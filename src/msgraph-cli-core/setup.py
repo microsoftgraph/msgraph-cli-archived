@@ -45,6 +45,7 @@ CLASSIFIERS = [
 
 DEPENDENCIES = [
     'adal~=1.2',
+    'identitycertificatebasedauthconfiguration',
     'argcomplete~=1.8',
     'azure-cli-telemetry',
     'azure-identity',

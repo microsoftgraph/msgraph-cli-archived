@@ -110,7 +110,7 @@ class MainCommandsLoader(CLICommandsLoader):
 
     def _update_command_table_from_extensions(self, args):
         installed_extensions = [
-            'azext_usersuser', 'azext_bookings', 'azext_places', 'azext_reports', 'azext_usersmail']
+            'azext_identitycertificatebasedauthconfiguration']
 
         try:
             for extension in installed_extensions:

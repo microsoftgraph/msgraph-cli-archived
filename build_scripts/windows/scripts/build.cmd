@@ -110,10 +110,10 @@ echo All modules: %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --no-cache-dir %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall urllib3==1.24.2
 
-echo Installing generated extensions
-pushd %REPO_ROOT%
-%BUILDING_DIR%\python.exe %REPO_ROOT%\install_extensions.py 
-popd
+REM echo Installing generated extensions
+REM pushd %REPO_ROOT%
+REM %BUILDING_DIR%\python.exe %REPO_ROOT%\install_extensions.py 
+REM popd
 
 pushd %BUILDING_DIR%
 %BUILDING_DIR%\python.exe %~dp0\patch_models_v2.py
