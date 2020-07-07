@@ -24,7 +24,7 @@ import sys
 from collections import OrderedDict
 
 
-from msgraph.cli.core.commands._util import _load_module_command_loader
+from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
 
 
@@ -48,6 +48,7 @@ class MainCommandsLoader(CLICommandsLoader):
         :rtype: collections.dict
         """
         self._update_command_table_from_modules(args)
+        self._update_command_table_from_extensions(args)
         return OrderedDict(self.command_table)
 
     def load_arguments(self, command=None):
@@ -95,14 +96,26 @@ class MainCommandsLoader(CLICommandsLoader):
         BLACKLISTED_MODS = ['context', 'shell', 'documentdb', 'component']
 
         try:
-            # modules = import_module('msgraph.cli.command_modules')
-            # installed_command_modules = ['modname for _, modname, _ in
-            #                              pkgutil.iter_modules(modules.__path__)
-            #                              if modname not in BLACKLISTED_MODS']
-            installed_command_modules = ['azext_msgraphusersuser']
+            modules = import_module('msgraph.cli.command_modules')
+            installed_command_modules = [modname for _, modname, _ in
+                                         pkgutil.iter_modules(modules.__path__)
+                                         if modname not in BLACKLISTED_MODS]
             for module in installed_command_modules:
                 command_table, group_table = _load_module_command_loader(
                     self, args, module)
+                self.command_table.update(command_table)
+                self.command_group_table.update(group_table)
+        except ImportError as e:
+            logger.warning(e)
+
+    def _update_command_table_from_extensions(self, args):
+        installed_extensions = [
+            'azext_msgraphusersuser', 'azext_bookings', 'azext_places', 'azext_reports', 'azext_usersmail']
+
+        try:
+            for extension in installed_extensions:
+                command_table, group_table = _load_extension_command_loader(
+                    self, args, extension)
                 self.command_table.update(command_table)
                 self.command_group_table.update(group_table)
         except ImportError as e:
@@ -211,3 +224,7 @@ class GraphCommandsLoader(CLICommandsLoader):
             return six.get_method_function(op)
         except (ValueError, AttributeError):
             raise ValueError("The operation '{}' is invalid".format(operation))
+
+
+# Generated extensions expect the CommandLoader class to have the name AzCommandLoader
+AzCommandsLoader = GraphCommandsLoader

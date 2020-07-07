@@ -8,9 +8,17 @@ from msgraph.cli.core.commands.validators import IterateValue
 from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS
 
 
-def _load_command_loader(loader, args, name):
-    module = import_module(name)
-    loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
+def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
+    module = None
+    loader_cls = None
+
+    if (extension):
+        module = import_module(extension)
+        loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
+    if (name is not None):
+        module = import_module(prefix+name)
+        loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
+
     command_table = {}
 
     if loader_cls:
@@ -32,8 +40,11 @@ def _load_command_loader(loader, args, name):
 
 
 def _load_module_command_loader(loader, args, mod):
-    # return _load_command_loader(loader, args, mod, 'msgraph.cli.command_modules.')
-    return _load_command_loader(loader, args, mod)
+    return _load_command_loader(loader, args, name=mod, prefix='msgraph.cli.command_modules.')
+
+
+def _load_extension_command_loader(loader, args, extension):
+    return _load_command_loader(loader, args, extension=extension)
 
 
 def get_command_type_kwarg(custom_command=False):
