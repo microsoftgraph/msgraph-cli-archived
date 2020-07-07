@@ -172,7 +172,7 @@ if exist "%PROPAGATE_ENV_CHANGE_DIR%\propagate_env_change.exe" (
 )
 
 echo Building MSI...
-msbuild /t:rebuild /p:Configuration=Release %REPO_ROOT%\build_scripts\windows\azure-cli.wixproj
+msbuild /t:rebuild /p:Configuration=Release %REPO_ROOT%\build_scripts\windows\msgraph-cli.wixproj
 
 start %OUTPUT_DIR%
 
