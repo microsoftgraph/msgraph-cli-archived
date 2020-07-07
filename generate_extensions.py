@@ -10,13 +10,14 @@ def generate_extension_from_open_api_description():
         file_name, file_path = item
         file_name = remove_file_extension(file_name)
 
-        # Config files are used to modify generated extensions
-        generate_az_config_for(file_name)
-        generate_cli_config_for(file_name)
-        generate_python_config_for(file_name)
+        if len(file_name) < 15:
+            # Config files are used to modify generated extensions
+            generate_az_config_for(file_name)
+            generate_cli_config_for(file_name)
+            generate_python_config_for(file_name)
 
-        subprocess.run(
-            ['autorest-beta', '--az', '--v3', f'''--input-file:{file_path}''', r'''--azure-cli-extension-folder=msgraph-cli-extensions''', r'''--use=@autorest/python@5.1.0-preview.2''', r'''--use=@autorest/modelerfour@4.14.366''', r'''--use=https://github.com/Azure/autorest.az/releases/download/1.4.1-b.20200623.1/autorest-az-1.4.1.tgz'''], shell=True)
+            subprocess.run(
+                ['autorest-beta', '--az', '--v3', f'''--input-file:{file_path}''', r'''--azure-cli-extension-folder=msgraph-cli-extensions''', r'''--use=@autorest/python@5.1.0-preview.2''', r'''--use=@autorest/modelerfour@4.14.366''', r'''--use=https://github.com/Azure/autorest.az/releases/download/1.4.1-b.20200623.1/autorest-az-1.4.1.tgz'''], shell=True)
 
 
 def get_open_api_descriptions():
@@ -32,7 +33,12 @@ def get_open_api_descriptions():
 
 
 def remove_file_extension(file_name):
-    return file_name.replace('.', '')[:-3].lower()
+    result = file_name.split('.')
+
+    if len(result) <= 2:
+        return result[0].lower()
+    elif len(result) >= 3:
+        return result[1].lower()
 
 
 def generate_cli_config_for(file_name):
