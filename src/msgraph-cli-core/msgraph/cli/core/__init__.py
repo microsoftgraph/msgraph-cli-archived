@@ -1,6 +1,5 @@
 import types
 from importlib import import_module
-
 import six
 from knack import CLICommandsLoader, CLICommand, ArgumentsContext
 from knack.deprecation import Deprecated
@@ -26,6 +25,7 @@ from collections import OrderedDict
 
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
+from msgraph.cli.core.installed_extensions import installed_extensions
 
 
 __version__ = '1.0.0'
@@ -109,9 +109,6 @@ class MainCommandsLoader(CLICommandsLoader):
             logger.warning(e)
 
     def _update_command_table_from_extensions(self, args):
-        installed_extensions = [
-            'azext_analytics', 'azext_bookings', 'azext_education', 'azext_permissions', 'azext_shares']
-
         try:
             for extension in installed_extensions:
                 command_table, group_table = _load_extension_command_loader(
