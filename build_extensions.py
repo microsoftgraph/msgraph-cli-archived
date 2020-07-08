@@ -1,6 +1,8 @@
 """
-This script builds generated extensions.
+This script builds generated extensions ands adds built extensions to a manifest file.
+We use the manifest file to tell MainCommandsLoader what extensions to load.
 """
+
 import os
 import subprocess
 import sys
@@ -8,32 +10,32 @@ from os import path
 from setuptools import sandbox
 
 path_to_extensions = path.join(os.getcwd(), 'msgraph-cli-extensions', 'src')
+path_to_manifest = path.join(os.getcwd(), 'src',
+                             'msgraph-cli-core', 'msgraph', 'cli', 'core', 'installed_extensions.py')
 
 
-def build_extension(extensions_directory=path_to_extensions):
+def build_extensions(extensions_directory=path_to_extensions):
     extensions = os.listdir(extensions_directory)
 
-    file_to_write = open(path.join(os.getcwd(), 'src',
-                                   'msgraph-cli-core', 'msgraph', 'cli', 'core', 'installed_extensions.py'), 'w+')
-    file_to_write.truncate()
+    manifest = open(path_to_manifest, 'w+')
+    # Clear manifest's content
+    manifest.truncate()
+    # Change mode to append so that adding an extension's name does not overwrite other content.
+    manifest.mode = 'a+'
 
-    file_to_write.write('installed_extensions = [')
-    file_to_write.close()
+    manifest.write('installed_extensions = [')
 
     for extension in extensions:
-        create_extensions_manifest(extension)
+        add_extension_to_manifest(manifest, extension)
         sandbox.run_setup(path.join(path_to_extensions, extension,
                                     'setup.py'), ['clean', 'bdist_wheel'])
 
-    file_to_write = open(path.join(os.getcwd(), 'src',
-                                   'msgraph-cli-core', 'msgraph', 'cli', 'core', 'installed_extensions.py'), 'a+')
-    file_to_write.write(']')
-    file_to_write.close()
+    manifest.write(']')
+    manifest.close()
 
 
-def create_extensions_manifest(extension):
-    with open(path.join(os.getcwd(), 'src', 'msgraph-cli-core', 'msgraph', 'cli', 'core', 'installed_extensions.py'), 'a+') as file:
-        file.write(f''' 'azext_{extension}','''+'\n')
+def add_extension_to_manifest(manifest, extension):
+    manifest.write(f''' 'azext_{extension}','''+'\n')
 
 
-build_extension()
+build_extensions()
