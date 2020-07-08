@@ -74,7 +74,6 @@ setup(
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     author='Microsoft Corporation',
-    author_email='graphtooling@microsoft.com',
     url='https://github.com/microsoftgraph/msgraph-cli',
     zip_safe=False,
     classifiers=CLASSIFIERS,
