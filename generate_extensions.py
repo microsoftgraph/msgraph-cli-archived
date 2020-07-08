@@ -2,6 +2,8 @@ import os
 from os import path
 import subprocess
 
+from build_extensions import build_extensions
+
 
 def generate_extension_from_open_api_description():
     open_api_descriptions = get_open_api_descriptions()
@@ -19,6 +21,8 @@ def generate_extension_from_open_api_description():
             subprocess.run(
                 ['autorest-beta', '--az', '--v3', f'''--input-file:{file_path}''', r'''--azure-cli-extension-folder=msgraph-cli-extensions''', r'''--use=@autorest/python@5.1.0-preview.2''', r'''--use=@autorest/modelerfour@4.14.366''', r'''--use=https://github.com/Azure/autorest.az/releases/download/1.4.1-b.20200623.1/autorest-az-1.4.1.tgz'''], shell=True)
 
+    build_extensions()
+
 
 def get_open_api_descriptions():
     result = []
@@ -29,14 +33,17 @@ def get_open_api_descriptions():
     for file in open_api_files:
         file_and_path = (file, path.join(open_api_dir, file))
         result.append(file_and_path)
+
     return result
 
 
 def remove_file_extension(file_name):
     result = file_name.split('.')
 
+    # For open-api files with the format users.yml, the name will be at index 0.
     if len(result) <= 2:
         return result[0].lower()
+    # For open-api files with the format groups.directoryobject.yml, the name will be at index 1
     elif len(result) >= 3:
         return result[1].lower()
 
