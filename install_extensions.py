@@ -1,5 +1,5 @@
 """
-This script installs generated extensions and creates a manifest of installed extensions.
+This script installs generated extensions.
 """
 import os
 import subprocess
@@ -17,13 +17,4 @@ def install_extension(extensions_directory=path_to_extensions):
             [sys.executable, "-m", "pip", "install", path.join(path_to_extensions, extension, 'dist', '{}-0.1.0-py3-none-any.whl'.format(extension))])
 
 
-def add_to_manifest():
-    pass
-
-
-args = sys.argv
-
-if len(args) > 1:
-    install_extension(extensions_directory=sys.argv[1])
-else:
-    install_extension()
+install_extension()
