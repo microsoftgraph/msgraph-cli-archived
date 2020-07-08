@@ -9,13 +9,16 @@ from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS
 
 
 def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
+    '''Command modules and extensions have a COMMAND_LOADER_CLS. This method gets the command loader
+    and uses it to get the module's command table.
+    '''
     module = None
     loader_cls = None
 
     if (extension):
         module = import_module(extension)
         loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
-    if (name is not None):
+    elif (name):
         module = import_module(prefix+name)
         loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
 
