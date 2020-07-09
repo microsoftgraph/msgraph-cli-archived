@@ -2,8 +2,6 @@ import os
 from os import path
 import subprocess
 
-from build_extensions import build_extensions
-
 
 def generate_extension_from_open_api_description():
     open_api_descriptions = get_open_api_descriptions()
@@ -19,9 +17,12 @@ def generate_extension_from_open_api_description():
             generate_python_config_for(file_name)
 
             subprocess.run(
-                ['autorest-beta', '--az', '--v3', f'''--input-file:{file_path}''', r'''--azure-cli-extension-folder=msgraph-cli-extensions''', r'''--use=@autorest/python@5.1.0-preview.2''', r'''--use=@autorest/modelerfour@4.14.366''', r'''--use=https://github.com/Azure/autorest.az/releases/download/1.4.1-b.20200623.1/autorest-az-1.4.1.tgz'''], shell=True)
-
-    build_extensions()
+                ['autorest-beta', '--az', '--v3', f'''--input-file:{file_path}''',
+                 r'''--azure-cli-extension-folder=msgraph-cli-extensions''',
+                 r'''--use=@autorest/python@5.1.0-preview.2''',
+                 r'''--use=@autorest/modelerfour@4.14.366''',
+                 r'''--use=https://github.com/Azure/autorest.az/releases/download/1.4.1-b.20200623.1/autorest-az-1.4.1.tgz'''],
+                shell=True)
 
 
 def get_open_api_descriptions():
