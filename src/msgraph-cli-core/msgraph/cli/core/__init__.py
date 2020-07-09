@@ -159,6 +159,9 @@ class GraphCommandsLoader(CLICommandsLoader):
         return self._command_group_cls(self, group_name, **kwargs)
 
     def _cli_command(self, name, operation=None, handler=None, argument_loader=None, description_loader=None, **kwargs):
+        '''Adds a command to the command table
+        :param name: command name
+        '''
         kwargs['deprecate_info'] = Deprecated.ensure_new_style_deprecation(
             self.cli_ctx, kwargs, 'command')
 
@@ -177,14 +180,26 @@ class GraphCommandsLoader(CLICommandsLoader):
         client_factory = kwargs.get('client_factory', None)
 
         def default_command_handler(command_args):
+            ''' Handler function for user commands.
+
+            :param command_args: list of commandline arguments
+            '''
+
+            # Gets the handler function from  the specified operation template
             op = handler or self.get_op_handler(
                 operation, operation_group=kwargs.get('operation_group'))
             op_args = get_arg_list(op)
+
+            # Removes cmd from list of command_args. This is because the handler function
+            # doesn't expect cmd as an argument.
             cmd = command_args.get(
                 'cmd') if 'cmd' in op_args else command_args.pop('cmd')
+
+            # Gets the http client. In our case, the client is a GraphSession object.
             client = client_factory(
                 cmd.cli_ctx, command_args) if client_factory else None
 
+            # If a client exists, add it to the list of arguments passed to a handler function.
             if client:
                 client_arg_name = resolve_client_arg_name(operation, kwargs)
                 if client_arg_name in op_args:
@@ -192,13 +207,20 @@ class GraphCommandsLoader(CLICommandsLoader):
             return op(**command_args)
 
         def default_arguments_loader():
+            '''Loads handler function's arguments from operation_template
+            '''
+            # Get the handler function for the specified operation template
             op = handler or self.get_op_handler(
                 operation, operation_group=kwargs.get('operation_group'))
+
+            # Extract command args from the handler function signature
             cmd_args = list(extract_args_from_signature(
                 op, excluded_params=self.excluded_command_handler_args))
             return cmd_args
 
         def default_description_loader():
+            '''Loads handler function's description.
+            '''
             op = handler or self.get_op_handler(
                 operation, operation_group=kwargs.get('operation_group'))
             return extract_full_summary_from_signature(op)
@@ -206,6 +228,7 @@ class GraphCommandsLoader(CLICommandsLoader):
         kwargs['arguments_loader'] = argument_loader or default_arguments_loader
         kwargs['description_loader'] = description_loader or default_description_loader
 
+        # Adds command to command_table with it's associated command handler and loaders.
         self.command_table[name] = self.command_cls(
             self, name, handler or default_command_handler, **kwargs)
 
@@ -233,6 +256,8 @@ class GraphCommandsLoader(CLICommandsLoader):
     def get_op_handler(self, operation, operation_group=None):
         '''Import and load the operation handler
          An operation handle is the function called when a user runs a command.
+
+        :param operation: operation template
         '''
         try:
             mod_to_import, attr_path = operation.split('#')
