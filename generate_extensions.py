@@ -8,8 +8,10 @@ def generate_extension_from_open_api_description():
 
     for item in open_api_descriptions:
         file_name, file_path = item
-        file_name = remove_file_extension(file_name)
+        file_name = remove_file_extension_and_group(file_name)
 
+        # Don't generate extensions with long filenames.
+        # Extensions with long filenames prevent successful installation of the CLI.
         if len(file_name) < 15:
             # Config files are used to modify generated extensions
             generate_az_config_for(file_name)
@@ -38,7 +40,7 @@ def get_open_api_descriptions():
     return result
 
 
-def remove_file_extension(file_name):
+def remove_file_extension_and_group(file_name):
     result = file_name.split('.')
 
     # For open-api files with the format users.yml, the name will be at index 0.
