@@ -1,5 +1,5 @@
 """
-This script builds generated extensions ands adds built extensions to a manifest file.
+This script builds generated extensions and adds built extensions to a manifest file.
 We use the manifest file to tell MainCommandsLoader what extensions to load.
 """
 
