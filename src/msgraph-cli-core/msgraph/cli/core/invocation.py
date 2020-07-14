@@ -22,7 +22,8 @@ def _expand_file_prefixed_files(args):
         if path == '-':
             content = sys.stdin.read()
         else:
-            content = read_file_content(os.path.expanduser(path), allow_binary=True)
+            content = read_file_content(
+                os.path.expanduser(path), allow_binary=True)
 
         return content.rstrip(os.linesep)
 
@@ -79,7 +80,8 @@ class GraphCliCommandInvoker(CommandInvoker):
         command = self._rudimentary_get_command(args)
         self.cli_ctx.invocation.data['command_string'] = command
         try:
-            self.commands_loader.command_table = {command: self.commands_loader.command_table[command]}
+            self.commands_loader.command_table = {
+                command: self.commands_loader.command_table[command]}
         except KeyError:
             cmd_table = {}
             group_names = set()
@@ -93,12 +95,16 @@ class GraphCliCommandInvoker(CommandInvoker):
                     group_names.add(group_name)
                 self.commands_loader.command_table = cmd_table
 
-        self.commands_loader.command_table = self.commands_loader.command_table  # update with the truncated table
+        # update with the truncated table
+        self.commands_loader.command_table = self.commands_loader.command_table
         self.commands_loader.command_name = command
-        self.cli_ctx.raise_event(EVENT_INVOKER_PRE_LOAD_ARGUMENTS, commands_loader=self.commands_loader)
+        self.cli_ctx.raise_event(
+            EVENT_INVOKER_PRE_LOAD_ARGUMENTS, commands_loader=self.commands_loader)
         self.commands_loader.load_arguments(command)
-        self.cli_ctx.raise_event(EVENT_INVOKER_POST_LOAD_ARGUMENTS, commands_loader=self.commands_loader)
-        self.cli_ctx.raise_event(EVENT_INVOKER_POST_CMD_TBL_CREATE, commands_loader=self.commands_loader)
+        self.cli_ctx.raise_event(
+            EVENT_INVOKER_POST_LOAD_ARGUMENTS, commands_loader=self.commands_loader)
+        self.cli_ctx.raise_event(
+            EVENT_INVOKER_POST_CMD_TBL_CREATE, commands_loader=self.commands_loader)
         self.parser.cli_ctx = self.cli_ctx
         self.parser.load_command_table(self.commands_loader)
 
@@ -117,12 +123,14 @@ class GraphCliCommandInvoker(CommandInvoker):
 
         self.cli_ctx.raise_event(EVENT_INVOKER_PRE_PARSE_ARGS, args=args)
         parsed_args = self.parser.parse_args(args)
-        self.cli_ctx.raise_event(EVENT_INVOKER_POST_PARSE_ARGS, command=parsed_args.command, args=parsed_args)
+        self.cli_ctx.raise_event(
+            EVENT_INVOKER_POST_PARSE_ARGS, command=parsed_args.command, args=parsed_args)
 
         cmd = parsed_args.func
         self.cli_ctx.data['command'] = parsed_args.command
 
-        self.cli_ctx.data['safe_params'] = GraphCliCommandInvoker._extract_parameter_names(args)
+        self.cli_ctx.data['safe_params'] = GraphCliCommandInvoker._extract_parameter_names(
+            args)
 
         command_source = self.commands_loader.command_table[command].command_source
 
@@ -155,11 +163,13 @@ class GraphCliCommandInvoker(CommandInvoker):
             results = results[0]
 
         event_data = {'result': results}
-        self.cli_ctx.raise_event(EVENT_INVOKER_FILTER_RESULT, event_data=event_data)
+        self.cli_ctx.raise_event(
+            EVENT_INVOKER_FILTER_RESULT, event_data=event_data)
 
         return CommandResultItem(
             event_data['result'],
-            table_transformer=self.commands_loader.command_table[parsed_args.command].table_transformer,
+            table_transformer=self.commands_loader.command_table[
+                parsed_args.command].table_transformer,
             is_query_active=self.data['query_active'])
 
     def _run_jobs_serially(self, jobs, ids):
@@ -177,7 +187,8 @@ class GraphCliCommandInvoker(CommandInvoker):
         tasks, results, exceptions = [], [], []
         with ThreadPoolExecutor(max_workers=10) as executor:
             for expanded_arg, cmd_copy in jobs:
-                tasks.append(executor.submit(self._run_job, expanded_arg, cmd_copy))
+                tasks.append(executor.submit(
+                    self._run_job, expanded_arg, cmd_copy))
             for index, task in enumerate(as_completed(tasks)):
                 try:
                     results.append(task.result())
@@ -201,9 +212,11 @@ class GraphCliCommandInvoker(CommandInvoker):
             if _is_paged(result):
                 result = list(result)
 
-            result = todict(result, GraphCliCommandInvoker.remove_additional_prop_layer)
+            result = todict(
+                result, GraphCliCommandInvoker.remove_additional_prop_layer)
             event_data = {'result': result}
-            cmd_copy.cli_ctx.raise_event(EVENT_INVOKER_TRANSFORM_RESULT, event_data=event_data)
+            cmd_copy.cli_ctx.raise_event(
+                EVENT_INVOKER_TRANSFORM_RESULT, event_data=event_data)
             return event_data['result']
         except Exception as ex:  # pylint: disable=broad-except
             if cmd_copy.exception_handler:

@@ -1,37 +1,37 @@
-import types
-from importlib import import_module
-
 import six
-from knack import CLICommandsLoader, CLICommand, ArgumentsContext
-from knack.deprecation import Deprecated
-from knack.introspection import extract_args_from_signature, extract_full_summary_from_signature
-from knack.util import CLIError
+import sys
+import types
+import pkgutil
 from knack import CLI
-from knack import CLICommandsLoader
 from knack.cli import logger
+from knack.util import CLIError
+from knack import CLICommandsLoader
+from importlib import import_module
+from importlib import import_module
+from collections import OrderedDict
 from knack.arguments import ignore_type
+from knack.deprecation import Deprecated
+from knack import CLICommandsLoader, CLICommand, ArgumentsContext
+from knack.introspection import extract_args_from_signature, extract_full_summary_from_signature
 
+
+from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
+from msgraph.cli.core.invocation import GraphCliCommandInvoker
+from msgraph.cli.core.installed_extensions import installed_extensions
 from msgraph.cli.core.commands import GraphCommandGroup, GraphCliCommand
 from msgraph.cli.core.commands._util import get_arg_list
 from msgraph.cli.core.commands.client_factory import resolve_client_arg_name
 from msgraph.cli.core.commands.parameters import GraphArgumentContext
 from .commands.constants import EXCLUDED_PARAMS
 
-
-import pkgutil
-from importlib import import_module
-import sys
-from collections import OrderedDict
-
-
-from msgraph.cli.core.commands._util import _load_module_command_loader
-from msgraph.cli.core.invocation import GraphCliCommandInvoker
-
-
 __version__ = '1.0.0'
 
 
 class MainCommandsLoader(CLICommandsLoader):
+    """
+    Loads command_tables from msgraph.cli.command_modules and from installed extensions.
+    """
+
     def __init__(self, cli_ctx=None):
         super(MainCommandsLoader, self).__init__(cli_ctx)
         self.cmd_to_loader_map = {}
@@ -48,6 +48,7 @@ class MainCommandsLoader(CLICommandsLoader):
         :rtype: collections.dict
         """
         self._update_command_table_from_modules(args)
+        self._update_command_table_from_extensions(args)
         return OrderedDict(self.command_table)
 
     def load_arguments(self, command=None):
@@ -91,6 +92,10 @@ class MainCommandsLoader(CLICommandsLoader):
                 loader._update_command_definitions()  # pylint: disable=protected-access
 
     def _update_command_table_from_modules(self, args):
+        """Loads command_table from msgraph.cli.command_modules
+
+        :params args: List of the arguments from the commandline
+        """
         installed_command_modules = []
         BLACKLISTED_MODS = ['context', 'shell', 'documentdb', 'component']
 
@@ -107,7 +112,22 @@ class MainCommandsLoader(CLICommandsLoader):
         except ImportError as e:
             logger.warning(e)
 
+    def _update_command_table_from_extensions(self, args):
+        """Loads command_table from installed extensions
 
+        :params args: List of the arguments from the commandline
+        """
+        try:
+            for extension in installed_extensions:
+                command_table, group_table = _load_extension_command_loader(
+                    self, args, extension)
+                self.command_table.update(command_table)
+                self.command_group_table.update(group_table)
+        except ImportError as e:
+            logger.warning(e)
+
+
+# This is the entry point into the Knack CLI framework.
 def get_default_cli():
 
     return CLI(
@@ -118,6 +138,9 @@ def get_default_cli():
 
 
 class GraphCommandsLoader(CLICommandsLoader):
+    '''This class is used by extensions for command registration.
+    '''
+
     def __init__(self, cli_ctx=None, command_group_cls=None, argument_context_cls=None, **kwargs):
         super(GraphCommandsLoader, self).__init__(
             cli_ctx=cli_ctx, command_cls=GraphCliCommand, excluded_command_handler_args=EXCLUDED_PARAMS)
@@ -126,11 +149,19 @@ class GraphCommandsLoader(CLICommandsLoader):
         self._argument_context_cls = ArgumentsContext
 
     def command_group(self, group_name, command_type=None, **kwargs):
+        '''Used by extensions to add commands into the command_table
+
+        :param group_name:   group_name of the set of commands. ie users
+        :param command_type: Cli command_type
+        '''
         if command_type:
             kwargs['command_type'] = command_type
         return self._command_group_cls(self, group_name, **kwargs)
 
     def _cli_command(self, name, operation=None, handler=None, argument_loader=None, description_loader=None, **kwargs):
+        '''Adds a command to the command table
+        :param name: command name
+        '''
         kwargs['deprecate_info'] = Deprecated.ensure_new_style_deprecation(
             self.cli_ctx, kwargs, 'command')
 
@@ -149,14 +180,26 @@ class GraphCommandsLoader(CLICommandsLoader):
         client_factory = kwargs.get('client_factory', None)
 
         def default_command_handler(command_args):
+            ''' Handler function for user commands.
+
+            :param command_args: list of commandline arguments
+            '''
+
+            # Gets the handler function from  the specified operation template
             op = handler or self.get_op_handler(
                 operation, operation_group=kwargs.get('operation_group'))
             op_args = get_arg_list(op)
+
+            # Removes cmd from list of command_args. This is because the handler function
+            # doesn't expect cmd as an argument.
             cmd = command_args.get(
                 'cmd') if 'cmd' in op_args else command_args.pop('cmd')
+
+            # Gets the http client. In our case, the client is a GraphSession object.
             client = client_factory(
                 cmd.cli_ctx, command_args) if client_factory else None
 
+            # If a client exists, add it to the list of arguments passed to a handler function.
             if client:
                 client_arg_name = resolve_client_arg_name(operation, kwargs)
                 if client_arg_name in op_args:
@@ -164,13 +207,20 @@ class GraphCommandsLoader(CLICommandsLoader):
             return op(**command_args)
 
         def default_arguments_loader():
+            '''Loads handler function's arguments from operation_template
+            '''
+            # Get the handler function for the specified operation template
             op = handler or self.get_op_handler(
                 operation, operation_group=kwargs.get('operation_group'))
+
+            # Extract command args from the handler function signature
             cmd_args = list(extract_args_from_signature(
                 op, excluded_params=self.excluded_command_handler_args))
             return cmd_args
 
         def default_description_loader():
+            '''Loads handler function's description.
+            '''
             op = handler or self.get_op_handler(
                 operation, operation_group=kwargs.get('operation_group'))
             return extract_full_summary_from_signature(op)
@@ -178,13 +228,18 @@ class GraphCommandsLoader(CLICommandsLoader):
         kwargs['arguments_loader'] = argument_loader or default_arguments_loader
         kwargs['description_loader'] = description_loader or default_description_loader
 
+        # Adds command to command_table with it's associated command handler and loaders.
         self.command_table[name] = self.command_cls(
             self, name, handler or default_command_handler, **kwargs)
 
     def argument_context(self, scope, **kwargs):
+        '''Gets an instance of the ArgumentContext class.
+        '''
         return self._argument_context_cls(self, scope, **kwargs)
 
     def _update_command_definitions(self):
+        '''Updates command definition with arguments.
+        '''
         master_arg_registry = self.cli_ctx.invocation.commands_loader.argument_registry
         master_extra_arg_registry = self.cli_ctx.invocation.commands_loader.extra_argument_registry
 
@@ -199,7 +254,11 @@ class GraphCommandsLoader(CLICommandsLoader):
                 command.update_argument(argument_name, overrides)
 
     def get_op_handler(self, operation, operation_group=None):
-        """Import and load the operation handler"""
+        '''Import and load the operation handler
+         An operation handle is the function called when a user runs a command.
+
+        :param operation: operation template
+        '''
         try:
             mod_to_import, attr_path = operation.split('#')
             op = import_module(mod_to_import)
@@ -210,3 +269,7 @@ class GraphCommandsLoader(CLICommandsLoader):
             return six.get_method_function(op)
         except (ValueError, AttributeError):
             raise ValueError("The operation '{}' is invalid".format(operation))
+
+
+# Generated extensions expect the CommandLoader class to have the name AzCommandLoader
+AzCommandsLoader = GraphCommandsLoader
