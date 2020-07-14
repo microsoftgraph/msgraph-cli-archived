@@ -130,5 +130,12 @@ dmypy.json
 
 # Pycharm
 .idea/
-
+out/
+artifacts/
 app.py
+
+msgraph-cli-extensions/
+
+readme.az.md
+readme.cli.md
+readme.python.md
