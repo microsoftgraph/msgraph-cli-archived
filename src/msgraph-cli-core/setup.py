@@ -44,14 +44,13 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'adal~=1.2',
     'argcomplete~=1.8',
     'azure-cli-telemetry',
     'azure-identity',
     'colorama>=0.3.9',
     'humanfriendly>=4.7,<9.0',
     'jmespath',
-    'knack==0.7.0rc4',
+    'knack==0.7.1',
     'msal~=1.0.0',
     'msal-extensions~=0.1.3',
     'msrest>=0.4.4',
@@ -82,7 +81,6 @@ setup(
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     author='Microsoft Corporation',
-    author_email='graphtooling@microsoft.com',
     url='https://github.com/microsoftgraph/msgraph-cli',
     zip_safe=False,
     classifiers=CLASSIFIERS,

@@ -2,7 +2,7 @@
 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 Do Not Translate or Localize
 
-Microsoft Graph CLI for Microsoft Graph incorporates components from the projects listed below. The components in Section A are being relicensed to you by Microsoft under the licensing terms for Microsoft CLI 2.0 for Azure, and the components in Section B are being made available to you under their original licensing terms.� The original copyright notices and the licenses under which Microsoft received such components are set forth below. Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+Microsoft Graph CLI for Microsoft Graph incorporates components from the projects listed below. The components in Section A are being relicensed to you by Microsoft under the licensing terms for Microsoft CLI 1.0 for Microsoft Graph, and the components in Section B are being made available to you under their original licensing terms.� The original copyright notices and the licenses under which Microsoft received such components are set forth below. Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 Section A: Microsoft is offering you a license to use the following components, subject to the Microsoft Graph CLI license terms.
 
