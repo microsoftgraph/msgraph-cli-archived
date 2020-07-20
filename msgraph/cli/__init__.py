@@ -6,8 +6,5 @@
 
 This tools provides a command-line interface to Microsoft Graph APIs.
 '''
-import pkg_resources
-pkg_resources.declare_namespace(__name__)
-
 __author__ = "Microsoft Corporation <graphtooling@microsoft.com>"
 __version__ = "1.0.0"

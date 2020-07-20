@@ -90,9 +90,9 @@ robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 :: Build & install all the packages with bdist_wheel
 %BUILDING_DIR%\python.exe -m pip install wheel
 echo Building CLI packages...
-set CLI_SRC=%REPO_ROOT%\src
+set CLI_SRC=%REPO_ROOT%\
 set EXTENSIONS_SRC=%REPO_ROOT%\msgraph-cli-extensions
-for %%a in (%CLI_SRC%\msgraph-cli %CLI_SRC%\msgraph-cli-core %CLI_SRC%\msgraph-core) do (
+for %%a in (%CLI_SRC%) do (
    pushd %%a
    %BUILDING_DIR%\python.exe setup.py bdist_wheel -d %TEMP_SCRATCH_FOLDER%
    popd
@@ -111,8 +111,8 @@ echo All modules: %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall urllib3==1.24.2
 
 echo Installing generated extensions
-pushd %REPO_ROOT%
-%BUILDING_DIR%\python.exe %REPO_ROOT%\install_extensions.py 
+pushd %REPO_ROOT%\build_scripts
+%BUILDING_DIR%\python.exe %REPO_ROOT%\build_scripts\install_extensions.py
 popd
 
 pushd %BUILDING_DIR%

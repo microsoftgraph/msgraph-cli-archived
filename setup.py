@@ -31,6 +31,7 @@ else:
         print('Expected __version__ = "{}"; found "{}"'.format(VERSION, m.group(1)))
         sys.exit(1)
 
+
 CLASSIFIERS = [
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
@@ -44,7 +45,26 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'requests',
+    'sshtunnel',
+    'argcomplete~=1.8',
+    'azure-cli-telemetry',
+    'azure-identity',
+    'colorama>=0.3.9',
+    'humanfriendly>=4.7,<9.0',
+    'jmespath',
+    'knack==0.7.1',
+    'msal~=1.0.0',
+    'msal-extensions~=0.1.3',
+    'msrest>=0.4.4',
+    'msrestazure>=0.6.3',
+    'paramiko>=2.0.8,<3.0.0',
+    'PyJWT',
+    'pyopenssl>=17.1.0',  # https://github.com/pyca/pyopenssl/pull/612
+    'requests~=2.20',
+    'six~=1.12',
+    'pkginfo>=1.5.0.1',
+    'azure-mgmt-resource==9.0.0',
+    'azure-mgmt-core==1.0.0'
 ]
 
 TESTS_REQUIRE = [
@@ -57,9 +77,9 @@ with open('HISTORY.md', 'r', encoding='utf-8') as f:
     HISTORY = f.read()
 
 setup(
-    name='msgraph-core',
+    name='msgraph',
     version=VERSION,
-    description='Microsoft Graph Core Module',
+    description='Microsoft Graph CLI',
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     author='Microsoft Corporation',
@@ -68,6 +88,10 @@ setup(
     classifiers=CLASSIFIERS,
     packages=[
         'msgraph',
+        'msgraph.cli',
+        'msgraph.cli.core',
+        'msgraph.cli.core.commands',
+        'msgraph.cli.command_modules',
         'msgraph.core',
         'msgraph.core.middleware',
         'msgraph.core.middleware.options',
