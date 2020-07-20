@@ -5,9 +5,8 @@ import os
 import subprocess
 import sys
 from os import path
-from setuptools import sandbox
 
-path_to_extensions = path.join(os.getcwd(), 'msgraph-cli-extensions', 'src')
+path_to_extensions = path.join(os.getcwd(), os.pardir, 'msgraph-cli-extensions', 'src')
 
 
 def install_extension(extensions_directory=path_to_extensions):

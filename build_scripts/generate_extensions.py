@@ -30,7 +30,7 @@ def generate_extension_from_open_api_description():
 def get_open_api_descriptions():
     result = []
 
-    open_api_dir = path.join(os.getcwd(), 'open-api-docs', 'beta')
+    open_api_dir = path.join(os.getcwd(), os.pardir, 'open-api-docs', 'beta')
     open_api_files = os.listdir(open_api_dir)
 
     for file in open_api_files:
