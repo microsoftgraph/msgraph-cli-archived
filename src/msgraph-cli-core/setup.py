@@ -44,6 +44,7 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
+    'sshtunnel',
     'argcomplete~=1.8',
     'azure-cli-telemetry',
     'azure-identity',

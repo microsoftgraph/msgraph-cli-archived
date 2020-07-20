@@ -1,7 +1,7 @@
 import copy
 import os
 import sys
-
+import json
 import six
 from knack.cli import logger
 from knack.invocation import CommandInvoker
@@ -214,6 +214,11 @@ class GraphCliCommandInvoker(CommandInvoker):
 
             result = todict(
                 result, GraphCliCommandInvoker.remove_additional_prop_layer)
+
+            # Formatting result so that non utf8 encoded characters are ignored.
+            formatted_json = format_json({'result': result})
+            result = json.loads(formatted_json)
+
             event_data = {'result': result}
             cmd_copy.cli_ctx.raise_event(
                 EVENT_INVOKER_TRANSFORM_RESULT, event_data=event_data)
@@ -238,3 +243,19 @@ class GraphCliCommandInvoker(CommandInvoker):
             if ('additionalProperties' in converted_dic and isinstance(obj.additional_properties, dict)):
                 converted_dic.update(converted_dic.pop('additionalProperties'))
         return converted_dic
+
+
+class _ComplexEncoder(json.JSONEncoder):
+    def default(self, o):  # pylint: disable=method-hidden
+        if isinstance(o, bytes) and not isinstance(o, str):
+            # Decode byte strings with utf-8, ignore if not possible.
+            return o.decode('utf-8', 'ignore')
+        return json.JSONEncoder.default(self, o)
+
+
+def format_json(obj):
+    result = obj['result']
+    # OrderedDict.__dict__ is always '{}', to persist the data, convert to dict first.
+    input_dict = dict(result) if hasattr(result, '__dict__') else result
+    return json.dumps(input_dict, ensure_ascii=False, indent=2, sort_keys=True, cls=_ComplexEncoder,
+                      separators=(',', ': ')) + '\n'
