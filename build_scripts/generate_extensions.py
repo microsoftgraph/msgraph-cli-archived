@@ -41,14 +41,7 @@ def get_open_api_descriptions():
 
 
 def remove_file_extension_and_group(file_name):
-    result = file_name.split('.')
-
-    # For open-api files with the format users.yml, the name will be at index 0.
-    if len(result) <= 2:
-        return result[0].lower()
-    # For open-api files with the format groups.directoryobject.yml, the name will be at index 1
-    elif len(result) >= 3:
-        return result[1].lower()
+    return file_name.replace('.', '')[:-3].lower()
 
 
 def generate_cli_config_for(file_name):
