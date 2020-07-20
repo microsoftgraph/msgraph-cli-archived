@@ -81,6 +81,12 @@ az:
 az-output-folder: $(azure-cli-extension-folder)/src/{file_name}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}/vendored_sdks/{file_name}"
 cli-core-lib: msgraph.cli.core
+
+directive:
+    - where:
+          group: ^{file_name}(.*)
+      set:
+          group: {file_name}
 ```
   """
     write_to('readme.az.md', config)
