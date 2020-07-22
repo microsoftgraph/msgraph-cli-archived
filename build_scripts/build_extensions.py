@@ -7,8 +7,9 @@ import os
 from os import path
 from setuptools import sandbox
 
-path_to_extensions = path.join(os.getcwd(), os.pardir, 'msgraph-cli-extensions', 'src')
-path_to_manifest = path.join(os.getcwd(), os.pardir, 'msgraph', 'cli', 'core', 'installed_extensions.py')
+path_to_extensions = path.join(os.getcwd(), 'msgraph-cli-extensions', 'src')
+path_to_manifest = path.join(
+    os.getcwd(), 'msgraph', 'cli', 'core', 'installed_extensions.py')
 
 
 def build_extensions(extensions_directory=path_to_extensions):
