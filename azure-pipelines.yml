@@ -26,10 +26,6 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    python setup.py sdist bdist_wheel
-  displayName: 'Build msgraph cli package'
-
-- script: |
     python build_scripts/build_extensions.py
   displayName: 'Build msgraph extensions'
 
@@ -38,6 +34,7 @@ steps:
   inputs:
     workindDirectory: $(Agent.BuildDirectory)
     script: |
+      python setup.py sdist bdist_wheel
       set  CLI_VERSION=$(CLI_VERSION)
       set
       build_scripts/windows/scripts/build.cmd
