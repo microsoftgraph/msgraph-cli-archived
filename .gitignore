@@ -134,7 +134,6 @@ out/
 artifacts/
 app.py
 
-msgraph-cli-extensions/
 
 readme.az.md
 readme.cli.md
