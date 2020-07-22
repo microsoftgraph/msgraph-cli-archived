@@ -32,6 +32,7 @@ steps:
   inputs:
     workindDirectory: $(Agent.BuildDirectory)
     script: |
+      python build_scripts/build_extensions.py
       set  CLI_VERSION=$(CLI_VERSION)
       set
       build_scripts/windows/scripts/build.cmd

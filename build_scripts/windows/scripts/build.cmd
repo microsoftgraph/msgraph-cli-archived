@@ -112,7 +112,7 @@ echo All modules: %ALL_MODULES%
 
 echo Installing generated extensions
 pushd %REPO_ROOT%\build_scripts
-%BUILDING_DIR%\python.exe %REPO_ROOT%\build_scripts\install_extensions.py
+%BUILDING_DIR%\python.exe install_extensions.py
 popd
 
 pushd %BUILDING_DIR%
