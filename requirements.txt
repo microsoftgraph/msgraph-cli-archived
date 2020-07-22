@@ -17,3 +17,4 @@ six~=1.12
 pkginfo>=1.5.0.1
 azure-mgmt-resource==9.0.0
 azure-mgmt-core==1.0.0
+wheel==0.34.2
