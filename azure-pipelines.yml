@@ -26,7 +26,7 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-      set /p CLI_VERSION=1.0.0
+      set  CLI_VERSION=$(CLI_VERSION)
       set
       build_scripts/windows/scripts/build.cmd
   displayName: 'Build Windows MSI'
