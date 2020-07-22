@@ -23,16 +23,21 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
-    python setup.py sdist bdist_wheel
   displayName: 'Install dependencies'
 
+- script: |
+    python setup.py sdist bdist_wheel
+  displayName: 'Build msgraph cli package'
+
+- script: |
+    python build_scripts/build_extensions.py
+  displayName: 'Build msgraph extensions'
 
 - task: CmdLine@2
   displayName: 'Build Windows MSI'
   inputs:
     workindDirectory: $(Agent.BuildDirectory)
     script: |
-      python build_scripts/build_extensions.py
       set  CLI_VERSION=$(CLI_VERSION)
       set
       build_scripts/windows/scripts/build.cmd
