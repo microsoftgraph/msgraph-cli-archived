@@ -29,6 +29,9 @@ steps:
 
 - task: CmdLine@2
   displayName: 'Build Windows MSI'
+  workindDirectory: $(Agent.BuildDirectory)
+  env:
+    msbuild:
   inputs:
     script: |
       set  CLI_VERSION=$(CLI_VERSION)
