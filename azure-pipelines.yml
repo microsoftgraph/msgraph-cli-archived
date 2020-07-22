@@ -8,6 +8,7 @@ trigger:
 
 pool:
   vmImage: 'vs2017-win2016'
+  
 strategy:
   matrix:
     Python37:
@@ -25,11 +26,14 @@ steps:
     python setup.py sdist bdist_wheel
   displayName: 'Install dependencies'
 
-- script: |
+
+- task: CmdLine@2
+  inputs:
+    script: |
       set /p CLI_VERSION=1.0.0
-      set
-      build_scripts/windows/scripts/build.cmd
-  displayName: 'Build Windows MSI'
+          set
+          build_scripts/windows/scripts/build.cmd
+    displayName: 'Build Windows MSI'
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Artifact: MSI'
