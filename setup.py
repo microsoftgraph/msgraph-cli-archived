@@ -11,7 +11,7 @@ from setuptools import setup
 
 cmdclass = {}
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 # If we have source, validate that our version numbers match
 # This should prevent uploading releases with mismatched versions.
 try:
