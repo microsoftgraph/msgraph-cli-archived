@@ -109,6 +109,7 @@ echo All modules: %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall pycparser==2.18
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --no-cache-dir %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall urllib3==1.24.2
+%BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall %CLI_SRC%/dist/msgraph-1.0.1-py3-none-any.whl
 
 echo Installing generated extensions
 pushd %REPO_ROOT%\build_scripts
