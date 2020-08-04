@@ -14,7 +14,6 @@ from knack.deprecation import Deprecated
 from knack import CLICommandsLoader, CLICommand, ArgumentsContext
 from knack.introspection import extract_args_from_signature, extract_full_summary_from_signature
 
-
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
 from msgraph.cli.core.installed_extensions import installed_extensions
@@ -22,6 +21,7 @@ from msgraph.cli.core.commands import GraphCommandGroup, GraphCliCommand
 from msgraph.cli.core.commands._util import get_arg_list
 from msgraph.cli.core.commands.client_factory import resolve_client_arg_name
 from msgraph.cli.core.commands.parameters import GraphArgumentContext
+from ._help import GraphCliHelp
 from .commands.constants import EXCLUDED_PARAMS
 
 __version__ = '1.0.0'
@@ -129,11 +129,11 @@ class MainCommandsLoader(CLICommandsLoader):
 
 # This is the entry point into the Knack CLI framework.
 def get_default_cli():
-
     return CLI(
         cli_name='mg',
         commands_loader_cls=MainCommandsLoader,
-        invocation_cls=GraphCliCommandInvoker
+        invocation_cls=GraphCliCommandInvoker,
+        help_cls=GraphCliHelp,
     )
 
 
