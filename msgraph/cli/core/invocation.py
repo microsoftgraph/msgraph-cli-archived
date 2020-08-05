@@ -113,7 +113,8 @@ class GraphCliCommandInvoker(CommandInvoker):
 
         arg_check = [a for a in args if a not in ['--debug', '--verbose']]
         if not arg_check:
-            self.parser.enable_autocomplete()
+            # TODO: Enable autocomplete
+            # self.parser.enable_autocomplete()
             subparser = self.parser.subparsers[tuple()]
             self.help.show_welcome(subparser)
             return CommandResultItem(None, exit_code=0)
