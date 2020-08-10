@@ -14,6 +14,7 @@ def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
     '''
     module = None
     loader_cls = None
+    command_loader = None
 
     if (extension):
         module = import_module(extension)
