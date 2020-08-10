@@ -23,7 +23,6 @@ class CliCommandType(object):
             self.settings.update(**other.settings)
         self.settings.update(**kwargs)
 
-
 class GraphCommandGroup(CommandGroup):
     def __init__(self, command_loader, group_name, **kwargs):
         merged_kwargs = self._merge_kwargs(
@@ -147,3 +146,35 @@ class GraphCliCommand(CLICommand):
 
     def __call__(self, *args, **kwargs):
         return self.handler(*args, **kwargs)
+
+
+class ExtensionCommandSource:
+    '''Class for commands contributed by an extension'''
+
+    def __init__(self, overrides_command=False, extension_name=None, preview=False, experimental=False):
+        super(ExtensionCommandSource, self).__init__()
+        # True if the command overrides a CLI command
+        self.overrides_command = overrides_command
+        self.extension_name = extension_name
+        self.preview = preview
+        self.experimental = experimental
+
+    def get_command_warn_msg(self):
+        if self.overrides_command:
+            if self.extension_name:
+                return 'The behavior of this command has been altered by the following extension: '\
+                    '{}'.format(self.extension_name)
+            return 'The behavior of this command has been altered by an extension'
+        if self.extension_name:
+            return 'This command is from the following extension: {}'.format(self.extension_name)
+        return 'This command is from an extension.'
+
+    def get_preview_warn_msg(self):
+        if self.preview:
+            return 'The extension is in preview'
+        return None
+
+    def get_experimental_warn_msg(self):
+        if self.experimental:
+            return 'The extension is experimental and not covered by customer support. '\
+                'Please use with discretion'
