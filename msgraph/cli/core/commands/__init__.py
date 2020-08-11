@@ -3,7 +3,7 @@ from knack.commands import CommandGroup, CLICommand
 from knack.util import CLIError
 
 from msgraph.cli.core.commands._util import get_command_type_kwarg
-from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS, CLI_COMMAND_KWARGS
+from msgraph.cli.core.constants import CLI_COMMAND_KWARGS
 from ._util import _merge_kwargs
 
 

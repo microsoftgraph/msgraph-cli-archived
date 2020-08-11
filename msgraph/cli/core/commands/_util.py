@@ -5,7 +5,7 @@ from importlib import import_module
 from knack.cli import logger
 from knack.util import CLIError
 from msgraph.cli.core.commands.validators import IterateValue
-from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS
+from msgraph.cli.core.constants import CLI_COMMON_KWARGS
 
 
 def _load_command_loader(loader, args, name=None, prefix=None, extension=None):

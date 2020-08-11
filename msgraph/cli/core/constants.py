@@ -1,3 +1,7 @@
+CACHE_LOCATION = 'mg.bin'
+CLIENT_ID = 'f7218512-c727-4138-9fb9-a0fe2500650c'
+
+
 CLI_COMMON_KWARGS = ['min_api', 'max_api', 'resource_type', 'operation_group',
                      'custom_command_type', 'command_type', 'is_preview', 'preview_info',
                      'is_experimental', 'experimental_info', 'local_context_attribute']
@@ -10,3 +14,5 @@ CLI_COMMAND_KWARGS = ['transform', 'table_transformer', 'confirmation', 'excepti
 
 EXCLUDED_PARAMS = ['self', 'raw', 'polling', 'custom_headers', 'operation_config',
                    'content_version', 'kwargs', 'client', 'no_wait']
+
+

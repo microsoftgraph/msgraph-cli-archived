@@ -5,10 +5,9 @@ from azure.core.credentials import AccessToken
 from msal import PublicClientApplication
 from msal_extensions import *
 
-CACHE_LOCATION = 'mg.bin'
-CLIENT_ID = 'f7218512-c727-4138-9fb9-a0fe2500650c'
-
 from azure.identity import InteractiveBrowserCredential
+
+from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
 
 
 class CustomBrowserCredential(InteractiveBrowserCredential):
