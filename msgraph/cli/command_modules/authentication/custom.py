@@ -1,6 +1,8 @@
-from msgraph.cli.core.msal import PublicClient
+from msgraph.cli.core.msal import CustomBrowserCredential
 
 
 def login(cmd):
-    client = PublicClient()
-    client.login()
+    credential = CustomBrowserCredential()
+    scopes = ['user.read']
+    result = credential.get_token(*scopes)
+    print(result)

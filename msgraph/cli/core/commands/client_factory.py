@@ -1,19 +1,12 @@
-from azure.identity import InteractiveBrowserCredential
 from knack.cli import logger
 from knack.util import CLIError
 
-from msgraph.cli.core.msal import PublicClient
+from msgraph.cli.core.msal import CustomBrowserCredential
 from msgraph.core import GraphSession
 
 
-class CustomMSALCredential:
-    def get_token(*scopes, **kwargs):
-        public_client = PublicClient()
-        return public_client.get_token()
-
-
-msal_credential = CustomMSALCredential()
-graph_session = GraphSession(msal_credential)
+credential = CustomBrowserCredential()
+graph_session = GraphSession(credential=credential)
 
 
 def resolve_client_arg_name(operation, kwargs):
