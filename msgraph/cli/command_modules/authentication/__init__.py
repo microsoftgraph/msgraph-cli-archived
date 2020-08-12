@@ -1,6 +1,5 @@
 from msgraph.cli.core import AzCommandsLoader
 from msgraph.cli.core.commands import CliCommandType
-from msgraph.cli.core.commands.parameters import get_enum_type
 import msgraph.cli.command_modules.authentication._help
 
 
@@ -13,7 +12,6 @@ class AuthenticationCommandsLoader(AzCommandsLoader):
 
         with self.command_group('', template) as g:
             g.command('login', 'login')
-            # g.command('logout', 'logout')
 
         return self.command_table
 
