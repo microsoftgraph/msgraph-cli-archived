@@ -1,10 +1,11 @@
 from msgraph.cli.core.msal import CustomBrowserCredential
 
 
-def login(cmd):
+def login(cmd, scopes=['.default']):
+    login_scopes = scopes.split(',')
+
     credential = CustomBrowserCredential()
-    scopes = ['user.read']
-    result = credential.get_token(*scopes)
+    result = credential.get_token(*login_scopes)
 
     if result:
         print('Logged in successfully')
