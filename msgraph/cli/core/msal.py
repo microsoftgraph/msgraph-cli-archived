@@ -17,14 +17,13 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
 
     def _get_token_from_cache(self, scopes, **kwargs):
         """if the user has already signed in, we can redeem a refresh token for a new access token"""
-        scopes_from_cache = self._get_scopes_from_cache()
         app = self._get_app()
         accounts = app.get_accounts()
         if accounts:  # => user has already authenticated
             # MSAL asserts scopes is a list
-            scopes = list(scopes)  # type: ignore
+            scopes = self._get_scopes_from_cache()  # type: ignore
             now = int(time.time())
-            token = app.acquire_token_silent(scopes_from_cache, account=accounts[0], **kwargs)
+            token = app.acquire_token_silent(scopes, account=accounts[0], **kwargs)
             if token and "access_token" in token and "expires_in" in token:
                 return AccessToken(token["access_token"], now + int(token["expires_in"]))
         return None
