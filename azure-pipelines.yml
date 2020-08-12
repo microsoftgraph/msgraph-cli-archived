@@ -44,3 +44,11 @@ steps:
   inputs:
     TargetPath: 'build_scripts/windows/out/'
     ArtifactName: msi
+
+- task: GitHubRelease@0
+  inputs:
+    gitHubConnection: microsoftgraph
+    repository: $(Build.Repository.Name)
+    action: 'create'
+    target: $(Build.SourceVersion)
+    tagSource: 'auto'
