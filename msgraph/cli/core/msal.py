@@ -58,7 +58,7 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
                 return LibsecretPersistence(
                     location,
                     schema_name="mg",
-                    attributes={"my_attr1": "foo", "my_attr2": "bar"},
+                    attributes={"app_name": "mg"},
                 )
             except:  # pylint: disable=bare-except
                 if not fallback_to_plaintext:
