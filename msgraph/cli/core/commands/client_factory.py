@@ -1,7 +1,7 @@
 from knack.cli import logger
 from knack.util import CLIError
 
-from msgraph.cli.core.msal import CustomBrowserCredential
+from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
 from msgraph.core import GraphSession
 
 

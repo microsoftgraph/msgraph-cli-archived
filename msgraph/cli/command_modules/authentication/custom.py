@@ -1,4 +1,9 @@
-from msgraph.cli.core.msal import CustomBrowserCredential
+# ------------------------------------
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+# ------------------------------------
+
+from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
 
 
 def login(cmd, scopes):
