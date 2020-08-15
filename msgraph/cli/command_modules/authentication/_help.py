@@ -11,5 +11,5 @@ short-summary: Log in to Microsoft Graph
 examples:
     - name: Login in interactively
       text: >
-        mg login
+        mg login --scopes "user.read, user.read.all"
 """
