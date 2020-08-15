@@ -15,7 +15,7 @@ class AuthenticationCommandsLoader(AzCommandsLoader):
         super().__init__(cli_ctx, **kwargs)
 
     def load_command_table(self, args):
-        # specify the implementation module ie custom
+        # operations_tmpl is the file that contains the implementation of the command
         template = CliCommandType(operations_tmpl='msgraph.cli.command_modules.authentication.custom#{}')
 
         with self.command_group('', template) as g:
