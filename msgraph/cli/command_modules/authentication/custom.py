@@ -7,12 +7,12 @@ from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
 
 
 def login(cmd, scopes):
-    login_scopes = scopes.split(',')
-
+    login_scopes = [scope.strip() for scope in scopes.split(',')]
     credential = CustomBrowserCredential()
-    result = credential.get_token(*login_scopes)
 
-    if result:
-        print('Logged in successfully')
-    else:
+    try:
+        result = credential.get_token(*login_scopes)
+        if result:
+            print('Logged in successfully')
+    except:
         print('Login failed')
