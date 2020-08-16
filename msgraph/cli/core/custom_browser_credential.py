@@ -1,11 +1,9 @@
 import json
 import logging
 import time
-
 from azure.core.credentials import AccessToken
 from msal import PublicClientApplication
 from msal_extensions import *
-
 from azure.identity import InteractiveBrowserCredential
 
 from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
