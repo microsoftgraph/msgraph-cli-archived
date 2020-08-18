@@ -13,3 +13,8 @@ examples:
       text: >
         mg login --scopes "user.read, user.read.all"
 """
+
+helps['logout'] = """
+type: command
+short-summary: Log out of Microsoft Graph
+"""

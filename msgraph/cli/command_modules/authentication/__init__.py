@@ -18,8 +18,9 @@ class AuthenticationCommandsLoader(AzCommandsLoader):
         # operations_tmpl is the file that contains the implementation of the command
         template = CliCommandType(operations_tmpl='msgraph.cli.command_modules.authentication.custom#{}')
 
-        with self.command_group('', template) as g:
-            g.command('login', 'login')
+        with self.command_group('', template) as group:
+            group.command('login', 'login')
+            group.command('logout', 'logout')
 
         return self.command_table
 
