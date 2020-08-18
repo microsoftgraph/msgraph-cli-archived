@@ -14,5 +14,5 @@ def login(cmd, scopes):
         result = credential.get_token(*login_scopes)
         if result:
             print('Logged in successfully')
-    except Exception:
-        print('Login failed')
+    except Exception as e:
+        print('Login failed', e)

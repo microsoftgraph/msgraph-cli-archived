@@ -1,4 +1,7 @@
-CACHE_LOCATION = 'mg.bin'
+from pathlib import Path
+from os import path
+
+CACHE_LOCATION = path.join(Path.home(), '.mg', 'mg.bin')
 CLIENT_ID = 'f7218512-c727-4138-9fb9-a0fe2500650c'
 
 
@@ -14,5 +17,3 @@ CLI_COMMAND_KWARGS = ['transform', 'table_transformer', 'confirmation', 'excepti
 
 EXCLUDED_PARAMS = ['self', 'raw', 'polling', 'custom_headers', 'operation_config',
                    'content_version', 'kwargs', 'client', 'no_wait']
-
-
