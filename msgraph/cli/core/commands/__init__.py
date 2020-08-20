@@ -1,9 +1,14 @@
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
+
 from knack.cli import logger
 from knack.commands import CommandGroup, CLICommand
 from knack.util import CLIError
 
 from msgraph.cli.core.commands._util import get_command_type_kwarg
-from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS, CLI_COMMAND_KWARGS
+from msgraph.cli.core.constants import CLI_COMMAND_KWARGS
 from ._util import _merge_kwargs
 
 
@@ -22,6 +27,7 @@ class CliCommandType(object):
         if other:
             self.settings.update(**other.settings)
         self.settings.update(**kwargs)
+
 
 class GraphCommandGroup(CommandGroup):
     def __init__(self, command_loader, group_name, **kwargs):

@@ -1,3 +1,8 @@
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
+
 import argparse
 import base64
 import inspect
@@ -5,7 +10,7 @@ from importlib import import_module
 from knack.cli import logger
 from knack.util import CLIError
 from msgraph.cli.core.commands.validators import IterateValue
-from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS
+from msgraph.cli.core.constants import CLI_COMMON_KWARGS
 
 
 def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
@@ -14,6 +19,7 @@ def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
     '''
     module = None
     loader_cls = None
+    command_loader = None
 
     if (extension):
         module = import_module(extension)

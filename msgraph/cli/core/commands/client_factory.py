@@ -1,7 +1,17 @@
-from azure.identity import InteractiveBrowserCredential
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
+
 from knack.cli import logger
 from knack.util import CLIError
+
+from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
 from msgraph.core import GraphSession
+
+
+credential = CustomBrowserCredential()
+graph_session = GraphSession(credential=credential)
 
 
 def resolve_client_arg_name(operation, kwargs):
@@ -41,8 +51,5 @@ def get_mgmt_service_client(cli_ctx,
                             aux_subscriptions=None,
                             aux_tenants=None,
                             **kwargs):
-    browser_credential = InteractiveBrowserCredential(
-        client_id='f7218512-c727-4138-9fb9-a0fe2500650c')
-    graph_session = GraphSession(browser_credential)
     client = client_type({}, session=graph_session)
     return client
