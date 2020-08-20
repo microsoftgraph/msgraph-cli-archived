@@ -28,3 +28,5 @@ def _delete_cache():
     if path.isfile(CACHE_LOCATION):
         remove(CACHE_LOCATION)
         print('Logged out successfully')
+    else:
+        print('You\'re already logged out')
