@@ -19,6 +19,7 @@ def login(cmd, scopes):
     except Exception as e:
         print('Login failed', e)
 
+
 def logout(cmd):
     _delete_cache()
 

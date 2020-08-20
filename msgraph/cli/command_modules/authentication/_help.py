@@ -8,6 +8,7 @@ from knack.help_files import helps
 helps['login'] = """
 type: command
 short-summary: Log in to Microsoft Graph
+long-summary: Logs in a user to Microsoft Graph with the specified scopes. You must specify the scopes before you use commands. You will need to log out and log back in to consent to additional scopes.
 examples:
     - name: Login in interactively
       text: >
