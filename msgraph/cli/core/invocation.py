@@ -237,7 +237,7 @@ class GraphCliCommandInvoker(CommandInvoker):
     @staticmethod
     def handle_403():
         raise CLIError(
-            'Insufficient privileges to complete the operation, login with required scopes')
+            'You have insufficient privileges to complete the operation, login with required scopes')
 
     @staticmethod
     def _extract_parameter_names(args):
