@@ -1,3 +1,8 @@
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
+
 import json
 import logging
 import time
@@ -21,13 +26,15 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             # MSAL asserts scopes is a list
             scopes = self._get_scopes_from_cache()  # type: ignore
             now = int(time.time())
-            token = app.acquire_token_silent(scopes, account=accounts[0], **kwargs)
+            token = app.acquire_token_silent(
+                scopes, account=accounts[0], **kwargs)
             if token and "access_token" in token and "expires_in" in token:
                 return AccessToken(token["access_token"], now + int(token["expires_in"]))
         return None
 
     def _get_scopes_from_cache(self):
-        persistence = self._build_persistence(CACHE_LOCATION, fallback_to_plaintext=True)
+        persistence = self._build_persistence(
+            CACHE_LOCATION, fallback_to_plaintext=True)
         refresh_token = json.loads(persistence.load()).get('RefreshToken')
         refresh_token_as_key = list(dict.keys(refresh_token))[0]
         scopes = refresh_token.get(refresh_token_as_key).get('target')
@@ -41,7 +48,8 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
 
     def _create_app(self, cls):
         # type: (Type[msal.ClientApplication]) -> msal.ClientApplication
-        persistence = self._build_persistence(CACHE_LOCATION, fallback_to_plaintext=True)
+        persistence = self._build_persistence(
+            CACHE_LOCATION, fallback_to_plaintext=True)
         persisted_cached = PersistedTokenCache(persistence)
         return cls(client_id=CLIENT_ID, token_cache=persisted_cached)
 
@@ -61,5 +69,6 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             except:  # pylint: disable=bare-except
                 if not fallback_to_plaintext:
                     raise
-                logging.warning("Encryption unavailable. Opting in to plain text.")
+                logging.warning(
+                    "Encryption unavailable. Opting in to plain text.")
         return FilePersistence(location)
