@@ -12,7 +12,7 @@ long-summary: Logs in a user to Microsoft Graph with the specified scopes. You m
 examples:
     - name: Login in interactively
       text: >
-        mg login --scopes "user.read, user.read.all"
+        mg login --scopes "user.read, mail.read"
 """
 
 helps['logout'] = """
