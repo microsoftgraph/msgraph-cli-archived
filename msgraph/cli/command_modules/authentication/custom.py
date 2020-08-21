@@ -3,6 +3,7 @@
 # Licensed under the MIT License.
 # ------------------------------------
 from os import path, remove
+from knack.cli import CLIError
 
 from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
 from msgraph.cli.core.constants import CACHE_LOCATION
@@ -11,8 +12,10 @@ from msgraph.cli.core.constants import CACHE_LOCATION
 def login(scopes):
     login_scopes = [scope.strip() for scope in scopes.split(',')]
     credential = CustomBrowserCredential()
-
     result = credential.login(login_scopes)
+
+    if not result:
+        raise CLIError('Login failed')
     if result:
         print('Logged in successfully')
 
