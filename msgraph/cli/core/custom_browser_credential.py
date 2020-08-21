@@ -10,6 +10,7 @@ from azure.core.credentials import AccessToken
 from msal import PublicClientApplication
 from msal_extensions import *
 from azure.identity import InteractiveBrowserCredential
+from knack.cli import CLIError
 
 from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
 
@@ -31,8 +32,7 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             if token and "access_token" in token and "expires_in" in token:
                 return AccessToken(token["access_token"], now + int(token["expires_in"]))
         else:
-            print('Log in to run this command')
-            sys.exit(1)
+            raise CLIError('Log in to run this command')
         return None
 
     def _get_scopes_from_cache(self):
