@@ -8,7 +8,7 @@ from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
 from msgraph.cli.core.constants import CACHE_LOCATION
 
 
-def login(cmd, scopes):
+def login(scopes):
     login_scopes = [scope.strip() for scope in scopes.split(',')]
     credential = CustomBrowserCredential()
 
@@ -17,7 +17,7 @@ def login(cmd, scopes):
         print('Logged in successfully')
 
 
-def logout(cmd):
+def logout():
     _delete_cache()
 
 
