@@ -18,21 +18,23 @@ from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
 class CustomBrowserCredential(InteractiveBrowserCredential):
     def __init__(self, **kwargs):
         super(CustomBrowserCredential, self).__init__(**kwargs)
+        self._app = self._get_app()
 
     def _get_token_from_cache(self, scopes, **kwargs):
         """if the user has already signed in, we can redeem a refresh token for a new access token"""
-        app = self._get_app()
-        accounts = app.get_accounts()
+        accounts = self._app.get_accounts()
         if accounts:  # => user has already authenticated
             # MSAL asserts scopes is a list
             scopes = self._get_scopes_from_cache()  # type: ignore
             now = int(time.time())
-            token = app.acquire_token_silent(
+            token = self._app.acquire_token_silent(
                 scopes, account=accounts[0], **kwargs)
             if token and "access_token" in token and "expires_in" in token:
                 return AccessToken(token["access_token"], now + int(token["expires_in"]))
-
         return None
+
+    def login(self, scopes, **kwargs):
+        return self._get_token_by_auth_code(scopes, **kwargs)
 
     def _get_scopes_from_cache(self):
         persistence = self._build_persistence(

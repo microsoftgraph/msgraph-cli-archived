@@ -199,7 +199,6 @@ class GraphCliCommandInvoker(CommandInvoker):
         return results, exceptions
 
     def _run_job(self, expanded_arg, cmd_copy):
-        print(cmd_copy.exception_handler)
         params = self._filter_params(expanded_arg)
         try:
             result = cmd_copy(params)

@@ -12,12 +12,9 @@ def login(cmd, scopes):
     login_scopes = [scope.strip() for scope in scopes.split(',')]
     credential = CustomBrowserCredential()
 
-    try:
-        result = credential.get_token(*login_scopes)
-        if result:
-            print('Logged in successfully')
-    except Exception as e:
-        print('Login failed', e)
+    result = credential.login(login_scopes)
+    if result:
+        print('Logged in successfully')
 
 
 def logout(cmd):
