@@ -101,6 +101,7 @@ class GraphCommandGroup(CommandGroup):
         self._check_stale()
         merged_kwargs = self._flatten_kwargs(
             kwargs, get_command_type_kwarg(custom_command))
+
         operations_tmpl = merged_kwargs['operations_tmpl']
         command_name = '{} {}'.format(
             self.group_name, name) if self.group_name else name

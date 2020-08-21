@@ -11,6 +11,7 @@ from knack.events import (
     EVENT_INVOKER_TRANSFORM_RESULT
 )
 from knack.util import CommandResultItem, todict, CLIError
+from azure.core.exceptions import HttpResponseError, ClientAuthenticationError
 
 from msgraph.cli.core.commands._util import read_file_content, _explode_list_args
 from msgraph.cli.core.commands.events import EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE, EVENT_INVOKER_PRE_LOAD_ARGUMENTS, \
@@ -198,6 +199,7 @@ class GraphCliCommandInvoker(CommandInvoker):
         return results, exceptions
 
     def _run_job(self, expanded_arg, cmd_copy):
+        print(cmd_copy.exception_handler)
         params = self._filter_params(expanded_arg)
         try:
             result = cmd_copy(params)
@@ -225,10 +227,26 @@ class GraphCliCommandInvoker(CommandInvoker):
                 EVENT_INVOKER_TRANSFORM_RESULT, event_data=event_data)
             return event_data['result']
         except Exception as ex:  # pylint: disable=broad-except
+            if isinstance(ex, HttpResponseError):
+                if ex.status_code == 403:  # pylint: disable=no-member
+                    self.handle_403()
+                    sys.exit(1)
+            if isinstance(ex, ClientAuthenticationError):
+                self.handle_auth_error(ex)
+                sys.exit(1)
             if cmd_copy.exception_handler:
                 cmd_copy.exception_handler(ex)
                 return CommandResultItem(None, exit_code=1, error=ex)
             six.reraise(*sys.exc_info())
+
+    @staticmethod
+    def handle_403():
+        raise CLIError(
+            'You have insufficient privileges to complete the operation, login with required scopes')
+
+    @staticmethod
+    def handle_auth_error(ex):
+        raise CLIError(ex.message)
 
     @staticmethod
     def _extract_parameter_names(args):

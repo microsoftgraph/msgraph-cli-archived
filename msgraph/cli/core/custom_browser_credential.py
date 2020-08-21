@@ -31,8 +31,7 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
                 scopes, account=accounts[0], **kwargs)
             if token and "access_token" in token and "expires_in" in token:
                 return AccessToken(token["access_token"], now + int(token["expires_in"]))
-        else:
-            raise CLIError('Log in to run this command')
+
         return None
 
     def _get_scopes_from_cache(self):
