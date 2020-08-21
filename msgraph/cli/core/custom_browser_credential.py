@@ -10,14 +10,13 @@ from azure.core.credentials import AccessToken
 from msal import PublicClientApplication
 from msal_extensions import *
 from azure.identity import InteractiveBrowserCredential
-from knack.cli import CLIError
 
 from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
 
 
 class CustomBrowserCredential(InteractiveBrowserCredential):
     def __init__(self, **kwargs):
-        super(CustomBrowserCredential, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self._app = self._get_app()
 
     def _get_token_from_cache(self, scopes, **kwargs):
@@ -27,18 +26,20 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             # MSAL asserts scopes is a list
             scopes = self._get_scopes_from_cache()  # type: ignore
             now = int(time.time())
-            token = self._app.acquire_token_silent(
-                scopes, account=accounts[0], **kwargs)
+            token = self._app.acquire_token_silent(scopes,
+                                                   account=accounts[0],
+                                                   **kwargs)
             if token and "access_token" in token and "expires_in" in token:
-                return AccessToken(token["access_token"], now + int(token["expires_in"]))
+                return AccessToken(token["access_token"],
+                                   now + int(token["expires_in"]))
         return None
 
     def login(self, scopes, **kwargs):
         return self._get_token_by_auth_code(scopes, **kwargs)
 
     def _get_scopes_from_cache(self):
-        persistence = self._build_persistence(
-            CACHE_LOCATION, fallback_to_plaintext=True)
+        persistence = self._build_persistence(CACHE_LOCATION,
+                                              fallback_to_plaintext=True)
         refresh_token = json.loads(persistence.load()).get('RefreshToken')
         refresh_token_as_key = list(dict.keys(refresh_token))[0]
         scopes = refresh_token.get(refresh_token_as_key).get('target')
@@ -52,8 +53,8 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
 
     def _create_app(self, cls):
         # type: (Type[msal.ClientApplication]) -> msal.ClientApplication
-        persistence = self._build_persistence(
-            CACHE_LOCATION, fallback_to_plaintext=True)
+        persistence = self._build_persistence(CACHE_LOCATION,
+                                              fallback_to_plaintext=True)
         persisted_cached = PersistedTokenCache(persistence)
         return cls(client_id=CLIENT_ID, token_cache=persisted_cached)
 
