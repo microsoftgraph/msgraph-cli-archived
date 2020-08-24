@@ -1,8 +1,7 @@
 import argparse
 from knack.util import CLIError
 from knack import ArgumentsContext
-from knack.arguments import (CLIArgumentType, CaseInsensitiveList, ignore_type,
-                             ArgumentsContext)
+from knack.arguments import (CLIArgumentType, CaseInsensitiveList, ignore_type, ArgumentsContext)
 
 
 class GraphArgumentContext(ArgumentsContext):
@@ -37,11 +36,7 @@ def get_three_state_flag(positive_label='true',
                 set_val = is_positive
             setattr(namespace, self.dest, set_val)
 
-    params = {
-        'choices': CaseInsensitiveList(choices),
-        'nargs': '?',
-        'action': ThreeStateAction
-    }
+    params = {'choices': CaseInsensitiveList(choices), 'nargs': '?', 'action': ThreeStateAction}
     return CLIArgumentType(**params)
 
 
@@ -60,8 +55,7 @@ def get_enum_type(data, default=None):
     class DefaultAction(argparse.Action):
         def __call__(self, parser, args, values, option_string=None):
             def _get_value(val):
-                return next(
-                    (x for x in self.choices if x.lower() == val.lower()), val)
+                return next((x for x in self.choices if x.lower() == val.lower()), val)
 
             if isinstance(values, list):
                 values = [_get_value(v) for v in values]
@@ -70,21 +64,18 @@ def get_enum_type(data, default=None):
             setattr(args, self.dest, values)
 
     def _type(value):
-        return next((x for x in choices
-                     if x.lower() == value.lower()), value) if value else value
+        return next((x for x in choices if x.lower() == value.lower()), value) if value else value
 
     default_value = None
     if default:
-        default_value = next(
-            (x for x in choices if x.lower() == default.lower()), None)
+        default_value = next((x for x in choices if x.lower() == default.lower()), None)
         if not default_value:
             raise CLIError(
-                "Command authoring exception: unrecognized default '{}' from choices '{}'"
-                .format(default, choices))
+                "Command authoring exception: unrecognized default '{}' from choices '{}'".format(
+                    default, choices))
         arg_type = CLIArgumentType(choices=CaseInsensitiveList(choices),
                                    action=DefaultAction,
                                    default=default_value)
     else:
-        arg_type = CLIArgumentType(choices=CaseInsensitiveList(choices),
-                                   action=DefaultAction)
+        arg_type = CLIArgumentType(choices=CaseInsensitiveList(choices), action=DefaultAction)
     return arg_type

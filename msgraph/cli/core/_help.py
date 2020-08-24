@@ -2,11 +2,10 @@ from __future__ import print_function
 import argparse
 
 from msgraph.cli.core.commands import ExtensionCommandSource
-from knack.help import (HelpFile as KnackHelpFile, CommandHelpFile as
-                        KnackCommandHelpFile, GroupHelpFile as
-                        KnackGroupHelpFile, HelpExample as KnackHelpExample,
-                        HelpParameter as KnackHelpParameter, _print_indent,
-                        CLIHelp, HelpAuthoringException)
+from knack.help import (HelpFile as KnackHelpFile, CommandHelpFile as KnackCommandHelpFile,
+                        GroupHelpFile as KnackGroupHelpFile, HelpExample as KnackHelpExample,
+                        HelpParameter as KnackHelpParameter, _print_indent, CLIHelp,
+                        HelpAuthoringException)
 from knack.log import get_logger
 from knack.util import CLIError
 
@@ -54,17 +53,15 @@ class CLIPrintMixin(CLIHelp):
 
         links = help_file.links
         if links:
-            link_text = "{} and {}".format(
-                ", ".join([link["url"] for link in links[0:-1]]),
-                links[-1]["url"]) if len(links) > 1 else links[0]["url"]
+            link_text = "{} and {}".format(", ".join([link["url"] for link in links[0:-1]]),
+                                           links[-1]["url"]) if len(links) > 1 else links[0]["url"]
             link_text = "For more information, see: {}\n".format(link_text)
             _print_indent(link_text, 2, width=self.textwrap_width)
 
     def _print_detailed_help(self, cli_name, help_file):
         CLIPrintMixin._print_extensions_msg(help_file)
         super(CLIPrintMixin, self)._print_detailed_help(cli_name, help_file)
-        self._print_mg_find_message(help_file.command,
-                                    self.cli_ctx.enable_color)
+        self._print_mg_find_message(help_file.command, self.cli_ctx.enable_color)
 
     @staticmethod
     def _get_choices_defaults_sources_str(p):
@@ -73,8 +70,7 @@ class CLIPrintMixin(CLIHelp):
         default_value_source = p.default_value_source if p.default_value_source else 'Default'
         default_str = '  {}: {}.'.format(default_value_source, p.default) \
             if p.default and p.default != argparse.SUPPRESS else ''
-        value_sources_str = CLIPrintMixin._process_value_sources(
-            p) if p.value_sources else ''
+        value_sources_str = CLIPrintMixin._process_value_sources(p) if p.value_sources else ''
         return '{}{}{}'.format(choice_str, default_str, value_sources_str)
 
     @staticmethod
@@ -94,8 +90,7 @@ class CLIPrintMixin(CLIHelp):
     def _print_mg_find_message(command, enable_color):
         from colorama import Style
         indent = 0
-        message = 'For more specific examples, use: mg find "mg {}"'.format(
-            command)
+        message = 'For more specific examples, use: mg find "mg {}"'.format(command)
         if enable_color:
             message = Style.BRIGHT + message + Style.RESET_ALL
         _print_indent(message + '\n', indent)
@@ -112,13 +107,10 @@ class CLIPrintMixin(CLIHelp):
             elif "link" in item and "url" in item["link"]:
                 urls.append(item["link"]["url"])
 
-        command_str = '  Values from: {}.'.format(
-            ", ".join(commands)) if commands else ''
+        command_str = '  Values from: {}.'.format(", ".join(commands)) if commands else ''
         string_str = '  {}'.format(", ".join(strings)) if strings else ''
-        string_str = string_str + "." if string_str and not string_str.endswith(
-            ".") else string_str
-        urls_str = '  For more info, go to: {}.'.format(
-            ", ".join(urls)) if urls else ''
+        string_str = string_str + "." if string_str and not string_str.endswith(".") else string_str
+        urls_str = '  For more info, go to: {}.'.format(", ".join(urls)) if urls else ''
         return '{}{}{}'.format(command_str, string_str, urls_str)
 
     @staticmethod
@@ -179,8 +171,7 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
             GraphCliHelp.update_examples(help_file)
         self._print_detailed_help(cli_name, help_file)
         # TODO: Show updates available
-        show_link = self.cli_ctx.config.getboolean('output',
-                                                   'show_survey_link', True)
+        show_link = self.cli_ctx.config.getboolean('output', 'show_survey_link', True)
 
         # TODO: Show survey prompts
         if show_link:
@@ -194,18 +185,13 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
             return inspect.isclass(cls) and cls.__name__ != 'BaseHelpLoader' and issubclass(cls, help_loaders.BaseHelpLoader)  # pylint: disable=line-too-long
 
         versioned_loaders = {}
-        for cls_name, loader_cls in inspect.getmembers(help_loaders,
-                                                       is_loader_cls):
+        for cls_name, loader_cls in inspect.getmembers(help_loaders, is_loader_cls):
             loader = loader_cls(self)
             versioned_loaders[cls_name] = loader
 
-        if len(versioned_loaders) != len(
-            {ldr.version
-             for ldr in versioned_loaders.values()}):
+        if len(versioned_loaders) != len({ldr.version for ldr in versioned_loaders.values()}):
             ldrs_str = " ".join("{}-version:{}".format(cls_name, ldr.version) for cls_name, ldr in versioned_loaders.items())  # pylint: disable=line-too-long
-            raise CLIError(
-                "Two loaders have the same version. Loaders:\n\t{}".format(
-                    ldrs_str))
+            raise CLIError("Two loaders have the same version. Loaders:\n\t{}".format(ldrs_str))
 
         self.versioned_loaders = versioned_loaders
 
@@ -226,8 +212,7 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
             file_contents = {}
             for name in file_names:
                 file_contents[name] = self._name_to_content[name]
-            self.versioned_loaders[ldr_cls_name].update_file_contents(
-                file_contents)
+            self.versioned_loaders[ldr_cls_name].update_file_contents(file_contents)
 
     # This method is meant to be a hook that can be overridden by an extension or module.
     @staticmethod
@@ -247,19 +232,14 @@ class CliHelpFile(KnackHelpFile):
 
         if all((supported_profiles, unsupported_profiles)):
             raise HelpAuthoringException(
-                "An example cannot have both supported-profiles and unsupported-profiles."
-            )
+                "An example cannot have both supported-profiles and unsupported-profiles.")
 
         if supported_profiles:
-            supported_profiles = [
-                profile.strip() for profile in supported_profiles.split(',')
-            ]
+            supported_profiles = [profile.strip() for profile in supported_profiles.split(',')]
             return self.help_ctx.cli_ctx.cloud.profile in supported_profiles
 
         if unsupported_profiles:
-            unsupported_profiles = [
-                profile.strip() for profile in unsupported_profiles.split(',')
-            ]
+            unsupported_profiles = [profile.strip() for profile in unsupported_profiles.split(',')]
             return self.help_ctx.cli_ctx.cloud.profile not in unsupported_profiles
 
         return True
@@ -308,33 +288,22 @@ class CliCommandHelpFile(KnackCommandHelpFile, CliHelpFile):
 
         self.parameters = []
 
-        for action in [
-                a for a in parser._actions if a.help != argparse.SUPPRESS
-        ]:  # pylint: disable=protected-access
+        for action in [a for a in parser._actions if a.help != argparse.SUPPRESS]:  # pylint: disable=protected-access
             if action.option_strings:
                 self._add_parameter_help(action)
             else:
                 # use metavar for positional parameters
                 param_kwargs = {
                     'name_source': [action.metavar or action.dest],
-                    'deprecate_info':
-                    getattr(action, 'deprecate_info', None),
-                    'preview_info':
-                    getattr(action, 'preview_info', None),
-                    'experimental_info':
-                    getattr(action, 'experimental_info', None),
-                    'default_value_source':
-                    getattr(action, 'default_value_source', None),
-                    'description':
-                    action.help,
-                    'choices':
-                    action.choices,
-                    'required':
-                    False,
-                    'default':
-                    None,
-                    'group_name':
-                    'Positional'
+                    'deprecate_info': getattr(action, 'deprecate_info', None),
+                    'preview_info': getattr(action, 'preview_info', None),
+                    'experimental_info': getattr(action, 'experimental_info', None),
+                    'default_value_source': getattr(action, 'default_value_source', None),
+                    'description': action.help,
+                    'choices': action.choices,
+                    'required': False,
+                    'default': None,
+                    'group_name': 'Positional'
                 }
                 self.parameters.append(HelpParameter(**param_kwargs))
 
@@ -348,17 +317,13 @@ class CliCommandHelpFile(KnackCommandHelpFile, CliHelpFile):
     def _load_from_data(self, data):
         super(CliCommandHelpFile, self)._load_from_data(data)
 
-        if isinstance(
-                data,
-                str) or not self.parameters or not data.get('parameters'):
+        if isinstance(data, str) or not self.parameters or not data.get('parameters'):
             return
 
         loaded_params = []
         loaded_param = {}
         for param in self.parameters:
-            loaded_param = next(
-                (n for n in data['parameters'] if n['name'] == param.name),
-                None)
+            loaded_param = next((n for n in data['parameters'] if n['name'] == param.name), None)
             if loaded_param:
                 param.update_from_data(loaded_param)
             loaded_params.append(param)
@@ -377,10 +342,8 @@ class HelpExample(KnackHelpExample):  # pylint: disable=too-few-public-methods
         _data['text'] = _data.get('text', '')
         super(HelpExample, self).__init__(_data)
 
-        self.name = _data.get('summary', '') if _data.get('summary',
-                                                          '') else self.name
-        self.text = _data.get('command', '') if _data.get('command',
-                                                          '') else self.text
+        self.name = _data.get('summary', '') if _data.get('summary', '') else self.name
+        self.text = _data.get('command', '') if _data.get('command', '') else self.text
 
         self.long_summary = _data.get('description', '')
         self.supported_profiles = _data.get('supported-profiles', None)

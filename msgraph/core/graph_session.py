@@ -113,8 +113,7 @@ class GraphSession(Session):
         if 'sdkVersion' in self.headers:
             self.headers.update({
                 'sdkVersion':
-                'graph-python-' + SDK_VERSION + ', ' +
-                self.headers.get('sdkVersion')
+                'graph-python-' + SDK_VERSION + ', ' + self.headers.get('sdkVersion')
             })
         else:
             self.headers.update({'sdkVersion': 'graph-python-' + SDK_VERSION})
