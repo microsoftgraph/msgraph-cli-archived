@@ -24,6 +24,7 @@ class MiddlewareControl:
                 self.set(AUTH_MIDDLEWARE_OPTIONS,
                          AuthMiddlewareOptions(scopes))
             return func(*args, **kwargs)
+
         return wrapper
 
     def _reset_middleware_options(self):

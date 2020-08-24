@@ -15,8 +15,8 @@ def get_file_json(file_path, throw_on_empty=True, preserve_order=False):
     try:
         return shell_safe_json_parse(content, preserve_order)
     except CLIError as ex:
-        raise CLIError(
-            "Failed to parse {} with exception:\n    {}".format(file_path, ex))
+        raise CLIError("Failed to parse {} with exception:\n    {}".format(
+            file_path, ex))
 
 
 def read_file_content(file_path, allow_binary=False):
@@ -25,8 +25,8 @@ def read_file_content(file_path, allow_binary=False):
     for encoding in ['utf-8-sig', 'utf-8', 'utf-16', 'utf-16le', 'utf-16be']:
         try:
             with codecs_open(file_path, encoding=encoding) as f:
-                logger.debug("attempting to read file %s as %s",
-                             file_path, encoding)
+                logger.debug("attempting to read file %s as %s", file_path,
+                             encoding)
                 return f.read()
         except (UnicodeError, UnicodeDecodeError):
             pass

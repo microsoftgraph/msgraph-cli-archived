@@ -33,7 +33,7 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             if token and "access_token" in token and "expires_in" in token:
                 return AccessToken(token["access_token"],
                                    now + int(token["expires_in"]))
-        else: 
+        else:
             raise CLIError('Login to run this command')
         return None
 

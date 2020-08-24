@@ -25,7 +25,7 @@ def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
         module = import_module(extension)
         loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
     elif (name):
-        module = import_module(prefix+name)
+        module = import_module(prefix + name)
         loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
 
     command_table = {}
@@ -43,13 +43,16 @@ def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
                 # else:
                 loader.cmd_to_loader_map[cmd] = [command_loader]
     else:
-        logger.debug(
-            "Module '%s' is missing `COMMAND_LOADER_CLS` entry.", name)
+        logger.debug("Module '%s' is missing `COMMAND_LOADER_CLS` entry.",
+                     name)
     return command_table, command_loader.command_group_table
 
 
 def _load_module_command_loader(loader, args, mod):
-    return _load_command_loader(loader, args, name=mod, prefix='msgraph.cli.command_modules.')
+    return _load_command_loader(loader,
+                                args,
+                                name=mod,
+                                prefix='msgraph.cli.command_modules.')
 
 
 def _load_extension_command_loader(loader, args, extension):
@@ -89,8 +92,8 @@ def read_file_content(file_path, allow_binary=False):
     for encoding in ['utf-8-sig', 'utf-8', 'utf-16', 'utf-16le', 'utf-16be']:
         try:
             with codecs_open(file_path, encoding=encoding) as f:
-                logger.debug("attempting to read file %s as %s",
-                             file_path, encoding)
+                logger.debug("attempting to read file %s as %s", file_path,
+                             encoding)
                 return f.read()
         except (UnicodeError, UnicodeDecodeError):
             pass
@@ -113,8 +116,11 @@ def _explode_list_args(args):
     Ex.
         { a1:'x', a2:IterateValue(['y', 'z']) } => [{ a1:'x', a2:'y'),{ a1:'x', a2:'z'}]
     """
-    list_args = {argname: argvalue for argname, argvalue in vars(args).items()
-                 if isinstance(argvalue, IterateValue)}
+    list_args = {
+        argname: argvalue
+        for argname, argvalue in vars(args).items()
+        if isinstance(argvalue, IterateValue)
+    }
     if not list_args:
         yield args
     else:
@@ -132,8 +138,10 @@ def _explode_list_args(args):
 def _merge_kwargs(patch_kwargs, base_kwargs, supported_kwargs=None):
     merged_kwargs = base_kwargs.copy()
     merged_kwargs.update(patch_kwargs)
-    unrecognized_kwargs = [x for x in merged_kwargs if x not in (
-        supported_kwargs or CLI_COMMON_KWARGS)]
+    unrecognized_kwargs = [
+        x for x in merged_kwargs
+        if x not in (supported_kwargs or CLI_COMMON_KWARGS)
+    ]
     if unrecognized_kwargs:
         raise TypeError('unrecognized kwargs: {}'.format(unrecognized_kwargs))
     return merged_kwargs

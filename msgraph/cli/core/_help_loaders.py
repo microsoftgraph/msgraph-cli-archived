@@ -17,7 +17,7 @@ logger = get_logger(__name__)
 try:
     ABC = abc.ABC
 except AttributeError:  # Python 2.7, abc exists, but not ABC
-    ABC = abc.ABCMeta('ABC', (object,), {'__slots__': ()})
+    ABC = abc.ABCMeta('ABC', (object, ), {'__slots__': ()})
 
 
 # BaseHelpLoader defining versioned loader interface. Also contains some helper methods.
@@ -52,7 +52,8 @@ class BaseHelpLoader(ABC):
         pass
 
     def _data_is_applicable(self):
-        return self._entry_data and self.version == self._entry_data.get('version')
+        return self._entry_data and self.version == self._entry_data.get(
+            'version')
 
     @abc.abstractmethod
     def load_entry_data(self, help_obj, parser):
@@ -83,12 +84,15 @@ class BaseHelpLoader(ABC):
 
     # update relevant help file object parameters from data.
     @staticmethod
-    def _update_help_obj_params(help_obj, data_params, params_equal, attr_key_tups):
+    def _update_help_obj_params(help_obj, data_params, params_equal,
+                                attr_key_tups):
         loaded_params = []
         for param_obj in help_obj.parameters:
-            loaded_param = next((n for n in data_params if params_equal(param_obj, n)), None)
+            loaded_param = next(
+                (n for n in data_params if params_equal(param_obj, n)), None)
             if loaded_param:
-                BaseHelpLoader._update_obj_from_data_dict(param_obj, loaded_param, attr_key_tups)
+                BaseHelpLoader._update_obj_from_data_dict(
+                    param_obj, loaded_param, attr_key_tups)
             loaded_params.append(param_obj)
         help_obj.parameters = loaded_params
 
@@ -135,16 +139,17 @@ class YamlLoaderMixin(object):  # pylint:disable=too-few-public-methods
         pretty_file_path = os.path.join(os.path.basename(dir_name), base_name)
 
         if not text:
-            raise CLIError("No content passed for {}.".format(pretty_file_path))
+            raise CLIError(
+                "No content passed for {}.".format(pretty_file_path))
 
         try:
             return yaml.safe_load(text)
         except yaml.YAMLError as e:
-            raise CLIError("Error parsing {}:\n\n{}".format(pretty_file_path, e))
+            raise CLIError("Error parsing {}:\n\n{}".format(
+                pretty_file_path, e))
 
 
 class HelpLoaderV0(BaseHelpLoader):
-
     @property
     def version(self):
         return 0
@@ -169,9 +174,12 @@ class HelpLoaderV0(BaseHelpLoader):
 
 
 class HelpLoaderV1(BaseHelpLoader, YamlLoaderMixin):
-    core_attrs_to_keys = [("short_summary", "summary"), ("long_summary", "description")]
+    core_attrs_to_keys = [("short_summary", "summary"),
+                          ("long_summary", "description")]
     body_attrs_to_keys = core_attrs_to_keys + [("links", "links")]
-    param_attrs_to_keys = core_attrs_to_keys + [("value_sources", "value-sources")]
+    param_attrs_to_keys = core_attrs_to_keys + [
+        ("value_sources", "value-sources")
+    ]
 
     @property
     def version(self):
@@ -184,7 +192,11 @@ class HelpLoaderV1(BaseHelpLoader, YamlLoaderMixin):
     def update_file_contents(self, file_contents):
         for file_name in file_contents:
             if file_name not in self._file_content_dict:
-                data_dict = {file_name: self._parse_yaml_from_string(file_contents[file_name], file_name)}
+                data_dict = {
+                    file_name:
+                    self._parse_yaml_from_string(file_contents[file_name],
+                                                 file_name)
+                }
                 self._file_content_dict.update(data_dict)
 
     def load_entry_data(self, help_obj, parser):
@@ -192,28 +204,35 @@ class HelpLoaderV1(BaseHelpLoader, YamlLoaderMixin):
         command_nouns = prog.split()[1:]
         cmd_loader_map_ref = self.help_ctx.cli_ctx.invocation.commands_loader.cmd_to_loader_map
 
-        files_list = self._get_yaml_help_files_list(command_nouns, cmd_loader_map_ref)
+        files_list = self._get_yaml_help_files_list(command_nouns,
+                                                    cmd_loader_map_ref)
         data_list = [self._file_content_dict[name] for name in files_list]
 
         self._entry_data = self._get_entry_data(help_obj.command, data_list)
 
     def load_help_body(self, help_obj):
         help_obj.long_summary = ""  # similar to knack...
-        self._update_obj_from_data_dict(help_obj, self._entry_data, self.body_attrs_to_keys)
+        self._update_obj_from_data_dict(help_obj, self._entry_data,
+                                        self.body_attrs_to_keys)
 
     def load_help_parameters(self, help_obj):
         def params_equal(param, param_dict):
-            if param_dict['name'].startswith("--"):  # for optionals, help file name must be one of the  long options
+            if param_dict['name'].startswith(
+                    "--"
+            ):  # for optionals, help file name must be one of the  long options
                 return param_dict['name'] in param.name.split()
             # for positionals, help file must name must match param name shown when -h is run
             return param_dict['name'] == param.name
 
-        if help_obj.type == "command" and hasattr(help_obj, "parameters") and self._entry_data.get("arguments"):
+        if help_obj.type == "command" and hasattr(
+                help_obj, "parameters") and self._entry_data.get("arguments"):
             loaded_params = []
             for param_obj in help_obj.parameters:
-                loaded_param = next((n for n in self._entry_data["arguments"] if params_equal(param_obj, n)), None)
+                loaded_param = next((n for n in self._entry_data["arguments"]
+                                     if params_equal(param_obj, n)), None)
                 if loaded_param:
-                    self._update_obj_from_data_dict(param_obj, loaded_param, self.param_attrs_to_keys)
+                    self._update_obj_from_data_dict(param_obj, loaded_param,
+                                                    self.param_attrs_to_keys)
                 loaded_params.append(param_obj)
             help_obj.parameters = loaded_params
 
@@ -227,7 +246,8 @@ class HelpLoaderV1(BaseHelpLoader, YamlLoaderMixin):
             if data and data.get("content"):
                 try:
                     entry_data = next(value for elem in data.get("content")
-                                      for key, value in elem.items() if value.get("name") == cmd_name)
+                                      for key, value in elem.items()
+                                      if value.get("name") == cmd_name)
                     entry_data["version"] = data['version']
                     return entry_data
                 except StopIteration:
