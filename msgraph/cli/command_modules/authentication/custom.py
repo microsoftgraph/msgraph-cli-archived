@@ -16,7 +16,7 @@ def login(scopes):
 
     if not result:
         raise CLIError('Login failed')
-    if result:
+    else:
         print('Logged in successfully')
 
 

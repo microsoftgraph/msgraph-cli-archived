@@ -12,6 +12,7 @@ from msal_extensions import *
 from azure.identity import InteractiveBrowserCredential
 
 from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
+from knack.cli import CLIError
 
 
 class CustomBrowserCredential(InteractiveBrowserCredential):
@@ -32,6 +33,8 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             if token and "access_token" in token and "expires_in" in token:
                 return AccessToken(token["access_token"],
                                    now + int(token["expires_in"]))
+        else: 
+            raise CLIError('Login to run this command')
         return None
 
     def login(self, scopes, **kwargs):
