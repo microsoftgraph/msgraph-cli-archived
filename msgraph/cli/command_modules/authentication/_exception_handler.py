@@ -8,4 +8,4 @@ from knack.cli import CLIError
 
 
 def auth_exception_handler(exception):
-    raise CLIError(exception.message)
+    raise CLIError(exception)
