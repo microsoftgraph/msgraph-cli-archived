@@ -43,7 +43,14 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
         refresh_token = json.loads(persistence.load()).get('RefreshToken')
         refresh_token_as_key = list(dict.keys(refresh_token))[0]
         scopes = refresh_token.get(refresh_token_as_key).get('target')
-        return scopes.split(' ')
+        return list(filter(self._get_filtered_scopes, scopes.split(' ')))
+
+    @staticmethod
+    def _get_filtered_scopes(scope):
+        frozen_set = ['openid', 'profile', 'offline_access']
+
+        if scope not in frozen_set:
+            return scope
 
     def _get_app(self):
         # type: () -> msal.PublicClientApplication
