@@ -32,7 +32,6 @@ class MainCommandsLoader(CLICommandsLoader):
     """
     Loads command_tables from msgraph.cli.command_modules and from installed extensions.
     """
-
     def __init__(self, cli_ctx=None):
         super(MainCommandsLoader, self).__init__(cli_ctx)
         self.cmd_to_loader_map = {}
@@ -76,7 +75,8 @@ class MainCommandsLoader(CLICommandsLoader):
                 if command is None:
                     # load all arguments via reflection
                     for cmd in loader.command_table.values():
-                        cmd.load_arguments()  # this loads the arguments via reflection
+                        cmd.load_arguments(
+                        )  # this loads the arguments via reflection
                     loader.skip_applicability = True
                     # this adds entries to the argument registries
                     loader.load_arguments('')
@@ -102,9 +102,11 @@ class MainCommandsLoader(CLICommandsLoader):
 
         try:
             modules = import_module('msgraph.cli.command_modules')
-            installed_command_modules = [modname for _, modname, _ in
-                                         pkgutil.iter_modules(modules.__path__)
-                                         if modname not in BLACKLISTED_MODS]
+            installed_command_modules = [
+                modname
+                for _, modname, _ in pkgutil.iter_modules(modules.__path__)
+                if modname not in BLACKLISTED_MODS
+            ]
             for module in installed_command_modules:
                 command_table, group_table = _load_module_command_loader(
                     self, args, module)
@@ -141,10 +143,15 @@ def get_default_cli():
 class GraphCommandsLoader(CLICommandsLoader):
     '''This class is used by extensions for command registration.
     '''
-
-    def __init__(self, cli_ctx=None, command_group_cls=None, argument_context_cls=None, **kwargs):
-        super(GraphCommandsLoader, self).__init__(
-            cli_ctx=cli_ctx, command_cls=GraphCliCommand, excluded_command_handler_args=EXCLUDED_PARAMS)
+    def __init__(self,
+                 cli_ctx=None,
+                 command_group_cls=None,
+                 argument_context_cls=None,
+                 **kwargs):
+        super(GraphCommandsLoader,
+              self).__init__(cli_ctx=cli_ctx,
+                             command_cls=GraphCliCommand,
+                             excluded_command_handler_args=EXCLUDED_PARAMS)
         self.module_kwargs = kwargs
         self._command_group_cls = command_group_cls or GraphCommandGroup
         self._argument_context_cls = ArgumentsContext
@@ -159,7 +166,13 @@ class GraphCommandsLoader(CLICommandsLoader):
             kwargs['command_type'] = command_type
         return self._command_group_cls(self, group_name, **kwargs)
 
-    def _cli_command(self, name, operation=None, handler=None, argument_loader=None, description_loader=None, **kwargs):
+    def _cli_command(self,
+                     name,
+                     operation=None,
+                     handler=None,
+                     argument_loader=None,
+                     description_loader=None,
+                     **kwargs):
         '''Adds a command to the command table
         :param name: command name
         '''
@@ -197,8 +210,8 @@ class GraphCommandsLoader(CLICommandsLoader):
                 'cmd') if 'cmd' in op_args else command_args.pop('cmd')
 
             # Gets the http client. In our case, the client is a GraphSession object.
-            client = client_factory(
-                cmd.cli_ctx, command_args) if client_factory else None
+            client = client_factory(cmd.cli_ctx,
+                                    command_args) if client_factory else None
 
             # If a client exists, add it to the list of arguments passed to a handler function.
             if client:
@@ -215,8 +228,9 @@ class GraphCommandsLoader(CLICommandsLoader):
                 operation, operation_group=kwargs.get('operation_group'))
 
             # Extract command args from the handler function signature
-            cmd_args = list(extract_args_from_signature(
-                op, excluded_params=self.excluded_command_handler_args))
+            cmd_args = list(
+                extract_args_from_signature(
+                    op, excluded_params=self.excluded_command_handler_args))
             return cmd_args
 
         def default_description_loader():
@@ -226,8 +240,10 @@ class GraphCommandsLoader(CLICommandsLoader):
                 operation, operation_group=kwargs.get('operation_group'))
             return extract_full_summary_from_signature(op)
 
-        kwargs['arguments_loader'] = argument_loader or default_arguments_loader
-        kwargs['description_loader'] = description_loader or default_description_loader
+        kwargs[
+            'arguments_loader'] = argument_loader or default_arguments_loader
+        kwargs[
+            'description_loader'] = description_loader or default_description_loader
 
         # Adds command to command_table with it's associated command handler and loaders.
         self.command_table[name] = self.command_cls(
@@ -246,7 +262,8 @@ class GraphCommandsLoader(CLICommandsLoader):
 
         for command_name, command in self.command_table.items():
             # Add any arguments explicitly registered for this command
-            for argument_name, argument_definition in master_extra_arg_registry[command_name].items():
+            for argument_name, argument_definition in master_extra_arg_registry[
+                    command_name].items():
                 command.arguments[argument_name] = argument_definition
 
             for argument_name in command.arguments:
