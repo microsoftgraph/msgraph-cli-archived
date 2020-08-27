@@ -31,11 +31,10 @@ class CliCommandType(object):
 
 class GraphCommandGroup(CommandGroup):
     def __init__(self, command_loader, group_name, **kwargs):
-        merged_kwargs = self._merge_kwargs(
-            kwargs, base_kwargs=command_loader.module_kwargs)
+        merged_kwargs = self._merge_kwargs(kwargs, base_kwargs=command_loader.module_kwargs)
         operations_tmpl = merged_kwargs.pop('operations_tmpl', None)
-        super(GraphCommandGroup, self).__init__(command_loader,
-                                                group_name, operations_tmpl, **merged_kwargs)
+        super(GraphCommandGroup, self).__init__(command_loader, group_name, operations_tmpl,
+                                                **merged_kwargs)
 
         self.group_kwargs = merged_kwargs
         if operations_tmpl:
@@ -43,8 +42,7 @@ class GraphCommandGroup(CommandGroup):
         self.is_stale = False
 
     def _merge_kwargs(self, kwargs, base_kwargs=None):
-        base = base_kwargs if base_kwargs is not None else getattr(
-            self, 'group_kwargs')
+        base = base_kwargs if base_kwargs is not None else getattr(self, 'group_kwargs')
         return _merge_kwargs(kwargs, base, CLI_COMMAND_KWARGS)
 
     def command(self, name, method_name=None, **kwargs):
@@ -99,16 +97,14 @@ class GraphCommandGroup(CommandGroup):
 
     def _command(self, name, method_name, custom_command=False, **kwargs):
         self._check_stale()
-        merged_kwargs = self._flatten_kwargs(
-            kwargs, get_command_type_kwarg(custom_command))
+        merged_kwargs = self._flatten_kwargs(kwargs, get_command_type_kwarg(custom_command))
 
         operations_tmpl = merged_kwargs['operations_tmpl']
-        command_name = '{} {}'.format(
-            self.group_name, name) if self.group_name else name
-        self.command_loader._cli_command(command_name,  # pylint: disable=protected-access
-                                         operation=operations_tmpl.format(
-                                             method_name),
-                                         **merged_kwargs)
+        command_name = '{} {}'.format(self.group_name, name) if self.group_name else name
+        self.command_loader._cli_command(
+            command_name,  # pylint: disable=protected-access
+            operation=operations_tmpl.format(method_name),
+            **merged_kwargs)
         return command_name
 
     def _flatten_kwargs(self, kwargs, default_source_name):
@@ -136,13 +132,29 @@ class GraphCommandGroup(CommandGroup):
 
 
 class GraphCliCommand(CLICommand):
-    def __init__(self, loader, name, handler, description=None, table_transformer=None,
-                 arguments_loader=None, description_loader=None,
-                 formatter_class=None, deprecate_info=None, validator=None, **kwargs):
-        super(GraphCliCommand, self).__init__(loader.cli_ctx, name, handler, description=description,
-                                              table_transformer=table_transformer, arguments_loader=arguments_loader,
-                                              description_loader=description_loader, formatter_class=formatter_class,
-                                              deprecate_info=deprecate_info, validator=validator, **kwargs)
+    def __init__(self,
+                 loader,
+                 name,
+                 handler,
+                 description=None,
+                 table_transformer=None,
+                 arguments_loader=None,
+                 description_loader=None,
+                 formatter_class=None,
+                 deprecate_info=None,
+                 validator=None,
+                 **kwargs):
+        super(GraphCliCommand, self).__init__(loader.cli_ctx,
+                                              name,
+                                              handler,
+                                              description=description,
+                                              table_transformer=table_transformer,
+                                              arguments_loader=arguments_loader,
+                                              description_loader=description_loader,
+                                              formatter_class=formatter_class,
+                                              deprecate_info=deprecate_info,
+                                              validator=validator,
+                                              **kwargs)
         self.loader = loader
         self.command_source = None
         self.no_wait_param = kwargs.get('no_wait_param', None)
@@ -157,8 +169,11 @@ class GraphCliCommand(CLICommand):
 
 class ExtensionCommandSource:
     '''Class for commands contributed by an extension'''
-
-    def __init__(self, overrides_command=False, extension_name=None, preview=False, experimental=False):
+    def __init__(self,
+                 overrides_command=False,
+                 extension_name=None,
+                 preview=False,
+                 experimental=False):
         super(ExtensionCommandSource, self).__init__()
         # True if the command overrides a CLI command
         self.overrides_command = overrides_command

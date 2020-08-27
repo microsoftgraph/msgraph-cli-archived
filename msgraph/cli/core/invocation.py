@@ -12,11 +12,10 @@ import json
 import six
 from knack.cli import logger
 from knack.invocation import CommandInvoker
-from knack.events import (
-    EVENT_INVOKER_PRE_CMD_TBL_CREATE, EVENT_INVOKER_POST_CMD_TBL_CREATE,
-    EVENT_INVOKER_CMD_TBL_LOADED, EVENT_INVOKER_PRE_PARSE_ARGS,
-    EVENT_INVOKER_POST_PARSE_ARGS, EVENT_INVOKER_FILTER_RESULT,
-    EVENT_INVOKER_TRANSFORM_RESULT)
+from knack.events import (EVENT_INVOKER_PRE_CMD_TBL_CREATE, EVENT_INVOKER_POST_CMD_TBL_CREATE,
+                          EVENT_INVOKER_CMD_TBL_LOADED, EVENT_INVOKER_PRE_PARSE_ARGS,
+                          EVENT_INVOKER_POST_PARSE_ARGS, EVENT_INVOKER_FILTER_RESULT,
+                          EVENT_INVOKER_TRANSFORM_RESULT)
 from knack.util import CommandResultItem, todict, CLIError
 from azure.core.exceptions import HttpResponseError, ClientAuthenticationError
 
@@ -31,7 +30,6 @@ def _expand_file_prefixed_files(args):
         else:
             content = read_file_content(os.path.expanduser(path),
                                         allow_binary=True)
-
         return content.rstrip(os.linesep)
 
     def _maybe_load_file(arg):
@@ -144,7 +142,6 @@ class GraphCliCommandInvoker(CommandInvoker):
         self.cli_ctx.data[
             'safe_params'] = GraphCliCommandInvoker._extract_parameter_names(
                 args)
-
         command_source = self.commands_loader.command_table[
             command].command_source
 
@@ -183,11 +180,10 @@ class GraphCliCommandInvoker(CommandInvoker):
         self.cli_ctx.raise_event(EVENT_INVOKER_FILTER_RESULT,
                                  event_data=event_data)
 
-        return CommandResultItem(
-            event_data['result'],
-            table_transformer=self.commands_loader.command_table[
-                parsed_args.command].table_transformer,
-            is_query_active=self.data['query_active'])
+        return CommandResultItem(event_data['result'],
+                                 table_transformer=self.commands_loader.command_table[
+                                     parsed_args.command].table_transformer,
+                                 is_query_active=self.data['query_active'])
 
     def _run_jobs_serially(self, jobs, ids):
         results, exceptions = [], []
@@ -231,8 +227,7 @@ class GraphCliCommandInvoker(CommandInvoker):
             if _is_paged(result):
                 result = list(result)
 
-            result = todict(
-                result, GraphCliCommandInvoker.remove_additional_prop_layer)
+            result = todict(result, GraphCliCommandInvoker.remove_additional_prop_layer)
 
             # Formatting result so that non utf8 encoded characters are ignored.
             formatted_json = format_json({'result': result})
@@ -272,7 +267,6 @@ class GraphCliCommandInvoker(CommandInvoker):
             (p.split('=', 1)[0] if p.startswith('--') else p[:2]) for p in args
             if (p.startswith('-') and not p.startswith('---') and len(p) > 1)
         ]
-
     @staticmethod
     def remove_additional_prop_layer(obj, converted_dic):
         from msrest.serialization import Model

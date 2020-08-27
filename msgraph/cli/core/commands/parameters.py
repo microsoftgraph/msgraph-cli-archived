@@ -1,15 +1,17 @@
 import argparse
 from knack.util import CLIError
 from knack import ArgumentsContext
-from knack.arguments import (
-    CLIArgumentType, CaseInsensitiveList, ignore_type, ArgumentsContext)
+from knack.arguments import (CLIArgumentType, CaseInsensitiveList, ignore_type, ArgumentsContext)
 
 
 class GraphArgumentContext(ArgumentsContext):
     pass
 
 
-def get_three_state_flag(positive_label='true', negative_label='false', invert=False, return_label=False):
+def get_three_state_flag(positive_label='true',
+                         negative_label='false',
+                         invert=False,
+                         return_label=False):
     """ Creates a flag-like argument that can also accept positive/negative values. This allows
     consistency between create commands that typically use flags and update commands that require
     positive/negative values without introducing breaking changes. Flag-like behavior always
@@ -23,7 +25,6 @@ def get_three_state_flag(positive_label='true', negative_label='false', invert=F
 
     # pylint: disable=too-few-public-methods
     class ThreeStateAction(argparse.Action):
-
         def __call__(self, parser, namespace, values, option_string=None):
             values = values or positive_label
             is_positive = values.lower() == positive_label.lower()
@@ -35,11 +36,7 @@ def get_three_state_flag(positive_label='true', negative_label='false', invert=F
                 set_val = is_positive
             setattr(namespace, self.dest, set_val)
 
-    params = {
-        'choices': CaseInsensitiveList(choices),
-        'nargs': '?',
-        'action': ThreeStateAction
-    }
+    params = {'choices': CaseInsensitiveList(choices), 'nargs': '?', 'action': ThreeStateAction}
     return CLIArgumentType(**params)
 
 
@@ -56,9 +53,7 @@ def get_enum_type(data, default=None):
 
     # pylint: disable=too-few-public-methods
     class DefaultAction(argparse.Action):
-
         def __call__(self, parser, args, values, option_string=None):
-
             def _get_value(val):
                 return next((x for x in self.choices if x.lower() == val.lower()), val)
 
@@ -73,14 +68,14 @@ def get_enum_type(data, default=None):
 
     default_value = None
     if default:
-        default_value = next(
-            (x for x in choices if x.lower() == default.lower()), None)
+        default_value = next((x for x in choices if x.lower() == default.lower()), None)
         if not default_value:
-            raise CLIError("Command authoring exception: unrecognized default '{}' from choices '{}'"
-                           .format(default, choices))
-        arg_type = CLIArgumentType(choices=CaseInsensitiveList(
-            choices), action=DefaultAction, default=default_value)
+            raise CLIError(
+                "Command authoring exception: unrecognized default '{}' from choices '{}'".format(
+                    default, choices))
+        arg_type = CLIArgumentType(choices=CaseInsensitiveList(choices),
+                                   action=DefaultAction,
+                                   default=default_value)
     else:
-        arg_type = CLIArgumentType(
-            choices=CaseInsensitiveList(choices), action=DefaultAction)
+        arg_type = CLIArgumentType(choices=CaseInsensitiveList(choices), action=DefaultAction)
     return arg_type

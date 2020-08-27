@@ -12,11 +12,9 @@ from msgraph.core import GraphSession
 
 def resolve_client_arg_name(operation, kwargs):
     if not isinstance(operation, str):
-        raise CLIError("operation should be type 'str'. Got '{}'".format(
-            type(operation)))
+        raise CLIError("operation should be type 'str'. Got '{}'".format(type(operation)))
     if 'client_arg_name' in kwargs:
-        logger.info(
-            "Keyword 'client_arg_name' is deprecated and should be removed.")
+        logger.info("Keyword 'client_arg_name' is deprecated and should be removed.")
         return kwargs['client_arg_name']
     path, op_path = operation.split('#', 1)
     path_comps = path.split('.')

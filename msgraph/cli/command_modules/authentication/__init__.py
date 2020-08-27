@@ -18,8 +18,7 @@ class AuthenticationCommandsLoader(AzCommandsLoader):
     def load_command_table(self, args):
         # operations_tmpl is the file that contains the implementation of the command
         command_type = CliCommandType(
-            operations_tmpl=
-            'msgraph.cli.command_modules.authentication.custom#{}',
+            operations_tmpl='msgraph.cli.command_modules.authentication.custom#{}',
             exception_handler=auth_exception_handler)
         with self.command_group('', command_type) as group:
             group.command('login', 'login')
