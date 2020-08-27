@@ -12,7 +12,7 @@ from msal_extensions import *
 from azure.identity import InteractiveBrowserCredential
 
 from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
-from knack.cli import CLIError
+from msgraph.cli.core.exceptions import AuthenticationException, CLIException
 
 
 class CustomBrowserCredential(InteractiveBrowserCredential):
@@ -21,22 +21,29 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
         self._app = self._get_app()
 
     def _get_token_from_cache(self, scopes, **kwargs):
-        """if the user has already signed in, we can redeem a refresh token for a new access token"""
+        """if the user has already signed in, redeem refresh token for new access token"""
         accounts = self._app.get_accounts()
-        if accounts:  # => user has already authenticated
+        has_accounts = len(accounts) > 0
+
+        if has_accounts:  # => user has already authenticated
             # MSAL asserts scopes is a list
             scopes = self._get_scopes_from_cache()  # type: ignore
             now = int(time.time())
             token = self._app.acquire_token_silent(scopes, account=accounts[0], **kwargs)
             if token and "access_token" in token and "expires_in" in token:
-                return AccessToken(token["access_token"],
-                                   now + int(token["expires_in"]))
+                return AccessToken(token["access_token"], now + int(token["expires_in"]))
         else:
-            raise CLIError('Login to run this command')
+            raise CLIException('Login to run this command')
         return None
 
     def login(self, scopes, **kwargs):
         return self._get_token_by_auth_code(scopes, **kwargs)
+
+    def get_token(self, *scopes, **kwargs):
+        try:
+            return super().get_token(*scopes, **kwargs)
+        except Exception as ex:
+            raise AuthenticationException(ex) from ex
 
     def _get_scopes_from_cache(self):
         persistence = self._build_persistence(CACHE_LOCATION, fallback_to_plaintext=True)
@@ -48,7 +55,7 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
     @staticmethod
     def _get_filtered_scopes(scope):
         """Filters out the frozen set of scopes from tokens retrieved from cache
-        
+
         The authorization endpoint doesn't expect scopes from the "froze_set"
         """
         frozen_set = ['openid', 'profile', 'offline_access']

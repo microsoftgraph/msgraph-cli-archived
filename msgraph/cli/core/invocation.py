@@ -231,10 +231,9 @@ class GraphCliCommandInvoker(CommandInvoker):
             if isinstance(ex, HttpResponseError):
                 if ex.status_code == 403:  # pylint: disable=no-member
                     self.handle_403()
-                raise CLIError(ex.message) from ex
+                raise CLIError(ex.message) from ex  # pylint: disable=no-member
             if isinstance(ex, AuthenticationException):
                 self.handle_auth_error(ex)
-                sys.exit(1)
             if cmd_copy.exception_handler:
                 cmd_copy.exception_handler(ex)
                 return CommandResultItem(None, exit_code=1, error=ex)
@@ -248,7 +247,7 @@ class GraphCliCommandInvoker(CommandInvoker):
 
     @staticmethod
     def handle_auth_error(ex):
-        raise CLIError(ex.message)
+        raise CLIError(ex)
 
     @staticmethod
     def _extract_parameter_names(args):
