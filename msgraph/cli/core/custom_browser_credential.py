@@ -29,7 +29,8 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             now = int(time.time())
             token = self._app.acquire_token_silent(scopes, account=accounts[0], **kwargs)
             if token and "access_token" in token and "expires_in" in token:
-                return AccessToken(token["access_token"], now + int(token["expires_in"]))
+                return AccessToken(token["access_token"],
+                                   now + int(token["expires_in"]))
         else:
             raise CLIError('Login to run this command')
         return None
@@ -46,6 +47,10 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
 
     @staticmethod
     def _get_filtered_scopes(scope):
+        """Filters out the frozen set of scopes from tokens retrieved from cache
+        
+        The authorization endpoint doesn't expect scopes from the "froze_set"
+        """
         frozen_set = ['openid', 'profile', 'offline_access']
 
         if scope not in frozen_set:
