@@ -21,6 +21,7 @@ from azure.core.exceptions import HttpResponseError, ClientAuthenticationError
 
 from msgraph.cli.core.commands._util import read_file_content, _explode_list_args
 from msgraph.cli.core.commands.events import EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE, EVENT_INVOKER_PRE_LOAD_ARGUMENTS, EVENT_INVOKER_POST_LOAD_ARGUMENTS
+from msgraph.cli.core.exceptions import AuthenticationException
 
 
 def _expand_file_prefixed_files(args):
@@ -28,8 +29,7 @@ def _expand_file_prefixed_files(args):
         if path == '-':
             content = sys.stdin.read()
         else:
-            content = read_file_content(os.path.expanduser(path),
-                                        allow_binary=True)
+            content = read_file_content(os.path.expanduser(path), allow_binary=True)
         return content.rstrip(os.linesep)
 
     def _maybe_load_file(arg):
@@ -67,8 +67,8 @@ def _pre_command_table_create(cli_ctx, args):
 def _is_paged(obj):
     # Since loading msrest is expensive, we avoid it until we have to
     import collections
-    if isinstance(obj, collections.Iterable) and not isinstance(
-            obj, list) and not isinstance(obj, dict):
+    if isinstance(obj,
+                  collections.Iterable) and not isinstance(obj, list) and not isinstance(obj, dict):
         from msrest.paging import Paged
         from azure.core.paging import ItemPaged as AzureCorePaged
         return isinstance(obj, (AzureCorePaged, Paged))
@@ -79,10 +79,9 @@ class GraphCliCommandInvoker(CommandInvoker):
     def execute(self, args):
         self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_CREATE, args=args)
         self.commands_loader.load_command_table(args)
-        self.cli_ctx.raise_event(
-            EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE,
-            load_cmd_tbl_func=self.commands_loader.load_command_table,
-            args=args)
+        self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE,
+                                 load_cmd_tbl_func=self.commands_loader.load_command_table,
+                                 args=args)
         command = self._rudimentary_get_command(args)
         self.cli_ctx.invocation.data['command_string'] = command
         try:
@@ -139,11 +138,8 @@ class GraphCliCommandInvoker(CommandInvoker):
         cmd = parsed_args.func
         self.cli_ctx.data['command'] = parsed_args.command
 
-        self.cli_ctx.data[
-            'safe_params'] = GraphCliCommandInvoker._extract_parameter_names(
-                args)
-        command_source = self.commands_loader.command_table[
-            command].command_source
+        self.cli_ctx.data['safe_params'] = GraphCliCommandInvoker._extract_parameter_names(args)
+        command_source = self.commands_loader.command_table[command].command_source
 
         jobs = []
         for expanded_arg in _explode_list_args(parsed_args):
@@ -167,18 +163,16 @@ class GraphCliCommandInvoker(CommandInvoker):
             for exception, id_arg in exceptions:
                 logger.warning('%s: "%s"', id_arg, str(exception))
             if not results:
-                return CommandResultItem(
-                    None,
-                    exit_code=1,
-                    error=CLIError('Encountered more than one exception.'))
+                return CommandResultItem(None,
+                                         exit_code=1,
+                                         error=CLIError('Encountered more than one exception.'))
             logger.warning('Encountered more than one exception.')
 
         if results and len(results) == 1:
             results = results[0]
 
         event_data = {'result': results}
-        self.cli_ctx.raise_event(EVENT_INVOKER_FILTER_RESULT,
-                                 event_data=event_data)
+        self.cli_ctx.raise_event(EVENT_INVOKER_FILTER_RESULT, event_data=event_data)
 
         return CommandResultItem(event_data['result'],
                                  table_transformer=self.commands_loader.command_table[
@@ -200,8 +194,7 @@ class GraphCliCommandInvoker(CommandInvoker):
         tasks, results, exceptions = [], [], []
         with ThreadPoolExecutor(max_workers=10) as executor:
             for expanded_arg, cmd_copy in jobs:
-                tasks.append(
-                    executor.submit(self._run_job, expanded_arg, cmd_copy))
+                tasks.append(executor.submit(self._run_job, expanded_arg, cmd_copy))
             for index, task in enumerate(as_completed(tasks)):
                 try:
                     results.append(task.result())
@@ -213,11 +206,9 @@ class GraphCliCommandInvoker(CommandInvoker):
         params = self._filter_params(expanded_arg)
         try:
             result = cmd_copy(params)
-            if cmd_copy.supports_no_wait and getattr(expanded_arg, 'no_wait',
-                                                     False):
+            if cmd_copy.supports_no_wait and getattr(expanded_arg, 'no_wait', False):
                 result = None
-            elif cmd_copy.no_wait_param and getattr(
-                    expanded_arg, cmd_copy.no_wait_param, False):
+            elif cmd_copy.no_wait_param and getattr(expanded_arg, cmd_copy.no_wait_param, False):
                 result = None
 
             transform_op = cmd_copy.command_kwargs.get('transform', None)
@@ -234,15 +225,14 @@ class GraphCliCommandInvoker(CommandInvoker):
             result = json.loads(formatted_json)
 
             event_data = {'result': result}
-            cmd_copy.cli_ctx.raise_event(EVENT_INVOKER_TRANSFORM_RESULT,
-                                         event_data=event_data)
+            cmd_copy.cli_ctx.raise_event(EVENT_INVOKER_TRANSFORM_RESULT, event_data=event_data)
             return event_data['result']
         except Exception as ex:  # pylint: disable=broad-except
             if isinstance(ex, HttpResponseError):
                 if ex.status_code == 403:  # pylint: disable=no-member
                     self.handle_403()
-                    sys.exit(1)
-            if isinstance(ex, ClientAuthenticationError):
+                raise CLIError(ex.message) from ex
+            if isinstance(ex, AuthenticationException):
                 self.handle_auth_error(ex)
                 sys.exit(1)
             if cmd_copy.exception_handler:
@@ -263,10 +253,9 @@ class GraphCliCommandInvoker(CommandInvoker):
     @staticmethod
     def _extract_parameter_names(args):
         # note: name start with more than 2 '-' will be treated as value e.g. certs in PEM format
-        return [
-            (p.split('=', 1)[0] if p.startswith('--') else p[:2]) for p in args
-            if (p.startswith('-') and not p.startswith('---') and len(p) > 1)
-        ]
+        return [(p.split('=', 1)[0] if p.startswith('--') else p[:2]) for p in args
+                if (p.startswith('-') and not p.startswith('---') and len(p) > 1)]
+
     @staticmethod
     def remove_additional_prop_layer(obj, converted_dic):
         from msrest.serialization import Model

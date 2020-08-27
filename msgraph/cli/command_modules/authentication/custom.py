@@ -18,8 +18,8 @@ def login(scopes):
 
     if not result:
         raise CLIError('Login failed')
-    else:
-        print('Logged in successfully')
+
+    print('Logged in successfully')
 
 
 def logout():
