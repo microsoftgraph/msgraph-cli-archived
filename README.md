@@ -26,6 +26,7 @@ You can use the `--query` parameter and the [JMESPath](http://jmespath.org/) que
 
 ```bash
 $ mg user list-user --query "[?userType=='Member'].{name: displayName, email: mail}" --output table
+
 Name                      Email
 ------------------------  -------------------------------------
 Conf Room Adams           Adams@M365x555627.OnMicrosoft.com
