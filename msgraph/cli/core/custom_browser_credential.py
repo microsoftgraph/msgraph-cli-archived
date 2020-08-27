@@ -12,33 +12,49 @@ from msal_extensions import *
 from azure.identity import InteractiveBrowserCredential
 
 from msgraph.cli.core.constants import CACHE_LOCATION, CLIENT_ID
+from knack.cli import CLIError
 
 
 class CustomBrowserCredential(InteractiveBrowserCredential):
     def __init__(self, **kwargs):
-        super(CustomBrowserCredential, self).__init__(**kwargs)
+        super().__init__(**kwargs)
+        self._app = self._get_app()
 
     def _get_token_from_cache(self, scopes, **kwargs):
         """if the user has already signed in, we can redeem a refresh token for a new access token"""
-        app = self._get_app()
-        accounts = app.get_accounts()
+        accounts = self._app.get_accounts()
         if accounts:  # => user has already authenticated
             # MSAL asserts scopes is a list
             scopes = self._get_scopes_from_cache()  # type: ignore
             now = int(time.time())
-            token = app.acquire_token_silent(
-                scopes, account=accounts[0], **kwargs)
+            token = self._app.acquire_token_silent(scopes, account=accounts[0], **kwargs)
             if token and "access_token" in token and "expires_in" in token:
-                return AccessToken(token["access_token"], now + int(token["expires_in"]))
+                return AccessToken(token["access_token"],
+                                   now + int(token["expires_in"]))
+        else:
+            raise CLIError('Login to run this command')
         return None
 
+    def login(self, scopes, **kwargs):
+        return self._get_token_by_auth_code(scopes, **kwargs)
+
     def _get_scopes_from_cache(self):
-        persistence = self._build_persistence(
-            CACHE_LOCATION, fallback_to_plaintext=True)
+        persistence = self._build_persistence(CACHE_LOCATION, fallback_to_plaintext=True)
         refresh_token = json.loads(persistence.load()).get('RefreshToken')
         refresh_token_as_key = list(dict.keys(refresh_token))[0]
         scopes = refresh_token.get(refresh_token_as_key).get('target')
-        return scopes.split(' ')
+        return list(filter(self._get_filtered_scopes, scopes.split(' ')))
+
+    @staticmethod
+    def _get_filtered_scopes(scope):
+        """Filters out the frozen set of scopes from tokens retrieved from cache
+        
+        The authorization endpoint doesn't expect scopes from the "froze_set"
+        """
+        frozen_set = ['openid', 'profile', 'offline_access']
+
+        if scope not in frozen_set:
+            return scope
 
     def _get_app(self):
         # type: () -> msal.PublicClientApplication
@@ -48,8 +64,7 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
 
     def _create_app(self, cls):
         # type: (Type[msal.ClientApplication]) -> msal.ClientApplication
-        persistence = self._build_persistence(
-            CACHE_LOCATION, fallback_to_plaintext=True)
+        persistence = self._build_persistence(CACHE_LOCATION, fallback_to_plaintext=True)
         persisted_cached = PersistedTokenCache(persistence)
         return cls(client_id=CLIENT_ID, token_cache=persisted_cached)
 
@@ -69,6 +84,5 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             except:  # pylint: disable=bare-except
                 if not fallback_to_plaintext:
                     raise
-                logging.warning(
-                    "Encryption unavailable. Opting in to plain text.")
+                logging.warning("Encryption unavailable. Opting in to plain text.")
         return FilePersistence(location)

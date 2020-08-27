@@ -24,8 +24,10 @@ def validate_parameter_set(namespace, required, forbidden, dest_to_options=None,
         the provided forbidden parameters (unless the value came from a default). """
 
     missing_required = [x for x in required if not getattr(namespace, x)]
-    included_forbidden = [x for x in forbidden if getattr(namespace, x) and
-                          not hasattr(getattr(namespace, x), 'is_default')]
+    included_forbidden = [
+        x for x in forbidden
+        if getattr(namespace, x) and not hasattr(getattr(namespace, x), 'is_default')
+    ]
     if missing_required or included_forbidden:
         from knack.util import CLIError
 
@@ -36,14 +38,11 @@ def validate_parameter_set(namespace, required, forbidden, dest_to_options=None,
                 # assume the default dest to option
                 return '--{}'.format(dest).replace('_', '-')
 
-        error = 'invalid usage{}{}'.format(
-            ' for ' if description else ':', description)
+        error = 'invalid usage{}{}'.format(' for ' if description else ':', description)
         if missing_required:
-            missing_string = ', '.join(_dest_to_option(x)
-                                       for x in missing_required)
+            missing_string = ', '.join(_dest_to_option(x) for x in missing_required)
             error = '{}\n\tmissing: {}'.format(error, missing_string)
         if included_forbidden:
-            forbidden_string = ', '.join(_dest_to_option(x)
-                                         for x in included_forbidden)
+            forbidden_string = ', '.join(_dest_to_option(x) for x in included_forbidden)
             error = '{}\n\tnot applicable: {}'.format(error, forbidden_string)
         raise CLIError(error)

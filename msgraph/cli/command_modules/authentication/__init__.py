@@ -6,6 +6,7 @@
 from msgraph.cli.core import AzCommandsLoader
 from msgraph.cli.core.commands import CliCommandType
 import msgraph.cli.command_modules.authentication._help
+from ._exception_handler import auth_exception_handler
 
 
 class AuthenticationCommandsLoader(AzCommandsLoader):
@@ -16,9 +17,10 @@ class AuthenticationCommandsLoader(AzCommandsLoader):
 
     def load_command_table(self, args):
         # operations_tmpl is the file that contains the implementation of the command
-        template = CliCommandType(operations_tmpl='msgraph.cli.command_modules.authentication.custom#{}')
-
-        with self.command_group('', template) as group:
+        command_type = CliCommandType(
+            operations_tmpl='msgraph.cli.command_modules.authentication.custom#{}',
+            exception_handler=auth_exception_handler)
+        with self.command_group('', command_type) as group:
             group.command('login', 'login')
             group.command('logout', 'logout')
 

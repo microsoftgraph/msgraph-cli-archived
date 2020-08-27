@@ -15,12 +15,10 @@ class GraphSession(Session):
 
     Extends Session by adding support for middleware options and middleware pipeline
     """
-
     def __init__(self,
                  credential: TokenCredential,
                  scopes: [str] = ['.default'],
-                 middleware: list = []
-                 ):
+                 middleware: list = []):
         super().__init__()
         self._append_sdk_version()
         self._base_url = BASE_URL
@@ -94,7 +92,7 @@ class GraphSession(Session):
         :param url: user provided path
         :return: graph_url
         """
-        return self._base_url+url if (url[0] == '/') else url
+        return self._base_url + url if (url[0] == '/') else url
 
     def _register(self, middleware: [BaseMiddleware]) -> None:
         """Adds middleware to middleware_pipeline
@@ -113,7 +111,9 @@ class GraphSession(Session):
         """Updates sdkVersion in headers with comma-separated new values
         """
         if 'sdkVersion' in self.headers:
-            self.headers.update({'sdkVersion': 'graph-python-' + SDK_VERSION + ', '
-                                               + self.headers.get('sdkVersion')})
+            self.headers.update({
+                'sdkVersion':
+                'graph-python-' + SDK_VERSION + ', ' + self.headers.get('sdkVersion')
+            })
         else:
             self.headers.update({'sdkVersion': 'graph-python-' + SDK_VERSION})
