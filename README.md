@@ -25,7 +25,7 @@ $ mg [ group ] [ subgroup ] [ command ] {parameters}
 You can use the `--query` parameter and the [JMESPath](http://jmespath.org/) query syntax to customize your output.
 
 ```bash
-$ mg user list-user --query "[?userType=='Member'].{name: displayName, email: mail}"
+$ mg user list-user --query "[?userType=='Member'].{name: displayName, email: mail}" --output table
 Name                      Email
 ------------------------  -------------------------------------
 Conf Room Adams           Adams@M365x555627.OnMicrosoft.com
