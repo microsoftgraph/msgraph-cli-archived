@@ -13,12 +13,15 @@ Coming soon.
 ## Usage
 
 ```bash
-$ mg [ group ] [ subgroup ] [ command ] {parameters}
+$ mg [ group ] [ command ] {parameters}
 ```
 
 ### Get Started
 
-
+#### Login
+```bash
+$ mg login --scopes "user.read, mail.read"
+```
 
 #### Query
 
