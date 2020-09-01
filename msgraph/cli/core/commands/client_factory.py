@@ -1,16 +1,20 @@
-from azure.identity import InteractiveBrowserCredential
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
+
 from knack.cli import logger
 from knack.util import CLIError
+
+from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
 from msgraph.core import GraphSession
 
 
 def resolve_client_arg_name(operation, kwargs):
     if not isinstance(operation, str):
-        raise CLIError(
-            "operation should be type 'str'. Got '{}'".format(type(operation)))
+        raise CLIError("operation should be type 'str'. Got '{}'".format(type(operation)))
     if 'client_arg_name' in kwargs:
-        logger.info(
-            "Keyword 'client_arg_name' is deprecated and should be removed.")
+        logger.info("Keyword 'client_arg_name' is deprecated and should be removed.")
         return kwargs['client_arg_name']
     path, op_path = operation.split('#', 1)
     path_comps = path.split('.')
@@ -41,8 +45,9 @@ def get_mgmt_service_client(cli_ctx,
                             aux_subscriptions=None,
                             aux_tenants=None,
                             **kwargs):
-    browser_credential = InteractiveBrowserCredential(
-        client_id='f7218512-c727-4138-9fb9-a0fe2500650c')
-    graph_session = GraphSession(browser_credential)
+
+    credential = CustomBrowserCredential()
+    graph_session = GraphSession(credential=credential)
+
     client = client_type({}, session=graph_session)
     return client

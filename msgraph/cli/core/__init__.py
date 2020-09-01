@@ -1,17 +1,18 @@
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
+
 import six
-import sys
 import types
 import pkgutil
 from knack import CLI
 from knack.cli import logger
-from knack.util import CLIError
-from knack import CLICommandsLoader
-from importlib import import_module
 from importlib import import_module
 from collections import OrderedDict
 from knack.arguments import ignore_type
 from knack.deprecation import Deprecated
-from knack import CLICommandsLoader, CLICommand, ArgumentsContext
+from knack import CLICommandsLoader, ArgumentsContext
 from knack.introspection import extract_args_from_signature, extract_full_summary_from_signature
 
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
@@ -22,7 +23,7 @@ from msgraph.cli.core.commands._util import get_arg_list
 from msgraph.cli.core.commands.client_factory import resolve_client_arg_name
 from msgraph.cli.core.commands.parameters import GraphArgumentContext
 from ._help import GraphCliHelp
-from .commands.constants import EXCLUDED_PARAMS
+from msgraph.cli.core.constants import EXCLUDED_PARAMS
 
 __version__ = '1.0.0'
 
@@ -31,7 +32,6 @@ class MainCommandsLoader(CLICommandsLoader):
     """
     Loads command_tables from msgraph.cli.command_modules and from installed extensions.
     """
-
     def __init__(self, cli_ctx=None):
         super(MainCommandsLoader, self).__init__(cli_ctx)
         self.cmd_to_loader_map = {}
@@ -85,10 +85,8 @@ class MainCommandsLoader(CLICommandsLoader):
                     self.command_table[command].load_arguments()
                     # this adds entries to the argument registries
                     loader.load_arguments(command)
-                self.argument_registry.arguments.update(
-                    loader.argument_registry.arguments)
-                self.extra_argument_registry.update(
-                    loader.extra_argument_registry)
+                self.argument_registry.arguments.update(loader.argument_registry.arguments)
+                self.extra_argument_registry.update(loader.extra_argument_registry)
                 loader._update_command_definitions()  # pylint: disable=protected-access
 
     def _update_command_table_from_modules(self, args):
@@ -101,12 +99,12 @@ class MainCommandsLoader(CLICommandsLoader):
 
         try:
             modules = import_module('msgraph.cli.command_modules')
-            installed_command_modules = [modname for _, modname, _ in
-                                         pkgutil.iter_modules(modules.__path__)
-                                         if modname not in BLACKLISTED_MODS]
+            installed_command_modules = [
+                modname for _, modname, _ in pkgutil.iter_modules(modules.__path__)
+                if modname not in BLACKLISTED_MODS
+            ]
             for module in installed_command_modules:
-                command_table, group_table = _load_module_command_loader(
-                    self, args, module)
+                command_table, group_table = _load_module_command_loader(self, args, module)
                 self.command_table.update(command_table)
                 self.command_group_table.update(group_table)
         except ImportError as e:
@@ -119,8 +117,7 @@ class MainCommandsLoader(CLICommandsLoader):
         """
         try:
             for extension in installed_extensions:
-                command_table, group_table = _load_extension_command_loader(
-                    self, args, extension)
+                command_table, group_table = _load_extension_command_loader(self, args, extension)
                 self.command_table.update(command_table)
                 self.command_group_table.update(group_table)
         except ImportError as e:
@@ -140,10 +137,10 @@ def get_default_cli():
 class GraphCommandsLoader(CLICommandsLoader):
     '''This class is used by extensions for command registration.
     '''
-
     def __init__(self, cli_ctx=None, command_group_cls=None, argument_context_cls=None, **kwargs):
-        super(GraphCommandsLoader, self).__init__(
-            cli_ctx=cli_ctx, command_cls=GraphCliCommand, excluded_command_handler_args=EXCLUDED_PARAMS)
+        super(GraphCommandsLoader, self).__init__(cli_ctx=cli_ctx,
+                                                  command_cls=GraphCliCommand,
+                                                  excluded_command_handler_args=EXCLUDED_PARAMS)
         self.module_kwargs = kwargs
         self._command_group_cls = command_group_cls or GraphCommandGroup
         self._argument_context_cls = ArgumentsContext
@@ -158,7 +155,13 @@ class GraphCommandsLoader(CLICommandsLoader):
             kwargs['command_type'] = command_type
         return self._command_group_cls(self, group_name, **kwargs)
 
-    def _cli_command(self, name, operation=None, handler=None, argument_loader=None, description_loader=None, **kwargs):
+    def _cli_command(self,
+                     name,
+                     operation=None,
+                     handler=None,
+                     argument_loader=None,
+                     description_loader=None,
+                     **kwargs):
         '''Adds a command to the command table
         :param name: command name
         '''
@@ -166,14 +169,11 @@ class GraphCommandsLoader(CLICommandsLoader):
             self.cli_ctx, kwargs, 'command')
 
         if operation and not isinstance(operation, six.string_types):
-            raise TypeError(
-                "Operation must be a string. Got '{}'".format(operation))
+            raise TypeError("Operation must be a string. Got '{}'".format(operation))
         if handler and not callable(handler):
-            raise TypeError(
-                "Handler must be a callable. Got '{}'".format(operation))
+            raise TypeError("Handler must be a callable. Got '{}'".format(operation))
         if bool(operation) == bool(handler):
-            raise TypeError(
-                "Must specify exactly one of either 'operation' or 'handler'")
+            raise TypeError("Must specify exactly one of either 'operation' or 'handler'")
 
         name = ' '.join(name.split())
 
@@ -186,18 +186,16 @@ class GraphCommandsLoader(CLICommandsLoader):
             '''
 
             # Gets the handler function from  the specified operation template
-            op = handler or self.get_op_handler(
-                operation, operation_group=kwargs.get('operation_group'))
+            op = handler or self.get_op_handler(operation,
+                                                operation_group=kwargs.get('operation_group'))
             op_args = get_arg_list(op)
 
             # Removes cmd from list of command_args. This is because the handler function
             # doesn't expect cmd as an argument.
-            cmd = command_args.get(
-                'cmd') if 'cmd' in op_args else command_args.pop('cmd')
+            cmd = command_args.get('cmd') if 'cmd' in op_args else command_args.pop('cmd')
 
             # Gets the http client. In our case, the client is a GraphSession object.
-            client = client_factory(
-                cmd.cli_ctx, command_args) if client_factory else None
+            client = client_factory(cmd.cli_ctx, command_args) if client_factory else None
 
             # If a client exists, add it to the list of arguments passed to a handler function.
             if client:
@@ -210,27 +208,27 @@ class GraphCommandsLoader(CLICommandsLoader):
             '''Loads handler function's arguments from operation_template
             '''
             # Get the handler function for the specified operation template
-            op = handler or self.get_op_handler(
-                operation, operation_group=kwargs.get('operation_group'))
+            op = handler or self.get_op_handler(operation,
+                                                operation_group=kwargs.get('operation_group'))
 
             # Extract command args from the handler function signature
-            cmd_args = list(extract_args_from_signature(
-                op, excluded_params=self.excluded_command_handler_args))
+            cmd_args = list(
+                extract_args_from_signature(op, excluded_params=self.excluded_command_handler_args))
             return cmd_args
 
         def default_description_loader():
             '''Loads handler function's description.
             '''
-            op = handler or self.get_op_handler(
-                operation, operation_group=kwargs.get('operation_group'))
+            op = handler or self.get_op_handler(operation,
+                                                operation_group=kwargs.get('operation_group'))
             return extract_full_summary_from_signature(op)
 
         kwargs['arguments_loader'] = argument_loader or default_arguments_loader
         kwargs['description_loader'] = description_loader or default_description_loader
 
         # Adds command to command_table with it's associated command handler and loaders.
-        self.command_table[name] = self.command_cls(
-            self, name, handler or default_command_handler, **kwargs)
+        self.command_table[name] = self.command_cls(self, name, handler or default_command_handler,
+                                                    **kwargs)
 
     def argument_context(self, scope, **kwargs):
         '''Gets an instance of the ArgumentContext class.
@@ -245,12 +243,12 @@ class GraphCommandsLoader(CLICommandsLoader):
 
         for command_name, command in self.command_table.items():
             # Add any arguments explicitly registered for this command
-            for argument_name, argument_definition in master_extra_arg_registry[command_name].items():
+            for argument_name, argument_definition in master_extra_arg_registry[command_name].items(
+            ):
                 command.arguments[argument_name] = argument_definition
 
             for argument_name in command.arguments:
-                overrides = master_arg_registry.get_cli_argument(
-                    command_name, argument_name)
+                overrides = master_arg_registry.get_cli_argument(command_name, argument_name)
                 command.update_argument(argument_name, overrides)
 
     def get_op_handler(self, operation, operation_group=None):

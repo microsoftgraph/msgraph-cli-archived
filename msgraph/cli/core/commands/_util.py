@@ -1,3 +1,8 @@
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
+
 import argparse
 import base64
 import inspect
@@ -5,7 +10,7 @@ from importlib import import_module
 from knack.cli import logger
 from knack.util import CLIError
 from msgraph.cli.core.commands.validators import IterateValue
-from msgraph.cli.core.commands.constants import CLI_COMMON_KWARGS
+from msgraph.cli.core.constants import CLI_COMMON_KWARGS
 
 
 def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
@@ -14,12 +19,13 @@ def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
     '''
     module = None
     loader_cls = None
+    command_loader = None
 
     if (extension):
         module = import_module(extension)
         loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
     elif (name):
-        module = import_module(prefix+name)
+        module = import_module(prefix + name)
         loader_cls = getattr(module, 'COMMAND_LOADER_CLS', None)
 
     command_table = {}
@@ -37,8 +43,7 @@ def _load_command_loader(loader, args, name=None, prefix=None, extension=None):
                 # else:
                 loader.cmd_to_loader_map[cmd] = [command_loader]
     else:
-        logger.debug(
-            "Module '%s' is missing `COMMAND_LOADER_CLS` entry.", name)
+        logger.debug("Module '%s' is missing `COMMAND_LOADER_CLS` entry.", name)
     return command_table, command_loader.command_group_table
 
 
@@ -83,8 +88,7 @@ def read_file_content(file_path, allow_binary=False):
     for encoding in ['utf-8-sig', 'utf-8', 'utf-16', 'utf-16le', 'utf-16be']:
         try:
             with codecs_open(file_path, encoding=encoding) as f:
-                logger.debug("attempting to read file %s as %s",
-                             file_path, encoding)
+                logger.debug("attempting to read file %s as %s", file_path, encoding)
                 return f.read()
         except (UnicodeError, UnicodeDecodeError):
             pass
@@ -96,8 +100,7 @@ def read_file_content(file_path, allow_binary=False):
                 return base64.b64encode(input_file.read()).decode("utf-8")
         except Exception:  # pylint: disable=broad-except
             pass
-    raise CLIError(
-        'Failed to decode file {} - unknown decoding'.format(file_path))
+    raise CLIError('Failed to decode file {} - unknown decoding'.format(file_path))
 
 
 def _explode_list_args(args):
@@ -107,8 +110,10 @@ def _explode_list_args(args):
     Ex.
         { a1:'x', a2:IterateValue(['y', 'z']) } => [{ a1:'x', a2:'y'),{ a1:'x', a2:'z'}]
     """
-    list_args = {argname: argvalue for argname, argvalue in vars(args).items()
-                 if isinstance(argvalue, IterateValue)}
+    list_args = {
+        argname: argvalue
+        for argname, argvalue in vars(args).items() if isinstance(argvalue, IterateValue)
+    }
     if not list_args:
         yield args
     else:
@@ -126,8 +131,9 @@ def _explode_list_args(args):
 def _merge_kwargs(patch_kwargs, base_kwargs, supported_kwargs=None):
     merged_kwargs = base_kwargs.copy()
     merged_kwargs.update(patch_kwargs)
-    unrecognized_kwargs = [x for x in merged_kwargs if x not in (
-        supported_kwargs or CLI_COMMON_KWARGS)]
+    unrecognized_kwargs = [
+        x for x in merged_kwargs if x not in (supported_kwargs or CLI_COMMON_KWARGS)
+    ]
     if unrecognized_kwargs:
         raise TypeError('unrecognized kwargs: {}'.format(unrecognized_kwargs))
     return merged_kwargs

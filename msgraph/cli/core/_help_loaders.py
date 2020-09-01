@@ -17,7 +17,7 @@ logger = get_logger(__name__)
 try:
     ABC = abc.ABC
 except AttributeError:  # Python 2.7, abc exists, but not ABC
-    ABC = abc.ABCMeta('ABC', (object,), {'__slots__': ()})
+    ABC = abc.ABCMeta('ABC', (object, ), {'__slots__': ()})
 
 
 # BaseHelpLoader defining versioned loader interface. Also contains some helper methods.
@@ -144,7 +144,6 @@ class YamlLoaderMixin(object):  # pylint:disable=too-few-public-methods
 
 
 class HelpLoaderV0(BaseHelpLoader):
-
     @property
     def version(self):
         return 0
@@ -184,7 +183,9 @@ class HelpLoaderV1(BaseHelpLoader, YamlLoaderMixin):
     def update_file_contents(self, file_contents):
         for file_name in file_contents:
             if file_name not in self._file_content_dict:
-                data_dict = {file_name: self._parse_yaml_from_string(file_contents[file_name], file_name)}
+                data_dict = {
+                    file_name: self._parse_yaml_from_string(file_contents[file_name], file_name)
+                }
                 self._file_content_dict.update(data_dict)
 
     def load_entry_data(self, help_obj, parser):
@@ -203,17 +204,21 @@ class HelpLoaderV1(BaseHelpLoader, YamlLoaderMixin):
 
     def load_help_parameters(self, help_obj):
         def params_equal(param, param_dict):
-            if param_dict['name'].startswith("--"):  # for optionals, help file name must be one of the  long options
+            if param_dict['name'].startswith(
+                    "--"):  # for optionals, help file name must be one of the  long options
                 return param_dict['name'] in param.name.split()
             # for positionals, help file must name must match param name shown when -h is run
             return param_dict['name'] == param.name
 
-        if help_obj.type == "command" and hasattr(help_obj, "parameters") and self._entry_data.get("arguments"):
+        if help_obj.type == "command" and hasattr(
+                help_obj, "parameters") and self._entry_data.get("arguments"):
             loaded_params = []
             for param_obj in help_obj.parameters:
-                loaded_param = next((n for n in self._entry_data["arguments"] if params_equal(param_obj, n)), None)
+                loaded_param = next(
+                    (n for n in self._entry_data["arguments"] if params_equal(param_obj, n)), None)
                 if loaded_param:
-                    self._update_obj_from_data_dict(param_obj, loaded_param, self.param_attrs_to_keys)
+                    self._update_obj_from_data_dict(param_obj, loaded_param,
+                                                    self.param_attrs_to_keys)
                 loaded_params.append(param_obj)
             help_obj.parameters = loaded_params
 
@@ -227,7 +232,8 @@ class HelpLoaderV1(BaseHelpLoader, YamlLoaderMixin):
             if data and data.get("content"):
                 try:
                     entry_data = next(value for elem in data.get("content")
-                                      for key, value in elem.items() if value.get("name") == cmd_name)
+                                      for key, value in elem.items()
+                                      if value.get("name") == cmd_name)
                     entry_data["version"] = data['version']
                     return entry_data
                 except StopIteration:

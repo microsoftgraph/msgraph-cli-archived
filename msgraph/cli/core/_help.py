@@ -2,10 +2,10 @@ from __future__ import print_function
 import argparse
 
 from msgraph.cli.core.commands import ExtensionCommandSource
-from knack.help import (
-    HelpFile as KnackHelpFile, CommandHelpFile as KnackCommandHelpFile, GroupHelpFile as KnackGroupHelpFile,
-    HelpExample as KnackHelpExample, HelpParameter as KnackHelpParameter, _print_indent, CLIHelp, HelpAuthoringException
-)
+from knack.help import (HelpFile as KnackHelpFile, CommandHelpFile as KnackCommandHelpFile,
+                        GroupHelpFile as KnackGroupHelpFile, HelpExample as KnackHelpExample,
+                        HelpParameter as KnackHelpParameter, _print_indent, CLIHelp,
+                        HelpAuthoringException)
 from knack.log import get_logger
 from knack.util import CLIError
 
@@ -131,14 +131,13 @@ class CLIPrintMixin(CLIHelp):
 
 
 class GraphCliHelp(CLIPrintMixin, CLIHelp):
-
     def __init__(self, cli_ctx):
         super(GraphCliHelp, self).__init__(cli_ctx,
-                                        privacy_statement=PRIVACY_STATEMENT,
-                                        welcome_message=WELCOME_MESSAGE,
-                                        command_help_cls=CliCommandHelpFile,
-                                        group_help_cls=CliGroupHelpFile,
-                                        help_cls=CliHelpFile)
+                                           privacy_statement=PRIVACY_STATEMENT,
+                                           welcome_message=WELCOME_MESSAGE,
+                                           command_help_cls=CliCommandHelpFile,
+                                           group_help_cls=CliGroupHelpFile,
+                                           help_cls=CliHelpFile)
         from knack.help import HelpObject
 
         # TODO: This workaround is used to avoid a bizarre bug in Python 2.7. It
@@ -222,7 +221,6 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
 
 
 class CliHelpFile(KnackHelpFile):
-
     def __init__(self, help_ctx, delimiters):
         # Each help file (for a command or group) has a version denoting the source of its data.
         super(CliHelpFile, self).__init__(help_ctx, delimiters)
@@ -233,7 +231,8 @@ class CliHelpFile(KnackHelpFile):
         unsupported_profiles = ex.get('unsupported-profiles')
 
         if all((supported_profiles, unsupported_profiles)):
-            raise HelpAuthoringException("An example cannot have both supported-profiles and unsupported-profiles.")
+            raise HelpAuthoringException(
+                "An example cannot have both supported-profiles and unsupported-profiles.")
 
         if supported_profiles:
             supported_profiles = [profile.strip() for profile in supported_profiles.split(',')]
@@ -269,20 +268,19 @@ class CliHelpFile(KnackHelpFile):
                     self.examples.append(HelpExample(**d))
 
     def load(self, options):
-        ordered_loaders = sorted(self.help_ctx.versioned_loaders.values(), key=lambda ldr: ldr.version)
+        ordered_loaders = sorted(self.help_ctx.versioned_loaders.values(),
+                                 key=lambda ldr: ldr.version)
         for loader in ordered_loaders:
             loader.versioned_load(self, options)
 
 
 class CliGroupHelpFile(KnackGroupHelpFile, CliHelpFile):
-
     def load(self, options):
         # forces class to use this load method even if KnackGroupHelpFile overrides CliHelpFile's method.
         CliHelpFile.load(self, options)
 
 
 class CliCommandHelpFile(KnackCommandHelpFile, CliHelpFile):
-
     def __init__(self, help_ctx, delimiters, parser):
         super(CliCommandHelpFile, self).__init__(help_ctx, delimiters, parser)
         self.type = 'command'
@@ -338,7 +336,6 @@ class CliCommandHelpFile(KnackCommandHelpFile, CliHelpFile):
 
 
 class HelpExample(KnackHelpExample):  # pylint: disable=too-few-public-methods
-
     def __init__(self, **_data):
         # Old attributes
         _data['name'] = _data.get('name', '')
@@ -371,7 +368,6 @@ class HelpExample(KnackHelpExample):  # pylint: disable=too-few-public-methods
 
 
 class HelpParameter(KnackHelpParameter):  # pylint: disable=too-many-instance-attributes
-
     def __init__(self, **kwargs):
         super(HelpParameter, self).__init__(**kwargs)
 
@@ -379,5 +375,10 @@ class HelpParameter(KnackHelpParameter):  # pylint: disable=too-many-instance-at
         super(HelpParameter, self).update_from_data(data)
         # original help.py value_sources are strings, update command strings to value-source dict
         if self.value_sources:
-            self.value_sources = [str_or_dict if isinstance(str_or_dict, dict) else {"link": {"command": str_or_dict}}
-                                  for str_or_dict in self.value_sources]
+            self.value_sources = [
+                str_or_dict if isinstance(str_or_dict, dict) else {
+                    "link": {
+                        "command": str_or_dict
+                    }
+                } for str_or_dict in self.value_sources
+            ]
