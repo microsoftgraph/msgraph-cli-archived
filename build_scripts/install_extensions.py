@@ -14,7 +14,7 @@ def install_extension(extensions_directory=path_to_extensions):
     for extension in extensions:
         try:
             subprocess.check_call([
-                sys.executable, '-m', 'pipenv', 'install',
+                sys.executable, '-m', 'pip', 'install',
                 path.join(path_to_extensions, extension, 'dist',
                           '{}-0.1.0-py3-none-any.whl'.format(extension))
             ])
