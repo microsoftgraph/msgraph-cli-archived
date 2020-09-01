@@ -37,7 +37,7 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
         return None
 
     def login(self, scopes):
-        return self._authenticate(scopes=scopes)
+        return self._get_token_by_auth_code(scopes)
 
     def get_token(self, *scopes, **kwargs):
         try:
