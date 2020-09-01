@@ -22,7 +22,8 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
+    pip install pipenv
+    pipenv install
   displayName: 'Install dependencies'
 
 - script: |
