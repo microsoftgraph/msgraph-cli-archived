@@ -36,8 +36,8 @@ class CustomBrowserCredential(InteractiveBrowserCredential):
             raise CLIException('Login to run this command')
         return None
 
-    def login(self, scopes, **kwargs):
-        return self._get_token_by_auth_code(scopes, **kwargs)
+    def login(self, scopes):
+        return self._authenticate(scopes=scopes)
 
     def get_token(self, *scopes, **kwargs):
         try:
