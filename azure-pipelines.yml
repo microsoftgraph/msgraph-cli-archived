@@ -47,7 +47,7 @@ steps:
 
 - task: GitHubRelease@0
   inputs:
-    gitHubConnection: 'microsftgraph'
+    gitHubConnection: 'microsoftgraph'
     repositoryName: '$(Build.Repository.Name)'
     action: 'create'
     target: '$(Build.SourceVersion)'
