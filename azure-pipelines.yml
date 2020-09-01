@@ -23,7 +23,7 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install pipenv
-    pipenv install
+    pipenv install --skip-lock
   displayName: 'Install dependencies'
 
 - script: |
