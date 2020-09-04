@@ -62,4 +62,4 @@ steps:
     repositoryName: 'microsoftgraph/msgraph-cli'
     tagSource: 'manual'
     tag: '$(Build.BuildNumber)'
-    assets: '$(Build.ArtifactStagingDirectory)/build_scripts/windows/out/*.msi'
+    assets: 'build_scripts/windows/out/*.msi'
