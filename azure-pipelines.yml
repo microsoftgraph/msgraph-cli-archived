@@ -59,7 +59,7 @@ steps:
 - task: GitHubRelease@0
   inputs:
     gitHubConnection: 'ddyett'
-    repositoryName: '$(Build.Repository.Name)'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'auto'
+    repositoryName: 'microsoftgraph/msgraph-cli'
+    tagSource: 'manual'
+    tag: '$(Build.BuildNumber)'
+    assets: '$(Build.ArtifactStagingDirectory)/*'
