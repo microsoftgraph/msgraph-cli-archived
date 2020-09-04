@@ -7,7 +7,7 @@
 
 from __future__ import print_function
 from codecs import open
-from setuptools import setup
+from setuptools import setup, find_packages
 
 cmdclass = {}
 
@@ -82,16 +82,7 @@ setup(name='msgraph',
       url='https://github.com/microsoftgraph/msgraph-cli',
       zip_safe=False,
       classifiers=CLASSIFIERS,
-      packages=[
-          'msgraph',
-          'msgraph.cli',
-          'msgraph.cli.core',
-          'msgraph.cli.core.commands',
-          'msgraph.cli.command_modules',
-          'msgraph.core',
-          'msgraph.core.middleware',
-          'msgraph.core.middleware.options',
-      ],
+      packages=find_packages(),
       install_requires=DEPENDENCIES,
       extras_require={
           ":python_version<'3.4'": ['enum34'],
