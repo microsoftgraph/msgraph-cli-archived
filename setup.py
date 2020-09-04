@@ -31,7 +31,6 @@ else:
         print('Expected __version__ = "{}"; found "{}"'.format(VERSION, m.group(1)))
         sys.exit(1)
 
-
 CLASSIFIERS = [
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
@@ -48,7 +47,7 @@ DEPENDENCIES = [
     'sshtunnel',
     'argcomplete~=1.8',
     'azure-cli-telemetry',
-    'azure-identity',
+    'azure-identity==1.3.1',
     'colorama>=0.3.9',
     'humanfriendly>=4.7,<9.0',
     'jmespath',
@@ -67,42 +66,38 @@ DEPENDENCIES = [
     'azure-mgmt-core==1.0.0'
 ]
 
-TESTS_REQUIRE = [
-    'mock'
-]
+TESTS_REQUIRE = ['mock']
 
 with open('README.md', 'r', encoding='utf-8') as f:
     README = f.read()
 with open('HISTORY.md', 'r', encoding='utf-8') as f:
     HISTORY = f.read()
 
-setup(
-    name='msgraph',
-    version=VERSION,
-    description='Microsoft Graph CLI',
-    long_description=README + '\n\n' + HISTORY,
-    license='MIT',
-    author='Microsoft Corporation',
-    url='https://github.com/microsoftgraph/msgraph-cli',
-    zip_safe=False,
-    classifiers=CLASSIFIERS,
-    packages=[
-        'msgraph',
-        'msgraph.cli',
-        'msgraph.cli.core',
-        'msgraph.cli.core.commands',
-        'msgraph.cli.command_modules',
-        'msgraph.core',
-        'msgraph.core.middleware',
-        'msgraph.core.middleware.options',
-    ],
-    install_requires=DEPENDENCIES,
-    extras_require={
-        ":python_version<'3.4'": ['enum34'],
-        ":python_version<'2.7.9'": ['pyopenssl', 'ndg-httpsclient', 'pyasn1'],
-        ':python_version<"3.0"': ['futures'],
-        "test": TESTS_REQUIRE,
-    },
-    tests_require=TESTS_REQUIRE,
-    cmdclass=cmdclass
-)
+setup(name='msgraph',
+      version=VERSION,
+      description='Microsoft Graph CLI',
+      long_description=README + '\n\n' + HISTORY,
+      license='MIT',
+      author='Microsoft Corporation',
+      url='https://github.com/microsoftgraph/msgraph-cli',
+      zip_safe=False,
+      classifiers=CLASSIFIERS,
+      packages=[
+          'msgraph',
+          'msgraph.cli',
+          'msgraph.cli.core',
+          'msgraph.cli.core.commands',
+          'msgraph.cli.command_modules',
+          'msgraph.core',
+          'msgraph.core.middleware',
+          'msgraph.core.middleware.options',
+      ],
+      install_requires=DEPENDENCIES,
+      extras_require={
+          ":python_version<'3.4'": ['enum34'],
+          ":python_version<'2.7.9'": ['pyopenssl', 'ndg-httpsclient', 'pyasn1'],
+          ':python_version<"3.0"': ['futures'],
+          "test": TESTS_REQUIRE,
+      },
+      tests_require=TESTS_REQUIRE,
+      cmdclass=cmdclass)
