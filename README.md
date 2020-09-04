@@ -6,8 +6,9 @@ This project is still in its early phases, but we are building not only on the w
 
 ## Installation
 
-Coming soon.
+**Windows**
 
+Download the MSI package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
 ### Developer installation 
 
 ## Usage
