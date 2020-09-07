@@ -132,6 +132,7 @@ dmypy.json
 .idea/
 out/
 artifacts/
+.vscode/
 app.py
 
 
