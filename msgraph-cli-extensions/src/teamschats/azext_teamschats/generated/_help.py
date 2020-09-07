@@ -17,27 +17,14 @@ helps['teamschats'] = """
     short-summary: teamschats
 """
 
-helps['teamschats update'] = """
-    type: command
-    short-summary: Update entity in chats
-    parameters:
-      - name: --members
-        long-summary: |
-            Usage: --members roles=XX display-name=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --members argument.
-"""
-
 helps['teamschats delete'] = """
     type: command
-    short-summary: Delete entity from chats
+    short-summary: "Delete entity from chats"
 """
 
 helps['teamschats create-chat'] = """
     type: command
-    short-summary: Add new entity to chats
+    short-summary: "Add new entity to chats"
     parameters:
       - name: --members
         long-summary: |
@@ -50,12 +37,25 @@ helps['teamschats create-chat'] = """
 
 helps['teamschats get-chat'] = """
     type: command
-    short-summary: Get entity from chats by key
+    short-summary: "Get entity from chats by key"
 """
 
 helps['teamschats list-chat'] = """
     type: command
-    short-summary: Get entities from chats
+    short-summary: "Get entities from chats"
+"""
+
+helps['teamschats update-chat'] = """
+    type: command
+    short-summary: "Update entity in chats"
+    parameters:
+      - name: --members
+        long-summary: |
+            Usage: --members roles=XX display-name=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --members argument.
 """
 
 helps['teamschats'] = """
@@ -63,43 +63,17 @@ helps['teamschats'] = """
     short-summary: teamschats
 """
 
-helps['teamschats update'] = """
-    type: command
-    short-summary: Update the navigation property messages in chats
-    parameters:
-      - name: --teams-app-definition
-        short-summary: teamsAppDefinition
-        long-summary: |
-            Usage: --teams-app-definition teams-app-id=XX display-name=XX version=XX id=XX
-
-            teams-app-id: The id from the Teams App manifest.
-            display-name: The name of the app provided by the app developer.
-            version: The version number of the application.
-            id: Read-only.
-      - name: --teams-app-app-definitions
-        short-summary: The details for each version of the app.
-        long-summary: |
-            Usage: --teams-app-app-definitions teams-app-id=XX display-name=XX version=XX id=XX
-
-            teams-app-id: The id from the Teams App manifest.
-            display-name: The name of the app provided by the app developer.
-            version: The version number of the application.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
-"""
-
 helps['teamschats all-message'] = """
     type: command
-    short-summary: Invoke function allMessages
+    short-summary: "Invoke function allMessages"
 """
 
 helps['teamschats create-installed-app'] = """
     type: command
-    short-summary: Create new navigation property to installedApps for chats
+    short-summary: "Create new navigation property to installedApps for chats"
     parameters:
       - name: --teams-app-definition
-        short-summary: teamsAppDefinition
+        short-summary: "teamsAppDefinition"
         long-summary: |
             Usage: --teams-app-definition teams-app-id=XX display-name=XX version=XX id=XX
 
@@ -108,7 +82,7 @@ helps['teamschats create-installed-app'] = """
             version: The version number of the application.
             id: Read-only.
       - name: --teams-app-app-definitions
-        short-summary: The details for each version of the app.
+        short-summary: "The details for each version of the app."
         long-summary: |
             Usage: --teams-app-app-definitions teams-app-id=XX display-name=XX version=XX id=XX
 
@@ -122,15 +96,15 @@ helps['teamschats create-installed-app'] = """
 
 helps['teamschats create-member'] = """
     type: command
-    short-summary: Create new navigation property to members for chats
+    short-summary: "Create new navigation property to members for chats"
 """
 
 helps['teamschats create-message'] = """
     type: command
-    short-summary: Create new navigation property to messages for chats
+    short-summary: "Create new navigation property to messages for chats"
     parameters:
       - name: --body
-        short-summary: itemBody
+        short-summary: "itemBody"
         long-summary: |
             Usage: --body content-type=XX content=XX
 
@@ -189,7 +163,7 @@ response, but the items associated with the user won't show up as having changed
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
       - name: --policy-violation-policy-tip
-        short-summary: chatMessagePolicyViolationPolicyTip
+        short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
             Usage: --policy-violation-policy-tip general-text=XX compliance-url=XX matched-condition-descriptions=XX
 
@@ -197,32 +171,133 @@ response, but the items associated with the user won't show up as having changed
 
 helps['teamschats get-installed-app'] = """
     type: command
-    short-summary: Get installedApps from chats
+    short-summary: "Get installedApps from chats"
 """
 
 helps['teamschats get-member'] = """
     type: command
-    short-summary: Get members from chats
+    short-summary: "Get members from chats"
 """
 
 helps['teamschats get-message'] = """
     type: command
-    short-summary: Get messages from chats
+    short-summary: "Get messages from chats"
 """
 
 helps['teamschats list-installed-app'] = """
     type: command
-    short-summary: Get installedApps from chats
+    short-summary: "Get installedApps from chats"
 """
 
 helps['teamschats list-member'] = """
     type: command
-    short-summary: Get members from chats
+    short-summary: "Get members from chats"
 """
 
 helps['teamschats list-message'] = """
     type: command
-    short-summary: Get messages from chats
+    short-summary: "Get messages from chats"
+"""
+
+helps['teamschats update-installed-app'] = """
+    type: command
+    short-summary: "Update the navigation property installedApps in chats"
+    parameters:
+      - name: --teams-app-definition
+        short-summary: "teamsAppDefinition"
+        long-summary: |
+            Usage: --teams-app-definition teams-app-id=XX display-name=XX version=XX id=XX
+
+            teams-app-id: The id from the Teams App manifest.
+            display-name: The name of the app provided by the app developer.
+            version: The version number of the application.
+            id: Read-only.
+      - name: --teams-app-app-definitions
+        short-summary: "The details for each version of the app."
+        long-summary: |
+            Usage: --teams-app-app-definitions teams-app-id=XX display-name=XX version=XX id=XX
+
+            teams-app-id: The id from the Teams App manifest.
+            display-name: The name of the app provided by the app developer.
+            version: The version number of the application.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+"""
+
+helps['teamschats update-member'] = """
+    type: command
+    short-summary: "Update the navigation property members in chats"
+"""
+
+helps['teamschats update-message'] = """
+    type: command
+    short-summary: "Update the navigation property messages in chats"
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content-type=XX content=XX
+
+            content: The content of the item.
+      - name: --attachments
+        long-summary: |
+            Usage: --attachments id=XX content-type=XX content-url=XX content=XX name=XX thumbnail-url=XX
+
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --mentions
+        long-summary: |
+            Usage: --mentions id=XX mention-text=XX id-mentioned-user-id=XX display-name-mentioned-user-display-name=XX\
+ id-mentioned-device-id=XX display-name-mentioned-device-display-name=XX id-mentioned-application-id=XX \
+display-name-mentioned-application-display-name=XX
+
+            id-mentioned-user-id: Unique identifier for the identity.
+            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-mentioned-device-id: Unique identifier for the identity.
+            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-mentioned-application-id: Unique identifier for the identity.
+            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+
+            Multiple actions can be specified by using more than one --mentions argument.
+      - name: --reactions
+        long-summary: |
+            Usage: --reactions reaction-type=XX created-date-time=XX id-user-id=XX display-name-user-display-name=XX \
+id-user-device-id=XX display-name-user-device-display-name=XX id-user-application-id=XX display-name-user-application-d\
+isplay-name=XX
+
+            id-user-id: Unique identifier for the identity.
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-device-id: Unique identifier for the identity.
+            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-user-application-id: Unique identifier for the identity.
+            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+
+            Multiple actions can be specified by using more than one --reactions argument.
+      - name: --hosted-contents
+        long-summary: |
+            Usage: --hosted-contents id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --hosted-contents argument.
+      - name: --policy-violation-policy-tip
+        short-summary: "chatMessagePolicyViolationPolicyTip"
+        long-summary: |
+            Usage: --policy-violation-policy-tip general-text=XX compliance-url=XX matched-condition-descriptions=XX
+
 """
 
 helps['teamschats'] = """
@@ -232,17 +307,17 @@ helps['teamschats'] = """
 
 helps['teamschats get-team-app'] = """
     type: command
-    short-summary: Get teamsApp from chats
+    short-summary: "Get teamsApp from chats"
 """
 
 helps['teamschats get-team-app-definition'] = """
     type: command
-    short-summary: Get teamsAppDefinition from chats
+    short-summary: "Get teamsAppDefinition from chats"
 """
 
 helps['teamschats upgrade'] = """
     type: command
-    short-summary: Invoke action upgrade
+    short-summary: "Invoke action upgrade"
 """
 
 helps['teamschats'] = """
@@ -250,22 +325,17 @@ helps['teamschats'] = """
     short-summary: teamschats
 """
 
-helps['teamschats update'] = """
-    type: command
-    short-summary: Update the navigation property replies in chats
-"""
-
 helps['teamschats create-hosted-content'] = """
     type: command
-    short-summary: Create new navigation property to hostedContents for chats
+    short-summary: "Create new navigation property to hostedContents for chats"
 """
 
 helps['teamschats create-reply'] = """
     type: command
-    short-summary: Create new navigation property to replies for chats
+    short-summary: "Create new navigation property to replies for chats"
     parameters:
       - name: --body
-        short-summary: itemBody
+        short-summary: "itemBody"
         long-summary: |
             Usage: --body content-type=XX content=XX
 
@@ -324,7 +394,7 @@ response, but the items associated with the user won't show up as having changed
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
       - name: --policy-violation-policy-tip
-        short-summary: chatMessagePolicyViolationPolicyTip
+        short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
             Usage: --policy-violation-policy-tip general-text=XX compliance-url=XX matched-condition-descriptions=XX
 
@@ -332,27 +402,102 @@ response, but the items associated with the user won't show up as having changed
 
 helps['teamschats delta'] = """
     type: command
-    short-summary: Invoke function delta
+    short-summary: "Invoke function delta"
 """
 
 helps['teamschats get-hosted-content'] = """
     type: command
-    short-summary: Get hostedContents from chats
+    short-summary: "Get hostedContents from chats"
 """
 
 helps['teamschats get-reply'] = """
     type: command
-    short-summary: Get replies from chats
+    short-summary: "Get replies from chats"
 """
 
 helps['teamschats list-hosted-content'] = """
     type: command
-    short-summary: Get hostedContents from chats
+    short-summary: "Get hostedContents from chats"
 """
 
 helps['teamschats list-reply'] = """
     type: command
-    short-summary: Get replies from chats
+    short-summary: "Get replies from chats"
+"""
+
+helps['teamschats update-hosted-content'] = """
+    type: command
+    short-summary: "Update the navigation property hostedContents in chats"
+"""
+
+helps['teamschats update-reply'] = """
+    type: command
+    short-summary: "Update the navigation property replies in chats"
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content-type=XX content=XX
+
+            content: The content of the item.
+      - name: --attachments
+        long-summary: |
+            Usage: --attachments id=XX content-type=XX content-url=XX content=XX name=XX thumbnail-url=XX
+
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --mentions
+        long-summary: |
+            Usage: --mentions id=XX mention-text=XX id-mentioned-user-id=XX display-name-mentioned-user-display-name=XX\
+ id-mentioned-device-id=XX display-name-mentioned-device-display-name=XX id-mentioned-application-id=XX \
+display-name-mentioned-application-display-name=XX
+
+            id-mentioned-user-id: Unique identifier for the identity.
+            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-mentioned-device-id: Unique identifier for the identity.
+            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-mentioned-application-id: Unique identifier for the identity.
+            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
+always be available or up to date. For example, if a user changes their display name, the API may show the new value \
+in a future response, but the items associated with the user won't show up as having changed when using delta.
+
+            Multiple actions can be specified by using more than one --mentions argument.
+      - name: --reactions
+        long-summary: |
+            Usage: --reactions reaction-type=XX created-date-time=XX id-user-id=XX display-name-user-display-name=XX \
+id-user-device-id=XX display-name-user-device-display-name=XX id-user-application-id=XX display-name-user-application-d\
+isplay-name=XX
+
+            id-user-id: Unique identifier for the identity.
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-device-id: Unique identifier for the identity.
+            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-user-application-id: Unique identifier for the identity.
+            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+
+            Multiple actions can be specified by using more than one --reactions argument.
+      - name: --hosted-contents
+        long-summary: |
+            Usage: --hosted-contents id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --hosted-contents argument.
+      - name: --policy-violation-policy-tip
+        short-summary: "chatMessagePolicyViolationPolicyTip"
+        long-summary: |
+            Usage: --policy-violation-policy-tip general-text=XX compliance-url=XX matched-condition-descriptions=XX
+
 """
 
 helps['teamschats'] = """
@@ -362,7 +507,7 @@ helps['teamschats'] = """
 
 helps['teamschats delta'] = """
     type: command
-    short-summary: Invoke function delta
+    short-summary: "Invoke function delta"
 """
 
 helps['teamschats'] = """
@@ -370,22 +515,9 @@ helps['teamschats'] = """
     short-summary: teamschats
 """
 
-helps['teamschats update'] = """
-    type: command
-    short-summary: Update the navigation property chats in users
-    parameters:
-      - name: --members
-        long-summary: |
-            Usage: --members roles=XX display-name=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --members argument.
-"""
-
 helps['teamschats create-chat'] = """
     type: command
-    short-summary: Create new navigation property to chats for users
+    short-summary: "Create new navigation property to chats for users"
     parameters:
       - name: --members
         long-summary: |
@@ -398,10 +530,23 @@ helps['teamschats create-chat'] = """
 
 helps['teamschats get-chat'] = """
     type: command
-    short-summary: Get chats from users
+    short-summary: "Get chats from users"
 """
 
 helps['teamschats list-chat'] = """
     type: command
-    short-summary: Get chats from users
+    short-summary: "Get chats from users"
+"""
+
+helps['teamschats update-chat'] = """
+    type: command
+    short-summary: "Update the navigation property chats in users"
+    parameters:
+      - name: --members
+        long-summary: |
+            Usage: --members roles=XX display-name=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --members argument.
 """

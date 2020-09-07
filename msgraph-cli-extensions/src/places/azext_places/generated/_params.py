@@ -18,27 +18,19 @@ from azext_places.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('places update') as c:
-        c.argument('place_id', help='key: place-id of place')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='outlookGeoCoordinates')
-        c.argument('phone', help='')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
-
     with self.argument_context('places delete') as c:
-        c.argument('place_id', help='key: place-id of place')
-        c.argument('if_match', help='ETag')
+        c.argument('place_id', type=str, help='key: place-id of place')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('places create-place') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='')
         c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='outlookGeoCoordinates')
-        c.argument('phone', help='')
+        c.argument('phone', type=str, help='')
         c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
 
     with self.argument_context('places get-place') as c:
-        c.argument('place_id', help='key: place-id of place')
+        c.argument('place_id', type=str, help='key: place-id of place')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
@@ -46,3 +38,11 @@ def load_arguments(self, _):
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('places update-place') as c:
+        c.argument('place_id', type=str, help='key: place-id of place')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='')
+        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('phone', type=str, help='')
+        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')

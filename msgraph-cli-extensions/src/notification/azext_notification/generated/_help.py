@@ -17,33 +17,17 @@ helps['notification'] = """
     short-summary: notification
 """
 
-helps['notification update'] = """
-    type: command
-    short-summary: Update the navigation property notifications in users
-    parameters:
-      - name: --target-policy
-        short-summary: targetPolicyEndpoints
-        long-summary: |
-            Usage: --target-policy platform-types=XX
-
-      - name: --payload-visual-content
-        short-summary: visualProperties
-        long-summary: |
-            Usage: --payload-visual-content title=XX body=XX
-
-"""
-
 helps['notification create-notification'] = """
     type: command
-    short-summary: Create new navigation property to notifications for users
+    short-summary: "Create new navigation property to notifications for users"
     parameters:
       - name: --target-policy
-        short-summary: targetPolicyEndpoints
+        short-summary: "targetPolicyEndpoints"
         long-summary: |
             Usage: --target-policy platform-types=XX
 
       - name: --payload-visual-content
-        short-summary: visualProperties
+        short-summary: "visualProperties"
         long-summary: |
             Usage: --payload-visual-content title=XX body=XX
 
@@ -51,10 +35,26 @@ helps['notification create-notification'] = """
 
 helps['notification get-notification'] = """
     type: command
-    short-summary: Get notifications from users
+    short-summary: "Get notifications from users"
 """
 
 helps['notification list-notification'] = """
     type: command
-    short-summary: Get notifications from users
+    short-summary: "Get notifications from users"
+"""
+
+helps['notification update-notification'] = """
+    type: command
+    short-summary: "Update the navigation property notifications in users"
+    parameters:
+      - name: --target-policy
+        short-summary: "targetPolicyEndpoints"
+        long-summary: |
+            Usage: --target-policy platform-types=XX
+
+      - name: --payload-visual-content
+        short-summary: "visualProperties"
+        long-summary: |
+            Usage: --payload-visual-content title=XX body=XX
+
 """

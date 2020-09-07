@@ -17,9 +17,14 @@ helps['reports'] = """
     short-summary: reports
 """
 
-helps['reports update'] = """
+helps['reports get-report-root'] = """
     type: command
-    short-summary: Update reports
+    short-summary: "Get reports"
+"""
+
+helps['reports update-report-root'] = """
+    type: command
+    short-summary: "Update reports"
     parameters:
       - name: --application-sign-in-detailed-summary
         long-summary: |
@@ -86,612 +91,637 @@ completed-black-and-white-job-count=XX completed-color-job-count=XX incomplete-j
 argument.
 """
 
-helps['reports get-report-root'] = """
-    type: command
-    short-summary: Get reports
-"""
-
 helps['reports'] = """
     type: group
     short-summary: reports
 """
 
-helps['reports update'] = """
-    type: command
-    short-summary: Update the navigation property userCredentialUsageDetails in reports
-"""
-
 helps['reports create-application-sign-in-detailed-summary'] = """
     type: command
-    short-summary: Create new navigation property to applicationSignInDetailedSummary for reports
+    short-summary: "Create new navigation property to applicationSignInDetailedSummary for reports"
 """
 
 helps['reports create-credential-user-registration-detail'] = """
     type: command
-    short-summary: Create new navigation property to credentialUserRegistrationDetails for reports
+    short-summary: "Create new navigation property to credentialUserRegistrationDetails for reports"
 """
 
 helps['reports create-daily-print-usage-summary-by-printer'] = """
     type: command
-    short-summary: Create new navigation property to dailyPrintUsageSummariesByPrinter for reports
+    short-summary: "Create new navigation property to dailyPrintUsageSummariesByPrinter for reports"
 """
 
 helps['reports create-daily-print-usage-summary-by-user'] = """
     type: command
-    short-summary: Create new navigation property to dailyPrintUsageSummariesByUser for reports
+    short-summary: "Create new navigation property to dailyPrintUsageSummariesByUser for reports"
 """
 
 helps['reports create-monthly-print-usage-summary-by-printer'] = """
     type: command
-    short-summary: Create new navigation property to monthlyPrintUsageSummariesByPrinter for reports
+    short-summary: "Create new navigation property to monthlyPrintUsageSummariesByPrinter for reports"
 """
 
 helps['reports create-monthly-print-usage-summary-by-user'] = """
     type: command
-    short-summary: Create new navigation property to monthlyPrintUsageSummariesByUser for reports
+    short-summary: "Create new navigation property to monthlyPrintUsageSummariesByUser for reports"
 """
 
 helps['reports create-user-credential-usage-detail'] = """
     type: command
-    short-summary: Create new navigation property to userCredentialUsageDetails for reports
+    short-summary: "Create new navigation property to userCredentialUsageDetails for reports"
 """
 
 helps['reports device-configuration-device-activity'] = """
     type: command
-    short-summary: Invoke function deviceConfigurationDeviceActivity
+    short-summary: "Invoke function deviceConfigurationDeviceActivity"
 """
 
 helps['reports device-configuration-user-activity'] = """
     type: command
-    short-summary: Invoke function deviceConfigurationUserActivity
+    short-summary: "Invoke function deviceConfigurationUserActivity"
 """
 
 helps['reports get-application-sign-in-detailed-summary'] = """
     type: command
-    short-summary: Get applicationSignInDetailedSummary from reports
+    short-summary: "Get applicationSignInDetailedSummary from reports"
 """
 
 helps['reports get-azure-ad-application-sign-in-summary'] = """
     type: command
-    short-summary: Invoke function getAzureADApplicationSignInSummary
+    short-summary: "Invoke function getAzureADApplicationSignInSummary"
 """
 
 helps['reports get-azure-ad-feature-usage'] = """
     type: command
-    short-summary: Invoke function getAzureADFeatureUsage
+    short-summary: "Invoke function getAzureADFeatureUsage"
 """
 
 helps['reports get-azure-ad-license-usage'] = """
     type: command
-    short-summary: Invoke function getAzureADLicenseUsage
+    short-summary: "Invoke function getAzureADLicenseUsage"
 """
 
 helps['reports get-azure-ad-user-feature-usage'] = """
     type: command
-    short-summary: Invoke function getAzureADUserFeatureUsage
+    short-summary: "Invoke function getAzureADUserFeatureUsage"
 """
 
 helps['reports get-credential-usage-summary'] = """
     type: command
-    short-summary: Invoke function getCredentialUsageSummary
+    short-summary: "Invoke function getCredentialUsageSummary"
 """
 
 helps['reports get-credential-user-registration-count'] = """
     type: command
-    short-summary: Invoke function getCredentialUserRegistrationCount
+    short-summary: "Invoke function getCredentialUserRegistrationCount"
 """
 
 helps['reports get-credential-user-registration-detail'] = """
     type: command
-    short-summary: Get credentialUserRegistrationDetails from reports
+    short-summary: "Get credentialUserRegistrationDetails from reports"
 """
 
 helps['reports get-daily-print-usage-summary-by-printer'] = """
     type: command
-    short-summary: Get dailyPrintUsageSummariesByPrinter from reports
+    short-summary: "Get dailyPrintUsageSummariesByPrinter from reports"
 """
 
 helps['reports get-daily-print-usage-summary-by-user'] = """
     type: command
-    short-summary: Get dailyPrintUsageSummariesByUser from reports
+    short-summary: "Get dailyPrintUsageSummariesByUser from reports"
 """
 
 helps['reports get-email-activity-count'] = """
     type: command
-    short-summary: Invoke function getEmailActivityCounts
+    short-summary: "Invoke function getEmailActivityCounts"
 """
 
 helps['reports get-email-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getEmailActivityUserCounts
+    short-summary: "Invoke function getEmailActivityUserCounts"
 """
 
 helps['reports get-email-activity-user-detail-ddb2'] = """
     type: command
-    short-summary: Invoke function getEmailActivityUserDetail
+    short-summary: "Invoke function getEmailActivityUserDetail"
 """
 
 helps['reports get-email-activity-user-detail-fe32'] = """
     type: command
-    short-summary: Invoke function getEmailActivityUserDetail
+    short-summary: "Invoke function getEmailActivityUserDetail"
 """
 
 helps['reports get-email-app-usage-app-user-count'] = """
     type: command
-    short-summary: Invoke function getEmailAppUsageAppsUserCounts
+    short-summary: "Invoke function getEmailAppUsageAppsUserCounts"
 """
 
 helps['reports get-email-app-usage-user-count'] = """
     type: command
-    short-summary: Invoke function getEmailAppUsageUserCounts
+    short-summary: "Invoke function getEmailAppUsageUserCounts"
 """
 
 helps['reports get-email-app-usage-user-detail546-b'] = """
     type: command
-    short-summary: Invoke function getEmailAppUsageUserDetail
+    short-summary: "Invoke function getEmailAppUsageUserDetail"
 """
 
 helps['reports get-email-app-usage-user-detail62-ec'] = """
     type: command
-    short-summary: Invoke function getEmailAppUsageUserDetail
+    short-summary: "Invoke function getEmailAppUsageUserDetail"
 """
 
 helps['reports get-email-app-usage-version-user-count'] = """
     type: command
-    short-summary: Invoke function getEmailAppUsageVersionsUserCounts
+    short-summary: "Invoke function getEmailAppUsageVersionsUserCounts"
 """
 
 helps['reports get-mailbox-usage-detail'] = """
     type: command
-    short-summary: Invoke function getMailboxUsageDetail
+    short-summary: "Invoke function getMailboxUsageDetail"
 """
 
 helps['reports get-mailbox-usage-mailbox-count'] = """
     type: command
-    short-summary: Invoke function getMailboxUsageMailboxCounts
+    short-summary: "Invoke function getMailboxUsageMailboxCounts"
 """
 
 helps['reports get-mailbox-usage-quota-status-mailbox-count'] = """
     type: command
-    short-summary: Invoke function getMailboxUsageQuotaStatusMailboxCounts
+    short-summary: "Invoke function getMailboxUsageQuotaStatusMailboxCounts"
 """
 
 helps['reports get-mailbox-usage-storage'] = """
     type: command
-    short-summary: Invoke function getMailboxUsageStorage
+    short-summary: "Invoke function getMailboxUsageStorage"
 """
 
 helps['reports get-monthly-print-usage-summary-by-printer'] = """
     type: command
-    short-summary: Get monthlyPrintUsageSummariesByPrinter from reports
+    short-summary: "Get monthlyPrintUsageSummariesByPrinter from reports"
 """
 
 helps['reports get-monthly-print-usage-summary-by-user'] = """
     type: command
-    short-summary: Get monthlyPrintUsageSummariesByUser from reports
+    short-summary: "Get monthlyPrintUsageSummariesByUser from reports"
 """
 
 helps['reports get-office365-activation-count'] = """
     type: command
-    short-summary: Invoke function getOffice365ActivationCounts
+    short-summary: "Invoke function getOffice365ActivationCounts"
 """
 
 helps['reports get-office365-activation-user-count'] = """
     type: command
-    short-summary: Invoke function getOffice365ActivationsUserCounts
+    short-summary: "Invoke function getOffice365ActivationsUserCounts"
 """
 
 helps['reports get-office365-activation-user-detail'] = """
     type: command
-    short-summary: Invoke function getOffice365ActivationsUserDetail
+    short-summary: "Invoke function getOffice365ActivationsUserDetail"
 """
 
 helps['reports get-office365-active-user-count'] = """
     type: command
-    short-summary: Invoke function getOffice365ActiveUserCounts
+    short-summary: "Invoke function getOffice365ActiveUserCounts"
 """
 
 helps['reports get-office365-active-user-detail-d389'] = """
     type: command
-    short-summary: Invoke function getOffice365ActiveUserDetail
+    short-summary: "Invoke function getOffice365ActiveUserDetail"
 """
 
 helps['reports get-office365-active-user-detail68-ad'] = """
     type: command
-    short-summary: Invoke function getOffice365ActiveUserDetail
+    short-summary: "Invoke function getOffice365ActiveUserDetail"
 """
 
 helps['reports get-office365-group-activity-count'] = """
     type: command
-    short-summary: Invoke function getOffice365GroupsActivityCounts
+    short-summary: "Invoke function getOffice365GroupsActivityCounts"
 """
 
 helps['reports get-office365-group-activity-detail38-f6'] = """
     type: command
-    short-summary: Invoke function getOffice365GroupsActivityDetail
+    short-summary: "Invoke function getOffice365GroupsActivityDetail"
 """
 
 helps['reports get-office365-group-activity-detail81-cc'] = """
     type: command
-    short-summary: Invoke function getOffice365GroupsActivityDetail
+    short-summary: "Invoke function getOffice365GroupsActivityDetail"
 """
 
 helps['reports get-office365-group-activity-file-count'] = """
     type: command
-    short-summary: Invoke function getOffice365GroupsActivityFileCounts
+    short-summary: "Invoke function getOffice365GroupsActivityFileCounts"
 """
 
 helps['reports get-office365-group-activity-group-count'] = """
     type: command
-    short-summary: Invoke function getOffice365GroupsActivityGroupCounts
+    short-summary: "Invoke function getOffice365GroupsActivityGroupCounts"
 """
 
 helps['reports get-office365-group-activity-storage'] = """
     type: command
-    short-summary: Invoke function getOffice365GroupsActivityStorage
+    short-summary: "Invoke function getOffice365GroupsActivityStorage"
 """
 
 helps['reports get-office365-service-user-count'] = """
     type: command
-    short-summary: Invoke function getOffice365ServicesUserCounts
+    short-summary: "Invoke function getOffice365ServicesUserCounts"
 """
 
 helps['reports get-one-drive-activity-file-count'] = """
     type: command
-    short-summary: Invoke function getOneDriveActivityFileCounts
+    short-summary: "Invoke function getOneDriveActivityFileCounts"
 """
 
 helps['reports get-one-drive-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getOneDriveActivityUserCounts
+    short-summary: "Invoke function getOneDriveActivityUserCounts"
 """
 
 helps['reports get-one-drive-activity-user-detail-c424'] = """
     type: command
-    short-summary: Invoke function getOneDriveActivityUserDetail
+    short-summary: "Invoke function getOneDriveActivityUserDetail"
 """
 
 helps['reports get-one-drive-activity-user-detail05-f1'] = """
     type: command
-    short-summary: Invoke function getOneDriveActivityUserDetail
+    short-summary: "Invoke function getOneDriveActivityUserDetail"
 """
 
 helps['reports get-one-drive-usage-account-count'] = """
     type: command
-    short-summary: Invoke function getOneDriveUsageAccountCounts
+    short-summary: "Invoke function getOneDriveUsageAccountCounts"
 """
 
 helps['reports get-one-drive-usage-account-detail-dd7-f'] = """
     type: command
-    short-summary: Invoke function getOneDriveUsageAccountDetail
+    short-summary: "Invoke function getOneDriveUsageAccountDetail"
 """
 
 helps['reports get-one-drive-usage-account-detail-e827'] = """
     type: command
-    short-summary: Invoke function getOneDriveUsageAccountDetail
+    short-summary: "Invoke function getOneDriveUsageAccountDetail"
 """
 
 helps['reports get-one-drive-usage-file-count'] = """
     type: command
-    short-summary: Invoke function getOneDriveUsageFileCounts
+    short-summary: "Invoke function getOneDriveUsageFileCounts"
 """
 
 helps['reports get-one-drive-usage-storage'] = """
     type: command
-    short-summary: Invoke function getOneDriveUsageStorage
+    short-summary: "Invoke function getOneDriveUsageStorage"
 """
 
 helps['reports get-relying-party-detailed-summary'] = """
     type: command
-    short-summary: Invoke function getRelyingPartyDetailedSummary
+    short-summary: "Invoke function getRelyingPartyDetailedSummary"
 """
 
 helps['reports get-share-point-activity-file-count'] = """
     type: command
-    short-summary: Invoke function getSharePointActivityFileCounts
+    short-summary: "Invoke function getSharePointActivityFileCounts"
 """
 
 helps['reports get-share-point-activity-page'] = """
     type: command
-    short-summary: Invoke function getSharePointActivityPages
+    short-summary: "Invoke function getSharePointActivityPages"
 """
 
 helps['reports get-share-point-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getSharePointActivityUserCounts
+    short-summary: "Invoke function getSharePointActivityUserCounts"
 """
 
 helps['reports get-share-point-activity-user-detail-b778'] = """
     type: command
-    short-summary: Invoke function getSharePointActivityUserDetail
+    short-summary: "Invoke function getSharePointActivityUserDetail"
 """
 
 helps['reports get-share-point-activity-user-detail-f3-be'] = """
     type: command
-    short-summary: Invoke function getSharePointActivityUserDetail
+    short-summary: "Invoke function getSharePointActivityUserDetail"
 """
 
 helps['reports get-share-point-site-usage-detail-d27-a'] = """
     type: command
-    short-summary: Invoke function getSharePointSiteUsageDetail
+    short-summary: "Invoke function getSharePointSiteUsageDetail"
 """
 
 helps['reports get-share-point-site-usage-detail204-b'] = """
     type: command
-    short-summary: Invoke function getSharePointSiteUsageDetail
+    short-summary: "Invoke function getSharePointSiteUsageDetail"
 """
 
 helps['reports get-share-point-site-usage-file-count'] = """
     type: command
-    short-summary: Invoke function getSharePointSiteUsageFileCounts
+    short-summary: "Invoke function getSharePointSiteUsageFileCounts"
 """
 
 helps['reports get-share-point-site-usage-page'] = """
     type: command
-    short-summary: Invoke function getSharePointSiteUsagePages
+    short-summary: "Invoke function getSharePointSiteUsagePages"
 """
 
 helps['reports get-share-point-site-usage-site-count'] = """
     type: command
-    short-summary: Invoke function getSharePointSiteUsageSiteCounts
+    short-summary: "Invoke function getSharePointSiteUsageSiteCounts"
 """
 
 helps['reports get-share-point-site-usage-storage'] = """
     type: command
-    short-summary: Invoke function getSharePointSiteUsageStorage
+    short-summary: "Invoke function getSharePointSiteUsageStorage"
 """
 
 helps['reports get-skype-for-business-activity-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessActivityCounts
+    short-summary: "Invoke function getSkypeForBusinessActivityCounts"
 """
 
 helps['reports get-skype-for-business-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessActivityUserCounts
+    short-summary: "Invoke function getSkypeForBusinessActivityUserCounts"
 """
 
 helps['reports get-skype-for-business-activity-user-detail-e4-c9'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessActivityUserDetail
+    short-summary: "Invoke function getSkypeForBusinessActivityUserDetail"
 """
 
 helps['reports get-skype-for-business-activity-user-detail744-e'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessActivityUserDetail
+    short-summary: "Invoke function getSkypeForBusinessActivityUserDetail"
 """
 
 helps['reports get-skype-for-business-device-usage-distribution-user-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts
+    short-summary: "Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts"
 """
 
 helps['reports get-skype-for-business-device-usage-user-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessDeviceUsageUserCounts
+    short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserCounts"
 """
 
 helps['reports get-skype-for-business-device-usage-user-detail-a692'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessDeviceUsageUserDetail
+    short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserDetail"
 """
 
 helps['reports get-skype-for-business-device-usage-user-detail-e753'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessDeviceUsageUserDetail
+    short-summary: "Invoke function getSkypeForBusinessDeviceUsageUserDetail"
 """
 
 helps['reports get-skype-for-business-organizer-activity-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessOrganizerActivityCounts
+    short-summary: "Invoke function getSkypeForBusinessOrganizerActivityCounts"
 """
 
 helps['reports get-skype-for-business-organizer-activity-minute-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts
+    short-summary: "Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts"
 """
 
 helps['reports get-skype-for-business-organizer-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessOrganizerActivityUserCounts
+    short-summary: "Invoke function getSkypeForBusinessOrganizerActivityUserCounts"
 """
 
 helps['reports get-skype-for-business-participant-activity-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessParticipantActivityCounts
+    short-summary: "Invoke function getSkypeForBusinessParticipantActivityCounts"
 """
 
 helps['reports get-skype-for-business-participant-activity-minute-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessParticipantActivityMinuteCounts
+    short-summary: "Invoke function getSkypeForBusinessParticipantActivityMinuteCounts"
 """
 
 helps['reports get-skype-for-business-participant-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessParticipantActivityUserCounts
+    short-summary: "Invoke function getSkypeForBusinessParticipantActivityUserCounts"
 """
 
 helps['reports get-skype-for-business-peer-to-peer-activity-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessPeerToPeerActivityCounts
+    short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityCounts"
 """
 
 helps['reports get-skype-for-business-peer-to-peer-activity-minute-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts
+    short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts"
 """
 
 helps['reports get-skype-for-business-peer-to-peer-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts
+    short-summary: "Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts"
 """
 
 helps['reports get-team-device-usage-distribution-user-count'] = """
     type: command
-    short-summary: Invoke function getTeamsDeviceUsageDistributionUserCounts
+    short-summary: "Invoke function getTeamsDeviceUsageDistributionUserCounts"
 """
 
 helps['reports get-team-device-usage-user-count'] = """
     type: command
-    short-summary: Invoke function getTeamsDeviceUsageUserCounts
+    short-summary: "Invoke function getTeamsDeviceUsageUserCounts"
 """
 
 helps['reports get-team-device-usage-user-detail7148'] = """
     type: command
-    short-summary: Invoke function getTeamsDeviceUsageUserDetail
+    short-summary: "Invoke function getTeamsDeviceUsageUserDetail"
 """
 
 helps['reports get-team-device-usage-user-detail7565'] = """
     type: command
-    short-summary: Invoke function getTeamsDeviceUsageUserDetail
+    short-summary: "Invoke function getTeamsDeviceUsageUserDetail"
 """
 
 helps['reports get-team-user-activity-count'] = """
     type: command
-    short-summary: Invoke function getTeamsUserActivityCounts
+    short-summary: "Invoke function getTeamsUserActivityCounts"
 """
 
 helps['reports get-team-user-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getTeamsUserActivityUserCounts
+    short-summary: "Invoke function getTeamsUserActivityUserCounts"
 """
 
 helps['reports get-team-user-activity-user-detail-a3-f1'] = """
     type: command
-    short-summary: Invoke function getTeamsUserActivityUserDetail
+    short-summary: "Invoke function getTeamsUserActivityUserDetail"
 """
 
 helps['reports get-team-user-activity-user-detail-eb13'] = """
     type: command
-    short-summary: Invoke function getTeamsUserActivityUserDetail
+    short-summary: "Invoke function getTeamsUserActivityUserDetail"
 """
 
 helps['reports get-tenant-secure-score'] = """
     type: command
-    short-summary: Invoke function getTenantSecureScores
+    short-summary: "Invoke function getTenantSecureScores"
 """
 
 helps['reports get-user-credential-usage-detail'] = """
     type: command
-    short-summary: Get userCredentialUsageDetails from reports
+    short-summary: "Get userCredentialUsageDetails from reports"
 """
 
 helps['reports get-yammer-activity-count'] = """
     type: command
-    short-summary: Invoke function getYammerActivityCounts
+    short-summary: "Invoke function getYammerActivityCounts"
 """
 
 helps['reports get-yammer-activity-user-count'] = """
     type: command
-    short-summary: Invoke function getYammerActivityUserCounts
+    short-summary: "Invoke function getYammerActivityUserCounts"
 """
 
 helps['reports get-yammer-activity-user-detail-ac30'] = """
     type: command
-    short-summary: Invoke function getYammerActivityUserDetail
+    short-summary: "Invoke function getYammerActivityUserDetail"
 """
 
 helps['reports get-yammer-activity-user-detail15-a5'] = """
     type: command
-    short-summary: Invoke function getYammerActivityUserDetail
+    short-summary: "Invoke function getYammerActivityUserDetail"
 """
 
 helps['reports get-yammer-device-usage-distribution-user-count'] = """
     type: command
-    short-summary: Invoke function getYammerDeviceUsageDistributionUserCounts
+    short-summary: "Invoke function getYammerDeviceUsageDistributionUserCounts"
 """
 
 helps['reports get-yammer-device-usage-user-count'] = """
     type: command
-    short-summary: Invoke function getYammerDeviceUsageUserCounts
+    short-summary: "Invoke function getYammerDeviceUsageUserCounts"
 """
 
 helps['reports get-yammer-device-usage-user-detail-cfad'] = """
     type: command
-    short-summary: Invoke function getYammerDeviceUsageUserDetail
+    short-summary: "Invoke function getYammerDeviceUsageUserDetail"
 """
 
 helps['reports get-yammer-device-usage-user-detail-d0-ac'] = """
     type: command
-    short-summary: Invoke function getYammerDeviceUsageUserDetail
+    short-summary: "Invoke function getYammerDeviceUsageUserDetail"
 """
 
 helps['reports get-yammer-group-activity-count'] = """
     type: command
-    short-summary: Invoke function getYammerGroupsActivityCounts
+    short-summary: "Invoke function getYammerGroupsActivityCounts"
 """
 
 helps['reports get-yammer-group-activity-detail-da9-a'] = """
     type: command
-    short-summary: Invoke function getYammerGroupsActivityDetail
+    short-summary: "Invoke function getYammerGroupsActivityDetail"
 """
 
 helps['reports get-yammer-group-activity-detail0-d7-d'] = """
     type: command
-    short-summary: Invoke function getYammerGroupsActivityDetail
+    short-summary: "Invoke function getYammerGroupsActivityDetail"
 """
 
 helps['reports get-yammer-group-activity-group-count'] = """
     type: command
-    short-summary: Invoke function getYammerGroupsActivityGroupCounts
+    short-summary: "Invoke function getYammerGroupsActivityGroupCounts"
 """
 
 helps['reports list-application-sign-in-detailed-summary'] = """
     type: command
-    short-summary: Get applicationSignInDetailedSummary from reports
+    short-summary: "Get applicationSignInDetailedSummary from reports"
 """
 
 helps['reports list-credential-user-registration-detail'] = """
     type: command
-    short-summary: Get credentialUserRegistrationDetails from reports
+    short-summary: "Get credentialUserRegistrationDetails from reports"
 """
 
 helps['reports list-daily-print-usage-summary'] = """
     type: command
-    short-summary: Get dailyPrintUsageSummariesByUser from reports
+    short-summary: "Get dailyPrintUsageSummariesByUser from reports"
 """
 
 helps['reports list-monthly-print-usage-summary'] = """
     type: command
-    short-summary: Get monthlyPrintUsageSummariesByUser from reports
+    short-summary: "Get monthlyPrintUsageSummariesByUser from reports"
 """
 
 helps['reports list-user-credential-usage-detail'] = """
     type: command
-    short-summary: Get userCredentialUsageDetails from reports
+    short-summary: "Get userCredentialUsageDetails from reports"
 """
 
 helps['reports managed-device-enrollment-abandonment-detail'] = """
     type: command
-    short-summary: Invoke function managedDeviceEnrollmentAbandonmentDetails
+    short-summary: "Invoke function managedDeviceEnrollmentAbandonmentDetails"
 """
 
 helps['reports managed-device-enrollment-abandonment-summary'] = """
     type: command
-    short-summary: Invoke function managedDeviceEnrollmentAbandonmentSummary
+    short-summary: "Invoke function managedDeviceEnrollmentAbandonmentSummary"
 """
 
 helps['reports managed-device-enrollment-failure-details027-e'] = """
     type: command
-    short-summary: Invoke function managedDeviceEnrollmentFailureDetails
+    short-summary: "Invoke function managedDeviceEnrollmentFailureDetails"
 """
 
 helps['reports managed-device-enrollment-failure-details2-b3-d'] = """
     type: command
-    short-summary: Invoke function managedDeviceEnrollmentFailureDetails
+    short-summary: "Invoke function managedDeviceEnrollmentFailureDetails"
 """
 
 helps['reports managed-device-enrollment-failure-trend'] = """
     type: command
-    short-summary: Invoke function managedDeviceEnrollmentFailureTrends
+    short-summary: "Invoke function managedDeviceEnrollmentFailureTrends"
 """
 
 helps['reports managed-device-enrollment-top-failure-afd1'] = """
     type: command
-    short-summary: Invoke function managedDeviceEnrollmentTopFailures
+    short-summary: "Invoke function managedDeviceEnrollmentTopFailures"
 """
 
 helps['reports managed-device-enrollment-top-failures4669'] = """
     type: command
-    short-summary: Invoke function managedDeviceEnrollmentTopFailures
+    short-summary: "Invoke function managedDeviceEnrollmentTopFailures"
+"""
+
+helps['reports update-application-sign-in-detailed-summary'] = """
+    type: command
+    short-summary: "Update the navigation property applicationSignInDetailedSummary in reports"
+"""
+
+helps['reports update-credential-user-registration-detail'] = """
+    type: command
+    short-summary: "Update the navigation property credentialUserRegistrationDetails in reports"
+"""
+
+helps['reports update-daily-print-usage-summary-by-printer'] = """
+    type: command
+    short-summary: "Update the navigation property dailyPrintUsageSummariesByPrinter in reports"
+"""
+
+helps['reports update-daily-print-usage-summary-by-user'] = """
+    type: command
+    short-summary: "Update the navigation property dailyPrintUsageSummariesByUser in reports"
+"""
+
+helps['reports update-monthly-print-usage-summary-by-printer'] = """
+    type: command
+    short-summary: "Update the navigation property monthlyPrintUsageSummariesByPrinter in reports"
+"""
+
+helps['reports update-monthly-print-usage-summary-by-user'] = """
+    type: command
+    short-summary: "Update the navigation property monthlyPrintUsageSummariesByUser in reports"
+"""
+
+helps['reports update-user-credential-usage-detail'] = """
+    type: command
+    short-summary: "Update the navigation property userCredentialUsageDetails in reports"
 """

@@ -22,18 +22,17 @@ def load_command_table(self, _):
         client_factory=cf_share_shared_drive_item)
     with self.command_group('filesshares', filesshares_share_shared_drive_item,
                             client_factory=cf_share_shared_drive_item) as g:
-        g.custom_command('update', 'filesshares_update')
-        g.custom_command('delete', 'filesshares_delete')
+        g.custom_command('delete', 'filesshares_delete', confirmation=True)
         g.custom_command('create-shared-drive-item', 'filesshares_create_shared_drive_item')
         g.custom_command('get-shared-drive-item', 'filesshares_get_shared_drive_item')
         g.custom_command('list-shared-drive-item', 'filesshares_list_shared_drive_item')
+        g.custom_command('update-shared-drive-item', 'filesshares_update_shared_drive_item')
 
     from azext_filesshares.generated._client_factory import cf_share
     filesshares_share = CliCommandType(
         operations_tmpl='azext_filesshares.vendored_sdks.filesshares.operations._share_operations#ShareOperations.{}',
         client_factory=cf_share)
     with self.command_group('filesshares', filesshares_share, client_factory=cf_share) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('create-item', 'filesshares_create_item')
         g.custom_command('get-drive-item', 'filesshares_get_drive_item')
         g.custom_command('get-item', 'filesshares_get_item')
@@ -43,6 +42,13 @@ def load_command_table(self, _):
         g.custom_command('get-root', 'filesshares_get_root')
         g.custom_command('get-site', 'filesshares_get_site')
         g.custom_command('list-item', 'filesshares_list_item')
+        g.custom_command('update-drive-item', 'filesshares_update_drive_item')
+        g.custom_command('update-item', 'filesshares_update_item')
+        g.custom_command('update-list', 'filesshares_update_list')
+        g.custom_command('update-list-item', 'filesshares_update_list_item')
+        g.custom_command('update-permission', 'filesshares_update_permission')
+        g.custom_command('update-root', 'filesshares_update_root')
+        g.custom_command('update-site', 'filesshares_update_site')
 
     from azext_filesshares.generated._client_factory import cf_share_list
     filesshares_share_list = CliCommandType(
@@ -50,7 +56,6 @@ def load_command_table(self, _):
         'ons.{}',
         client_factory=cf_share_list)
     with self.command_group('filesshares', filesshares_share_list, client_factory=cf_share_list) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('create-activity', 'filesshares_create_activity')
         g.custom_command('create-column', 'filesshares_create_column')
         g.custom_command('create-content-type', 'filesshares_create_content_type')
@@ -67,6 +72,12 @@ def load_command_table(self, _):
         g.custom_command('list-content-type', 'filesshares_list_content_type')
         g.custom_command('list-item', 'filesshares_list_item')
         g.custom_command('list-subscription', 'filesshares_list_subscription')
+        g.custom_command('update-activity', 'filesshares_update_activity')
+        g.custom_command('update-column', 'filesshares_update_column')
+        g.custom_command('update-content-type', 'filesshares_update_content_type')
+        g.custom_command('update-drive', 'filesshares_update_drive')
+        g.custom_command('update-item', 'filesshares_update_item')
+        g.custom_command('update-subscription', 'filesshares_update_subscription')
 
     from azext_filesshares.generated._client_factory import cf_share_list_activity
     filesshares_share_list_activity = CliCommandType(
@@ -75,9 +86,10 @@ def load_command_table(self, _):
         client_factory=cf_share_list_activity)
     with self.command_group('filesshares', filesshares_share_list_activity,
                             client_factory=cf_share_list_activity) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('get-drive-item', 'filesshares_get_drive_item')
         g.custom_command('get-list-item', 'filesshares_get_list_item')
+        g.custom_command('update-drive-item', 'filesshares_update_drive_item')
+        g.custom_command('update-list-item', 'filesshares_update_list_item')
 
     from azext_filesshares.generated._client_factory import cf_share_list_activity_list_item
     filesshares_share_list_activity_list_item = CliCommandType(
@@ -86,7 +98,6 @@ def load_command_table(self, _):
         client_factory=cf_share_list_activity_list_item)
     with self.command_group('filesshares', filesshares_share_list_activity_list_item,
                             client_factory=cf_share_list_activity_list_item) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('create-activity', 'filesshares_create_activity')
         g.custom_command('create-version', 'filesshares_create_version')
         g.custom_command('get-activity', 'filesshares_get_activity')
@@ -97,6 +108,10 @@ def load_command_table(self, _):
         g.custom_command('get-version', 'filesshares_get_version')
         g.custom_command('list-activity', 'filesshares_list_activity')
         g.custom_command('list-version', 'filesshares_list_version')
+        g.custom_command('update-activity', 'filesshares_update_activity')
+        g.custom_command('update-drive-item', 'filesshares_update_drive_item')
+        g.custom_command('update-field', 'filesshares_update_field')
+        g.custom_command('update-version', 'filesshares_update_version')
 
     from azext_filesshares.generated._client_factory import cf_share_list_activity_list_item_version
     filesshares_share_list_activity_list_item_version = CliCommandType(
@@ -105,9 +120,9 @@ def load_command_table(self, _):
         client_factory=cf_share_list_activity_list_item_version)
     with self.command_group('filesshares', filesshares_share_list_activity_list_item_version,
                             client_factory=cf_share_list_activity_list_item_version) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('get-field', 'filesshares_get_field')
         g.custom_command('restore-version', 'filesshares_restore_version')
+        g.custom_command('update-field', 'filesshares_update_field')
 
     from azext_filesshares.generated._client_factory import cf_share_list_content_type
     filesshares_share_list_content_type = CliCommandType(
@@ -116,10 +131,10 @@ def load_command_table(self, _):
         client_factory=cf_share_list_content_type)
     with self.command_group('filesshares', filesshares_share_list_content_type,
                             client_factory=cf_share_list_content_type) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('create-column-link', 'filesshares_create_column_link')
         g.custom_command('get-column-link', 'filesshares_get_column_link')
         g.custom_command('list-column-link', 'filesshares_list_column_link')
+        g.custom_command('update-column-link', 'filesshares_update_column_link')
 
     from azext_filesshares.generated._client_factory import cf_share_list_item
     filesshares_share_list_item = CliCommandType(
@@ -127,7 +142,6 @@ def load_command_table(self, _):
         'emOperations.{}',
         client_factory=cf_share_list_item)
     with self.command_group('filesshares', filesshares_share_list_item, client_factory=cf_share_list_item) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('create-activity', 'filesshares_create_activity')
         g.custom_command('create-version', 'filesshares_create_version')
         g.custom_command('get-activity', 'filesshares_get_activity')
@@ -138,6 +152,10 @@ def load_command_table(self, _):
         g.custom_command('get-version', 'filesshares_get_version')
         g.custom_command('list-activity', 'filesshares_list_activity')
         g.custom_command('list-version', 'filesshares_list_version')
+        g.custom_command('update-activity', 'filesshares_update_activity')
+        g.custom_command('update-drive-item', 'filesshares_update_drive_item')
+        g.custom_command('update-field', 'filesshares_update_field')
+        g.custom_command('update-version', 'filesshares_update_version')
 
     from azext_filesshares.generated._client_factory import cf_share_list_item_activity
     filesshares_share_list_item_activity = CliCommandType(
@@ -146,9 +164,10 @@ def load_command_table(self, _):
         client_factory=cf_share_list_item_activity)
     with self.command_group('filesshares', filesshares_share_list_item_activity,
                             client_factory=cf_share_list_item_activity) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('get-drive-item', 'filesshares_get_drive_item')
         g.custom_command('get-list-item', 'filesshares_get_list_item')
+        g.custom_command('update-drive-item', 'filesshares_update_drive_item')
+        g.custom_command('update-list-item', 'filesshares_update_list_item')
 
     from azext_filesshares.generated._client_factory import cf_share_list_item_activity_list_item
     filesshares_share_list_item_activity_list_item = CliCommandType(
@@ -166,9 +185,9 @@ def load_command_table(self, _):
         client_factory=cf_share_list_item_version)
     with self.command_group('filesshares', filesshares_share_list_item_version,
                             client_factory=cf_share_list_item_version) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('get-field', 'filesshares_get_field')
         g.custom_command('restore-version', 'filesshares_restore_version')
+        g.custom_command('update-field', 'filesshares_update_field')
 
     from azext_filesshares.generated._client_factory import cf_share_list_item
     filesshares_share_list_item = CliCommandType(
@@ -176,7 +195,6 @@ def load_command_table(self, _):
         'emOperations.{}',
         client_factory=cf_share_list_item)
     with self.command_group('filesshares', filesshares_share_list_item, client_factory=cf_share_list_item) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('create-activity', 'filesshares_create_activity')
         g.custom_command('create-version', 'filesshares_create_version')
         g.custom_command('get-activity', 'filesshares_get_activity')
@@ -187,6 +205,10 @@ def load_command_table(self, _):
         g.custom_command('get-version', 'filesshares_get_version')
         g.custom_command('list-activity', 'filesshares_list_activity')
         g.custom_command('list-version', 'filesshares_list_version')
+        g.custom_command('update-activity', 'filesshares_update_activity')
+        g.custom_command('update-drive-item', 'filesshares_update_drive_item')
+        g.custom_command('update-field', 'filesshares_update_field')
+        g.custom_command('update-version', 'filesshares_update_version')
 
     from azext_filesshares.generated._client_factory import cf_share_list_item_activity
     filesshares_share_list_item_activity = CliCommandType(
@@ -195,9 +217,10 @@ def load_command_table(self, _):
         client_factory=cf_share_list_item_activity)
     with self.command_group('filesshares', filesshares_share_list_item_activity,
                             client_factory=cf_share_list_item_activity) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('get-drive-item', 'filesshares_get_drive_item')
         g.custom_command('get-list-item', 'filesshares_get_list_item')
+        g.custom_command('update-drive-item', 'filesshares_update_drive_item')
+        g.custom_command('update-list-item', 'filesshares_update_list_item')
 
     from azext_filesshares.generated._client_factory import cf_share_list_item_activity_list_item
     filesshares_share_list_item_activity_list_item = CliCommandType(
@@ -215,9 +238,9 @@ def load_command_table(self, _):
         client_factory=cf_share_list_item_version)
     with self.command_group('filesshares', filesshares_share_list_item_version,
                             client_factory=cf_share_list_item_version) as g:
-        g.custom_command('update', 'filesshares_update')
         g.custom_command('get-field', 'filesshares_get_field')
         g.custom_command('restore-version', 'filesshares_restore_version')
+        g.custom_command('update-field', 'filesshares_update_field')
 
     from azext_filesshares.generated._client_factory import cf_share_permission
     filesshares_share_permission = CliCommandType(

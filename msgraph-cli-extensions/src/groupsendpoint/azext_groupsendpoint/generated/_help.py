@@ -17,22 +17,22 @@ helps['groupsendpoint'] = """
     short-summary: groupsendpoint
 """
 
-helps['groupsendpoint update'] = """
-    type: command
-    short-summary: Update the navigation property endpoints in groups
-"""
-
 helps['groupsendpoint create-endpoint'] = """
     type: command
-    short-summary: Create new navigation property to endpoints for groups
+    short-summary: "Create new navigation property to endpoints for groups"
 """
 
 helps['groupsendpoint get-endpoint'] = """
     type: command
-    short-summary: Get endpoints from groups
+    short-summary: "Get endpoints from groups"
 """
 
 helps['groupsendpoint list-endpoint'] = """
     type: command
-    short-summary: Get endpoints from groups
+    short-summary: "Get endpoints from groups"
+"""
+
+helps['groupsendpoint update-endpoint'] = """
+    type: command
+    short-summary: "Update the navigation property endpoints in groups"
 """

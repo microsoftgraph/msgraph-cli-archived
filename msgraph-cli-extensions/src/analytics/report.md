@@ -386,9 +386,80 @@ list-used a analytics.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### analytics update
+### analytics update-activity-statistics
 
-update a analytics.
+update-activity-statistics a analytics.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|analytics|users.analytics|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-activity-statistics|UpdateActivityStatistics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--activity-statistics-id**|string|key: activityStatistics-id of activityStatistics|activity_statistics_id|activityStatistics-id|
+|**--id**|string|Read-only.|id|id|
+|**--activity**|choice||activity|activity|
+|**--start-date**|date||start_date|startDate|
+|**--end-date**|date||end_date|endDate|
+|**--time-zone-used**|string||time_zone_used|timeZoneUsed|
+|**--duration**|duration||duration|duration|
+
+### analytics update-analytic
+
+update-analytic a analytics.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|analytics|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-analytic|UpdateAnalytics|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--settings**|object|settings|settings|settings|
+|**--activity-statistics**|array||activity_statistics|activityStatistics|
+
+### analytics update-insight
+
+update-insight a analytics.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|analytics|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-insight|UpdateInsights|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--trending**|array|Calculated relationship identifying trending documents. Trending documents can be stored in OneDrive or in SharePoint sites.|trending|trending|
+|**--shared**|array|Calculated relationship identifying documents shared with a user. Documents can be shared as email attachments or as OneDrive for Business links sent in emails.|shared|shared|
+|**--used**|array|Calculated relationship identifying documents viewed and modified by a user. Includes documents the user used in OneDrive for Business, SharePoint, opened as email attachments, and as link attachments from sources like Box, DropBox and Google Drive.|used|used|
+
+### analytics update-shared
+
+update-shared a analytics.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -398,17 +469,13 @@ update a analytics.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateShared|
-|update|UpdateTrending|
-|update|UpdateUsed|
+|update-shared|UpdateShared|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: user-id of user|user_id|user-id|
 |**--shared-insight-id**|string|key: sharedInsight-id of sharedInsight|shared_insight_id|sharedInsight-id|
-|**--trending-id**|string|key: trending-id of trending|trending_id|trending-id|
-|**--used-insight-id**|string|key: usedInsight-id of usedInsight|used_insight_id|usedInsight-id|
 |**--id**|string|Read-only.|id|id|
 |**--sharing-history**|array||sharing_history|sharingHistory|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
@@ -420,6 +487,54 @@ update a analytics.
 |**--last-shared-sharing-subject**|string|The subject with which the document was shared.|sharing_subject|sharingSubject|
 |**--last-shared-sharing-type**|string|Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.|sharing_type|sharingType|
 |**--last-shared-sharing-reference**|object|resourceReference|sharing_reference|sharingReference|
+
+### analytics update-trending
+
+update-trending a analytics.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|analytics|users.insights|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-trending|UpdateTrending|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--trending-id**|string|key: trending-id of trending|trending_id|trending-id|
+|**--id**|string|Read-only.|id|id|
 |**--weight**|number|Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.|weight|weight|
+|**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
+|**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|
+
+### analytics update-used
+
+update-used a analytics.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|analytics|users.insights|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-used|UpdateUsed|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--used-insight-id**|string|key: usedInsight-id of usedInsight|used_insight_id|usedInsight-id|
+|**--id**|string|Read-only.|id|id|
 |**--last-used**|object|usageDetails|last_used|lastUsed|
+|**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
+|**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
+|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|

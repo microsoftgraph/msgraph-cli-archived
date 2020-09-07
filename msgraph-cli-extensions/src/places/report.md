@@ -85,9 +85,9 @@ list-place a places.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### places update
+### places update-place
 
-update a places.
+update-place a places.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -97,7 +97,7 @@ update a places.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdatePlace|
+|update-place|UpdatePlace|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

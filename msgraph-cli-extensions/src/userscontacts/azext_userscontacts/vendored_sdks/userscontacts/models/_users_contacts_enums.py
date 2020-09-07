@@ -6,638 +6,656 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum10(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    well_known_name = "wellKnownName"
-    well_known_name_desc = "wellKnownName desc"
-
-class Enum11(str, Enum):
-
-    id = "id"
-    parent_folder_id = "parentFolderId"
-    display_name = "displayName"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class Enum13(str, Enum):
-
-    id = "id"
-    parent_folder_id = "parentFolderId"
-    display_name = "displayName"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class Enum15(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    change_key = "changeKey"
-    change_key_desc = "changeKey desc"
-    categories = "categories"
-    categories_desc = "categories desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    birthday = "birthday"
-    birthday_desc = "birthday desc"
-    file_as = "fileAs"
-    file_as_desc = "fileAs desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    given_name = "givenName"
-    given_name_desc = "givenName desc"
-    initials = "initials"
-    initials_desc = "initials desc"
-    middle_name = "middleName"
-    middle_name_desc = "middleName desc"
-    nick_name = "nickName"
-    nick_name_desc = "nickName desc"
-    surname = "surname"
-    surname_desc = "surname desc"
-    title = "title"
-    title_desc = "title desc"
-    yomi_given_name = "yomiGivenName"
-    yomi_given_name_desc = "yomiGivenName desc"
-    yomi_surname = "yomiSurname"
-    yomi_surname_desc = "yomiSurname desc"
-    yomi_company_name = "yomiCompanyName"
-    yomi_company_name_desc = "yomiCompanyName desc"
-    generation = "generation"
-    generation_desc = "generation desc"
-    email_addresses = "emailAddresses"
-    email_addresses_desc = "emailAddresses desc"
-    websites = "websites"
-    websites_desc = "websites desc"
-    im_addresses = "imAddresses"
-    im_addresses_desc = "imAddresses desc"
-    job_title = "jobTitle"
-    job_title_desc = "jobTitle desc"
-    company_name = "companyName"
-    company_name_desc = "companyName desc"
-    department = "department"
-    department_desc = "department desc"
-    office_location = "officeLocation"
-    office_location_desc = "officeLocation desc"
-    profession = "profession"
-    profession_desc = "profession desc"
-    assistant_name = "assistantName"
-    assistant_name_desc = "assistantName desc"
-    manager = "manager"
-    manager_desc = "manager desc"
-    phones = "phones"
-    phones_desc = "phones desc"
-    postal_addresses = "postalAddresses"
-    postal_addresses_desc = "postalAddresses desc"
-    spouse_name = "spouseName"
-    spouse_name_desc = "spouseName desc"
-    personal_notes = "personalNotes"
-    personal_notes_desc = "personalNotes desc"
-    children = "children"
-    children_desc = "children desc"
-    wedding_anniversary = "weddingAnniversary"
-    wedding_anniversary_desc = "weddingAnniversary desc"
-    gender = "gender"
-    gender_desc = "gender desc"
-    is_favorite = "isFavorite"
-    is_favorite_desc = "isFavorite desc"
-    flag = "flag"
-    flag_desc = "flag desc"
-
-class Enum16(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    parent_folder_id = "parentFolderId"
-    birthday = "birthday"
-    file_as = "fileAs"
-    display_name = "displayName"
-    given_name = "givenName"
-    initials = "initials"
-    middle_name = "middleName"
-    nick_name = "nickName"
-    surname = "surname"
-    title = "title"
-    yomi_given_name = "yomiGivenName"
-    yomi_surname = "yomiSurname"
-    yomi_company_name = "yomiCompanyName"
-    generation = "generation"
-    email_addresses = "emailAddresses"
-    websites = "websites"
-    im_addresses = "imAddresses"
-    job_title = "jobTitle"
-    company_name = "companyName"
-    department = "department"
-    office_location = "officeLocation"
-    profession = "profession"
-    assistant_name = "assistantName"
-    manager = "manager"
-    phones = "phones"
-    postal_addresses = "postalAddresses"
-    spouse_name = "spouseName"
-    personal_notes = "personalNotes"
-    children = "children"
-    wedding_anniversary = "weddingAnniversary"
-    gender = "gender"
-    is_favorite = "isFavorite"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum17(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum18(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    parent_folder_id = "parentFolderId"
-    birthday = "birthday"
-    file_as = "fileAs"
-    display_name = "displayName"
-    given_name = "givenName"
-    initials = "initials"
-    middle_name = "middleName"
-    nick_name = "nickName"
-    surname = "surname"
-    title = "title"
-    yomi_given_name = "yomiGivenName"
-    yomi_surname = "yomiSurname"
-    yomi_company_name = "yomiCompanyName"
-    generation = "generation"
-    email_addresses = "emailAddresses"
-    websites = "websites"
-    im_addresses = "imAddresses"
-    job_title = "jobTitle"
-    company_name = "companyName"
-    department = "department"
-    office_location = "officeLocation"
-    profession = "profession"
-    assistant_name = "assistantName"
-    manager = "manager"
-    phones = "phones"
-    postal_addresses = "postalAddresses"
-    spouse_name = "spouseName"
-    personal_notes = "personalNotes"
-    children = "children"
-    wedding_anniversary = "weddingAnniversary"
-    gender = "gender"
-    is_favorite = "isFavorite"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum19(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum20(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-
-class Enum21(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum22(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum23(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum24(str, Enum):
-
-    id = "id"
-    height = "height"
-    width = "width"
-
-class Enum25(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum26(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum27(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum28(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum29(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum30(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum31(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum32(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum33(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum34(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    change_key = "changeKey"
-    change_key_desc = "changeKey desc"
-    categories = "categories"
-    categories_desc = "categories desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    birthday = "birthday"
-    birthday_desc = "birthday desc"
-    file_as = "fileAs"
-    file_as_desc = "fileAs desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    given_name = "givenName"
-    given_name_desc = "givenName desc"
-    initials = "initials"
-    initials_desc = "initials desc"
-    middle_name = "middleName"
-    middle_name_desc = "middleName desc"
-    nick_name = "nickName"
-    nick_name_desc = "nickName desc"
-    surname = "surname"
-    surname_desc = "surname desc"
-    title = "title"
-    title_desc = "title desc"
-    yomi_given_name = "yomiGivenName"
-    yomi_given_name_desc = "yomiGivenName desc"
-    yomi_surname = "yomiSurname"
-    yomi_surname_desc = "yomiSurname desc"
-    yomi_company_name = "yomiCompanyName"
-    yomi_company_name_desc = "yomiCompanyName desc"
-    generation = "generation"
-    generation_desc = "generation desc"
-    email_addresses = "emailAddresses"
-    email_addresses_desc = "emailAddresses desc"
-    websites = "websites"
-    websites_desc = "websites desc"
-    im_addresses = "imAddresses"
-    im_addresses_desc = "imAddresses desc"
-    job_title = "jobTitle"
-    job_title_desc = "jobTitle desc"
-    company_name = "companyName"
-    company_name_desc = "companyName desc"
-    department = "department"
-    department_desc = "department desc"
-    office_location = "officeLocation"
-    office_location_desc = "officeLocation desc"
-    profession = "profession"
-    profession_desc = "profession desc"
-    assistant_name = "assistantName"
-    assistant_name_desc = "assistantName desc"
-    manager = "manager"
-    manager_desc = "manager desc"
-    phones = "phones"
-    phones_desc = "phones desc"
-    postal_addresses = "postalAddresses"
-    postal_addresses_desc = "postalAddresses desc"
-    spouse_name = "spouseName"
-    spouse_name_desc = "spouseName desc"
-    personal_notes = "personalNotes"
-    personal_notes_desc = "personalNotes desc"
-    children = "children"
-    children_desc = "children desc"
-    wedding_anniversary = "weddingAnniversary"
-    wedding_anniversary_desc = "weddingAnniversary desc"
-    gender = "gender"
-    gender_desc = "gender desc"
-    is_favorite = "isFavorite"
-    is_favorite_desc = "isFavorite desc"
-    flag = "flag"
-    flag_desc = "flag desc"
-
-class Enum35(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    parent_folder_id = "parentFolderId"
-    birthday = "birthday"
-    file_as = "fileAs"
-    display_name = "displayName"
-    given_name = "givenName"
-    initials = "initials"
-    middle_name = "middleName"
-    nick_name = "nickName"
-    surname = "surname"
-    title = "title"
-    yomi_given_name = "yomiGivenName"
-    yomi_surname = "yomiSurname"
-    yomi_company_name = "yomiCompanyName"
-    generation = "generation"
-    email_addresses = "emailAddresses"
-    websites = "websites"
-    im_addresses = "imAddresses"
-    job_title = "jobTitle"
-    company_name = "companyName"
-    department = "department"
-    office_location = "officeLocation"
-    profession = "profession"
-    assistant_name = "assistantName"
-    manager = "manager"
-    phones = "phones"
-    postal_addresses = "postalAddresses"
-    spouse_name = "spouseName"
-    personal_notes = "personalNotes"
-    children = "children"
-    wedding_anniversary = "weddingAnniversary"
-    gender = "gender"
-    is_favorite = "isFavorite"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum36(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum37(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    parent_folder_id = "parentFolderId"
-    birthday = "birthday"
-    file_as = "fileAs"
-    display_name = "displayName"
-    given_name = "givenName"
-    initials = "initials"
-    middle_name = "middleName"
-    nick_name = "nickName"
-    surname = "surname"
-    title = "title"
-    yomi_given_name = "yomiGivenName"
-    yomi_surname = "yomiSurname"
-    yomi_company_name = "yomiCompanyName"
-    generation = "generation"
-    email_addresses = "emailAddresses"
-    websites = "websites"
-    im_addresses = "imAddresses"
-    job_title = "jobTitle"
-    company_name = "companyName"
-    department = "department"
-    office_location = "officeLocation"
-    profession = "profession"
-    assistant_name = "assistantName"
-    manager = "manager"
-    phones = "phones"
-    postal_addresses = "postalAddresses"
-    spouse_name = "spouseName"
-    personal_notes = "personalNotes"
-    children = "children"
-    wedding_anniversary = "weddingAnniversary"
-    gender = "gender"
-    is_favorite = "isFavorite"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum38(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    photo = "photo"
-    extensions = "extensions"
-
-class Enum39(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-
-class Enum40(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum41(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum42(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum43(str, Enum):
-
-    id = "id"
-    height = "height"
-    width = "width"
-
-class Enum44(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum45(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum46(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Get2ItemsItem(str, Enum):
-
-    id = "id"
-    parent_folder_id = "parentFolderId"
-    display_name = "displayName"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class Get3ItemsItem(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class Get4ItemsItem(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    well_known_name = "wellKnownName"
-    well_known_name_desc = "wellKnownName desc"
-
-class Get7ItemsItem(str, Enum):
-
-    id = "id"
-    parent_folder_id = "parentFolderId"
-    display_name = "displayName"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class Get8ItemsItem(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class Get9ItemsItem(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    contacts = "contacts"
-    child_folders = "childFolders"
-
-class MicrosoftGraphEmailType(str, Enum):
-
-    unknown = "unknown"
-    work = "work"
-    personal = "personal"
-    main = "main"
-    other = "other"
-
-class MicrosoftGraphFollowupFlagStatus(str, Enum):
-
-    not_flagged = "notFlagged"
-    complete = "complete"
-    flagged = "flagged"
-
-class MicrosoftGraphPhoneType(str, Enum):
-
-    home = "home"
-    business = "business"
-    mobile = "mobile"
-    other = "other"
-    assistant = "assistant"
-    home_fax = "homeFax"
-    business_fax = "businessFax"
-    other_fax = "otherFax"
-    pager = "pager"
-    radio = "radio"
-
-class MicrosoftGraphPhysicalAddressType(str, Enum):
-
-    unknown = "unknown"
-    home = "home"
-    business = "business"
-    other = "other"
-
-class MicrosoftGraphWebsiteType(str, Enum):
-
-    other = "other"
-    home = "home"
-    work = "work"
-    blog = "blog"
-    profile = "profile"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum10(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    WELL_KNOWN_NAME = "wellKnownName"
+    WELL_KNOWN_NAME_DESC = "wellKnownName desc"
+
+class Enum11(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    PARENT_FOLDER_ID = "parentFolderId"
+    DISPLAY_NAME = "displayName"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class Enum13(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    PARENT_FOLDER_ID = "parentFolderId"
+    DISPLAY_NAME = "displayName"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    CHANGE_KEY = "changeKey"
+    CHANGE_KEY_DESC = "changeKey desc"
+    CATEGORIES = "categories"
+    CATEGORIES_DESC = "categories desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    BIRTHDAY = "birthday"
+    BIRTHDAY_DESC = "birthday desc"
+    FILE_AS = "fileAs"
+    FILE_AS_DESC = "fileAs desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    GIVEN_NAME = "givenName"
+    GIVEN_NAME_DESC = "givenName desc"
+    INITIALS = "initials"
+    INITIALS_DESC = "initials desc"
+    MIDDLE_NAME = "middleName"
+    MIDDLE_NAME_DESC = "middleName desc"
+    NICK_NAME = "nickName"
+    NICK_NAME_DESC = "nickName desc"
+    SURNAME = "surname"
+    SURNAME_DESC = "surname desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    YOMI_GIVEN_NAME = "yomiGivenName"
+    YOMI_GIVEN_NAME_DESC = "yomiGivenName desc"
+    YOMI_SURNAME = "yomiSurname"
+    YOMI_SURNAME_DESC = "yomiSurname desc"
+    YOMI_COMPANY_NAME = "yomiCompanyName"
+    YOMI_COMPANY_NAME_DESC = "yomiCompanyName desc"
+    GENERATION = "generation"
+    GENERATION_DESC = "generation desc"
+    EMAIL_ADDRESSES = "emailAddresses"
+    EMAIL_ADDRESSES_DESC = "emailAddresses desc"
+    WEBSITES = "websites"
+    WEBSITES_DESC = "websites desc"
+    IM_ADDRESSES = "imAddresses"
+    IM_ADDRESSES_DESC = "imAddresses desc"
+    JOB_TITLE = "jobTitle"
+    JOB_TITLE_DESC = "jobTitle desc"
+    COMPANY_NAME = "companyName"
+    COMPANY_NAME_DESC = "companyName desc"
+    DEPARTMENT = "department"
+    DEPARTMENT_DESC = "department desc"
+    OFFICE_LOCATION = "officeLocation"
+    OFFICE_LOCATION_DESC = "officeLocation desc"
+    PROFESSION = "profession"
+    PROFESSION_DESC = "profession desc"
+    ASSISTANT_NAME = "assistantName"
+    ASSISTANT_NAME_DESC = "assistantName desc"
+    MANAGER = "manager"
+    MANAGER_DESC = "manager desc"
+    PHONES = "phones"
+    PHONES_DESC = "phones desc"
+    POSTAL_ADDRESSES = "postalAddresses"
+    POSTAL_ADDRESSES_DESC = "postalAddresses desc"
+    SPOUSE_NAME = "spouseName"
+    SPOUSE_NAME_DESC = "spouseName desc"
+    PERSONAL_NOTES = "personalNotes"
+    PERSONAL_NOTES_DESC = "personalNotes desc"
+    CHILDREN = "children"
+    CHILDREN_DESC = "children desc"
+    WEDDING_ANNIVERSARY = "weddingAnniversary"
+    WEDDING_ANNIVERSARY_DESC = "weddingAnniversary desc"
+    GENDER = "gender"
+    GENDER_DESC = "gender desc"
+    IS_FAVORITE = "isFavorite"
+    IS_FAVORITE_DESC = "isFavorite desc"
+    FLAG = "flag"
+    FLAG_DESC = "flag desc"
+
+class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    PARENT_FOLDER_ID = "parentFolderId"
+    BIRTHDAY = "birthday"
+    FILE_AS = "fileAs"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    INITIALS = "initials"
+    MIDDLE_NAME = "middleName"
+    NICK_NAME = "nickName"
+    SURNAME = "surname"
+    TITLE = "title"
+    YOMI_GIVEN_NAME = "yomiGivenName"
+    YOMI_SURNAME = "yomiSurname"
+    YOMI_COMPANY_NAME = "yomiCompanyName"
+    GENERATION = "generation"
+    EMAIL_ADDRESSES = "emailAddresses"
+    WEBSITES = "websites"
+    IM_ADDRESSES = "imAddresses"
+    JOB_TITLE = "jobTitle"
+    COMPANY_NAME = "companyName"
+    DEPARTMENT = "department"
+    OFFICE_LOCATION = "officeLocation"
+    PROFESSION = "profession"
+    ASSISTANT_NAME = "assistantName"
+    MANAGER = "manager"
+    PHONES = "phones"
+    POSTAL_ADDRESSES = "postalAddresses"
+    SPOUSE_NAME = "spouseName"
+    PERSONAL_NOTES = "personalNotes"
+    CHILDREN = "children"
+    WEDDING_ANNIVERSARY = "weddingAnniversary"
+    GENDER = "gender"
+    IS_FAVORITE = "isFavorite"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum18(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    PARENT_FOLDER_ID = "parentFolderId"
+    BIRTHDAY = "birthday"
+    FILE_AS = "fileAs"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    INITIALS = "initials"
+    MIDDLE_NAME = "middleName"
+    NICK_NAME = "nickName"
+    SURNAME = "surname"
+    TITLE = "title"
+    YOMI_GIVEN_NAME = "yomiGivenName"
+    YOMI_SURNAME = "yomiSurname"
+    YOMI_COMPANY_NAME = "yomiCompanyName"
+    GENERATION = "generation"
+    EMAIL_ADDRESSES = "emailAddresses"
+    WEBSITES = "websites"
+    IM_ADDRESSES = "imAddresses"
+    JOB_TITLE = "jobTitle"
+    COMPANY_NAME = "companyName"
+    DEPARTMENT = "department"
+    OFFICE_LOCATION = "officeLocation"
+    PROFESSION = "profession"
+    ASSISTANT_NAME = "assistantName"
+    MANAGER = "manager"
+    PHONES = "phones"
+    POSTAL_ADDRESSES = "postalAddresses"
+    SPOUSE_NAME = "spouseName"
+    PERSONAL_NOTES = "personalNotes"
+    CHILDREN = "children"
+    WEDDING_ANNIVERSARY = "weddingAnniversary"
+    GENDER = "gender"
+    IS_FAVORITE = "isFavorite"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum19(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum20(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum22(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    HEIGHT = "height"
+    WIDTH = "width"
+
+class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum29(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum30(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum31(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum32(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum33(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum34(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    CHANGE_KEY = "changeKey"
+    CHANGE_KEY_DESC = "changeKey desc"
+    CATEGORIES = "categories"
+    CATEGORIES_DESC = "categories desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    BIRTHDAY = "birthday"
+    BIRTHDAY_DESC = "birthday desc"
+    FILE_AS = "fileAs"
+    FILE_AS_DESC = "fileAs desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    GIVEN_NAME = "givenName"
+    GIVEN_NAME_DESC = "givenName desc"
+    INITIALS = "initials"
+    INITIALS_DESC = "initials desc"
+    MIDDLE_NAME = "middleName"
+    MIDDLE_NAME_DESC = "middleName desc"
+    NICK_NAME = "nickName"
+    NICK_NAME_DESC = "nickName desc"
+    SURNAME = "surname"
+    SURNAME_DESC = "surname desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    YOMI_GIVEN_NAME = "yomiGivenName"
+    YOMI_GIVEN_NAME_DESC = "yomiGivenName desc"
+    YOMI_SURNAME = "yomiSurname"
+    YOMI_SURNAME_DESC = "yomiSurname desc"
+    YOMI_COMPANY_NAME = "yomiCompanyName"
+    YOMI_COMPANY_NAME_DESC = "yomiCompanyName desc"
+    GENERATION = "generation"
+    GENERATION_DESC = "generation desc"
+    EMAIL_ADDRESSES = "emailAddresses"
+    EMAIL_ADDRESSES_DESC = "emailAddresses desc"
+    WEBSITES = "websites"
+    WEBSITES_DESC = "websites desc"
+    IM_ADDRESSES = "imAddresses"
+    IM_ADDRESSES_DESC = "imAddresses desc"
+    JOB_TITLE = "jobTitle"
+    JOB_TITLE_DESC = "jobTitle desc"
+    COMPANY_NAME = "companyName"
+    COMPANY_NAME_DESC = "companyName desc"
+    DEPARTMENT = "department"
+    DEPARTMENT_DESC = "department desc"
+    OFFICE_LOCATION = "officeLocation"
+    OFFICE_LOCATION_DESC = "officeLocation desc"
+    PROFESSION = "profession"
+    PROFESSION_DESC = "profession desc"
+    ASSISTANT_NAME = "assistantName"
+    ASSISTANT_NAME_DESC = "assistantName desc"
+    MANAGER = "manager"
+    MANAGER_DESC = "manager desc"
+    PHONES = "phones"
+    PHONES_DESC = "phones desc"
+    POSTAL_ADDRESSES = "postalAddresses"
+    POSTAL_ADDRESSES_DESC = "postalAddresses desc"
+    SPOUSE_NAME = "spouseName"
+    SPOUSE_NAME_DESC = "spouseName desc"
+    PERSONAL_NOTES = "personalNotes"
+    PERSONAL_NOTES_DESC = "personalNotes desc"
+    CHILDREN = "children"
+    CHILDREN_DESC = "children desc"
+    WEDDING_ANNIVERSARY = "weddingAnniversary"
+    WEDDING_ANNIVERSARY_DESC = "weddingAnniversary desc"
+    GENDER = "gender"
+    GENDER_DESC = "gender desc"
+    IS_FAVORITE = "isFavorite"
+    IS_FAVORITE_DESC = "isFavorite desc"
+    FLAG = "flag"
+    FLAG_DESC = "flag desc"
+
+class Enum35(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    PARENT_FOLDER_ID = "parentFolderId"
+    BIRTHDAY = "birthday"
+    FILE_AS = "fileAs"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    INITIALS = "initials"
+    MIDDLE_NAME = "middleName"
+    NICK_NAME = "nickName"
+    SURNAME = "surname"
+    TITLE = "title"
+    YOMI_GIVEN_NAME = "yomiGivenName"
+    YOMI_SURNAME = "yomiSurname"
+    YOMI_COMPANY_NAME = "yomiCompanyName"
+    GENERATION = "generation"
+    EMAIL_ADDRESSES = "emailAddresses"
+    WEBSITES = "websites"
+    IM_ADDRESSES = "imAddresses"
+    JOB_TITLE = "jobTitle"
+    COMPANY_NAME = "companyName"
+    DEPARTMENT = "department"
+    OFFICE_LOCATION = "officeLocation"
+    PROFESSION = "profession"
+    ASSISTANT_NAME = "assistantName"
+    MANAGER = "manager"
+    PHONES = "phones"
+    POSTAL_ADDRESSES = "postalAddresses"
+    SPOUSE_NAME = "spouseName"
+    PERSONAL_NOTES = "personalNotes"
+    CHILDREN = "children"
+    WEDDING_ANNIVERSARY = "weddingAnniversary"
+    GENDER = "gender"
+    IS_FAVORITE = "isFavorite"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum36(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum37(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    PARENT_FOLDER_ID = "parentFolderId"
+    BIRTHDAY = "birthday"
+    FILE_AS = "fileAs"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    INITIALS = "initials"
+    MIDDLE_NAME = "middleName"
+    NICK_NAME = "nickName"
+    SURNAME = "surname"
+    TITLE = "title"
+    YOMI_GIVEN_NAME = "yomiGivenName"
+    YOMI_SURNAME = "yomiSurname"
+    YOMI_COMPANY_NAME = "yomiCompanyName"
+    GENERATION = "generation"
+    EMAIL_ADDRESSES = "emailAddresses"
+    WEBSITES = "websites"
+    IM_ADDRESSES = "imAddresses"
+    JOB_TITLE = "jobTitle"
+    COMPANY_NAME = "companyName"
+    DEPARTMENT = "department"
+    OFFICE_LOCATION = "officeLocation"
+    PROFESSION = "profession"
+    ASSISTANT_NAME = "assistantName"
+    MANAGER = "manager"
+    PHONES = "phones"
+    POSTAL_ADDRESSES = "postalAddresses"
+    SPOUSE_NAME = "spouseName"
+    PERSONAL_NOTES = "personalNotes"
+    CHILDREN = "children"
+    WEDDING_ANNIVERSARY = "weddingAnniversary"
+    GENDER = "gender"
+    IS_FAVORITE = "isFavorite"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum38(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    PHOTO = "photo"
+    EXTENSIONS = "extensions"
+
+class Enum39(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum40(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum41(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum42(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum43(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    HEIGHT = "height"
+    WIDTH = "width"
+
+class Enum44(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum45(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum46(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    PARENT_FOLDER_ID = "parentFolderId"
+    DISPLAY_NAME = "displayName"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class Get4ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    WELL_KNOWN_NAME = "wellKnownName"
+    WELL_KNOWN_NAME_DESC = "wellKnownName desc"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    PARENT_FOLDER_ID = "parentFolderId"
+    DISPLAY_NAME = "displayName"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class Get9ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    CONTACTS = "contacts"
+    CHILD_FOLDERS = "childFolders"
+
+class MicrosoftGraphEmailType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    WORK = "work"
+    PERSONAL = "personal"
+    MAIN = "main"
+    OTHER = "other"
+
+class MicrosoftGraphFollowupFlagStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_FLAGGED = "notFlagged"
+    COMPLETE = "complete"
+    FLAGGED = "flagged"
+
+class MicrosoftGraphPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    HOME = "home"
+    BUSINESS = "business"
+    MOBILE = "mobile"
+    OTHER = "other"
+    ASSISTANT = "assistant"
+    HOME_FAX = "homeFax"
+    BUSINESS_FAX = "businessFax"
+    OTHER_FAX = "otherFax"
+    PAGER = "pager"
+    RADIO = "radio"
+
+class MicrosoftGraphPhysicalAddressType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    HOME = "home"
+    BUSINESS = "business"
+    OTHER = "other"
+
+class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OTHER = "other"
+    HOME = "home"
+    WORK = "work"
+    BLOG = "blog"
+    PROFILE = "profile"

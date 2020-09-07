@@ -479,9 +479,30 @@ list-task a usersplanner.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### usersplanner update
+### usersplanner update-all
 
-update a usersplanner.
+update-all a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users.planner|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-all|UpdateAll|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--planner-delta-id**|string|key: plannerDelta-id of plannerDelta|planner_delta_id|plannerDelta-id|
+|**--id**|string|Read-only.|id|id|
+
+### usersplanner update-assigned-to-task-board-format
+
+update-assigned-to-task-board-format a usersplanner.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -491,10 +512,7 @@ update a usersplanner.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateAssignedToTaskBoardFormat|
-|update|UpdateBucketTaskBoardFormat|
-|update|UpdateDetails|
-|update|UpdateProgressTaskBoardFormat|
+|update-assigned-to-task-board-format|UpdateAssignedToTaskBoardFormat|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -504,8 +522,182 @@ update a usersplanner.
 |**--id**|string|Read-only.|id|id|
 |**--unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
 |**--order-hints-by-assignee**|any|Any object|order_hints_by_assignee|orderHintsByAssignee|
+
+### usersplanner update-bucket
+
+update-bucket a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users.planner.plans|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-bucket|UpdateBuckets|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: plannerBucket-id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--id**|string|Read-only.|id|id|
+|**--name**|string|Name of the bucket.|name|name|
+|**--plan-id**|string|Plan ID to which the bucket belongs.|plan_id|planId|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--tasks**|array|Read-only. Nullable. The collection of tasks in the bucket.|tasks|tasks|
+
+### usersplanner update-bucket-task-board-format
+
+update-bucket-task-board-format a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users.planner.tasks|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-bucket-task-board-format|UpdateBucketTaskBoardFormat|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--id**|string|Read-only.|id|id|
 |**--order-hint**|string|Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
+
+### usersplanner update-detail
+
+update-detail a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users.planner.tasks|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-detail|UpdateDetails|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--id**|string|Read-only.|id|id|
 |**--description**|string|Description of the task|description|description|
 |**--preview-type**|choice||preview_type|previewType|
 |**--references**|any|Any object|references|references|
 |**--checklist**|any|Any object|checklist|checklist|
+
+### usersplanner update-plan
+
+update-plan a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users.planner|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-plan|UpdatePlans|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--owner**|string|ID of the Group that owns the plan. A valid group must exist before this field can be set. After it is set, this property can’t be updated.|owner|owner|
+|**--title**|string|Required. Title of the plan.|title|title|
+|**--contexts**|any|Any object|contexts|contexts|
+|**--tasks**|array|Read-only. Nullable. Collection of tasks in the plan.|tasks|tasks|
+|**--buckets**|array|Read-only. Nullable. Collection of buckets in the plan.|buckets|buckets|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-shared-with**|any|Any object|shared_with|sharedWith|
+|**--details-category-descriptions**|object|plannerCategoryDescriptions|category_descriptions|categoryDescriptions|
+|**--details-context-details**|any|Any object|context_details|contextDetails|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+
+### usersplanner update-planner
+
+update-planner a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-planner|UpdatePlanner|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--favorite-plan-references**|any|Any object|favorite_plan_references|favoritePlanReferences|
+|**--recent-plan-references**|any|Any object|recent_plan_references|recentPlanReferences|
+|**--tasks**|array|Read-only. Nullable. Returns the plannerPlans shared with the user.|tasks|tasks|
+|**--plans**|array|Read-only. Nullable. Returns the plannerTasks assigned to the user.|plans|plans|
+|**--favorite-plans**|array||favorite_plans|favoritePlans|
+|**--recent-plans**|array||recent_plans|recentPlans|
+|**--all**|array||all|all|
+
+### usersplanner update-progress-task-board-format
+
+update-progress-task-board-format a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users.planner.tasks|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-progress-task-board-format|UpdateProgressTaskBoardFormat|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--id**|string|Read-only.|id|id|
+|**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
+
+### usersplanner update-task
+
+update-task a usersplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersplanner|users.planner.plans.buckets|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-task|UpdateTasks|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: plannerBucket-id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--body**|object|New navigation property values|body|body|

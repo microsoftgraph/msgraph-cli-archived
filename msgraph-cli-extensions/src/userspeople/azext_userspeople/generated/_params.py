@@ -22,43 +22,14 @@ from azext_userspeople.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('userspeople update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('person_id', help='key: person-id of person')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='The person\'s display name.')
-        c.argument('given_name', help='The person\'s given name.')
-        c.argument('surname', help='The person\'s surname.')
-        c.argument('birthday', help='The person\'s birthday.')
-        c.argument('person_notes', help='Free-form notes that the user has taken about this person.')
-        c.argument('is_favorite', arg_type=get_three_state_flag(), help='true if the user has flagged this person as a '
-                   'favorite.')
-        c.argument('email_addresses', action=AddEmailAddresses, nargs='*', help='')
-        c.argument('phones', action=AddPhones, nargs='*', help='The person\'s phone numbers.')
-        c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('websites', action=AddWebsites, nargs='*', help='The person\'s websites.')
-        c.argument('title', help='')
-        c.argument('company_name', help='The name of the person\'s company.')
-        c.argument('yomi_company', help='The phonetic Japanese name of the person\'s company.')
-        c.argument('department', help='The person\'s department.')
-        c.argument('office_location', help='The location of the person\'s office.')
-        c.argument('profession', help='The person\'s profession.')
-        c.argument('sources', action=AddSources, nargs='*', help='')
-        c.argument('mailbox_type', help='')
-        c.argument('person_type', help='The type of person.')
-        c.argument('user_principal_name', help='The user principal name (UPN) of the person. The UPN is an '
-                   'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
-                   'this should map to the person\'s email name. The general format is alias@domain.')
-
     with self.argument_context('userspeople create-person') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='The person\'s display name.')
-        c.argument('given_name', help='The person\'s given name.')
-        c.argument('surname', help='The person\'s surname.')
-        c.argument('birthday', help='The person\'s birthday.')
-        c.argument('person_notes', help='Free-form notes that the user has taken about this person.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The person\'s display name.')
+        c.argument('given_name', type=str, help='The person\'s given name.')
+        c.argument('surname', type=str, help='The person\'s surname.')
+        c.argument('birthday', type=str, help='The person\'s birthday.')
+        c.argument('person_notes', type=str, help='Free-form notes that the user has taken about this person.')
         c.argument('is_favorite', arg_type=get_three_state_flag(), help='true if the user has flagged this person as a '
                    'favorite.')
         c.argument('email_addresses', action=AddEmailAddresses, nargs='*', help='')
@@ -66,27 +37,56 @@ def load_arguments(self, _):
         c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
                    'json-string/@json-file.')
         c.argument('websites', action=AddWebsites, nargs='*', help='The person\'s websites.')
-        c.argument('title', help='')
-        c.argument('company_name', help='The name of the person\'s company.')
-        c.argument('yomi_company', help='The phonetic Japanese name of the person\'s company.')
-        c.argument('department', help='The person\'s department.')
-        c.argument('office_location', help='The location of the person\'s office.')
-        c.argument('profession', help='The person\'s profession.')
+        c.argument('title', type=str, help='')
+        c.argument('company_name', type=str, help='The name of the person\'s company.')
+        c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
+        c.argument('department', type=str, help='The person\'s department.')
+        c.argument('office_location', type=str, help='The location of the person\'s office.')
+        c.argument('profession', type=str, help='The person\'s profession.')
         c.argument('sources', action=AddSources, nargs='*', help='')
-        c.argument('mailbox_type', help='')
-        c.argument('person_type', help='The type of person.')
-        c.argument('user_principal_name', help='The user principal name (UPN) of the person. The UPN is an '
+        c.argument('mailbox_type', type=str, help='')
+        c.argument('person_type', type=str, help='The type of person.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the person. The UPN is an '
                    'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
                    'this should map to the person\'s email name. The general format is alias@domain.')
 
     with self.argument_context('userspeople get-person') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('person_id', help='key: person-id of person')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('person_id', type=str, help='key: person-id of person')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('userspeople list-person') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('userspeople update-person') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('person_id', type=str, help='key: person-id of person')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The person\'s display name.')
+        c.argument('given_name', type=str, help='The person\'s given name.')
+        c.argument('surname', type=str, help='The person\'s surname.')
+        c.argument('birthday', type=str, help='The person\'s birthday.')
+        c.argument('person_notes', type=str, help='Free-form notes that the user has taken about this person.')
+        c.argument('is_favorite', arg_type=get_three_state_flag(), help='true if the user has flagged this person as a '
+                   'favorite.')
+        c.argument('email_addresses', action=AddEmailAddresses, nargs='*', help='')
+        c.argument('phones', action=AddPhones, nargs='*', help='The person\'s phone numbers.')
+        c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('websites', action=AddWebsites, nargs='*', help='The person\'s websites.')
+        c.argument('title', type=str, help='')
+        c.argument('company_name', type=str, help='The name of the person\'s company.')
+        c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
+        c.argument('department', type=str, help='The person\'s department.')
+        c.argument('office_location', type=str, help='The location of the person\'s office.')
+        c.argument('profession', type=str, help='The person\'s profession.')
+        c.argument('sources', action=AddSources, nargs='*', help='')
+        c.argument('mailbox_type', type=str, help='')
+        c.argument('person_type', type=str, help='The type of person.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the person. The UPN is an '
+                   'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
+                   'this should map to the person\'s email name. The general format is alias@domain.')

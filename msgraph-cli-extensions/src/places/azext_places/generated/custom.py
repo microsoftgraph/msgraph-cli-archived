@@ -10,21 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def places_update(client,
-                  place_id,
-                  id_=None,
-                  display_name=None,
-                  geo_coordinates=None,
-                  phone=None,
-                  address=None):
-    return client.update_place(place_id=place_id,
-                               id=id_,
-                               display_name=display_name,
-                               geo_coordinates=geo_coordinates,
-                               phone=phone,
-                               address=address)
-
-
 def places_delete(client,
                   place_id,
                   if_match=None):
@@ -61,3 +46,18 @@ def places_list_place(client,
     return client.list_place(orderby=orderby,
                              select=select,
                              expand=expand)
+
+
+def places_update_place(client,
+                        place_id,
+                        id_=None,
+                        display_name=None,
+                        geo_coordinates=None,
+                        phone=None,
+                        address=None):
+    return client.update_place(place_id=place_id,
+                               id=id_,
+                               display_name=display_name,
+                               geo_coordinates=geo_coordinates,
+                               phone=phone,
+                               address=address)

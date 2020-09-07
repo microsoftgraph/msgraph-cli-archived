@@ -6,892 +6,910 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum14(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    parent_folder_id = "parentFolderId"
-    child_folder_count = "childFolderCount"
-    unread_item_count = "unreadItemCount"
-    total_item_count = "totalItemCount"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class Enum15(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class Enum16(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    child_folder_count = "childFolderCount"
-    child_folder_count_desc = "childFolderCount desc"
-    unread_item_count = "unreadItemCount"
-    unread_item_count_desc = "unreadItemCount desc"
-    total_item_count = "totalItemCount"
-    total_item_count_desc = "totalItemCount desc"
-    well_known_name = "wellKnownName"
-    well_known_name_desc = "wellKnownName desc"
-
-class Enum17(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    parent_folder_id = "parentFolderId"
-    child_folder_count = "childFolderCount"
-    unread_item_count = "unreadItemCount"
-    total_item_count = "totalItemCount"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class Enum19(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    parent_folder_id = "parentFolderId"
-    child_folder_count = "childFolderCount"
-    unread_item_count = "unreadItemCount"
-    total_item_count = "totalItemCount"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class Enum21(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    sequence = "sequence"
-    sequence_desc = "sequence desc"
-    conditions = "conditions"
-    conditions_desc = "conditions desc"
-    actions = "actions"
-    actions_desc = "actions desc"
-    exceptions = "exceptions"
-    exceptions_desc = "exceptions desc"
-    is_enabled = "isEnabled"
-    is_enabled_desc = "isEnabled desc"
-    has_error = "hasError"
-    has_error_desc = "hasError desc"
-    is_read_only = "isReadOnly"
-    is_read_only_desc = "isReadOnly desc"
-
-class Enum22(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    sequence = "sequence"
-    conditions = "conditions"
-    actions = "actions"
-    exceptions = "exceptions"
-    is_enabled = "isEnabled"
-    has_error = "hasError"
-    is_read_only = "isReadOnly"
-
-class Enum23(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    sequence = "sequence"
-    conditions = "conditions"
-    actions = "actions"
-    exceptions = "exceptions"
-    is_enabled = "isEnabled"
-    has_error = "hasError"
-    is_read_only = "isReadOnly"
-
-class Enum24(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    change_key = "changeKey"
-    change_key_desc = "changeKey desc"
-    categories = "categories"
-    categories_desc = "categories desc"
-    received_date_time = "receivedDateTime"
-    received_date_time_desc = "receivedDateTime desc"
-    sent_date_time = "sentDateTime"
-    sent_date_time_desc = "sentDateTime desc"
-    has_attachments = "hasAttachments"
-    has_attachments_desc = "hasAttachments desc"
-    internet_message_id = "internetMessageId"
-    internet_message_id_desc = "internetMessageId desc"
-    internet_message_headers = "internetMessageHeaders"
-    internet_message_headers_desc = "internetMessageHeaders desc"
-    subject = "subject"
-    subject_desc = "subject desc"
-    body = "body"
-    body_desc = "body desc"
-    body_preview = "bodyPreview"
-    body_preview_desc = "bodyPreview desc"
-    importance = "importance"
-    importance_desc = "importance desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    sender = "sender"
-    sender_desc = "sender desc"
-    from_enum = "from"
-    from_desc = "from desc"
-    to_recipients = "toRecipients"
-    to_recipients_desc = "toRecipients desc"
-    cc_recipients = "ccRecipients"
-    cc_recipients_desc = "ccRecipients desc"
-    bcc_recipients = "bccRecipients"
-    bcc_recipients_desc = "bccRecipients desc"
-    reply_to = "replyTo"
-    reply_to_desc = "replyTo desc"
-    conversation_id = "conversationId"
-    conversation_id_desc = "conversationId desc"
-    conversation_index = "conversationIndex"
-    conversation_index_desc = "conversationIndex desc"
-    unique_body = "uniqueBody"
-    unique_body_desc = "uniqueBody desc"
-    is_delivery_receipt_requested = "isDeliveryReceiptRequested"
-    is_delivery_receipt_requested_desc = "isDeliveryReceiptRequested desc"
-    is_read_receipt_requested = "isReadReceiptRequested"
-    is_read_receipt_requested_desc = "isReadReceiptRequested desc"
-    is_read = "isRead"
-    is_read_desc = "isRead desc"
-    is_draft = "isDraft"
-    is_draft_desc = "isDraft desc"
-    web_link = "webLink"
-    web_link_desc = "webLink desc"
-    mentions_preview = "mentionsPreview"
-    mentions_preview_desc = "mentionsPreview desc"
-    inference_classification = "inferenceClassification"
-    inference_classification_desc = "inferenceClassification desc"
-    unsubscribe_data = "unsubscribeData"
-    unsubscribe_data_desc = "unsubscribeData desc"
-    unsubscribe_enabled = "unsubscribeEnabled"
-    unsubscribe_enabled_desc = "unsubscribeEnabled desc"
-    flag = "flag"
-    flag_desc = "flag desc"
-
-class Enum25(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    received_date_time = "receivedDateTime"
-    sent_date_time = "sentDateTime"
-    has_attachments = "hasAttachments"
-    internet_message_id = "internetMessageId"
-    internet_message_headers = "internetMessageHeaders"
-    subject = "subject"
-    body = "body"
-    body_preview = "bodyPreview"
-    importance = "importance"
-    parent_folder_id = "parentFolderId"
-    sender = "sender"
-    from_enum = "from"
-    to_recipients = "toRecipients"
-    cc_recipients = "ccRecipients"
-    bcc_recipients = "bccRecipients"
-    reply_to = "replyTo"
-    conversation_id = "conversationId"
-    conversation_index = "conversationIndex"
-    unique_body = "uniqueBody"
-    is_delivery_receipt_requested = "isDeliveryReceiptRequested"
-    is_read_receipt_requested = "isReadReceiptRequested"
-    is_read = "isRead"
-    is_draft = "isDraft"
-    web_link = "webLink"
-    mentions_preview = "mentionsPreview"
-    inference_classification = "inferenceClassification"
-    unsubscribe_data = "unsubscribeData"
-    unsubscribe_enabled = "unsubscribeEnabled"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum26(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum27(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    received_date_time = "receivedDateTime"
-    sent_date_time = "sentDateTime"
-    has_attachments = "hasAttachments"
-    internet_message_id = "internetMessageId"
-    internet_message_headers = "internetMessageHeaders"
-    subject = "subject"
-    body = "body"
-    body_preview = "bodyPreview"
-    importance = "importance"
-    parent_folder_id = "parentFolderId"
-    sender = "sender"
-    from_enum = "from"
-    to_recipients = "toRecipients"
-    cc_recipients = "ccRecipients"
-    bcc_recipients = "bccRecipients"
-    reply_to = "replyTo"
-    conversation_id = "conversationId"
-    conversation_index = "conversationIndex"
-    unique_body = "uniqueBody"
-    is_delivery_receipt_requested = "isDeliveryReceiptRequested"
-    is_read_receipt_requested = "isReadReceiptRequested"
-    is_read = "isRead"
-    is_draft = "isDraft"
-    web_link = "webLink"
-    mentions_preview = "mentionsPreview"
-    inference_classification = "inferenceClassification"
-    unsubscribe_data = "unsubscribeData"
-    unsubscribe_enabled = "unsubscribeEnabled"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum28(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum29(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    name = "name"
-    name_desc = "name desc"
-    content_type = "contentType"
-    content_type_desc = "contentType desc"
-    size = "size"
-    size_desc = "size desc"
-    is_inline = "isInline"
-    is_inline_desc = "isInline desc"
-
-class Enum30(str, Enum):
-
-    id = "id"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    content_type = "contentType"
-    size = "size"
-    is_inline = "isInline"
-
-class Enum31(str, Enum):
-
-    id = "id"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    content_type = "contentType"
-    size = "size"
-    is_inline = "isInline"
-
-class Enum32(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-
-class Enum33(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    mentioned = "mentioned"
-    mentioned_desc = "mentioned desc"
-    mention_text = "mentionText"
-    mention_text_desc = "mentionText desc"
-    client_reference = "clientReference"
-    client_reference_desc = "clientReference desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    server_created_date_time = "serverCreatedDateTime"
-    server_created_date_time_desc = "serverCreatedDateTime desc"
-    deep_link = "deepLink"
-    deep_link_desc = "deepLink desc"
-    application = "application"
-    application_desc = "application desc"
-
-class Enum34(str, Enum):
-
-    id = "id"
-    mentioned = "mentioned"
-    mention_text = "mentionText"
-    client_reference = "clientReference"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    server_created_date_time = "serverCreatedDateTime"
-    deep_link = "deepLink"
-    application = "application"
-
-class Enum35(str, Enum):
-
-    id = "id"
-    mentioned = "mentioned"
-    mention_text = "mentionText"
-    client_reference = "clientReference"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    server_created_date_time = "serverCreatedDateTime"
-    deep_link = "deepLink"
-    application = "application"
-
-class Enum36(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum37(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum38(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum39(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum40(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum41(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum42(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum43(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum44(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum45(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum46(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum47(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum48(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    binary_data = "binaryData"
-    binary_data_desc = "binaryData desc"
-
-class Enum49(str, Enum):
-
-    id = "id"
-    binary_data = "binaryData"
-
-class Enum5(str, Enum):
-
-    id = "id"
-    classify_as = "classifyAs"
-    sender_email_address = "senderEmailAddress"
-
-class Enum50(str, Enum):
-
-    id = "id"
-    binary_data = "binaryData"
-
-class Enum51(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    change_key = "changeKey"
-    change_key_desc = "changeKey desc"
-    categories = "categories"
-    categories_desc = "categories desc"
-    received_date_time = "receivedDateTime"
-    received_date_time_desc = "receivedDateTime desc"
-    sent_date_time = "sentDateTime"
-    sent_date_time_desc = "sentDateTime desc"
-    has_attachments = "hasAttachments"
-    has_attachments_desc = "hasAttachments desc"
-    internet_message_id = "internetMessageId"
-    internet_message_id_desc = "internetMessageId desc"
-    internet_message_headers = "internetMessageHeaders"
-    internet_message_headers_desc = "internetMessageHeaders desc"
-    subject = "subject"
-    subject_desc = "subject desc"
-    body = "body"
-    body_desc = "body desc"
-    body_preview = "bodyPreview"
-    body_preview_desc = "bodyPreview desc"
-    importance = "importance"
-    importance_desc = "importance desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    sender = "sender"
-    sender_desc = "sender desc"
-    from_enum = "from"
-    from_desc = "from desc"
-    to_recipients = "toRecipients"
-    to_recipients_desc = "toRecipients desc"
-    cc_recipients = "ccRecipients"
-    cc_recipients_desc = "ccRecipients desc"
-    bcc_recipients = "bccRecipients"
-    bcc_recipients_desc = "bccRecipients desc"
-    reply_to = "replyTo"
-    reply_to_desc = "replyTo desc"
-    conversation_id = "conversationId"
-    conversation_id_desc = "conversationId desc"
-    conversation_index = "conversationIndex"
-    conversation_index_desc = "conversationIndex desc"
-    unique_body = "uniqueBody"
-    unique_body_desc = "uniqueBody desc"
-    is_delivery_receipt_requested = "isDeliveryReceiptRequested"
-    is_delivery_receipt_requested_desc = "isDeliveryReceiptRequested desc"
-    is_read_receipt_requested = "isReadReceiptRequested"
-    is_read_receipt_requested_desc = "isReadReceiptRequested desc"
-    is_read = "isRead"
-    is_read_desc = "isRead desc"
-    is_draft = "isDraft"
-    is_draft_desc = "isDraft desc"
-    web_link = "webLink"
-    web_link_desc = "webLink desc"
-    mentions_preview = "mentionsPreview"
-    mentions_preview_desc = "mentionsPreview desc"
-    inference_classification = "inferenceClassification"
-    inference_classification_desc = "inferenceClassification desc"
-    unsubscribe_data = "unsubscribeData"
-    unsubscribe_data_desc = "unsubscribeData desc"
-    unsubscribe_enabled = "unsubscribeEnabled"
-    unsubscribe_enabled_desc = "unsubscribeEnabled desc"
-    flag = "flag"
-    flag_desc = "flag desc"
-
-class Enum52(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    received_date_time = "receivedDateTime"
-    sent_date_time = "sentDateTime"
-    has_attachments = "hasAttachments"
-    internet_message_id = "internetMessageId"
-    internet_message_headers = "internetMessageHeaders"
-    subject = "subject"
-    body = "body"
-    body_preview = "bodyPreview"
-    importance = "importance"
-    parent_folder_id = "parentFolderId"
-    sender = "sender"
-    from_enum = "from"
-    to_recipients = "toRecipients"
-    cc_recipients = "ccRecipients"
-    bcc_recipients = "bccRecipients"
-    reply_to = "replyTo"
-    conversation_id = "conversationId"
-    conversation_index = "conversationIndex"
-    unique_body = "uniqueBody"
-    is_delivery_receipt_requested = "isDeliveryReceiptRequested"
-    is_read_receipt_requested = "isReadReceiptRequested"
-    is_read = "isRead"
-    is_draft = "isDraft"
-    web_link = "webLink"
-    mentions_preview = "mentionsPreview"
-    inference_classification = "inferenceClassification"
-    unsubscribe_data = "unsubscribeData"
-    unsubscribe_enabled = "unsubscribeEnabled"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum53(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum54(str, Enum):
-
-    id = "id"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    change_key = "changeKey"
-    categories = "categories"
-    received_date_time = "receivedDateTime"
-    sent_date_time = "sentDateTime"
-    has_attachments = "hasAttachments"
-    internet_message_id = "internetMessageId"
-    internet_message_headers = "internetMessageHeaders"
-    subject = "subject"
-    body = "body"
-    body_preview = "bodyPreview"
-    importance = "importance"
-    parent_folder_id = "parentFolderId"
-    sender = "sender"
-    from_enum = "from"
-    to_recipients = "toRecipients"
-    cc_recipients = "ccRecipients"
-    bcc_recipients = "bccRecipients"
-    reply_to = "replyTo"
-    conversation_id = "conversationId"
-    conversation_index = "conversationIndex"
-    unique_body = "uniqueBody"
-    is_delivery_receipt_requested = "isDeliveryReceiptRequested"
-    is_read_receipt_requested = "isReadReceiptRequested"
-    is_read = "isRead"
-    is_draft = "isDraft"
-    web_link = "webLink"
-    mentions_preview = "mentionsPreview"
-    inference_classification = "inferenceClassification"
-    unsubscribe_data = "unsubscribeData"
-    unsubscribe_enabled = "unsubscribeEnabled"
-    flag = "flag"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum55(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    attachments = "attachments"
-    extensions = "extensions"
-    mentions = "mentions"
-
-class Enum56(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    name = "name"
-    name_desc = "name desc"
-    content_type = "contentType"
-    content_type_desc = "contentType desc"
-    size = "size"
-    size_desc = "size desc"
-    is_inline = "isInline"
-    is_inline_desc = "isInline desc"
-
-class Enum57(str, Enum):
-
-    id = "id"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    content_type = "contentType"
-    size = "size"
-    is_inline = "isInline"
-
-class Enum58(str, Enum):
-
-    id = "id"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    content_type = "contentType"
-    size = "size"
-    is_inline = "isInline"
-
-class Enum59(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-
-class Enum6(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    parent_folder_id = "parentFolderId"
-    parent_folder_id_desc = "parentFolderId desc"
-    child_folder_count = "childFolderCount"
-    child_folder_count_desc = "childFolderCount desc"
-    unread_item_count = "unreadItemCount"
-    unread_item_count_desc = "unreadItemCount desc"
-    total_item_count = "totalItemCount"
-    total_item_count_desc = "totalItemCount desc"
-    well_known_name = "wellKnownName"
-    well_known_name_desc = "wellKnownName desc"
-
-class Enum60(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    mentioned = "mentioned"
-    mentioned_desc = "mentioned desc"
-    mention_text = "mentionText"
-    mention_text_desc = "mentionText desc"
-    client_reference = "clientReference"
-    client_reference_desc = "clientReference desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    server_created_date_time = "serverCreatedDateTime"
-    server_created_date_time_desc = "serverCreatedDateTime desc"
-    deep_link = "deepLink"
-    deep_link_desc = "deepLink desc"
-    application = "application"
-    application_desc = "application desc"
-
-class Enum61(str, Enum):
-
-    id = "id"
-    mentioned = "mentioned"
-    mention_text = "mentionText"
-    client_reference = "clientReference"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    server_created_date_time = "serverCreatedDateTime"
-    deep_link = "deepLink"
-    application = "application"
-
-class Enum62(str, Enum):
-
-    id = "id"
-    mentioned = "mentioned"
-    mention_text = "mentionText"
-    client_reference = "clientReference"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    server_created_date_time = "serverCreatedDateTime"
-    deep_link = "deepLink"
-    application = "application"
-
-class Enum63(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum64(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum65(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum66(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    value = "value"
-    value_desc = "value desc"
-
-class Enum67(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum68(str, Enum):
-
-    id = "id"
-    value = "value"
-
-class Enum7(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    parent_folder_id = "parentFolderId"
-    child_folder_count = "childFolderCount"
-    unread_item_count = "unreadItemCount"
-    total_item_count = "totalItemCount"
-    well_known_name = "wellKnownName"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class Enum8(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class Get1ItemsItem(str, Enum):
-
-    id = "id"
-    overrides = "overrides"
-
-class Get2ItemsItem(str, Enum):
-
-    asterisk = "*"
-    overrides = "overrides"
-
-class Get4ItemsItem(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    classify_as = "classifyAs"
-    classify_as_desc = "classifyAs desc"
-    sender_email_address = "senderEmailAddress"
-    sender_email_address_desc = "senderEmailAddress desc"
-
-class Get7ItemsItem(str, Enum):
-
-    id = "id"
-    classify_as = "classifyAs"
-    sender_email_address = "senderEmailAddress"
-
-class Get9ItemsItem(str, Enum):
-
-    asterisk = "*"
-    single_value_extended_properties = "singleValueExtendedProperties"
-    multi_value_extended_properties = "multiValueExtendedProperties"
-    messages = "messages"
-    message_rules = "messageRules"
-    child_folders = "childFolders"
-    user_configurations = "userConfigurations"
-
-class MicrosoftGraphBodyType(str, Enum):
-
-    text = "text"
-    html = "html"
-
-class MicrosoftGraphFollowupFlagStatus(str, Enum):
-
-    not_flagged = "notFlagged"
-    complete = "complete"
-    flagged = "flagged"
-
-class MicrosoftGraphImportance(str, Enum):
-
-    low = "low"
-    normal = "normal"
-    high = "high"
-
-class MicrosoftGraphInferenceClassificationType(str, Enum):
-
-    focused = "focused"
-    other = "other"
-
-class MicrosoftGraphMessageActionFlag(str, Enum):
-
-    any = "any"
-    call = "call"
-    do_not_forward = "doNotForward"
-    follow_up = "followUp"
-    fyi = "fyi"
-    forward = "forward"
-    no_response_necessary = "noResponseNecessary"
-    read = "read"
-    reply = "reply"
-    reply_to_all = "replyToAll"
-    review = "review"
-
-class MicrosoftGraphSensitivity(str, Enum):
-
-    normal = "normal"
-    personal = "personal"
-    private = "private"
-    confidential = "confidential"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    PARENT_FOLDER_ID = "parentFolderId"
+    CHILD_FOLDER_COUNT = "childFolderCount"
+    UNREAD_ITEM_COUNT = "unreadItemCount"
+    TOTAL_ITEM_COUNT = "totalItemCount"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    CHILD_FOLDER_COUNT = "childFolderCount"
+    CHILD_FOLDER_COUNT_DESC = "childFolderCount desc"
+    UNREAD_ITEM_COUNT = "unreadItemCount"
+    UNREAD_ITEM_COUNT_DESC = "unreadItemCount desc"
+    TOTAL_ITEM_COUNT = "totalItemCount"
+    TOTAL_ITEM_COUNT_DESC = "totalItemCount desc"
+    WELL_KNOWN_NAME = "wellKnownName"
+    WELL_KNOWN_NAME_DESC = "wellKnownName desc"
+
+class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    PARENT_FOLDER_ID = "parentFolderId"
+    CHILD_FOLDER_COUNT = "childFolderCount"
+    UNREAD_ITEM_COUNT = "unreadItemCount"
+    TOTAL_ITEM_COUNT = "totalItemCount"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class Enum19(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    PARENT_FOLDER_ID = "parentFolderId"
+    CHILD_FOLDER_COUNT = "childFolderCount"
+    UNREAD_ITEM_COUNT = "unreadItemCount"
+    TOTAL_ITEM_COUNT = "totalItemCount"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    SEQUENCE = "sequence"
+    SEQUENCE_DESC = "sequence desc"
+    CONDITIONS = "conditions"
+    CONDITIONS_DESC = "conditions desc"
+    ACTIONS = "actions"
+    ACTIONS_DESC = "actions desc"
+    EXCEPTIONS = "exceptions"
+    EXCEPTIONS_DESC = "exceptions desc"
+    IS_ENABLED = "isEnabled"
+    IS_ENABLED_DESC = "isEnabled desc"
+    HAS_ERROR = "hasError"
+    HAS_ERROR_DESC = "hasError desc"
+    IS_READ_ONLY = "isReadOnly"
+    IS_READ_ONLY_DESC = "isReadOnly desc"
+
+class Enum22(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    SEQUENCE = "sequence"
+    CONDITIONS = "conditions"
+    ACTIONS = "actions"
+    EXCEPTIONS = "exceptions"
+    IS_ENABLED = "isEnabled"
+    HAS_ERROR = "hasError"
+    IS_READ_ONLY = "isReadOnly"
+
+class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    SEQUENCE = "sequence"
+    CONDITIONS = "conditions"
+    ACTIONS = "actions"
+    EXCEPTIONS = "exceptions"
+    IS_ENABLED = "isEnabled"
+    HAS_ERROR = "hasError"
+    IS_READ_ONLY = "isReadOnly"
+
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    CHANGE_KEY = "changeKey"
+    CHANGE_KEY_DESC = "changeKey desc"
+    CATEGORIES = "categories"
+    CATEGORIES_DESC = "categories desc"
+    RECEIVED_DATE_TIME = "receivedDateTime"
+    RECEIVED_DATE_TIME_DESC = "receivedDateTime desc"
+    SENT_DATE_TIME = "sentDateTime"
+    SENT_DATE_TIME_DESC = "sentDateTime desc"
+    HAS_ATTACHMENTS = "hasAttachments"
+    HAS_ATTACHMENTS_DESC = "hasAttachments desc"
+    INTERNET_MESSAGE_ID = "internetMessageId"
+    INTERNET_MESSAGE_ID_DESC = "internetMessageId desc"
+    INTERNET_MESSAGE_HEADERS = "internetMessageHeaders"
+    INTERNET_MESSAGE_HEADERS_DESC = "internetMessageHeaders desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    BODY_PREVIEW = "bodyPreview"
+    BODY_PREVIEW_DESC = "bodyPreview desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    SENDER = "sender"
+    SENDER_DESC = "sender desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    TO_RECIPIENTS = "toRecipients"
+    TO_RECIPIENTS_DESC = "toRecipients desc"
+    CC_RECIPIENTS = "ccRecipients"
+    CC_RECIPIENTS_DESC = "ccRecipients desc"
+    BCC_RECIPIENTS = "bccRecipients"
+    BCC_RECIPIENTS_DESC = "bccRecipients desc"
+    REPLY_TO = "replyTo"
+    REPLY_TO_DESC = "replyTo desc"
+    CONVERSATION_ID = "conversationId"
+    CONVERSATION_ID_DESC = "conversationId desc"
+    CONVERSATION_INDEX = "conversationIndex"
+    CONVERSATION_INDEX_DESC = "conversationIndex desc"
+    UNIQUE_BODY = "uniqueBody"
+    UNIQUE_BODY_DESC = "uniqueBody desc"
+    IS_DELIVERY_RECEIPT_REQUESTED = "isDeliveryReceiptRequested"
+    IS_DELIVERY_RECEIPT_REQUESTED_DESC = "isDeliveryReceiptRequested desc"
+    IS_READ_RECEIPT_REQUESTED = "isReadReceiptRequested"
+    IS_READ_RECEIPT_REQUESTED_DESC = "isReadReceiptRequested desc"
+    IS_READ = "isRead"
+    IS_READ_DESC = "isRead desc"
+    IS_DRAFT = "isDraft"
+    IS_DRAFT_DESC = "isDraft desc"
+    WEB_LINK = "webLink"
+    WEB_LINK_DESC = "webLink desc"
+    MENTIONS_PREVIEW = "mentionsPreview"
+    MENTIONS_PREVIEW_DESC = "mentionsPreview desc"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    INFERENCE_CLASSIFICATION_DESC = "inferenceClassification desc"
+    UNSUBSCRIBE_DATA = "unsubscribeData"
+    UNSUBSCRIBE_DATA_DESC = "unsubscribeData desc"
+    UNSUBSCRIBE_ENABLED = "unsubscribeEnabled"
+    UNSUBSCRIBE_ENABLED_DESC = "unsubscribeEnabled desc"
+    FLAG = "flag"
+    FLAG_DESC = "flag desc"
+
+class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    RECEIVED_DATE_TIME = "receivedDateTime"
+    SENT_DATE_TIME = "sentDateTime"
+    HAS_ATTACHMENTS = "hasAttachments"
+    INTERNET_MESSAGE_ID = "internetMessageId"
+    INTERNET_MESSAGE_HEADERS = "internetMessageHeaders"
+    SUBJECT = "subject"
+    BODY = "body"
+    BODY_PREVIEW = "bodyPreview"
+    IMPORTANCE = "importance"
+    PARENT_FOLDER_ID = "parentFolderId"
+    SENDER = "sender"
+    FROM_ENUM = "from"
+    TO_RECIPIENTS = "toRecipients"
+    CC_RECIPIENTS = "ccRecipients"
+    BCC_RECIPIENTS = "bccRecipients"
+    REPLY_TO = "replyTo"
+    CONVERSATION_ID = "conversationId"
+    CONVERSATION_INDEX = "conversationIndex"
+    UNIQUE_BODY = "uniqueBody"
+    IS_DELIVERY_RECEIPT_REQUESTED = "isDeliveryReceiptRequested"
+    IS_READ_RECEIPT_REQUESTED = "isReadReceiptRequested"
+    IS_READ = "isRead"
+    IS_DRAFT = "isDraft"
+    WEB_LINK = "webLink"
+    MENTIONS_PREVIEW = "mentionsPreview"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    UNSUBSCRIBE_DATA = "unsubscribeData"
+    UNSUBSCRIBE_ENABLED = "unsubscribeEnabled"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    RECEIVED_DATE_TIME = "receivedDateTime"
+    SENT_DATE_TIME = "sentDateTime"
+    HAS_ATTACHMENTS = "hasAttachments"
+    INTERNET_MESSAGE_ID = "internetMessageId"
+    INTERNET_MESSAGE_HEADERS = "internetMessageHeaders"
+    SUBJECT = "subject"
+    BODY = "body"
+    BODY_PREVIEW = "bodyPreview"
+    IMPORTANCE = "importance"
+    PARENT_FOLDER_ID = "parentFolderId"
+    SENDER = "sender"
+    FROM_ENUM = "from"
+    TO_RECIPIENTS = "toRecipients"
+    CC_RECIPIENTS = "ccRecipients"
+    BCC_RECIPIENTS = "bccRecipients"
+    REPLY_TO = "replyTo"
+    CONVERSATION_ID = "conversationId"
+    CONVERSATION_INDEX = "conversationIndex"
+    UNIQUE_BODY = "uniqueBody"
+    IS_DELIVERY_RECEIPT_REQUESTED = "isDeliveryReceiptRequested"
+    IS_READ_RECEIPT_REQUESTED = "isReadReceiptRequested"
+    IS_READ = "isRead"
+    IS_DRAFT = "isDraft"
+    WEB_LINK = "webLink"
+    MENTIONS_PREVIEW = "mentionsPreview"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    UNSUBSCRIBE_DATA = "unsubscribeData"
+    UNSUBSCRIBE_ENABLED = "unsubscribeEnabled"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum29(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    CONTENT_TYPE = "contentType"
+    CONTENT_TYPE_DESC = "contentType desc"
+    SIZE = "size"
+    SIZE_DESC = "size desc"
+    IS_INLINE = "isInline"
+    IS_INLINE_DESC = "isInline desc"
+
+class Enum30(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    CONTENT_TYPE = "contentType"
+    SIZE = "size"
+    IS_INLINE = "isInline"
+
+class Enum31(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    CONTENT_TYPE = "contentType"
+    SIZE = "size"
+    IS_INLINE = "isInline"
+
+class Enum32(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum33(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    MENTIONED = "mentioned"
+    MENTIONED_DESC = "mentioned desc"
+    MENTION_TEXT = "mentionText"
+    MENTION_TEXT_DESC = "mentionText desc"
+    CLIENT_REFERENCE = "clientReference"
+    CLIENT_REFERENCE_DESC = "clientReference desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    SERVER_CREATED_DATE_TIME = "serverCreatedDateTime"
+    SERVER_CREATED_DATE_TIME_DESC = "serverCreatedDateTime desc"
+    DEEP_LINK = "deepLink"
+    DEEP_LINK_DESC = "deepLink desc"
+    APPLICATION = "application"
+    APPLICATION_DESC = "application desc"
+
+class Enum34(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    MENTIONED = "mentioned"
+    MENTION_TEXT = "mentionText"
+    CLIENT_REFERENCE = "clientReference"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    SERVER_CREATED_DATE_TIME = "serverCreatedDateTime"
+    DEEP_LINK = "deepLink"
+    APPLICATION = "application"
+
+class Enum35(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    MENTIONED = "mentioned"
+    MENTION_TEXT = "mentionText"
+    CLIENT_REFERENCE = "clientReference"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    SERVER_CREATED_DATE_TIME = "serverCreatedDateTime"
+    DEEP_LINK = "deepLink"
+    APPLICATION = "application"
+
+class Enum36(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum37(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum38(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum39(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum40(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum41(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum42(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum43(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum44(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum45(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum46(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum47(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum48(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    BINARY_DATA = "binaryData"
+    BINARY_DATA_DESC = "binaryData desc"
+
+class Enum49(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BINARY_DATA = "binaryData"
+
+class Enum5(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASSIFY_AS = "classifyAs"
+    SENDER_EMAIL_ADDRESS = "senderEmailAddress"
+
+class Enum50(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BINARY_DATA = "binaryData"
+
+class Enum51(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    CHANGE_KEY = "changeKey"
+    CHANGE_KEY_DESC = "changeKey desc"
+    CATEGORIES = "categories"
+    CATEGORIES_DESC = "categories desc"
+    RECEIVED_DATE_TIME = "receivedDateTime"
+    RECEIVED_DATE_TIME_DESC = "receivedDateTime desc"
+    SENT_DATE_TIME = "sentDateTime"
+    SENT_DATE_TIME_DESC = "sentDateTime desc"
+    HAS_ATTACHMENTS = "hasAttachments"
+    HAS_ATTACHMENTS_DESC = "hasAttachments desc"
+    INTERNET_MESSAGE_ID = "internetMessageId"
+    INTERNET_MESSAGE_ID_DESC = "internetMessageId desc"
+    INTERNET_MESSAGE_HEADERS = "internetMessageHeaders"
+    INTERNET_MESSAGE_HEADERS_DESC = "internetMessageHeaders desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    BODY_PREVIEW = "bodyPreview"
+    BODY_PREVIEW_DESC = "bodyPreview desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    SENDER = "sender"
+    SENDER_DESC = "sender desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    TO_RECIPIENTS = "toRecipients"
+    TO_RECIPIENTS_DESC = "toRecipients desc"
+    CC_RECIPIENTS = "ccRecipients"
+    CC_RECIPIENTS_DESC = "ccRecipients desc"
+    BCC_RECIPIENTS = "bccRecipients"
+    BCC_RECIPIENTS_DESC = "bccRecipients desc"
+    REPLY_TO = "replyTo"
+    REPLY_TO_DESC = "replyTo desc"
+    CONVERSATION_ID = "conversationId"
+    CONVERSATION_ID_DESC = "conversationId desc"
+    CONVERSATION_INDEX = "conversationIndex"
+    CONVERSATION_INDEX_DESC = "conversationIndex desc"
+    UNIQUE_BODY = "uniqueBody"
+    UNIQUE_BODY_DESC = "uniqueBody desc"
+    IS_DELIVERY_RECEIPT_REQUESTED = "isDeliveryReceiptRequested"
+    IS_DELIVERY_RECEIPT_REQUESTED_DESC = "isDeliveryReceiptRequested desc"
+    IS_READ_RECEIPT_REQUESTED = "isReadReceiptRequested"
+    IS_READ_RECEIPT_REQUESTED_DESC = "isReadReceiptRequested desc"
+    IS_READ = "isRead"
+    IS_READ_DESC = "isRead desc"
+    IS_DRAFT = "isDraft"
+    IS_DRAFT_DESC = "isDraft desc"
+    WEB_LINK = "webLink"
+    WEB_LINK_DESC = "webLink desc"
+    MENTIONS_PREVIEW = "mentionsPreview"
+    MENTIONS_PREVIEW_DESC = "mentionsPreview desc"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    INFERENCE_CLASSIFICATION_DESC = "inferenceClassification desc"
+    UNSUBSCRIBE_DATA = "unsubscribeData"
+    UNSUBSCRIBE_DATA_DESC = "unsubscribeData desc"
+    UNSUBSCRIBE_ENABLED = "unsubscribeEnabled"
+    UNSUBSCRIBE_ENABLED_DESC = "unsubscribeEnabled desc"
+    FLAG = "flag"
+    FLAG_DESC = "flag desc"
+
+class Enum52(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    RECEIVED_DATE_TIME = "receivedDateTime"
+    SENT_DATE_TIME = "sentDateTime"
+    HAS_ATTACHMENTS = "hasAttachments"
+    INTERNET_MESSAGE_ID = "internetMessageId"
+    INTERNET_MESSAGE_HEADERS = "internetMessageHeaders"
+    SUBJECT = "subject"
+    BODY = "body"
+    BODY_PREVIEW = "bodyPreview"
+    IMPORTANCE = "importance"
+    PARENT_FOLDER_ID = "parentFolderId"
+    SENDER = "sender"
+    FROM_ENUM = "from"
+    TO_RECIPIENTS = "toRecipients"
+    CC_RECIPIENTS = "ccRecipients"
+    BCC_RECIPIENTS = "bccRecipients"
+    REPLY_TO = "replyTo"
+    CONVERSATION_ID = "conversationId"
+    CONVERSATION_INDEX = "conversationIndex"
+    UNIQUE_BODY = "uniqueBody"
+    IS_DELIVERY_RECEIPT_REQUESTED = "isDeliveryReceiptRequested"
+    IS_READ_RECEIPT_REQUESTED = "isReadReceiptRequested"
+    IS_READ = "isRead"
+    IS_DRAFT = "isDraft"
+    WEB_LINK = "webLink"
+    MENTIONS_PREVIEW = "mentionsPreview"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    UNSUBSCRIBE_DATA = "unsubscribeData"
+    UNSUBSCRIBE_ENABLED = "unsubscribeEnabled"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum53(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum54(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    CHANGE_KEY = "changeKey"
+    CATEGORIES = "categories"
+    RECEIVED_DATE_TIME = "receivedDateTime"
+    SENT_DATE_TIME = "sentDateTime"
+    HAS_ATTACHMENTS = "hasAttachments"
+    INTERNET_MESSAGE_ID = "internetMessageId"
+    INTERNET_MESSAGE_HEADERS = "internetMessageHeaders"
+    SUBJECT = "subject"
+    BODY = "body"
+    BODY_PREVIEW = "bodyPreview"
+    IMPORTANCE = "importance"
+    PARENT_FOLDER_ID = "parentFolderId"
+    SENDER = "sender"
+    FROM_ENUM = "from"
+    TO_RECIPIENTS = "toRecipients"
+    CC_RECIPIENTS = "ccRecipients"
+    BCC_RECIPIENTS = "bccRecipients"
+    REPLY_TO = "replyTo"
+    CONVERSATION_ID = "conversationId"
+    CONVERSATION_INDEX = "conversationIndex"
+    UNIQUE_BODY = "uniqueBody"
+    IS_DELIVERY_RECEIPT_REQUESTED = "isDeliveryReceiptRequested"
+    IS_READ_RECEIPT_REQUESTED = "isReadReceiptRequested"
+    IS_READ = "isRead"
+    IS_DRAFT = "isDraft"
+    WEB_LINK = "webLink"
+    MENTIONS_PREVIEW = "mentionsPreview"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    UNSUBSCRIBE_DATA = "unsubscribeData"
+    UNSUBSCRIBE_ENABLED = "unsubscribeEnabled"
+    FLAG = "flag"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum55(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    ATTACHMENTS = "attachments"
+    EXTENSIONS = "extensions"
+    MENTIONS = "mentions"
+
+class Enum56(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    CONTENT_TYPE = "contentType"
+    CONTENT_TYPE_DESC = "contentType desc"
+    SIZE = "size"
+    SIZE_DESC = "size desc"
+    IS_INLINE = "isInline"
+    IS_INLINE_DESC = "isInline desc"
+
+class Enum57(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    CONTENT_TYPE = "contentType"
+    SIZE = "size"
+    IS_INLINE = "isInline"
+
+class Enum58(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    CONTENT_TYPE = "contentType"
+    SIZE = "size"
+    IS_INLINE = "isInline"
+
+class Enum59(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum6(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    PARENT_FOLDER_ID = "parentFolderId"
+    PARENT_FOLDER_ID_DESC = "parentFolderId desc"
+    CHILD_FOLDER_COUNT = "childFolderCount"
+    CHILD_FOLDER_COUNT_DESC = "childFolderCount desc"
+    UNREAD_ITEM_COUNT = "unreadItemCount"
+    UNREAD_ITEM_COUNT_DESC = "unreadItemCount desc"
+    TOTAL_ITEM_COUNT = "totalItemCount"
+    TOTAL_ITEM_COUNT_DESC = "totalItemCount desc"
+    WELL_KNOWN_NAME = "wellKnownName"
+    WELL_KNOWN_NAME_DESC = "wellKnownName desc"
+
+class Enum60(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    MENTIONED = "mentioned"
+    MENTIONED_DESC = "mentioned desc"
+    MENTION_TEXT = "mentionText"
+    MENTION_TEXT_DESC = "mentionText desc"
+    CLIENT_REFERENCE = "clientReference"
+    CLIENT_REFERENCE_DESC = "clientReference desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    SERVER_CREATED_DATE_TIME = "serverCreatedDateTime"
+    SERVER_CREATED_DATE_TIME_DESC = "serverCreatedDateTime desc"
+    DEEP_LINK = "deepLink"
+    DEEP_LINK_DESC = "deepLink desc"
+    APPLICATION = "application"
+    APPLICATION_DESC = "application desc"
+
+class Enum61(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    MENTIONED = "mentioned"
+    MENTION_TEXT = "mentionText"
+    CLIENT_REFERENCE = "clientReference"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    SERVER_CREATED_DATE_TIME = "serverCreatedDateTime"
+    DEEP_LINK = "deepLink"
+    APPLICATION = "application"
+
+class Enum62(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    MENTIONED = "mentioned"
+    MENTION_TEXT = "mentionText"
+    CLIENT_REFERENCE = "clientReference"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    SERVER_CREATED_DATE_TIME = "serverCreatedDateTime"
+    DEEP_LINK = "deepLink"
+    APPLICATION = "application"
+
+class Enum63(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum64(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    VALUE = "value"
+    VALUE_DESC = "value desc"
+
+class Enum67(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum68(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    VALUE = "value"
+
+class Enum7(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    PARENT_FOLDER_ID = "parentFolderId"
+    CHILD_FOLDER_COUNT = "childFolderCount"
+    UNREAD_ITEM_COUNT = "unreadItemCount"
+    TOTAL_ITEM_COUNT = "totalItemCount"
+    WELL_KNOWN_NAME = "wellKnownName"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    OVERRIDES = "overrides"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    OVERRIDES = "overrides"
+
+class Get4ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLASSIFY_AS = "classifyAs"
+    CLASSIFY_AS_DESC = "classifyAs desc"
+    SENDER_EMAIL_ADDRESS = "senderEmailAddress"
+    SENDER_EMAIL_ADDRESS_DESC = "senderEmailAddress desc"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASSIFY_AS = "classifyAs"
+    SENDER_EMAIL_ADDRESS = "senderEmailAddress"
+
+class Get9ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SINGLE_VALUE_EXTENDED_PROPERTIES = "singleValueExtendedProperties"
+    MULTI_VALUE_EXTENDED_PROPERTIES = "multiValueExtendedProperties"
+    MESSAGES = "messages"
+    MESSAGE_RULES = "messageRules"
+    CHILD_FOLDERS = "childFolders"
+    USER_CONFIGURATIONS = "userConfigurations"
+
+class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    TEXT = "text"
+    HTML = "html"
+
+class MicrosoftGraphFollowupFlagStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_FLAGGED = "notFlagged"
+    COMPLETE = "complete"
+    FLAGGED = "flagged"
+
+class MicrosoftGraphImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    LOW = "low"
+    NORMAL = "normal"
+    HIGH = "high"
+
+class MicrosoftGraphInferenceClassificationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FOCUSED = "focused"
+    OTHER = "other"
+
+class MicrosoftGraphMessageActionFlag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ANY = "any"
+    CALL = "call"
+    DO_NOT_FORWARD = "doNotForward"
+    FOLLOW_UP = "followUp"
+    FYI = "fyi"
+    FORWARD = "forward"
+    NO_RESPONSE_NECESSARY = "noResponseNecessary"
+    READ = "read"
+    REPLY = "reply"
+    REPLY_TO_ALL = "replyToAll"
+    REVIEW = "review"
+
+class MicrosoftGraphSensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    PERSONAL = "personal"
+    PRIVATE = "private"
+    CONFIDENTIAL = "confidential"

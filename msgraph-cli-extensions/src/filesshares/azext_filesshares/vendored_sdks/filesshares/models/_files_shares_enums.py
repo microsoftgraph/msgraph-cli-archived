@@ -6,2696 +6,2714 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum109(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum110(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum111(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    description = "description"
-    description_desc = "description desc"
-    e_tag = "eTag"
-    e_tag_desc = "eTag desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    name = "name"
-    name_desc = "name desc"
-    parent_reference = "parentReference"
-    parent_reference_desc = "parentReference desc"
-    web_url = "webUrl"
-    web_url_desc = "webUrl desc"
-    audio = "audio"
-    audio_desc = "audio desc"
-    bundle = "bundle"
-    bundle_desc = "bundle desc"
-    content = "content"
-    content_desc = "content desc"
-    c_tag = "cTag"
-    c_tag_desc = "cTag desc"
-    deleted = "deleted"
-    deleted_desc = "deleted desc"
-    file = "file"
-    file_desc = "file desc"
-    file_system_info = "fileSystemInfo"
-    file_system_info_desc = "fileSystemInfo desc"
-    folder = "folder"
-    folder_desc = "folder desc"
-    image = "image"
-    image_desc = "image desc"
-    location = "location"
-    location_desc = "location desc"
-    package = "package"
-    package_desc = "package desc"
-    pending_operations = "pendingOperations"
-    pending_operations_desc = "pendingOperations desc"
-    photo = "photo"
-    photo_desc = "photo desc"
-    publication = "publication"
-    publication_desc = "publication desc"
-    remote_item = "remoteItem"
-    remote_item_desc = "remoteItem desc"
-    root = "root"
-    root_desc = "root desc"
-    search_result = "searchResult"
-    search_result_desc = "searchResult desc"
-    shared = "shared"
-    shared_desc = "shared desc"
-    sharepoint_ids = "sharepointIds"
-    sharepoint_ids_desc = "sharepointIds desc"
-    size = "size"
-    size_desc = "size desc"
-    special_folder = "specialFolder"
-    special_folder_desc = "specialFolder desc"
-    video = "video"
-    video_desc = "video desc"
-    web_dav_url = "webDavUrl"
-    web_dav_url_desc = "webDavUrl desc"
-
-class Enum112(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum114(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum116(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    display_name = "displayName"
-    list = "list"
-    sharepoint_ids = "sharepointIds"
-    system = "system"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    columns = "columns"
-    content_types = "contentTypes"
-    drive = "drive"
-    items = "items"
-    subscriptions = "subscriptions"
-
-class Enum117(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    columns = "columns"
-    content_types = "contentTypes"
-    drive = "drive"
-    items = "items"
-    subscriptions = "subscriptions"
-
-class Enum118(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    action = "action"
-    action_desc = "action desc"
-    actor = "actor"
-    actor_desc = "actor desc"
-    times = "times"
-    times_desc = "times desc"
-
-class Enum119(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum120(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum121(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum122(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum123(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum124(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum125(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    content_type = "contentType"
-    sharepoint_ids = "sharepointIds"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum126(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum127(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    action = "action"
-    action_desc = "action desc"
-    actor = "actor"
-    actor_desc = "actor desc"
-    times = "times"
-    times_desc = "times desc"
-
-class Enum128(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum130(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum132(str, Enum):
-
-    id = "id"
-    item_activity_stats = "itemActivityStats"
-    all_time = "allTime"
-    last_seven_days = "lastSevenDays"
-
-class Enum133(str, Enum):
-
-    asterisk = "*"
-    item_activity_stats = "itemActivityStats"
-    all_time = "allTime"
-    last_seven_days = "lastSevenDays"
-
-class Enum134(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum135(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum136(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    publication = "publication"
-    publication_desc = "publication desc"
-
-class Enum137(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    publication = "publication"
-    fields = "fields"
-
-class Enum138(str, Enum):
-
-    asterisk = "*"
-    fields = "fields"
-
-class Enum139(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    publication = "publication"
-    fields = "fields"
-
-class Enum140(str, Enum):
-
-    asterisk = "*"
-    fields = "fields"
-
-class Enum141(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    boolean = "boolean"
-    boolean_desc = "boolean desc"
-    calculated = "calculated"
-    calculated_desc = "calculated desc"
-    choice = "choice"
-    choice_desc = "choice desc"
-    column_group = "columnGroup"
-    column_group_desc = "columnGroup desc"
-    currency = "currency"
-    currency_desc = "currency desc"
-    date_time = "dateTime"
-    date_time_desc = "dateTime desc"
-    default_value = "defaultValue"
-    default_value_desc = "defaultValue desc"
-    description = "description"
-    description_desc = "description desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    enforce_unique_values = "enforceUniqueValues"
-    enforce_unique_values_desc = "enforceUniqueValues desc"
-    geolocation = "geolocation"
-    geolocation_desc = "geolocation desc"
-    hidden = "hidden"
-    hidden_desc = "hidden desc"
-    indexed = "indexed"
-    indexed_desc = "indexed desc"
-    lookup = "lookup"
-    lookup_desc = "lookup desc"
-    name = "name"
-    name_desc = "name desc"
-    number = "number"
-    number_desc = "number desc"
-    person_or_group = "personOrGroup"
-    person_or_group_desc = "personOrGroup desc"
-    read_only = "readOnly"
-    read_only_desc = "readOnly desc"
-    required = "required"
-    required_desc = "required desc"
-    text = "text"
-    text_desc = "text desc"
-
-class Enum142(str, Enum):
-
-    id = "id"
-    boolean = "boolean"
-    calculated = "calculated"
-    choice = "choice"
-    column_group = "columnGroup"
-    currency = "currency"
-    date_time = "dateTime"
-    default_value = "defaultValue"
-    description = "description"
-    display_name = "displayName"
-    enforce_unique_values = "enforceUniqueValues"
-    geolocation = "geolocation"
-    hidden = "hidden"
-    indexed = "indexed"
-    lookup = "lookup"
-    name = "name"
-    number = "number"
-    person_or_group = "personOrGroup"
-    read_only = "readOnly"
-    required = "required"
-    text = "text"
-
-class Enum143(str, Enum):
-
-    id = "id"
-    boolean = "boolean"
-    calculated = "calculated"
-    choice = "choice"
-    column_group = "columnGroup"
-    currency = "currency"
-    date_time = "dateTime"
-    default_value = "defaultValue"
-    description = "description"
-    display_name = "displayName"
-    enforce_unique_values = "enforceUniqueValues"
-    geolocation = "geolocation"
-    hidden = "hidden"
-    indexed = "indexed"
-    lookup = "lookup"
-    name = "name"
-    number = "number"
-    person_or_group = "personOrGroup"
-    read_only = "readOnly"
-    required = "required"
-    text = "text"
-
-class Enum144(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    description = "description"
-    description_desc = "description desc"
-    group = "group"
-    group_desc = "group desc"
-    hidden = "hidden"
-    hidden_desc = "hidden desc"
-    inherited_from = "inheritedFrom"
-    inherited_from_desc = "inheritedFrom desc"
-    name = "name"
-    name_desc = "name desc"
-    order = "order"
-    order_desc = "order desc"
-    parent_id = "parentId"
-    parent_id_desc = "parentId desc"
-    read_only = "readOnly"
-    read_only_desc = "readOnly desc"
-    sealed = "sealed"
-    sealed_desc = "sealed desc"
-
-class Enum145(str, Enum):
-
-    id = "id"
-    description = "description"
-    group = "group"
-    hidden = "hidden"
-    inherited_from = "inheritedFrom"
-    name = "name"
-    order = "order"
-    parent_id = "parentId"
-    read_only = "readOnly"
-    sealed = "sealed"
-    column_links = "columnLinks"
-
-class Enum146(str, Enum):
-
-    asterisk = "*"
-    column_links = "columnLinks"
-
-class Enum147(str, Enum):
-
-    id = "id"
-    description = "description"
-    group = "group"
-    hidden = "hidden"
-    inherited_from = "inheritedFrom"
-    name = "name"
-    order = "order"
-    parent_id = "parentId"
-    read_only = "readOnly"
-    sealed = "sealed"
-    column_links = "columnLinks"
-
-class Enum148(str, Enum):
-
-    asterisk = "*"
-    column_links = "columnLinks"
-
-class Enum149(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    name = "name"
-    name_desc = "name desc"
-
-class Enum150(str, Enum):
-
-    id = "id"
-    name = "name"
-
-class Enum151(str, Enum):
-
-    id = "id"
-    name = "name"
-
-class Enum152(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    drive_type = "driveType"
-    owner = "owner"
-    quota = "quota"
-    share_point_ids = "sharePointIds"
-    system = "system"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    bundles = "bundles"
-    following = "following"
-    items = "items"
-    list = "list"
-    root = "root"
-    special = "special"
-
-class Enum153(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    bundles = "bundles"
-    following = "following"
-    items = "items"
-    list = "list"
-    root = "root"
-    special = "special"
-
-class Enum154(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    description = "description"
-    description_desc = "description desc"
-    e_tag = "eTag"
-    e_tag_desc = "eTag desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    name = "name"
-    name_desc = "name desc"
-    parent_reference = "parentReference"
-    parent_reference_desc = "parentReference desc"
-    web_url = "webUrl"
-    web_url_desc = "webUrl desc"
-    content_type = "contentType"
-    content_type_desc = "contentType desc"
-    sharepoint_ids = "sharepointIds"
-    sharepoint_ids_desc = "sharepointIds desc"
-
-class Enum155(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    content_type = "contentType"
-    sharepoint_ids = "sharepointIds"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum156(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum157(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    content_type = "contentType"
-    sharepoint_ids = "sharepointIds"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum158(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum159(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    action = "action"
-    action_desc = "action desc"
-    actor = "actor"
-    actor_desc = "actor desc"
-    times = "times"
-    times_desc = "times desc"
-
-class Enum160(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum161(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum162(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum163(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum164(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum165(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum166(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    content_type = "contentType"
-    sharepoint_ids = "sharepointIds"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum167(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum168(str, Enum):
-
-    id = "id"
-    item_activity_stats = "itemActivityStats"
-    all_time = "allTime"
-    last_seven_days = "lastSevenDays"
-
-class Enum169(str, Enum):
-
-    asterisk = "*"
-    item_activity_stats = "itemActivityStats"
-    all_time = "allTime"
-    last_seven_days = "lastSevenDays"
-
-class Enum170(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum171(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum172(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    publication = "publication"
-    publication_desc = "publication desc"
-
-class Enum173(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    publication = "publication"
-    fields = "fields"
-
-class Enum174(str, Enum):
-
-    asterisk = "*"
-    fields = "fields"
-
-class Enum175(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    publication = "publication"
-    fields = "fields"
-
-class Enum176(str, Enum):
-
-    asterisk = "*"
-    fields = "fields"
-
-class Enum177(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    change_type = "changeType"
-    change_type_desc = "changeType desc"
-    client_state = "clientState"
-    client_state_desc = "clientState desc"
-    notification_url = "notificationUrl"
-    notification_url_desc = "notificationUrl desc"
-    expiration_date_time = "expirationDateTime"
-    expiration_date_time_desc = "expirationDateTime desc"
-    application_id = "applicationId"
-    application_id_desc = "applicationId desc"
-    creator_id = "creatorId"
-    creator_id_desc = "creatorId desc"
-    include_properties = "includeProperties"
-    include_properties_desc = "includeProperties desc"
-    include_resource_data = "includeResourceData"
-    include_resource_data_desc = "includeResourceData desc"
-    lifecycle_notification_url = "lifecycleNotificationUrl"
-    lifecycle_notification_url_desc = "lifecycleNotificationUrl desc"
-    encryption_certificate = "encryptionCertificate"
-    encryption_certificate_desc = "encryptionCertificate desc"
-    encryption_certificate_id = "encryptionCertificateId"
-    encryption_certificate_id_desc = "encryptionCertificateId desc"
-    latest_supported_tls_version = "latestSupportedTlsVersion"
-    latest_supported_tls_version_desc = "latestSupportedTlsVersion desc"
-
-class Enum178(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    change_type = "changeType"
-    client_state = "clientState"
-    notification_url = "notificationUrl"
-    expiration_date_time = "expirationDateTime"
-    application_id = "applicationId"
-    creator_id = "creatorId"
-    include_properties = "includeProperties"
-    include_resource_data = "includeResourceData"
-    lifecycle_notification_url = "lifecycleNotificationUrl"
-    encryption_certificate = "encryptionCertificate"
-    encryption_certificate_id = "encryptionCertificateId"
-    latest_supported_tls_version = "latestSupportedTlsVersion"
-
-class Enum179(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    change_type = "changeType"
-    client_state = "clientState"
-    notification_url = "notificationUrl"
-    expiration_date_time = "expirationDateTime"
-    application_id = "applicationId"
-    creator_id = "creatorId"
-    include_properties = "includeProperties"
-    include_resource_data = "includeResourceData"
-    lifecycle_notification_url = "lifecycleNotificationUrl"
-    encryption_certificate = "encryptionCertificate"
-    encryption_certificate_id = "encryptionCertificateId"
-    latest_supported_tls_version = "latestSupportedTlsVersion"
-
-class Enum180(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    content_type = "contentType"
-    sharepoint_ids = "sharepointIds"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum181(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum182(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    action = "action"
-    action_desc = "action desc"
-    actor = "actor"
-    actor_desc = "actor desc"
-    times = "times"
-    times_desc = "times desc"
-
-class Enum183(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum184(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum185(str, Enum):
-
-    id = "id"
-    action = "action"
-    actor = "actor"
-    times = "times"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum186(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Enum187(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum188(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum189(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    content_type = "contentType"
-    sharepoint_ids = "sharepointIds"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum190(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    activities = "activities"
-    analytics = "analytics"
-    drive_item = "driveItem"
-    fields = "fields"
-    versions = "versions"
-
-class Enum191(str, Enum):
-
-    id = "id"
-    item_activity_stats = "itemActivityStats"
-    all_time = "allTime"
-    last_seven_days = "lastSevenDays"
-
-class Enum192(str, Enum):
-
-    asterisk = "*"
-    item_activity_stats = "itemActivityStats"
-    all_time = "allTime"
-    last_seven_days = "lastSevenDays"
-
-class Enum193(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum194(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum195(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    publication = "publication"
-    publication_desc = "publication desc"
-
-class Enum196(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    publication = "publication"
-    fields = "fields"
-
-class Enum197(str, Enum):
-
-    asterisk = "*"
-    fields = "fields"
-
-class Enum198(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    publication = "publication"
-    fields = "fields"
-
-class Enum199(str, Enum):
-
-    asterisk = "*"
-    fields = "fields"
-
-class Enum200(str, Enum):
-
-    id = "id"
-    expiration_date_time = "expirationDateTime"
-    granted_to = "grantedTo"
-    granted_to_identities = "grantedToIdentities"
-    has_password = "hasPassword"
-    inherited_from = "inheritedFrom"
-    invitation = "invitation"
-    link = "link"
-    roles = "roles"
-    share_id = "shareId"
-
-class Enum201(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    audio = "audio"
-    bundle = "bundle"
-    content = "content"
-    c_tag = "cTag"
-    deleted = "deleted"
-    file = "file"
-    file_system_info = "fileSystemInfo"
-    folder = "folder"
-    image = "image"
-    location = "location"
-    package = "package"
-    pending_operations = "pendingOperations"
-    photo = "photo"
-    publication = "publication"
-    remote_item = "remoteItem"
-    root = "root"
-    search_result = "searchResult"
-    shared = "shared"
-    sharepoint_ids = "sharepointIds"
-    size = "size"
-    special_folder = "specialFolder"
-    video = "video"
-    web_dav_url = "webDavUrl"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum202(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Enum203(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    display_name = "displayName"
-    root = "root"
-    sharepoint_ids = "sharepointIds"
-    site_collection = "siteCollection"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    analytics = "analytics"
-    columns = "columns"
-    content_types = "contentTypes"
-    drive = "drive"
-    drives = "drives"
-    items = "items"
-    lists = "lists"
-    pages = "pages"
-    sites = "sites"
-    onenote = "onenote"
-
-class Enum204(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    analytics = "analytics"
-    columns = "columns"
-    content_types = "contentTypes"
-    drive = "drive"
-    drives = "drives"
-    items = "items"
-    lists = "lists"
-    pages = "pages"
-    sites = "sites"
-    onenote = "onenote"
-
-class Get1ItemsItem(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    owner = "owner"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    drive_item = "driveItem"
-    items = "items"
-    list = "list"
-    list_item = "listItem"
-    permission = "permission"
-    root = "root"
-    site = "site"
-
-class Get2ItemsItem(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    drive_item = "driveItem"
-    items = "items"
-    list = "list"
-    list_item = "listItem"
-    permission = "permission"
-    root = "root"
-    site = "site"
-
-class Get3ItemsItem(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Get4ItemsItem(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class Get5ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    description = "description"
-    description_desc = "description desc"
-    e_tag = "eTag"
-    e_tag_desc = "eTag desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    name = "name"
-    name_desc = "name desc"
-    parent_reference = "parentReference"
-    parent_reference_desc = "parentReference desc"
-    web_url = "webUrl"
-    web_url_desc = "webUrl desc"
-    owner = "owner"
-    owner_desc = "owner desc"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    description = "description"
-    e_tag = "eTag"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    name = "name"
-    parent_reference = "parentReference"
-    web_url = "webUrl"
-    owner = "owner"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    drive_item = "driveItem"
-    items = "items"
-    list = "list"
-    list_item = "listItem"
-    permission = "permission"
-    root = "root"
-    site = "site"
-
-class Get7ItemsItem(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    drive_item = "driveItem"
-    items = "items"
-    list = "list"
-    list_item = "listItem"
-    permission = "permission"
-    root = "root"
-    site = "site"
-
-class Get8ItemsItem(str, Enum):
-
-    asterisk = "*"
-    created_by_user = "createdByUser"
-    last_modified_by_user = "lastModifiedByUser"
-    workbook = "workbook"
-    activities = "activities"
-    analytics = "analytics"
-    children = "children"
-    list_item = "listItem"
-    permissions = "permissions"
-    subscriptions = "subscriptions"
-    thumbnails = "thumbnails"
-    versions = "versions"
-
-class Get9ItemsItem(str, Enum):
-
-    asterisk = "*"
-    drive_item = "driveItem"
-    list_item = "listItem"
-
-class MicrosoftGraphAccessLevel(str, Enum):
-
-    everyone = "everyone"
-    invited = "invited"
-    locked = "locked"
-    same_enterprise = "sameEnterprise"
-    same_enterprise_and_federated = "sameEnterpriseAndFederated"
-
-class MicrosoftGraphActionState(str, Enum):
-
-    none = "none"
-    pending = "pending"
-    canceled = "canceled"
-    active = "active"
-    done = "done"
-    failed = "failed"
-    not_supported = "notSupported"
-
-class MicrosoftGraphAgreementAcceptanceState(str, Enum):
-
-    accepted = "accepted"
-    declined = "declined"
-
-class MicrosoftGraphAllowedAudiences(str, Enum):
-
-    me = "me"
-    family = "family"
-    contacts = "contacts"
-    group_members = "groupMembers"
-    organization = "organization"
-    federated_organizations = "federatedOrganizations"
-    everyone = "everyone"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAnalyticsActivityType(str, Enum):
-
-    email = "Email"
-    meeting = "Meeting"
-    focus = "Focus"
-    chat = "Chat"
-    call = "Call"
-
-class MicrosoftGraphAnniversaryType(str, Enum):
-
-    birthday = "birthday"
-    wedding = "wedding"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphApplicationMode(str, Enum):
-
-    manual = "manual"
-    automatic = "automatic"
-    recommended = "recommended"
-
-class MicrosoftGraphAppLogUploadState(str, Enum):
-
-    pending = "pending"
-    completed = "completed"
-    failed = "failed"
-
-class MicrosoftGraphAttendeeType(str, Enum):
-
-    required = "required"
-    optional = "optional"
-    resource = "resource"
-
-class MicrosoftGraphAuthenticationMethodSignInState(str, Enum):
-
-    not_supported = "notSupported"
-    not_allowed_by_policy = "notAllowedByPolicy"
-    not_enabled = "notEnabled"
-    phone_number_not_unique = "phoneNumberNotUnique"
-    ready = "ready"
-    not_configured = "notConfigured"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAuthenticationPhoneType(str, Enum):
-
-    mobile = "mobile"
-    alternate_mobile = "alternateMobile"
-    office = "office"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAutomaticRepliesStatus(str, Enum):
-
-    disabled = "disabled"
-    always_enabled = "alwaysEnabled"
-    scheduled = "scheduled"
-
-class MicrosoftGraphBodyType(str, Enum):
-
-    text = "text"
-    html = "html"
-
-class MicrosoftGraphCalendarColor(str, Enum):
-
-    light_blue = "lightBlue"
-    light_green = "lightGreen"
-    light_orange = "lightOrange"
-    light_gray = "lightGray"
-    light_yellow = "lightYellow"
-    light_teal = "lightTeal"
-    light_pink = "lightPink"
-    light_brown = "lightBrown"
-    light_red = "lightRed"
-    max_color = "maxColor"
-    auto = "auto"
-
-class MicrosoftGraphCalendarRoleType(str, Enum):
-
-    none = "none"
-    free_busy_read = "freeBusyRead"
-    limited_read = "limitedRead"
-    read = "read"
-    write = "write"
-    delegate_without_private_event_access = "delegateWithoutPrivateEventAccess"
-    delegate_with_private_event_access = "delegateWithPrivateEventAccess"
-    custom = "custom"
-
-class MicrosoftGraphCategoryColor(str, Enum):
-
-    preset0 = "preset0"
-    preset1 = "preset1"
-    preset2 = "preset2"
-    preset3 = "preset3"
-    preset4 = "preset4"
-    preset5 = "preset5"
-    preset6 = "preset6"
-    preset7 = "preset7"
-    preset8 = "preset8"
-    preset9 = "preset9"
-    preset10 = "preset10"
-    preset11 = "preset11"
-    preset12 = "preset12"
-    preset13 = "preset13"
-    preset14 = "preset14"
-    preset15 = "preset15"
-    preset16 = "preset16"
-    preset17 = "preset17"
-    preset18 = "preset18"
-    preset19 = "preset19"
-    preset20 = "preset20"
-    preset21 = "preset21"
-    preset22 = "preset22"
-    preset23 = "preset23"
-    preset24 = "preset24"
-    none = "none"
-
-class MicrosoftGraphChannelMembershipType(str, Enum):
-
-    standard = "standard"
-    private = "private"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphChassisType(str, Enum):
-
-    unknown = "unknown"
-    desktop = "desktop"
-    laptop = "laptop"
-    works_workstation = "worksWorkstation"
-    enterprise_server = "enterpriseServer"
-    phone = "phone"
-    tablet = "tablet"
-    mobile_other = "mobileOther"
-    mobile_unknown = "mobileUnknown"
-
-class MicrosoftGraphChatMessageImportance(str, Enum):
-
-    normal = "normal"
-    high = "high"
-    urgent = "urgent"
-
-class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(str, Enum):
-
-    none = "none"
-    notify_sender = "notifySender"
-    block_access = "blockAccess"
-    block_access_external = "blockAccessExternal"
-
-class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(str, Enum):
-
-    none = "none"
-    override = "override"
-    report_false_positive = "reportFalsePositive"
-
-class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(str, Enum):
-
-    none = "none"
-    allow_false_positive_override = "allowFalsePositiveOverride"
-    allow_override_without_justification = "allowOverrideWithoutJustification"
-    allow_override_with_justification = "allowOverrideWithJustification"
-
-class MicrosoftGraphChatMessageType(str, Enum):
-
-    message = "message"
-    chat_event = "chatEvent"
-    typing = "typing"
-
-class MicrosoftGraphComplianceState(str, Enum):
-
-    unknown = "unknown"
-    compliant = "compliant"
-    noncompliant = "noncompliant"
-    conflict = "conflict"
-    error = "error"
-    in_grace_period = "inGracePeriod"
-    config_manager = "configManager"
-
-class MicrosoftGraphComplianceStatus(str, Enum):
-
-    unknown = "unknown"
-    not_applicable = "notApplicable"
-    compliant = "compliant"
-    remediated = "remediated"
-    non_compliant = "nonCompliant"
-    error = "error"
-    conflict = "conflict"
-    not_assigned = "notAssigned"
-
-class MicrosoftGraphConfigurationManagerClientState(str, Enum):
-
-    unknown = "unknown"
-    installed = "installed"
-    healthy = "healthy"
-    install_failed = "installFailed"
-    update_failed = "updateFailed"
-    communication_error = "communicationError"
-
-class MicrosoftGraphDayOfWeek(str, Enum):
-
-    sunday = "sunday"
-    monday = "monday"
-    tuesday = "tuesday"
-    wednesday = "wednesday"
-    thursday = "thursday"
-    friday = "friday"
-    saturday = "saturday"
-
-class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(str, Enum):
-
-    send_to_delegate_and_information_to_principal = "sendToDelegateAndInformationToPrincipal"
-    send_to_delegate_and_principal = "sendToDelegateAndPrincipal"
-    send_to_delegate_only = "sendToDelegateOnly"
-
-class MicrosoftGraphDeviceAndAppManagementAssignmentSource(str, Enum):
-
-    direct = "direct"
-    policy_sets = "policySets"
-
-class MicrosoftGraphDeviceEnrollmentType(str, Enum):
-
-    unknown = "unknown"
-    user_enrollment = "userEnrollment"
-    device_enrollment_manager = "deviceEnrollmentManager"
-    apple_bulk_with_user = "appleBulkWithUser"
-    apple_bulk_without_user = "appleBulkWithoutUser"
-    windows_azure_ad_join = "windowsAzureADJoin"
-    windows_bulk_userless = "windowsBulkUserless"
-    windows_auto_enrollment = "windowsAutoEnrollment"
-    windows_bulk_azure_domain_join = "windowsBulkAzureDomainJoin"
-    windows_co_management = "windowsCoManagement"
-    apple_user_enrollment = "appleUserEnrollment"
-    apple_user_enrollment_with_service_account = "appleUserEnrollmentWithServiceAccount"
-    azure_ad_join_using_azure_vm_extension = "azureAdJoinUsingAzureVmExtension"
-
-class MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState(str, Enum):
-
-    running = "running"
-    reboot_required = "rebootRequired"
-    not_licensed = "notLicensed"
-    not_configured = "notConfigured"
-    virtualization_based_security_not_running = "virtualizationBasedSecurityNotRunning"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(str, Enum):
-
-    meet_hardware_requirements = "meetHardwareRequirements"
-    secure_boot_required = "secureBootRequired"
-    dma_protection_required = "dmaProtectionRequired"
-    hyper_v_not_supported_for_guest_vm = "hyperVNotSupportedForGuestVM"
-    hyper_v_not_available = "hyperVNotAvailable"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState(str, Enum):
-
-    running = "running"
-    reboot_required = "rebootRequired"
-    require64_bit_architecture = "require64BitArchitecture"
-    not_licensed = "notLicensed"
-    not_configured = "notConfigured"
-    does_not_meet_hardware_requirements = "doesNotMeetHardwareRequirements"
-    other = "other"
-
-class MicrosoftGraphDeviceManagementExchangeAccessState(str, Enum):
-
-    none = "none"
-    unknown = "unknown"
-    allowed = "allowed"
-    blocked = "blocked"
-    quarantined = "quarantined"
-
-class MicrosoftGraphDeviceManagementExchangeAccessStateReason(str, Enum):
-
-    none = "none"
-    unknown = "unknown"
-    exchange_global_rule = "exchangeGlobalRule"
-    exchange_individual_rule = "exchangeIndividualRule"
-    exchange_device_rule = "exchangeDeviceRule"
-    exchange_upgrade = "exchangeUpgrade"
-    exchange_mailbox_policy = "exchangeMailboxPolicy"
-    other = "other"
-    compliant = "compliant"
-    not_compliant = "notCompliant"
-    not_enrolled = "notEnrolled"
-    unknown_location = "unknownLocation"
-    mfa_required = "mfaRequired"
-    azure_ad_block_due_to_access_policy = "azureADBlockDueToAccessPolicy"
-    compromised_password = "compromisedPassword"
-    device_not_known_with_managed_app = "deviceNotKnownWithManagedApp"
-
-class MicrosoftGraphDeviceRegistrationState(str, Enum):
-
-    not_registered = "notRegistered"
-    registered = "registered"
-    revoked = "revoked"
-    key_conflict = "keyConflict"
-    approval_pending = "approvalPending"
-    certificate_reset = "certificateReset"
-    not_registered_pending_enrollment = "notRegisteredPendingEnrollment"
-    unknown = "unknown"
-
-class MicrosoftGraphDeviceType(str, Enum):
-
-    desktop = "desktop"
-    windows_rt = "windowsRT"
-    win_mo6 = "winMO6"
-    nokia = "nokia"
-    windows_phone = "windowsPhone"
-    mac = "mac"
-    win_ce = "winCE"
-    win_embedded = "winEmbedded"
-    i_phone = "iPhone"
-    i_pad = "iPad"
-    i_pod = "iPod"
-    android = "android"
-    i_soc_consumer = "iSocConsumer"
-    unix = "unix"
-    mac_mdm = "macMDM"
-    holo_lens = "holoLens"
-    surface_hub = "surfaceHub"
-    android_for_work = "androidForWork"
-    android_enterprise = "androidEnterprise"
-    windows10_x = "windows10x"
-    blackberry = "blackberry"
-    palm = "palm"
-    unknown = "unknown"
-
-class MicrosoftGraphEmailType(str, Enum):
-
-    unknown = "unknown"
-    work = "work"
-    personal = "personal"
-    main = "main"
-    other = "other"
-
-class MicrosoftGraphEventType(str, Enum):
-
-    single_instance = "singleInstance"
-    occurrence = "occurrence"
-    exception = "exception"
-    series_master = "seriesMaster"
-
-class MicrosoftGraphExternalAudienceScope(str, Enum):
-
-    none = "none"
-    contacts_only = "contactsOnly"
-    all = "all"
-
-class MicrosoftGraphFollowupFlagStatus(str, Enum):
-
-    not_flagged = "notFlagged"
-    complete = "complete"
-    flagged = "flagged"
-
-class MicrosoftGraphFreeBusyStatus(str, Enum):
-
-    free = "free"
-    tentative = "tentative"
-    busy = "busy"
-    oof = "oof"
-    working_elsewhere = "workingElsewhere"
-    unknown = "unknown"
-
-class MicrosoftGraphGiphyRatingType(str, Enum):
-
-    strict = "strict"
-    moderate = "moderate"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphGroupAccessType(str, Enum):
-
-    none = "none"
-    private = "private"
-    secret = "secret"
-    public = "public"
-
-class MicrosoftGraphImportance(str, Enum):
-
-    low = "low"
-    normal = "normal"
-    high = "high"
-
-class MicrosoftGraphInferenceClassificationType(str, Enum):
-
-    focused = "focused"
-    other = "other"
-
-class MicrosoftGraphLanguageProficiencyLevel(str, Enum):
-
-    elementary = "elementary"
-    conversational = "conversational"
-    limited_working = "limitedWorking"
-    professional_working = "professionalWorking"
-    full_professional = "fullProfessional"
-    native_or_bilingual = "nativeOrBilingual"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphLocationType(str, Enum):
-
-    default = "default"
-    conference_room = "conferenceRoom"
-    home_address = "homeAddress"
-    business_address = "businessAddress"
-    geo_coordinates = "geoCoordinates"
-    street_address = "streetAddress"
-    hotel = "hotel"
-    restaurant = "restaurant"
-    local_business = "localBusiness"
-    postal_address = "postalAddress"
-
-class MicrosoftGraphLocationUniqueIdType(str, Enum):
-
-    unknown = "unknown"
-    location_store = "locationStore"
-    directory = "directory"
-    private = "private"
-    bing = "bing"
-
-class MicrosoftGraphLongRunningOperationStatus(str, Enum):
-
-    notstarted = "notstarted"
-    running = "running"
-    succeeded = "succeeded"
-    failed = "failed"
-
-class MicrosoftGraphLostModeState(str, Enum):
-
-    disabled = "disabled"
-    enabled = "enabled"
-
-class MicrosoftGraphManagedAppFlaggedReason(str, Enum):
-
-    none = "none"
-    rooted_device = "rootedDevice"
-    android_bootloader_unlocked = "androidBootloaderUnlocked"
-    android_factory_rom_modified = "androidFactoryRomModified"
-
-class MicrosoftGraphManagedDeviceArchitecture(str, Enum):
-
-    unknown = "unknown"
-    x86 = "x86"
-    x64 = "x64"
-    arm = "arm"
-    ar_m64 = "arM64"
-
-class MicrosoftGraphManagedDeviceOwnerType(str, Enum):
-
-    unknown = "unknown"
-    company = "company"
-    personal = "personal"
-
-class MicrosoftGraphManagedDevicePartnerReportedHealthState(str, Enum):
-
-    unknown = "unknown"
-    activated = "activated"
-    deactivated = "deactivated"
-    secured = "secured"
-    low_severity = "lowSeverity"
-    medium_severity = "mediumSeverity"
-    high_severity = "highSeverity"
-    unresponsive = "unresponsive"
-    compromised = "compromised"
-    misconfigured = "misconfigured"
-
-class MicrosoftGraphManagementAgentType(str, Enum):
-
-    eas = "eas"
-    mdm = "mdm"
-    eas_mdm = "easMdm"
-    intune_client = "intuneClient"
-    eas_intune_client = "easIntuneClient"
-    configuration_manager_client = "configurationManagerClient"
-    configuration_manager_client_mdm = "configurationManagerClientMdm"
-    configuration_manager_client_mdm_eas = "configurationManagerClientMdmEas"
-    unknown = "unknown"
-    jamf = "jamf"
-    google_cloud_device_policy_controller = "googleCloudDevicePolicyController"
-    microsoft365_managed_mdm = "microsoft365ManagedMdm"
-    windows_management_cloud_api = "windowsManagementCloudApi"
-
-class MicrosoftGraphManagementState(str, Enum):
-
-    managed = "managed"
-    retire_pending = "retirePending"
-    retire_failed = "retireFailed"
-    wipe_pending = "wipePending"
-    wipe_failed = "wipeFailed"
-    unhealthy = "unhealthy"
-    delete_pending = "deletePending"
-    retire_issued = "retireIssued"
-    wipe_issued = "wipeIssued"
-    wipe_canceled = "wipeCanceled"
-    retire_canceled = "retireCanceled"
-    discovered = "discovered"
-
-class MicrosoftGraphMeetingCapabilities(str, Enum):
-
-    question_and_answer = "questionAndAnswer"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphMessageActionFlag(str, Enum):
-
-    any = "any"
-    call = "call"
-    do_not_forward = "doNotForward"
-    follow_up = "followUp"
-    fyi = "fyi"
-    forward = "forward"
-    no_response_necessary = "noResponseNecessary"
-    read = "read"
-    reply = "reply"
-    reply_to_all = "replyToAll"
-    review = "review"
-
-class MicrosoftGraphMobileAppIntent(str, Enum):
-
-    available = "available"
-    not_available = "notAvailable"
-    required_install = "requiredInstall"
-    required_uninstall = "requiredUninstall"
-    required_and_available_install = "requiredAndAvailableInstall"
-    available_install_without_enrollment = "availableInstallWithoutEnrollment"
-    exclude = "exclude"
-
-class MicrosoftGraphOnenoteUserRole(str, Enum):
-
-    owner = "Owner"
-    contributor = "Contributor"
-    reader = "Reader"
-    none = "None"
-
-class MicrosoftGraphOnlineMeetingProviderType(str, Enum):
-
-    unknown = "unknown"
-    skype_for_business = "skypeForBusiness"
-    skype_for_consumer = "skypeForConsumer"
-    teams_for_business = "teamsForBusiness"
-
-class MicrosoftGraphOperationStatus(str, Enum):
-
-    not_started = "NotStarted"
-    running = "Running"
-    completed = "Completed"
-    failed = "Failed"
-
-class MicrosoftGraphOwnerType(str, Enum):
-
-    unknown = "unknown"
-    company = "company"
-    personal = "personal"
-
-class MicrosoftGraphPersonRelationship(str, Enum):
-
-    manager = "manager"
-    colleague = "colleague"
-    direct_report = "directReport"
-    dot_line_report = "dotLineReport"
-    assistant = "assistant"
-    dot_line_manager = "dotLineManager"
-    alternate_contact = "alternateContact"
-    friend = "friend"
-    spouse = "spouse"
-    sibling = "sibling"
-    child = "child"
-    parent = "parent"
-    sponsor = "sponsor"
-    emergency_contact = "emergencyContact"
-    other = "other"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphPhoneType(str, Enum):
-
-    home = "home"
-    business = "business"
-    mobile = "mobile"
-    other = "other"
-    assistant = "assistant"
-    home_fax = "homeFax"
-    business_fax = "businessFax"
-    other_fax = "otherFax"
-    pager = "pager"
-    radio = "radio"
-
-class MicrosoftGraphPhysicalAddressType(str, Enum):
-
-    unknown = "unknown"
-    home = "home"
-    business = "business"
-    other = "other"
-
-class MicrosoftGraphPlannerPreviewType(str, Enum):
-
-    automatic = "automatic"
-    no_preview = "noPreview"
-    checklist = "checklist"
-    description = "description"
-    reference = "reference"
-
-class MicrosoftGraphPolicyPlatformType(str, Enum):
-
-    android = "android"
-    android_for_work = "androidForWork"
-    i_os = "iOS"
-    mac_os = "macOS"
-    windows_phone81 = "windowsPhone81"
-    windows81_and_later = "windows81AndLater"
-    windows10_and_later = "windows10AndLater"
-    android_work_profile = "androidWorkProfile"
-    windows10_x_profile = "windows10XProfile"
-    all = "all"
-
-class MicrosoftGraphPriority(str, Enum):
-
-    none = "None"
-    high = "High"
-    low = "Low"
-
-class MicrosoftGraphRecurrencePatternType(str, Enum):
-
-    daily = "daily"
-    weekly = "weekly"
-    absolute_monthly = "absoluteMonthly"
-    relative_monthly = "relativeMonthly"
-    absolute_yearly = "absoluteYearly"
-    relative_yearly = "relativeYearly"
-
-class MicrosoftGraphRecurrenceRangeType(str, Enum):
-
-    end_date = "endDate"
-    no_end = "noEnd"
-    numbered = "numbered"
-
-class MicrosoftGraphResponseType(str, Enum):
-
-    none = "none"
-    organizer = "organizer"
-    tentatively_accepted = "tentativelyAccepted"
-    accepted = "accepted"
-    declined = "declined"
-    not_responded = "notResponded"
-
-class MicrosoftGraphResultantAppState(str, Enum):
-
-    installed = "installed"
-    failed = "failed"
-    not_installed = "notInstalled"
-    uninstall_failed = "uninstallFailed"
-    pending_install = "pendingInstall"
-    unknown = "unknown"
-    not_applicable = "notApplicable"
-
-class MicrosoftGraphScheduleChangeRequestActor(str, Enum):
-
-    sender = "sender"
-    recipient = "recipient"
-    manager = "manager"
-    system = "system"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphScheduleChangeState(str, Enum):
-
-    pending = "pending"
-    approved = "approved"
-    declined = "declined"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphScheduleEntityTheme(str, Enum):
-
-    white = "white"
-    blue = "blue"
-    green = "green"
-    purple = "purple"
-    pink = "pink"
-    yellow = "yellow"
-    gray = "gray"
-    dark_blue = "darkBlue"
-    dark_green = "darkGreen"
-    dark_purple = "darkPurple"
-    dark_pink = "darkPink"
-    dark_yellow = "darkYellow"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphSecurityBaselineComplianceState(str, Enum):
-
-    unknown = "unknown"
-    secure = "secure"
-    not_applicable = "notApplicable"
-    not_secure = "notSecure"
-    error = "error"
-    conflict = "conflict"
-
-class MicrosoftGraphSensitivity(str, Enum):
-
-    normal = "normal"
-    personal = "personal"
-    private = "private"
-    confidential = "confidential"
-
-class MicrosoftGraphSensitivityLabelTarget(str, Enum):
-
-    email = "email"
-    site = "site"
-    unified_group = "unifiedGroup"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphSkillProficiencyLevel(str, Enum):
-
-    elementary = "elementary"
-    limited_working = "limitedWorking"
-    general_professional = "generalProfessional"
-    advanced_professional = "advancedProfessional"
-    expert = "expert"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphStatus(str, Enum):
-
-    active = "active"
-    updated = "updated"
-    deleted = "deleted"
-    ignored = "ignored"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTaskStatus(str, Enum):
-
-    not_started = "notStarted"
-    in_progress = "inProgress"
-    completed = "completed"
-    waiting_on_others = "waitingOnOthers"
-    deferred = "deferred"
-
-class MicrosoftGraphTeamsAppDistributionMethod(str, Enum):
-
-    store = "store"
-    organization = "organization"
-    sideloaded = "sideloaded"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamsAsyncOperationStatus(str, Enum):
-
-    invalid = "invalid"
-    not_started = "notStarted"
-    in_progress = "inProgress"
-    succeeded = "succeeded"
-    failed = "failed"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamsAsyncOperationType(str, Enum):
-
-    invalid = "invalid"
-    clone_team = "cloneTeam"
-    archive_team = "archiveTeam"
-    unarchive_team = "unarchiveTeam"
-    create_team = "createTeam"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamSpecialization(str, Enum):
-
-    none = "none"
-    education_standard = "educationStandard"
-    education_class = "educationClass"
-    education_professional_learning_community = "educationProfessionalLearningCommunity"
-    education_staff = "educationStaff"
-    healthcare_standard = "healthcareStandard"
-    healthcare_care_coordination = "healthcareCareCoordination"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamVisibilityType(str, Enum):
-
-    private = "private"
-    public = "public"
-    hidden_membership = "hiddenMembership"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatAssessmentContentType(str, Enum):
-
-    mail = "mail"
-    url = "url"
-    file = "file"
-
-class MicrosoftGraphThreatAssessmentRequestSource(str, Enum):
-
-    undefined = "undefined"
-    user = "user"
-    administrator = "administrator"
-
-class MicrosoftGraphThreatAssessmentResultType(str, Enum):
-
-    check_policy = "checkPolicy"
-    rescan = "rescan"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatAssessmentStatus(str, Enum):
-
-    pending = "pending"
-    completed = "completed"
-
-class MicrosoftGraphThreatCategory(str, Enum):
-
-    undefined = "undefined"
-    spam = "spam"
-    phishing = "phishing"
-    malware = "malware"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatExpectedAssessment(str, Enum):
-
-    block = "block"
-    unblock = "unblock"
-
-class MicrosoftGraphTimeOffReasonIconType(str, Enum):
-
-    none = "none"
-    car = "car"
-    calendar = "calendar"
-    running = "running"
-    plane = "plane"
-    first_aid = "firstAid"
-    doctor = "doctor"
-    not_working = "notWorking"
-    clock = "clock"
-    jury_duty = "juryDuty"
-    globe = "globe"
-    cup = "cup"
-    phone = "phone"
-    weather = "weather"
-    umbrella = "umbrella"
-    piggy_bank = "piggyBank"
-    dog = "dog"
-    cake = "cake"
-    traffic_cone = "trafficCone"
-    pin = "pin"
-    sunny = "sunny"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphUserRiskLevel(str, Enum):
-
-    unknown = "unknown"
-    none = "none"
-    low = "low"
-    medium = "medium"
-    high = "high"
-
-class MicrosoftGraphWebsiteType(str, Enum):
-
-    other = "other"
-    home = "home"
-    work = "work"
-    blog = "blog"
-    profile = "profile"
-
-class MicrosoftGraphWeekIndex(str, Enum):
-
-    first = "first"
-    second = "second"
-    third = "third"
-    fourth = "fourth"
-    last = "last"
-
-class MicrosoftGraphWindowsDeviceHealthState(str, Enum):
-
-    clean = "clean"
-    full_scan_pending = "fullScanPending"
-    reboot_pending = "rebootPending"
-    manual_steps_pending = "manualStepsPending"
-    offline_scan_pending = "offlineScanPending"
-    critical = "critical"
-
-class MicrosoftGraphWindowsMalwareCategory(str, Enum):
-
-    invalid = "invalid"
-    adware = "adware"
-    spyware = "spyware"
-    password_stealer = "passwordStealer"
-    trojan_downloader = "trojanDownloader"
-    worm = "worm"
-    backdoor = "backdoor"
-    remote_access_trojan = "remoteAccessTrojan"
-    trojan = "trojan"
-    email_flooder = "emailFlooder"
-    keylogger = "keylogger"
-    dialer = "dialer"
-    monitoring_software = "monitoringSoftware"
-    browser_modifier = "browserModifier"
-    cookie = "cookie"
-    browser_plugin = "browserPlugin"
-    aol_exploit = "aolExploit"
-    nuker = "nuker"
-    security_disabler = "securityDisabler"
-    joke_program = "jokeProgram"
-    hostile_active_x_control = "hostileActiveXControl"
-    software_bundler = "softwareBundler"
-    stealth_notifier = "stealthNotifier"
-    settings_modifier = "settingsModifier"
-    tool_bar = "toolBar"
-    remote_control_software = "remoteControlSoftware"
-    trojan_ftp = "trojanFtp"
-    potential_unwanted_software = "potentialUnwantedSoftware"
-    icq_exploit = "icqExploit"
-    trojan_telnet = "trojanTelnet"
-    exploit = "exploit"
-    filesharing_program = "filesharingProgram"
-    malware_creation_tool = "malwareCreationTool"
-    tool = "tool"
-    trojan_denial_of_service = "trojanDenialOfService"
-    trojan_dropper = "trojanDropper"
-    trojan_mass_mailer = "trojanMassMailer"
-    trojan_monitoring_software = "trojanMonitoringSoftware"
-    trojan_proxy_server = "trojanProxyServer"
-    virus = "virus"
-    known = "known"
-    unknown = "unknown"
-    spp = "spp"
-    behavior = "behavior"
-    vulnerability = "vulnerability"
-    policy = "policy"
-    enterprise_unwanted_software = "enterpriseUnwantedSoftware"
-    ransom = "ransom"
-    hips_rule = "hipsRule"
-
-class MicrosoftGraphWindowsMalwareExecutionState(str, Enum):
-
-    unknown = "unknown"
-    blocked = "blocked"
-    allowed = "allowed"
-    running = "running"
-    not_running = "notRunning"
-
-class MicrosoftGraphWindowsMalwareSeverity(str, Enum):
-
-    unknown = "unknown"
-    low = "low"
-    moderate = "moderate"
-    high = "high"
-    severe = "severe"
-
-class MicrosoftGraphWindowsMalwareState(str, Enum):
-
-    unknown = "unknown"
-    detected = "detected"
-    cleaned = "cleaned"
-    quarantined = "quarantined"
-    removed = "removed"
-    allowed = "allowed"
-    blocked = "blocked"
-    clean_failed = "cleanFailed"
-    quarantine_failed = "quarantineFailed"
-    remove_failed = "removeFailed"
-    allow_failed = "allowFailed"
-    abandoned = "abandoned"
-    block_failed = "blockFailed"
-
-class MicrosoftGraphWindowsMalwareThreatState(str, Enum):
-
-    active = "active"
-    action_failed = "actionFailed"
-    manual_steps_required = "manualStepsRequired"
-    full_scan_required = "fullScanRequired"
-    reboot_required = "rebootRequired"
-    remediated_with_non_critical_failures = "remediatedWithNonCriticalFailures"
-    quarantined = "quarantined"
-    removed = "removed"
-    cleaned = "cleaned"
-    allowed = "allowed"
-    no_status_cleared = "noStatusCleared"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum110(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum111(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    E_TAG = "eTag"
+    E_TAG_DESC = "eTag desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    PARENT_REFERENCE = "parentReference"
+    PARENT_REFERENCE_DESC = "parentReference desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+    AUDIO = "audio"
+    AUDIO_DESC = "audio desc"
+    BUNDLE = "bundle"
+    BUNDLE_DESC = "bundle desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    C_TAG = "cTag"
+    C_TAG_DESC = "cTag desc"
+    DELETED = "deleted"
+    DELETED_DESC = "deleted desc"
+    FILE = "file"
+    FILE_DESC = "file desc"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FILE_SYSTEM_INFO_DESC = "fileSystemInfo desc"
+    FOLDER = "folder"
+    FOLDER_DESC = "folder desc"
+    IMAGE = "image"
+    IMAGE_DESC = "image desc"
+    LOCATION = "location"
+    LOCATION_DESC = "location desc"
+    PACKAGE = "package"
+    PACKAGE_DESC = "package desc"
+    PENDING_OPERATIONS = "pendingOperations"
+    PENDING_OPERATIONS_DESC = "pendingOperations desc"
+    PHOTO = "photo"
+    PHOTO_DESC = "photo desc"
+    PUBLICATION = "publication"
+    PUBLICATION_DESC = "publication desc"
+    REMOTE_ITEM = "remoteItem"
+    REMOTE_ITEM_DESC = "remoteItem desc"
+    ROOT = "root"
+    ROOT_DESC = "root desc"
+    SEARCH_RESULT = "searchResult"
+    SEARCH_RESULT_DESC = "searchResult desc"
+    SHARED = "shared"
+    SHARED_DESC = "shared desc"
+    SHAREPOINT_IDS = "sharepointIds"
+    SHAREPOINT_IDS_DESC = "sharepointIds desc"
+    SIZE = "size"
+    SIZE_DESC = "size desc"
+    SPECIAL_FOLDER = "specialFolder"
+    SPECIAL_FOLDER_DESC = "specialFolder desc"
+    VIDEO = "video"
+    VIDEO_DESC = "video desc"
+    WEB_DAV_URL = "webDavUrl"
+    WEB_DAV_URL_DESC = "webDavUrl desc"
+
+class Enum112(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    DISPLAY_NAME = "displayName"
+    LIST = "list"
+    SHAREPOINT_IDS = "sharepointIds"
+    SYSTEM = "system"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    ITEMS = "items"
+    SUBSCRIPTIONS = "subscriptions"
+
+class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    ITEMS = "items"
+    SUBSCRIPTIONS = "subscriptions"
+
+class Enum118(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ACTION = "action"
+    ACTION_DESC = "action desc"
+    ACTOR = "actor"
+    ACTOR_DESC = "actor desc"
+    TIMES = "times"
+    TIMES_DESC = "times desc"
+
+class Enum119(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum120(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum124(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum125(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    CONTENT_TYPE = "contentType"
+    SHAREPOINT_IDS = "sharepointIds"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum126(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum127(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ACTION = "action"
+    ACTION_DESC = "action desc"
+    ACTOR = "actor"
+    ACTOR_DESC = "actor desc"
+    TIMES = "times"
+    TIMES_DESC = "times desc"
+
+class Enum128(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum130(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum132(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ITEM_ACTIVITY_STATS = "itemActivityStats"
+    ALL_TIME = "allTime"
+    LAST_SEVEN_DAYS = "lastSevenDays"
+
+class Enum133(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ITEM_ACTIVITY_STATS = "itemActivityStats"
+    ALL_TIME = "allTime"
+    LAST_SEVEN_DAYS = "lastSevenDays"
+
+class Enum134(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum136(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    PUBLICATION = "publication"
+    PUBLICATION_DESC = "publication desc"
+
+class Enum137(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    PUBLICATION = "publication"
+    FIELDS = "fields"
+
+class Enum138(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FIELDS = "fields"
+
+class Enum139(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    PUBLICATION = "publication"
+    FIELDS = "fields"
+
+class Enum140(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FIELDS = "fields"
+
+class Enum141(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    BOOLEAN = "boolean"
+    BOOLEAN_DESC = "boolean desc"
+    CALCULATED = "calculated"
+    CALCULATED_DESC = "calculated desc"
+    CHOICE = "choice"
+    CHOICE_DESC = "choice desc"
+    COLUMN_GROUP = "columnGroup"
+    COLUMN_GROUP_DESC = "columnGroup desc"
+    CURRENCY = "currency"
+    CURRENCY_DESC = "currency desc"
+    DATE_TIME = "dateTime"
+    DATE_TIME_DESC = "dateTime desc"
+    DEFAULT_VALUE = "defaultValue"
+    DEFAULT_VALUE_DESC = "defaultValue desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
+    ENFORCE_UNIQUE_VALUES_DESC = "enforceUniqueValues desc"
+    GEOLOCATION = "geolocation"
+    GEOLOCATION_DESC = "geolocation desc"
+    HIDDEN = "hidden"
+    HIDDEN_DESC = "hidden desc"
+    INDEXED = "indexed"
+    INDEXED_DESC = "indexed desc"
+    LOOKUP = "lookup"
+    LOOKUP_DESC = "lookup desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    NUMBER = "number"
+    NUMBER_DESC = "number desc"
+    PERSON_OR_GROUP = "personOrGroup"
+    PERSON_OR_GROUP_DESC = "personOrGroup desc"
+    READ_ONLY = "readOnly"
+    READ_ONLY_DESC = "readOnly desc"
+    REQUIRED = "required"
+    REQUIRED_DESC = "required desc"
+    TEXT = "text"
+    TEXT_DESC = "text desc"
+
+class Enum142(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BOOLEAN = "boolean"
+    CALCULATED = "calculated"
+    CHOICE = "choice"
+    COLUMN_GROUP = "columnGroup"
+    CURRENCY = "currency"
+    DATE_TIME = "dateTime"
+    DEFAULT_VALUE = "defaultValue"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
+    GEOLOCATION = "geolocation"
+    HIDDEN = "hidden"
+    INDEXED = "indexed"
+    LOOKUP = "lookup"
+    NAME = "name"
+    NUMBER = "number"
+    PERSON_OR_GROUP = "personOrGroup"
+    READ_ONLY = "readOnly"
+    REQUIRED = "required"
+    TEXT = "text"
+
+class Enum143(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BOOLEAN = "boolean"
+    CALCULATED = "calculated"
+    CHOICE = "choice"
+    COLUMN_GROUP = "columnGroup"
+    CURRENCY = "currency"
+    DATE_TIME = "dateTime"
+    DEFAULT_VALUE = "defaultValue"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
+    GEOLOCATION = "geolocation"
+    HIDDEN = "hidden"
+    INDEXED = "indexed"
+    LOOKUP = "lookup"
+    NAME = "name"
+    NUMBER = "number"
+    PERSON_OR_GROUP = "personOrGroup"
+    READ_ONLY = "readOnly"
+    REQUIRED = "required"
+    TEXT = "text"
+
+class Enum144(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    GROUP = "group"
+    GROUP_DESC = "group desc"
+    HIDDEN = "hidden"
+    HIDDEN_DESC = "hidden desc"
+    INHERITED_FROM = "inheritedFrom"
+    INHERITED_FROM_DESC = "inheritedFrom desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    PARENT_ID = "parentId"
+    PARENT_ID_DESC = "parentId desc"
+    READ_ONLY = "readOnly"
+    READ_ONLY_DESC = "readOnly desc"
+    SEALED = "sealed"
+    SEALED_DESC = "sealed desc"
+
+class Enum145(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DESCRIPTION = "description"
+    GROUP = "group"
+    HIDDEN = "hidden"
+    INHERITED_FROM = "inheritedFrom"
+    NAME = "name"
+    ORDER = "order"
+    PARENT_ID = "parentId"
+    READ_ONLY = "readOnly"
+    SEALED = "sealed"
+    COLUMN_LINKS = "columnLinks"
+
+class Enum146(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    COLUMN_LINKS = "columnLinks"
+
+class Enum147(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DESCRIPTION = "description"
+    GROUP = "group"
+    HIDDEN = "hidden"
+    INHERITED_FROM = "inheritedFrom"
+    NAME = "name"
+    ORDER = "order"
+    PARENT_ID = "parentId"
+    READ_ONLY = "readOnly"
+    SEALED = "sealed"
+    COLUMN_LINKS = "columnLinks"
+
+class Enum148(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    COLUMN_LINKS = "columnLinks"
+
+class Enum149(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+
+class Enum150(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+
+class Enum151(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+
+class Enum152(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    DRIVE_TYPE = "driveType"
+    OWNER = "owner"
+    QUOTA = "quota"
+    SHARE_POINT_IDS = "sharePointIds"
+    SYSTEM = "system"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    BUNDLES = "bundles"
+    FOLLOWING = "following"
+    ITEMS = "items"
+    LIST = "list"
+    ROOT = "root"
+    SPECIAL = "special"
+
+class Enum153(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    BUNDLES = "bundles"
+    FOLLOWING = "following"
+    ITEMS = "items"
+    LIST = "list"
+    ROOT = "root"
+    SPECIAL = "special"
+
+class Enum154(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    E_TAG = "eTag"
+    E_TAG_DESC = "eTag desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    PARENT_REFERENCE = "parentReference"
+    PARENT_REFERENCE_DESC = "parentReference desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+    CONTENT_TYPE = "contentType"
+    CONTENT_TYPE_DESC = "contentType desc"
+    SHAREPOINT_IDS = "sharepointIds"
+    SHAREPOINT_IDS_DESC = "sharepointIds desc"
+
+class Enum155(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    CONTENT_TYPE = "contentType"
+    SHAREPOINT_IDS = "sharepointIds"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum156(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum157(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    CONTENT_TYPE = "contentType"
+    SHAREPOINT_IDS = "sharepointIds"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum158(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum159(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ACTION = "action"
+    ACTION_DESC = "action desc"
+    ACTOR = "actor"
+    ACTOR_DESC = "actor desc"
+    TIMES = "times"
+    TIMES_DESC = "times desc"
+
+class Enum160(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum161(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum162(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum163(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum164(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum165(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum166(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    CONTENT_TYPE = "contentType"
+    SHAREPOINT_IDS = "sharepointIds"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum167(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum168(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ITEM_ACTIVITY_STATS = "itemActivityStats"
+    ALL_TIME = "allTime"
+    LAST_SEVEN_DAYS = "lastSevenDays"
+
+class Enum169(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ITEM_ACTIVITY_STATS = "itemActivityStats"
+    ALL_TIME = "allTime"
+    LAST_SEVEN_DAYS = "lastSevenDays"
+
+class Enum170(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum171(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum172(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    PUBLICATION = "publication"
+    PUBLICATION_DESC = "publication desc"
+
+class Enum173(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    PUBLICATION = "publication"
+    FIELDS = "fields"
+
+class Enum174(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FIELDS = "fields"
+
+class Enum175(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    PUBLICATION = "publication"
+    FIELDS = "fields"
+
+class Enum176(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FIELDS = "fields"
+
+class Enum177(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    CHANGE_TYPE = "changeType"
+    CHANGE_TYPE_DESC = "changeType desc"
+    CLIENT_STATE = "clientState"
+    CLIENT_STATE_DESC = "clientState desc"
+    NOTIFICATION_URL = "notificationUrl"
+    NOTIFICATION_URL_DESC = "notificationUrl desc"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    EXPIRATION_DATE_TIME_DESC = "expirationDateTime desc"
+    APPLICATION_ID = "applicationId"
+    APPLICATION_ID_DESC = "applicationId desc"
+    CREATOR_ID = "creatorId"
+    CREATOR_ID_DESC = "creatorId desc"
+    INCLUDE_PROPERTIES = "includeProperties"
+    INCLUDE_PROPERTIES_DESC = "includeProperties desc"
+    INCLUDE_RESOURCE_DATA = "includeResourceData"
+    INCLUDE_RESOURCE_DATA_DESC = "includeResourceData desc"
+    LIFECYCLE_NOTIFICATION_URL = "lifecycleNotificationUrl"
+    LIFECYCLE_NOTIFICATION_URL_DESC = "lifecycleNotificationUrl desc"
+    ENCRYPTION_CERTIFICATE = "encryptionCertificate"
+    ENCRYPTION_CERTIFICATE_DESC = "encryptionCertificate desc"
+    ENCRYPTION_CERTIFICATE_ID = "encryptionCertificateId"
+    ENCRYPTION_CERTIFICATE_ID_DESC = "encryptionCertificateId desc"
+    LATEST_SUPPORTED_TLS_VERSION = "latestSupportedTlsVersion"
+    LATEST_SUPPORTED_TLS_VERSION_DESC = "latestSupportedTlsVersion desc"
+
+class Enum178(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    CHANGE_TYPE = "changeType"
+    CLIENT_STATE = "clientState"
+    NOTIFICATION_URL = "notificationUrl"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    APPLICATION_ID = "applicationId"
+    CREATOR_ID = "creatorId"
+    INCLUDE_PROPERTIES = "includeProperties"
+    INCLUDE_RESOURCE_DATA = "includeResourceData"
+    LIFECYCLE_NOTIFICATION_URL = "lifecycleNotificationUrl"
+    ENCRYPTION_CERTIFICATE = "encryptionCertificate"
+    ENCRYPTION_CERTIFICATE_ID = "encryptionCertificateId"
+    LATEST_SUPPORTED_TLS_VERSION = "latestSupportedTlsVersion"
+
+class Enum179(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    CHANGE_TYPE = "changeType"
+    CLIENT_STATE = "clientState"
+    NOTIFICATION_URL = "notificationUrl"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    APPLICATION_ID = "applicationId"
+    CREATOR_ID = "creatorId"
+    INCLUDE_PROPERTIES = "includeProperties"
+    INCLUDE_RESOURCE_DATA = "includeResourceData"
+    LIFECYCLE_NOTIFICATION_URL = "lifecycleNotificationUrl"
+    ENCRYPTION_CERTIFICATE = "encryptionCertificate"
+    ENCRYPTION_CERTIFICATE_ID = "encryptionCertificateId"
+    LATEST_SUPPORTED_TLS_VERSION = "latestSupportedTlsVersion"
+
+class Enum180(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    CONTENT_TYPE = "contentType"
+    SHAREPOINT_IDS = "sharepointIds"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum181(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum182(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ACTION = "action"
+    ACTION_DESC = "action desc"
+    ACTOR = "actor"
+    ACTOR_DESC = "actor desc"
+    TIMES = "times"
+    TIMES_DESC = "times desc"
+
+class Enum183(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum184(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum185(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTION = "action"
+    ACTOR = "actor"
+    TIMES = "times"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum186(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Enum187(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum188(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum189(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    CONTENT_TYPE = "contentType"
+    SHAREPOINT_IDS = "sharepointIds"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum190(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum191(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ITEM_ACTIVITY_STATS = "itemActivityStats"
+    ALL_TIME = "allTime"
+    LAST_SEVEN_DAYS = "lastSevenDays"
+
+class Enum192(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ITEM_ACTIVITY_STATS = "itemActivityStats"
+    ALL_TIME = "allTime"
+    LAST_SEVEN_DAYS = "lastSevenDays"
+
+class Enum193(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum194(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum195(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    PUBLICATION = "publication"
+    PUBLICATION_DESC = "publication desc"
+
+class Enum196(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    PUBLICATION = "publication"
+    FIELDS = "fields"
+
+class Enum197(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FIELDS = "fields"
+
+class Enum198(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    PUBLICATION = "publication"
+    FIELDS = "fields"
+
+class Enum199(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FIELDS = "fields"
+
+class Enum200(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    GRANTED_TO = "grantedTo"
+    GRANTED_TO_IDENTITIES = "grantedToIdentities"
+    HAS_PASSWORD = "hasPassword"
+    INHERITED_FROM = "inheritedFrom"
+    INVITATION = "invitation"
+    LINK = "link"
+    ROLES = "roles"
+    SHARE_ID = "shareId"
+
+class Enum201(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    BUNDLE = "bundle"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum202(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum203(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    DISPLAY_NAME = "displayName"
+    ROOT = "root"
+    SHAREPOINT_IDS = "sharepointIds"
+    SITE_COLLECTION = "siteCollection"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ANALYTICS = "analytics"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    ITEMS = "items"
+    LISTS = "lists"
+    PAGES = "pages"
+    SITES = "sites"
+    ONENOTE = "onenote"
+
+class Enum204(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ANALYTICS = "analytics"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    ITEMS = "items"
+    LISTS = "lists"
+    PAGES = "pages"
+    SITES = "sites"
+    ONENOTE = "onenote"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    OWNER = "owner"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    DRIVE_ITEM = "driveItem"
+    ITEMS = "items"
+    LIST = "list"
+    LIST_ITEM = "listItem"
+    PERMISSION = "permission"
+    ROOT = "root"
+    SITE = "site"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    DRIVE_ITEM = "driveItem"
+    ITEMS = "items"
+    LIST = "list"
+    LIST_ITEM = "listItem"
+    PERMISSION = "permission"
+    ROOT = "root"
+    SITE = "site"
+
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Get4ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    E_TAG = "eTag"
+    E_TAG_DESC = "eTag desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    PARENT_REFERENCE = "parentReference"
+    PARENT_REFERENCE_DESC = "parentReference desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+    OWNER = "owner"
+    OWNER_DESC = "owner desc"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    OWNER = "owner"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    DRIVE_ITEM = "driveItem"
+    ITEMS = "items"
+    LIST = "list"
+    LIST_ITEM = "listItem"
+    PERMISSION = "permission"
+    ROOT = "root"
+    SITE = "site"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    DRIVE_ITEM = "driveItem"
+    ITEMS = "items"
+    LIST = "list"
+    LIST_ITEM = "listItem"
+    PERMISSION = "permission"
+    ROOT = "root"
+    SITE = "site"
+
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ACTIVITIES = "activities"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Get9ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DRIVE_ITEM = "driveItem"
+    LIST_ITEM = "listItem"
+
+class MicrosoftGraphAccessLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EVERYONE = "everyone"
+    INVITED = "invited"
+    LOCKED = "locked"
+    SAME_ENTERPRISE = "sameEnterprise"
+    SAME_ENTERPRISE_AND_FEDERATED = "sameEnterpriseAndFederated"
+
+class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    PENDING = "pending"
+    CANCELED = "canceled"
+    ACTIVE = "active"
+    DONE = "done"
+    FAILED = "failed"
+    NOT_SUPPORTED = "notSupported"
+
+class MicrosoftGraphAgreementAcceptanceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACCEPTED = "accepted"
+    DECLINED = "declined"
+
+class MicrosoftGraphAllowedAudiences(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ME = "me"
+    FAMILY = "family"
+    CONTACTS = "contacts"
+    GROUP_MEMBERS = "groupMembers"
+    ORGANIZATION = "organization"
+    FEDERATED_ORGANIZATIONS = "federatedOrganizations"
+    EVERYONE = "everyone"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAnalyticsActivityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "Email"
+    MEETING = "Meeting"
+    FOCUS = "Focus"
+    CHAT = "Chat"
+    CALL = "Call"
+
+class MicrosoftGraphAnniversaryType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    BIRTHDAY = "birthday"
+    WEDDING = "wedding"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphApplicationMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANUAL = "manual"
+    AUTOMATIC = "automatic"
+    RECOMMENDED = "recommended"
+
+class MicrosoftGraphAppLogUploadState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+class MicrosoftGraphAttendeeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    REQUIRED = "required"
+    OPTIONAL = "optional"
+    RESOURCE = "resource"
+
+class MicrosoftGraphAuthenticationMethodSignInState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_SUPPORTED = "notSupported"
+    NOT_ALLOWED_BY_POLICY = "notAllowedByPolicy"
+    NOT_ENABLED = "notEnabled"
+    PHONE_NUMBER_NOT_UNIQUE = "phoneNumberNotUnique"
+    READY = "ready"
+    NOT_CONFIGURED = "notConfigured"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAuthenticationPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MOBILE = "mobile"
+    ALTERNATE_MOBILE = "alternateMobile"
+    OFFICE = "office"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAutomaticRepliesStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DISABLED = "disabled"
+    ALWAYS_ENABLED = "alwaysEnabled"
+    SCHEDULED = "scheduled"
+
+class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    TEXT = "text"
+    HTML = "html"
+
+class MicrosoftGraphCalendarColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    LIGHT_BLUE = "lightBlue"
+    LIGHT_GREEN = "lightGreen"
+    LIGHT_ORANGE = "lightOrange"
+    LIGHT_GRAY = "lightGray"
+    LIGHT_YELLOW = "lightYellow"
+    LIGHT_TEAL = "lightTeal"
+    LIGHT_PINK = "lightPink"
+    LIGHT_BROWN = "lightBrown"
+    LIGHT_RED = "lightRed"
+    MAX_COLOR = "maxColor"
+    AUTO = "auto"
+
+class MicrosoftGraphCalendarRoleType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    FREE_BUSY_READ = "freeBusyRead"
+    LIMITED_READ = "limitedRead"
+    READ = "read"
+    WRITE = "write"
+    DELEGATE_WITHOUT_PRIVATE_EVENT_ACCESS = "delegateWithoutPrivateEventAccess"
+    DELEGATE_WITH_PRIVATE_EVENT_ACCESS = "delegateWithPrivateEventAccess"
+    CUSTOM = "custom"
+
+class MicrosoftGraphCategoryColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PRESET0 = "preset0"
+    PRESET1 = "preset1"
+    PRESET2 = "preset2"
+    PRESET3 = "preset3"
+    PRESET4 = "preset4"
+    PRESET5 = "preset5"
+    PRESET6 = "preset6"
+    PRESET7 = "preset7"
+    PRESET8 = "preset8"
+    PRESET9 = "preset9"
+    PRESET10 = "preset10"
+    PRESET11 = "preset11"
+    PRESET12 = "preset12"
+    PRESET13 = "preset13"
+    PRESET14 = "preset14"
+    PRESET15 = "preset15"
+    PRESET16 = "preset16"
+    PRESET17 = "preset17"
+    PRESET18 = "preset18"
+    PRESET19 = "preset19"
+    PRESET20 = "preset20"
+    PRESET21 = "preset21"
+    PRESET22 = "preset22"
+    PRESET23 = "preset23"
+    PRESET24 = "preset24"
+    NONE = "none"
+
+class MicrosoftGraphChannelMembershipType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STANDARD = "standard"
+    PRIVATE = "private"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphChassisType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    DESKTOP = "desktop"
+    LAPTOP = "laptop"
+    WORKS_WORKSTATION = "worksWorkstation"
+    ENTERPRISE_SERVER = "enterpriseServer"
+    PHONE = "phone"
+    TABLET = "tablet"
+    MOBILE_OTHER = "mobileOther"
+    MOBILE_UNKNOWN = "mobileUnknown"
+
+class MicrosoftGraphChatMessageImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    HIGH = "high"
+    URGENT = "urgent"
+
+class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    NOTIFY_SENDER = "notifySender"
+    BLOCK_ACCESS = "blockAccess"
+    BLOCK_ACCESS_EXTERNAL = "blockAccessExternal"
+
+class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    OVERRIDE = "override"
+    REPORT_FALSE_POSITIVE = "reportFalsePositive"
+
+class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ALLOW_FALSE_POSITIVE_OVERRIDE = "allowFalsePositiveOverride"
+    ALLOW_OVERRIDE_WITHOUT_JUSTIFICATION = "allowOverrideWithoutJustification"
+    ALLOW_OVERRIDE_WITH_JUSTIFICATION = "allowOverrideWithJustification"
+
+class MicrosoftGraphChatMessageType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MESSAGE = "message"
+    CHAT_EVENT = "chatEvent"
+    TYPING = "typing"
+
+class MicrosoftGraphComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPLIANT = "compliant"
+    NONCOMPLIANT = "noncompliant"
+    CONFLICT = "conflict"
+    ERROR = "error"
+    IN_GRACE_PERIOD = "inGracePeriod"
+    CONFIG_MANAGER = "configManager"
+
+class MicrosoftGraphComplianceStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    NOT_APPLICABLE = "notApplicable"
+    COMPLIANT = "compliant"
+    REMEDIATED = "remediated"
+    NON_COMPLIANT = "nonCompliant"
+    ERROR = "error"
+    CONFLICT = "conflict"
+    NOT_ASSIGNED = "notAssigned"
+
+class MicrosoftGraphConfigurationManagerClientState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    INSTALLED = "installed"
+    HEALTHY = "healthy"
+    INSTALL_FAILED = "installFailed"
+    UPDATE_FAILED = "updateFailed"
+    COMMUNICATION_ERROR = "communicationError"
+
+class MicrosoftGraphDayOfWeek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SUNDAY = "sunday"
+    MONDAY = "monday"
+    TUESDAY = "tuesday"
+    WEDNESDAY = "wednesday"
+    THURSDAY = "thursday"
+    FRIDAY = "friday"
+    SATURDAY = "saturday"
+
+class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SEND_TO_DELEGATE_AND_INFORMATION_TO_PRINCIPAL = "sendToDelegateAndInformationToPrincipal"
+    SEND_TO_DELEGATE_AND_PRINCIPAL = "sendToDelegateAndPrincipal"
+    SEND_TO_DELEGATE_ONLY = "sendToDelegateOnly"
+
+class MicrosoftGraphDeviceAndAppManagementAssignmentSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DIRECT = "direct"
+    POLICY_SETS = "policySets"
+
+class MicrosoftGraphDeviceEnrollmentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    USER_ENROLLMENT = "userEnrollment"
+    DEVICE_ENROLLMENT_MANAGER = "deviceEnrollmentManager"
+    APPLE_BULK_WITH_USER = "appleBulkWithUser"
+    APPLE_BULK_WITHOUT_USER = "appleBulkWithoutUser"
+    WINDOWS_AZURE_AD_JOIN = "windowsAzureADJoin"
+    WINDOWS_BULK_USERLESS = "windowsBulkUserless"
+    WINDOWS_AUTO_ENROLLMENT = "windowsAutoEnrollment"
+    WINDOWS_BULK_AZURE_DOMAIN_JOIN = "windowsBulkAzureDomainJoin"
+    WINDOWS_CO_MANAGEMENT = "windowsCoManagement"
+    APPLE_USER_ENROLLMENT = "appleUserEnrollment"
+    APPLE_USER_ENROLLMENT_WITH_SERVICE_ACCOUNT = "appleUserEnrollmentWithServiceAccount"
+    AZURE_AD_JOIN_USING_AZURE_VM_EXTENSION = "azureAdJoinUsingAzureVmExtension"
+
+class MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    RUNNING = "running"
+    REBOOT_REQUIRED = "rebootRequired"
+    NOT_LICENSED = "notLicensed"
+    NOT_CONFIGURED = "notConfigured"
+    VIRTUALIZATION_BASED_SECURITY_NOT_RUNNING = "virtualizationBasedSecurityNotRunning"
+
+class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MEET_HARDWARE_REQUIREMENTS = "meetHardwareRequirements"
+    SECURE_BOOT_REQUIRED = "secureBootRequired"
+    DMA_PROTECTION_REQUIRED = "dmaProtectionRequired"
+    HYPER_V_NOT_SUPPORTED_FOR_GUEST_VM = "hyperVNotSupportedForGuestVM"
+    HYPER_V_NOT_AVAILABLE = "hyperVNotAvailable"
+
+class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    RUNNING = "running"
+    REBOOT_REQUIRED = "rebootRequired"
+    REQUIRE64_BIT_ARCHITECTURE = "require64BitArchitecture"
+    NOT_LICENSED = "notLicensed"
+    NOT_CONFIGURED = "notConfigured"
+    DOES_NOT_MEET_HARDWARE_REQUIREMENTS = "doesNotMeetHardwareRequirements"
+    OTHER = "other"
+
+class MicrosoftGraphDeviceManagementExchangeAccessState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    UNKNOWN = "unknown"
+    ALLOWED = "allowed"
+    BLOCKED = "blocked"
+    QUARANTINED = "quarantined"
+
+class MicrosoftGraphDeviceManagementExchangeAccessStateReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    UNKNOWN = "unknown"
+    EXCHANGE_GLOBAL_RULE = "exchangeGlobalRule"
+    EXCHANGE_INDIVIDUAL_RULE = "exchangeIndividualRule"
+    EXCHANGE_DEVICE_RULE = "exchangeDeviceRule"
+    EXCHANGE_UPGRADE = "exchangeUpgrade"
+    EXCHANGE_MAILBOX_POLICY = "exchangeMailboxPolicy"
+    OTHER = "other"
+    COMPLIANT = "compliant"
+    NOT_COMPLIANT = "notCompliant"
+    NOT_ENROLLED = "notEnrolled"
+    UNKNOWN_LOCATION = "unknownLocation"
+    MFA_REQUIRED = "mfaRequired"
+    AZURE_AD_BLOCK_DUE_TO_ACCESS_POLICY = "azureADBlockDueToAccessPolicy"
+    COMPROMISED_PASSWORD = "compromisedPassword"
+    DEVICE_NOT_KNOWN_WITH_MANAGED_APP = "deviceNotKnownWithManagedApp"
+
+class MicrosoftGraphDeviceRegistrationState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_REGISTERED = "notRegistered"
+    REGISTERED = "registered"
+    REVOKED = "revoked"
+    KEY_CONFLICT = "keyConflict"
+    APPROVAL_PENDING = "approvalPending"
+    CERTIFICATE_RESET = "certificateReset"
+    NOT_REGISTERED_PENDING_ENROLLMENT = "notRegisteredPendingEnrollment"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphDeviceType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DESKTOP = "desktop"
+    WINDOWS_RT = "windowsRT"
+    WIN_MO6 = "winMO6"
+    NOKIA = "nokia"
+    WINDOWS_PHONE = "windowsPhone"
+    MAC = "mac"
+    WIN_CE = "winCE"
+    WIN_EMBEDDED = "winEmbedded"
+    I_PHONE = "iPhone"
+    I_PAD = "iPad"
+    I_POD = "iPod"
+    ANDROID = "android"
+    I_SOC_CONSUMER = "iSocConsumer"
+    UNIX = "unix"
+    MAC_MDM = "macMDM"
+    HOLO_LENS = "holoLens"
+    SURFACE_HUB = "surfaceHub"
+    ANDROID_FOR_WORK = "androidForWork"
+    ANDROID_ENTERPRISE = "androidEnterprise"
+    WINDOWS10_X = "windows10x"
+    BLACKBERRY = "blackberry"
+    PALM = "palm"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphEmailType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    WORK = "work"
+    PERSONAL = "personal"
+    MAIN = "main"
+    OTHER = "other"
+
+class MicrosoftGraphEventType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SINGLE_INSTANCE = "singleInstance"
+    OCCURRENCE = "occurrence"
+    EXCEPTION = "exception"
+    SERIES_MASTER = "seriesMaster"
+
+class MicrosoftGraphExternalAudienceScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    CONTACTS_ONLY = "contactsOnly"
+    ALL = "all"
+
+class MicrosoftGraphFollowupFlagStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_FLAGGED = "notFlagged"
+    COMPLETE = "complete"
+    FLAGGED = "flagged"
+
+class MicrosoftGraphFreeBusyStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FREE = "free"
+    TENTATIVE = "tentative"
+    BUSY = "busy"
+    OOF = "oof"
+    WORKING_ELSEWHERE = "workingElsewhere"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphGiphyRatingType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STRICT = "strict"
+    MODERATE = "moderate"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphGroupAccessType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    PRIVATE = "private"
+    SECRET = "secret"
+    PUBLIC = "public"
+
+class MicrosoftGraphImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    LOW = "low"
+    NORMAL = "normal"
+    HIGH = "high"
+
+class MicrosoftGraphInferenceClassificationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FOCUSED = "focused"
+    OTHER = "other"
+
+class MicrosoftGraphLanguageProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ELEMENTARY = "elementary"
+    CONVERSATIONAL = "conversational"
+    LIMITED_WORKING = "limitedWorking"
+    PROFESSIONAL_WORKING = "professionalWorking"
+    FULL_PROFESSIONAL = "fullProfessional"
+    NATIVE_OR_BILINGUAL = "nativeOrBilingual"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphLocationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DEFAULT = "default"
+    CONFERENCE_ROOM = "conferenceRoom"
+    HOME_ADDRESS = "homeAddress"
+    BUSINESS_ADDRESS = "businessAddress"
+    GEO_COORDINATES = "geoCoordinates"
+    STREET_ADDRESS = "streetAddress"
+    HOTEL = "hotel"
+    RESTAURANT = "restaurant"
+    LOCAL_BUSINESS = "localBusiness"
+    POSTAL_ADDRESS = "postalAddress"
+
+class MicrosoftGraphLocationUniqueIdType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    LOCATION_STORE = "locationStore"
+    DIRECTORY = "directory"
+    PRIVATE = "private"
+    BING = "bing"
+
+class MicrosoftGraphLongRunningOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOTSTARTED = "notstarted"
+    RUNNING = "running"
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+
+class MicrosoftGraphLostModeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DISABLED = "disabled"
+    ENABLED = "enabled"
+
+class MicrosoftGraphManagedAppFlaggedReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ROOTED_DEVICE = "rootedDevice"
+    ANDROID_BOOTLOADER_UNLOCKED = "androidBootloaderUnlocked"
+    ANDROID_FACTORY_ROM_MODIFIED = "androidFactoryRomModified"
+
+class MicrosoftGraphManagedDeviceArchitecture(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    X86 = "x86"
+    X64 = "x64"
+    ARM = "arm"
+    AR_M64 = "arM64"
+
+class MicrosoftGraphManagedDeviceOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPANY = "company"
+    PERSONAL = "personal"
+
+class MicrosoftGraphManagedDevicePartnerReportedHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    ACTIVATED = "activated"
+    DEACTIVATED = "deactivated"
+    SECURED = "secured"
+    LOW_SEVERITY = "lowSeverity"
+    MEDIUM_SEVERITY = "mediumSeverity"
+    HIGH_SEVERITY = "highSeverity"
+    UNRESPONSIVE = "unresponsive"
+    COMPROMISED = "compromised"
+    MISCONFIGURED = "misconfigured"
+
+class MicrosoftGraphManagementAgentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EAS = "eas"
+    MDM = "mdm"
+    EAS_MDM = "easMdm"
+    INTUNE_CLIENT = "intuneClient"
+    EAS_INTUNE_CLIENT = "easIntuneClient"
+    CONFIGURATION_MANAGER_CLIENT = "configurationManagerClient"
+    CONFIGURATION_MANAGER_CLIENT_MDM = "configurationManagerClientMdm"
+    CONFIGURATION_MANAGER_CLIENT_MDM_EAS = "configurationManagerClientMdmEas"
+    UNKNOWN = "unknown"
+    JAMF = "jamf"
+    GOOGLE_CLOUD_DEVICE_POLICY_CONTROLLER = "googleCloudDevicePolicyController"
+    MICROSOFT365_MANAGED_MDM = "microsoft365ManagedMdm"
+    WINDOWS_MANAGEMENT_CLOUD_API = "windowsManagementCloudApi"
+
+class MicrosoftGraphManagementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANAGED = "managed"
+    RETIRE_PENDING = "retirePending"
+    RETIRE_FAILED = "retireFailed"
+    WIPE_PENDING = "wipePending"
+    WIPE_FAILED = "wipeFailed"
+    UNHEALTHY = "unhealthy"
+    DELETE_PENDING = "deletePending"
+    RETIRE_ISSUED = "retireIssued"
+    WIPE_ISSUED = "wipeIssued"
+    WIPE_CANCELED = "wipeCanceled"
+    RETIRE_CANCELED = "retireCanceled"
+    DISCOVERED = "discovered"
+
+class MicrosoftGraphMeetingCapabilities(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    QUESTION_AND_ANSWER = "questionAndAnswer"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphMessageActionFlag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ANY = "any"
+    CALL = "call"
+    DO_NOT_FORWARD = "doNotForward"
+    FOLLOW_UP = "followUp"
+    FYI = "fyi"
+    FORWARD = "forward"
+    NO_RESPONSE_NECESSARY = "noResponseNecessary"
+    READ = "read"
+    REPLY = "reply"
+    REPLY_TO_ALL = "replyToAll"
+    REVIEW = "review"
+
+class MicrosoftGraphMobileAppIntent(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AVAILABLE = "available"
+    NOT_AVAILABLE = "notAvailable"
+    REQUIRED_INSTALL = "requiredInstall"
+    REQUIRED_UNINSTALL = "requiredUninstall"
+    REQUIRED_AND_AVAILABLE_INSTALL = "requiredAndAvailableInstall"
+    AVAILABLE_INSTALL_WITHOUT_ENROLLMENT = "availableInstallWithoutEnrollment"
+    EXCLUDE = "exclude"
+
+class MicrosoftGraphOnenoteUserRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OWNER = "Owner"
+    CONTRIBUTOR = "Contributor"
+    READER = "Reader"
+    NONE = "None"
+
+class MicrosoftGraphOnlineMeetingProviderType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    SKYPE_FOR_BUSINESS = "skypeForBusiness"
+    SKYPE_FOR_CONSUMER = "skypeForConsumer"
+    TEAMS_FOR_BUSINESS = "teamsForBusiness"
+
+class MicrosoftGraphOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "NotStarted"
+    RUNNING = "Running"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+class MicrosoftGraphOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPANY = "company"
+    PERSONAL = "personal"
+
+class MicrosoftGraphPersonRelationship(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANAGER = "manager"
+    COLLEAGUE = "colleague"
+    DIRECT_REPORT = "directReport"
+    DOT_LINE_REPORT = "dotLineReport"
+    ASSISTANT = "assistant"
+    DOT_LINE_MANAGER = "dotLineManager"
+    ALTERNATE_CONTACT = "alternateContact"
+    FRIEND = "friend"
+    SPOUSE = "spouse"
+    SIBLING = "sibling"
+    CHILD = "child"
+    PARENT = "parent"
+    SPONSOR = "sponsor"
+    EMERGENCY_CONTACT = "emergencyContact"
+    OTHER = "other"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    HOME = "home"
+    BUSINESS = "business"
+    MOBILE = "mobile"
+    OTHER = "other"
+    ASSISTANT = "assistant"
+    HOME_FAX = "homeFax"
+    BUSINESS_FAX = "businessFax"
+    OTHER_FAX = "otherFax"
+    PAGER = "pager"
+    RADIO = "radio"
+
+class MicrosoftGraphPhysicalAddressType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    HOME = "home"
+    BUSINESS = "business"
+    OTHER = "other"
+
+class MicrosoftGraphPlannerPreviewType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AUTOMATIC = "automatic"
+    NO_PREVIEW = "noPreview"
+    CHECKLIST = "checklist"
+    DESCRIPTION = "description"
+    REFERENCE = "reference"
+
+class MicrosoftGraphPolicyPlatformType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ANDROID = "android"
+    ANDROID_FOR_WORK = "androidForWork"
+    I_OS = "iOS"
+    MAC_OS = "macOS"
+    WINDOWS_PHONE81 = "windowsPhone81"
+    WINDOWS81_AND_LATER = "windows81AndLater"
+    WINDOWS10_AND_LATER = "windows10AndLater"
+    ANDROID_WORK_PROFILE = "androidWorkProfile"
+    WINDOWS10_X_PROFILE = "windows10XProfile"
+    ALL = "all"
+
+class MicrosoftGraphPriority(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "None"
+    HIGH = "High"
+    LOW = "Low"
+
+class MicrosoftGraphRecurrencePatternType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DAILY = "daily"
+    WEEKLY = "weekly"
+    ABSOLUTE_MONTHLY = "absoluteMonthly"
+    RELATIVE_MONTHLY = "relativeMonthly"
+    ABSOLUTE_YEARLY = "absoluteYearly"
+    RELATIVE_YEARLY = "relativeYearly"
+
+class MicrosoftGraphRecurrenceRangeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    END_DATE = "endDate"
+    NO_END = "noEnd"
+    NUMBERED = "numbered"
+
+class MicrosoftGraphResponseType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ORGANIZER = "organizer"
+    TENTATIVELY_ACCEPTED = "tentativelyAccepted"
+    ACCEPTED = "accepted"
+    DECLINED = "declined"
+    NOT_RESPONDED = "notResponded"
+
+class MicrosoftGraphResultantAppState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INSTALLED = "installed"
+    FAILED = "failed"
+    NOT_INSTALLED = "notInstalled"
+    UNINSTALL_FAILED = "uninstallFailed"
+    PENDING_INSTALL = "pendingInstall"
+    UNKNOWN = "unknown"
+    NOT_APPLICABLE = "notApplicable"
+
+class MicrosoftGraphScheduleChangeRequestActor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SENDER = "sender"
+    RECIPIENT = "recipient"
+    MANAGER = "manager"
+    SYSTEM = "system"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphScheduleChangeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    APPROVED = "approved"
+    DECLINED = "declined"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphScheduleEntityTheme(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    WHITE = "white"
+    BLUE = "blue"
+    GREEN = "green"
+    PURPLE = "purple"
+    PINK = "pink"
+    YELLOW = "yellow"
+    GRAY = "gray"
+    DARK_BLUE = "darkBlue"
+    DARK_GREEN = "darkGreen"
+    DARK_PURPLE = "darkPurple"
+    DARK_PINK = "darkPink"
+    DARK_YELLOW = "darkYellow"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphSecurityBaselineComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    SECURE = "secure"
+    NOT_APPLICABLE = "notApplicable"
+    NOT_SECURE = "notSecure"
+    ERROR = "error"
+    CONFLICT = "conflict"
+
+class MicrosoftGraphSensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    PERSONAL = "personal"
+    PRIVATE = "private"
+    CONFIDENTIAL = "confidential"
+
+class MicrosoftGraphSensitivityLabelTarget(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "email"
+    SITE = "site"
+    UNIFIED_GROUP = "unifiedGroup"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphSkillProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ELEMENTARY = "elementary"
+    LIMITED_WORKING = "limitedWorking"
+    GENERAL_PROFESSIONAL = "generalProfessional"
+    ADVANCED_PROFESSIONAL = "advancedProfessional"
+    EXPERT = "expert"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACTIVE = "active"
+    UPDATED = "updated"
+    DELETED = "deleted"
+    IGNORED = "ignored"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    COMPLETED = "completed"
+    WAITING_ON_OTHERS = "waitingOnOthers"
+    DEFERRED = "deferred"
+
+class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STORE = "store"
+    ORGANIZATION = "organization"
+    SIDELOADED = "sideloaded"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamsAsyncOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamsAsyncOperationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    CLONE_TEAM = "cloneTeam"
+    ARCHIVE_TEAM = "archiveTeam"
+    UNARCHIVE_TEAM = "unarchiveTeam"
+    CREATE_TEAM = "createTeam"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamSpecialization(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    EDUCATION_STANDARD = "educationStandard"
+    EDUCATION_CLASS = "educationClass"
+    EDUCATION_PROFESSIONAL_LEARNING_COMMUNITY = "educationProfessionalLearningCommunity"
+    EDUCATION_STAFF = "educationStaff"
+    HEALTHCARE_STANDARD = "healthcareStandard"
+    HEALTHCARE_CARE_COORDINATION = "healthcareCareCoordination"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamVisibilityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PRIVATE = "private"
+    PUBLIC = "public"
+    HIDDEN_MEMBERSHIP = "hiddenMembership"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatAssessmentContentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MAIL = "mail"
+    URL = "url"
+    FILE = "file"
+
+class MicrosoftGraphThreatAssessmentRequestSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNDEFINED = "undefined"
+    USER = "user"
+    ADMINISTRATOR = "administrator"
+
+class MicrosoftGraphThreatAssessmentResultType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    CHECK_POLICY = "checkPolicy"
+    RESCAN = "rescan"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatAssessmentStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+
+class MicrosoftGraphThreatCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNDEFINED = "undefined"
+    SPAM = "spam"
+    PHISHING = "phishing"
+    MALWARE = "malware"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatExpectedAssessment(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    BLOCK = "block"
+    UNBLOCK = "unblock"
+
+class MicrosoftGraphTimeOffReasonIconType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    CAR = "car"
+    CALENDAR = "calendar"
+    RUNNING = "running"
+    PLANE = "plane"
+    FIRST_AID = "firstAid"
+    DOCTOR = "doctor"
+    NOT_WORKING = "notWorking"
+    CLOCK = "clock"
+    JURY_DUTY = "juryDuty"
+    GLOBE = "globe"
+    CUP = "cup"
+    PHONE = "phone"
+    WEATHER = "weather"
+    UMBRELLA = "umbrella"
+    PIGGY_BANK = "piggyBank"
+    DOG = "dog"
+    CAKE = "cake"
+    TRAFFIC_CONE = "trafficCone"
+    PIN = "pin"
+    SUNNY = "sunny"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphUserRiskLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    NONE = "none"
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+
+class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OTHER = "other"
+    HOME = "home"
+    WORK = "work"
+    BLOG = "blog"
+    PROFILE = "profile"
+
+class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FIRST = "first"
+    SECOND = "second"
+    THIRD = "third"
+    FOURTH = "fourth"
+    LAST = "last"
+
+class MicrosoftGraphWindowsDeviceHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    CLEAN = "clean"
+    FULL_SCAN_PENDING = "fullScanPending"
+    REBOOT_PENDING = "rebootPending"
+    MANUAL_STEPS_PENDING = "manualStepsPending"
+    OFFLINE_SCAN_PENDING = "offlineScanPending"
+    CRITICAL = "critical"
+
+class MicrosoftGraphWindowsMalwareCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    ADWARE = "adware"
+    SPYWARE = "spyware"
+    PASSWORD_STEALER = "passwordStealer"
+    TROJAN_DOWNLOADER = "trojanDownloader"
+    WORM = "worm"
+    BACKDOOR = "backdoor"
+    REMOTE_ACCESS_TROJAN = "remoteAccessTrojan"
+    TROJAN = "trojan"
+    EMAIL_FLOODER = "emailFlooder"
+    KEYLOGGER = "keylogger"
+    DIALER = "dialer"
+    MONITORING_SOFTWARE = "monitoringSoftware"
+    BROWSER_MODIFIER = "browserModifier"
+    COOKIE = "cookie"
+    BROWSER_PLUGIN = "browserPlugin"
+    AOL_EXPLOIT = "aolExploit"
+    NUKER = "nuker"
+    SECURITY_DISABLER = "securityDisabler"
+    JOKE_PROGRAM = "jokeProgram"
+    HOSTILE_ACTIVE_X_CONTROL = "hostileActiveXControl"
+    SOFTWARE_BUNDLER = "softwareBundler"
+    STEALTH_NOTIFIER = "stealthNotifier"
+    SETTINGS_MODIFIER = "settingsModifier"
+    TOOL_BAR = "toolBar"
+    REMOTE_CONTROL_SOFTWARE = "remoteControlSoftware"
+    TROJAN_FTP = "trojanFtp"
+    POTENTIAL_UNWANTED_SOFTWARE = "potentialUnwantedSoftware"
+    ICQ_EXPLOIT = "icqExploit"
+    TROJAN_TELNET = "trojanTelnet"
+    EXPLOIT = "exploit"
+    FILESHARING_PROGRAM = "filesharingProgram"
+    MALWARE_CREATION_TOOL = "malwareCreationTool"
+    TOOL = "tool"
+    TROJAN_DENIAL_OF_SERVICE = "trojanDenialOfService"
+    TROJAN_DROPPER = "trojanDropper"
+    TROJAN_MASS_MAILER = "trojanMassMailer"
+    TROJAN_MONITORING_SOFTWARE = "trojanMonitoringSoftware"
+    TROJAN_PROXY_SERVER = "trojanProxyServer"
+    VIRUS = "virus"
+    KNOWN = "known"
+    UNKNOWN = "unknown"
+    SPP = "spp"
+    BEHAVIOR = "behavior"
+    VULNERABILITY = "vulnerability"
+    POLICY = "policy"
+    ENTERPRISE_UNWANTED_SOFTWARE = "enterpriseUnwantedSoftware"
+    RANSOM = "ransom"
+    HIPS_RULE = "hipsRule"
+
+class MicrosoftGraphWindowsMalwareExecutionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    BLOCKED = "blocked"
+    ALLOWED = "allowed"
+    RUNNING = "running"
+    NOT_RUNNING = "notRunning"
+
+class MicrosoftGraphWindowsMalwareSeverity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    LOW = "low"
+    MODERATE = "moderate"
+    HIGH = "high"
+    SEVERE = "severe"
+
+class MicrosoftGraphWindowsMalwareState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    DETECTED = "detected"
+    CLEANED = "cleaned"
+    QUARANTINED = "quarantined"
+    REMOVED = "removed"
+    ALLOWED = "allowed"
+    BLOCKED = "blocked"
+    CLEAN_FAILED = "cleanFailed"
+    QUARANTINE_FAILED = "quarantineFailed"
+    REMOVE_FAILED = "removeFailed"
+    ALLOW_FAILED = "allowFailed"
+    ABANDONED = "abandoned"
+    BLOCK_FAILED = "blockFailed"
+
+class MicrosoftGraphWindowsMalwareThreatState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACTIVE = "active"
+    ACTION_FAILED = "actionFailed"
+    MANUAL_STEPS_REQUIRED = "manualStepsRequired"
+    FULL_SCAN_REQUIRED = "fullScanRequired"
+    REBOOT_REQUIRED = "rebootRequired"
+    REMEDIATED_WITH_NON_CRITICAL_FAILURES = "remediatedWithNonCriticalFailures"
+    QUARANTINED = "quarantined"
+    REMOVED = "removed"
+    CLEANED = "cleaned"
+    ALLOWED = "allowed"
+    NO_STATUS_CLEARED = "noStatusCleared"

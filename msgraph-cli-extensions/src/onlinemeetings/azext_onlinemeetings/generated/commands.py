@@ -21,7 +21,7 @@ def load_command_table(self, _):
         '}',
         client_factory=cf_user)
     with self.command_group('onlinemeetings', onlinemeetings_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'onlinemeetings_update')
         g.custom_command('create-online-meeting', 'onlinemeetings_create_online_meeting')
         g.custom_command('get-online-meeting', 'onlinemeetings_get_online_meeting')
         g.custom_command('list-online-meeting', 'onlinemeetings_list_online_meeting')
+        g.custom_command('update-online-meeting', 'onlinemeetings_update_online_meeting')
