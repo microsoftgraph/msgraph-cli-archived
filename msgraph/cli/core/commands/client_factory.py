@@ -34,17 +34,7 @@ def resolve_client_arg_name(operation, kwargs):
     return client_arg_name
 
 
-def get_mgmt_service_client(cli_ctx,
-                            client_type,
-                            subscription_bound=True,
-                            subscription_id=None,
-                            api_version=None,
-                            base_url_bound=True,
-                            resource='https://graph.microsoft.com',
-                            sdk_profile=None,
-                            aux_subscriptions=None,
-                            aux_tenants=None,
-                            **kwargs):
+def get_mgmt_service_client(cli_ctx, client_type, **kwargs):
 
     credential = CustomBrowserCredential()
     graph_session = GraphSession(credential=credential)
