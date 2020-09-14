@@ -795,9 +795,9 @@ list-user-configuration a usersmail.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### usersmail update
+### usersmail update-attachment
 
-update a usersmail.
+update-attachment a usersmail.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -807,11 +807,7 @@ update a usersmail.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateAttachments|
-|update|UpdateExtensions|
-|update|UpdateMentions|
-|update|UpdateMultiValueExtendedProperties|
-|update|UpdateSingleValueExtendedProperties|
+|update-attachment|UpdateAttachments|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -819,16 +815,144 @@ update a usersmail.
 |**--user-id**|string|key: user-id of user|user_id|user-id|
 |**--message-id**|string|key: message-id of message|message_id|message-id|
 |**--attachment-id**|string|key: attachment-id of attachment|attachment_id|attachment-id|
-|**--extension-id**|string|key: extension-id of extension|extension_id|extension-id|
-|**--mention-id**|string|key: mention-id of mention|mention_id|mention-id|
-|**--multi-value-legacy-extended-property-id**|string|key: multiValueLegacyExtendedProperty-id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-|**--single-value-legacy-extended-property-id**|string|key: singleValueLegacyExtendedProperty-id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
 |**--id**|string|Read-only.|id|id|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--name**|string|The attachment's file name.|name|name|
 |**--content-type**|string|The MIME type.|content_type|contentType|
 |**--size**|integer|The length of the attachment in bytes.|size|size|
 |**--is-inline**|boolean|true if the attachment is an inline attachment; otherwise, false.|is_inline|isInline|
+
+### usersmail update-child-folder
+
+update-child-folder a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.mailFolders|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-child-folder|UpdateChildFolders|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: mailFolder-id of mailFolder|mail_folder_id|mailFolder-id|
+|**--mail-folder-id1**|string|key: mailFolder-id of mailFolder|mail_folder_id1|mailFolder-id1|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The mailFolder's display name.|display_name|displayName|
+|**--parent-folder-id**|string|The unique identifier for the mailFolder's parent mailFolder.|parent_folder_id|parentFolderId|
+|**--child-folder-count**|integer|The number of immediate child mailFolders in the current mailFolder.|child_folder_count|childFolderCount|
+|**--unread-item-count**|integer|The number of items in the mailFolder marked as unread.|unread_item_count|unreadItemCount|
+|**--total-item-count**|integer|The number of items in the mailFolder.|total_item_count|totalItemCount|
+|**--well-known-name**|string||well_known_name|wellKnownName|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--messages**|array|The collection of messages in the mailFolder.|messages|messages|
+|**--message-rules**|array|The collection of rules that apply to the user's Inbox folder.|message_rules|messageRules|
+|**--child-folders**|array|The collection of child folders in the mailFolder.|child_folders|childFolders|
+|**--user-configurations**|array||user_configurations|userConfigurations|
+
+### usersmail update-extension
+
+update-extension a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-extension|UpdateExtensions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--message-id**|string|key: message-id of message|message_id|message-id|
+|**--extension-id**|string|key: extension-id of extension|extension_id|extension-id|
+|**--id**|string|Read-only.|id|id|
+
+### usersmail update-inference-classification
+
+update-inference-classification a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-inference-classification|UpdateInferenceClassification|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--overrides**|array|A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.|overrides|overrides|
+
+### usersmail update-mail-folder
+
+update-mail-folder a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-mail-folder|UpdateMailFolders|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: mailFolder-id of mailFolder|mail_folder_id|mailFolder-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The mailFolder's display name.|display_name|displayName|
+|**--parent-folder-id**|string|The unique identifier for the mailFolder's parent mailFolder.|parent_folder_id|parentFolderId|
+|**--child-folder-count**|integer|The number of immediate child mailFolders in the current mailFolder.|child_folder_count|childFolderCount|
+|**--unread-item-count**|integer|The number of items in the mailFolder marked as unread.|unread_item_count|unreadItemCount|
+|**--total-item-count**|integer|The number of items in the mailFolder.|total_item_count|totalItemCount|
+|**--well-known-name**|string||well_known_name|wellKnownName|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--messages**|array|The collection of messages in the mailFolder.|messages|messages|
+|**--message-rules**|array|The collection of rules that apply to the user's Inbox folder.|message_rules|messageRules|
+|**--child-folders**|array|The collection of child folders in the mailFolder.|child_folders|childFolders|
+|**--user-configurations**|array||user_configurations|userConfigurations|
+
+### usersmail update-mention
+
+update-mention a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-mention|UpdateMentions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--message-id**|string|key: message-id of message|message_id|message-id|
+|**--mention-id**|string|key: mention-id of mention|mention_id|mention-id|
+|**--id**|string|Read-only.|id|id|
 |**--mentioned**|object|emailAddress|mentioned|mentioned|
 |**--mention-text**|string||mention_text|mentionText|
 |**--client-reference**|string||client_reference|clientReference|
@@ -837,4 +961,140 @@ update a usersmail.
 |**--server-created-date-time**|date-time||server_created_date_time|serverCreatedDateTime|
 |**--deep-link**|string||deep_link|deepLink|
 |**--application**|string||application|application|
+
+### usersmail update-message
+
+update-message a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.mailFolders|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-message|UpdateMessages|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: mailFolder-id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: message-id of message|message_id|message-id|
+|**--body**|object|New navigation property values|body|body|
+
+### usersmail update-message-rule
+
+update-message-rule a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.mailFolders|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-message-rule|UpdateMessageRules|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: mailFolder-id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-rule-id**|string|key: messageRule-id of messageRule|message_rule_id|messageRule-id|
+|**--body**|object|New navigation property values|body|body|
+
+### usersmail update-multi-value-extended-property
+
+update-multi-value-extended-property a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-multi-value-extended-property|UpdateMultiValueExtendedProperties|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--message-id**|string|key: message-id of message|message_id|message-id|
+|**--multi-value-legacy-extended-property-id**|string|key: multiValueLegacyExtendedProperty-id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--id**|string|Read-only.|id|id|
 |**--value**|array|A collection of property values.|value|value|
+
+### usersmail update-override
+
+update-override a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.inferenceClassification|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-override|UpdateOverrides|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--inference-classification-override-id**|string|key: inferenceClassificationOverride-id of inferenceClassificationOverride|inference_classification_override_id|inferenceClassificationOverride-id|
+|**--id**|string|Read-only.|id|id|
+|**--classify-as**|choice||classify_as|classifyAs|
+|**--sender-email-address-name**|string|The display name of the person or entity.|name|name|
+|**--sender-email-address-address**|string|The email address of the person or entity.|address|address|
+
+### usersmail update-single-value-extended-property
+
+update-single-value-extended-property a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-single-value-extended-property|UpdateSingleValueExtendedProperties|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--message-id**|string|key: message-id of message|message_id|message-id|
+|**--single-value-legacy-extended-property-id**|string|key: singleValueLegacyExtendedProperty-id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--id**|string|Read-only.|id|id|
+|**--value**|string|A property value.|value|value|
+
+### usersmail update-user-configuration
+
+update-user-configuration a usersmail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersmail|users.mailFolders|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-user-configuration|UpdateUserConfigurations|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: mailFolder-id of mailFolder|mail_folder_id|mailFolder-id|
+|**--user-configuration-id**|string|key: userConfiguration-id of userConfiguration|user_configuration_id|userConfiguration-id|
+|**--id**|string|Read-only.|id|id|
+|**--binary-data**|byte-array||binary_data|binaryData|

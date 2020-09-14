@@ -84,9 +84,9 @@ list-person a userspeople.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### userspeople update
+### userspeople update-person
 
-update a userspeople.
+update-person a userspeople.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -96,7 +96,7 @@ update a userspeople.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdatePeople|
+|update-person|UpdatePeople|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

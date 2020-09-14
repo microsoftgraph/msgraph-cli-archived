@@ -15,20 +15,15 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 
 def load_arguments(self, _):
 
-    with self.argument_context('usersuser update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
-                   'json-string/@json-file.')
-
     with self.argument_context('usersuser delete') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('if_match', help='ETag')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('usersuser create-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
 
     with self.argument_context('usersuser get-user') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
@@ -37,13 +32,18 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('usersuser update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('availability', help='')
-        c.argument('activity', help='')
+    with self.argument_context('usersuser update-user') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
+                   'json-string/@json-file.')
 
     with self.argument_context('usersuser get-presence') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('usersuser update-presence') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('availability', type=str, help='')
+        c.argument('activity', type=str, help='')

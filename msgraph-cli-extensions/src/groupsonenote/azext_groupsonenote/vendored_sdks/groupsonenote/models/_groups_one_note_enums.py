@@ -6,4882 +6,4900 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum10(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum100(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum101(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum102(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum103(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum104(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum105(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum106(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum107(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum108(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum109(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum110(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum111(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum112(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum113(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum114(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum115(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum116(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum117(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum118(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum119(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum12(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum120(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum121(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum122(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum123(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum124(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum125(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum126(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum127(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum128(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum129(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum130(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum131(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum132(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum133(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum134(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum135(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum136(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum137(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum138(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum139(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum14(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum140(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum141(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum142(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum143(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum144(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum145(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum146(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum147(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum148(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum149(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum15(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum150(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum151(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum152(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum153(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum154(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum155(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum156(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum157(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum158(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum159(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum16(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum160(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum161(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum162(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum163(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum164(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum165(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum166(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum167(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum168(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum169(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum17(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum170(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum171(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum172(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum173(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum174(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum175(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum176(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum177(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum178(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum179(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum18(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum180(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum181(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum182(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum183(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum184(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum185(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum186(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum187(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum188(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum189(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum19(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum190(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum191(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum192(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum193(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum194(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum195(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum196(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum197(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum198(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    content = "content"
-    content_desc = "content desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-
-class Enum199(str, Enum):
-
-    id = "id"
-    self = "self"
-    content = "content"
-    content_url = "contentUrl"
-
-class Enum200(str, Enum):
-
-    id = "id"
-    self = "self"
-    content = "content"
-    content_url = "contentUrl"
-
-class Enum201(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum202(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum203(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum204(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum205(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum206(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum207(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum208(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum209(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum21(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum210(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum211(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum212(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum213(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum214(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum215(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum216(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum217(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum218(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum219(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum220(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum221(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum222(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum223(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum224(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum225(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum226(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum227(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum228(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum229(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum23(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum230(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum231(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum232(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum233(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum234(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum235(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum236(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum237(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum238(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum239(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum24(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum240(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum241(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum242(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum243(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum244(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum245(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum246(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum247(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum248(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum249(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum25(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum250(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum251(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum252(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum253(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum254(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum255(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum256(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum257(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum258(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum259(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum26(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum260(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum261(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum262(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum263(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum264(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum265(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum266(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum267(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum268(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum269(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum27(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum270(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum271(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum272(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum273(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum274(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum275(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum276(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum277(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum278(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum279(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum28(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum280(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum281(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum282(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum283(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum284(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum285(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum286(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum287(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum288(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum289(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum29(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum290(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum291(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum292(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum293(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum294(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum295(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum296(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum297(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum298(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum299(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum300(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum301(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum302(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum303(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum304(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum305(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum306(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum307(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum308(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum309(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum31(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum310(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum311(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum312(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum313(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum314(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum315(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum316(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum317(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum318(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum319(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum32(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum320(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum321(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum322(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum323(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum324(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum325(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum326(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum327(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum328(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum329(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum33(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum330(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum331(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum332(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum333(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum334(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum335(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum336(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum337(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum338(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum339(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum34(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum340(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum341(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum342(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum343(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum344(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum345(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum346(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum347(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum348(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum349(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum35(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum350(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum351(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum352(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum353(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum354(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum355(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum356(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum357(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum358(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum359(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum36(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum360(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum361(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum362(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum363(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum364(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum365(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum37(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum38(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum39(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum40(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum41(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum42(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum43(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum44(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum45(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum46(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum47(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum48(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum49(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum50(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum51(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum52(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum53(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum54(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum55(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum56(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum57(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum58(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum59(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum60(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum61(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum62(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum63(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum64(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum65(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum66(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum67(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum68(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum69(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum7(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum70(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum71(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum72(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum73(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    status = "status"
-    status_desc = "status desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_action_date_time = "lastActionDateTime"
-    last_action_date_time_desc = "lastActionDateTime desc"
-    resource_location = "resourceLocation"
-    resource_location_desc = "resourceLocation desc"
-    resource_id = "resourceId"
-    resource_id_desc = "resourceId desc"
-    error = "error"
-    error_desc = "error desc"
-    percent_complete = "percentComplete"
-    percent_complete_desc = "percentComplete desc"
-
-class Enum74(str, Enum):
-
-    id = "id"
-    status = "status"
-    created_date_time = "createdDateTime"
-    last_action_date_time = "lastActionDateTime"
-    resource_location = "resourceLocation"
-    resource_id = "resourceId"
-    error = "error"
-    percent_complete = "percentComplete"
-
-class Enum75(str, Enum):
-
-    id = "id"
-    status = "status"
-    created_date_time = "createdDateTime"
-    last_action_date_time = "lastActionDateTime"
-    resource_location = "resourceLocation"
-    resource_id = "resourceId"
-    error = "error"
-    percent_complete = "percentComplete"
-
-class Enum76(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    title = "title"
-    title_desc = "title desc"
-    created_by_app_id = "createdByAppId"
-    created_by_app_id_desc = "createdByAppId desc"
-    links = "links"
-    links_desc = "links desc"
-    content_url = "contentUrl"
-    content_url_desc = "contentUrl desc"
-    content = "content"
-    content_desc = "content desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    level = "level"
-    level_desc = "level desc"
-    order = "order"
-    order_desc = "order desc"
-    user_tags = "userTags"
-    user_tags_desc = "userTags desc"
-
-class Enum77(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum78(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum79(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    title = "title"
-    created_by_app_id = "createdByAppId"
-    links = "links"
-    content_url = "contentUrl"
-    content = "content"
-    last_modified_date_time = "lastModifiedDateTime"
-    level = "level"
-    order = "order"
-    user_tags = "userTags"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum80(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Enum81(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum82(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum83(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum84(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum85(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum86(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum87(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum88(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum89(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum9(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum90(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum91(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum92(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-
-class Enum93(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum94(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum95(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum96(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Enum97(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    links = "links"
-    links_desc = "links desc"
-    pages_url = "pagesUrl"
-    pages_url_desc = "pagesUrl desc"
-
-class Enum98(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    links = "links"
-    pages_url = "pagesUrl"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Enum99(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    pages = "pages"
-
-class Get10ItemsItem(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Get11ItemsItem(str, Enum):
-
-    asterisk = "*"
-    parent_section = "parentSection"
-    parent_notebook = "parentNotebook"
-
-class Get1ItemsItem(str, Enum):
-
-    id = "id"
-    notebooks = "notebooks"
-    sections = "sections"
-    section_groups = "sectionGroups"
-    pages = "pages"
-    resources = "resources"
-    operations = "operations"
-
-class Get2ItemsItem(str, Enum):
-
-    asterisk = "*"
-    notebooks = "notebooks"
-    sections = "sections"
-    section_groups = "sectionGroups"
-    pages = "pages"
-    resources = "resources"
-    operations = "operations"
-
-class Get3ItemsItem(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Get4ItemsItem(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Get5ItemsItem(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    self = "self"
-    self_desc = "self desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    is_default = "isDefault"
-    is_default_desc = "isDefault desc"
-    user_role = "userRole"
-    user_role_desc = "userRole desc"
-    is_shared = "isShared"
-    is_shared_desc = "isShared desc"
-    sections_url = "sectionsUrl"
-    sections_url_desc = "sectionsUrl desc"
-    section_groups_url = "sectionGroupsUrl"
-    section_groups_url_desc = "sectionGroupsUrl desc"
-    links = "links"
-    links_desc = "links desc"
-
-class Get7ItemsItem(str, Enum):
-
-    id = "id"
-    self = "self"
-    created_date_time = "createdDateTime"
-    display_name = "displayName"
-    created_by = "createdBy"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    is_default = "isDefault"
-    user_role = "userRole"
-    is_shared = "isShared"
-    sections_url = "sectionsUrl"
-    section_groups_url = "sectionGroupsUrl"
-    links = "links"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Get8ItemsItem(str, Enum):
-
-    asterisk = "*"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class Get9ItemsItem(str, Enum):
-
-    asterisk = "*"
-    parent_notebook = "parentNotebook"
-    parent_section_group = "parentSectionGroup"
-    sections = "sections"
-    section_groups = "sectionGroups"
-
-class MicrosoftGraphOnenoteUserRole(str, Enum):
-
-    owner = "Owner"
-    contributor = "Contributor"
-    reader = "Reader"
-    none = "None"
-
-class MicrosoftGraphOperationStatus(str, Enum):
-
-    not_started = "NotStarted"
-    running = "Running"
-    completed = "Completed"
-    failed = "Failed"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum10(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum100(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum101(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum102(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum103(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum104(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum105(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum108(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum110(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum111(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum112(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum113(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum115(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum118(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum119(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum12(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum120(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum124(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum125(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum126(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum127(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum128(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum129(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum130(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum131(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum132(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum133(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum134(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum136(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum137(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum138(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum139(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum140(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum141(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum142(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum143(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum144(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum145(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum146(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum147(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum148(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum149(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum150(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum151(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum152(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum153(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum154(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum155(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum156(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum157(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum158(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum159(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum160(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum161(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum162(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum163(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum164(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum165(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum166(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum167(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum168(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum169(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum170(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum171(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum172(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum173(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum174(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum175(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum176(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum177(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum178(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum179(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum18(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum180(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum181(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum182(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum183(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum184(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum185(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum186(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum187(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum188(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum189(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum19(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum190(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum191(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum192(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum193(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum194(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum195(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum196(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum197(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum198(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+
+class Enum199(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CONTENT = "content"
+    CONTENT_URL = "contentUrl"
+
+class Enum200(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CONTENT = "content"
+    CONTENT_URL = "contentUrl"
+
+class Enum201(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum202(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum203(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum204(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum205(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum206(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum207(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum208(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum209(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum210(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum211(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum212(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum213(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum214(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum215(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum216(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum217(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum218(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum219(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum220(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum221(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum222(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum223(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum224(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum225(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum226(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum227(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum228(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum229(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum230(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum231(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum232(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum233(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum234(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum235(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum236(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum237(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum238(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum239(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum240(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum241(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum242(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum243(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum244(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum245(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum246(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum247(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum248(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum249(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum250(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum251(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum252(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum253(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum254(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum255(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum256(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum257(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum258(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum259(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum260(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum261(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum262(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum263(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum264(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum265(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum266(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum267(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum268(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum269(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum270(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum271(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum272(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum273(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum274(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum275(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum276(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum277(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum278(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum279(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum280(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum281(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum282(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum283(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum284(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum285(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum286(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum287(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum288(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum289(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum29(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum290(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum291(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum292(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum293(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum294(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum295(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum296(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum297(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum298(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum299(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum300(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum301(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum302(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum303(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum304(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum305(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum306(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum307(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum308(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum309(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum31(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum310(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum311(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum312(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum313(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum314(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum315(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum316(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum317(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum318(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum319(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum32(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum320(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum321(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum322(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum323(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum324(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum325(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum326(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum327(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum328(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum329(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum33(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum330(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum331(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum332(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum333(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum334(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum335(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum336(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum337(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum338(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum339(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum34(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum340(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum341(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum342(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum343(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum344(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum345(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum346(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum347(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum348(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum349(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum35(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum350(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum351(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum352(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum353(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum354(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum355(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum356(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum357(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum358(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum359(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum36(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum360(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum361(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum362(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum363(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum364(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum365(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum37(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum38(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum39(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum40(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum41(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum42(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum43(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum44(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum45(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum46(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum47(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum48(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum49(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum50(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum51(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum52(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum53(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum54(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum55(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum56(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum57(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum58(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum59(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum60(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum61(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum62(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum63(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum64(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum67(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum68(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum69(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum7(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum70(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_ACTION_DATE_TIME = "lastActionDateTime"
+    LAST_ACTION_DATE_TIME_DESC = "lastActionDateTime desc"
+    RESOURCE_LOCATION = "resourceLocation"
+    RESOURCE_LOCATION_DESC = "resourceLocation desc"
+    RESOURCE_ID = "resourceId"
+    RESOURCE_ID_DESC = "resourceId desc"
+    ERROR = "error"
+    ERROR_DESC = "error desc"
+    PERCENT_COMPLETE = "percentComplete"
+    PERCENT_COMPLETE_DESC = "percentComplete desc"
+
+class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    STATUS = "status"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_ACTION_DATE_TIME = "lastActionDateTime"
+    RESOURCE_LOCATION = "resourceLocation"
+    RESOURCE_ID = "resourceId"
+    ERROR = "error"
+    PERCENT_COMPLETE = "percentComplete"
+
+class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    STATUS = "status"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_ACTION_DATE_TIME = "lastActionDateTime"
+    RESOURCE_LOCATION = "resourceLocation"
+    RESOURCE_ID = "resourceId"
+    ERROR = "error"
+    PERCENT_COMPLETE = "percentComplete"
+
+class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_BY_APP_ID_DESC = "createdByAppId desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    CONTENT_URL = "contentUrl"
+    CONTENT_URL_DESC = "contentUrl desc"
+    CONTENT = "content"
+    CONTENT_DESC = "content desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LEVEL = "level"
+    LEVEL_DESC = "level desc"
+    ORDER = "order"
+    ORDER_DESC = "order desc"
+    USER_TAGS = "userTags"
+    USER_TAGS_DESC = "userTags desc"
+
+class Enum77(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum78(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum79(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    TITLE = "title"
+    CREATED_BY_APP_ID = "createdByAppId"
+    LINKS = "links"
+    CONTENT_URL = "contentUrl"
+    CONTENT = "content"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LEVEL = "level"
+    ORDER = "order"
+    USER_TAGS = "userTags"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum80(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Enum81(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum82(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum86(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum87(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum92(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+
+class Enum93(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Enum97(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+    PAGES_URL = "pagesUrl"
+    PAGES_URL_DESC = "pagesUrl desc"
+
+class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    LINKS = "links"
+    PAGES_URL = "pagesUrl"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Enum99(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    PAGES = "pages"
+
+class Get10ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Get11ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_SECTION = "parentSection"
+    PARENT_NOTEBOOK = "parentNotebook"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NOTEBOOKS = "notebooks"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+    PAGES = "pages"
+    RESOURCES = "resources"
+    OPERATIONS = "operations"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    NOTEBOOKS = "notebooks"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+    PAGES = "pages"
+    RESOURCES = "resources"
+    OPERATIONS = "operations"
+
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Get4ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    SELF = "self"
+    SELF_DESC = "self desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    IS_DEFAULT = "isDefault"
+    IS_DEFAULT_DESC = "isDefault desc"
+    USER_ROLE = "userRole"
+    USER_ROLE_DESC = "userRole desc"
+    IS_SHARED = "isShared"
+    IS_SHARED_DESC = "isShared desc"
+    SECTIONS_URL = "sectionsUrl"
+    SECTIONS_URL_DESC = "sectionsUrl desc"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    SECTION_GROUPS_URL_DESC = "sectionGroupsUrl desc"
+    LINKS = "links"
+    LINKS_DESC = "links desc"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SELF = "self"
+    CREATED_DATE_TIME = "createdDateTime"
+    DISPLAY_NAME = "displayName"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    IS_DEFAULT = "isDefault"
+    USER_ROLE = "userRole"
+    IS_SHARED = "isShared"
+    SECTIONS_URL = "sectionsUrl"
+    SECTION_GROUPS_URL = "sectionGroupsUrl"
+    LINKS = "links"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class Get9ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PARENT_NOTEBOOK = "parentNotebook"
+    PARENT_SECTION_GROUP = "parentSectionGroup"
+    SECTIONS = "sections"
+    SECTION_GROUPS = "sectionGroups"
+
+class MicrosoftGraphOnenoteUserRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OWNER = "Owner"
+    CONTRIBUTOR = "Contributor"
+    READER = "Reader"
+    NONE = "None"
+
+class MicrosoftGraphOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "NotStarted"
+    RUNNING = "Running"
+    COMPLETED = "Completed"
+    FAILED = "Failed"

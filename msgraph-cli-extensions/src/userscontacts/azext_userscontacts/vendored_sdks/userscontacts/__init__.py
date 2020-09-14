@@ -10,7 +10,7 @@ from ._users_contacts import UsersContacts
 __all__ = ['UsersContacts']
 
 try:
-    from ._patch import patch_sdk
+    from ._patch import patch_sdk  # type: ignore
     patch_sdk()
 except ImportError:
     pass

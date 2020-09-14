@@ -10,13 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def usersuser_update(client,
-                     user_id,
-                     body):
-    return client.update_user(user_id=user_id,
-                              body=body)
-
-
 def usersuser_delete(client,
                      user_id,
                      if_match=None):
@@ -47,15 +40,11 @@ def usersuser_list_user(client,
                             expand=expand)
 
 
-def usersuser_update(client,
-                     user_id,
-                     id_=None,
-                     availability=None,
-                     activity=None):
-    return client.update_presence(user_id=user_id,
-                                  id=id_,
-                                  availability=availability,
-                                  activity=activity)
+def usersuser_update_user(client,
+                          user_id,
+                          body):
+    return client.update_user(user_id=user_id,
+                              body=body)
 
 
 def usersuser_get_presence(client,
@@ -65,3 +54,14 @@ def usersuser_get_presence(client,
     return client.get_presence(user_id=user_id,
                                select=select,
                                expand=expand)
+
+
+def usersuser_update_presence(client,
+                              user_id,
+                              id_=None,
+                              availability=None,
+                              activity=None):
+    return client.update_presence(user_id=user_id,
+                                  id=id_,
+                                  availability=availability,
+                                  activity=activity)

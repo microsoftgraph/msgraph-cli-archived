@@ -6,409 +6,427 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum11(str, Enum):
-
-    id = "id"
-    name = "name"
-    plan_id = "planId"
-    order_hint = "orderHint"
-    tasks = "tasks"
-
-class Enum13(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    plan_id = "planId"
-    plan_id_desc = "planId desc"
-    bucket_id = "bucketId"
-    bucket_id_desc = "bucketId desc"
-    title = "title"
-    title_desc = "title desc"
-    order_hint = "orderHint"
-    order_hint_desc = "orderHint desc"
-    assignee_priority = "assigneePriority"
-    assignee_priority_desc = "assigneePriority desc"
-    percent_complete = "percentComplete"
-    percent_complete_desc = "percentComplete desc"
-    priority = "priority"
-    priority_desc = "priority desc"
-    start_date_time = "startDateTime"
-    start_date_time_desc = "startDateTime desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    due_date_time = "dueDateTime"
-    due_date_time_desc = "dueDateTime desc"
-    has_description = "hasDescription"
-    has_description_desc = "hasDescription desc"
-    preview_type = "previewType"
-    preview_type_desc = "previewType desc"
-    completed_date_time = "completedDateTime"
-    completed_date_time_desc = "completedDateTime desc"
-    completed_by = "completedBy"
-    completed_by_desc = "completedBy desc"
-    reference_count = "referenceCount"
-    reference_count_desc = "referenceCount desc"
-    checklist_item_count = "checklistItemCount"
-    checklist_item_count_desc = "checklistItemCount desc"
-    active_checklist_item_count = "activeChecklistItemCount"
-    active_checklist_item_count_desc = "activeChecklistItemCount desc"
-    applied_categories = "appliedCategories"
-    applied_categories_desc = "appliedCategories desc"
-    assignments = "assignments"
-    assignments_desc = "assignments desc"
-    conversation_thread_id = "conversationThreadId"
-    conversation_thread_id_desc = "conversationThreadId desc"
-
-class Enum14(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    plan_id = "planId"
-    bucket_id = "bucketId"
-    title = "title"
-    order_hint = "orderHint"
-    assignee_priority = "assigneePriority"
-    percent_complete = "percentComplete"
-    priority = "priority"
-    start_date_time = "startDateTime"
-    created_date_time = "createdDateTime"
-    due_date_time = "dueDateTime"
-    has_description = "hasDescription"
-    preview_type = "previewType"
-    completed_date_time = "completedDateTime"
-    completed_by = "completedBy"
-    reference_count = "referenceCount"
-    checklist_item_count = "checklistItemCount"
-    active_checklist_item_count = "activeChecklistItemCount"
-    applied_categories = "appliedCategories"
-    assignments = "assignments"
-    conversation_thread_id = "conversationThreadId"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Enum16(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    plan_id = "planId"
-    bucket_id = "bucketId"
-    title = "title"
-    order_hint = "orderHint"
-    assignee_priority = "assigneePriority"
-    percent_complete = "percentComplete"
-    priority = "priority"
-    start_date_time = "startDateTime"
-    created_date_time = "createdDateTime"
-    due_date_time = "dueDateTime"
-    has_description = "hasDescription"
-    preview_type = "previewType"
-    completed_date_time = "completedDateTime"
-    completed_by = "completedBy"
-    reference_count = "referenceCount"
-    checklist_item_count = "checklistItemCount"
-    active_checklist_item_count = "activeChecklistItemCount"
-    applied_categories = "appliedCategories"
-    assignments = "assignments"
-    conversation_thread_id = "conversationThreadId"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Enum18(str, Enum):
-
-    id = "id"
-    unassigned_order_hint = "unassignedOrderHint"
-    order_hints_by_assignee = "orderHintsByAssignee"
-
-class Enum19(str, Enum):
-
-    id = "id"
-    order_hint = "orderHint"
-
-class Enum20(str, Enum):
-
-    id = "id"
-    description = "description"
-    preview_type = "previewType"
-    references = "references"
-    checklist = "checklist"
-
-class Enum21(str, Enum):
-
-    id = "id"
-    order_hint = "orderHint"
-
-class Enum22(str, Enum):
-
-    id = "id"
-    shared_with = "sharedWith"
-    category_descriptions = "categoryDescriptions"
-    context_details = "contextDetails"
-
-class Enum23(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    plan_id = "planId"
-    plan_id_desc = "planId desc"
-    bucket_id = "bucketId"
-    bucket_id_desc = "bucketId desc"
-    title = "title"
-    title_desc = "title desc"
-    order_hint = "orderHint"
-    order_hint_desc = "orderHint desc"
-    assignee_priority = "assigneePriority"
-    assignee_priority_desc = "assigneePriority desc"
-    percent_complete = "percentComplete"
-    percent_complete_desc = "percentComplete desc"
-    priority = "priority"
-    priority_desc = "priority desc"
-    start_date_time = "startDateTime"
-    start_date_time_desc = "startDateTime desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    due_date_time = "dueDateTime"
-    due_date_time_desc = "dueDateTime desc"
-    has_description = "hasDescription"
-    has_description_desc = "hasDescription desc"
-    preview_type = "previewType"
-    preview_type_desc = "previewType desc"
-    completed_date_time = "completedDateTime"
-    completed_date_time_desc = "completedDateTime desc"
-    completed_by = "completedBy"
-    completed_by_desc = "completedBy desc"
-    reference_count = "referenceCount"
-    reference_count_desc = "referenceCount desc"
-    checklist_item_count = "checklistItemCount"
-    checklist_item_count_desc = "checklistItemCount desc"
-    active_checklist_item_count = "activeChecklistItemCount"
-    active_checklist_item_count_desc = "activeChecklistItemCount desc"
-    applied_categories = "appliedCategories"
-    applied_categories_desc = "appliedCategories desc"
-    assignments = "assignments"
-    assignments_desc = "assignments desc"
-    conversation_thread_id = "conversationThreadId"
-    conversation_thread_id_desc = "conversationThreadId desc"
-
-class Enum24(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    plan_id = "planId"
-    bucket_id = "bucketId"
-    title = "title"
-    order_hint = "orderHint"
-    assignee_priority = "assigneePriority"
-    percent_complete = "percentComplete"
-    priority = "priority"
-    start_date_time = "startDateTime"
-    created_date_time = "createdDateTime"
-    due_date_time = "dueDateTime"
-    has_description = "hasDescription"
-    preview_type = "previewType"
-    completed_date_time = "completedDateTime"
-    completed_by = "completedBy"
-    reference_count = "referenceCount"
-    checklist_item_count = "checklistItemCount"
-    active_checklist_item_count = "activeChecklistItemCount"
-    applied_categories = "appliedCategories"
-    assignments = "assignments"
-    conversation_thread_id = "conversationThreadId"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Enum25(str, Enum):
-
-    asterisk = "*"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Enum26(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    plan_id = "planId"
-    bucket_id = "bucketId"
-    title = "title"
-    order_hint = "orderHint"
-    assignee_priority = "assigneePriority"
-    percent_complete = "percentComplete"
-    priority = "priority"
-    start_date_time = "startDateTime"
-    created_date_time = "createdDateTime"
-    due_date_time = "dueDateTime"
-    has_description = "hasDescription"
-    preview_type = "previewType"
-    completed_date_time = "completedDateTime"
-    completed_by = "completedBy"
-    reference_count = "referenceCount"
-    checklist_item_count = "checklistItemCount"
-    active_checklist_item_count = "activeChecklistItemCount"
-    applied_categories = "appliedCategories"
-    assignments = "assignments"
-    conversation_thread_id = "conversationThreadId"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Enum27(str, Enum):
-
-    asterisk = "*"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Enum28(str, Enum):
-
-    id = "id"
-    unassigned_order_hint = "unassignedOrderHint"
-    order_hints_by_assignee = "orderHintsByAssignee"
-
-class Enum29(str, Enum):
-
-    id = "id"
-    order_hint = "orderHint"
-
-class Enum30(str, Enum):
-
-    id = "id"
-    description = "description"
-    preview_type = "previewType"
-    references = "references"
-    checklist = "checklist"
-
-class Enum31(str, Enum):
-
-    id = "id"
-    order_hint = "orderHint"
-
-class Enum6(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    owner = "owner"
-    title = "title"
-    contexts = "contexts"
-    tasks = "tasks"
-    buckets = "buckets"
-    details = "details"
-
-class Enum8(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    name = "name"
-    name_desc = "name desc"
-    plan_id = "planId"
-    plan_id_desc = "planId desc"
-    order_hint = "orderHint"
-    order_hint_desc = "orderHint desc"
-
-class Enum9(str, Enum):
-
-    id = "id"
-    name = "name"
-    plan_id = "planId"
-    order_hint = "orderHint"
-    tasks = "tasks"
-
-class Get10ItemsItem(str, Enum):
-
-    asterisk = "*"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Get1ItemsItem(str, Enum):
-
-    id = "id"
-    plans = "plans"
-
-class Get2ItemsItem(str, Enum):
-
-    asterisk = "*"
-    plans = "plans"
-
-class Get3ItemsItem(str, Enum):
-
-    asterisk = "*"
-    tasks = "tasks"
-    buckets = "buckets"
-    details = "details"
-
-class Get4ItemsItem(str, Enum):
-
-    asterisk = "*"
-    tasks = "tasks"
-
-class Get5ItemsItem(str, Enum):
-
-    asterisk = "*"
-    details = "details"
-    assigned_to_task_board_format = "assignedToTaskBoardFormat"
-    progress_task_board_format = "progressTaskBoardFormat"
-    bucket_task_board_format = "bucketTaskBoardFormat"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    owner = "owner"
-    owner_desc = "owner desc"
-    title = "title"
-    title_desc = "title desc"
-    contexts = "contexts"
-    contexts_desc = "contexts desc"
-
-class Get7ItemsItem(str, Enum):
-
-    id = "id"
-    created_by = "createdBy"
-    created_date_time = "createdDateTime"
-    owner = "owner"
-    title = "title"
-    contexts = "contexts"
-    tasks = "tasks"
-    buckets = "buckets"
-    details = "details"
-
-class Get8ItemsItem(str, Enum):
-
-    asterisk = "*"
-    tasks = "tasks"
-    buckets = "buckets"
-    details = "details"
-
-class Get9ItemsItem(str, Enum):
-
-    asterisk = "*"
-    tasks = "tasks"
-
-class MicrosoftGraphPlannerPreviewType(str, Enum):
-
-    automatic = "automatic"
-    no_preview = "noPreview"
-    checklist = "checklist"
-    description = "description"
-    reference = "reference"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum11(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+    PLAN_ID = "planId"
+    ORDER_HINT = "orderHint"
+    TASKS = "tasks"
+
+class Enum13(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    PLAN_ID = "planId"
+    PLAN_ID_DESC = "planId desc"
+    BUCKET_ID = "bucketId"
+    BUCKET_ID_DESC = "bucketId desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    ORDER_HINT = "orderHint"
+    ORDER_HINT_DESC = "orderHint desc"
+    ASSIGNEE_PRIORITY = "assigneePriority"
+    ASSIGNEE_PRIORITY_DESC = "assigneePriority desc"
+    PERCENT_COMPLETE = "percentComplete"
+    PERCENT_COMPLETE_DESC = "percentComplete desc"
+    PRIORITY = "priority"
+    PRIORITY_DESC = "priority desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DUE_DATE_TIME = "dueDateTime"
+    DUE_DATE_TIME_DESC = "dueDateTime desc"
+    HAS_DESCRIPTION = "hasDescription"
+    HAS_DESCRIPTION_DESC = "hasDescription desc"
+    PREVIEW_TYPE = "previewType"
+    PREVIEW_TYPE_DESC = "previewType desc"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETED_DATE_TIME_DESC = "completedDateTime desc"
+    COMPLETED_BY = "completedBy"
+    COMPLETED_BY_DESC = "completedBy desc"
+    REFERENCE_COUNT = "referenceCount"
+    REFERENCE_COUNT_DESC = "referenceCount desc"
+    CHECKLIST_ITEM_COUNT = "checklistItemCount"
+    CHECKLIST_ITEM_COUNT_DESC = "checklistItemCount desc"
+    ACTIVE_CHECKLIST_ITEM_COUNT = "activeChecklistItemCount"
+    ACTIVE_CHECKLIST_ITEM_COUNT_DESC = "activeChecklistItemCount desc"
+    APPLIED_CATEGORIES = "appliedCategories"
+    APPLIED_CATEGORIES_DESC = "appliedCategories desc"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENTS_DESC = "assignments desc"
+    CONVERSATION_THREAD_ID = "conversationThreadId"
+    CONVERSATION_THREAD_ID_DESC = "conversationThreadId desc"
+
+class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    PLAN_ID = "planId"
+    BUCKET_ID = "bucketId"
+    TITLE = "title"
+    ORDER_HINT = "orderHint"
+    ASSIGNEE_PRIORITY = "assigneePriority"
+    PERCENT_COMPLETE = "percentComplete"
+    PRIORITY = "priority"
+    START_DATE_TIME = "startDateTime"
+    CREATED_DATE_TIME = "createdDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    HAS_DESCRIPTION = "hasDescription"
+    PREVIEW_TYPE = "previewType"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETED_BY = "completedBy"
+    REFERENCE_COUNT = "referenceCount"
+    CHECKLIST_ITEM_COUNT = "checklistItemCount"
+    ACTIVE_CHECKLIST_ITEM_COUNT = "activeChecklistItemCount"
+    APPLIED_CATEGORIES = "appliedCategories"
+    ASSIGNMENTS = "assignments"
+    CONVERSATION_THREAD_ID = "conversationThreadId"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    PLAN_ID = "planId"
+    BUCKET_ID = "bucketId"
+    TITLE = "title"
+    ORDER_HINT = "orderHint"
+    ASSIGNEE_PRIORITY = "assigneePriority"
+    PERCENT_COMPLETE = "percentComplete"
+    PRIORITY = "priority"
+    START_DATE_TIME = "startDateTime"
+    CREATED_DATE_TIME = "createdDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    HAS_DESCRIPTION = "hasDescription"
+    PREVIEW_TYPE = "previewType"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETED_BY = "completedBy"
+    REFERENCE_COUNT = "referenceCount"
+    CHECKLIST_ITEM_COUNT = "checklistItemCount"
+    ACTIVE_CHECKLIST_ITEM_COUNT = "activeChecklistItemCount"
+    APPLIED_CATEGORIES = "appliedCategories"
+    ASSIGNMENTS = "assignments"
+    CONVERSATION_THREAD_ID = "conversationThreadId"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Enum18(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    UNASSIGNED_ORDER_HINT = "unassignedOrderHint"
+    ORDER_HINTS_BY_ASSIGNEE = "orderHintsByAssignee"
+
+class Enum19(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ORDER_HINT = "orderHint"
+
+class Enum20(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DESCRIPTION = "description"
+    PREVIEW_TYPE = "previewType"
+    REFERENCES = "references"
+    CHECKLIST = "checklist"
+
+class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ORDER_HINT = "orderHint"
+
+class Enum22(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SHARED_WITH = "sharedWith"
+    CATEGORY_DESCRIPTIONS = "categoryDescriptions"
+    CONTEXT_DETAILS = "contextDetails"
+
+class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    PLAN_ID = "planId"
+    PLAN_ID_DESC = "planId desc"
+    BUCKET_ID = "bucketId"
+    BUCKET_ID_DESC = "bucketId desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    ORDER_HINT = "orderHint"
+    ORDER_HINT_DESC = "orderHint desc"
+    ASSIGNEE_PRIORITY = "assigneePriority"
+    ASSIGNEE_PRIORITY_DESC = "assigneePriority desc"
+    PERCENT_COMPLETE = "percentComplete"
+    PERCENT_COMPLETE_DESC = "percentComplete desc"
+    PRIORITY = "priority"
+    PRIORITY_DESC = "priority desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DUE_DATE_TIME = "dueDateTime"
+    DUE_DATE_TIME_DESC = "dueDateTime desc"
+    HAS_DESCRIPTION = "hasDescription"
+    HAS_DESCRIPTION_DESC = "hasDescription desc"
+    PREVIEW_TYPE = "previewType"
+    PREVIEW_TYPE_DESC = "previewType desc"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETED_DATE_TIME_DESC = "completedDateTime desc"
+    COMPLETED_BY = "completedBy"
+    COMPLETED_BY_DESC = "completedBy desc"
+    REFERENCE_COUNT = "referenceCount"
+    REFERENCE_COUNT_DESC = "referenceCount desc"
+    CHECKLIST_ITEM_COUNT = "checklistItemCount"
+    CHECKLIST_ITEM_COUNT_DESC = "checklistItemCount desc"
+    ACTIVE_CHECKLIST_ITEM_COUNT = "activeChecklistItemCount"
+    ACTIVE_CHECKLIST_ITEM_COUNT_DESC = "activeChecklistItemCount desc"
+    APPLIED_CATEGORIES = "appliedCategories"
+    APPLIED_CATEGORIES_DESC = "appliedCategories desc"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENTS_DESC = "assignments desc"
+    CONVERSATION_THREAD_ID = "conversationThreadId"
+    CONVERSATION_THREAD_ID_DESC = "conversationThreadId desc"
+
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    PLAN_ID = "planId"
+    BUCKET_ID = "bucketId"
+    TITLE = "title"
+    ORDER_HINT = "orderHint"
+    ASSIGNEE_PRIORITY = "assigneePriority"
+    PERCENT_COMPLETE = "percentComplete"
+    PRIORITY = "priority"
+    START_DATE_TIME = "startDateTime"
+    CREATED_DATE_TIME = "createdDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    HAS_DESCRIPTION = "hasDescription"
+    PREVIEW_TYPE = "previewType"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETED_BY = "completedBy"
+    REFERENCE_COUNT = "referenceCount"
+    CHECKLIST_ITEM_COUNT = "checklistItemCount"
+    ACTIVE_CHECKLIST_ITEM_COUNT = "activeChecklistItemCount"
+    APPLIED_CATEGORIES = "appliedCategories"
+    ASSIGNMENTS = "assignments"
+    CONVERSATION_THREAD_ID = "conversationThreadId"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    PLAN_ID = "planId"
+    BUCKET_ID = "bucketId"
+    TITLE = "title"
+    ORDER_HINT = "orderHint"
+    ASSIGNEE_PRIORITY = "assigneePriority"
+    PERCENT_COMPLETE = "percentComplete"
+    PRIORITY = "priority"
+    START_DATE_TIME = "startDateTime"
+    CREATED_DATE_TIME = "createdDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    HAS_DESCRIPTION = "hasDescription"
+    PREVIEW_TYPE = "previewType"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETED_BY = "completedBy"
+    REFERENCE_COUNT = "referenceCount"
+    CHECKLIST_ITEM_COUNT = "checklistItemCount"
+    ACTIVE_CHECKLIST_ITEM_COUNT = "activeChecklistItemCount"
+    APPLIED_CATEGORIES = "appliedCategories"
+    ASSIGNMENTS = "assignments"
+    CONVERSATION_THREAD_ID = "conversationThreadId"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    UNASSIGNED_ORDER_HINT = "unassignedOrderHint"
+    ORDER_HINTS_BY_ASSIGNEE = "orderHintsByAssignee"
+
+class Enum29(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ORDER_HINT = "orderHint"
+
+class Enum30(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DESCRIPTION = "description"
+    PREVIEW_TYPE = "previewType"
+    REFERENCES = "references"
+    CHECKLIST = "checklist"
+
+class Enum31(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ORDER_HINT = "orderHint"
+
+class Enum6(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    OWNER = "owner"
+    TITLE = "title"
+    CONTEXTS = "contexts"
+    TASKS = "tasks"
+    BUCKETS = "buckets"
+    DETAILS = "details"
+
+class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    PLAN_ID = "planId"
+    PLAN_ID_DESC = "planId desc"
+    ORDER_HINT = "orderHint"
+    ORDER_HINT_DESC = "orderHint desc"
+
+class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+    PLAN_ID = "planId"
+    ORDER_HINT = "orderHint"
+    TASKS = "tasks"
+
+class Get10ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    PLANS = "plans"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    PLANS = "plans"
+
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TASKS = "tasks"
+    BUCKETS = "buckets"
+    DETAILS = "details"
+
+class Get4ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TASKS = "tasks"
+
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    DETAILS = "details"
+    ASSIGNED_TO_TASK_BOARD_FORMAT = "assignedToTaskBoardFormat"
+    PROGRESS_TASK_BOARD_FORMAT = "progressTaskBoardFormat"
+    BUCKET_TASK_BOARD_FORMAT = "bucketTaskBoardFormat"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    OWNER = "owner"
+    OWNER_DESC = "owner desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+    CONTEXTS = "contexts"
+    CONTEXTS_DESC = "contexts desc"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    OWNER = "owner"
+    TITLE = "title"
+    CONTEXTS = "contexts"
+    TASKS = "tasks"
+    BUCKETS = "buckets"
+    DETAILS = "details"
+
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TASKS = "tasks"
+    BUCKETS = "buckets"
+    DETAILS = "details"
+
+class Get9ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TASKS = "tasks"
+
+class MicrosoftGraphPlannerPreviewType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AUTOMATIC = "automatic"
+    NO_PREVIEW = "noPreview"
+    CHECKLIST = "checklist"
+    DESCRIPTION = "description"
+    REFERENCE = "reference"

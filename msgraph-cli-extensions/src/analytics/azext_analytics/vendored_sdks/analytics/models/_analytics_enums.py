@@ -6,226 +6,244 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Enum10(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    asterisk = "*"
-    trending = "trending"
-    shared = "shared"
-    used = "used"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Enum11(str, Enum):
 
-    id = "id"
-    id_desc = "id desc"
-    last_shared = "lastShared"
-    last_shared_desc = "lastShared desc"
-    sharing_history = "sharingHistory"
-    sharing_history_desc = "sharingHistory desc"
-    resource_visualization = "resourceVisualization"
-    resource_visualization_desc = "resourceVisualization desc"
-    resource_reference = "resourceReference"
-    resource_reference_desc = "resourceReference desc"
+class Enum10(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum12(str, Enum):
+    ASTERISK = "*"
+    TRENDING = "trending"
+    SHARED = "shared"
+    USED = "used"
 
-    id = "id"
-    last_shared = "lastShared"
-    sharing_history = "sharingHistory"
-    resource_visualization = "resourceVisualization"
-    resource_reference = "resourceReference"
-    last_shared_method = "lastSharedMethod"
-    resource = "resource"
+class Enum11(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum13(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_SHARED = "lastShared"
+    LAST_SHARED_DESC = "lastShared desc"
+    SHARING_HISTORY = "sharingHistory"
+    SHARING_HISTORY_DESC = "sharingHistory desc"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_VISUALIZATION_DESC = "resourceVisualization desc"
+    RESOURCE_REFERENCE = "resourceReference"
+    RESOURCE_REFERENCE_DESC = "resourceReference desc"
 
-    asterisk = "*"
-    last_shared_method = "lastSharedMethod"
-    resource = "resource"
+class Enum12(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum14(str, Enum):
+    ID = "id"
+    LAST_SHARED = "lastShared"
+    SHARING_HISTORY = "sharingHistory"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_REFERENCE = "resourceReference"
+    LAST_SHARED_METHOD = "lastSharedMethod"
+    RESOURCE = "resource"
 
-    id = "id"
-    last_shared = "lastShared"
-    sharing_history = "sharingHistory"
-    resource_visualization = "resourceVisualization"
-    resource_reference = "resourceReference"
-    last_shared_method = "lastSharedMethod"
-    resource = "resource"
+class Enum13(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum15(str, Enum):
+    ASTERISK = "*"
+    LAST_SHARED_METHOD = "lastSharedMethod"
+    RESOURCE = "resource"
 
-    asterisk = "*"
-    last_shared_method = "lastSharedMethod"
-    resource = "resource"
+class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum16(str, Enum):
+    ID = "id"
+    LAST_SHARED = "lastShared"
+    SHARING_HISTORY = "sharingHistory"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_REFERENCE = "resourceReference"
+    LAST_SHARED_METHOD = "lastSharedMethod"
+    RESOURCE = "resource"
 
-    id = "id"
-    id_desc = "id desc"
-    weight = "weight"
-    weight_desc = "weight desc"
-    resource_visualization = "resourceVisualization"
-    resource_visualization_desc = "resourceVisualization desc"
-    resource_reference = "resourceReference"
-    resource_reference_desc = "resourceReference desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
+class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum17(str, Enum):
+    ASTERISK = "*"
+    LAST_SHARED_METHOD = "lastSharedMethod"
+    RESOURCE = "resource"
 
-    id = "id"
-    weight = "weight"
-    resource_visualization = "resourceVisualization"
-    resource_reference = "resourceReference"
-    last_modified_date_time = "lastModifiedDateTime"
-    resource = "resource"
+class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum18(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    WEIGHT = "weight"
+    WEIGHT_DESC = "weight desc"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_VISUALIZATION_DESC = "resourceVisualization desc"
+    RESOURCE_REFERENCE = "resourceReference"
+    RESOURCE_REFERENCE_DESC = "resourceReference desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
 
-    asterisk = "*"
-    resource = "resource"
+class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum19(str, Enum):
+    ID = "id"
+    WEIGHT = "weight"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_REFERENCE = "resourceReference"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    RESOURCE = "resource"
 
-    id = "id"
-    weight = "weight"
-    resource_visualization = "resourceVisualization"
-    resource_reference = "resourceReference"
-    last_modified_date_time = "lastModifiedDateTime"
-    resource = "resource"
+class Enum18(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum20(str, Enum):
+    ASTERISK = "*"
+    RESOURCE = "resource"
 
-    asterisk = "*"
-    resource = "resource"
+class Enum19(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum21(str, Enum):
+    ID = "id"
+    WEIGHT = "weight"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_REFERENCE = "resourceReference"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    RESOURCE = "resource"
 
-    id = "id"
-    id_desc = "id desc"
-    last_used = "lastUsed"
-    last_used_desc = "lastUsed desc"
-    resource_visualization = "resourceVisualization"
-    resource_visualization_desc = "resourceVisualization desc"
-    resource_reference = "resourceReference"
-    resource_reference_desc = "resourceReference desc"
+class Enum20(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum22(str, Enum):
+    ASTERISK = "*"
+    RESOURCE = "resource"
 
-    id = "id"
-    last_used = "lastUsed"
-    resource_visualization = "resourceVisualization"
-    resource_reference = "resourceReference"
-    resource = "resource"
+class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum23(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_USED = "lastUsed"
+    LAST_USED_DESC = "lastUsed desc"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_VISUALIZATION_DESC = "resourceVisualization desc"
+    RESOURCE_REFERENCE = "resourceReference"
+    RESOURCE_REFERENCE_DESC = "resourceReference desc"
 
-    asterisk = "*"
-    resource = "resource"
+class Enum22(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum24(str, Enum):
+    ID = "id"
+    LAST_USED = "lastUsed"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_REFERENCE = "resourceReference"
+    RESOURCE = "resource"
 
-    id = "id"
-    last_used = "lastUsed"
-    resource_visualization = "resourceVisualization"
-    resource_reference = "resourceReference"
-    resource = "resource"
+class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum25(str, Enum):
+    ASTERISK = "*"
+    RESOURCE = "resource"
 
-    asterisk = "*"
-    resource = "resource"
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum4(str, Enum):
+    ID = "id"
+    LAST_USED = "lastUsed"
+    RESOURCE_VISUALIZATION = "resourceVisualization"
+    RESOURCE_REFERENCE = "resourceReference"
+    RESOURCE = "resource"
 
-    id = "id"
-    settings = "settings"
-    activity_statistics = "activityStatistics"
+class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum5(str, Enum):
+    ASTERISK = "*"
+    RESOURCE = "resource"
 
-    asterisk = "*"
-    activity_statistics = "activityStatistics"
+class Enum4(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum6(str, Enum):
+    ID = "id"
+    SETTINGS = "settings"
+    ACTIVITY_STATISTICS = "activityStatistics"
 
-    id = "id"
-    id_desc = "id desc"
-    activity = "activity"
-    activity_desc = "activity desc"
-    start_date = "startDate"
-    start_date_desc = "startDate desc"
-    end_date = "endDate"
-    end_date_desc = "endDate desc"
-    time_zone_used = "timeZoneUsed"
-    time_zone_used_desc = "timeZoneUsed desc"
-    duration = "duration"
-    duration_desc = "duration desc"
+class Enum5(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum7(str, Enum):
+    ASTERISK = "*"
+    ACTIVITY_STATISTICS = "activityStatistics"
 
-    id = "id"
-    activity = "activity"
-    start_date = "startDate"
-    end_date = "endDate"
-    time_zone_used = "timeZoneUsed"
-    duration = "duration"
+class Enum6(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum8(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    ACTIVITY = "activity"
+    ACTIVITY_DESC = "activity desc"
+    START_DATE = "startDate"
+    START_DATE_DESC = "startDate desc"
+    END_DATE = "endDate"
+    END_DATE_DESC = "endDate desc"
+    TIME_ZONE_USED = "timeZoneUsed"
+    TIME_ZONE_USED_DESC = "timeZoneUsed desc"
+    DURATION = "duration"
+    DURATION_DESC = "duration desc"
 
-    id = "id"
-    activity = "activity"
-    start_date = "startDate"
-    end_date = "endDate"
-    time_zone_used = "timeZoneUsed"
-    duration = "duration"
+class Enum7(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum9(str, Enum):
+    ID = "id"
+    ACTIVITY = "activity"
+    START_DATE = "startDate"
+    END_DATE = "endDate"
+    TIME_ZONE_USED = "timeZoneUsed"
+    DURATION = "duration"
 
-    id = "id"
-    trending = "trending"
-    shared = "shared"
-    used = "used"
+class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get1ItemsItem(str, Enum):
+    ID = "id"
+    ACTIVITY = "activity"
+    START_DATE = "startDate"
+    END_DATE = "endDate"
+    TIME_ZONE_USED = "timeZoneUsed"
+    DURATION = "duration"
 
-    id = "id"
-    activity = "activity"
-    start_date = "startDate"
-    end_date = "endDate"
-    time_zone_used = "timeZoneUsed"
-    duration = "duration"
+class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get5ItemsItem(str, Enum):
+    ID = "id"
+    TRENDING = "trending"
+    SHARED = "shared"
+    USED = "used"
 
-    id = "id"
-    id_desc = "id desc"
-    activity = "activity"
-    activity_desc = "activity desc"
-    start_date = "startDate"
-    start_date_desc = "startDate desc"
-    end_date = "endDate"
-    end_date_desc = "endDate desc"
-    time_zone_used = "timeZoneUsed"
-    time_zone_used_desc = "timeZoneUsed desc"
-    duration = "duration"
-    duration_desc = "duration desc"
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get6ItemsItem(str, Enum):
+    ID = "id"
+    ACTIVITY = "activity"
+    START_DATE = "startDate"
+    END_DATE = "endDate"
+    TIME_ZONE_USED = "timeZoneUsed"
+    DURATION = "duration"
 
-    id = "id"
-    activity = "activity"
-    start_date = "startDate"
-    end_date = "endDate"
-    time_zone_used = "timeZoneUsed"
-    duration = "duration"
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphAnalyticsActivityType(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    ACTIVITY = "activity"
+    ACTIVITY_DESC = "activity desc"
+    START_DATE = "startDate"
+    START_DATE_DESC = "startDate desc"
+    END_DATE = "endDate"
+    END_DATE_DESC = "endDate desc"
+    TIME_ZONE_USED = "timeZoneUsed"
+    TIME_ZONE_USED_DESC = "timeZoneUsed desc"
+    DURATION = "duration"
+    DURATION_DESC = "duration desc"
 
-    email = "Email"
-    meeting = "Meeting"
-    focus = "Focus"
-    chat = "Chat"
-    call = "Call"
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ACTIVITY = "activity"
+    START_DATE = "startDate"
+    END_DATE = "endDate"
+    TIME_ZONE_USED = "timeZoneUsed"
+    DURATION = "duration"
+
+class MicrosoftGraphAnalyticsActivityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "Email"
+    MEETING = "Meeting"
+    FOCUS = "Focus"
+    CHAT = "Chat"
+    CALL = "Call"

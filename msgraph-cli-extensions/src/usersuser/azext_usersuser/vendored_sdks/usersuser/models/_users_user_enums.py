@@ -6,1536 +6,1554 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum109(str, Enum):
-
-    id = "id"
-    availability = "availability"
-    activity = "activity"
-
-class Get1ItemsItem(str, Enum):
-
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    sign_in_activity = "signInActivity"
-    account_enabled = "accountEnabled"
-    age_group = "ageGroup"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    city = "city"
-    company_name = "companyName"
-    consent_provided_for_minor = "consentProvidedForMinor"
-    country = "country"
-    created_date_time = "createdDateTime"
-    creation_type = "creationType"
-    department = "department"
-    device_keys = "deviceKeys"
-    display_name = "displayName"
-    employee_id = "employeeId"
-    fax_number = "faxNumber"
-    given_name = "givenName"
-    identities = "identities"
-    im_addresses = "imAddresses"
-    is_resource_account = "isResourceAccount"
-    job_title = "jobTitle"
-    last_password_change_date_time = "lastPasswordChangeDateTime"
-    legal_age_group_classification = "legalAgeGroupClassification"
-    license_assignment_states = "licenseAssignmentStates"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    on_premises_distinguished_name = "onPremisesDistinguishedName"
-    on_premises_extension_attributes = "onPremisesExtensionAttributes"
-    on_premises_immutable_id = "onPremisesImmutableId"
-    on_premises_last_sync_date_time = "onPremisesLastSyncDateTime"
-    on_premises_provisioning_errors = "onPremisesProvisioningErrors"
-    on_premises_security_identifier = "onPremisesSecurityIdentifier"
-    on_premises_sync_enabled = "onPremisesSyncEnabled"
-    on_premises_domain_name = "onPremisesDomainName"
-    on_premises_sam_account_name = "onPremisesSamAccountName"
-    on_premises_user_principal_name = "onPremisesUserPrincipalName"
-    other_mails = "otherMails"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    postal_code = "postalCode"
-    preferred_data_location = "preferredDataLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    proxy_addresses = "proxyAddresses"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    sign_in_sessions_valid_from_date_time = "signInSessionsValidFromDateTime"
-    state = "state"
-    street_address = "streetAddress"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    external_user_state = "externalUserState"
-    external_user_state_change_date_time = "externalUserStateChangeDateTime"
-    user_type = "userType"
-    mailbox_settings = "mailboxSettings"
-    identity_user_risk = "identityUserRisk"
-    device_enrollment_limit = "deviceEnrollmentLimit"
-    about_me = "aboutMe"
-    birthday = "birthday"
-    hire_date = "hireDate"
-    interests = "interests"
-    my_site = "mySite"
-    past_projects = "pastProjects"
-    preferred_name = "preferredName"
-    responsibilities = "responsibilities"
-    schools = "schools"
-    skills = "skills"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class Get2ItemsItem(str, Enum):
-
-    asterisk = "*"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class Get5ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    deleted_date_time = "deletedDateTime"
-    deleted_date_time_desc = "deletedDateTime desc"
-    sign_in_activity = "signInActivity"
-    sign_in_activity_desc = "signInActivity desc"
-    account_enabled = "accountEnabled"
-    account_enabled_desc = "accountEnabled desc"
-    age_group = "ageGroup"
-    age_group_desc = "ageGroup desc"
-    assigned_licenses = "assignedLicenses"
-    assigned_licenses_desc = "assignedLicenses desc"
-    assigned_plans = "assignedPlans"
-    assigned_plans_desc = "assignedPlans desc"
-    business_phones = "businessPhones"
-    business_phones_desc = "businessPhones desc"
-    city = "city"
-    city_desc = "city desc"
-    company_name = "companyName"
-    company_name_desc = "companyName desc"
-    consent_provided_for_minor = "consentProvidedForMinor"
-    consent_provided_for_minor_desc = "consentProvidedForMinor desc"
-    country = "country"
-    country_desc = "country desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    creation_type = "creationType"
-    creation_type_desc = "creationType desc"
-    department = "department"
-    department_desc = "department desc"
-    device_keys = "deviceKeys"
-    device_keys_desc = "deviceKeys desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    employee_id = "employeeId"
-    employee_id_desc = "employeeId desc"
-    fax_number = "faxNumber"
-    fax_number_desc = "faxNumber desc"
-    given_name = "givenName"
-    given_name_desc = "givenName desc"
-    identities = "identities"
-    identities_desc = "identities desc"
-    im_addresses = "imAddresses"
-    im_addresses_desc = "imAddresses desc"
-    is_resource_account = "isResourceAccount"
-    is_resource_account_desc = "isResourceAccount desc"
-    job_title = "jobTitle"
-    job_title_desc = "jobTitle desc"
-    last_password_change_date_time = "lastPasswordChangeDateTime"
-    last_password_change_date_time_desc = "lastPasswordChangeDateTime desc"
-    legal_age_group_classification = "legalAgeGroupClassification"
-    legal_age_group_classification_desc = "legalAgeGroupClassification desc"
-    license_assignment_states = "licenseAssignmentStates"
-    license_assignment_states_desc = "licenseAssignmentStates desc"
-    mail = "mail"
-    mail_desc = "mail desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    mobile_phone = "mobilePhone"
-    mobile_phone_desc = "mobilePhone desc"
-    on_premises_distinguished_name = "onPremisesDistinguishedName"
-    on_premises_distinguished_name_desc = "onPremisesDistinguishedName desc"
-    on_premises_extension_attributes = "onPremisesExtensionAttributes"
-    on_premises_extension_attributes_desc = "onPremisesExtensionAttributes desc"
-    on_premises_immutable_id = "onPremisesImmutableId"
-    on_premises_immutable_id_desc = "onPremisesImmutableId desc"
-    on_premises_last_sync_date_time = "onPremisesLastSyncDateTime"
-    on_premises_last_sync_date_time_desc = "onPremisesLastSyncDateTime desc"
-    on_premises_provisioning_errors = "onPremisesProvisioningErrors"
-    on_premises_provisioning_errors_desc = "onPremisesProvisioningErrors desc"
-    on_premises_security_identifier = "onPremisesSecurityIdentifier"
-    on_premises_security_identifier_desc = "onPremisesSecurityIdentifier desc"
-    on_premises_sync_enabled = "onPremisesSyncEnabled"
-    on_premises_sync_enabled_desc = "onPremisesSyncEnabled desc"
-    on_premises_domain_name = "onPremisesDomainName"
-    on_premises_domain_name_desc = "onPremisesDomainName desc"
-    on_premises_sam_account_name = "onPremisesSamAccountName"
-    on_premises_sam_account_name_desc = "onPremisesSamAccountName desc"
-    on_premises_user_principal_name = "onPremisesUserPrincipalName"
-    on_premises_user_principal_name_desc = "onPremisesUserPrincipalName desc"
-    other_mails = "otherMails"
-    other_mails_desc = "otherMails desc"
-    password_policies = "passwordPolicies"
-    password_policies_desc = "passwordPolicies desc"
-    password_profile = "passwordProfile"
-    password_profile_desc = "passwordProfile desc"
-    office_location = "officeLocation"
-    office_location_desc = "officeLocation desc"
-    postal_code = "postalCode"
-    postal_code_desc = "postalCode desc"
-    preferred_data_location = "preferredDataLocation"
-    preferred_data_location_desc = "preferredDataLocation desc"
-    preferred_language = "preferredLanguage"
-    preferred_language_desc = "preferredLanguage desc"
-    provisioned_plans = "provisionedPlans"
-    provisioned_plans_desc = "provisionedPlans desc"
-    proxy_addresses = "proxyAddresses"
-    proxy_addresses_desc = "proxyAddresses desc"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    refresh_tokens_valid_from_date_time_desc = "refreshTokensValidFromDateTime desc"
-    show_in_address_list = "showInAddressList"
-    show_in_address_list_desc = "showInAddressList desc"
-    sign_in_sessions_valid_from_date_time = "signInSessionsValidFromDateTime"
-    sign_in_sessions_valid_from_date_time_desc = "signInSessionsValidFromDateTime desc"
-    state = "state"
-    state_desc = "state desc"
-    street_address = "streetAddress"
-    street_address_desc = "streetAddress desc"
-    surname = "surname"
-    surname_desc = "surname desc"
-    usage_location = "usageLocation"
-    usage_location_desc = "usageLocation desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    external_user_state = "externalUserState"
-    external_user_state_desc = "externalUserState desc"
-    external_user_state_change_date_time = "externalUserStateChangeDateTime"
-    external_user_state_change_date_time_desc = "externalUserStateChangeDateTime desc"
-    user_type = "userType"
-    user_type_desc = "userType desc"
-    mailbox_settings = "mailboxSettings"
-    mailbox_settings_desc = "mailboxSettings desc"
-    identity_user_risk = "identityUserRisk"
-    identity_user_risk_desc = "identityUserRisk desc"
-    device_enrollment_limit = "deviceEnrollmentLimit"
-    device_enrollment_limit_desc = "deviceEnrollmentLimit desc"
-    about_me = "aboutMe"
-    about_me_desc = "aboutMe desc"
-    birthday = "birthday"
-    birthday_desc = "birthday desc"
-    hire_date = "hireDate"
-    hire_date_desc = "hireDate desc"
-    interests = "interests"
-    interests_desc = "interests desc"
-    my_site = "mySite"
-    my_site_desc = "mySite desc"
-    past_projects = "pastProjects"
-    past_projects_desc = "pastProjects desc"
-    preferred_name = "preferredName"
-    preferred_name_desc = "preferredName desc"
-    responsibilities = "responsibilities"
-    responsibilities_desc = "responsibilities desc"
-    schools = "schools"
-    schools_desc = "schools desc"
-    skills = "skills"
-    skills_desc = "skills desc"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    sign_in_activity = "signInActivity"
-    account_enabled = "accountEnabled"
-    age_group = "ageGroup"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    city = "city"
-    company_name = "companyName"
-    consent_provided_for_minor = "consentProvidedForMinor"
-    country = "country"
-    created_date_time = "createdDateTime"
-    creation_type = "creationType"
-    department = "department"
-    device_keys = "deviceKeys"
-    display_name = "displayName"
-    employee_id = "employeeId"
-    fax_number = "faxNumber"
-    given_name = "givenName"
-    identities = "identities"
-    im_addresses = "imAddresses"
-    is_resource_account = "isResourceAccount"
-    job_title = "jobTitle"
-    last_password_change_date_time = "lastPasswordChangeDateTime"
-    legal_age_group_classification = "legalAgeGroupClassification"
-    license_assignment_states = "licenseAssignmentStates"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    on_premises_distinguished_name = "onPremisesDistinguishedName"
-    on_premises_extension_attributes = "onPremisesExtensionAttributes"
-    on_premises_immutable_id = "onPremisesImmutableId"
-    on_premises_last_sync_date_time = "onPremisesLastSyncDateTime"
-    on_premises_provisioning_errors = "onPremisesProvisioningErrors"
-    on_premises_security_identifier = "onPremisesSecurityIdentifier"
-    on_premises_sync_enabled = "onPremisesSyncEnabled"
-    on_premises_domain_name = "onPremisesDomainName"
-    on_premises_sam_account_name = "onPremisesSamAccountName"
-    on_premises_user_principal_name = "onPremisesUserPrincipalName"
-    other_mails = "otherMails"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    postal_code = "postalCode"
-    preferred_data_location = "preferredDataLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    proxy_addresses = "proxyAddresses"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    sign_in_sessions_valid_from_date_time = "signInSessionsValidFromDateTime"
-    state = "state"
-    street_address = "streetAddress"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    external_user_state = "externalUserState"
-    external_user_state_change_date_time = "externalUserStateChangeDateTime"
-    user_type = "userType"
-    mailbox_settings = "mailboxSettings"
-    identity_user_risk = "identityUserRisk"
-    device_enrollment_limit = "deviceEnrollmentLimit"
-    about_me = "aboutMe"
-    birthday = "birthday"
-    hire_date = "hireDate"
-    interests = "interests"
-    my_site = "mySite"
-    past_projects = "pastProjects"
-    preferred_name = "preferredName"
-    responsibilities = "responsibilities"
-    schools = "schools"
-    skills = "skills"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class Get7ItemsItem(str, Enum):
-
-    asterisk = "*"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class MicrosoftGraphAccessLevel(str, Enum):
-
-    everyone = "everyone"
-    invited = "invited"
-    locked = "locked"
-    same_enterprise = "sameEnterprise"
-    same_enterprise_and_federated = "sameEnterpriseAndFederated"
-
-class MicrosoftGraphActionState(str, Enum):
-
-    none = "none"
-    pending = "pending"
-    canceled = "canceled"
-    active = "active"
-    done = "done"
-    failed = "failed"
-    not_supported = "notSupported"
-
-class MicrosoftGraphAgreementAcceptanceState(str, Enum):
-
-    accepted = "accepted"
-    declined = "declined"
-
-class MicrosoftGraphAllowedAudiences(str, Enum):
-
-    me = "me"
-    family = "family"
-    contacts = "contacts"
-    group_members = "groupMembers"
-    organization = "organization"
-    federated_organizations = "federatedOrganizations"
-    everyone = "everyone"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAnalyticsActivityType(str, Enum):
-
-    email = "Email"
-    meeting = "Meeting"
-    focus = "Focus"
-    chat = "Chat"
-    call = "Call"
-
-class MicrosoftGraphAnniversaryType(str, Enum):
-
-    birthday = "birthday"
-    wedding = "wedding"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphApplicationMode(str, Enum):
-
-    manual = "manual"
-    automatic = "automatic"
-    recommended = "recommended"
-
-class MicrosoftGraphAppLogUploadState(str, Enum):
-
-    pending = "pending"
-    completed = "completed"
-    failed = "failed"
-
-class MicrosoftGraphAttendeeType(str, Enum):
-
-    required = "required"
-    optional = "optional"
-    resource = "resource"
-
-class MicrosoftGraphAuthenticationMethodSignInState(str, Enum):
-
-    not_supported = "notSupported"
-    not_allowed_by_policy = "notAllowedByPolicy"
-    not_enabled = "notEnabled"
-    phone_number_not_unique = "phoneNumberNotUnique"
-    ready = "ready"
-    not_configured = "notConfigured"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAuthenticationPhoneType(str, Enum):
-
-    mobile = "mobile"
-    alternate_mobile = "alternateMobile"
-    office = "office"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAutomaticRepliesStatus(str, Enum):
-
-    disabled = "disabled"
-    always_enabled = "alwaysEnabled"
-    scheduled = "scheduled"
-
-class MicrosoftGraphBodyType(str, Enum):
-
-    text = "text"
-    html = "html"
-
-class MicrosoftGraphCalendarColor(str, Enum):
-
-    light_blue = "lightBlue"
-    light_green = "lightGreen"
-    light_orange = "lightOrange"
-    light_gray = "lightGray"
-    light_yellow = "lightYellow"
-    light_teal = "lightTeal"
-    light_pink = "lightPink"
-    light_brown = "lightBrown"
-    light_red = "lightRed"
-    max_color = "maxColor"
-    auto = "auto"
-
-class MicrosoftGraphCalendarRoleType(str, Enum):
-
-    none = "none"
-    free_busy_read = "freeBusyRead"
-    limited_read = "limitedRead"
-    read = "read"
-    write = "write"
-    delegate_without_private_event_access = "delegateWithoutPrivateEventAccess"
-    delegate_with_private_event_access = "delegateWithPrivateEventAccess"
-    custom = "custom"
-
-class MicrosoftGraphCategoryColor(str, Enum):
-
-    preset0 = "preset0"
-    preset1 = "preset1"
-    preset2 = "preset2"
-    preset3 = "preset3"
-    preset4 = "preset4"
-    preset5 = "preset5"
-    preset6 = "preset6"
-    preset7 = "preset7"
-    preset8 = "preset8"
-    preset9 = "preset9"
-    preset10 = "preset10"
-    preset11 = "preset11"
-    preset12 = "preset12"
-    preset13 = "preset13"
-    preset14 = "preset14"
-    preset15 = "preset15"
-    preset16 = "preset16"
-    preset17 = "preset17"
-    preset18 = "preset18"
-    preset19 = "preset19"
-    preset20 = "preset20"
-    preset21 = "preset21"
-    preset22 = "preset22"
-    preset23 = "preset23"
-    preset24 = "preset24"
-    none = "none"
-
-class MicrosoftGraphChannelMembershipType(str, Enum):
-
-    standard = "standard"
-    private = "private"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphChassisType(str, Enum):
-
-    unknown = "unknown"
-    desktop = "desktop"
-    laptop = "laptop"
-    works_workstation = "worksWorkstation"
-    enterprise_server = "enterpriseServer"
-    phone = "phone"
-    tablet = "tablet"
-    mobile_other = "mobileOther"
-    mobile_unknown = "mobileUnknown"
-
-class MicrosoftGraphChatMessageImportance(str, Enum):
-
-    normal = "normal"
-    high = "high"
-    urgent = "urgent"
-
-class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(str, Enum):
-
-    none = "none"
-    notify_sender = "notifySender"
-    block_access = "blockAccess"
-    block_access_external = "blockAccessExternal"
-
-class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(str, Enum):
-
-    none = "none"
-    override = "override"
-    report_false_positive = "reportFalsePositive"
-
-class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(str, Enum):
-
-    none = "none"
-    allow_false_positive_override = "allowFalsePositiveOverride"
-    allow_override_without_justification = "allowOverrideWithoutJustification"
-    allow_override_with_justification = "allowOverrideWithJustification"
-
-class MicrosoftGraphChatMessageType(str, Enum):
-
-    message = "message"
-    chat_event = "chatEvent"
-    typing = "typing"
-
-class MicrosoftGraphComplianceState(str, Enum):
-
-    unknown = "unknown"
-    compliant = "compliant"
-    noncompliant = "noncompliant"
-    conflict = "conflict"
-    error = "error"
-    in_grace_period = "inGracePeriod"
-    config_manager = "configManager"
-
-class MicrosoftGraphComplianceStatus(str, Enum):
-
-    unknown = "unknown"
-    not_applicable = "notApplicable"
-    compliant = "compliant"
-    remediated = "remediated"
-    non_compliant = "nonCompliant"
-    error = "error"
-    conflict = "conflict"
-    not_assigned = "notAssigned"
-
-class MicrosoftGraphConfigurationManagerClientState(str, Enum):
-
-    unknown = "unknown"
-    installed = "installed"
-    healthy = "healthy"
-    install_failed = "installFailed"
-    update_failed = "updateFailed"
-    communication_error = "communicationError"
-
-class MicrosoftGraphDayOfWeek(str, Enum):
-
-    sunday = "sunday"
-    monday = "monday"
-    tuesday = "tuesday"
-    wednesday = "wednesday"
-    thursday = "thursday"
-    friday = "friday"
-    saturday = "saturday"
-
-class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(str, Enum):
-
-    send_to_delegate_and_information_to_principal = "sendToDelegateAndInformationToPrincipal"
-    send_to_delegate_and_principal = "sendToDelegateAndPrincipal"
-    send_to_delegate_only = "sendToDelegateOnly"
-
-class MicrosoftGraphDeviceAndAppManagementAssignmentSource(str, Enum):
-
-    direct = "direct"
-    policy_sets = "policySets"
-
-class MicrosoftGraphDeviceEnrollmentType(str, Enum):
-
-    unknown = "unknown"
-    user_enrollment = "userEnrollment"
-    device_enrollment_manager = "deviceEnrollmentManager"
-    apple_bulk_with_user = "appleBulkWithUser"
-    apple_bulk_without_user = "appleBulkWithoutUser"
-    windows_azure_ad_join = "windowsAzureADJoin"
-    windows_bulk_userless = "windowsBulkUserless"
-    windows_auto_enrollment = "windowsAutoEnrollment"
-    windows_bulk_azure_domain_join = "windowsBulkAzureDomainJoin"
-    windows_co_management = "windowsCoManagement"
-    apple_user_enrollment = "appleUserEnrollment"
-    apple_user_enrollment_with_service_account = "appleUserEnrollmentWithServiceAccount"
-    azure_ad_join_using_azure_vm_extension = "azureAdJoinUsingAzureVmExtension"
-
-class MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState(str, Enum):
-
-    running = "running"
-    reboot_required = "rebootRequired"
-    not_licensed = "notLicensed"
-    not_configured = "notConfigured"
-    virtualization_based_security_not_running = "virtualizationBasedSecurityNotRunning"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(str, Enum):
-
-    meet_hardware_requirements = "meetHardwareRequirements"
-    secure_boot_required = "secureBootRequired"
-    dma_protection_required = "dmaProtectionRequired"
-    hyper_v_not_supported_for_guest_vm = "hyperVNotSupportedForGuestVM"
-    hyper_v_not_available = "hyperVNotAvailable"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState(str, Enum):
-
-    running = "running"
-    reboot_required = "rebootRequired"
-    require64_bit_architecture = "require64BitArchitecture"
-    not_licensed = "notLicensed"
-    not_configured = "notConfigured"
-    does_not_meet_hardware_requirements = "doesNotMeetHardwareRequirements"
-    other = "other"
-
-class MicrosoftGraphDeviceManagementExchangeAccessState(str, Enum):
-
-    none = "none"
-    unknown = "unknown"
-    allowed = "allowed"
-    blocked = "blocked"
-    quarantined = "quarantined"
-
-class MicrosoftGraphDeviceManagementExchangeAccessStateReason(str, Enum):
-
-    none = "none"
-    unknown = "unknown"
-    exchange_global_rule = "exchangeGlobalRule"
-    exchange_individual_rule = "exchangeIndividualRule"
-    exchange_device_rule = "exchangeDeviceRule"
-    exchange_upgrade = "exchangeUpgrade"
-    exchange_mailbox_policy = "exchangeMailboxPolicy"
-    other = "other"
-    compliant = "compliant"
-    not_compliant = "notCompliant"
-    not_enrolled = "notEnrolled"
-    unknown_location = "unknownLocation"
-    mfa_required = "mfaRequired"
-    azure_ad_block_due_to_access_policy = "azureADBlockDueToAccessPolicy"
-    compromised_password = "compromisedPassword"
-    device_not_known_with_managed_app = "deviceNotKnownWithManagedApp"
-
-class MicrosoftGraphDeviceRegistrationState(str, Enum):
-
-    not_registered = "notRegistered"
-    registered = "registered"
-    revoked = "revoked"
-    key_conflict = "keyConflict"
-    approval_pending = "approvalPending"
-    certificate_reset = "certificateReset"
-    not_registered_pending_enrollment = "notRegisteredPendingEnrollment"
-    unknown = "unknown"
-
-class MicrosoftGraphDeviceType(str, Enum):
-
-    desktop = "desktop"
-    windows_rt = "windowsRT"
-    win_mo6 = "winMO6"
-    nokia = "nokia"
-    windows_phone = "windowsPhone"
-    mac = "mac"
-    win_ce = "winCE"
-    win_embedded = "winEmbedded"
-    i_phone = "iPhone"
-    i_pad = "iPad"
-    i_pod = "iPod"
-    android = "android"
-    i_soc_consumer = "iSocConsumer"
-    unix = "unix"
-    mac_mdm = "macMDM"
-    holo_lens = "holoLens"
-    surface_hub = "surfaceHub"
-    android_for_work = "androidForWork"
-    android_enterprise = "androidEnterprise"
-    windows10_x = "windows10x"
-    blackberry = "blackberry"
-    palm = "palm"
-    unknown = "unknown"
-
-class MicrosoftGraphEmailType(str, Enum):
-
-    unknown = "unknown"
-    work = "work"
-    personal = "personal"
-    main = "main"
-    other = "other"
-
-class MicrosoftGraphEventType(str, Enum):
-
-    single_instance = "singleInstance"
-    occurrence = "occurrence"
-    exception = "exception"
-    series_master = "seriesMaster"
-
-class MicrosoftGraphExternalAudienceScope(str, Enum):
-
-    none = "none"
-    contacts_only = "contactsOnly"
-    all = "all"
-
-class MicrosoftGraphFollowupFlagStatus(str, Enum):
-
-    not_flagged = "notFlagged"
-    complete = "complete"
-    flagged = "flagged"
-
-class MicrosoftGraphFreeBusyStatus(str, Enum):
-
-    free = "free"
-    tentative = "tentative"
-    busy = "busy"
-    oof = "oof"
-    working_elsewhere = "workingElsewhere"
-    unknown = "unknown"
-
-class MicrosoftGraphGiphyRatingType(str, Enum):
-
-    strict = "strict"
-    moderate = "moderate"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphGroupAccessType(str, Enum):
-
-    none = "none"
-    private = "private"
-    secret = "secret"
-    public = "public"
-
-class MicrosoftGraphImportance(str, Enum):
-
-    low = "low"
-    normal = "normal"
-    high = "high"
-
-class MicrosoftGraphInferenceClassificationType(str, Enum):
-
-    focused = "focused"
-    other = "other"
-
-class MicrosoftGraphLanguageProficiencyLevel(str, Enum):
-
-    elementary = "elementary"
-    conversational = "conversational"
-    limited_working = "limitedWorking"
-    professional_working = "professionalWorking"
-    full_professional = "fullProfessional"
-    native_or_bilingual = "nativeOrBilingual"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphLocationType(str, Enum):
-
-    default = "default"
-    conference_room = "conferenceRoom"
-    home_address = "homeAddress"
-    business_address = "businessAddress"
-    geo_coordinates = "geoCoordinates"
-    street_address = "streetAddress"
-    hotel = "hotel"
-    restaurant = "restaurant"
-    local_business = "localBusiness"
-    postal_address = "postalAddress"
-
-class MicrosoftGraphLocationUniqueIdType(str, Enum):
-
-    unknown = "unknown"
-    location_store = "locationStore"
-    directory = "directory"
-    private = "private"
-    bing = "bing"
-
-class MicrosoftGraphLongRunningOperationStatus(str, Enum):
-
-    notstarted = "notstarted"
-    running = "running"
-    succeeded = "succeeded"
-    failed = "failed"
-
-class MicrosoftGraphLostModeState(str, Enum):
-
-    disabled = "disabled"
-    enabled = "enabled"
-
-class MicrosoftGraphManagedAppFlaggedReason(str, Enum):
-
-    none = "none"
-    rooted_device = "rootedDevice"
-    android_bootloader_unlocked = "androidBootloaderUnlocked"
-    android_factory_rom_modified = "androidFactoryRomModified"
-
-class MicrosoftGraphManagedDeviceArchitecture(str, Enum):
-
-    unknown = "unknown"
-    x86 = "x86"
-    x64 = "x64"
-    arm = "arm"
-    ar_m64 = "arM64"
-
-class MicrosoftGraphManagedDeviceOwnerType(str, Enum):
-
-    unknown = "unknown"
-    company = "company"
-    personal = "personal"
-
-class MicrosoftGraphManagedDevicePartnerReportedHealthState(str, Enum):
-
-    unknown = "unknown"
-    activated = "activated"
-    deactivated = "deactivated"
-    secured = "secured"
-    low_severity = "lowSeverity"
-    medium_severity = "mediumSeverity"
-    high_severity = "highSeverity"
-    unresponsive = "unresponsive"
-    compromised = "compromised"
-    misconfigured = "misconfigured"
-
-class MicrosoftGraphManagementAgentType(str, Enum):
-
-    eas = "eas"
-    mdm = "mdm"
-    eas_mdm = "easMdm"
-    intune_client = "intuneClient"
-    eas_intune_client = "easIntuneClient"
-    configuration_manager_client = "configurationManagerClient"
-    configuration_manager_client_mdm = "configurationManagerClientMdm"
-    configuration_manager_client_mdm_eas = "configurationManagerClientMdmEas"
-    unknown = "unknown"
-    jamf = "jamf"
-    google_cloud_device_policy_controller = "googleCloudDevicePolicyController"
-    microsoft365_managed_mdm = "microsoft365ManagedMdm"
-    windows_management_cloud_api = "windowsManagementCloudApi"
-
-class MicrosoftGraphManagementState(str, Enum):
-
-    managed = "managed"
-    retire_pending = "retirePending"
-    retire_failed = "retireFailed"
-    wipe_pending = "wipePending"
-    wipe_failed = "wipeFailed"
-    unhealthy = "unhealthy"
-    delete_pending = "deletePending"
-    retire_issued = "retireIssued"
-    wipe_issued = "wipeIssued"
-    wipe_canceled = "wipeCanceled"
-    retire_canceled = "retireCanceled"
-    discovered = "discovered"
-
-class MicrosoftGraphMeetingCapabilities(str, Enum):
-
-    question_and_answer = "questionAndAnswer"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphMessageActionFlag(str, Enum):
-
-    any = "any"
-    call = "call"
-    do_not_forward = "doNotForward"
-    follow_up = "followUp"
-    fyi = "fyi"
-    forward = "forward"
-    no_response_necessary = "noResponseNecessary"
-    read = "read"
-    reply = "reply"
-    reply_to_all = "replyToAll"
-    review = "review"
-
-class MicrosoftGraphMobileAppIntent(str, Enum):
-
-    available = "available"
-    not_available = "notAvailable"
-    required_install = "requiredInstall"
-    required_uninstall = "requiredUninstall"
-    required_and_available_install = "requiredAndAvailableInstall"
-    available_install_without_enrollment = "availableInstallWithoutEnrollment"
-    exclude = "exclude"
-
-class MicrosoftGraphOnenoteUserRole(str, Enum):
-
-    owner = "Owner"
-    contributor = "Contributor"
-    reader = "Reader"
-    none = "None"
-
-class MicrosoftGraphOnlineMeetingProviderType(str, Enum):
-
-    unknown = "unknown"
-    skype_for_business = "skypeForBusiness"
-    skype_for_consumer = "skypeForConsumer"
-    teams_for_business = "teamsForBusiness"
-
-class MicrosoftGraphOperationStatus(str, Enum):
-
-    not_started = "NotStarted"
-    running = "Running"
-    completed = "Completed"
-    failed = "Failed"
-
-class MicrosoftGraphOwnerType(str, Enum):
-
-    unknown = "unknown"
-    company = "company"
-    personal = "personal"
-
-class MicrosoftGraphPersonRelationship(str, Enum):
-
-    manager = "manager"
-    colleague = "colleague"
-    direct_report = "directReport"
-    dot_line_report = "dotLineReport"
-    assistant = "assistant"
-    dot_line_manager = "dotLineManager"
-    alternate_contact = "alternateContact"
-    friend = "friend"
-    spouse = "spouse"
-    sibling = "sibling"
-    child = "child"
-    parent = "parent"
-    sponsor = "sponsor"
-    emergency_contact = "emergencyContact"
-    other = "other"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphPhoneType(str, Enum):
-
-    home = "home"
-    business = "business"
-    mobile = "mobile"
-    other = "other"
-    assistant = "assistant"
-    home_fax = "homeFax"
-    business_fax = "businessFax"
-    other_fax = "otherFax"
-    pager = "pager"
-    radio = "radio"
-
-class MicrosoftGraphPhysicalAddressType(str, Enum):
-
-    unknown = "unknown"
-    home = "home"
-    business = "business"
-    other = "other"
-
-class MicrosoftGraphPlannerPreviewType(str, Enum):
-
-    automatic = "automatic"
-    no_preview = "noPreview"
-    checklist = "checklist"
-    description = "description"
-    reference = "reference"
-
-class MicrosoftGraphPolicyPlatformType(str, Enum):
-
-    android = "android"
-    android_for_work = "androidForWork"
-    i_os = "iOS"
-    mac_os = "macOS"
-    windows_phone81 = "windowsPhone81"
-    windows81_and_later = "windows81AndLater"
-    windows10_and_later = "windows10AndLater"
-    android_work_profile = "androidWorkProfile"
-    windows10_x_profile = "windows10XProfile"
-    all = "all"
-
-class MicrosoftGraphPriority(str, Enum):
-
-    none = "None"
-    high = "High"
-    low = "Low"
-
-class MicrosoftGraphRecurrencePatternType(str, Enum):
-
-    daily = "daily"
-    weekly = "weekly"
-    absolute_monthly = "absoluteMonthly"
-    relative_monthly = "relativeMonthly"
-    absolute_yearly = "absoluteYearly"
-    relative_yearly = "relativeYearly"
-
-class MicrosoftGraphRecurrenceRangeType(str, Enum):
-
-    end_date = "endDate"
-    no_end = "noEnd"
-    numbered = "numbered"
-
-class MicrosoftGraphResponseType(str, Enum):
-
-    none = "none"
-    organizer = "organizer"
-    tentatively_accepted = "tentativelyAccepted"
-    accepted = "accepted"
-    declined = "declined"
-    not_responded = "notResponded"
-
-class MicrosoftGraphResultantAppState(str, Enum):
-
-    installed = "installed"
-    failed = "failed"
-    not_installed = "notInstalled"
-    uninstall_failed = "uninstallFailed"
-    pending_install = "pendingInstall"
-    unknown = "unknown"
-    not_applicable = "notApplicable"
-
-class MicrosoftGraphScheduleChangeRequestActor(str, Enum):
-
-    sender = "sender"
-    recipient = "recipient"
-    manager = "manager"
-    system = "system"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphScheduleChangeState(str, Enum):
-
-    pending = "pending"
-    approved = "approved"
-    declined = "declined"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphScheduleEntityTheme(str, Enum):
-
-    white = "white"
-    blue = "blue"
-    green = "green"
-    purple = "purple"
-    pink = "pink"
-    yellow = "yellow"
-    gray = "gray"
-    dark_blue = "darkBlue"
-    dark_green = "darkGreen"
-    dark_purple = "darkPurple"
-    dark_pink = "darkPink"
-    dark_yellow = "darkYellow"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphSecurityBaselineComplianceState(str, Enum):
-
-    unknown = "unknown"
-    secure = "secure"
-    not_applicable = "notApplicable"
-    not_secure = "notSecure"
-    error = "error"
-    conflict = "conflict"
-
-class MicrosoftGraphSensitivity(str, Enum):
-
-    normal = "normal"
-    personal = "personal"
-    private = "private"
-    confidential = "confidential"
-
-class MicrosoftGraphSensitivityLabelTarget(str, Enum):
-
-    email = "email"
-    site = "site"
-    unified_group = "unifiedGroup"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphSkillProficiencyLevel(str, Enum):
-
-    elementary = "elementary"
-    limited_working = "limitedWorking"
-    general_professional = "generalProfessional"
-    advanced_professional = "advancedProfessional"
-    expert = "expert"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphStatus(str, Enum):
-
-    active = "active"
-    updated = "updated"
-    deleted = "deleted"
-    ignored = "ignored"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTaskStatus(str, Enum):
-
-    not_started = "notStarted"
-    in_progress = "inProgress"
-    completed = "completed"
-    waiting_on_others = "waitingOnOthers"
-    deferred = "deferred"
-
-class MicrosoftGraphTeamsAppDistributionMethod(str, Enum):
-
-    store = "store"
-    organization = "organization"
-    sideloaded = "sideloaded"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamsAsyncOperationStatus(str, Enum):
-
-    invalid = "invalid"
-    not_started = "notStarted"
-    in_progress = "inProgress"
-    succeeded = "succeeded"
-    failed = "failed"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamsAsyncOperationType(str, Enum):
-
-    invalid = "invalid"
-    clone_team = "cloneTeam"
-    archive_team = "archiveTeam"
-    unarchive_team = "unarchiveTeam"
-    create_team = "createTeam"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamSpecialization(str, Enum):
-
-    none = "none"
-    education_standard = "educationStandard"
-    education_class = "educationClass"
-    education_professional_learning_community = "educationProfessionalLearningCommunity"
-    education_staff = "educationStaff"
-    healthcare_standard = "healthcareStandard"
-    healthcare_care_coordination = "healthcareCareCoordination"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamVisibilityType(str, Enum):
-
-    private = "private"
-    public = "public"
-    hidden_membership = "hiddenMembership"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatAssessmentContentType(str, Enum):
-
-    mail = "mail"
-    url = "url"
-    file = "file"
-
-class MicrosoftGraphThreatAssessmentRequestSource(str, Enum):
-
-    undefined = "undefined"
-    user = "user"
-    administrator = "administrator"
-
-class MicrosoftGraphThreatAssessmentResultType(str, Enum):
-
-    check_policy = "checkPolicy"
-    rescan = "rescan"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatAssessmentStatus(str, Enum):
-
-    pending = "pending"
-    completed = "completed"
-
-class MicrosoftGraphThreatCategory(str, Enum):
-
-    undefined = "undefined"
-    spam = "spam"
-    phishing = "phishing"
-    malware = "malware"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatExpectedAssessment(str, Enum):
-
-    block = "block"
-    unblock = "unblock"
-
-class MicrosoftGraphTimeOffReasonIconType(str, Enum):
-
-    none = "none"
-    car = "car"
-    calendar = "calendar"
-    running = "running"
-    plane = "plane"
-    first_aid = "firstAid"
-    doctor = "doctor"
-    not_working = "notWorking"
-    clock = "clock"
-    jury_duty = "juryDuty"
-    globe = "globe"
-    cup = "cup"
-    phone = "phone"
-    weather = "weather"
-    umbrella = "umbrella"
-    piggy_bank = "piggyBank"
-    dog = "dog"
-    cake = "cake"
-    traffic_cone = "trafficCone"
-    pin = "pin"
-    sunny = "sunny"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphUserRiskLevel(str, Enum):
-
-    unknown = "unknown"
-    none = "none"
-    low = "low"
-    medium = "medium"
-    high = "high"
-
-class MicrosoftGraphWebsiteType(str, Enum):
-
-    other = "other"
-    home = "home"
-    work = "work"
-    blog = "blog"
-    profile = "profile"
-
-class MicrosoftGraphWeekIndex(str, Enum):
-
-    first = "first"
-    second = "second"
-    third = "third"
-    fourth = "fourth"
-    last = "last"
-
-class MicrosoftGraphWindowsDeviceHealthState(str, Enum):
-
-    clean = "clean"
-    full_scan_pending = "fullScanPending"
-    reboot_pending = "rebootPending"
-    manual_steps_pending = "manualStepsPending"
-    offline_scan_pending = "offlineScanPending"
-    critical = "critical"
-
-class MicrosoftGraphWindowsMalwareCategory(str, Enum):
-
-    invalid = "invalid"
-    adware = "adware"
-    spyware = "spyware"
-    password_stealer = "passwordStealer"
-    trojan_downloader = "trojanDownloader"
-    worm = "worm"
-    backdoor = "backdoor"
-    remote_access_trojan = "remoteAccessTrojan"
-    trojan = "trojan"
-    email_flooder = "emailFlooder"
-    keylogger = "keylogger"
-    dialer = "dialer"
-    monitoring_software = "monitoringSoftware"
-    browser_modifier = "browserModifier"
-    cookie = "cookie"
-    browser_plugin = "browserPlugin"
-    aol_exploit = "aolExploit"
-    nuker = "nuker"
-    security_disabler = "securityDisabler"
-    joke_program = "jokeProgram"
-    hostile_active_x_control = "hostileActiveXControl"
-    software_bundler = "softwareBundler"
-    stealth_notifier = "stealthNotifier"
-    settings_modifier = "settingsModifier"
-    tool_bar = "toolBar"
-    remote_control_software = "remoteControlSoftware"
-    trojan_ftp = "trojanFtp"
-    potential_unwanted_software = "potentialUnwantedSoftware"
-    icq_exploit = "icqExploit"
-    trojan_telnet = "trojanTelnet"
-    exploit = "exploit"
-    filesharing_program = "filesharingProgram"
-    malware_creation_tool = "malwareCreationTool"
-    tool = "tool"
-    trojan_denial_of_service = "trojanDenialOfService"
-    trojan_dropper = "trojanDropper"
-    trojan_mass_mailer = "trojanMassMailer"
-    trojan_monitoring_software = "trojanMonitoringSoftware"
-    trojan_proxy_server = "trojanProxyServer"
-    virus = "virus"
-    known = "known"
-    unknown = "unknown"
-    spp = "spp"
-    behavior = "behavior"
-    vulnerability = "vulnerability"
-    policy = "policy"
-    enterprise_unwanted_software = "enterpriseUnwantedSoftware"
-    ransom = "ransom"
-    hips_rule = "hipsRule"
-
-class MicrosoftGraphWindowsMalwareExecutionState(str, Enum):
-
-    unknown = "unknown"
-    blocked = "blocked"
-    allowed = "allowed"
-    running = "running"
-    not_running = "notRunning"
-
-class MicrosoftGraphWindowsMalwareSeverity(str, Enum):
-
-    unknown = "unknown"
-    low = "low"
-    moderate = "moderate"
-    high = "high"
-    severe = "severe"
-
-class MicrosoftGraphWindowsMalwareState(str, Enum):
-
-    unknown = "unknown"
-    detected = "detected"
-    cleaned = "cleaned"
-    quarantined = "quarantined"
-    removed = "removed"
-    allowed = "allowed"
-    blocked = "blocked"
-    clean_failed = "cleanFailed"
-    quarantine_failed = "quarantineFailed"
-    remove_failed = "removeFailed"
-    allow_failed = "allowFailed"
-    abandoned = "abandoned"
-    block_failed = "blockFailed"
-
-class MicrosoftGraphWindowsMalwareThreatState(str, Enum):
-
-    active = "active"
-    action_failed = "actionFailed"
-    manual_steps_required = "manualStepsRequired"
-    full_scan_required = "fullScanRequired"
-    reboot_required = "rebootRequired"
-    remediated_with_non_critical_failures = "remediatedWithNonCriticalFailures"
-    quarantined = "quarantined"
-    removed = "removed"
-    cleaned = "cleaned"
-    allowed = "allowed"
-    no_status_cleared = "noStatusCleared"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    AVAILABILITY = "availability"
+    ACTIVITY = "activity"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SIGN_IN_ACTIVITY = "signInActivity"
+    ACCOUNT_ENABLED = "accountEnabled"
+    AGE_GROUP = "ageGroup"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    CITY = "city"
+    COMPANY_NAME = "companyName"
+    CONSENT_PROVIDED_FOR_MINOR = "consentProvidedForMinor"
+    COUNTRY = "country"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATION_TYPE = "creationType"
+    DEPARTMENT = "department"
+    DEVICE_KEYS = "deviceKeys"
+    DISPLAY_NAME = "displayName"
+    EMPLOYEE_ID = "employeeId"
+    FAX_NUMBER = "faxNumber"
+    GIVEN_NAME = "givenName"
+    IDENTITIES = "identities"
+    IM_ADDRESSES = "imAddresses"
+    IS_RESOURCE_ACCOUNT = "isResourceAccount"
+    JOB_TITLE = "jobTitle"
+    LAST_PASSWORD_CHANGE_DATE_TIME = "lastPasswordChangeDateTime"
+    LEGAL_AGE_GROUP_CLASSIFICATION = "legalAgeGroupClassification"
+    LICENSE_ASSIGNMENT_STATES = "licenseAssignmentStates"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    ON_PREMISES_DISTINGUISHED_NAME = "onPremisesDistinguishedName"
+    ON_PREMISES_EXTENSION_ATTRIBUTES = "onPremisesExtensionAttributes"
+    ON_PREMISES_IMMUTABLE_ID = "onPremisesImmutableId"
+    ON_PREMISES_LAST_SYNC_DATE_TIME = "onPremisesLastSyncDateTime"
+    ON_PREMISES_PROVISIONING_ERRORS = "onPremisesProvisioningErrors"
+    ON_PREMISES_SECURITY_IDENTIFIER = "onPremisesSecurityIdentifier"
+    ON_PREMISES_SYNC_ENABLED = "onPremisesSyncEnabled"
+    ON_PREMISES_DOMAIN_NAME = "onPremisesDomainName"
+    ON_PREMISES_SAM_ACCOUNT_NAME = "onPremisesSamAccountName"
+    ON_PREMISES_USER_PRINCIPAL_NAME = "onPremisesUserPrincipalName"
+    OTHER_MAILS = "otherMails"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    POSTAL_CODE = "postalCode"
+    PREFERRED_DATA_LOCATION = "preferredDataLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROXY_ADDRESSES = "proxyAddresses"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SIGN_IN_SESSIONS_VALID_FROM_DATE_TIME = "signInSessionsValidFromDateTime"
+    STATE = "state"
+    STREET_ADDRESS = "streetAddress"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    EXTERNAL_USER_STATE = "externalUserState"
+    EXTERNAL_USER_STATE_CHANGE_DATE_TIME = "externalUserStateChangeDateTime"
+    USER_TYPE = "userType"
+    MAILBOX_SETTINGS = "mailboxSettings"
+    IDENTITY_USER_RISK = "identityUserRisk"
+    DEVICE_ENROLLMENT_LIMIT = "deviceEnrollmentLimit"
+    ABOUT_ME = "aboutMe"
+    BIRTHDAY = "birthday"
+    HIRE_DATE = "hireDate"
+    INTERESTS = "interests"
+    MY_SITE = "mySite"
+    PAST_PROJECTS = "pastProjects"
+    PREFERRED_NAME = "preferredName"
+    RESPONSIBILITIES = "responsibilities"
+    SCHOOLS = "schools"
+    SKILLS = "skills"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    SIGN_IN_ACTIVITY = "signInActivity"
+    SIGN_IN_ACTIVITY_DESC = "signInActivity desc"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ACCOUNT_ENABLED_DESC = "accountEnabled desc"
+    AGE_GROUP = "ageGroup"
+    AGE_GROUP_DESC = "ageGroup desc"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_LICENSES_DESC = "assignedLicenses desc"
+    ASSIGNED_PLANS = "assignedPlans"
+    ASSIGNED_PLANS_DESC = "assignedPlans desc"
+    BUSINESS_PHONES = "businessPhones"
+    BUSINESS_PHONES_DESC = "businessPhones desc"
+    CITY = "city"
+    CITY_DESC = "city desc"
+    COMPANY_NAME = "companyName"
+    COMPANY_NAME_DESC = "companyName desc"
+    CONSENT_PROVIDED_FOR_MINOR = "consentProvidedForMinor"
+    CONSENT_PROVIDED_FOR_MINOR_DESC = "consentProvidedForMinor desc"
+    COUNTRY = "country"
+    COUNTRY_DESC = "country desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CREATION_TYPE = "creationType"
+    CREATION_TYPE_DESC = "creationType desc"
+    DEPARTMENT = "department"
+    DEPARTMENT_DESC = "department desc"
+    DEVICE_KEYS = "deviceKeys"
+    DEVICE_KEYS_DESC = "deviceKeys desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    EMPLOYEE_ID = "employeeId"
+    EMPLOYEE_ID_DESC = "employeeId desc"
+    FAX_NUMBER = "faxNumber"
+    FAX_NUMBER_DESC = "faxNumber desc"
+    GIVEN_NAME = "givenName"
+    GIVEN_NAME_DESC = "givenName desc"
+    IDENTITIES = "identities"
+    IDENTITIES_DESC = "identities desc"
+    IM_ADDRESSES = "imAddresses"
+    IM_ADDRESSES_DESC = "imAddresses desc"
+    IS_RESOURCE_ACCOUNT = "isResourceAccount"
+    IS_RESOURCE_ACCOUNT_DESC = "isResourceAccount desc"
+    JOB_TITLE = "jobTitle"
+    JOB_TITLE_DESC = "jobTitle desc"
+    LAST_PASSWORD_CHANGE_DATE_TIME = "lastPasswordChangeDateTime"
+    LAST_PASSWORD_CHANGE_DATE_TIME_DESC = "lastPasswordChangeDateTime desc"
+    LEGAL_AGE_GROUP_CLASSIFICATION = "legalAgeGroupClassification"
+    LEGAL_AGE_GROUP_CLASSIFICATION_DESC = "legalAgeGroupClassification desc"
+    LICENSE_ASSIGNMENT_STATES = "licenseAssignmentStates"
+    LICENSE_ASSIGNMENT_STATES_DESC = "licenseAssignmentStates desc"
+    MAIL = "mail"
+    MAIL_DESC = "mail desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    MOBILE_PHONE = "mobilePhone"
+    MOBILE_PHONE_DESC = "mobilePhone desc"
+    ON_PREMISES_DISTINGUISHED_NAME = "onPremisesDistinguishedName"
+    ON_PREMISES_DISTINGUISHED_NAME_DESC = "onPremisesDistinguishedName desc"
+    ON_PREMISES_EXTENSION_ATTRIBUTES = "onPremisesExtensionAttributes"
+    ON_PREMISES_EXTENSION_ATTRIBUTES_DESC = "onPremisesExtensionAttributes desc"
+    ON_PREMISES_IMMUTABLE_ID = "onPremisesImmutableId"
+    ON_PREMISES_IMMUTABLE_ID_DESC = "onPremisesImmutableId desc"
+    ON_PREMISES_LAST_SYNC_DATE_TIME = "onPremisesLastSyncDateTime"
+    ON_PREMISES_LAST_SYNC_DATE_TIME_DESC = "onPremisesLastSyncDateTime desc"
+    ON_PREMISES_PROVISIONING_ERRORS = "onPremisesProvisioningErrors"
+    ON_PREMISES_PROVISIONING_ERRORS_DESC = "onPremisesProvisioningErrors desc"
+    ON_PREMISES_SECURITY_IDENTIFIER = "onPremisesSecurityIdentifier"
+    ON_PREMISES_SECURITY_IDENTIFIER_DESC = "onPremisesSecurityIdentifier desc"
+    ON_PREMISES_SYNC_ENABLED = "onPremisesSyncEnabled"
+    ON_PREMISES_SYNC_ENABLED_DESC = "onPremisesSyncEnabled desc"
+    ON_PREMISES_DOMAIN_NAME = "onPremisesDomainName"
+    ON_PREMISES_DOMAIN_NAME_DESC = "onPremisesDomainName desc"
+    ON_PREMISES_SAM_ACCOUNT_NAME = "onPremisesSamAccountName"
+    ON_PREMISES_SAM_ACCOUNT_NAME_DESC = "onPremisesSamAccountName desc"
+    ON_PREMISES_USER_PRINCIPAL_NAME = "onPremisesUserPrincipalName"
+    ON_PREMISES_USER_PRINCIPAL_NAME_DESC = "onPremisesUserPrincipalName desc"
+    OTHER_MAILS = "otherMails"
+    OTHER_MAILS_DESC = "otherMails desc"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_POLICIES_DESC = "passwordPolicies desc"
+    PASSWORD_PROFILE = "passwordProfile"
+    PASSWORD_PROFILE_DESC = "passwordProfile desc"
+    OFFICE_LOCATION = "officeLocation"
+    OFFICE_LOCATION_DESC = "officeLocation desc"
+    POSTAL_CODE = "postalCode"
+    POSTAL_CODE_DESC = "postalCode desc"
+    PREFERRED_DATA_LOCATION = "preferredDataLocation"
+    PREFERRED_DATA_LOCATION_DESC = "preferredDataLocation desc"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PREFERRED_LANGUAGE_DESC = "preferredLanguage desc"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROVISIONED_PLANS_DESC = "provisionedPlans desc"
+    PROXY_ADDRESSES = "proxyAddresses"
+    PROXY_ADDRESSES_DESC = "proxyAddresses desc"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME_DESC = "refreshTokensValidFromDateTime desc"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SHOW_IN_ADDRESS_LIST_DESC = "showInAddressList desc"
+    SIGN_IN_SESSIONS_VALID_FROM_DATE_TIME = "signInSessionsValidFromDateTime"
+    SIGN_IN_SESSIONS_VALID_FROM_DATE_TIME_DESC = "signInSessionsValidFromDateTime desc"
+    STATE = "state"
+    STATE_DESC = "state desc"
+    STREET_ADDRESS = "streetAddress"
+    STREET_ADDRESS_DESC = "streetAddress desc"
+    SURNAME = "surname"
+    SURNAME_DESC = "surname desc"
+    USAGE_LOCATION = "usageLocation"
+    USAGE_LOCATION_DESC = "usageLocation desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    EXTERNAL_USER_STATE = "externalUserState"
+    EXTERNAL_USER_STATE_DESC = "externalUserState desc"
+    EXTERNAL_USER_STATE_CHANGE_DATE_TIME = "externalUserStateChangeDateTime"
+    EXTERNAL_USER_STATE_CHANGE_DATE_TIME_DESC = "externalUserStateChangeDateTime desc"
+    USER_TYPE = "userType"
+    USER_TYPE_DESC = "userType desc"
+    MAILBOX_SETTINGS = "mailboxSettings"
+    MAILBOX_SETTINGS_DESC = "mailboxSettings desc"
+    IDENTITY_USER_RISK = "identityUserRisk"
+    IDENTITY_USER_RISK_DESC = "identityUserRisk desc"
+    DEVICE_ENROLLMENT_LIMIT = "deviceEnrollmentLimit"
+    DEVICE_ENROLLMENT_LIMIT_DESC = "deviceEnrollmentLimit desc"
+    ABOUT_ME = "aboutMe"
+    ABOUT_ME_DESC = "aboutMe desc"
+    BIRTHDAY = "birthday"
+    BIRTHDAY_DESC = "birthday desc"
+    HIRE_DATE = "hireDate"
+    HIRE_DATE_DESC = "hireDate desc"
+    INTERESTS = "interests"
+    INTERESTS_DESC = "interests desc"
+    MY_SITE = "mySite"
+    MY_SITE_DESC = "mySite desc"
+    PAST_PROJECTS = "pastProjects"
+    PAST_PROJECTS_DESC = "pastProjects desc"
+    PREFERRED_NAME = "preferredName"
+    PREFERRED_NAME_DESC = "preferredName desc"
+    RESPONSIBILITIES = "responsibilities"
+    RESPONSIBILITIES_DESC = "responsibilities desc"
+    SCHOOLS = "schools"
+    SCHOOLS_DESC = "schools desc"
+    SKILLS = "skills"
+    SKILLS_DESC = "skills desc"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SIGN_IN_ACTIVITY = "signInActivity"
+    ACCOUNT_ENABLED = "accountEnabled"
+    AGE_GROUP = "ageGroup"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    CITY = "city"
+    COMPANY_NAME = "companyName"
+    CONSENT_PROVIDED_FOR_MINOR = "consentProvidedForMinor"
+    COUNTRY = "country"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATION_TYPE = "creationType"
+    DEPARTMENT = "department"
+    DEVICE_KEYS = "deviceKeys"
+    DISPLAY_NAME = "displayName"
+    EMPLOYEE_ID = "employeeId"
+    FAX_NUMBER = "faxNumber"
+    GIVEN_NAME = "givenName"
+    IDENTITIES = "identities"
+    IM_ADDRESSES = "imAddresses"
+    IS_RESOURCE_ACCOUNT = "isResourceAccount"
+    JOB_TITLE = "jobTitle"
+    LAST_PASSWORD_CHANGE_DATE_TIME = "lastPasswordChangeDateTime"
+    LEGAL_AGE_GROUP_CLASSIFICATION = "legalAgeGroupClassification"
+    LICENSE_ASSIGNMENT_STATES = "licenseAssignmentStates"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    ON_PREMISES_DISTINGUISHED_NAME = "onPremisesDistinguishedName"
+    ON_PREMISES_EXTENSION_ATTRIBUTES = "onPremisesExtensionAttributes"
+    ON_PREMISES_IMMUTABLE_ID = "onPremisesImmutableId"
+    ON_PREMISES_LAST_SYNC_DATE_TIME = "onPremisesLastSyncDateTime"
+    ON_PREMISES_PROVISIONING_ERRORS = "onPremisesProvisioningErrors"
+    ON_PREMISES_SECURITY_IDENTIFIER = "onPremisesSecurityIdentifier"
+    ON_PREMISES_SYNC_ENABLED = "onPremisesSyncEnabled"
+    ON_PREMISES_DOMAIN_NAME = "onPremisesDomainName"
+    ON_PREMISES_SAM_ACCOUNT_NAME = "onPremisesSamAccountName"
+    ON_PREMISES_USER_PRINCIPAL_NAME = "onPremisesUserPrincipalName"
+    OTHER_MAILS = "otherMails"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    POSTAL_CODE = "postalCode"
+    PREFERRED_DATA_LOCATION = "preferredDataLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROXY_ADDRESSES = "proxyAddresses"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SIGN_IN_SESSIONS_VALID_FROM_DATE_TIME = "signInSessionsValidFromDateTime"
+    STATE = "state"
+    STREET_ADDRESS = "streetAddress"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    EXTERNAL_USER_STATE = "externalUserState"
+    EXTERNAL_USER_STATE_CHANGE_DATE_TIME = "externalUserStateChangeDateTime"
+    USER_TYPE = "userType"
+    MAILBOX_SETTINGS = "mailboxSettings"
+    IDENTITY_USER_RISK = "identityUserRisk"
+    DEVICE_ENROLLMENT_LIMIT = "deviceEnrollmentLimit"
+    ABOUT_ME = "aboutMe"
+    BIRTHDAY = "birthday"
+    HIRE_DATE = "hireDate"
+    INTERESTS = "interests"
+    MY_SITE = "mySite"
+    PAST_PROJECTS = "pastProjects"
+    PREFERRED_NAME = "preferredName"
+    RESPONSIBILITIES = "responsibilities"
+    SCHOOLS = "schools"
+    SKILLS = "skills"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class MicrosoftGraphAccessLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EVERYONE = "everyone"
+    INVITED = "invited"
+    LOCKED = "locked"
+    SAME_ENTERPRISE = "sameEnterprise"
+    SAME_ENTERPRISE_AND_FEDERATED = "sameEnterpriseAndFederated"
+
+class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    PENDING = "pending"
+    CANCELED = "canceled"
+    ACTIVE = "active"
+    DONE = "done"
+    FAILED = "failed"
+    NOT_SUPPORTED = "notSupported"
+
+class MicrosoftGraphAgreementAcceptanceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACCEPTED = "accepted"
+    DECLINED = "declined"
+
+class MicrosoftGraphAllowedAudiences(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ME = "me"
+    FAMILY = "family"
+    CONTACTS = "contacts"
+    GROUP_MEMBERS = "groupMembers"
+    ORGANIZATION = "organization"
+    FEDERATED_ORGANIZATIONS = "federatedOrganizations"
+    EVERYONE = "everyone"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAnalyticsActivityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "Email"
+    MEETING = "Meeting"
+    FOCUS = "Focus"
+    CHAT = "Chat"
+    CALL = "Call"
+
+class MicrosoftGraphAnniversaryType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    BIRTHDAY = "birthday"
+    WEDDING = "wedding"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphApplicationMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANUAL = "manual"
+    AUTOMATIC = "automatic"
+    RECOMMENDED = "recommended"
+
+class MicrosoftGraphAppLogUploadState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+class MicrosoftGraphAttendeeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    REQUIRED = "required"
+    OPTIONAL = "optional"
+    RESOURCE = "resource"
+
+class MicrosoftGraphAuthenticationMethodSignInState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_SUPPORTED = "notSupported"
+    NOT_ALLOWED_BY_POLICY = "notAllowedByPolicy"
+    NOT_ENABLED = "notEnabled"
+    PHONE_NUMBER_NOT_UNIQUE = "phoneNumberNotUnique"
+    READY = "ready"
+    NOT_CONFIGURED = "notConfigured"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAuthenticationPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MOBILE = "mobile"
+    ALTERNATE_MOBILE = "alternateMobile"
+    OFFICE = "office"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAutomaticRepliesStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DISABLED = "disabled"
+    ALWAYS_ENABLED = "alwaysEnabled"
+    SCHEDULED = "scheduled"
+
+class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    TEXT = "text"
+    HTML = "html"
+
+class MicrosoftGraphCalendarColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    LIGHT_BLUE = "lightBlue"
+    LIGHT_GREEN = "lightGreen"
+    LIGHT_ORANGE = "lightOrange"
+    LIGHT_GRAY = "lightGray"
+    LIGHT_YELLOW = "lightYellow"
+    LIGHT_TEAL = "lightTeal"
+    LIGHT_PINK = "lightPink"
+    LIGHT_BROWN = "lightBrown"
+    LIGHT_RED = "lightRed"
+    MAX_COLOR = "maxColor"
+    AUTO = "auto"
+
+class MicrosoftGraphCalendarRoleType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    FREE_BUSY_READ = "freeBusyRead"
+    LIMITED_READ = "limitedRead"
+    READ = "read"
+    WRITE = "write"
+    DELEGATE_WITHOUT_PRIVATE_EVENT_ACCESS = "delegateWithoutPrivateEventAccess"
+    DELEGATE_WITH_PRIVATE_EVENT_ACCESS = "delegateWithPrivateEventAccess"
+    CUSTOM = "custom"
+
+class MicrosoftGraphCategoryColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PRESET0 = "preset0"
+    PRESET1 = "preset1"
+    PRESET2 = "preset2"
+    PRESET3 = "preset3"
+    PRESET4 = "preset4"
+    PRESET5 = "preset5"
+    PRESET6 = "preset6"
+    PRESET7 = "preset7"
+    PRESET8 = "preset8"
+    PRESET9 = "preset9"
+    PRESET10 = "preset10"
+    PRESET11 = "preset11"
+    PRESET12 = "preset12"
+    PRESET13 = "preset13"
+    PRESET14 = "preset14"
+    PRESET15 = "preset15"
+    PRESET16 = "preset16"
+    PRESET17 = "preset17"
+    PRESET18 = "preset18"
+    PRESET19 = "preset19"
+    PRESET20 = "preset20"
+    PRESET21 = "preset21"
+    PRESET22 = "preset22"
+    PRESET23 = "preset23"
+    PRESET24 = "preset24"
+    NONE = "none"
+
+class MicrosoftGraphChannelMembershipType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STANDARD = "standard"
+    PRIVATE = "private"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphChassisType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    DESKTOP = "desktop"
+    LAPTOP = "laptop"
+    WORKS_WORKSTATION = "worksWorkstation"
+    ENTERPRISE_SERVER = "enterpriseServer"
+    PHONE = "phone"
+    TABLET = "tablet"
+    MOBILE_OTHER = "mobileOther"
+    MOBILE_UNKNOWN = "mobileUnknown"
+
+class MicrosoftGraphChatMessageImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    HIGH = "high"
+    URGENT = "urgent"
+
+class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    NOTIFY_SENDER = "notifySender"
+    BLOCK_ACCESS = "blockAccess"
+    BLOCK_ACCESS_EXTERNAL = "blockAccessExternal"
+
+class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    OVERRIDE = "override"
+    REPORT_FALSE_POSITIVE = "reportFalsePositive"
+
+class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ALLOW_FALSE_POSITIVE_OVERRIDE = "allowFalsePositiveOverride"
+    ALLOW_OVERRIDE_WITHOUT_JUSTIFICATION = "allowOverrideWithoutJustification"
+    ALLOW_OVERRIDE_WITH_JUSTIFICATION = "allowOverrideWithJustification"
+
+class MicrosoftGraphChatMessageType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MESSAGE = "message"
+    CHAT_EVENT = "chatEvent"
+    TYPING = "typing"
+
+class MicrosoftGraphComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPLIANT = "compliant"
+    NONCOMPLIANT = "noncompliant"
+    CONFLICT = "conflict"
+    ERROR = "error"
+    IN_GRACE_PERIOD = "inGracePeriod"
+    CONFIG_MANAGER = "configManager"
+
+class MicrosoftGraphComplianceStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    NOT_APPLICABLE = "notApplicable"
+    COMPLIANT = "compliant"
+    REMEDIATED = "remediated"
+    NON_COMPLIANT = "nonCompliant"
+    ERROR = "error"
+    CONFLICT = "conflict"
+    NOT_ASSIGNED = "notAssigned"
+
+class MicrosoftGraphConfigurationManagerClientState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    INSTALLED = "installed"
+    HEALTHY = "healthy"
+    INSTALL_FAILED = "installFailed"
+    UPDATE_FAILED = "updateFailed"
+    COMMUNICATION_ERROR = "communicationError"
+
+class MicrosoftGraphDayOfWeek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SUNDAY = "sunday"
+    MONDAY = "monday"
+    TUESDAY = "tuesday"
+    WEDNESDAY = "wednesday"
+    THURSDAY = "thursday"
+    FRIDAY = "friday"
+    SATURDAY = "saturday"
+
+class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SEND_TO_DELEGATE_AND_INFORMATION_TO_PRINCIPAL = "sendToDelegateAndInformationToPrincipal"
+    SEND_TO_DELEGATE_AND_PRINCIPAL = "sendToDelegateAndPrincipal"
+    SEND_TO_DELEGATE_ONLY = "sendToDelegateOnly"
+
+class MicrosoftGraphDeviceAndAppManagementAssignmentSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DIRECT = "direct"
+    POLICY_SETS = "policySets"
+
+class MicrosoftGraphDeviceEnrollmentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    USER_ENROLLMENT = "userEnrollment"
+    DEVICE_ENROLLMENT_MANAGER = "deviceEnrollmentManager"
+    APPLE_BULK_WITH_USER = "appleBulkWithUser"
+    APPLE_BULK_WITHOUT_USER = "appleBulkWithoutUser"
+    WINDOWS_AZURE_AD_JOIN = "windowsAzureADJoin"
+    WINDOWS_BULK_USERLESS = "windowsBulkUserless"
+    WINDOWS_AUTO_ENROLLMENT = "windowsAutoEnrollment"
+    WINDOWS_BULK_AZURE_DOMAIN_JOIN = "windowsBulkAzureDomainJoin"
+    WINDOWS_CO_MANAGEMENT = "windowsCoManagement"
+    APPLE_USER_ENROLLMENT = "appleUserEnrollment"
+    APPLE_USER_ENROLLMENT_WITH_SERVICE_ACCOUNT = "appleUserEnrollmentWithServiceAccount"
+    AZURE_AD_JOIN_USING_AZURE_VM_EXTENSION = "azureAdJoinUsingAzureVmExtension"
+
+class MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    RUNNING = "running"
+    REBOOT_REQUIRED = "rebootRequired"
+    NOT_LICENSED = "notLicensed"
+    NOT_CONFIGURED = "notConfigured"
+    VIRTUALIZATION_BASED_SECURITY_NOT_RUNNING = "virtualizationBasedSecurityNotRunning"
+
+class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MEET_HARDWARE_REQUIREMENTS = "meetHardwareRequirements"
+    SECURE_BOOT_REQUIRED = "secureBootRequired"
+    DMA_PROTECTION_REQUIRED = "dmaProtectionRequired"
+    HYPER_V_NOT_SUPPORTED_FOR_GUEST_VM = "hyperVNotSupportedForGuestVM"
+    HYPER_V_NOT_AVAILABLE = "hyperVNotAvailable"
+
+class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    RUNNING = "running"
+    REBOOT_REQUIRED = "rebootRequired"
+    REQUIRE64_BIT_ARCHITECTURE = "require64BitArchitecture"
+    NOT_LICENSED = "notLicensed"
+    NOT_CONFIGURED = "notConfigured"
+    DOES_NOT_MEET_HARDWARE_REQUIREMENTS = "doesNotMeetHardwareRequirements"
+    OTHER = "other"
+
+class MicrosoftGraphDeviceManagementExchangeAccessState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    UNKNOWN = "unknown"
+    ALLOWED = "allowed"
+    BLOCKED = "blocked"
+    QUARANTINED = "quarantined"
+
+class MicrosoftGraphDeviceManagementExchangeAccessStateReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    UNKNOWN = "unknown"
+    EXCHANGE_GLOBAL_RULE = "exchangeGlobalRule"
+    EXCHANGE_INDIVIDUAL_RULE = "exchangeIndividualRule"
+    EXCHANGE_DEVICE_RULE = "exchangeDeviceRule"
+    EXCHANGE_UPGRADE = "exchangeUpgrade"
+    EXCHANGE_MAILBOX_POLICY = "exchangeMailboxPolicy"
+    OTHER = "other"
+    COMPLIANT = "compliant"
+    NOT_COMPLIANT = "notCompliant"
+    NOT_ENROLLED = "notEnrolled"
+    UNKNOWN_LOCATION = "unknownLocation"
+    MFA_REQUIRED = "mfaRequired"
+    AZURE_AD_BLOCK_DUE_TO_ACCESS_POLICY = "azureADBlockDueToAccessPolicy"
+    COMPROMISED_PASSWORD = "compromisedPassword"
+    DEVICE_NOT_KNOWN_WITH_MANAGED_APP = "deviceNotKnownWithManagedApp"
+
+class MicrosoftGraphDeviceRegistrationState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_REGISTERED = "notRegistered"
+    REGISTERED = "registered"
+    REVOKED = "revoked"
+    KEY_CONFLICT = "keyConflict"
+    APPROVAL_PENDING = "approvalPending"
+    CERTIFICATE_RESET = "certificateReset"
+    NOT_REGISTERED_PENDING_ENROLLMENT = "notRegisteredPendingEnrollment"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphDeviceType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DESKTOP = "desktop"
+    WINDOWS_RT = "windowsRT"
+    WIN_MO6 = "winMO6"
+    NOKIA = "nokia"
+    WINDOWS_PHONE = "windowsPhone"
+    MAC = "mac"
+    WIN_CE = "winCE"
+    WIN_EMBEDDED = "winEmbedded"
+    I_PHONE = "iPhone"
+    I_PAD = "iPad"
+    I_POD = "iPod"
+    ANDROID = "android"
+    I_SOC_CONSUMER = "iSocConsumer"
+    UNIX = "unix"
+    MAC_MDM = "macMDM"
+    HOLO_LENS = "holoLens"
+    SURFACE_HUB = "surfaceHub"
+    ANDROID_FOR_WORK = "androidForWork"
+    ANDROID_ENTERPRISE = "androidEnterprise"
+    WINDOWS10_X = "windows10x"
+    BLACKBERRY = "blackberry"
+    PALM = "palm"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphEmailType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    WORK = "work"
+    PERSONAL = "personal"
+    MAIN = "main"
+    OTHER = "other"
+
+class MicrosoftGraphEventType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SINGLE_INSTANCE = "singleInstance"
+    OCCURRENCE = "occurrence"
+    EXCEPTION = "exception"
+    SERIES_MASTER = "seriesMaster"
+
+class MicrosoftGraphExternalAudienceScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    CONTACTS_ONLY = "contactsOnly"
+    ALL = "all"
+
+class MicrosoftGraphFollowupFlagStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_FLAGGED = "notFlagged"
+    COMPLETE = "complete"
+    FLAGGED = "flagged"
+
+class MicrosoftGraphFreeBusyStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FREE = "free"
+    TENTATIVE = "tentative"
+    BUSY = "busy"
+    OOF = "oof"
+    WORKING_ELSEWHERE = "workingElsewhere"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphGiphyRatingType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STRICT = "strict"
+    MODERATE = "moderate"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphGroupAccessType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    PRIVATE = "private"
+    SECRET = "secret"
+    PUBLIC = "public"
+
+class MicrosoftGraphImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    LOW = "low"
+    NORMAL = "normal"
+    HIGH = "high"
+
+class MicrosoftGraphInferenceClassificationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FOCUSED = "focused"
+    OTHER = "other"
+
+class MicrosoftGraphLanguageProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ELEMENTARY = "elementary"
+    CONVERSATIONAL = "conversational"
+    LIMITED_WORKING = "limitedWorking"
+    PROFESSIONAL_WORKING = "professionalWorking"
+    FULL_PROFESSIONAL = "fullProfessional"
+    NATIVE_OR_BILINGUAL = "nativeOrBilingual"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphLocationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DEFAULT = "default"
+    CONFERENCE_ROOM = "conferenceRoom"
+    HOME_ADDRESS = "homeAddress"
+    BUSINESS_ADDRESS = "businessAddress"
+    GEO_COORDINATES = "geoCoordinates"
+    STREET_ADDRESS = "streetAddress"
+    HOTEL = "hotel"
+    RESTAURANT = "restaurant"
+    LOCAL_BUSINESS = "localBusiness"
+    POSTAL_ADDRESS = "postalAddress"
+
+class MicrosoftGraphLocationUniqueIdType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    LOCATION_STORE = "locationStore"
+    DIRECTORY = "directory"
+    PRIVATE = "private"
+    BING = "bing"
+
+class MicrosoftGraphLongRunningOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOTSTARTED = "notstarted"
+    RUNNING = "running"
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+
+class MicrosoftGraphLostModeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DISABLED = "disabled"
+    ENABLED = "enabled"
+
+class MicrosoftGraphManagedAppFlaggedReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ROOTED_DEVICE = "rootedDevice"
+    ANDROID_BOOTLOADER_UNLOCKED = "androidBootloaderUnlocked"
+    ANDROID_FACTORY_ROM_MODIFIED = "androidFactoryRomModified"
+
+class MicrosoftGraphManagedDeviceArchitecture(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    X86 = "x86"
+    X64 = "x64"
+    ARM = "arm"
+    AR_M64 = "arM64"
+
+class MicrosoftGraphManagedDeviceOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPANY = "company"
+    PERSONAL = "personal"
+
+class MicrosoftGraphManagedDevicePartnerReportedHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    ACTIVATED = "activated"
+    DEACTIVATED = "deactivated"
+    SECURED = "secured"
+    LOW_SEVERITY = "lowSeverity"
+    MEDIUM_SEVERITY = "mediumSeverity"
+    HIGH_SEVERITY = "highSeverity"
+    UNRESPONSIVE = "unresponsive"
+    COMPROMISED = "compromised"
+    MISCONFIGURED = "misconfigured"
+
+class MicrosoftGraphManagementAgentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EAS = "eas"
+    MDM = "mdm"
+    EAS_MDM = "easMdm"
+    INTUNE_CLIENT = "intuneClient"
+    EAS_INTUNE_CLIENT = "easIntuneClient"
+    CONFIGURATION_MANAGER_CLIENT = "configurationManagerClient"
+    CONFIGURATION_MANAGER_CLIENT_MDM = "configurationManagerClientMdm"
+    CONFIGURATION_MANAGER_CLIENT_MDM_EAS = "configurationManagerClientMdmEas"
+    UNKNOWN = "unknown"
+    JAMF = "jamf"
+    GOOGLE_CLOUD_DEVICE_POLICY_CONTROLLER = "googleCloudDevicePolicyController"
+    MICROSOFT365_MANAGED_MDM = "microsoft365ManagedMdm"
+    WINDOWS_MANAGEMENT_CLOUD_API = "windowsManagementCloudApi"
+
+class MicrosoftGraphManagementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANAGED = "managed"
+    RETIRE_PENDING = "retirePending"
+    RETIRE_FAILED = "retireFailed"
+    WIPE_PENDING = "wipePending"
+    WIPE_FAILED = "wipeFailed"
+    UNHEALTHY = "unhealthy"
+    DELETE_PENDING = "deletePending"
+    RETIRE_ISSUED = "retireIssued"
+    WIPE_ISSUED = "wipeIssued"
+    WIPE_CANCELED = "wipeCanceled"
+    RETIRE_CANCELED = "retireCanceled"
+    DISCOVERED = "discovered"
+
+class MicrosoftGraphMeetingCapabilities(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    QUESTION_AND_ANSWER = "questionAndAnswer"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphMessageActionFlag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ANY = "any"
+    CALL = "call"
+    DO_NOT_FORWARD = "doNotForward"
+    FOLLOW_UP = "followUp"
+    FYI = "fyi"
+    FORWARD = "forward"
+    NO_RESPONSE_NECESSARY = "noResponseNecessary"
+    READ = "read"
+    REPLY = "reply"
+    REPLY_TO_ALL = "replyToAll"
+    REVIEW = "review"
+
+class MicrosoftGraphMobileAppIntent(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AVAILABLE = "available"
+    NOT_AVAILABLE = "notAvailable"
+    REQUIRED_INSTALL = "requiredInstall"
+    REQUIRED_UNINSTALL = "requiredUninstall"
+    REQUIRED_AND_AVAILABLE_INSTALL = "requiredAndAvailableInstall"
+    AVAILABLE_INSTALL_WITHOUT_ENROLLMENT = "availableInstallWithoutEnrollment"
+    EXCLUDE = "exclude"
+
+class MicrosoftGraphOnenoteUserRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OWNER = "Owner"
+    CONTRIBUTOR = "Contributor"
+    READER = "Reader"
+    NONE = "None"
+
+class MicrosoftGraphOnlineMeetingProviderType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    SKYPE_FOR_BUSINESS = "skypeForBusiness"
+    SKYPE_FOR_CONSUMER = "skypeForConsumer"
+    TEAMS_FOR_BUSINESS = "teamsForBusiness"
+
+class MicrosoftGraphOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "NotStarted"
+    RUNNING = "Running"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+class MicrosoftGraphOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPANY = "company"
+    PERSONAL = "personal"
+
+class MicrosoftGraphPersonRelationship(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANAGER = "manager"
+    COLLEAGUE = "colleague"
+    DIRECT_REPORT = "directReport"
+    DOT_LINE_REPORT = "dotLineReport"
+    ASSISTANT = "assistant"
+    DOT_LINE_MANAGER = "dotLineManager"
+    ALTERNATE_CONTACT = "alternateContact"
+    FRIEND = "friend"
+    SPOUSE = "spouse"
+    SIBLING = "sibling"
+    CHILD = "child"
+    PARENT = "parent"
+    SPONSOR = "sponsor"
+    EMERGENCY_CONTACT = "emergencyContact"
+    OTHER = "other"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    HOME = "home"
+    BUSINESS = "business"
+    MOBILE = "mobile"
+    OTHER = "other"
+    ASSISTANT = "assistant"
+    HOME_FAX = "homeFax"
+    BUSINESS_FAX = "businessFax"
+    OTHER_FAX = "otherFax"
+    PAGER = "pager"
+    RADIO = "radio"
+
+class MicrosoftGraphPhysicalAddressType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    HOME = "home"
+    BUSINESS = "business"
+    OTHER = "other"
+
+class MicrosoftGraphPlannerPreviewType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AUTOMATIC = "automatic"
+    NO_PREVIEW = "noPreview"
+    CHECKLIST = "checklist"
+    DESCRIPTION = "description"
+    REFERENCE = "reference"
+
+class MicrosoftGraphPolicyPlatformType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ANDROID = "android"
+    ANDROID_FOR_WORK = "androidForWork"
+    I_OS = "iOS"
+    MAC_OS = "macOS"
+    WINDOWS_PHONE81 = "windowsPhone81"
+    WINDOWS81_AND_LATER = "windows81AndLater"
+    WINDOWS10_AND_LATER = "windows10AndLater"
+    ANDROID_WORK_PROFILE = "androidWorkProfile"
+    WINDOWS10_X_PROFILE = "windows10XProfile"
+    ALL = "all"
+
+class MicrosoftGraphPriority(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "None"
+    HIGH = "High"
+    LOW = "Low"
+
+class MicrosoftGraphRecurrencePatternType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DAILY = "daily"
+    WEEKLY = "weekly"
+    ABSOLUTE_MONTHLY = "absoluteMonthly"
+    RELATIVE_MONTHLY = "relativeMonthly"
+    ABSOLUTE_YEARLY = "absoluteYearly"
+    RELATIVE_YEARLY = "relativeYearly"
+
+class MicrosoftGraphRecurrenceRangeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    END_DATE = "endDate"
+    NO_END = "noEnd"
+    NUMBERED = "numbered"
+
+class MicrosoftGraphResponseType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ORGANIZER = "organizer"
+    TENTATIVELY_ACCEPTED = "tentativelyAccepted"
+    ACCEPTED = "accepted"
+    DECLINED = "declined"
+    NOT_RESPONDED = "notResponded"
+
+class MicrosoftGraphResultantAppState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INSTALLED = "installed"
+    FAILED = "failed"
+    NOT_INSTALLED = "notInstalled"
+    UNINSTALL_FAILED = "uninstallFailed"
+    PENDING_INSTALL = "pendingInstall"
+    UNKNOWN = "unknown"
+    NOT_APPLICABLE = "notApplicable"
+
+class MicrosoftGraphScheduleChangeRequestActor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SENDER = "sender"
+    RECIPIENT = "recipient"
+    MANAGER = "manager"
+    SYSTEM = "system"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphScheduleChangeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    APPROVED = "approved"
+    DECLINED = "declined"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphScheduleEntityTheme(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    WHITE = "white"
+    BLUE = "blue"
+    GREEN = "green"
+    PURPLE = "purple"
+    PINK = "pink"
+    YELLOW = "yellow"
+    GRAY = "gray"
+    DARK_BLUE = "darkBlue"
+    DARK_GREEN = "darkGreen"
+    DARK_PURPLE = "darkPurple"
+    DARK_PINK = "darkPink"
+    DARK_YELLOW = "darkYellow"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphSecurityBaselineComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    SECURE = "secure"
+    NOT_APPLICABLE = "notApplicable"
+    NOT_SECURE = "notSecure"
+    ERROR = "error"
+    CONFLICT = "conflict"
+
+class MicrosoftGraphSensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    PERSONAL = "personal"
+    PRIVATE = "private"
+    CONFIDENTIAL = "confidential"
+
+class MicrosoftGraphSensitivityLabelTarget(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "email"
+    SITE = "site"
+    UNIFIED_GROUP = "unifiedGroup"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphSkillProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ELEMENTARY = "elementary"
+    LIMITED_WORKING = "limitedWorking"
+    GENERAL_PROFESSIONAL = "generalProfessional"
+    ADVANCED_PROFESSIONAL = "advancedProfessional"
+    EXPERT = "expert"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACTIVE = "active"
+    UPDATED = "updated"
+    DELETED = "deleted"
+    IGNORED = "ignored"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    COMPLETED = "completed"
+    WAITING_ON_OTHERS = "waitingOnOthers"
+    DEFERRED = "deferred"
+
+class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STORE = "store"
+    ORGANIZATION = "organization"
+    SIDELOADED = "sideloaded"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamsAsyncOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamsAsyncOperationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    CLONE_TEAM = "cloneTeam"
+    ARCHIVE_TEAM = "archiveTeam"
+    UNARCHIVE_TEAM = "unarchiveTeam"
+    CREATE_TEAM = "createTeam"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamSpecialization(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    EDUCATION_STANDARD = "educationStandard"
+    EDUCATION_CLASS = "educationClass"
+    EDUCATION_PROFESSIONAL_LEARNING_COMMUNITY = "educationProfessionalLearningCommunity"
+    EDUCATION_STAFF = "educationStaff"
+    HEALTHCARE_STANDARD = "healthcareStandard"
+    HEALTHCARE_CARE_COORDINATION = "healthcareCareCoordination"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamVisibilityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PRIVATE = "private"
+    PUBLIC = "public"
+    HIDDEN_MEMBERSHIP = "hiddenMembership"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatAssessmentContentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MAIL = "mail"
+    URL = "url"
+    FILE = "file"
+
+class MicrosoftGraphThreatAssessmentRequestSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNDEFINED = "undefined"
+    USER = "user"
+    ADMINISTRATOR = "administrator"
+
+class MicrosoftGraphThreatAssessmentResultType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    CHECK_POLICY = "checkPolicy"
+    RESCAN = "rescan"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatAssessmentStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+
+class MicrosoftGraphThreatCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNDEFINED = "undefined"
+    SPAM = "spam"
+    PHISHING = "phishing"
+    MALWARE = "malware"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatExpectedAssessment(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    BLOCK = "block"
+    UNBLOCK = "unblock"
+
+class MicrosoftGraphTimeOffReasonIconType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    CAR = "car"
+    CALENDAR = "calendar"
+    RUNNING = "running"
+    PLANE = "plane"
+    FIRST_AID = "firstAid"
+    DOCTOR = "doctor"
+    NOT_WORKING = "notWorking"
+    CLOCK = "clock"
+    JURY_DUTY = "juryDuty"
+    GLOBE = "globe"
+    CUP = "cup"
+    PHONE = "phone"
+    WEATHER = "weather"
+    UMBRELLA = "umbrella"
+    PIGGY_BANK = "piggyBank"
+    DOG = "dog"
+    CAKE = "cake"
+    TRAFFIC_CONE = "trafficCone"
+    PIN = "pin"
+    SUNNY = "sunny"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphUserRiskLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    NONE = "none"
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+
+class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OTHER = "other"
+    HOME = "home"
+    WORK = "work"
+    BLOG = "blog"
+    PROFILE = "profile"
+
+class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FIRST = "first"
+    SECOND = "second"
+    THIRD = "third"
+    FOURTH = "fourth"
+    LAST = "last"
+
+class MicrosoftGraphWindowsDeviceHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    CLEAN = "clean"
+    FULL_SCAN_PENDING = "fullScanPending"
+    REBOOT_PENDING = "rebootPending"
+    MANUAL_STEPS_PENDING = "manualStepsPending"
+    OFFLINE_SCAN_PENDING = "offlineScanPending"
+    CRITICAL = "critical"
+
+class MicrosoftGraphWindowsMalwareCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    ADWARE = "adware"
+    SPYWARE = "spyware"
+    PASSWORD_STEALER = "passwordStealer"
+    TROJAN_DOWNLOADER = "trojanDownloader"
+    WORM = "worm"
+    BACKDOOR = "backdoor"
+    REMOTE_ACCESS_TROJAN = "remoteAccessTrojan"
+    TROJAN = "trojan"
+    EMAIL_FLOODER = "emailFlooder"
+    KEYLOGGER = "keylogger"
+    DIALER = "dialer"
+    MONITORING_SOFTWARE = "monitoringSoftware"
+    BROWSER_MODIFIER = "browserModifier"
+    COOKIE = "cookie"
+    BROWSER_PLUGIN = "browserPlugin"
+    AOL_EXPLOIT = "aolExploit"
+    NUKER = "nuker"
+    SECURITY_DISABLER = "securityDisabler"
+    JOKE_PROGRAM = "jokeProgram"
+    HOSTILE_ACTIVE_X_CONTROL = "hostileActiveXControl"
+    SOFTWARE_BUNDLER = "softwareBundler"
+    STEALTH_NOTIFIER = "stealthNotifier"
+    SETTINGS_MODIFIER = "settingsModifier"
+    TOOL_BAR = "toolBar"
+    REMOTE_CONTROL_SOFTWARE = "remoteControlSoftware"
+    TROJAN_FTP = "trojanFtp"
+    POTENTIAL_UNWANTED_SOFTWARE = "potentialUnwantedSoftware"
+    ICQ_EXPLOIT = "icqExploit"
+    TROJAN_TELNET = "trojanTelnet"
+    EXPLOIT = "exploit"
+    FILESHARING_PROGRAM = "filesharingProgram"
+    MALWARE_CREATION_TOOL = "malwareCreationTool"
+    TOOL = "tool"
+    TROJAN_DENIAL_OF_SERVICE = "trojanDenialOfService"
+    TROJAN_DROPPER = "trojanDropper"
+    TROJAN_MASS_MAILER = "trojanMassMailer"
+    TROJAN_MONITORING_SOFTWARE = "trojanMonitoringSoftware"
+    TROJAN_PROXY_SERVER = "trojanProxyServer"
+    VIRUS = "virus"
+    KNOWN = "known"
+    UNKNOWN = "unknown"
+    SPP = "spp"
+    BEHAVIOR = "behavior"
+    VULNERABILITY = "vulnerability"
+    POLICY = "policy"
+    ENTERPRISE_UNWANTED_SOFTWARE = "enterpriseUnwantedSoftware"
+    RANSOM = "ransom"
+    HIPS_RULE = "hipsRule"
+
+class MicrosoftGraphWindowsMalwareExecutionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    BLOCKED = "blocked"
+    ALLOWED = "allowed"
+    RUNNING = "running"
+    NOT_RUNNING = "notRunning"
+
+class MicrosoftGraphWindowsMalwareSeverity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    LOW = "low"
+    MODERATE = "moderate"
+    HIGH = "high"
+    SEVERE = "severe"
+
+class MicrosoftGraphWindowsMalwareState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    DETECTED = "detected"
+    CLEANED = "cleaned"
+    QUARANTINED = "quarantined"
+    REMOVED = "removed"
+    ALLOWED = "allowed"
+    BLOCKED = "blocked"
+    CLEAN_FAILED = "cleanFailed"
+    QUARANTINE_FAILED = "quarantineFailed"
+    REMOVE_FAILED = "removeFailed"
+    ALLOW_FAILED = "allowFailed"
+    ABANDONED = "abandoned"
+    BLOCK_FAILED = "blockFailed"
+
+class MicrosoftGraphWindowsMalwareThreatState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACTIVE = "active"
+    ACTION_FAILED = "actionFailed"
+    MANUAL_STEPS_REQUIRED = "manualStepsRequired"
+    FULL_SCAN_REQUIRED = "fullScanRequired"
+    REBOOT_REQUIRED = "rebootRequired"
+    REMEDIATED_WITH_NON_CRITICAL_FAILURES = "remediatedWithNonCriticalFailures"
+    QUARANTINED = "quarantined"
+    REMOVED = "removed"
+    CLEANED = "cleaned"
+    ALLOWED = "allowed"
+    NO_STATUS_CLEARED = "noStatusCleared"

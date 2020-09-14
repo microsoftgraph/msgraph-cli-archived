@@ -20,8 +20,8 @@ def load_command_table(self, _):
         operations_tmpl='azext_usersplanner.vendored_sdks.usersplanner.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('usersplanner', usersplanner_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'usersplanner_update')
         g.custom_command('get-planner', 'usersplanner_get_planner')
+        g.custom_command('update-planner', 'usersplanner_update_planner')
 
     from azext_usersplanner.generated._client_factory import cf_user_planner
     usersplanner_user_planner = CliCommandType(
@@ -29,7 +29,6 @@ def load_command_table(self, _):
         'perations.{}',
         client_factory=cf_user_planner)
     with self.command_group('usersplanner', usersplanner_user_planner, client_factory=cf_user_planner) as g:
-        g.custom_command('update', 'usersplanner_update')
         g.custom_command('create-all', 'usersplanner_create_all')
         g.custom_command('create-plan', 'usersplanner_create_plan')
         g.custom_command('create-task', 'usersplanner_create_task')
@@ -43,6 +42,9 @@ def load_command_table(self, _):
         g.custom_command('list-plan', 'usersplanner_list_plan')
         g.custom_command('list-recent-plan', 'usersplanner_list_recent_plan')
         g.custom_command('list-task', 'usersplanner_list_task')
+        g.custom_command('update-all', 'usersplanner_update_all')
+        g.custom_command('update-plan', 'usersplanner_update_plan')
+        g.custom_command('update-task', 'usersplanner_update_task')
 
     from azext_usersplanner.generated._client_factory import cf_user_planner_plan
     usersplanner_user_planner_plan = CliCommandType(
@@ -50,7 +52,6 @@ def load_command_table(self, _):
         'nnerPlanOperations.{}',
         client_factory=cf_user_planner_plan)
     with self.command_group('usersplanner', usersplanner_user_planner_plan, client_factory=cf_user_planner_plan) as g:
-        g.custom_command('update', 'usersplanner_update')
         g.custom_command('create-bucket', 'usersplanner_create_bucket')
         g.custom_command('create-task', 'usersplanner_create_task')
         g.custom_command('get-bucket', 'usersplanner_get_bucket')
@@ -58,6 +59,9 @@ def load_command_table(self, _):
         g.custom_command('get-task', 'usersplanner_get_task')
         g.custom_command('list-bucket', 'usersplanner_list_bucket')
         g.custom_command('list-task', 'usersplanner_list_task')
+        g.custom_command('update-bucket', 'usersplanner_update_bucket')
+        g.custom_command('update-detail', 'usersplanner_update_detail')
+        g.custom_command('update-task', 'usersplanner_update_task')
 
     from azext_usersplanner.generated._client_factory import cf_user_planner_plan_bucket
     usersplanner_user_planner_plan_bucket = CliCommandType(
@@ -66,10 +70,10 @@ def load_command_table(self, _):
         client_factory=cf_user_planner_plan_bucket)
     with self.command_group('usersplanner', usersplanner_user_planner_plan_bucket,
                             client_factory=cf_user_planner_plan_bucket) as g:
-        g.custom_command('update', 'usersplanner_update')
         g.custom_command('create-task', 'usersplanner_create_task')
         g.custom_command('get-task', 'usersplanner_get_task')
         g.custom_command('list-task', 'usersplanner_list_task')
+        g.custom_command('update-task', 'usersplanner_update_task')
 
     from azext_usersplanner.generated._client_factory import cf_user_planner_plan_bucket_task
     usersplanner_user_planner_plan_bucket_task = CliCommandType(
@@ -78,11 +82,14 @@ def load_command_table(self, _):
         client_factory=cf_user_planner_plan_bucket_task)
     with self.command_group('usersplanner', usersplanner_user_planner_plan_bucket_task,
                             client_factory=cf_user_planner_plan_bucket_task) as g:
-        g.custom_command('update', 'usersplanner_update')
         g.custom_command('get-assigned-to-task-board-format', 'usersplanner_get_assigned_to_task_board_format')
         g.custom_command('get-bucket-task-board-format', 'usersplanner_get_bucket_task_board_format')
         g.custom_command('get-detail', 'usersplanner_get_detail')
         g.custom_command('get-progress-task-board-format', 'usersplanner_get_progress_task_board_format')
+        g.custom_command('update-assigned-to-task-board-format', 'usersplanner_update_assigned_to_task_board_format')
+        g.custom_command('update-bucket-task-board-format', 'usersplanner_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'usersplanner_update_detail')
+        g.custom_command('update-progress-task-board-format', 'usersplanner_update_progress_task_board_format')
 
     from azext_usersplanner.generated._client_factory import cf_user_planner_plan_task
     usersplanner_user_planner_plan_task = CliCommandType(
@@ -91,11 +98,14 @@ def load_command_table(self, _):
         client_factory=cf_user_planner_plan_task)
     with self.command_group('usersplanner', usersplanner_user_planner_plan_task,
                             client_factory=cf_user_planner_plan_task) as g:
-        g.custom_command('update', 'usersplanner_update')
         g.custom_command('get-assigned-to-task-board-format', 'usersplanner_get_assigned_to_task_board_format')
         g.custom_command('get-bucket-task-board-format', 'usersplanner_get_bucket_task_board_format')
         g.custom_command('get-detail', 'usersplanner_get_detail')
         g.custom_command('get-progress-task-board-format', 'usersplanner_get_progress_task_board_format')
+        g.custom_command('update-assigned-to-task-board-format', 'usersplanner_update_assigned_to_task_board_format')
+        g.custom_command('update-bucket-task-board-format', 'usersplanner_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'usersplanner_update_detail')
+        g.custom_command('update-progress-task-board-format', 'usersplanner_update_progress_task_board_format')
 
     from azext_usersplanner.generated._client_factory import cf_user_planner_task
     usersplanner_user_planner_task = CliCommandType(
@@ -103,8 +113,11 @@ def load_command_table(self, _):
         'nnerTaskOperations.{}',
         client_factory=cf_user_planner_task)
     with self.command_group('usersplanner', usersplanner_user_planner_task, client_factory=cf_user_planner_task) as g:
-        g.custom_command('update', 'usersplanner_update')
         g.custom_command('get-assigned-to-task-board-format', 'usersplanner_get_assigned_to_task_board_format')
         g.custom_command('get-bucket-task-board-format', 'usersplanner_get_bucket_task_board_format')
         g.custom_command('get-detail', 'usersplanner_get_detail')
         g.custom_command('get-progress-task-board-format', 'usersplanner_get_progress_task_board_format')
+        g.custom_command('update-assigned-to-task-board-format', 'usersplanner_update_assigned_to_task_board_format')
+        g.custom_command('update-bucket-task-board-format', 'usersplanner_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'usersplanner_update_detail')
+        g.custom_command('update-progress-task-board-format', 'usersplanner_update_progress_task_board_format')

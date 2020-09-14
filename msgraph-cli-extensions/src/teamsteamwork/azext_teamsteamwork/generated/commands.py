@@ -20,8 +20,8 @@ def load_command_table(self, _):
         operations_tmpl='azext_teamsteamwork.vendored_sdks.teamsteamwork.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('teamsteamwork', teamsteamwork_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'teamsteamwork_update')
         g.custom_command('get-teamwork', 'teamsteamwork_get_teamwork')
+        g.custom_command('update-teamwork', 'teamsteamwork_update_teamwork')
 
     from azext_teamsteamwork.generated._client_factory import cf_user_teamwork
     teamsteamwork_user_teamwork = CliCommandType(
@@ -29,10 +29,10 @@ def load_command_table(self, _):
         'orkOperations.{}',
         client_factory=cf_user_teamwork)
     with self.command_group('teamsteamwork', teamsteamwork_user_teamwork, client_factory=cf_user_teamwork) as g:
-        g.custom_command('update', 'teamsteamwork_update')
         g.custom_command('create-installed-app', 'teamsteamwork_create_installed_app')
         g.custom_command('get-installed-app', 'teamsteamwork_get_installed_app')
         g.custom_command('list-installed-app', 'teamsteamwork_list_installed_app')
+        g.custom_command('update-installed-app', 'teamsteamwork_update_installed_app')
 
     from azext_teamsteamwork.generated._client_factory import cf_user_teamwork_installed_app
     teamsteamwork_user_teamwork_installed_app = CliCommandType(

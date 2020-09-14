@@ -6,69 +6,87 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Get1ItemsItem(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    id = "id"
-    resource = "resource"
-    change_type = "changeType"
-    client_state = "clientState"
-    notification_url = "notificationUrl"
-    expiration_date_time = "expirationDateTime"
-    application_id = "applicationId"
-    creator_id = "creatorId"
-    include_properties = "includeProperties"
-    include_resource_data = "includeResourceData"
-    lifecycle_notification_url = "lifecycleNotificationUrl"
-    encryption_certificate = "encryptionCertificate"
-    encryption_certificate_id = "encryptionCertificateId"
-    latest_supported_tls_version = "latestSupportedTlsVersion"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Get5ItemsItem(str, Enum):
 
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    change_type = "changeType"
-    change_type_desc = "changeType desc"
-    client_state = "clientState"
-    client_state_desc = "clientState desc"
-    notification_url = "notificationUrl"
-    notification_url_desc = "notificationUrl desc"
-    expiration_date_time = "expirationDateTime"
-    expiration_date_time_desc = "expirationDateTime desc"
-    application_id = "applicationId"
-    application_id_desc = "applicationId desc"
-    creator_id = "creatorId"
-    creator_id_desc = "creatorId desc"
-    include_properties = "includeProperties"
-    include_properties_desc = "includeProperties desc"
-    include_resource_data = "includeResourceData"
-    include_resource_data_desc = "includeResourceData desc"
-    lifecycle_notification_url = "lifecycleNotificationUrl"
-    lifecycle_notification_url_desc = "lifecycleNotificationUrl desc"
-    encryption_certificate = "encryptionCertificate"
-    encryption_certificate_desc = "encryptionCertificate desc"
-    encryption_certificate_id = "encryptionCertificateId"
-    encryption_certificate_id_desc = "encryptionCertificateId desc"
-    latest_supported_tls_version = "latestSupportedTlsVersion"
-    latest_supported_tls_version_desc = "latestSupportedTlsVersion desc"
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get6ItemsItem(str, Enum):
+    ID = "id"
+    RESOURCE = "resource"
+    CHANGE_TYPE = "changeType"
+    CLIENT_STATE = "clientState"
+    NOTIFICATION_URL = "notificationUrl"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    APPLICATION_ID = "applicationId"
+    CREATOR_ID = "creatorId"
+    INCLUDE_PROPERTIES = "includeProperties"
+    INCLUDE_RESOURCE_DATA = "includeResourceData"
+    LIFECYCLE_NOTIFICATION_URL = "lifecycleNotificationUrl"
+    ENCRYPTION_CERTIFICATE = "encryptionCertificate"
+    ENCRYPTION_CERTIFICATE_ID = "encryptionCertificateId"
+    LATEST_SUPPORTED_TLS_VERSION = "latestSupportedTlsVersion"
 
-    id = "id"
-    resource = "resource"
-    change_type = "changeType"
-    client_state = "clientState"
-    notification_url = "notificationUrl"
-    expiration_date_time = "expirationDateTime"
-    application_id = "applicationId"
-    creator_id = "creatorId"
-    include_properties = "includeProperties"
-    include_resource_data = "includeResourceData"
-    lifecycle_notification_url = "lifecycleNotificationUrl"
-    encryption_certificate = "encryptionCertificate"
-    encryption_certificate_id = "encryptionCertificateId"
-    latest_supported_tls_version = "latestSupportedTlsVersion"
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    CHANGE_TYPE = "changeType"
+    CHANGE_TYPE_DESC = "changeType desc"
+    CLIENT_STATE = "clientState"
+    CLIENT_STATE_DESC = "clientState desc"
+    NOTIFICATION_URL = "notificationUrl"
+    NOTIFICATION_URL_DESC = "notificationUrl desc"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    EXPIRATION_DATE_TIME_DESC = "expirationDateTime desc"
+    APPLICATION_ID = "applicationId"
+    APPLICATION_ID_DESC = "applicationId desc"
+    CREATOR_ID = "creatorId"
+    CREATOR_ID_DESC = "creatorId desc"
+    INCLUDE_PROPERTIES = "includeProperties"
+    INCLUDE_PROPERTIES_DESC = "includeProperties desc"
+    INCLUDE_RESOURCE_DATA = "includeResourceData"
+    INCLUDE_RESOURCE_DATA_DESC = "includeResourceData desc"
+    LIFECYCLE_NOTIFICATION_URL = "lifecycleNotificationUrl"
+    LIFECYCLE_NOTIFICATION_URL_DESC = "lifecycleNotificationUrl desc"
+    ENCRYPTION_CERTIFICATE = "encryptionCertificate"
+    ENCRYPTION_CERTIFICATE_DESC = "encryptionCertificate desc"
+    ENCRYPTION_CERTIFICATE_ID = "encryptionCertificateId"
+    ENCRYPTION_CERTIFICATE_ID_DESC = "encryptionCertificateId desc"
+    LATEST_SUPPORTED_TLS_VERSION = "latestSupportedTlsVersion"
+    LATEST_SUPPORTED_TLS_VERSION_DESC = "latestSupportedTlsVersion desc"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    CHANGE_TYPE = "changeType"
+    CLIENT_STATE = "clientState"
+    NOTIFICATION_URL = "notificationUrl"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    APPLICATION_ID = "applicationId"
+    CREATOR_ID = "creatorId"
+    INCLUDE_PROPERTIES = "includeProperties"
+    INCLUDE_RESOURCE_DATA = "includeResourceData"
+    LIFECYCLE_NOTIFICATION_URL = "lifecycleNotificationUrl"
+    ENCRYPTION_CERTIFICATE = "encryptionCertificate"
+    ENCRYPTION_CERTIFICATE_ID = "encryptionCertificateId"
+    LATEST_SUPPORTED_TLS_VERSION = "latestSupportedTlsVersion"

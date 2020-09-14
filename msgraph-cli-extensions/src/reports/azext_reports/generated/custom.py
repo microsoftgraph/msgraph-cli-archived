@@ -11,15 +11,22 @@
 # pylint: disable=too-many-lines
 
 
-def reports_update(client,
-                   id_=None,
-                   application_sign_in_detailed_summary=None,
-                   credential_user_registration_details=None,
-                   user_credential_usage_details=None,
-                   daily_print_usage_summaries_by_user=None,
-                   monthly_print_usage_summaries_by_user=None,
-                   daily_print_usage_summaries_by_printer=None,
-                   monthly_print_usage_summaries_by_printer=None):
+def reports_get_report_root(client,
+                            select=None,
+                            expand=None):
+    return client.get_report_root(select=select,
+                                  expand=expand)
+
+
+def reports_update_report_root(client,
+                               id_=None,
+                               application_sign_in_detailed_summary=None,
+                               credential_user_registration_details=None,
+                               user_credential_usage_details=None,
+                               daily_print_usage_summaries_by_user=None,
+                               monthly_print_usage_summaries_by_user=None,
+                               daily_print_usage_summaries_by_printer=None,
+                               monthly_print_usage_summaries_by_printer=None):
     return client.update_report_root(id=id_,
                                      application_sign_in_detailed_summary=application_sign_in_detailed_summary,
                                      credential_user_registration_details=credential_user_registration_details,
@@ -28,107 +35,6 @@ def reports_update(client,
                                      monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user,
                                      daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer,
                                      monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer)
-
-
-def reports_get_report_root(client,
-                            select=None,
-                            expand=None):
-    return client.get_report_root(select=select,
-                                  expand=expand)
-
-
-def reports_update(client,
-                   application_sign_in_detailed_summary_id=None,
-                   id_=None,
-                   app_id=None,
-                   app_display_name=None,
-                   sign_in_count=None,
-                   aggregated_event_date_time=None,
-                   status_error_code=None,
-                   status_failure_reason=None,
-                   status_additional_details=None,
-                   credential_user_registration_details_id=None,
-                   user_principal_name=None,
-                   user_display_name=None,
-                   auth_methods=None,
-                   is_registered=None,
-                   is_enabled=None,
-                   is_capable=None,
-                   is_mfa_registered=None,
-                   print_usage_summary_by_printer_id=None,
-                   printer_id=None,
-                   usage_date=None,
-                   completed_black_and_white_job_count=None,
-                   completed_color_job_count=None,
-                   incomplete_job_count=None,
-                   print_usage_summary_by_user_id=None,
-                   user_credential_usage_details_id=None,
-                   feature=None,
-                   is_success=None,
-                   auth_method=None,
-                   failure_reason=None,
-                   event_date_time=None):
-    if application_sign_in_detailed_summary_id is not None:
-        return client.update_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
-                                                                  id=id_,
-                                                                  app_id=app_id,
-                                                                  app_display_name=app_display_name,
-                                                                  sign_in_count=sign_in_count,
-                                                                  aggregated_event_date_time=aggregated_event_date_time,
-                                                                  error_code=status_error_code,
-                                                                  failure_reason=status_failure_reason,
-                                                                  additional_details=status_additional_details)
-    elif credential_user_registration_details_id is not None:
-        return client.update_credential_user_registration_detail(credential_user_registration_details_id=credential_user_registration_details_id,
-                                                                 id=id_,
-                                                                 user_principal_name=user_principal_name,
-                                                                 user_display_name=user_display_name,
-                                                                 auth_methods=auth_methods,
-                                                                 is_registered=is_registered,
-                                                                 is_enabled=is_enabled,
-                                                                 is_capable=is_capable,
-                                                                 is_mfa_registered=is_mfa_registered)
-    elif print_usage_summary_by_printer_id is not None:
-        return client.update_daily_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                                  id=id_,
-                                                                  printer_id=printer_id,
-                                                                  usage_date=usage_date,
-                                                                  completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                                  completed_color_job_count=completed_color_job_count,
-                                                                  incomplete_job_count=incomplete_job_count)
-    elif print_usage_summary_by_user_id is not None:
-        return client.update_daily_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                               id=id_,
-                                                               user_principal_name=user_principal_name,
-                                                               usage_date=usage_date,
-                                                               completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                               completed_color_job_count=completed_color_job_count,
-                                                               incomplete_job_count=incomplete_job_count)
-    elif print_usage_summary_by_printer_id is not None:
-        return client.update_monthly_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                                    id=id_,
-                                                                    printer_id=printer_id,
-                                                                    usage_date=usage_date,
-                                                                    completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                                    completed_color_job_count=completed_color_job_count,
-                                                                    incomplete_job_count=incomplete_job_count)
-    elif print_usage_summary_by_user_id is not None:
-        return client.update_monthly_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                                 id=id_,
-                                                                 user_principal_name=user_principal_name,
-                                                                 usage_date=usage_date,
-                                                                 completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                                 completed_color_job_count=completed_color_job_count,
-                                                                 incomplete_job_count=incomplete_job_count)
-    return client.update_user_credential_usage_detail(user_credential_usage_details_id=user_credential_usage_details_id,
-                                                      id=id_,
-                                                      feature=feature,
-                                                      user_principal_name=user_principal_name,
-                                                      user_display_name=user_display_name,
-                                                      is_success=is_success,
-                                                      auth_method=auth_method,
-                                                      failure_reason=failure_reason,
-                                                      event_date_time=event_date_time)
 
 
 def reports_create_application_sign_in_detailed_summary(client,
@@ -825,22 +731,22 @@ def reports_list_user_credential_usage_detail(client,
 def reports_managed_device_enrollment_abandonment_detail(client,
                                                          skip,
                                                          top,
-                                                         filter,
+                                                         filter_,
                                                          skip_token):
     return client.managed_device_enrollment_abandonment_detail(skip=skip,
                                                                top=top,
-                                                               filter=filter,
+                                                               filter=filter_,
                                                                skip_token=skip_token)
 
 
 def reports_managed_device_enrollment_abandonment_summary(client,
                                                           skip,
                                                           top,
-                                                          filter,
+                                                          filter_,
                                                           skip_token):
     return client.managed_device_enrollment_abandonment_summary(skip=skip,
                                                                 top=top,
-                                                                filter=filter,
+                                                                filter=filter_,
                                                                 skip_token=skip_token)
 
 
@@ -851,11 +757,11 @@ def reports_managed_device_enrollment_failure_details027_e(client):
 def reports_managed_device_enrollment_failure_details2_b3_d(client,
                                                             skip,
                                                             top,
-                                                            filter,
+                                                            filter_,
                                                             skip_token):
     return client.managed_device_enrollment_failure_details2_b3_d(skip=skip,
                                                                   top=top,
-                                                                  filter=filter,
+                                                                  filter=filter_,
                                                                   skip_token=skip_token)
 
 
@@ -870,3 +776,134 @@ def reports_managed_device_enrollment_top_failure_afd1(client,
 
 def reports_managed_device_enrollment_top_failures4669(client):
     return client.managed_device_enrollment_top_failures4669()
+
+
+def reports_update_application_sign_in_detailed_summary(client,
+                                                        application_sign_in_detailed_summary_id,
+                                                        id_=None,
+                                                        app_id=None,
+                                                        app_display_name=None,
+                                                        sign_in_count=None,
+                                                        aggregated_event_date_time=None,
+                                                        status_error_code=None,
+                                                        status_failure_reason=None,
+                                                        status_additional_details=None):
+    return client.update_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
+                                                              id=id_,
+                                                              app_id=app_id,
+                                                              app_display_name=app_display_name,
+                                                              sign_in_count=sign_in_count,
+                                                              aggregated_event_date_time=aggregated_event_date_time,
+                                                              error_code=status_error_code,
+                                                              failure_reason=status_failure_reason,
+                                                              additional_details=status_additional_details)
+
+
+def reports_update_credential_user_registration_detail(client,
+                                                       credential_user_registration_details_id,
+                                                       id_=None,
+                                                       user_principal_name=None,
+                                                       user_display_name=None,
+                                                       auth_methods=None,
+                                                       is_registered=None,
+                                                       is_enabled=None,
+                                                       is_capable=None,
+                                                       is_mfa_registered=None):
+    return client.update_credential_user_registration_detail(credential_user_registration_details_id=credential_user_registration_details_id,
+                                                             id=id_,
+                                                             user_principal_name=user_principal_name,
+                                                             user_display_name=user_display_name,
+                                                             auth_methods=auth_methods,
+                                                             is_registered=is_registered,
+                                                             is_enabled=is_enabled,
+                                                             is_capable=is_capable,
+                                                             is_mfa_registered=is_mfa_registered)
+
+
+def reports_update_daily_print_usage_summary_by_printer(client,
+                                                        print_usage_summary_by_printer_id,
+                                                        id_=None,
+                                                        printer_id=None,
+                                                        usage_date=None,
+                                                        completed_black_and_white_job_count=None,
+                                                        completed_color_job_count=None,
+                                                        incomplete_job_count=None):
+    return client.update_daily_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                              id=id_,
+                                                              printer_id=printer_id,
+                                                              usage_date=usage_date,
+                                                              completed_black_and_white_job_count=completed_black_and_white_job_count,
+                                                              completed_color_job_count=completed_color_job_count,
+                                                              incomplete_job_count=incomplete_job_count)
+
+
+def reports_update_daily_print_usage_summary_by_user(client,
+                                                     print_usage_summary_by_user_id,
+                                                     id_=None,
+                                                     user_principal_name=None,
+                                                     usage_date=None,
+                                                     completed_black_and_white_job_count=None,
+                                                     completed_color_job_count=None,
+                                                     incomplete_job_count=None):
+    return client.update_daily_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                           id=id_,
+                                                           user_principal_name=user_principal_name,
+                                                           usage_date=usage_date,
+                                                           completed_black_and_white_job_count=completed_black_and_white_job_count,
+                                                           completed_color_job_count=completed_color_job_count,
+                                                           incomplete_job_count=incomplete_job_count)
+
+
+def reports_update_monthly_print_usage_summary_by_printer(client,
+                                                          print_usage_summary_by_printer_id,
+                                                          id_=None,
+                                                          printer_id=None,
+                                                          usage_date=None,
+                                                          completed_black_and_white_job_count=None,
+                                                          completed_color_job_count=None,
+                                                          incomplete_job_count=None):
+    return client.update_monthly_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                id=id_,
+                                                                printer_id=printer_id,
+                                                                usage_date=usage_date,
+                                                                completed_black_and_white_job_count=completed_black_and_white_job_count,
+                                                                completed_color_job_count=completed_color_job_count,
+                                                                incomplete_job_count=incomplete_job_count)
+
+
+def reports_update_monthly_print_usage_summary_by_user(client,
+                                                       print_usage_summary_by_user_id,
+                                                       id_=None,
+                                                       user_principal_name=None,
+                                                       usage_date=None,
+                                                       completed_black_and_white_job_count=None,
+                                                       completed_color_job_count=None,
+                                                       incomplete_job_count=None):
+    return client.update_monthly_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                             id=id_,
+                                                             user_principal_name=user_principal_name,
+                                                             usage_date=usage_date,
+                                                             completed_black_and_white_job_count=completed_black_and_white_job_count,
+                                                             completed_color_job_count=completed_color_job_count,
+                                                             incomplete_job_count=incomplete_job_count)
+
+
+def reports_update_user_credential_usage_detail(client,
+                                                user_credential_usage_details_id,
+                                                id_=None,
+                                                feature=None,
+                                                user_principal_name=None,
+                                                user_display_name=None,
+                                                is_success=None,
+                                                auth_method=None,
+                                                failure_reason=None,
+                                                event_date_time=None):
+    return client.update_user_credential_usage_detail(user_credential_usage_details_id=user_credential_usage_details_id,
+                                                      id=id_,
+                                                      feature=feature,
+                                                      user_principal_name=user_principal_name,
+                                                      user_display_name=user_display_name,
+                                                      is_success=is_success,
+                                                      auth_method=auth_method,
+                                                      failure_reason=failure_reason,
+                                                      event_date_time=event_date_time)

@@ -6,408 +6,426 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum12(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-
-class Enum13(str, Enum):
-
-    id = "id"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
-
-class Enum15(str, Enum):
-
-    id = "id"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
-
-class Enum17(str, Enum):
-
-    id = "id"
-    external_id = "externalId"
-    name = "name"
-    display_name = "displayName"
-    distribution_method = "distributionMethod"
-    app_definitions = "appDefinitions"
-
-class Enum18(str, Enum):
-
-    asterisk = "*"
-    app_definitions = "appDefinitions"
-
-class Enum19(str, Enum):
-
-    id = "id"
-    teams_app_id = "teamsAppId"
-    display_name = "displayName"
-    version = "version"
-
-class Enum20(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    roles = "roles"
-    roles_desc = "roles desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-
-class Enum21(str, Enum):
-
-    id = "id"
-    roles = "roles"
-    display_name = "displayName"
-
-class Enum22(str, Enum):
-
-    id = "id"
-    roles = "roles"
-    display_name = "displayName"
-
-class Enum23(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    reply_to_id = "replyToId"
-    reply_to_id_desc = "replyToId desc"
-    from_enum = "from"
-    from_desc = "from desc"
-    etag = "etag"
-    etag_desc = "etag desc"
-    message_type = "messageType"
-    message_type_desc = "messageType desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    deleted_date_time = "deletedDateTime"
-    deleted_date_time_desc = "deletedDateTime desc"
-    subject = "subject"
-    subject_desc = "subject desc"
-    body = "body"
-    body_desc = "body desc"
-    summary = "summary"
-    summary_desc = "summary desc"
-    attachments = "attachments"
-    attachments_desc = "attachments desc"
-    mentions = "mentions"
-    mentions_desc = "mentions desc"
-    importance = "importance"
-    importance_desc = "importance desc"
-    policy_violation = "policyViolation"
-    policy_violation_desc = "policyViolation desc"
-    reactions = "reactions"
-    reactions_desc = "reactions desc"
-    locale = "locale"
-    locale_desc = "locale desc"
-    web_url = "webUrl"
-    web_url_desc = "webUrl desc"
-
-class Enum24(str, Enum):
-
-    id = "id"
-    reply_to_id = "replyToId"
-    from_enum = "from"
-    etag = "etag"
-    message_type = "messageType"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    deleted_date_time = "deletedDateTime"
-    subject = "subject"
-    body = "body"
-    summary = "summary"
-    attachments = "attachments"
-    mentions = "mentions"
-    importance = "importance"
-    policy_violation = "policyViolation"
-    reactions = "reactions"
-    locale = "locale"
-    web_url = "webUrl"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum25(str, Enum):
-
-    asterisk = "*"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum26(str, Enum):
-
-    id = "id"
-    reply_to_id = "replyToId"
-    from_enum = "from"
-    etag = "etag"
-    message_type = "messageType"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    deleted_date_time = "deletedDateTime"
-    subject = "subject"
-    body = "body"
-    summary = "summary"
-    attachments = "attachments"
-    mentions = "mentions"
-    importance = "importance"
-    policy_violation = "policyViolation"
-    reactions = "reactions"
-    locale = "locale"
-    web_url = "webUrl"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum27(str, Enum):
-
-    asterisk = "*"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum28(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-
-class Enum29(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    reply_to_id = "replyToId"
-    reply_to_id_desc = "replyToId desc"
-    from_enum = "from"
-    from_desc = "from desc"
-    etag = "etag"
-    etag_desc = "etag desc"
-    message_type = "messageType"
-    message_type_desc = "messageType desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    deleted_date_time = "deletedDateTime"
-    deleted_date_time_desc = "deletedDateTime desc"
-    subject = "subject"
-    subject_desc = "subject desc"
-    body = "body"
-    body_desc = "body desc"
-    summary = "summary"
-    summary_desc = "summary desc"
-    attachments = "attachments"
-    attachments_desc = "attachments desc"
-    mentions = "mentions"
-    mentions_desc = "mentions desc"
-    importance = "importance"
-    importance_desc = "importance desc"
-    policy_violation = "policyViolation"
-    policy_violation_desc = "policyViolation desc"
-    reactions = "reactions"
-    reactions_desc = "reactions desc"
-    locale = "locale"
-    locale_desc = "locale desc"
-    web_url = "webUrl"
-    web_url_desc = "webUrl desc"
-
-class Enum30(str, Enum):
-
-    id = "id"
-    reply_to_id = "replyToId"
-    from_enum = "from"
-    etag = "etag"
-    message_type = "messageType"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    deleted_date_time = "deletedDateTime"
-    subject = "subject"
-    body = "body"
-    summary = "summary"
-    attachments = "attachments"
-    mentions = "mentions"
-    importance = "importance"
-    policy_violation = "policyViolation"
-    reactions = "reactions"
-    locale = "locale"
-    web_url = "webUrl"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum31(str, Enum):
-
-    asterisk = "*"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum32(str, Enum):
-
-    id = "id"
-    reply_to_id = "replyToId"
-    from_enum = "from"
-    etag = "etag"
-    message_type = "messageType"
-    created_date_time = "createdDateTime"
-    last_modified_date_time = "lastModifiedDateTime"
-    deleted_date_time = "deletedDateTime"
-    subject = "subject"
-    body = "body"
-    summary = "summary"
-    attachments = "attachments"
-    mentions = "mentions"
-    importance = "importance"
-    policy_violation = "policyViolation"
-    reactions = "reactions"
-    locale = "locale"
-    web_url = "webUrl"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum33(str, Enum):
-
-    asterisk = "*"
-    replies = "replies"
-    hosted_contents = "hostedContents"
-
-class Enum34(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    topic = "topic"
-    topic_desc = "topic desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_updated_date_time = "lastUpdatedDateTime"
-    last_updated_date_time_desc = "lastUpdatedDateTime desc"
-
-class Enum35(str, Enum):
-
-    id = "id"
-    topic = "topic"
-    created_date_time = "createdDateTime"
-    last_updated_date_time = "lastUpdatedDateTime"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Enum36(str, Enum):
-
-    asterisk = "*"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Enum37(str, Enum):
-
-    id = "id"
-    topic = "topic"
-    created_date_time = "createdDateTime"
-    last_updated_date_time = "lastUpdatedDateTime"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Enum38(str, Enum):
-
-    asterisk = "*"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Get1ItemsItem(str, Enum):
-
-    id = "id"
-    topic = "topic"
-    created_date_time = "createdDateTime"
-    last_updated_date_time = "lastUpdatedDateTime"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Get2ItemsItem(str, Enum):
-
-    asterisk = "*"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Get3ItemsItem(str, Enum):
-
-    asterisk = "*"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
-
-class Get5ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    topic = "topic"
-    topic_desc = "topic desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    last_updated_date_time = "lastUpdatedDateTime"
-    last_updated_date_time_desc = "lastUpdatedDateTime desc"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    topic = "topic"
-    created_date_time = "createdDateTime"
-    last_updated_date_time = "lastUpdatedDateTime"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Get7ItemsItem(str, Enum):
-
-    asterisk = "*"
-    members = "members"
-    messages = "messages"
-    installed_apps = "installedApps"
-
-class Get8ItemsItem(str, Enum):
-
-    asterisk = "*"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
-
-class MicrosoftGraphBodyType(str, Enum):
-
-    text = "text"
-    html = "html"
-
-class MicrosoftGraphChatMessageImportance(str, Enum):
-
-    normal = "normal"
-    high = "high"
-    urgent = "urgent"
-
-class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(str, Enum):
-
-    none = "none"
-    notify_sender = "notifySender"
-    block_access = "blockAccess"
-    block_access_external = "blockAccessExternal"
-
-class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(str, Enum):
-
-    none = "none"
-    override = "override"
-    report_false_positive = "reportFalsePositive"
-
-class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(str, Enum):
-
-    none = "none"
-    allow_false_positive_override = "allowFalsePositiveOverride"
-    allow_override_without_justification = "allowOverrideWithoutJustification"
-    allow_override_with_justification = "allowOverrideWithJustification"
-
-class MicrosoftGraphChatMessageType(str, Enum):
-
-    message = "message"
-    chat_event = "chatEvent"
-    typing = "typing"
-
-class MicrosoftGraphTeamsAppDistributionMethod(str, Enum):
-
-    store = "store"
-    organization = "organization"
-    sideloaded = "sideloaded"
-    unknown_future_value = "unknownFutureValue"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum12(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum13(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    EXTERNAL_ID = "externalId"
+    NAME = "name"
+    DISPLAY_NAME = "displayName"
+    DISTRIBUTION_METHOD = "distributionMethod"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Enum18(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Enum19(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TEAMS_APP_ID = "teamsAppId"
+    DISPLAY_NAME = "displayName"
+    VERSION = "version"
+
+class Enum20(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ROLES = "roles"
+    ROLES_DESC = "roles desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+
+class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ROLES = "roles"
+    DISPLAY_NAME = "displayName"
+
+class Enum22(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ROLES = "roles"
+    DISPLAY_NAME = "displayName"
+
+class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    REPLY_TO_ID = "replyToId"
+    REPLY_TO_ID_DESC = "replyToId desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    ETAG = "etag"
+    ETAG_DESC = "etag desc"
+    MESSAGE_TYPE = "messageType"
+    MESSAGE_TYPE_DESC = "messageType desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    SUMMARY = "summary"
+    SUMMARY_DESC = "summary desc"
+    ATTACHMENTS = "attachments"
+    ATTACHMENTS_DESC = "attachments desc"
+    MENTIONS = "mentions"
+    MENTIONS_DESC = "mentions desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    POLICY_VIOLATION = "policyViolation"
+    POLICY_VIOLATION_DESC = "policyViolation desc"
+    REACTIONS = "reactions"
+    REACTIONS_DESC = "reactions desc"
+    LOCALE = "locale"
+    LOCALE_DESC = "locale desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    REPLY_TO_ID = "replyToId"
+    FROM_ENUM = "from"
+    ETAG = "etag"
+    MESSAGE_TYPE = "messageType"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SUBJECT = "subject"
+    BODY = "body"
+    SUMMARY = "summary"
+    ATTACHMENTS = "attachments"
+    MENTIONS = "mentions"
+    IMPORTANCE = "importance"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    LOCALE = "locale"
+    WEB_URL = "webUrl"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    REPLY_TO_ID = "replyToId"
+    FROM_ENUM = "from"
+    ETAG = "etag"
+    MESSAGE_TYPE = "messageType"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SUBJECT = "subject"
+    BODY = "body"
+    SUMMARY = "summary"
+    ATTACHMENTS = "attachments"
+    MENTIONS = "mentions"
+    IMPORTANCE = "importance"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    LOCALE = "locale"
+    WEB_URL = "webUrl"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum29(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    REPLY_TO_ID = "replyToId"
+    REPLY_TO_ID_DESC = "replyToId desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    ETAG = "etag"
+    ETAG_DESC = "etag desc"
+    MESSAGE_TYPE = "messageType"
+    MESSAGE_TYPE_DESC = "messageType desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    SUMMARY = "summary"
+    SUMMARY_DESC = "summary desc"
+    ATTACHMENTS = "attachments"
+    ATTACHMENTS_DESC = "attachments desc"
+    MENTIONS = "mentions"
+    MENTIONS_DESC = "mentions desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    POLICY_VIOLATION = "policyViolation"
+    POLICY_VIOLATION_DESC = "policyViolation desc"
+    REACTIONS = "reactions"
+    REACTIONS_DESC = "reactions desc"
+    LOCALE = "locale"
+    LOCALE_DESC = "locale desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum30(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    REPLY_TO_ID = "replyToId"
+    FROM_ENUM = "from"
+    ETAG = "etag"
+    MESSAGE_TYPE = "messageType"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SUBJECT = "subject"
+    BODY = "body"
+    SUMMARY = "summary"
+    ATTACHMENTS = "attachments"
+    MENTIONS = "mentions"
+    IMPORTANCE = "importance"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    LOCALE = "locale"
+    WEB_URL = "webUrl"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum31(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum32(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    REPLY_TO_ID = "replyToId"
+    FROM_ENUM = "from"
+    ETAG = "etag"
+    MESSAGE_TYPE = "messageType"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SUBJECT = "subject"
+    BODY = "body"
+    SUMMARY = "summary"
+    ATTACHMENTS = "attachments"
+    MENTIONS = "mentions"
+    IMPORTANCE = "importance"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    LOCALE = "locale"
+    WEB_URL = "webUrl"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum33(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    REPLIES = "replies"
+    HOSTED_CONTENTS = "hostedContents"
+
+class Enum34(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    TOPIC = "topic"
+    TOPIC_DESC = "topic desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    LAST_UPDATED_DATE_TIME_DESC = "lastUpdatedDateTime desc"
+
+class Enum35(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TOPIC = "topic"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Enum36(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Enum37(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TOPIC = "topic"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Enum38(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TOPIC = "topic"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    TOPIC = "topic"
+    TOPIC_DESC = "topic desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    LAST_UPDATED_DATE_TIME_DESC = "lastUpdatedDateTime desc"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TOPIC = "topic"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_UPDATED_DATE_TIME = "lastUpdatedDateTime"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    INSTALLED_APPS = "installedApps"
+
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    TEXT = "text"
+    HTML = "html"
+
+class MicrosoftGraphChatMessageImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    HIGH = "high"
+    URGENT = "urgent"
+
+class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    NOTIFY_SENDER = "notifySender"
+    BLOCK_ACCESS = "blockAccess"
+    BLOCK_ACCESS_EXTERNAL = "blockAccessExternal"
+
+class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    OVERRIDE = "override"
+    REPORT_FALSE_POSITIVE = "reportFalsePositive"
+
+class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ALLOW_FALSE_POSITIVE_OVERRIDE = "allowFalsePositiveOverride"
+    ALLOW_OVERRIDE_WITHOUT_JUSTIFICATION = "allowOverrideWithoutJustification"
+    ALLOW_OVERRIDE_WITH_JUSTIFICATION = "allowOverrideWithJustification"
+
+class MicrosoftGraphChatMessageType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MESSAGE = "message"
+    CHAT_EVENT = "chatEvent"
+    TYPING = "typing"
+
+class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STORE = "store"
+    ORGANIZATION = "organization"
+    SIDELOADED = "sideloaded"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"

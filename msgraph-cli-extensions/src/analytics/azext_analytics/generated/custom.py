@@ -10,23 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def analytics_update(client,
-                     activity_statistics_id,
-                     id_=None,
-                     activity=None,
-                     start_date=None,
-                     end_date=None,
-                     time_zone_used=None,
-                     duration=None):
-    return client.update_activity_statistics(activity_statistics_id=activity_statistics_id,
-                                             id=id_,
-                                             activity=activity,
-                                             start_date=start_date,
-                                             end_date=end_date,
-                                             time_zone_used=time_zone_used,
-                                             duration=duration)
-
-
 def analytics_delete(client,
                      activity_statistics_id,
                      if_match=None):
@@ -67,24 +50,21 @@ def analytics_list_activity_statistics(client,
                                            expand=expand)
 
 
-def analytics_update(client,
-                     user_id,
-                     id_=None,
-                     settings=None,
-                     activity_statistics=None,
-                     trending=None,
-                     shared=None,
-                     used=None):
-    if user_id is not None:
-        return client.update_analytic(user_id=user_id,
-                                      id=id_,
-                                      settings=settings,
-                                      activity_statistics=activity_statistics)
-    return client.update_insight(user_id=user_id,
-                                 id=id_,
-                                 trending=trending,
-                                 shared=shared,
-                                 used=used)
+def analytics_update_activity_statistics(client,
+                                         activity_statistics_id,
+                                         id_=None,
+                                         activity=None,
+                                         start_date=None,
+                                         end_date=None,
+                                         time_zone_used=None,
+                                         duration=None):
+    return client.update_activity_statistics(activity_statistics_id=activity_statistics_id,
+                                             id=id_,
+                                             activity=activity,
+                                             start_date=start_date,
+                                             end_date=end_date,
+                                             time_zone_used=time_zone_used,
+                                             duration=duration)
 
 
 def analytics_get_analytic(client,
@@ -105,23 +85,28 @@ def analytics_get_insight(client,
                               expand=expand)
 
 
-def analytics_update(client,
-                     user_id,
-                     activity_statistics_id,
-                     id_=None,
-                     activity=None,
-                     start_date=None,
-                     end_date=None,
-                     time_zone_used=None,
-                     duration=None):
-    return client.update_activity_statistics(user_id=user_id,
-                                             activity_statistics_id=activity_statistics_id,
-                                             id=id_,
-                                             activity=activity,
-                                             start_date=start_date,
-                                             end_date=end_date,
-                                             time_zone_used=time_zone_used,
-                                             duration=duration)
+def analytics_update_analytic(client,
+                              user_id,
+                              id_=None,
+                              settings=None,
+                              activity_statistics=None):
+    return client.update_analytic(user_id=user_id,
+                                  id=id_,
+                                  settings=settings,
+                                  activity_statistics=activity_statistics)
+
+
+def analytics_update_insight(client,
+                             user_id,
+                             id_=None,
+                             trending=None,
+                             shared=None,
+                             used=None):
+    return client.update_insight(user_id=user_id,
+                                 id=id_,
+                                 trending=trending,
+                                 shared=shared,
+                                 used=used)
 
 
 def analytics_create_activity_statistics(client,
@@ -163,55 +148,23 @@ def analytics_list_activity_statistics(client,
                                            expand=expand)
 
 
-def analytics_update(client,
-                     user_id,
-                     shared_insight_id=None,
-                     id_=None,
-                     sharing_history=None,
-                     resource_visualization=None,
-                     resource_reference=None,
-                     resource_id=None,
-                     last_shared_method_id=None,
-                     last_shared_shared_by=None,
-                     last_shared_shared_date_time=None,
-                     last_shared_sharing_subject=None,
-                     last_shared_sharing_type=None,
-                     last_shared_sharing_reference=None,
-                     trending_id=None,
-                     weight=None,
-                     last_modified_date_time=None,
-                     used_insight_id=None,
-                     last_used=None):
-    if user_id is not None and shared_insight_id is not None:
-        return client.update_shared(user_id=user_id,
-                                    shared_insight_id=shared_insight_id,
-                                    id=id_,
-                                    sharing_history=sharing_history,
-                                    resource_visualization=resource_visualization,
-                                    resource_reference=resource_reference,
-                                    microsoft_graph_entity_id=resource_id,
-                                    id1=last_shared_method_id,
-                                    shared_by=last_shared_shared_by,
-                                    shared_date_time=last_shared_shared_date_time,
-                                    sharing_subject=last_shared_sharing_subject,
-                                    sharing_type=last_shared_sharing_type,
-                                    sharing_reference=last_shared_sharing_reference)
-    elif user_id is not None and trending_id is not None:
-        return client.update_trending(user_id=user_id,
-                                      trending_id=trending_id,
-                                      id=id_,
-                                      weight=weight,
-                                      resource_visualization=resource_visualization,
-                                      resource_reference=resource_reference,
-                                      last_modified_date_time=last_modified_date_time,
-                                      microsoft_graph_entity_id=resource_id)
-    return client.update_used(user_id=user_id,
-                              used_insight_id=used_insight_id,
-                              id=id_,
-                              last_used=last_used,
-                              resource_visualization=resource_visualization,
-                              resource_reference=resource_reference,
-                              microsoft_graph_entity_id=resource_id)
+def analytics_update_activity_statistics(client,
+                                         user_id,
+                                         activity_statistics_id,
+                                         id_=None,
+                                         activity=None,
+                                         start_date=None,
+                                         end_date=None,
+                                         time_zone_used=None,
+                                         duration=None):
+    return client.update_activity_statistics(user_id=user_id,
+                                             activity_statistics_id=activity_statistics_id,
+                                             id=id_,
+                                             activity=activity,
+                                             start_date=start_date,
+                                             end_date=end_date,
+                                             time_zone_used=time_zone_used,
+                                             duration=duration)
 
 
 def analytics_create_shared(client,
@@ -337,6 +290,71 @@ def analytics_list_used(client,
                             orderby=orderby,
                             select=select,
                             expand=expand)
+
+
+def analytics_update_shared(client,
+                            user_id,
+                            shared_insight_id,
+                            id_=None,
+                            sharing_history=None,
+                            resource_visualization=None,
+                            resource_reference=None,
+                            resource_id=None,
+                            last_shared_method_id=None,
+                            last_shared_shared_by=None,
+                            last_shared_shared_date_time=None,
+                            last_shared_sharing_subject=None,
+                            last_shared_sharing_type=None,
+                            last_shared_sharing_reference=None):
+    return client.update_shared(user_id=user_id,
+                                shared_insight_id=shared_insight_id,
+                                id=id_,
+                                sharing_history=sharing_history,
+                                resource_visualization=resource_visualization,
+                                resource_reference=resource_reference,
+                                microsoft_graph_entity_id=resource_id,
+                                id1=last_shared_method_id,
+                                shared_by=last_shared_shared_by,
+                                shared_date_time=last_shared_shared_date_time,
+                                sharing_subject=last_shared_sharing_subject,
+                                sharing_type=last_shared_sharing_type,
+                                sharing_reference=last_shared_sharing_reference)
+
+
+def analytics_update_trending(client,
+                              user_id,
+                              trending_id,
+                              id_=None,
+                              weight=None,
+                              resource_visualization=None,
+                              resource_reference=None,
+                              last_modified_date_time=None,
+                              resource_id=None):
+    return client.update_trending(user_id=user_id,
+                                  trending_id=trending_id,
+                                  id=id_,
+                                  weight=weight,
+                                  resource_visualization=resource_visualization,
+                                  resource_reference=resource_reference,
+                                  last_modified_date_time=last_modified_date_time,
+                                  microsoft_graph_entity_id=resource_id)
+
+
+def analytics_update_used(client,
+                          user_id,
+                          used_insight_id,
+                          id_=None,
+                          last_used=None,
+                          resource_visualization=None,
+                          resource_reference=None,
+                          resource_id=None):
+    return client.update_used(user_id=user_id,
+                              used_insight_id=used_insight_id,
+                              id=id_,
+                              last_used=last_used,
+                              resource_visualization=resource_visualization,
+                              resource_reference=resource_reference,
+                              microsoft_graph_entity_id=resource_id)
 
 
 def analytics_get_last_shared_method(client,

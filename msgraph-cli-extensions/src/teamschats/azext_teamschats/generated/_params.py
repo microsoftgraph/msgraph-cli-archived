@@ -27,23 +27,13 @@ from azext_teamschats.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('teamschats update') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('topic', help='')
-        c.argument('created_date_time', help='')
-        c.argument('last_updated_date_time', help='')
-        c.argument('members', action=AddMembers, nargs='*', help='')
-        c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-
     with self.argument_context('teamschats delete') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('if_match', help='ETag')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teamschats create-chat') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('topic', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('topic', type=str, help='')
         c.argument('created_date_time', help='')
         c.argument('last_updated_date_time', help='')
         c.argument('members', action=AddMembers, nargs='*', help='')
@@ -51,7 +41,7 @@ def load_arguments(self, _):
         c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('teamschats get-chat') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
@@ -60,339 +50,356 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teamschats update') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
-        c.argument('teams_app_id', help='Read-only.')
-        c.argument('teams_app_external_id', help='The ID of the catalog provided by the app developer in the Microsoft '
-                   'Teams zip app package.')
-        c.argument('teams_app_name', help='')
-        c.argument('teams_app_display_name', help='The name of the catalog app provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
-        c.argument('conversation_member_id', help='key: conversationMember-id of conversationMember')
-        c.argument('roles', nargs='*', help='')
-        c.argument('display_name', help='')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
-        c.argument('reply_to_id', help='')
-        c.argument('etag', help='')
-        c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
+    with self.argument_context('teamschats update-chat') as c:
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('topic', type=str, help='')
         c.argument('created_date_time', help='')
-        c.argument('last_modified_date_time', help='')
-        c.argument('deleted_date_time', help='')
-        c.argument('subject', help='')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('summary', help='')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('mentions', action=AddMentions, nargs='*', help='')
-        c.argument('importance', arg_type=get_enum_type(['normal', 'high', 'urgent']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
-        c.argument('locale', help='')
-        c.argument('web_url', help='')
-        c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                   'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', help='')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                    help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                   'allowOverrideWithoutJustification', 'allowOverrideWithJustification']), help='')
-        c.argument('from_user_id', help='Unique identifier for the identity.')
-        c.argument('from_user_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_device_id', help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_application_id', help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', help='The identity\'s display name. Note that this may not always '
-                   'be available or up to date. For example, if a user changes their display name, the API may show '
-                   'the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-
-    with self.argument_context('teamschats all-message') as c:
-        pass
+        c.argument('last_updated_date_time', help='')
+        c.argument('members', action=AddMembers, nargs='*', help='')
+        c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('teamschats create-installed-app') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
-        c.argument('teams_app_id', help='Read-only.')
-        c.argument('teams_app_external_id', help='The ID of the catalog provided by the app developer in the Microsoft '
-                   'Teams zip app package.')
-        c.argument('teams_app_name', help='')
-        c.argument('teams_app_display_name', help='The name of the catalog app provided by the app developer in the '
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
+        c.argument('teams_app_name', type=str, help='')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
         c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                   'unknownFutureValue']), help='')
+                                                                            'unknownFutureValue']), help='')
         c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
                    'each version of the app.')
 
     with self.argument_context('teamschats create-member') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('roles', nargs='*', help='')
-        c.argument('display_name', help='')
+        c.argument('display_name', type=str, help='')
 
     with self.argument_context('teamschats create-message') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('reply_to_id', help='')
-        c.argument('etag', help='')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('reply_to_id', type=str, help='')
+        c.argument('etag', type=str, help='')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
         c.argument('created_date_time', help='')
         c.argument('last_modified_date_time', help='')
         c.argument('deleted_date_time', help='')
-        c.argument('subject', help='')
+        c.argument('subject', type=str, help='')
         c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('summary', help='')
+        c.argument('summary', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
         c.argument('mentions', action=AddMentions, nargs='*', help='')
         c.argument('importance', arg_type=get_enum_type(['normal', 'high', 'urgent']), help='')
         c.argument('reactions', action=AddReactions, nargs='*', help='')
-        c.argument('locale', help='')
-        c.argument('web_url', help='')
+        c.argument('locale', type=str, help='')
+        c.argument('web_url', type=str, help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                   'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', help='')
+                                                                          'blockAccessExternal']), help='')
+        c.argument('policy_violation_justification_text', type=str, help='')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                    help='')
+                   help='')
         c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                   'allowOverrideWithoutJustification', 'allowOverrideWithJustification']), help='')
-        c.argument('from_user_id', help='Unique identifier for the identity.')
-        c.argument('from_user_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_device_id', help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_application_id', help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', help='The identity\'s display name. Note that this may not always '
-                   'be available or up to date. For example, if a user changes their display name, the API may show '
-                   'the new value in a future response, but the items associated with the user won\'t show up as '
+                                                                               'allowOverrideWithoutJustification', ''
+                                                                               'allowOverrideWithJustification']),
+                   help='')
+        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
                    'having changed when using delta.')
+        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
 
     with self.argument_context('teamschats get-installed-app') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats get-member') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('conversation_member_id', help='key: conversationMember-id of conversationMember')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('conversation_member_id', type=str, help='key: conversationMember-id of conversationMember')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats get-message') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats list-installed-app') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats list-member') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats list-message') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('teamschats update-installed-app') as c:
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('teams_app_name', type=str, help='')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
+        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                            'unknownFutureValue']), help='')
+        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
+                   'each version of the app.')
+
+    with self.argument_context('teamschats update-member') as c:
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('conversation_member_id', type=str, help='key: conversationMember-id of conversationMember')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('roles', nargs='*', help='')
+        c.argument('display_name', type=str, help='')
+
+    with self.argument_context('teamschats update-message') as c:
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('reply_to_id', type=str, help='')
+        c.argument('etag', type=str, help='')
+        c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
+        c.argument('created_date_time', help='')
+        c.argument('last_modified_date_time', help='')
+        c.argument('deleted_date_time', help='')
+        c.argument('subject', type=str, help='')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('summary', type=str, help='')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='')
+        c.argument('mentions', action=AddMentions, nargs='*', help='')
+        c.argument('importance', arg_type=get_enum_type(['normal', 'high', 'urgent']), help='')
+        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('locale', type=str, help='')
+        c.argument('web_url', type=str, help='')
+        c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
+                                                                          'blockAccessExternal']), help='')
+        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
+                   'chatMessagePolicyViolationPolicyTip')
+        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
+                   help='')
+        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
+                                                                               'allowOverrideWithoutJustification', ''
+                                                                               'allowOverrideWithJustification']),
+                   help='')
+        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+
     with self.argument_context('teamschats get-team-app') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats get-team-app-definition') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats upgrade') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
-
-    with self.argument_context('teamschats update') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
-        c.argument('chat_message_hosted_content_id', help='key: chatMessageHostedContent-id of '
-                   'chatMessageHostedContent')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('chat_message_id1', help='key: chatMessage-id of chatMessage')
-        c.argument('reply_to_id', help='')
-        c.argument('etag', help='')
-        c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('created_date_time', help='')
-        c.argument('last_modified_date_time', help='')
-        c.argument('deleted_date_time', help='')
-        c.argument('subject', help='')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('summary', help='')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='')
-        c.argument('mentions', action=AddMentions, nargs='*', help='')
-        c.argument('importance', arg_type=get_enum_type(['normal', 'high', 'urgent']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
-        c.argument('locale', help='')
-        c.argument('web_url', help='')
-        c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                   'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', help='')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                    help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                   'allowOverrideWithoutJustification', 'allowOverrideWithJustification']), help='')
-        c.argument('from_user_id', help='Unique identifier for the identity.')
-        c.argument('from_user_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_device_id', help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_application_id', help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', help='The identity\'s display name. Note that this may not always '
-                   'be available or up to date. For example, if a user changes their display name, the API may show '
-                   'the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
 
     with self.argument_context('teamschats create-hosted-content') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
     with self.argument_context('teamschats create-reply') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('reply_to_id', help='')
-        c.argument('etag', help='')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('reply_to_id', type=str, help='')
+        c.argument('etag', type=str, help='')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
         c.argument('created_date_time', help='')
         c.argument('last_modified_date_time', help='')
         c.argument('deleted_date_time', help='')
-        c.argument('subject', help='')
+        c.argument('subject', type=str, help='')
         c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('summary', help='')
+        c.argument('summary', type=str, help='')
         c.argument('attachments', action=AddAttachments, nargs='*', help='')
         c.argument('mentions', action=AddMentions, nargs='*', help='')
         c.argument('importance', arg_type=get_enum_type(['normal', 'high', 'urgent']), help='')
         c.argument('reactions', action=AddReactions, nargs='*', help='')
-        c.argument('locale', help='')
-        c.argument('web_url', help='')
+        c.argument('locale', type=str, help='')
+        c.argument('web_url', type=str, help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                   'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', help='')
+                                                                          'blockAccessExternal']), help='')
+        c.argument('policy_violation_justification_text', type=str, help='')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                    help='')
+                   help='')
         c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                   'allowOverrideWithoutJustification', 'allowOverrideWithJustification']), help='')
-        c.argument('from_user_id', help='Unique identifier for the identity.')
-        c.argument('from_user_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_device_id', help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', help='The identity\'s display name. Note that this may not always be '
-                   'available or up to date. For example, if a user changes their display name, the API may show the '
-                   'new value in a future response, but the items associated with the user won\'t show up as having '
-                   'changed when using delta.')
-        c.argument('from_application_id', help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', help='The identity\'s display name. Note that this may not always '
-                   'be available or up to date. For example, if a user changes their display name, the API may show '
-                   'the new value in a future response, but the items associated with the user won\'t show up as '
+                                                                               'allowOverrideWithoutJustification', ''
+                                                                               'allowOverrideWithJustification']),
+                   help='')
+        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
                    'having changed when using delta.')
+        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
 
     with self.argument_context('teamschats delta') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
 
     with self.argument_context('teamschats get-hosted-content') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
-        c.argument('chat_message_hosted_content_id', help='key: chatMessageHostedContent-id of '
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: chatMessageHostedContent-id of '
                    'chatMessageHostedContent')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats get-reply') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
-        c.argument('chat_message_id1', help='key: chatMessage-id of chatMessage')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: chatMessage-id of chatMessage')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats list-hosted-content') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats list-reply') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teamschats delta') as c:
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('chat_message_id', help='key: chatMessage-id of chatMessage')
+    with self.argument_context('teamschats update-hosted-content') as c:
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: chatMessageHostedContent-id of '
+                   'chatMessageHostedContent')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('teamschats update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('chat_id', help='key: chat-id of chat')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('topic', help='')
+    with self.argument_context('teamschats update-reply') as c:
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: chatMessage-id of chatMessage')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('reply_to_id', type=str, help='')
+        c.argument('etag', type=str, help='')
+        c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
         c.argument('created_date_time', help='')
-        c.argument('last_updated_date_time', help='')
-        c.argument('members', action=AddMembers, nargs='*', help='')
-        c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('last_modified_date_time', help='')
+        c.argument('deleted_date_time', help='')
+        c.argument('subject', type=str, help='')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('summary', type=str, help='')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='')
+        c.argument('mentions', action=AddMentions, nargs='*', help='')
+        c.argument('importance', arg_type=get_enum_type(['normal', 'high', 'urgent']), help='')
+        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('locale', type=str, help='')
+        c.argument('web_url', type=str, help='')
+        c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
+                                                                          'blockAccessExternal']), help='')
+        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
+                   'chatMessagePolicyViolationPolicyTip')
+        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
+                   help='')
+        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
+                                                                               'allowOverrideWithoutJustification', ''
+                                                                               'allowOverrideWithJustification']),
+                   help='')
+        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
+                   'always be available or up to date. For example, if a user changes their display name, the API may '
+                   'show the new value in a future response, but the items associated with the user won\'t show up as '
+                   'having changed when using delta.')
+        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+
+    with self.argument_context('teamschats delta') as c:
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('chat_message_id', type=str, help='key: chatMessage-id of chatMessage')
 
     with self.argument_context('teamschats create-chat') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('topic', help='')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('topic', type=str, help='')
         c.argument('created_date_time', help='')
         c.argument('last_updated_date_time', help='')
         c.argument('members', action=AddMembers, nargs='*', help='')
@@ -400,13 +407,24 @@ def load_arguments(self, _):
         c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('teamschats get-chat') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('chat_id', help='key: chat-id of chat')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamschats list-chat') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teamschats update-chat') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('chat_id', type=str, help='key: chat-id of chat')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('topic', type=str, help='')
+        c.argument('created_date_time', help='')
+        c.argument('last_updated_date_time', help='')
+        c.argument('members', action=AddMembers, nargs='*', help='')
+        c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')

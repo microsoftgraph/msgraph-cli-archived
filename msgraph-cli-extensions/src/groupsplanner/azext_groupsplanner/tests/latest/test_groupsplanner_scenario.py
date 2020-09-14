@@ -10,7 +10,7 @@
 
 import os
 from azure.cli.testsdk import ScenarioTest
-from .. import try_manual, raise_if
+from .. import try_manual, raise_if, calc_coverage
 
 
 TEST_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), '..'))
@@ -38,4 +38,5 @@ class GroupsPlannerScenarioTest(ScenarioTest):
     def test_groupsplanner(self):
 
         call_scenario(self)
+        calc_coverage(__file__)
         raise_if()

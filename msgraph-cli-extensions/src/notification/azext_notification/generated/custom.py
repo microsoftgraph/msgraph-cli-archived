@@ -10,31 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def notification_update(client,
-                        user_id,
-                        notification_id,
-                        id_=None,
-                        target_host_name=None,
-                        expiration_date_time=None,
-                        display_time_to_live=None,
-                        priority=None,
-                        group_name=None,
-                        target_policy=None,
-                        payload_raw_content=None,
-                        payload_visual_content=None):
-    return client.update_notification(user_id=user_id,
-                                      notification_id=notification_id,
-                                      id=id_,
-                                      target_host_name=target_host_name,
-                                      expiration_date_time=expiration_date_time,
-                                      display_time_to_live=display_time_to_live,
-                                      priority=priority,
-                                      group_name=group_name,
-                                      target_policy=target_policy,
-                                      raw_content=payload_raw_content,
-                                      visual_content=payload_visual_content)
-
-
 def notification_create_notification(client,
                                      user_id,
                                      id_=None,
@@ -78,3 +53,28 @@ def notification_list_notification(client,
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
+
+
+def notification_update_notification(client,
+                                     user_id,
+                                     notification_id,
+                                     id_=None,
+                                     target_host_name=None,
+                                     expiration_date_time=None,
+                                     display_time_to_live=None,
+                                     priority=None,
+                                     group_name=None,
+                                     target_policy=None,
+                                     payload_raw_content=None,
+                                     payload_visual_content=None):
+    return client.update_notification(user_id=user_id,
+                                      notification_id=notification_id,
+                                      id=id_,
+                                      target_host_name=target_host_name,
+                                      expiration_date_time=expiration_date_time,
+                                      display_time_to_live=display_time_to_live,
+                                      priority=priority,
+                                      group_name=group_name,
+                                      target_policy=target_policy,
+                                      raw_content=payload_raw_content,
+                                      visual_content=payload_visual_content)
