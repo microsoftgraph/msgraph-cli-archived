@@ -6,7 +6,7 @@
 from knack.cli import logger
 from knack.util import CLIError
 
-from msgraph.cli.core.custom_browser_credential import get_credential
+from msgraph.cli.core.authentication import Authentication
 from msgraph.core import GraphSession
 
 
@@ -46,7 +46,7 @@ def get_mgmt_service_client(cli_ctx,
                             aux_tenants=None,
                             **kwargs):
 
-    credential = get_credential()
+    credential = Authentication().get_credential()
     graph_session = GraphSession(credential=credential)
 
     client = client_type({}, session=graph_session)
