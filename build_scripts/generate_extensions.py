@@ -21,9 +21,9 @@ def generate_extension_from_open_api_description():
             subprocess.run(
                 ['autorest-beta', '--az', '--v3', f'''--input-file:{file_path}''',
                  r'''--azure-cli-extension-folder=../msgraph-cli-extensions''',
-                 r'''--use=@autorest/python@5.1.0-preview.2''',
+                 r'''--use=@autorest/python@5.1.0-preview.4''',
                  r'''--use=@autorest/modelerfour@4.14.366''',
-                 r'''--use=https://github.com/Azure/autorest.az/releases/download/1.4.1-b.20200623.1/autorest-az-1.4.1.tgz'''],
+                 r'''--use=@autorest/az@1.5.0'''],
                 shell=True)
 
 

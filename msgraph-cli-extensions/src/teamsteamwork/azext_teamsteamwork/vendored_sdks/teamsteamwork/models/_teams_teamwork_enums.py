@@ -6,71 +6,89 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Enum10(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    id = "id"
-    teams_app_id = "teamsAppId"
-    display_name = "displayName"
-    version = "version"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Enum6(str, Enum):
 
-    id = "id"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
+class Enum10(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum8(str, Enum):
+    ID = "id"
+    TEAMS_APP_ID = "teamsAppId"
+    DISPLAY_NAME = "displayName"
+    VERSION = "version"
 
-    id = "id"
-    external_id = "externalId"
-    name = "name"
-    display_name = "displayName"
-    distribution_method = "distributionMethod"
-    app_definitions = "appDefinitions"
+class Enum6(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum9(str, Enum):
+    ID = "id"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
 
-    asterisk = "*"
-    app_definitions = "appDefinitions"
+class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get1ItemsItem(str, Enum):
+    ID = "id"
+    EXTERNAL_ID = "externalId"
+    NAME = "name"
+    DISPLAY_NAME = "displayName"
+    DISTRIBUTION_METHOD = "distributionMethod"
+    APP_DEFINITIONS = "appDefinitions"
 
-    id = "id"
-    installed_apps = "installedApps"
+class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get2ItemsItem(str, Enum):
+    ASTERISK = "*"
+    APP_DEFINITIONS = "appDefinitions"
 
-    asterisk = "*"
-    installed_apps = "installedApps"
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get3ItemsItem(str, Enum):
+    ID = "id"
+    INSTALLED_APPS = "installedApps"
 
-    asterisk = "*"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get6ItemsItem(str, Enum):
+    ASTERISK = "*"
+    INSTALLED_APPS = "installedApps"
 
-    id = "id"
-    id_desc = "id desc"
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get7ItemsItem(str, Enum):
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
 
-    id = "id"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get8ItemsItem(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
 
-    asterisk = "*"
-    teams_app = "teamsApp"
-    teams_app_definition = "teamsAppDefinition"
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphTeamsAppDistributionMethod(str, Enum):
+    ID = "id"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
 
-    store = "store"
-    organization = "organization"
-    sideloaded = "sideloaded"
-    unknown_future_value = "unknownFutureValue"
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STORE = "store"
+    ORGANIZATION = "organization"
+    SIDELOADED = "sideloaded"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"

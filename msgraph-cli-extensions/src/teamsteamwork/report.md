@@ -136,9 +136,9 @@ list-installed-app a teamsteamwork.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teamsteamwork update
+### teamsteamwork update-installed-app
 
-update a teamsteamwork.
+update-installed-app a teamsteamwork.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -148,7 +148,7 @@ update a teamsteamwork.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateInstalledApps|
+|update-installed-app|UpdateInstalledApps|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -163,3 +163,24 @@ update a teamsteamwork.
 |**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|display_name|displayName|
 |**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
 |**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+
+### teamsteamwork update-teamwork
+
+update-teamwork a teamsteamwork.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teamsteamwork|users|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-teamwork|UpdateTeamwork|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--id**|string|Read-only.|id|id|
+|**--installed-apps**|array||installed_apps|installedApps|

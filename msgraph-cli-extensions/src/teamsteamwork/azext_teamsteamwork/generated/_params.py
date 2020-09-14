@@ -20,67 +20,67 @@ from azext_teamsteamwork.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('teamsteamwork update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-
     with self.argument_context('teamsteamwork get-teamwork') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('teamsteamwork update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
-        c.argument('teams_app_id', help='Read-only.')
-        c.argument('teams_app_external_id', help='The ID of the catalog provided by the app developer in the Microsoft '
-                   'Teams zip app package.')
-        c.argument('teams_app_name', help='')
-        c.argument('teams_app_display_name', help='The name of the catalog app provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
+    with self.argument_context('teamsteamwork update-teamwork') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('teamsteamwork create-installed-app') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
-        c.argument('teams_app_id', help='Read-only.')
-        c.argument('teams_app_external_id', help='The ID of the catalog provided by the app developer in the Microsoft '
-                   'Teams zip app package.')
-        c.argument('teams_app_name', help='')
-        c.argument('teams_app_display_name', help='The name of the catalog app provided by the app developer in the '
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
+        c.argument('teams_app_name', type=str, help='')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
         c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                   'unknownFutureValue']), help='')
+                                                                            'unknownFutureValue']), help='')
         c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
                    'each version of the app.')
 
     with self.argument_context('teamsteamwork get-installed-app') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamsteamwork list-installed-app') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('teamsteamwork update-installed-app') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('teams_app_name', type=str, help='')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
+        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                            'unknownFutureValue']), help='')
+        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
+                   'each version of the app.')
+
     with self.argument_context('teamsteamwork get-team-app') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('teamsteamwork get-team-app-definition') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('teams_app_installation_id', help='key: teamsAppInstallation-id of teamsAppInstallation')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('teams_app_installation_id', type=str, help='key: teamsAppInstallation-id of teamsAppInstallation')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')

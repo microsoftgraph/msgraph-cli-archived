@@ -10,7 +10,7 @@ from ._files_shares import FilesShares
 __all__ = ['FilesShares']
 
 try:
-    from ._patch import patch_sdk
+    from ._patch import patch_sdk  # type: ignore
     patch_sdk()
 except ImportError:
     pass

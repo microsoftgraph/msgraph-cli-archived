@@ -17,27 +17,27 @@ helps['subscriptions'] = """
     short-summary: subscriptions
 """
 
-helps['subscriptions update'] = """
-    type: command
-    short-summary: Update entity in subscriptions
-"""
-
 helps['subscriptions delete'] = """
     type: command
-    short-summary: Delete entity from subscriptions
+    short-summary: "Delete entity from subscriptions"
 """
 
 helps['subscriptions create-subscription'] = """
     type: command
-    short-summary: Add new entity to subscriptions
+    short-summary: "Add new entity to subscriptions"
 """
 
 helps['subscriptions get-subscription'] = """
     type: command
-    short-summary: Get entity from subscriptions by key
+    short-summary: "Get entity from subscriptions by key"
 """
 
 helps['subscriptions list-subscription'] = """
     type: command
-    short-summary: Get entities from subscriptions
+    short-summary: "Get entities from subscriptions"
+"""
+
+helps['subscriptions update-subscription'] = """
+    type: command
+    short-summary: "Update entity in subscriptions"
 """

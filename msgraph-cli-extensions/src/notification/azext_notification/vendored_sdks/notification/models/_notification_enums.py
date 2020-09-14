@@ -6,51 +6,69 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Get2ItemsItem(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    id = "id"
-    target_host_name = "targetHostName"
-    expiration_date_time = "expirationDateTime"
-    payload = "payload"
-    display_time_to_live = "displayTimeToLive"
-    priority = "priority"
-    group_name = "groupName"
-    target_policy = "targetPolicy"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Get6ItemsItem(str, Enum):
 
-    id = "id"
-    id_desc = "id desc"
-    target_host_name = "targetHostName"
-    target_host_name_desc = "targetHostName desc"
-    expiration_date_time = "expirationDateTime"
-    expiration_date_time_desc = "expirationDateTime desc"
-    payload = "payload"
-    payload_desc = "payload desc"
-    display_time_to_live = "displayTimeToLive"
-    display_time_to_live_desc = "displayTimeToLive desc"
-    priority = "priority"
-    priority_desc = "priority desc"
-    group_name = "groupName"
-    group_name_desc = "groupName desc"
-    target_policy = "targetPolicy"
-    target_policy_desc = "targetPolicy desc"
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get7ItemsItem(str, Enum):
+    ID = "id"
+    TARGET_HOST_NAME = "targetHostName"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    PAYLOAD = "payload"
+    DISPLAY_TIME_TO_LIVE = "displayTimeToLive"
+    PRIORITY = "priority"
+    GROUP_NAME = "groupName"
+    TARGET_POLICY = "targetPolicy"
 
-    id = "id"
-    target_host_name = "targetHostName"
-    expiration_date_time = "expirationDateTime"
-    payload = "payload"
-    display_time_to_live = "displayTimeToLive"
-    priority = "priority"
-    group_name = "groupName"
-    target_policy = "targetPolicy"
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphPriority(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    TARGET_HOST_NAME = "targetHostName"
+    TARGET_HOST_NAME_DESC = "targetHostName desc"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    EXPIRATION_DATE_TIME_DESC = "expirationDateTime desc"
+    PAYLOAD = "payload"
+    PAYLOAD_DESC = "payload desc"
+    DISPLAY_TIME_TO_LIVE = "displayTimeToLive"
+    DISPLAY_TIME_TO_LIVE_DESC = "displayTimeToLive desc"
+    PRIORITY = "priority"
+    PRIORITY_DESC = "priority desc"
+    GROUP_NAME = "groupName"
+    GROUP_NAME_DESC = "groupName desc"
+    TARGET_POLICY = "targetPolicy"
+    TARGET_POLICY_DESC = "targetPolicy desc"
 
-    none = "None"
-    high = "High"
-    low = "Low"
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TARGET_HOST_NAME = "targetHostName"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    PAYLOAD = "payload"
+    DISPLAY_TIME_TO_LIVE = "displayTimeToLive"
+    PRIORITY = "priority"
+    GROUP_NAME = "groupName"
+    TARGET_POLICY = "targetPolicy"
+
+class MicrosoftGraphPriority(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "None"
+    HIGH = "High"
+    LOW = "Low"

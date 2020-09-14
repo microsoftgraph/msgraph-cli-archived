@@ -17,13 +17,18 @@ helps['sitesonenote'] = """
     short-summary: sitesonenote
 """
 
-helps['sitesonenote update'] = """
+helps['sitesonenote get-onenote'] = """
     type: command
-    short-summary: Update the navigation property onenote in sites
+    short-summary: "Get onenote from sites"
+"""
+
+helps['sitesonenote update-onenote'] = """
+    type: command
+    short-summary: "Update the navigation property onenote in sites"
     parameters:
       - name: --resources
-        short-summary: The image and other file resources in OneNote pages. Getting a resources collection is not \
-supported, but you can get the binary content of a specific resource. Read-only. Nullable.
+        short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
+supported, but you can get the binary content of a specific resource. Read-only. Nullable."
         long-summary: |
             Usage: --resources content=XX content-url=XX self=XX id=XX
 
@@ -35,94 +40,17 @@ supported, but you can get the binary content of a specific resource. Read-only.
             Multiple actions can be specified by using more than one --resources argument.
 """
 
-helps['sitesonenote get-onenote'] = """
-    type: command
-    short-summary: Get onenote from sites
-"""
-
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
 """
 
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property sections in sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --links-one-note-client-url
-        short-summary: externalLink
-        long-summary: |
-            Usage: --links-one-note-client-url href=XX
-
-            href: The url of the link.
-      - name: --links-one-note-web-url
-        short-summary: externalLink
-        long-summary: |
-            Usage: --links-one-note-web-url href=XX
-
-            href: The url of the link.
-"""
-
 helps['sitesonenote create-notebook'] = """
     type: command
-    short-summary: Create new navigation property to notebooks for sites
+    short-summary: "Create new navigation property to notebooks for sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -131,7 +59,7 @@ helps['sitesonenote create-notebook'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -140,7 +68,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -149,7 +77,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -158,7 +86,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -167,7 +95,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -176,13 +104,13 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
@@ -191,10 +119,10 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote create-operation'] = """
     type: command
-    short-summary: Create new navigation property to operations for sites
+    short-summary: "Create new navigation property to operations for sites"
     parameters:
       - name: --error
-        short-summary: onenoteOperationError
+        short-summary: "onenoteOperationError"
         long-summary: |
             Usage: --error code=XX message=XX
 
@@ -204,20 +132,20 @@ helps['sitesonenote create-operation'] = """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote create-resource'] = """
     type: command
-    short-summary: Create new navigation property to resources for sites
+    short-summary: "Create new navigation property to resources for sites"
 """
 
 helps['sitesonenote create-section'] = """
     type: command
-    short-summary: Create new navigation property to sections for sites
+    short-summary: "Create new navigation property to sections for sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -226,7 +154,7 @@ helps['sitesonenote create-section'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -235,7 +163,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -244,7 +172,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -253,7 +181,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -262,7 +190,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -271,13 +199,13 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
@@ -286,10 +214,10 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote create-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -298,7 +226,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -307,7 +235,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -316,7 +244,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -325,7 +253,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -334,7 +262,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -346,75 +274,70 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-notebook'] = """
     type: command
-    short-summary: Get notebooks from sites
+    short-summary: "Get notebooks from sites"
 """
 
 helps['sitesonenote get-operation'] = """
     type: command
-    short-summary: Get operations from sites
+    short-summary: "Get operations from sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-resource'] = """
     type: command
-    short-summary: Get resources from sites
+    short-summary: "Get resources from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-notebook'] = """
     type: command
-    short-summary: Get notebooks from sites
+    short-summary: "Get notebooks from sites"
 """
 
 helps['sitesonenote list-operation'] = """
     type: command
-    short-summary: Get operations from sites
+    short-summary: "Get operations from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote list-resource'] = """
     type: command
-    short-summary: Get resources from sites
+    short-summary: "Get resources from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property notebooks in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -423,7 +346,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -432,7 +355,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -441,7 +364,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -450,7 +373,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -459,67 +382,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -528,25 +391,48 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-operation'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property operations in sites"
+    parameters:
+      - name: --error
+        short-summary: "onenoteOperationError"
+        long-summary: |
+            Usage: --error code=XX message=XX
+
+            code: The error code.
+            message: The error message.
+"""
+
+helps['sitesonenote update-page'] = """
+    type: command
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-resource'] = """
+    type: command
+    short-summary: "Update the navigation property resources in sites"
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -555,7 +441,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -564,7 +450,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -573,7 +459,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -582,7 +468,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -591,7 +477,216 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -603,35 +698,30 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-section'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -640,7 +730,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -649,7 +739,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -658,7 +748,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -667,7 +757,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -676,67 +766,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -745,25 +775,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -772,7 +802,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -781,7 +811,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -790,7 +820,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -799,7 +829,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -808,7 +838,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -820,80 +987,339 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
 """
 
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
 """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-page'] = """
     type: command
-    short-summary: Update the navigation property parentSection in sites
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -902,7 +1328,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -911,7 +1337,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -920,7 +1346,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -929,7 +1355,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -938,7 +1364,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -947,75 +1373,100 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section'] = """
     type: command
-    short-summary: Get parentSection from sites
+    short-summary: "Get parentSection from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
-"""
-
-helps['sitesonenote create-page'] = """
-    type: command
-    short-summary: Create new navigation property to pages for sites
-"""
-
-helps['sitesonenote get-page'] = """
-    type: command
-    short-summary: Get pages from sites
-"""
-
-helps['sitesonenote get-parent-notebook'] = """
-    type: command
-    short-summary: Get parentNotebook from sites
-"""
-
-helps['sitesonenote get-parent-section-group'] = """
-    type: command
-    short-summary: Get parentSectionGroup from sites
-"""
-
-helps['sitesonenote list-page'] = """
-    type: command
-    short-summary: Get pages from sites
-"""
-
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSection in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1024,7 +1475,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1033,7 +1484,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1042,7 +1493,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1051,7 +1502,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1060,7 +1511,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1069,40 +1520,279 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
+helps['sitesonenote update-parent-section'] = """
+    type: command
+    short-summary: "Update the navigation property parentSection in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-page'] = """
+    type: command
+    short-summary: "Create new navigation property to pages for sites"
+"""
+
+helps['sitesonenote get-page'] = """
+    type: command
+    short-summary: "Get pages from sites"
+"""
+
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
+"""
+
+helps['sitesonenote get-parent-section-group'] = """
+    type: command
+    short-summary: "Get parentSectionGroup from sites"
+"""
+
+helps['sitesonenote list-page'] = """
+    type: command
+    short-summary: "Get pages from sites"
+"""
+
+helps['sitesonenote update-page'] = """
+    type: command
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote get-parent-notebook'] = """
+    type: command
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section'] = """
     type: command
-    short-summary: Get parentSection from sites
+    short-summary: "Get parentSection from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1111,7 +1801,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1120,7 +1810,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1129,7 +1819,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1138,7 +1828,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1147,67 +1837,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1216,13 +1846,162 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section'] = """
+    type: command
+    short-summary: "Update the navigation property parentSection in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
@@ -1231,10 +2010,10 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote create-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Create new navigation property to sectionGroups for sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1243,7 +2022,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1252,7 +2031,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1261,7 +2040,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1270,7 +2049,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1279,7 +2058,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1291,45 +2070,40 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property parentSection in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1338,7 +2112,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1347,7 +2121,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1356,7 +2130,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1365,7 +2139,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1374,7 +2148,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1383,40 +2157,232 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section'] = """
     type: command
-    short-summary: Get parentSection from sites
+    short-summary: "Get parentSection from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1425,7 +2391,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1434,7 +2400,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1443,7 +2409,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1452,7 +2418,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1461,67 +2427,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1530,25 +2436,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSection in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1557,7 +2463,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1566,7 +2472,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1575,7 +2481,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1584,7 +2490,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1593,7 +2499,156 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1605,35 +2660,30 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-section'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1642,7 +2692,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1651,7 +2701,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1660,7 +2710,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1669,7 +2719,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1678,67 +2728,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1747,25 +2737,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1774,7 +2764,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1783,7 +2773,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1792,7 +2782,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1801,7 +2791,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1810,7 +2800,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -1822,115 +2949,506 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
 """
 
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
 """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
+"""
+
+helps['sitesonenote update-page'] = """
+    type: command
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
 """
 
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
 """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-page'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -1939,7 +3457,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -1948,7 +3466,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -1957,7 +3475,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -1966,7 +3484,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -1975,67 +3493,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2044,25 +3502,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2071,7 +3529,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2080,7 +3538,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2089,7 +3547,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2098,7 +3556,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2107,7 +3565,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2119,80 +3714,339 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
 """
 
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
 """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-page'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2201,7 +4055,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2210,7 +4064,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2219,7 +4073,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2228,7 +4082,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2237,67 +4091,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2306,25 +4100,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2333,7 +4127,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2342,7 +4136,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2351,7 +4145,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2360,7 +4154,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2369,7 +4163,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2381,35 +4312,30 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-section'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2418,7 +4344,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2427,7 +4353,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2436,7 +4362,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2445,7 +4371,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2454,67 +4380,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2523,25 +4389,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2550,7 +4416,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2559,7 +4425,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2568,7 +4434,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2577,7 +4443,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2586,7 +4452,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2598,45 +4601,40 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2645,7 +4643,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2654,7 +4652,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2663,7 +4661,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2672,7 +4670,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2681,67 +4679,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2750,25 +4688,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2777,7 +4715,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2786,7 +4724,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2795,7 +4733,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2804,7 +4742,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2813,7 +4751,276 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2825,45 +5032,40 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -2872,7 +5074,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -2881,7 +5083,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -2890,7 +5092,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -2899,7 +5101,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -2908,67 +5110,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -2977,25 +5119,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3004,7 +5146,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3013,7 +5155,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3022,7 +5164,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3031,7 +5173,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3040,7 +5182,276 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3052,35 +5463,30 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-section'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3089,7 +5495,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3098,7 +5504,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3107,7 +5513,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3116,7 +5522,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3125,67 +5531,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3194,25 +5540,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3221,7 +5567,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3230,7 +5576,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3239,7 +5585,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3248,7 +5594,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3257,7 +5603,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3269,45 +5752,40 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3316,7 +5794,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3325,7 +5803,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3334,7 +5812,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3343,7 +5821,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3352,67 +5830,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3421,25 +5839,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3448,7 +5866,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3457,7 +5875,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3466,7 +5884,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3475,7 +5893,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3484,7 +5902,276 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3496,70 +6183,197 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
 """
 
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
 """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-page'] = """
     type: command
-    short-summary: Update the navigation property parentSection in sites
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3568,7 +6382,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3577,7 +6391,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3586,7 +6400,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3595,7 +6409,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3604,7 +6418,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3613,75 +6427,279 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section'] = """
     type: command
-    short-summary: Get parentSection from sites
+    short-summary: "Get parentSection from sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section'] = """
+    type: command
+    short-summary: "Update the navigation property parentSection in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
 """
 
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
 """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-page'] = """
     type: command
-    short-summary: Update the navigation property parentSection in sites
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3690,7 +6708,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3699,7 +6717,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3708,7 +6726,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3717,7 +6735,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3726,7 +6744,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3735,40 +6753,100 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
+"""
+
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section'] = """
     type: command
-    short-summary: Get parentSection from sites
+    short-summary: "Get parentSection from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3777,7 +6855,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3786,7 +6864,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3795,7 +6873,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3804,7 +6882,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3813,67 +6891,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3882,25 +6900,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSection in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3909,7 +6927,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -3918,7 +6936,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -3927,7 +6945,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -3936,7 +6954,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -3945,7 +6963,156 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -3957,35 +7124,30 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-section'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -3994,7 +7156,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4003,7 +7165,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4012,7 +7174,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4021,7 +7183,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4030,67 +7192,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4099,25 +7201,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4126,7 +7228,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4135,7 +7237,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4144,7 +7246,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4153,7 +7255,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4162,7 +7264,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4174,70 +7413,197 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
 """
 
 helps['sitesonenote'] = """
     type: group
     short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
-    type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
 """
 
 helps['sitesonenote create-page'] = """
     type: command
-    short-summary: Create new navigation property to pages for sites
+    short-summary: "Create new navigation property to pages for sites"
 """
 
 helps['sitesonenote get-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote list-page'] = """
     type: command
-    short-summary: Get pages from sites
+    short-summary: "Get pages from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-page'] = """
     type: command
-    short-summary: Update the navigation property parentSection in sites
+    short-summary: "Update the navigation property pages in sites"
+"""
+
+helps['sitesonenote update-parent-notebook'] = """
+    type: command
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4246,7 +7612,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4255,7 +7621,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4264,7 +7630,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4273,7 +7639,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4282,7 +7648,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4291,40 +7657,100 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
+helps['sitesonenote update-parent-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property parentSectionGroup in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section'] = """
     type: command
-    short-summary: Get parentSection from sites
+    short-summary: "Get parentSection from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4333,7 +7759,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4342,7 +7768,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4351,7 +7777,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4360,7 +7786,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4369,67 +7795,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4438,25 +7804,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSection in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4465,7 +7831,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4474,7 +7840,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4483,7 +7849,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4492,7 +7858,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4501,7 +7867,156 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4513,35 +8028,30 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-section'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4550,7 +8060,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4559,7 +8069,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4568,7 +8078,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4577,7 +8087,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4586,67 +8096,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4655,25 +8105,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4682,7 +8132,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4691,7 +8141,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4700,7 +8150,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4709,7 +8159,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4718,7 +8168,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4730,45 +8317,40 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4777,7 +8359,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4786,7 +8368,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4795,7 +8377,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4804,7 +8386,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4813,67 +8395,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4882,25 +8404,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4909,7 +8431,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -4918,7 +8440,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -4927,7 +8449,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -4936,7 +8458,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -4945,7 +8467,276 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -4957,35 +8748,30 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-section'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property sections in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -4994,7 +8780,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -5003,7 +8789,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -5012,7 +8798,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -5021,7 +8807,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -5030,67 +8816,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -5099,25 +8825,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property sectionGroups in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -5126,7 +8852,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -5135,7 +8861,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -5144,7 +8870,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -5153,7 +8879,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -5162,7 +8888,144 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -5174,45 +9037,40 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property parentSectionGroup in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -5221,7 +9079,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -5230,7 +9088,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -5239,7 +9097,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -5248,7 +9106,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -5257,67 +9115,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -5326,25 +9124,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -5353,7 +9151,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -5362,7 +9160,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -5371,7 +9169,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -5380,7 +9178,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -5389,7 +9187,276 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -5401,45 +9468,40 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-parent-notebook'] = """
     type: command
-    short-summary: Get parentNotebook from sites
+    short-summary: "Get parentNotebook from sites"
 """
 
 helps['sitesonenote get-parent-section-group'] = """
     type: command
-    short-summary: Get parentSectionGroup from sites
+    short-summary: "Get parentSectionGroup from sites"
 """
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
-helps['sitesonenote'] = """
-    type: group
-    short-summary: sitesonenote
-"""
-
-helps['sitesonenote update'] = """
+helps['sitesonenote update-parent-notebook'] = """
     type: command
-    short-summary: Update the navigation property sections in sites
+    short-summary: "Update the navigation property parentNotebook in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -5448,7 +9510,7 @@ helps['sitesonenote update'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -5457,7 +9519,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -5466,7 +9528,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -5475,7 +9537,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -5484,67 +9546,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-"""
-
-helps['sitesonenote create-section'] = """
-    type: command
-    short-summary: Create new navigation property to sections for sites
-    parameters:
-      - name: --last-modified-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --last-modified-by-user
-        short-summary: identity
-        long-summary: |
-            Usage: --last-modified-by-user id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-application
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-application id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-device
-        short-summary: identity
-        long-summary: |
-            Usage: --created-by-device id=XX display-name=XX
-
-            id: Unique identifier for the identity.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-      - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -5553,25 +9555,25 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --links-one-note-client-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-client-url href=XX
 
             href: The url of the link.
       - name: --links-one-note-web-url
-        short-summary: externalLink
+        short-summary: "externalLink"
         long-summary: |
             Usage: --links-one-note-web-url href=XX
 
             href: The url of the link.
 """
 
-helps['sitesonenote create-section-group'] = """
+helps['sitesonenote update-parent-section-group'] = """
     type: command
-    short-summary: Create new navigation property to sectionGroups for sites
+    short-summary: "Update the navigation property parentSectionGroup in sites"
     parameters:
       - name: --last-modified-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-application id=XX display-name=XX
 
@@ -5580,7 +9582,7 @@ helps['sitesonenote create-section-group'] = """
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-device id=XX display-name=XX
 
@@ -5589,7 +9591,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --last-modified-by-user
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --last-modified-by-user id=XX display-name=XX
 
@@ -5598,7 +9600,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-application
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-application id=XX display-name=XX
 
@@ -5607,7 +9609,7 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-device
-        short-summary: identity
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-device id=XX display-name=XX
 
@@ -5616,7 +9618,276 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
       - name: --created-by-user
-        short-summary: identity
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+"""
+
+helps['sitesonenote'] = """
+    type: group
+    short-summary: sitesonenote
+"""
+
+helps['sitesonenote create-section'] = """
+    type: command
+    short-summary: "Create new navigation property to sections for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote create-section-group'] = """
+    type: command
+    short-summary: "Create new navigation property to sectionGroups for sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
         long-summary: |
             Usage: --created-by-user id=XX display-name=XX
 
@@ -5628,20 +9899,152 @@ associated with the user won't show up as having changed when using delta.
 
 helps['sitesonenote get-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote get-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
 """
 
 helps['sitesonenote list-section'] = """
     type: command
-    short-summary: Get sections from sites
+    short-summary: "Get sections from sites"
 """
 
 helps['sitesonenote list-section-group'] = """
     type: command
-    short-summary: Get sectionGroups from sites
+    short-summary: "Get sectionGroups from sites"
+"""
+
+helps['sitesonenote update-section'] = """
+    type: command
+    short-summary: "Update the navigation property sections in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --links-one-note-client-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-client-url href=XX
+
+            href: The url of the link.
+      - name: --links-one-note-web-url
+        short-summary: "externalLink"
+        long-summary: |
+            Usage: --links-one-note-web-url href=XX
+
+            href: The url of the link.
+"""
+
+helps['sitesonenote update-section-group'] = """
+    type: command
+    short-summary: "Update the navigation property sectionGroups in sites"
+    parameters:
+      - name: --last-modified-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --last-modified-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --last-modified-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user id=XX display-name=XX
+
+            id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
 """

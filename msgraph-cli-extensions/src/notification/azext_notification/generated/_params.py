@@ -19,39 +19,39 @@ from azext_notification.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('notification update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('notification_id', help='key: notification-id of notification')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('target_host_name', help='')
-        c.argument('expiration_date_time', help='')
-        c.argument('display_time_to_live', help='')
-        c.argument('priority', arg_type=get_enum_type(['None', 'High', 'Low']), help='')
-        c.argument('group_name', help='')
-        c.argument('target_policy', action=AddTargetPolicy, nargs='*', help='targetPolicyEndpoints')
-        c.argument('payload_raw_content', help='')
-        c.argument('payload_visual_content', action=AddPayloadVisualContent, nargs='*', help='visualProperties')
-
     with self.argument_context('notification create-notification') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('target_host_name', help='')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('target_host_name', type=str, help='')
         c.argument('expiration_date_time', help='')
-        c.argument('display_time_to_live', help='')
+        c.argument('display_time_to_live', type=int, help='')
         c.argument('priority', arg_type=get_enum_type(['None', 'High', 'Low']), help='')
-        c.argument('group_name', help='')
+        c.argument('group_name', type=str, help='')
         c.argument('target_policy', action=AddTargetPolicy, nargs='*', help='targetPolicyEndpoints')
-        c.argument('payload_raw_content', help='')
+        c.argument('payload_raw_content', type=str, help='')
         c.argument('payload_visual_content', action=AddPayloadVisualContent, nargs='*', help='visualProperties')
 
     with self.argument_context('notification get-notification') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('notification_id', help='key: notification-id of notification')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('notification_id', type=str, help='key: notification-id of notification')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('notification list-notification') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('notification update-notification') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('notification_id', type=str, help='key: notification-id of notification')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('target_host_name', type=str, help='')
+        c.argument('expiration_date_time', help='')
+        c.argument('display_time_to_live', type=int, help='')
+        c.argument('priority', arg_type=get_enum_type(['None', 'High', 'Low']), help='')
+        c.argument('group_name', type=str, help='')
+        c.argument('target_policy', action=AddTargetPolicy, nargs='*', help='targetPolicyEndpoints')
+        c.argument('payload_raw_content', type=str, help='')
+        c.argument('payload_visual_content', action=AddPayloadVisualContent, nargs='*', help='visualProperties')

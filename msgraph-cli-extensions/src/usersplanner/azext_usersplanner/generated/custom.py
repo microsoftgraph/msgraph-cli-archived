@@ -7,29 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
-
-
-def usersplanner_update(client,
-                        user_id,
-                        id_=None,
-                        favorite_plan_references=None,
-                        recent_plan_references=None,
-                        tasks=None,
-                        plans=None,
-                        favorite_plans=None,
-                        recent_plans=None,
-                        all_=None):
-    return client.update_planner(user_id=user_id,
-                                 id=id_,
-                                 favorite_plan_references=favorite_plan_references,
-                                 recent_plan_references=recent_plan_references,
-                                 tasks=tasks,
-                                 plans=plans,
-                                 favorite_plans=favorite_plans,
-                                 recent_plans=recent_plans,
-                                 all=all_)
 
 
 def usersplanner_get_planner(client,
@@ -41,50 +19,25 @@ def usersplanner_get_planner(client,
                               expand=expand)
 
 
-def usersplanner_update(client,
-                        user_id,
-                        planner_delta_id=None,
-                        id_=None,
-                        planner_plan_id=None,
-                        created_date_time=None,
-                        owner=None,
-                        title=None,
-                        contexts=None,
-                        tasks=None,
-                        buckets=None,
-                        details_id=None,
-                        details_shared_with=None,
-                        details_category_descriptions=None,
-                        details_context_details=None,
-                        created_by_application=None,
-                        created_by_device=None,
-                        created_by_user=None,
-                        planner_task_id=None,
-                        body=None):
-    if user_id is not None and planner_delta_id is not None:
-        return client.update_all(user_id=user_id,
-                                 planner_delta_id=planner_delta_id,
-                                 id=id_)
-    elif user_id is not None and planner_plan_id is not None:
-        return client.update_plan(user_id=user_id,
-                                  planner_plan_id=planner_plan_id,
-                                  id=id_,
-                                  created_date_time=created_date_time,
-                                  owner=owner,
-                                  title=title,
-                                  contexts=contexts,
-                                  tasks=tasks,
-                                  buckets=buckets,
-                                  microsoft_graph_entity_id=details_id,
-                                  shared_with=details_shared_with,
-                                  category_descriptions=details_category_descriptions,
-                                  context_details=details_context_details,
-                                  application=created_by_application,
-                                  device=created_by_device,
-                                  user=created_by_user)
-    return client.update_task(user_id=user_id,
-                              planner_task_id=planner_task_id,
-                              body=body)
+def usersplanner_update_planner(client,
+                                user_id,
+                                id_=None,
+                                favorite_plan_references=None,
+                                recent_plan_references=None,
+                                tasks=None,
+                                plans=None,
+                                favorite_plans=None,
+                                recent_plans=None,
+                                all_=None):
+    return client.update_planner(user_id=user_id,
+                                 id=id_,
+                                 favorite_plan_references=favorite_plan_references,
+                                 recent_plan_references=recent_plan_references,
+                                 tasks=tasks,
+                                 plans=plans,
+                                 favorite_plans=favorite_plans,
+                                 recent_plans=recent_plans,
+                                 all=all_)
 
 
 def usersplanner_create_all(client,
@@ -244,40 +197,57 @@ def usersplanner_list_task(client,
                             expand=expand)
 
 
-def usersplanner_update(client,
-                        user_id,
-                        planner_plan_id,
-                        planner_bucket_id=None,
-                        id_=None,
-                        name=None,
-                        plan_id=None,
-                        order_hint=None,
-                        tasks=None,
-                        planner_task_id=None,
-                        body=None,
-                        shared_with=None,
-                        category_descriptions=None,
-                        context_details=None):
-    if user_id is not None and planner_plan_id is not None and planner_bucket_id is not None:
-        return client.update_bucket(user_id=user_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    id=id_,
-                                    name=name,
-                                    plan_id=plan_id,
-                                    order_hint=order_hint,
-                                    tasks=tasks)
-    elif user_id is not None and planner_plan_id is not None and planner_task_id is not None and body is not None:
-        return client.update_task(user_id=user_id,
-                                  planner_plan_id=planner_plan_id,
-                                  planner_task_id=planner_task_id,
-                                  body=body)
-    return client.update_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                id=id_,
-                                shared_with=shared_with,
-                                category_descriptions=category_descriptions,
-                                context_details=context_details)
+def usersplanner_update_all(client,
+                            user_id,
+                            planner_delta_id,
+                            id_=None):
+    return client.update_all(user_id=user_id,
+                             planner_delta_id=planner_delta_id,
+                             id=id_)
+
+
+def usersplanner_update_plan(client,
+                             user_id,
+                             planner_plan_id,
+                             id_=None,
+                             created_date_time=None,
+                             owner=None,
+                             title=None,
+                             contexts=None,
+                             tasks=None,
+                             buckets=None,
+                             details_id=None,
+                             details_shared_with=None,
+                             details_category_descriptions=None,
+                             details_context_details=None,
+                             created_by_application=None,
+                             created_by_device=None,
+                             created_by_user=None):
+    return client.update_plan(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              id=id_,
+                              created_date_time=created_date_time,
+                              owner=owner,
+                              title=title,
+                              contexts=contexts,
+                              tasks=tasks,
+                              buckets=buckets,
+                              microsoft_graph_entity_id=details_id,
+                              shared_with=details_shared_with,
+                              category_descriptions=details_category_descriptions,
+                              context_details=details_context_details,
+                              application=created_by_application,
+                              device=created_by_device,
+                              user=created_by_user)
+
+
+def usersplanner_update_task(client,
+                             user_id,
+                             planner_task_id,
+                             body):
+    return client.update_task(user_id=user_id,
+                              planner_task_id=planner_task_id,
+                              body=body)
 
 
 def usersplanner_create_bucket(client,
@@ -369,15 +339,47 @@ def usersplanner_list_task(client,
                             expand=expand)
 
 
-def usersplanner_update(client,
-                        user_id,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        planner_task_id,
-                        body):
+def usersplanner_update_bucket(client,
+                               user_id,
+                               planner_plan_id,
+                               planner_bucket_id,
+                               id_=None,
+                               name=None,
+                               plan_id=None,
+                               order_hint=None,
+                               tasks=None):
+    return client.update_bucket(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                id=id_,
+                                name=name,
+                                plan_id=plan_id,
+                                order_hint=order_hint,
+                                tasks=tasks)
+
+
+def usersplanner_update_detail(client,
+                               user_id,
+                               planner_plan_id,
+                               id_=None,
+                               shared_with=None,
+                               category_descriptions=None,
+                               context_details=None):
+    return client.update_detail(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                id=id_,
+                                shared_with=shared_with,
+                                category_descriptions=category_descriptions,
+                                context_details=context_details)
+
+
+def usersplanner_update_task(client,
+                             user_id,
+                             planner_plan_id,
+                             planner_task_id,
+                             body):
     return client.update_task(user_id=user_id,
                               planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
                               planner_task_id=planner_task_id,
                               body=body)
 
@@ -423,50 +425,17 @@ def usersplanner_list_task(client,
                             expand=expand)
 
 
-def usersplanner_update(client,
-                        user_id,
-                        planner_plan_id,
-                        planner_bucket_id,
-                        planner_task_id,
-                        id_=None,
-                        unassigned_order_hint=None,
-                        order_hints_by_assignee=None,
-                        order_hint=None,
-                        description=None,
-                        preview_type=None,
-                        references=None,
-                        checklist=None):
-    if user_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.update_assigned_to_task_board_format(user_id=user_id,
-                                                           planner_plan_id=planner_plan_id,
-                                                           planner_bucket_id=planner_bucket_id,
-                                                           planner_task_id=planner_task_id,
-                                                           id=id_,
-                                                           unassigned_order_hint=unassigned_order_hint,
-                                                           order_hints_by_assignee=order_hints_by_assignee)
-    elif user_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.update_bucket_task_board_format(user_id=user_id,
-                                                      planner_plan_id=planner_plan_id,
-                                                      planner_bucket_id=planner_bucket_id,
-                                                      planner_task_id=planner_task_id,
-                                                      id=id_,
-                                                      order_hint=order_hint)
-    elif user_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.update_detail(user_id=user_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    planner_task_id=planner_task_id,
-                                    id=id_,
-                                    description=description,
-                                    preview_type=preview_type,
-                                    references=references,
-                                    checklist=checklist)
-    return client.update_progress_task_board_format(user_id=user_id,
-                                                    planner_plan_id=planner_plan_id,
-                                                    planner_bucket_id=planner_bucket_id,
-                                                    planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+def usersplanner_update_task(client,
+                             user_id,
+                             planner_plan_id,
+                             planner_bucket_id,
+                             planner_task_id,
+                             body):
+    return client.update_task(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              body=body)
 
 
 def usersplanner_get_assigned_to_task_board_format(client,
@@ -529,42 +498,69 @@ def usersplanner_get_progress_task_board_format(client,
                                                  expand=expand)
 
 
-def usersplanner_update(client,
-                        user_id,
-                        planner_plan_id,
-                        planner_task_id,
-                        id_=None,
-                        unassigned_order_hint=None,
-                        order_hints_by_assignee=None,
-                        order_hint=None,
-                        description=None,
-                        preview_type=None,
-                        references=None,
-                        checklist=None):
-    if user_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.update_assigned_to_task_board_format(user_id=user_id,
-                                                           planner_plan_id=planner_plan_id,
-                                                           planner_task_id=planner_task_id,
-                                                           id=id_,
-                                                           unassigned_order_hint=unassigned_order_hint,
-                                                           order_hints_by_assignee=order_hints_by_assignee)
-    elif user_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.update_bucket_task_board_format(user_id=user_id,
-                                                      planner_plan_id=planner_plan_id,
-                                                      planner_task_id=planner_task_id,
-                                                      id=id_,
-                                                      order_hint=order_hint)
-    elif user_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.update_detail(user_id=user_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_task_id=planner_task_id,
-                                    id=id_,
-                                    description=description,
-                                    preview_type=preview_type,
-                                    references=references,
-                                    checklist=checklist)
+def usersplanner_update_assigned_to_task_board_format(client,
+                                                      user_id,
+                                                      planner_plan_id,
+                                                      planner_bucket_id,
+                                                      planner_task_id,
+                                                      id_=None,
+                                                      unassigned_order_hint=None,
+                                                      order_hints_by_assignee=None):
+    return client.update_assigned_to_task_board_format(user_id=user_id,
+                                                       planner_plan_id=planner_plan_id,
+                                                       planner_bucket_id=planner_bucket_id,
+                                                       planner_task_id=planner_task_id,
+                                                       id=id_,
+                                                       unassigned_order_hint=unassigned_order_hint,
+                                                       order_hints_by_assignee=order_hints_by_assignee)
+
+
+def usersplanner_update_bucket_task_board_format(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_bucket_id,
+                                                 planner_task_id,
+                                                 id_=None,
+                                                 order_hint=None):
+    return client.update_bucket_task_board_format(user_id=user_id,
+                                                  planner_plan_id=planner_plan_id,
+                                                  planner_bucket_id=planner_bucket_id,
+                                                  planner_task_id=planner_task_id,
+                                                  id=id_,
+                                                  order_hint=order_hint)
+
+
+def usersplanner_update_detail(client,
+                               user_id,
+                               planner_plan_id,
+                               planner_bucket_id,
+                               planner_task_id,
+                               id_=None,
+                               description=None,
+                               preview_type=None,
+                               references=None,
+                               checklist=None):
+    return client.update_detail(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                planner_task_id=planner_task_id,
+                                id=id_,
+                                description=description,
+                                preview_type=preview_type,
+                                references=references,
+                                checklist=checklist)
+
+
+def usersplanner_update_progress_task_board_format(client,
+                                                   user_id,
+                                                   planner_plan_id,
+                                                   planner_bucket_id,
+                                                   planner_task_id,
+                                                   id_=None,
+                                                   order_hint=None):
     return client.update_progress_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
+                                                    planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
                                                     id=id_,
                                                     order_hint=order_hint)
@@ -622,37 +618,61 @@ def usersplanner_get_progress_task_board_format(client,
                                                  expand=expand)
 
 
-def usersplanner_update(client,
-                        user_id,
-                        planner_task_id,
-                        id_=None,
-                        unassigned_order_hint=None,
-                        order_hints_by_assignee=None,
-                        order_hint=None,
-                        description=None,
-                        preview_type=None,
-                        references=None,
-                        checklist=None):
-    if user_id is not None and planner_task_id is not None:
-        return client.update_assigned_to_task_board_format(user_id=user_id,
-                                                           planner_task_id=planner_task_id,
-                                                           id=id_,
-                                                           unassigned_order_hint=unassigned_order_hint,
-                                                           order_hints_by_assignee=order_hints_by_assignee)
-    elif user_id is not None and planner_task_id is not None:
-        return client.update_bucket_task_board_format(user_id=user_id,
-                                                      planner_task_id=planner_task_id,
-                                                      id=id_,
-                                                      order_hint=order_hint)
-    elif user_id is not None and planner_task_id is not None:
-        return client.update_detail(user_id=user_id,
-                                    planner_task_id=planner_task_id,
-                                    id=id_,
-                                    description=description,
-                                    preview_type=preview_type,
-                                    references=references,
-                                    checklist=checklist)
+def usersplanner_update_assigned_to_task_board_format(client,
+                                                      user_id,
+                                                      planner_plan_id,
+                                                      planner_task_id,
+                                                      id_=None,
+                                                      unassigned_order_hint=None,
+                                                      order_hints_by_assignee=None):
+    return client.update_assigned_to_task_board_format(user_id=user_id,
+                                                       planner_plan_id=planner_plan_id,
+                                                       planner_task_id=planner_task_id,
+                                                       id=id_,
+                                                       unassigned_order_hint=unassigned_order_hint,
+                                                       order_hints_by_assignee=order_hints_by_assignee)
+
+
+def usersplanner_update_bucket_task_board_format(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_task_id,
+                                                 id_=None,
+                                                 order_hint=None):
+    return client.update_bucket_task_board_format(user_id=user_id,
+                                                  planner_plan_id=planner_plan_id,
+                                                  planner_task_id=planner_task_id,
+                                                  id=id_,
+                                                  order_hint=order_hint)
+
+
+def usersplanner_update_detail(client,
+                               user_id,
+                               planner_plan_id,
+                               planner_task_id,
+                               id_=None,
+                               description=None,
+                               preview_type=None,
+                               references=None,
+                               checklist=None):
+    return client.update_detail(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_task_id=planner_task_id,
+                                id=id_,
+                                description=description,
+                                preview_type=preview_type,
+                                references=references,
+                                checklist=checklist)
+
+
+def usersplanner_update_progress_task_board_format(client,
+                                                   user_id,
+                                                   planner_plan_id,
+                                                   planner_task_id,
+                                                   id_=None,
+                                                   order_hint=None):
     return client.update_progress_task_board_format(user_id=user_id,
+                                                    planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
                                                     id=id_,
                                                     order_hint=order_hint)
@@ -700,3 +720,55 @@ def usersplanner_get_progress_task_board_format(client,
                                                  planner_task_id=planner_task_id,
                                                  select=select,
                                                  expand=expand)
+
+
+def usersplanner_update_assigned_to_task_board_format(client,
+                                                      user_id,
+                                                      planner_task_id,
+                                                      id_=None,
+                                                      unassigned_order_hint=None,
+                                                      order_hints_by_assignee=None):
+    return client.update_assigned_to_task_board_format(user_id=user_id,
+                                                       planner_task_id=planner_task_id,
+                                                       id=id_,
+                                                       unassigned_order_hint=unassigned_order_hint,
+                                                       order_hints_by_assignee=order_hints_by_assignee)
+
+
+def usersplanner_update_bucket_task_board_format(client,
+                                                 user_id,
+                                                 planner_task_id,
+                                                 id_=None,
+                                                 order_hint=None):
+    return client.update_bucket_task_board_format(user_id=user_id,
+                                                  planner_task_id=planner_task_id,
+                                                  id=id_,
+                                                  order_hint=order_hint)
+
+
+def usersplanner_update_detail(client,
+                               user_id,
+                               planner_task_id,
+                               id_=None,
+                               description=None,
+                               preview_type=None,
+                               references=None,
+                               checklist=None):
+    return client.update_detail(user_id=user_id,
+                                planner_task_id=planner_task_id,
+                                id=id_,
+                                description=description,
+                                preview_type=preview_type,
+                                references=references,
+                                checklist=checklist)
+
+
+def usersplanner_update_progress_task_board_format(client,
+                                                   user_id,
+                                                   planner_task_id,
+                                                   id_=None,
+                                                   order_hint=None):
+    return client.update_progress_task_board_format(user_id=user_id,
+                                                    planner_task_id=planner_task_id,
+                                                    id=id_,
+                                                    order_hint=order_hint)

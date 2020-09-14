@@ -21,8 +21,8 @@ def load_command_table(self, _):
         'rations.{}',
         client_factory=cf_education_root)
     with self.command_group('education', education_education_root, client_factory=cf_education_root) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('get-education-root', 'education_get_education_root')
+        g.custom_command('update-education-root', 'education_update_education_root')
 
     from azext_education.generated._client_factory import cf_education
     education_education = CliCommandType(
@@ -30,7 +30,6 @@ def load_command_table(self, _):
         '}',
         client_factory=cf_education)
     with self.command_group('education', education_education, client_factory=cf_education) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-class', 'education_create_class')
         g.custom_command('create-school', 'education_create_school')
         g.custom_command('create-synchronization-profile', 'education_create_synchronization_profile')
@@ -44,6 +43,11 @@ def load_command_table(self, _):
         g.custom_command('list-school', 'education_list_school')
         g.custom_command('list-synchronization-profile', 'education_list_synchronization_profile')
         g.custom_command('list-user', 'education_list_user')
+        g.custom_command('update-class', 'education_update_class')
+        g.custom_command('update-me', 'education_update_me')
+        g.custom_command('update-school', 'education_update_school')
+        g.custom_command('update-synchronization-profile', 'education_update_synchronization_profile')
+        g.custom_command('update-user', 'education_update_user')
 
     from azext_education.generated._client_factory import cf_education_class
     education_education_class = CliCommandType(
@@ -51,7 +55,6 @@ def load_command_table(self, _):
         'perations.{}',
         client_factory=cf_education_class)
     with self.command_group('education', education_education_class, client_factory=cf_education_class) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-assignment', 'education_create_assignment')
         g.custom_command('create-assignment-category', 'education_create_assignment_category')
         g.custom_command('delta', 'education_delta')
@@ -66,6 +69,8 @@ def load_command_table(self, _):
         g.custom_command('list-member', 'education_list_member')
         g.custom_command('list-school', 'education_list_school')
         g.custom_command('list-teacher', 'education_list_teacher')
+        g.custom_command('update-assignment', 'education_update_assignment')
+        g.custom_command('update-assignment-category', 'education_update_assignment_category')
 
     from azext_education.generated._client_factory import cf_education_class_assignment
     education_education_class_assignment = CliCommandType(
@@ -74,7 +79,6 @@ def load_command_table(self, _):
         client_factory=cf_education_class_assignment)
     with self.command_group('education', education_education_class_assignment,
                             client_factory=cf_education_class_assignment) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-category', 'education_create_category')
         g.custom_command('create-resource', 'education_create_resource')
         g.custom_command('create-submission', 'education_create_submission')
@@ -87,6 +91,10 @@ def load_command_table(self, _):
         g.custom_command('list-resource', 'education_list_resource')
         g.custom_command('list-submission', 'education_list_submission')
         g.custom_command('publish', 'education_publish')
+        g.custom_command('update-category', 'education_update_category')
+        g.custom_command('update-resource', 'education_update_resource')
+        g.custom_command('update-rubric', 'education_update_rubric')
+        g.custom_command('update-submission', 'education_update_submission')
 
     from azext_education.generated._client_factory import cf_education_class_assignment_submission
     education_education_class_assignment_submission = CliCommandType(
@@ -95,7 +103,6 @@ def load_command_table(self, _):
         client_factory=cf_education_class_assignment_submission)
     with self.command_group('education', education_education_class_assignment_submission,
                             client_factory=cf_education_class_assignment_submission) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-outcome', 'education_create_outcome')
         g.custom_command('create-resource', 'education_create_resource')
         g.custom_command('create-submitted-resource', 'education_create_submitted_resource')
@@ -108,6 +115,9 @@ def load_command_table(self, _):
         g.custom_command('return', 'education_return')
         g.custom_command('submit', 'education_submit')
         g.custom_command('unsubmit', 'education_unsubmit')
+        g.custom_command('update-outcome', 'education_update_outcome')
+        g.custom_command('update-resource', 'education_update_resource')
+        g.custom_command('update-submitted-resource', 'education_update_submitted_resource')
 
     from azext_education.generated._client_factory import cf_education_class_member
     education_education_class_member = CliCommandType(
@@ -142,7 +152,6 @@ def load_command_table(self, _):
         'ons.{}',
         client_factory=cf_education_me)
     with self.command_group('education', education_education_me, client_factory=cf_education_me) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-assignment', 'education_create_assignment')
         g.custom_command('create-rubric', 'education_create_rubric')
         g.custom_command('get-assignment', 'education_get_assignment')
@@ -156,6 +165,8 @@ def load_command_table(self, _):
         g.custom_command('list-rubric', 'education_list_rubric')
         g.custom_command('list-school', 'education_list_school')
         g.custom_command('list-taught-class', 'education_list_taught_class')
+        g.custom_command('update-assignment', 'education_update_assignment')
+        g.custom_command('update-rubric', 'education_update_rubric')
 
     from azext_education.generated._client_factory import cf_education_me_assignment
     education_education_me_assignment = CliCommandType(
@@ -164,7 +175,6 @@ def load_command_table(self, _):
         client_factory=cf_education_me_assignment)
     with self.command_group('education', education_education_me_assignment,
                             client_factory=cf_education_me_assignment) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-category', 'education_create_category')
         g.custom_command('create-resource', 'education_create_resource')
         g.custom_command('create-submission', 'education_create_submission')
@@ -177,6 +187,10 @@ def load_command_table(self, _):
         g.custom_command('list-resource', 'education_list_resource')
         g.custom_command('list-submission', 'education_list_submission')
         g.custom_command('publish', 'education_publish')
+        g.custom_command('update-category', 'education_update_category')
+        g.custom_command('update-resource', 'education_update_resource')
+        g.custom_command('update-rubric', 'education_update_rubric')
+        g.custom_command('update-submission', 'education_update_submission')
 
     from azext_education.generated._client_factory import cf_education_me_assignment_submission
     education_education_me_assignment_submission = CliCommandType(
@@ -185,7 +199,6 @@ def load_command_table(self, _):
         client_factory=cf_education_me_assignment_submission)
     with self.command_group('education', education_education_me_assignment_submission,
                             client_factory=cf_education_me_assignment_submission) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-outcome', 'education_create_outcome')
         g.custom_command('create-resource', 'education_create_resource')
         g.custom_command('create-submitted-resource', 'education_create_submitted_resource')
@@ -198,6 +211,9 @@ def load_command_table(self, _):
         g.custom_command('return', 'education_return')
         g.custom_command('submit', 'education_submit')
         g.custom_command('unsubmit', 'education_unsubmit')
+        g.custom_command('update-outcome', 'education_update_outcome')
+        g.custom_command('update-resource', 'education_update_resource')
+        g.custom_command('update-submitted-resource', 'education_update_submitted_resource')
 
     from azext_education.generated._client_factory import cf_education_me_class
     education_education_me_class = CliCommandType(
@@ -262,7 +278,6 @@ def load_command_table(self, _):
         client_factory=cf_education_synchronization_profile)
     with self.command_group('education', education_education_synchronization_profile,
                             client_factory=cf_education_synchronization_profile) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-error', 'education_create_error')
         g.custom_command('get-error', 'education_get_error')
         g.custom_command('get-profile-status', 'education_get_profile_status')
@@ -271,6 +286,8 @@ def load_command_table(self, _):
         g.custom_command('reset', 'education_reset')
         g.custom_command('resume', 'education_resume')
         g.custom_command('start', 'education_start')
+        g.custom_command('update-error', 'education_update_error')
+        g.custom_command('update-profile-status', 'education_update_profile_status')
         g.custom_command('upload-url', 'education_upload_url')
 
     from azext_education.generated._client_factory import cf_education_user
@@ -279,7 +296,6 @@ def load_command_table(self, _):
         'rations.{}',
         client_factory=cf_education_user)
     with self.command_group('education', education_education_user, client_factory=cf_education_user) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-assignment', 'education_create_assignment')
         g.custom_command('create-rubric', 'education_create_rubric')
         g.custom_command('delta', 'education_delta')
@@ -294,6 +310,8 @@ def load_command_table(self, _):
         g.custom_command('list-rubric', 'education_list_rubric')
         g.custom_command('list-school', 'education_list_school')
         g.custom_command('list-taught-class', 'education_list_taught_class')
+        g.custom_command('update-assignment', 'education_update_assignment')
+        g.custom_command('update-rubric', 'education_update_rubric')
 
     from azext_education.generated._client_factory import cf_education_user_assignment
     education_education_user_assignment = CliCommandType(
@@ -302,7 +320,6 @@ def load_command_table(self, _):
         client_factory=cf_education_user_assignment)
     with self.command_group('education', education_education_user_assignment,
                             client_factory=cf_education_user_assignment) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-category', 'education_create_category')
         g.custom_command('create-resource', 'education_create_resource')
         g.custom_command('create-submission', 'education_create_submission')
@@ -315,6 +332,10 @@ def load_command_table(self, _):
         g.custom_command('list-resource', 'education_list_resource')
         g.custom_command('list-submission', 'education_list_submission')
         g.custom_command('publish', 'education_publish')
+        g.custom_command('update-category', 'education_update_category')
+        g.custom_command('update-resource', 'education_update_resource')
+        g.custom_command('update-rubric', 'education_update_rubric')
+        g.custom_command('update-submission', 'education_update_submission')
 
     from azext_education.generated._client_factory import cf_education_user_assignment_submission
     education_education_user_assignment_submission = CliCommandType(
@@ -323,7 +344,6 @@ def load_command_table(self, _):
         client_factory=cf_education_user_assignment_submission)
     with self.command_group('education', education_education_user_assignment_submission,
                             client_factory=cf_education_user_assignment_submission) as g:
-        g.custom_command('update', 'education_update')
         g.custom_command('create-outcome', 'education_create_outcome')
         g.custom_command('create-resource', 'education_create_resource')
         g.custom_command('create-submitted-resource', 'education_create_submitted_resource')
@@ -336,6 +356,9 @@ def load_command_table(self, _):
         g.custom_command('return', 'education_return')
         g.custom_command('submit', 'education_submit')
         g.custom_command('unsubmit', 'education_unsubmit')
+        g.custom_command('update-outcome', 'education_update_outcome')
+        g.custom_command('update-resource', 'education_update_resource')
+        g.custom_command('update-submitted-resource', 'education_update_submitted_resource')
 
     from azext_education.generated._client_factory import cf_education_user_class
     education_education_user_class = CliCommandType(

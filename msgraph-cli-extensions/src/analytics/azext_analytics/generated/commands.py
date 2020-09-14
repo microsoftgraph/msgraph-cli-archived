@@ -22,20 +22,21 @@ def load_command_table(self, _):
         client_factory=cf_activitystatistic_activity_statistics)
     with self.command_group('analytics', analytics_activitystatistic_activity_statistics,
                             client_factory=cf_activitystatistic_activity_statistics) as g:
-        g.custom_command('update', 'analytics_update')
-        g.custom_command('delete', 'analytics_delete')
+        g.custom_command('delete', 'analytics_delete', confirmation=True)
         g.custom_command('create-activity-statistics', 'analytics_create_activity_statistics')
         g.custom_command('get-activity-statistics', 'analytics_get_activity_statistics')
         g.custom_command('list-activity-statistics', 'analytics_list_activity_statistics')
+        g.custom_command('update-activity-statistics', 'analytics_update_activity_statistics')
 
     from azext_analytics.generated._client_factory import cf_user
     analytics_user = CliCommandType(
         operations_tmpl='azext_analytics.vendored_sdks.analytics.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('analytics', analytics_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'analytics_update')
         g.custom_command('get-analytic', 'analytics_get_analytic')
         g.custom_command('get-insight', 'analytics_get_insight')
+        g.custom_command('update-analytic', 'analytics_update_analytic')
+        g.custom_command('update-insight', 'analytics_update_insight')
 
     from azext_analytics.generated._client_factory import cf_user_analytic
     analytics_user_analytic = CliCommandType(
@@ -43,10 +44,10 @@ def load_command_table(self, _):
         'tions.{}',
         client_factory=cf_user_analytic)
     with self.command_group('analytics', analytics_user_analytic, client_factory=cf_user_analytic) as g:
-        g.custom_command('update', 'analytics_update')
         g.custom_command('create-activity-statistics', 'analytics_create_activity_statistics')
         g.custom_command('get-activity-statistics', 'analytics_get_activity_statistics')
         g.custom_command('list-activity-statistics', 'analytics_list_activity_statistics')
+        g.custom_command('update-activity-statistics', 'analytics_update_activity_statistics')
 
     from azext_analytics.generated._client_factory import cf_user_insight
     analytics_user_insight = CliCommandType(
@@ -54,7 +55,6 @@ def load_command_table(self, _):
         'ons.{}',
         client_factory=cf_user_insight)
     with self.command_group('analytics', analytics_user_insight, client_factory=cf_user_insight) as g:
-        g.custom_command('update', 'analytics_update')
         g.custom_command('create-shared', 'analytics_create_shared')
         g.custom_command('create-trending', 'analytics_create_trending')
         g.custom_command('create-used', 'analytics_create_used')
@@ -64,6 +64,9 @@ def load_command_table(self, _):
         g.custom_command('list-shared', 'analytics_list_shared')
         g.custom_command('list-trending', 'analytics_list_trending')
         g.custom_command('list-used', 'analytics_list_used')
+        g.custom_command('update-shared', 'analytics_update_shared')
+        g.custom_command('update-trending', 'analytics_update_trending')
+        g.custom_command('update-used', 'analytics_update_used')
 
     from azext_analytics.generated._client_factory import cf_user_insight_shared
     analytics_user_insight_shared = CliCommandType(

@@ -6,107 +6,125 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Get2ItemsItem(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    id = "id"
-    creation_date_time = "creationDateTime"
-    start_date_time = "startDateTime"
-    end_date_time = "endDateTime"
-    canceled_date_time = "canceledDateTime"
-    expiration_date_time = "expirationDateTime"
-    entry_exit_announcement = "entryExitAnnouncement"
-    join_url = "joinUrl"
-    subject = "subject"
-    is_cancelled = "isCancelled"
-    participants = "participants"
-    is_broadcast = "isBroadcast"
-    access_level = "accessLevel"
-    capabilities = "capabilities"
-    audio_conferencing = "audioConferencing"
-    chat_info = "chatInfo"
-    video_teleconference_id = "videoTeleconferenceId"
-    external_id = "externalId"
-    join_information = "joinInformation"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Get6ItemsItem(str, Enum):
 
-    id = "id"
-    id_desc = "id desc"
-    creation_date_time = "creationDateTime"
-    creation_date_time_desc = "creationDateTime desc"
-    start_date_time = "startDateTime"
-    start_date_time_desc = "startDateTime desc"
-    end_date_time = "endDateTime"
-    end_date_time_desc = "endDateTime desc"
-    canceled_date_time = "canceledDateTime"
-    canceled_date_time_desc = "canceledDateTime desc"
-    expiration_date_time = "expirationDateTime"
-    expiration_date_time_desc = "expirationDateTime desc"
-    entry_exit_announcement = "entryExitAnnouncement"
-    entry_exit_announcement_desc = "entryExitAnnouncement desc"
-    join_url = "joinUrl"
-    join_url_desc = "joinUrl desc"
-    subject = "subject"
-    subject_desc = "subject desc"
-    is_cancelled = "isCancelled"
-    is_cancelled_desc = "isCancelled desc"
-    participants = "participants"
-    participants_desc = "participants desc"
-    is_broadcast = "isBroadcast"
-    is_broadcast_desc = "isBroadcast desc"
-    access_level = "accessLevel"
-    access_level_desc = "accessLevel desc"
-    capabilities = "capabilities"
-    capabilities_desc = "capabilities desc"
-    audio_conferencing = "audioConferencing"
-    audio_conferencing_desc = "audioConferencing desc"
-    chat_info = "chatInfo"
-    chat_info_desc = "chatInfo desc"
-    video_teleconference_id = "videoTeleconferenceId"
-    video_teleconference_id_desc = "videoTeleconferenceId desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    join_information = "joinInformation"
-    join_information_desc = "joinInformation desc"
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get7ItemsItem(str, Enum):
+    ID = "id"
+    CREATION_DATE_TIME = "creationDateTime"
+    START_DATE_TIME = "startDateTime"
+    END_DATE_TIME = "endDateTime"
+    CANCELED_DATE_TIME = "canceledDateTime"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    ENTRY_EXIT_ANNOUNCEMENT = "entryExitAnnouncement"
+    JOIN_URL = "joinUrl"
+    SUBJECT = "subject"
+    IS_CANCELLED = "isCancelled"
+    PARTICIPANTS = "participants"
+    IS_BROADCAST = "isBroadcast"
+    ACCESS_LEVEL = "accessLevel"
+    CAPABILITIES = "capabilities"
+    AUDIO_CONFERENCING = "audioConferencing"
+    CHAT_INFO = "chatInfo"
+    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+    EXTERNAL_ID = "externalId"
+    JOIN_INFORMATION = "joinInformation"
 
-    id = "id"
-    creation_date_time = "creationDateTime"
-    start_date_time = "startDateTime"
-    end_date_time = "endDateTime"
-    canceled_date_time = "canceledDateTime"
-    expiration_date_time = "expirationDateTime"
-    entry_exit_announcement = "entryExitAnnouncement"
-    join_url = "joinUrl"
-    subject = "subject"
-    is_cancelled = "isCancelled"
-    participants = "participants"
-    is_broadcast = "isBroadcast"
-    access_level = "accessLevel"
-    capabilities = "capabilities"
-    audio_conferencing = "audioConferencing"
-    chat_info = "chatInfo"
-    video_teleconference_id = "videoTeleconferenceId"
-    external_id = "externalId"
-    join_information = "joinInformation"
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphAccessLevel(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATION_DATE_TIME = "creationDateTime"
+    CREATION_DATE_TIME_DESC = "creationDateTime desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+    END_DATE_TIME = "endDateTime"
+    END_DATE_TIME_DESC = "endDateTime desc"
+    CANCELED_DATE_TIME = "canceledDateTime"
+    CANCELED_DATE_TIME_DESC = "canceledDateTime desc"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    EXPIRATION_DATE_TIME_DESC = "expirationDateTime desc"
+    ENTRY_EXIT_ANNOUNCEMENT = "entryExitAnnouncement"
+    ENTRY_EXIT_ANNOUNCEMENT_DESC = "entryExitAnnouncement desc"
+    JOIN_URL = "joinUrl"
+    JOIN_URL_DESC = "joinUrl desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    IS_CANCELLED = "isCancelled"
+    IS_CANCELLED_DESC = "isCancelled desc"
+    PARTICIPANTS = "participants"
+    PARTICIPANTS_DESC = "participants desc"
+    IS_BROADCAST = "isBroadcast"
+    IS_BROADCAST_DESC = "isBroadcast desc"
+    ACCESS_LEVEL = "accessLevel"
+    ACCESS_LEVEL_DESC = "accessLevel desc"
+    CAPABILITIES = "capabilities"
+    CAPABILITIES_DESC = "capabilities desc"
+    AUDIO_CONFERENCING = "audioConferencing"
+    AUDIO_CONFERENCING_DESC = "audioConferencing desc"
+    CHAT_INFO = "chatInfo"
+    CHAT_INFO_DESC = "chatInfo desc"
+    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+    VIDEO_TELECONFERENCE_ID_DESC = "videoTeleconferenceId desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    JOIN_INFORMATION = "joinInformation"
+    JOIN_INFORMATION_DESC = "joinInformation desc"
 
-    everyone = "everyone"
-    invited = "invited"
-    locked = "locked"
-    same_enterprise = "sameEnterprise"
-    same_enterprise_and_federated = "sameEnterpriseAndFederated"
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphBodyType(str, Enum):
+    ID = "id"
+    CREATION_DATE_TIME = "creationDateTime"
+    START_DATE_TIME = "startDateTime"
+    END_DATE_TIME = "endDateTime"
+    CANCELED_DATE_TIME = "canceledDateTime"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    ENTRY_EXIT_ANNOUNCEMENT = "entryExitAnnouncement"
+    JOIN_URL = "joinUrl"
+    SUBJECT = "subject"
+    IS_CANCELLED = "isCancelled"
+    PARTICIPANTS = "participants"
+    IS_BROADCAST = "isBroadcast"
+    ACCESS_LEVEL = "accessLevel"
+    CAPABILITIES = "capabilities"
+    AUDIO_CONFERENCING = "audioConferencing"
+    CHAT_INFO = "chatInfo"
+    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+    EXTERNAL_ID = "externalId"
+    JOIN_INFORMATION = "joinInformation"
 
-    text = "text"
-    html = "html"
+class MicrosoftGraphAccessLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphMeetingCapabilities(str, Enum):
+    EVERYONE = "everyone"
+    INVITED = "invited"
+    LOCKED = "locked"
+    SAME_ENTERPRISE = "sameEnterprise"
+    SAME_ENTERPRISE_AND_FEDERATED = "sameEnterpriseAndFederated"
 
-    question_and_answer = "questionAndAnswer"
-    unknown_future_value = "unknownFutureValue"
+class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    TEXT = "text"
+    HTML = "html"
+
+class MicrosoftGraphMeetingCapabilities(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    QUESTION_AND_ANSWER = "questionAndAnswer"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"

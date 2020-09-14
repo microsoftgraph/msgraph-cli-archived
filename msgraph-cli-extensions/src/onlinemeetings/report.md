@@ -85,9 +85,9 @@ list-online-meeting a onlinemeetings.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### onlinemeetings update
+### onlinemeetings update-online-meeting
 
-update a onlinemeetings.
+update-online-meeting a onlinemeetings.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -97,7 +97,7 @@ update a onlinemeetings.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateOnlineMeetings|
+|update-online-meeting|UpdateOnlineMeetings|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

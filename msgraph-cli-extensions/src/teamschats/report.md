@@ -563,9 +563,9 @@ list-reply a teamschats.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teamschats update
+### teamschats update-chat
 
-update a teamschats.
+update-chat a teamschats.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -575,7 +575,7 @@ update a teamschats.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateChats|
+|update-chat|UpdateChats|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -589,6 +589,178 @@ update a teamschats.
 |**--members**|array||members|members|
 |**--messages**|array||messages|messages|
 |**--installed-apps**|array||installed_apps|installedApps|
+
+### teamschats update-hosted-content
+
+update-hosted-content a teamschats.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teamschats|chats.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-hosted-content|UpdateHostedContents|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: chat-id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: chatMessage-id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: chatMessageHostedContent-id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--id**|string|Read-only.|id|id|
+
+### teamschats update-installed-app
+
+update-installed-app a teamschats.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teamschats|chats|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-installed-app|UpdateInstalledApps|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: chat-id of chat|chat_id|chat-id|
+|**--teams-app-installation-id**|string|key: teamsAppInstallation-id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--id**|string|Read-only.|id|id|
+|**--teams-app-definition**|object|teamsAppDefinition|teams_app_definition|teamsAppDefinition|
+|**--teams-app-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--teams-app-name**|string||name|name|
+|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|display_name|displayName|
+|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
+|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+
+### teamschats update-member
+
+update-member a teamschats.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teamschats|chats|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-member|UpdateMembers|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: chat-id of chat|chat_id|chat-id|
+|**--conversation-member-id**|string|key: conversationMember-id of conversationMember|conversation_member_id|conversationMember-id|
+|**--id**|string|Read-only.|id|id|
+|**--roles**|array||roles|roles|
+|**--display-name**|string||display_name|displayName|
+
+### teamschats update-message
+
+update-message a teamschats.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teamschats|chats|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-message|UpdateMessages|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: chat-id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: chatMessage-id of chatMessage|chat_message_id|chatMessage-id|
+|**--id**|string|Read-only.|id|id|
+|**--reply-to-id**|string||reply_to_id|replyToId|
+|**--etag**|string||etag|etag|
+|**--message-type**|choice||message_type|messageType|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--subject**|string||subject|subject|
+|**--body**|object|itemBody|body|body|
+|**--summary**|string||summary|summary|
+|**--attachments**|array||attachments|attachments|
+|**--mentions**|array||mentions|mentions|
+|**--importance**|choice||importance|importance|
+|**--reactions**|array||reactions|reactions|
+|**--locale**|string||locale|locale|
+|**--web-url**|string||web_url|webUrl|
+|**--replies**|array||replies|replies|
+|**--hosted-contents**|array||hosted_contents|hostedContents|
+|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
+|**--policy-violation-justification-text**|string||justification_text|justificationText|
+|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--policy-violation-user-action**|choice||user_action|userAction|
+|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
+|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+
+### teamschats update-reply
+
+update-reply a teamschats.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teamschats|chats.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-reply|UpdateReplies|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: chat-id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: chatMessage-id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-id1**|string|key: chatMessage-id of chatMessage|chat_message_id1|chatMessage-id1|
+|**--id**|string|Read-only.|id|id|
+|**--reply-to-id**|string||reply_to_id|replyToId|
+|**--etag**|string||etag|etag|
+|**--message-type**|choice||message_type|messageType|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--subject**|string||subject|subject|
+|**--body**|object|itemBody|body|body|
+|**--summary**|string||summary|summary|
+|**--attachments**|array||attachments|attachments|
+|**--mentions**|array||mentions|mentions|
+|**--importance**|choice||importance|importance|
+|**--reactions**|array||reactions|reactions|
+|**--locale**|string||locale|locale|
+|**--web-url**|string||web_url|webUrl|
+|**--replies**|array||replies|replies|
+|**--hosted-contents**|array||hosted_contents|hostedContents|
+|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
+|**--policy-violation-justification-text**|string||justification_text|justificationText|
+|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--policy-violation-user-action**|choice||user_action|userAction|
+|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
+|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
 
 ### teamschats upgrade
 

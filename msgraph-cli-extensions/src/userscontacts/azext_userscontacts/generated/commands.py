@@ -20,13 +20,14 @@ def load_command_table(self, _):
         operations_tmpl='azext_userscontacts.vendored_sdks.userscontacts.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('userscontacts', userscontacts_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'userscontacts_update')
         g.custom_command('create-contact', 'userscontacts_create_contact')
         g.custom_command('create-contact-folder', 'userscontacts_create_contact_folder')
         g.custom_command('get-contact', 'userscontacts_get_contact')
         g.custom_command('get-contact-folder', 'userscontacts_get_contact_folder')
         g.custom_command('list-contact', 'userscontacts_list_contact')
         g.custom_command('list-contact-folder', 'userscontacts_list_contact_folder')
+        g.custom_command('update-contact', 'userscontacts_update_contact')
+        g.custom_command('update-contact-folder', 'userscontacts_update_contact_folder')
 
     from azext_userscontacts.generated._client_factory import cf_user_contact_folder
     userscontacts_user_contact_folder = CliCommandType(
@@ -35,7 +36,6 @@ def load_command_table(self, _):
         client_factory=cf_user_contact_folder)
     with self.command_group('userscontacts', userscontacts_user_contact_folder,
                             client_factory=cf_user_contact_folder) as g:
-        g.custom_command('update', 'userscontacts_update')
         g.custom_command('create-child-folder', 'userscontacts_create_child_folder')
         g.custom_command('create-contact', 'userscontacts_create_contact')
         g.custom_command('create-multi-value-extended-property', 'userscontacts_create_multi_value_extended_property')
@@ -49,6 +49,11 @@ def load_command_table(self, _):
         g.custom_command('list-contact', 'userscontacts_list_contact')
         g.custom_command('list-multi-value-extended-property', 'userscontacts_list_multi_value_extended_property')
         g.custom_command('list-single-value-extended-property', 'userscontacts_list_single_value_extended_property')
+        g.custom_command('update-child-folder', 'userscontacts_update_child_folder')
+        g.custom_command('update-contact', 'userscontacts_update_contact')
+        g.custom_command('update-multi-value-extended-property', 'userscontacts_update_multi_value_extended_property')
+        g.custom_command('update-single-value-extended-property',
+                         'userscontacts_update_single_value_extended_property')
 
     from azext_userscontacts.generated._client_factory import cf_user_contact_folder_contact
     userscontacts_user_contact_folder_contact = CliCommandType(
@@ -57,7 +62,6 @@ def load_command_table(self, _):
         client_factory=cf_user_contact_folder_contact)
     with self.command_group('userscontacts', userscontacts_user_contact_folder_contact,
                             client_factory=cf_user_contact_folder_contact) as g:
-        g.custom_command('update', 'userscontacts_update')
         g.custom_command('create-extension', 'userscontacts_create_extension')
         g.custom_command('create-multi-value-extended-property', 'userscontacts_create_multi_value_extended_property')
         g.custom_command('create-single-value-extended-property',
@@ -69,6 +73,11 @@ def load_command_table(self, _):
         g.custom_command('list-extension', 'userscontacts_list_extension')
         g.custom_command('list-multi-value-extended-property', 'userscontacts_list_multi_value_extended_property')
         g.custom_command('list-single-value-extended-property', 'userscontacts_list_single_value_extended_property')
+        g.custom_command('update-extension', 'userscontacts_update_extension')
+        g.custom_command('update-multi-value-extended-property', 'userscontacts_update_multi_value_extended_property')
+        g.custom_command('update-photo', 'userscontacts_update_photo')
+        g.custom_command('update-single-value-extended-property',
+                         'userscontacts_update_single_value_extended_property')
 
     from azext_userscontacts.generated._client_factory import cf_user_contact
     userscontacts_user_contact = CliCommandType(
@@ -76,7 +85,6 @@ def load_command_table(self, _):
         'tOperations.{}',
         client_factory=cf_user_contact)
     with self.command_group('userscontacts', userscontacts_user_contact, client_factory=cf_user_contact) as g:
-        g.custom_command('update', 'userscontacts_update')
         g.custom_command('create-extension', 'userscontacts_create_extension')
         g.custom_command('create-multi-value-extended-property', 'userscontacts_create_multi_value_extended_property')
         g.custom_command('create-single-value-extended-property',
@@ -88,3 +96,8 @@ def load_command_table(self, _):
         g.custom_command('list-extension', 'userscontacts_list_extension')
         g.custom_command('list-multi-value-extended-property', 'userscontacts_list_multi_value_extended_property')
         g.custom_command('list-single-value-extended-property', 'userscontacts_list_single_value_extended_property')
+        g.custom_command('update-extension', 'userscontacts_update_extension')
+        g.custom_command('update-multi-value-extended-property', 'userscontacts_update_multi_value_extended_property')
+        g.custom_command('update-photo', 'userscontacts_update_photo')
+        g.custom_command('update-single-value-extended-property',
+                         'userscontacts_update_single_value_extended_property')

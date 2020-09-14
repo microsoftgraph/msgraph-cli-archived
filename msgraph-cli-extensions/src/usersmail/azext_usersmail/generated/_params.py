@@ -26,42 +26,17 @@ from azext_usersmail.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('usersmail update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='The mailFolder\'s display name.')
-        c.argument('parent_folder_id', help='The unique identifier for the mailFolder\'s parent mailFolder.')
-        c.argument('child_folder_count', help='The number of immediate child mailFolders in the current mailFolder.')
-        c.argument('unread_item_count', help='The number of items in the mailFolder marked as unread.')
-        c.argument('total_item_count', help='The number of items in the mailFolder.')
-        c.argument('well_known_name', help='')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('message_rules', type=validate_file_or_dict, help='The collection of rules that apply to the '
-                   'user\'s Inbox folder. Expected value: json-string/@json-file.')
-        c.argument('child_folders', type=validate_file_or_dict, help='The collection of child folders in the '
-                   'mailFolder. Expected value: json-string/@json-file.')
-        c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-        c.argument('overrides', action=AddOverrides, nargs='*', help='A set of overrides for a user to always classify '
-                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable.')
-
     with self.argument_context('usersmail create-mail-folder') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='The mailFolder\'s display name.')
-        c.argument('parent_folder_id', help='The unique identifier for the mailFolder\'s parent mailFolder.')
-        c.argument('child_folder_count', help='The number of immediate child mailFolders in the current mailFolder.')
-        c.argument('unread_item_count', help='The number of items in the mailFolder marked as unread.')
-        c.argument('total_item_count', help='The number of items in the mailFolder.')
-        c.argument('well_known_name', help='')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The mailFolder\'s display name.')
+        c.argument('parent_folder_id', type=str,
+                   help='The unique identifier for the mailFolder\'s parent mailFolder.')
+        c.argument('child_folder_count', type=int, help='The number of immediate child mailFolders in the current '
+                   'mailFolder.')
+        c.argument('unread_item_count', type=int, help='The number of items in the mailFolder marked as unread.')
+        c.argument('total_item_count', type=int, help='The number of items in the mailFolder.')
+        c.argument('well_known_name', type=str, help='')
         c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
                    'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
         c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
@@ -75,112 +50,116 @@ def load_arguments(self, _):
         c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
 
     with self.argument_context('usersmail create-message') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
     with self.argument_context('usersmail get-inference-classification') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-mail-folder') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-message') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-mail-folder') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-message') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('usersmail update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('inference_classification_override_id', help='key: inferenceClassificationOverride-id of '
-                   'inferenceClassificationOverride')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
-        c.argument('sender_email_address_name', help='The display name of the person or entity.')
-        c.argument('sender_email_address_address', help='The email address of the person or entity.')
+    with self.argument_context('usersmail update-inference-classification') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('overrides', action=AddOverrides, nargs='*', help='A set of overrides for a user to always classify '
+                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable.')
+
+    with self.argument_context('usersmail update-mail-folder') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The mailFolder\'s display name.')
+        c.argument('parent_folder_id', type=str,
+                   help='The unique identifier for the mailFolder\'s parent mailFolder.')
+        c.argument('child_folder_count', type=int, help='The number of immediate child mailFolders in the current '
+                   'mailFolder.')
+        c.argument('unread_item_count', type=int, help='The number of items in the mailFolder marked as unread.')
+        c.argument('total_item_count', type=int, help='The number of items in the mailFolder.')
+        c.argument('well_known_name', type=str, help='')
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('message_rules', type=validate_file_or_dict, help='The collection of rules that apply to the '
+                   'user\'s Inbox folder. Expected value: json-string/@json-file.')
+        c.argument('child_folders', type=validate_file_or_dict, help='The collection of child folders in the '
+                   'mailFolder. Expected value: json-string/@json-file.')
+        c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
+
+    with self.argument_context('usersmail update-message') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
     with self.argument_context('usersmail create-override') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
-        c.argument('sender_email_address_name', help='The display name of the person or entity.')
-        c.argument('sender_email_address_address', help='The email address of the person or entity.')
+        c.argument('sender_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('sender_email_address_address', type=str, help='The email address of the person or entity.')
 
     with self.argument_context('usersmail get-override') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('inference_classification_override_id', help='key: inferenceClassificationOverride-id of '
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('inference_classification_override_id', type=str, help='key: inferenceClassificationOverride-id of '
                    'inferenceClassificationOverride')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-override') as c:
-        c.argument('user_id', help='key: user-id of user')
+        c.argument('user_id', type=str, help='key: user-id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('usersmail update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('mail_folder_id1', help='key: mailFolder-id of mailFolder')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='The mailFolder\'s display name.')
-        c.argument('parent_folder_id', help='The unique identifier for the mailFolder\'s parent mailFolder.')
-        c.argument('child_folder_count', help='The number of immediate child mailFolders in the current mailFolder.')
-        c.argument('unread_item_count', help='The number of items in the mailFolder marked as unread.')
-        c.argument('total_item_count', help='The number of items in the mailFolder.')
-        c.argument('well_known_name', help='')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('message_rules', type=validate_file_or_dict, help='The collection of rules that apply to the '
-                   'user\'s Inbox folder. Expected value: json-string/@json-file.')
-        c.argument('child_folders', type=validate_file_or_dict, help='The collection of child folders in the '
-                   'mailFolder. Expected value: json-string/@json-file.')
-        c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
-        c.argument('message_rule_id', help='key: messageRule-id of messageRule')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('multi_value_legacy_extended_property_id', help='key: multiValueLegacyExtendedProperty-id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('value', nargs='*', help='A collection of property values.')
-        c.argument('single_value_legacy_extended_property_id', help='key: singleValueLegacyExtendedProperty-id of '
-                   'singleValueLegacyExtendedProperty')
-        c.argument('user_configuration_id', help='key: userConfiguration-id of userConfiguration')
-        c.argument('binary_data', help='')
+    with self.argument_context('usersmail update-override') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('inference_classification_override_id', type=str, help='key: inferenceClassificationOverride-id of '
+                   'inferenceClassificationOverride')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('sender_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('sender_email_address_address', type=str, help='The email address of the person or entity.')
 
     with self.argument_context('usersmail create-child-folder') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('display_name', help='The mailFolder\'s display name.')
-        c.argument('parent_folder_id', help='The unique identifier for the mailFolder\'s parent mailFolder.')
-        c.argument('child_folder_count', help='The number of immediate child mailFolders in the current mailFolder.')
-        c.argument('unread_item_count', help='The number of items in the mailFolder marked as unread.')
-        c.argument('total_item_count', help='The number of items in the mailFolder.')
-        c.argument('well_known_name', help='')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The mailFolder\'s display name.')
+        c.argument('parent_folder_id', type=str,
+                   help='The unique identifier for the mailFolder\'s parent mailFolder.')
+        c.argument('child_folder_count', type=int, help='The number of immediate child mailFolders in the current '
+                   'mailFolder.')
+        c.argument('unread_item_count', type=int, help='The number of items in the mailFolder marked as unread.')
+        c.argument('total_item_count', type=int, help='The number of items in the mailFolder.')
+        c.argument('well_known_name', type=str, help='')
         c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
                    'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
         c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
@@ -194,421 +173,529 @@ def load_arguments(self, _):
         c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
 
     with self.argument_context('usersmail create-message') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
     with self.argument_context('usersmail create-message-rule') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
 
     with self.argument_context('usersmail create-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
     with self.argument_context('usersmail create-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('value', help='A property value.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
 
     with self.argument_context('usersmail create-user-configuration') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('binary_data', help='')
 
     with self.argument_context('usersmail get-child-folder') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('mail_folder_id1', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('mail_folder_id1', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-message') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-message-rule') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_rule_id', help='key: messageRule-id of messageRule')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_rule_id', type=str, help='key: messageRule-id of messageRule')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('multi_value_legacy_extended_property_id', help='key: multiValueLegacyExtendedProperty-id of '
-                   'multiValueLegacyExtendedProperty')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: multiValueLegacyExtendedProperty-id '
+                   'of multiValueLegacyExtendedProperty')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('single_value_legacy_extended_property_id', help='key: singleValueLegacyExtendedProperty-id of '
-                   'singleValueLegacyExtendedProperty')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: singleValueLegacyExtendedProperty-i'
+                   'd of singleValueLegacyExtendedProperty')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-user-configuration') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('user_configuration_id', help='key: userConfiguration-id of userConfiguration')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('user_configuration_id', type=str, help='key: userConfiguration-id of userConfiguration')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-child-folder') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-message') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-message-rule') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-user-configuration') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('usersmail update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('attachment_id', help='key: attachment-id of attachment')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', help='The attachment\'s file name.')
-        c.argument('content_type', help='The MIME type.')
-        c.argument('size', help='The length of the attachment in bytes.')
-        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
-                   'otherwise, false.')
-        c.argument('extension_id', help='key: extension-id of extension')
-        c.argument('mention_id', help='key: mention-id of mention')
-        c.argument('mentioned', action=AddMentioned, nargs='*', help='emailAddress')
-        c.argument('mention_text', help='')
-        c.argument('client_reference', help='')
-        c.argument('created_by', action=AddMentioned, nargs='*', help='emailAddress')
-        c.argument('created_date_time', help='')
-        c.argument('server_created_date_time', help='')
-        c.argument('deep_link', help='')
-        c.argument('application', help='')
-        c.argument('multi_value_legacy_extended_property_id', help='key: multiValueLegacyExtendedProperty-id of '
-                   'multiValueLegacyExtendedProperty')
+    with self.argument_context('usersmail update-child-folder') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('mail_folder_id1', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The mailFolder\'s display name.')
+        c.argument('parent_folder_id', type=str,
+                   help='The unique identifier for the mailFolder\'s parent mailFolder.')
+        c.argument('child_folder_count', type=int, help='The number of immediate child mailFolders in the current '
+                   'mailFolder.')
+        c.argument('unread_item_count', type=int, help='The number of items in the mailFolder marked as unread.')
+        c.argument('total_item_count', type=int, help='The number of items in the mailFolder.')
+        c.argument('well_known_name', type=str, help='')
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
+                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
+                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('message_rules', type=validate_file_or_dict, help='The collection of rules that apply to the '
+                   'user\'s Inbox folder. Expected value: json-string/@json-file.')
+        c.argument('child_folders', type=validate_file_or_dict, help='The collection of child folders in the '
+                   'mailFolder. Expected value: json-string/@json-file.')
+        c.argument('user_configurations', action=AddUserConfigurations, nargs='*', help='')
+
+    with self.argument_context('usersmail update-message') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('usersmail update-message-rule') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_rule_id', type=str, help='key: messageRule-id of messageRule')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('usersmail update-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: multiValueLegacyExtendedProperty-id '
+                   'of multiValueLegacyExtendedProperty')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
-        c.argument('single_value_legacy_extended_property_id', help='key: singleValueLegacyExtendedProperty-id of '
-                   'singleValueLegacyExtendedProperty')
+
+    with self.argument_context('usersmail update-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: singleValueLegacyExtendedProperty-i'
+                   'd of singleValueLegacyExtendedProperty')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('usersmail update-user-configuration') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('user_configuration_id', type=str, help='key: userConfiguration-id of userConfiguration')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('binary_data', help='')
 
     with self.argument_context('usersmail create-attachment') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', help='The attachment\'s file name.')
-        c.argument('content_type', help='The MIME type.')
-        c.argument('size', help='The length of the attachment in bytes.')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
         c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
                    'otherwise, false.')
 
     with self.argument_context('usersmail create-extension') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
     with self.argument_context('usersmail create-mention') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mentioned', action=AddMentioned, nargs='*', help='emailAddress')
-        c.argument('mention_text', help='')
-        c.argument('client_reference', help='')
+        c.argument('mention_text', type=str, help='')
+        c.argument('client_reference', type=str, help='')
         c.argument('created_by', action=AddMentioned, nargs='*', help='emailAddress')
         c.argument('created_date_time', help='')
         c.argument('server_created_date_time', help='')
-        c.argument('deep_link', help='')
-        c.argument('application', help='')
+        c.argument('deep_link', type=str, help='')
+        c.argument('application', type=str, help='')
 
     with self.argument_context('usersmail create-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
     with self.argument_context('usersmail create-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('value', help='A property value.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
 
     with self.argument_context('usersmail get-attachment') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('attachment_id', help='key: attachment-id of attachment')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('attachment_id', type=str, help='key: attachment-id of attachment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-extension') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('extension_id', help='key: extension-id of extension')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('extension_id', type=str, help='key: extension-id of extension')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-mention') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('mention_id', help='key: mention-id of mention')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('mention_id', type=str, help='key: mention-id of mention')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('multi_value_legacy_extended_property_id', help='key: multiValueLegacyExtendedProperty-id of '
-                   'multiValueLegacyExtendedProperty')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: multiValueLegacyExtendedProperty-id '
+                   'of multiValueLegacyExtendedProperty')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('single_value_legacy_extended_property_id', help='key: singleValueLegacyExtendedProperty-id of '
-                   'singleValueLegacyExtendedProperty')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: singleValueLegacyExtendedProperty-i'
+                   'd of singleValueLegacyExtendedProperty')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-attachment') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-extension') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-mention') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('mail_folder_id', help='key: mailFolder-id of mailFolder')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('usersmail update') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('attachment_id', help='key: attachment-id of attachment')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+    with self.argument_context('usersmail update-attachment') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('attachment_id', type=str, help='key: attachment-id of attachment')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', help='The attachment\'s file name.')
-        c.argument('content_type', help='The MIME type.')
-        c.argument('size', help='The length of the attachment in bytes.')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
         c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
                    'otherwise, false.')
-        c.argument('extension_id', help='key: extension-id of extension')
-        c.argument('mention_id', help='key: mention-id of mention')
+
+    with self.argument_context('usersmail update-extension') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('extension_id', type=str, help='key: extension-id of extension')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('usersmail update-mention') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('mention_id', type=str, help='key: mention-id of mention')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mentioned', action=AddMentioned, nargs='*', help='emailAddress')
-        c.argument('mention_text', help='')
-        c.argument('client_reference', help='')
+        c.argument('mention_text', type=str, help='')
+        c.argument('client_reference', type=str, help='')
         c.argument('created_by', action=AddMentioned, nargs='*', help='emailAddress')
         c.argument('created_date_time', help='')
         c.argument('server_created_date_time', help='')
-        c.argument('deep_link', help='')
-        c.argument('application', help='')
-        c.argument('multi_value_legacy_extended_property_id', help='key: multiValueLegacyExtendedProperty-id of '
-                   'multiValueLegacyExtendedProperty')
+        c.argument('deep_link', type=str, help='')
+        c.argument('application', type=str, help='')
+
+    with self.argument_context('usersmail update-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: multiValueLegacyExtendedProperty-id '
+                   'of multiValueLegacyExtendedProperty')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
-        c.argument('single_value_legacy_extended_property_id', help='key: singleValueLegacyExtendedProperty-id of '
-                   'singleValueLegacyExtendedProperty')
+
+    with self.argument_context('usersmail update-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('mail_folder_id', type=str, help='key: mailFolder-id of mailFolder')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: singleValueLegacyExtendedProperty-i'
+                   'd of singleValueLegacyExtendedProperty')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
 
     with self.argument_context('usersmail create-attachment') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('name', help='The attachment\'s file name.')
-        c.argument('content_type', help='The MIME type.')
-        c.argument('size', help='The length of the attachment in bytes.')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
         c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
                    'otherwise, false.')
 
     with self.argument_context('usersmail create-extension') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
     with self.argument_context('usersmail create-mention') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mentioned', action=AddMentioned, nargs='*', help='emailAddress')
-        c.argument('mention_text', help='')
-        c.argument('client_reference', help='')
+        c.argument('mention_text', type=str, help='')
+        c.argument('client_reference', type=str, help='')
         c.argument('created_by', action=AddMentioned, nargs='*', help='emailAddress')
         c.argument('created_date_time', help='')
         c.argument('server_created_date_time', help='')
-        c.argument('deep_link', help='')
-        c.argument('application', help='')
+        c.argument('deep_link', type=str, help='')
+        c.argument('application', type=str, help='')
 
     with self.argument_context('usersmail create-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='*', help='A collection of property values.')
 
     with self.argument_context('usersmail create-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('value', help='A property value.')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
 
     with self.argument_context('usersmail get-attachment') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('attachment_id', help='key: attachment-id of attachment')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('attachment_id', type=str, help='key: attachment-id of attachment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-extension') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('extension_id', help='key: extension-id of extension')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('extension_id', type=str, help='key: extension-id of extension')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-mention') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('mention_id', help='key: mention-id of mention')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('mention_id', type=str, help='key: mention-id of mention')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('multi_value_legacy_extended_property_id', help='key: multiValueLegacyExtendedProperty-id of '
-                   'multiValueLegacyExtendedProperty')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: multiValueLegacyExtendedProperty-id '
+                   'of multiValueLegacyExtendedProperty')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail get-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
-        c.argument('single_value_legacy_extended_property_id', help='key: singleValueLegacyExtendedProperty-id of '
-                   'singleValueLegacyExtendedProperty')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: singleValueLegacyExtendedProperty-i'
+                   'd of singleValueLegacyExtendedProperty')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-attachment') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-extension') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-mention') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-multi-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('usersmail list-single-value-extended-property') as c:
-        c.argument('user_id', help='key: user-id of user')
-        c.argument('message_id', help='key: message-id of message')
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('usersmail update-attachment') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('attachment_id', type=str, help='key: attachment-id of attachment')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('name', type=str, help='The attachment\'s file name.')
+        c.argument('content_type', type=str, help='The MIME type.')
+        c.argument('size', type=int, help='The length of the attachment in bytes.')
+        c.argument('is_inline', arg_type=get_three_state_flag(), help='true if the attachment is an inline attachment; '
+                   'otherwise, false.')
+
+    with self.argument_context('usersmail update-extension') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('extension_id', type=str, help='key: extension-id of extension')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('usersmail update-mention') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('mention_id', type=str, help='key: mention-id of mention')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('mentioned', action=AddMentioned, nargs='*', help='emailAddress')
+        c.argument('mention_text', type=str, help='')
+        c.argument('client_reference', type=str, help='')
+        c.argument('created_by', action=AddMentioned, nargs='*', help='emailAddress')
+        c.argument('created_date_time', help='')
+        c.argument('server_created_date_time', help='')
+        c.argument('deep_link', type=str, help='')
+        c.argument('application', type=str, help='')
+
+    with self.argument_context('usersmail update-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: multiValueLegacyExtendedProperty-id '
+                   'of multiValueLegacyExtendedProperty')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='*', help='A collection of property values.')
+
+    with self.argument_context('usersmail update-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: user-id of user')
+        c.argument('message_id', type=str, help='key: message-id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: singleValueLegacyExtendedProperty-i'
+                   'd of singleValueLegacyExtendedProperty')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')

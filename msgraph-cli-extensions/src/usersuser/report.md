@@ -102,9 +102,9 @@ list-user a usersuser.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### usersuser update
+### usersuser update-presence
 
-update a usersuser.
+update-presence a usersuser.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -114,7 +114,7 @@ update a usersuser.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdatePresence|
+|update-presence|UpdatePresence|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -123,3 +123,23 @@ update a usersuser.
 |**--id**|string|Read-only.|id|id|
 |**--availability**|string||availability|availability|
 |**--activity**|string||activity|activity|
+
+### usersuser update-user
+
+update-user a usersuser.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersuser|users.user|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-user|UpdateUser|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: user-id of user|user_id|user-id|
+|**--body**|object|New property values|body|body|

@@ -27,8 +27,12 @@ from azext_reports.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('reports update') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+    with self.argument_context('reports get-report-root') as c:
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports update-report-root') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_sign_in_detailed_summary', action=AddApplicationSignInDetailedSummary, nargs='*',
                    help='')
         c.argument('credential_user_registration_details', action=AddCredentialUserRegistrationDetails, nargs='*',
@@ -43,67 +47,22 @@ def load_arguments(self, _):
         c.argument('monthly_print_usage_summaries_by_printer', action=AddMonthlyPrintUsageSummariesByPrinter,
                    nargs='*', help='')
 
-    with self.argument_context('reports get-report-root') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports update') as c:
-        c.argument('application_sign_in_detailed_summary_id', help='key: applicationSignInDetailedSummary-id of '
-                   'applicationSignInDetailedSummary')
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('app_id', help='')
-        c.argument('app_display_name', help='')
-        c.argument('sign_in_count', help='')
-        c.argument('aggregated_event_date_time', help='')
-        c.argument('status_error_code', help='Provides the 5-6digit error code that\'s generated during a sign-in '
-                   'failure. Check out the list of error codes and messages.')
-        c.argument('status_failure_reason', help='Provides the error message or the reason for failure for the '
-                   'corresponding sign-in activity. Check out the list of error codes and messages.')
-        c.argument('status_additional_details', help='Provides additional details on the sign-in activity')
-        c.argument('credential_user_registration_details_id', help='key: credentialUserRegistrationDetails-id of '
-                   'credentialUserRegistrationDetails')
-        c.argument('user_principal_name', help='')
-        c.argument('user_display_name', help='')
-        c.argument('auth_methods', nargs='*', help='')
-        c.argument('is_registered', arg_type=get_three_state_flag(), help='')
-        c.argument('is_enabled', arg_type=get_three_state_flag(), help='')
-        c.argument('is_capable', arg_type=get_three_state_flag(), help='')
-        c.argument('is_mfa_registered', arg_type=get_three_state_flag(), help='')
-        c.argument('print_usage_summary_by_printer_id', help='key: PrintUsageSummaryByPrinter-id of '
-                   'PrintUsageSummaryByPrinter')
-        c.argument('printer_id', help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', help='')
-        c.argument('completed_color_job_count', help='')
-        c.argument('incomplete_job_count', help='')
-        c.argument('print_usage_summary_by_user_id',
-                   help='key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser')
-        c.argument('user_credential_usage_details_id', help='key: userCredentialUsageDetails-id of '
-                   'userCredentialUsageDetails')
-        c.argument('feature', arg_type=get_enum_type(['registration', 'reset', 'unknownFutureValue']), help='')
-        c.argument('is_success', arg_type=get_three_state_flag(), help='')
-        c.argument('auth_method', arg_type=get_enum_type(['email', 'mobileSMS', 'mobileCall', 'officePhone', ''
-                   'securityQuestion', 'appNotification', 'appCode', 'alternateMobileCall', 'fido', 'appPassword', ''
-                   'unknownFutureValue']), help='')
-        c.argument('failure_reason', help='')
-        c.argument('event_date_time', help='')
-
     with self.argument_context('reports create-application-sign-in-detailed-summary') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('app_id', help='')
-        c.argument('app_display_name', help='')
-        c.argument('sign_in_count', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('app_id', type=str, help='')
+        c.argument('app_display_name', type=str, help='')
+        c.argument('sign_in_count', type=int, help='')
         c.argument('aggregated_event_date_time', help='')
-        c.argument('status_error_code', help='Provides the 5-6digit error code that\'s generated during a sign-in '
-                   'failure. Check out the list of error codes and messages.')
-        c.argument('status_failure_reason', help='Provides the error message or the reason for failure for the '
-                   'corresponding sign-in activity. Check out the list of error codes and messages.')
-        c.argument('status_additional_details', help='Provides additional details on the sign-in activity')
+        c.argument('status_error_code', type=int, help='Provides the 5-6digit error code that\'s generated during a '
+                   'sign-in failure. Check out the list of error codes and messages.')
+        c.argument('status_failure_reason', type=str, help='Provides the error message or the reason for failure for '
+                   'the corresponding sign-in activity. Check out the list of error codes and messages.')
+        c.argument('status_additional_details', type=str, help='Provides additional details on the sign-in activity')
 
     with self.argument_context('reports create-credential-user-registration-detail') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('user_principal_name', help='')
-        c.argument('user_display_name', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('user_principal_name', type=str, help='')
+        c.argument('user_display_name', type=str, help='')
         c.argument('auth_methods', nargs='*', help='')
         c.argument('is_registered', arg_type=get_three_state_flag(), help='')
         c.argument('is_enabled', arg_type=get_three_state_flag(), help='')
@@ -111,228 +70,208 @@ def load_arguments(self, _):
         c.argument('is_mfa_registered', arg_type=get_three_state_flag(), help='')
 
     with self.argument_context('reports create-daily-print-usage-summary-by-printer') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('printer_id', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('printer_id', type=str, help='')
         c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', help='')
-        c.argument('completed_color_job_count', help='')
-        c.argument('incomplete_job_count', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
 
     with self.argument_context('reports create-daily-print-usage-summary-by-user') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('user_principal_name', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('user_principal_name', type=str, help='')
         c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', help='')
-        c.argument('completed_color_job_count', help='')
-        c.argument('incomplete_job_count', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
 
     with self.argument_context('reports create-monthly-print-usage-summary-by-printer') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('printer_id', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('printer_id', type=str, help='')
         c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', help='')
-        c.argument('completed_color_job_count', help='')
-        c.argument('incomplete_job_count', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
 
     with self.argument_context('reports create-monthly-print-usage-summary-by-user') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
-        c.argument('user_principal_name', help='')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('user_principal_name', type=str, help='')
         c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', help='')
-        c.argument('completed_color_job_count', help='')
-        c.argument('incomplete_job_count', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
 
     with self.argument_context('reports create-user-credential-usage-detail') as c:
-        c.argument('id_', options_list=['--id'], help='Read-only.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('feature', arg_type=get_enum_type(['registration', 'reset', 'unknownFutureValue']), help='')
-        c.argument('user_principal_name', help='')
-        c.argument('user_display_name', help='')
+        c.argument('user_principal_name', type=str, help='')
+        c.argument('user_display_name', type=str, help='')
         c.argument('is_success', arg_type=get_three_state_flag(), help='')
         c.argument('auth_method', arg_type=get_enum_type(['email', 'mobileSMS', 'mobileCall', 'officePhone', ''
-                   'securityQuestion', 'appNotification', 'appCode', 'alternateMobileCall', 'fido', 'appPassword', ''
-                   'unknownFutureValue']), help='')
-        c.argument('failure_reason', help='')
+                                                          'securityQuestion', 'appNotification', 'appCode', ''
+                                                          'alternateMobileCall', 'fido', 'appPassword', ''
+                                                          'unknownFutureValue']), help='')
+        c.argument('failure_reason', type=str, help='')
         c.argument('event_date_time', help='')
 
-    with self.argument_context('reports device-configuration-device-activity') as c:
-        pass
-
-    with self.argument_context('reports device-configuration-user-activity') as c:
-        pass
-
     with self.argument_context('reports get-application-sign-in-detailed-summary') as c:
-        c.argument('application_sign_in_detailed_summary_id', help='key: applicationSignInDetailedSummary-id of '
-                   'applicationSignInDetailedSummary')
+        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: applicationSignInDetailedSummary-id '
+                   'of applicationSignInDetailedSummary')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-azure-ad-application-sign-in-summary') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-azure-ad-feature-usage') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-azure-ad-license-usage') as c:
-        c.argument('period', help='')
-
-    with self.argument_context('reports get-azure-ad-user-feature-usage') as c:
-        pass
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-credential-usage-summary') as c:
-        c.argument('period', help='')
-
-    with self.argument_context('reports get-credential-user-registration-count') as c:
-        pass
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-credential-user-registration-detail') as c:
-        c.argument('credential_user_registration_details_id', help='key: credentialUserRegistrationDetails-id of '
-                   'credentialUserRegistrationDetails')
+        c.argument('credential_user_registration_details_id', type=str, help='key: credentialUserRegistrationDetails-id'
+                   ' of credentialUserRegistrationDetails')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-daily-print-usage-summary-by-printer') as c:
-        c.argument('print_usage_summary_by_printer_id', help='key: PrintUsageSummaryByPrinter-id of '
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
                    'PrintUsageSummaryByPrinter')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-daily-print-usage-summary-by-user') as c:
-        c.argument('print_usage_summary_by_user_id',
-                   help='key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser')
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
+                   'PrintUsageSummaryByUser')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-email-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-email-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-email-activity-user-detail-ddb2') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-email-activity-user-detail-fe32') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-email-app-usage-app-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-email-app-usage-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-email-app-usage-user-detail546-b') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-email-app-usage-user-detail62-ec') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-email-app-usage-version-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-mailbox-usage-detail') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-mailbox-usage-mailbox-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-mailbox-usage-quota-status-mailbox-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-mailbox-usage-storage') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-monthly-print-usage-summary-by-printer') as c:
-        c.argument('print_usage_summary_by_printer_id', help='key: PrintUsageSummaryByPrinter-id of '
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
                    'PrintUsageSummaryByPrinter')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-monthly-print-usage-summary-by-user') as c:
-        c.argument('print_usage_summary_by_user_id',
-                   help='key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser')
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
+                   'PrintUsageSummaryByUser')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('reports get-office365-activation-count') as c:
-        pass
-
-    with self.argument_context('reports get-office365-activation-user-count') as c:
-        pass
-
-    with self.argument_context('reports get-office365-activation-user-detail') as c:
-        pass
-
     with self.argument_context('reports get-office365-active-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-office365-active-user-detail-d389') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-office365-active-user-detail68-ad') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-office365-group-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-office365-group-activity-detail38-f6') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-office365-group-activity-detail81-cc') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-office365-group-activity-file-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-office365-group-activity-group-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-office365-group-activity-storage') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-office365-service-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-activity-file-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-activity-user-detail-c424') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-activity-user-detail05-f1') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-one-drive-usage-account-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-usage-account-detail-dd7-f') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-usage-account-detail-e827') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-one-drive-usage-file-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-usage-storage') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-relying-party-detailed-summary') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-activity-file-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-activity-page') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-activity-user-detail-b778') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-activity-user-detail-f3-be') as c:
         c.argument('date', help='')
@@ -341,139 +280,139 @@ def load_arguments(self, _):
         c.argument('date', help='')
 
     with self.argument_context('reports get-share-point-site-usage-detail204-b') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-site-usage-file-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-site-usage-page') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-site-usage-site-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-site-usage-storage') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-activity-user-detail-e4-c9') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-skype-for-business-activity-user-detail744-e') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-device-usage-distribution-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-device-usage-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-device-usage-user-detail-a692') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-skype-for-business-device-usage-user-detail-e753') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-organizer-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-organizer-activity-minute-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-organizer-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-participant-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-participant-activity-minute-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-participant-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-peer-to-peer-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-peer-to-peer-activity-minute-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-skype-for-business-peer-to-peer-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-team-device-usage-distribution-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-team-device-usage-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-team-device-usage-user-detail7148') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-team-device-usage-user-detail7565') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-team-user-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-team-user-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-team-user-activity-user-detail-a3-f1') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-team-user-activity-user-detail-eb13') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-tenant-secure-score') as c:
-        c.argument('period', help='')
+        c.argument('period', type=int, help='')
 
     with self.argument_context('reports get-user-credential-usage-detail') as c:
-        c.argument('user_credential_usage_details_id', help='key: userCredentialUsageDetails-id of '
+        c.argument('user_credential_usage_details_id', type=str, help='key: userCredentialUsageDetails-id of '
                    'userCredentialUsageDetails')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-yammer-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-activity-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-activity-user-detail-ac30') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-yammer-activity-user-detail15-a5') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-device-usage-distribution-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-device-usage-user-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-device-usage-user-detail-cfad') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-device-usage-user-detail-d0-ac') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-yammer-group-activity-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-group-activity-detail-da9-a') as c:
         c.argument('date', help='')
 
     with self.argument_context('reports get-yammer-group-activity-detail0-d7-d') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-yammer-group-activity-group-count') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
     with self.argument_context('reports list-application-sign-in-detailed-summary') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
@@ -501,31 +440,103 @@ def load_arguments(self, _):
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports managed-device-enrollment-abandonment-detail') as c:
-        c.argument('skip', help='')
-        c.argument('top', help='')
-        c.argument('filter', help='')
-        c.argument('skip_token', help='')
+        c.argument('skip', type=int, help='')
+        c.argument('top', type=int, help='')
+        c.argument('filter_', options_list=['--filter'], type=str, help='')
+        c.argument('skip_token', type=str, help='')
 
     with self.argument_context('reports managed-device-enrollment-abandonment-summary') as c:
-        c.argument('skip', help='')
-        c.argument('top', help='')
-        c.argument('filter', help='')
-        c.argument('skip_token', help='')
-
-    with self.argument_context('reports managed-device-enrollment-failure-details027-e') as c:
-        pass
+        c.argument('skip', type=int, help='')
+        c.argument('top', type=int, help='')
+        c.argument('filter_', options_list=['--filter'], type=str, help='')
+        c.argument('skip_token', type=str, help='')
 
     with self.argument_context('reports managed-device-enrollment-failure-details2-b3-d') as c:
-        c.argument('skip', help='')
-        c.argument('top', help='')
-        c.argument('filter', help='')
-        c.argument('skip_token', help='')
-
-    with self.argument_context('reports managed-device-enrollment-failure-trend') as c:
-        pass
+        c.argument('skip', type=int, help='')
+        c.argument('top', type=int, help='')
+        c.argument('filter_', options_list=['--filter'], type=str, help='')
+        c.argument('skip_token', type=str, help='')
 
     with self.argument_context('reports managed-device-enrollment-top-failure-afd1') as c:
-        c.argument('period', help='')
+        c.argument('period', type=str, help='')
 
-    with self.argument_context('reports managed-device-enrollment-top-failures4669') as c:
-        pass
+    with self.argument_context('reports update-application-sign-in-detailed-summary') as c:
+        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: applicationSignInDetailedSummary-id '
+                   'of applicationSignInDetailedSummary')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('app_id', type=str, help='')
+        c.argument('app_display_name', type=str, help='')
+        c.argument('sign_in_count', type=int, help='')
+        c.argument('aggregated_event_date_time', help='')
+        c.argument('status_error_code', type=int, help='Provides the 5-6digit error code that\'s generated during a '
+                   'sign-in failure. Check out the list of error codes and messages.')
+        c.argument('status_failure_reason', type=str, help='Provides the error message or the reason for failure for '
+                   'the corresponding sign-in activity. Check out the list of error codes and messages.')
+        c.argument('status_additional_details', type=str, help='Provides additional details on the sign-in activity')
+
+    with self.argument_context('reports update-credential-user-registration-detail') as c:
+        c.argument('credential_user_registration_details_id', type=str, help='key: credentialUserRegistrationDetails-id'
+                   ' of credentialUserRegistrationDetails')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('user_principal_name', type=str, help='')
+        c.argument('user_display_name', type=str, help='')
+        c.argument('auth_methods', nargs='*', help='')
+        c.argument('is_registered', arg_type=get_three_state_flag(), help='')
+        c.argument('is_enabled', arg_type=get_three_state_flag(), help='')
+        c.argument('is_capable', arg_type=get_three_state_flag(), help='')
+        c.argument('is_mfa_registered', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('reports update-daily-print-usage-summary-by-printer') as c:
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
+                   'PrintUsageSummaryByPrinter')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('printer_id', type=str, help='')
+        c.argument('usage_date', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
+
+    with self.argument_context('reports update-daily-print-usage-summary-by-user') as c:
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
+                   'PrintUsageSummaryByUser')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('user_principal_name', type=str, help='')
+        c.argument('usage_date', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
+
+    with self.argument_context('reports update-monthly-print-usage-summary-by-printer') as c:
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
+                   'PrintUsageSummaryByPrinter')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('printer_id', type=str, help='')
+        c.argument('usage_date', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
+
+    with self.argument_context('reports update-monthly-print-usage-summary-by-user') as c:
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
+                   'PrintUsageSummaryByUser')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('user_principal_name', type=str, help='')
+        c.argument('usage_date', help='')
+        c.argument('completed_black_and_white_job_count', type=int, help='')
+        c.argument('completed_color_job_count', type=int, help='')
+        c.argument('incomplete_job_count', type=int, help='')
+
+    with self.argument_context('reports update-user-credential-usage-detail') as c:
+        c.argument('user_credential_usage_details_id', type=str, help='key: userCredentialUsageDetails-id of '
+                   'userCredentialUsageDetails')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('feature', arg_type=get_enum_type(['registration', 'reset', 'unknownFutureValue']), help='')
+        c.argument('user_principal_name', type=str, help='')
+        c.argument('user_display_name', type=str, help='')
+        c.argument('is_success', arg_type=get_three_state_flag(), help='')
+        c.argument('auth_method', arg_type=get_enum_type(['email', 'mobileSMS', 'mobileCall', 'officePhone', ''
+                                                          'securityQuestion', 'appNotification', 'appCode', ''
+                                                          'alternateMobileCall', 'fido', 'appPassword', ''
+                                                          'unknownFutureValue']), help='')
+        c.argument('failure_reason', type=str, help='')
+        c.argument('event_date_time', help='')

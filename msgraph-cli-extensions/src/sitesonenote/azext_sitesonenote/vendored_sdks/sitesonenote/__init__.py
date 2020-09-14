@@ -10,7 +10,7 @@ from ._sites_one_note import SitesOneNote
 __all__ = ['SitesOneNote']
 
 try:
-    from ._patch import patch_sdk
+    from ._patch import patch_sdk  # type: ignore
     patch_sdk()
 except ImportError:
     pass

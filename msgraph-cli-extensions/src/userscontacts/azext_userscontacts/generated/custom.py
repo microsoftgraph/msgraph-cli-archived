@@ -11,35 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def userscontacts_update(client,
-                         user_id,
-                         contact_folder_id=None,
-                         id_=None,
-                         parent_folder_id=None,
-                         display_name=None,
-                         well_known_name=None,
-                         single_value_extended_properties=None,
-                         multi_value_extended_properties=None,
-                         contacts=None,
-                         child_folders=None,
-                         contact_id=None,
-                         body=None):
-    if user_id is not None and contact_folder_id is not None:
-        return client.update_contact_folder(user_id=user_id,
-                                            contact_folder_id=contact_folder_id,
-                                            id=id_,
-                                            parent_folder_id=parent_folder_id,
-                                            display_name=display_name,
-                                            well_known_name=well_known_name,
-                                            single_value_extended_properties=single_value_extended_properties,
-                                            multi_value_extended_properties=multi_value_extended_properties,
-                                            contacts=contacts,
-                                            child_folders=child_folders)
-    return client.update_contact(user_id=user_id,
-                                 contact_id=contact_id,
-                                 body=body)
-
-
 def userscontacts_create_contact(client,
                                  user_id,
                                  body):
@@ -112,51 +83,36 @@ def userscontacts_list_contact_folder(client,
                                       expand=expand)
 
 
-def userscontacts_update(client,
-                         user_id,
-                         contact_folder_id,
-                         contact_folder_id1=None,
-                         id_=None,
-                         parent_folder_id=None,
-                         display_name=None,
-                         well_known_name=None,
-                         single_value_extended_properties=None,
-                         multi_value_extended_properties=None,
-                         contacts=None,
-                         child_folders=None,
-                         contact_id=None,
-                         body=None,
-                         multi_value_legacy_extended_property_id=None,
-                         value=None,
-                         single_value_legacy_extended_property_id=None):
-    if user_id is not None and contact_folder_id is not None and contact_folder_id1 is not None:
-        return client.update_child_folder(user_id=user_id,
-                                          contact_folder_id=contact_folder_id,
-                                          contact_folder_id1=contact_folder_id1,
-                                          id=id_,
-                                          parent_folder_id=parent_folder_id,
-                                          display_name=display_name,
-                                          well_known_name=well_known_name,
-                                          single_value_extended_properties=single_value_extended_properties,
-                                          multi_value_extended_properties=multi_value_extended_properties,
-                                          contacts=contacts,
-                                          child_folders=child_folders)
-    elif user_id is not None and contact_folder_id is not None and contact_id is not None and body is not None:
-        return client.update_contact(user_id=user_id,
-                                     contact_folder_id=contact_folder_id,
-                                     contact_id=contact_id,
-                                     body=body)
-    elif user_id is not None and contact_folder_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.update_multi_value_extended_property(user_id=user_id,
-                                                           contact_folder_id=contact_folder_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           id=id_,
-                                                           value=value)
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        contact_folder_id=contact_folder_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+def userscontacts_update_contact(client,
+                                 user_id,
+                                 contact_id,
+                                 body):
+    return client.update_contact(user_id=user_id,
+                                 contact_id=contact_id,
+                                 body=body)
+
+
+def userscontacts_update_contact_folder(client,
+                                        user_id,
+                                        contact_folder_id,
+                                        id_=None,
+                                        parent_folder_id=None,
+                                        display_name=None,
+                                        well_known_name=None,
+                                        single_value_extended_properties=None,
+                                        multi_value_extended_properties=None,
+                                        contacts=None,
+                                        child_folders=None):
+    return client.update_contact_folder(user_id=user_id,
+                                        contact_folder_id=contact_folder_id,
+                                        id=id_,
+                                        parent_folder_id=parent_folder_id,
+                                        display_name=display_name,
+                                        well_known_name=well_known_name,
+                                        single_value_extended_properties=single_value_extended_properties,
+                                        multi_value_extended_properties=multi_value_extended_properties,
+                                        contacts=contacts,
+                                        child_folders=child_folders)
 
 
 def userscontacts_create_child_folder(client,
@@ -317,43 +273,66 @@ def userscontacts_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def userscontacts_update(client,
-                         user_id,
-                         contact_folder_id,
-                         contact_id,
-                         extension_id=None,
-                         id_=None,
-                         multi_value_legacy_extended_property_id=None,
-                         value=None,
-                         single_value_legacy_extended_property_id=None,
-                         height=None,
-                         width=None):
-    if user_id is not None and contact_folder_id is not None and contact_id is not None and extension_id is not None:
-        return client.update_extension(user_id=user_id,
-                                       contact_folder_id=contact_folder_id,
-                                       contact_id=contact_id,
-                                       extension_id=extension_id,
-                                       id=id_)
-    elif user_id is not None and contact_folder_id is not None and contact_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.update_multi_value_extended_property(user_id=user_id,
-                                                           contact_folder_id=contact_folder_id,
-                                                           contact_id=contact_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           id=id_,
-                                                           value=value)
-    elif user_id is not None and contact_folder_id is not None and contact_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.update_single_value_extended_property(user_id=user_id,
-                                                            contact_folder_id=contact_folder_id,
-                                                            contact_id=contact_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            id=id_,
-                                                            value=value)
-    return client.update_photo(user_id=user_id,
-                               contact_folder_id=contact_folder_id,
-                               contact_id=contact_id,
-                               id=id_,
-                               height=height,
-                               width=width)
+def userscontacts_update_child_folder(client,
+                                      user_id,
+                                      contact_folder_id,
+                                      contact_folder_id1,
+                                      id_=None,
+                                      parent_folder_id=None,
+                                      display_name=None,
+                                      well_known_name=None,
+                                      single_value_extended_properties=None,
+                                      multi_value_extended_properties=None,
+                                      contacts=None,
+                                      child_folders=None):
+    return client.update_child_folder(user_id=user_id,
+                                      contact_folder_id=contact_folder_id,
+                                      contact_folder_id1=contact_folder_id1,
+                                      id=id_,
+                                      parent_folder_id=parent_folder_id,
+                                      display_name=display_name,
+                                      well_known_name=well_known_name,
+                                      single_value_extended_properties=single_value_extended_properties,
+                                      multi_value_extended_properties=multi_value_extended_properties,
+                                      contacts=contacts,
+                                      child_folders=child_folders)
+
+
+def userscontacts_update_contact(client,
+                                 user_id,
+                                 contact_folder_id,
+                                 contact_id,
+                                 body):
+    return client.update_contact(user_id=user_id,
+                                 contact_folder_id=contact_folder_id,
+                                 contact_id=contact_id,
+                                 body=body)
+
+
+def userscontacts_update_multi_value_extended_property(client,
+                                                       user_id,
+                                                       contact_folder_id,
+                                                       multi_value_legacy_extended_property_id,
+                                                       id_=None,
+                                                       value=None):
+    return client.update_multi_value_extended_property(user_id=user_id,
+                                                       contact_folder_id=contact_folder_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       id=id_,
+                                                       value=value)
+
+
+def userscontacts_update_single_value_extended_property(client,
+                                                        user_id,
+                                                        contact_folder_id,
+                                                        single_value_legacy_extended_property_id,
+                                                        id_=None,
+                                                        value=None):
+    return client.update_single_value_extended_property(user_id=user_id,
+                                                        contact_folder_id=contact_folder_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        id=id_,
+                                                        value=value)
 
 
 def userscontacts_create_extension(client,
@@ -496,38 +475,62 @@ def userscontacts_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def userscontacts_update(client,
-                         user_id,
-                         contact_id,
-                         extension_id=None,
-                         id_=None,
-                         multi_value_legacy_extended_property_id=None,
-                         value=None,
-                         single_value_legacy_extended_property_id=None,
-                         height=None,
-                         width=None):
-    if user_id is not None and contact_id is not None and extension_id is not None:
-        return client.update_extension(user_id=user_id,
-                                       contact_id=contact_id,
-                                       extension_id=extension_id,
-                                       id=id_)
-    elif user_id is not None and contact_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.update_multi_value_extended_property(user_id=user_id,
-                                                           contact_id=contact_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           id=id_,
-                                                           value=value)
-    elif user_id is not None and contact_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.update_single_value_extended_property(user_id=user_id,
-                                                            contact_id=contact_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            id=id_,
-                                                            value=value)
+def userscontacts_update_extension(client,
+                                   user_id,
+                                   contact_folder_id,
+                                   contact_id,
+                                   extension_id,
+                                   id_=None):
+    return client.update_extension(user_id=user_id,
+                                   contact_folder_id=contact_folder_id,
+                                   contact_id=contact_id,
+                                   extension_id=extension_id,
+                                   id=id_)
+
+
+def userscontacts_update_multi_value_extended_property(client,
+                                                       user_id,
+                                                       contact_folder_id,
+                                                       contact_id,
+                                                       multi_value_legacy_extended_property_id,
+                                                       id_=None,
+                                                       value=None):
+    return client.update_multi_value_extended_property(user_id=user_id,
+                                                       contact_folder_id=contact_folder_id,
+                                                       contact_id=contact_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       id=id_,
+                                                       value=value)
+
+
+def userscontacts_update_photo(client,
+                               user_id,
+                               contact_folder_id,
+                               contact_id,
+                               id_=None,
+                               height=None,
+                               width=None):
     return client.update_photo(user_id=user_id,
+                               contact_folder_id=contact_folder_id,
                                contact_id=contact_id,
                                id=id_,
                                height=height,
                                width=width)
+
+
+def userscontacts_update_single_value_extended_property(client,
+                                                        user_id,
+                                                        contact_folder_id,
+                                                        contact_id,
+                                                        single_value_legacy_extended_property_id,
+                                                        id_=None,
+                                                        value=None):
+    return client.update_single_value_extended_property(user_id=user_id,
+                                                        contact_folder_id=contact_folder_id,
+                                                        contact_id=contact_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        id=id_,
+                                                        value=value)
 
 
 def userscontacts_create_extension(client,
@@ -648,3 +651,53 @@ def userscontacts_list_single_value_extended_property(client,
                                                       orderby=orderby,
                                                       select=select,
                                                       expand=expand)
+
+
+def userscontacts_update_extension(client,
+                                   user_id,
+                                   contact_id,
+                                   extension_id,
+                                   id_=None):
+    return client.update_extension(user_id=user_id,
+                                   contact_id=contact_id,
+                                   extension_id=extension_id,
+                                   id=id_)
+
+
+def userscontacts_update_multi_value_extended_property(client,
+                                                       user_id,
+                                                       contact_id,
+                                                       multi_value_legacy_extended_property_id,
+                                                       id_=None,
+                                                       value=None):
+    return client.update_multi_value_extended_property(user_id=user_id,
+                                                       contact_id=contact_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       id=id_,
+                                                       value=value)
+
+
+def userscontacts_update_photo(client,
+                               user_id,
+                               contact_id,
+                               id_=None,
+                               height=None,
+                               width=None):
+    return client.update_photo(user_id=user_id,
+                               contact_id=contact_id,
+                               id=id_,
+                               height=height,
+                               width=width)
+
+
+def userscontacts_update_single_value_extended_property(client,
+                                                        user_id,
+                                                        contact_id,
+                                                        single_value_legacy_extended_property_id,
+                                                        id_=None,
+                                                        value=None):
+    return client.update_single_value_extended_property(user_id=user_id,
+                                                        contact_id=contact_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        id=id_,
+                                                        value=value)

@@ -331,9 +331,9 @@ list-task a groupsplanner.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### groupsplanner update
+### groupsplanner update-assigned-to-task-board-format
 
-update a groupsplanner.
+update-assigned-to-task-board-format a groupsplanner.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -343,10 +343,7 @@ update a groupsplanner.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateAssignedToTaskBoardFormat|
-|update|UpdateBucketTaskBoardFormat|
-|update|UpdateDetails|
-|update|UpdateProgressTaskBoardFormat|
+|update-assigned-to-task-board-format|UpdateAssignedToTaskBoardFormat|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -357,8 +354,179 @@ update a groupsplanner.
 |**--id**|string|Read-only.|id|id|
 |**--unassigned-order-hint**|string|Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.|unassigned_order_hint|unassignedOrderHint|
 |**--order-hints-by-assignee**|any|Any object|order_hints_by_assignee|orderHintsByAssignee|
+
+### groupsplanner update-bucket
+
+update-bucket a groupsplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|groupsplanner|groups.planner.plans|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-bucket|UpdateBuckets|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: group-id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: plannerBucket-id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--id**|string|Read-only.|id|id|
+|**--name**|string|Name of the bucket.|name|name|
+|**--plan-id**|string|Plan ID to which the bucket belongs.|plan_id|planId|
+|**--order-hint**|string|Hint used to order items of this type in a list view. The format is defined as outlined here.|order_hint|orderHint|
+|**--tasks**|array|Read-only. Nullable. The collection of tasks in the bucket.|tasks|tasks|
+
+### groupsplanner update-bucket-task-board-format
+
+update-bucket-task-board-format a groupsplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|groupsplanner|groups.planner.plans.tasks|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-bucket-task-board-format|UpdateBucketTaskBoardFormat|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: group-id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--id**|string|Read-only.|id|id|
 |**--order-hint**|string|Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
+
+### groupsplanner update-detail
+
+update-detail a groupsplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|groupsplanner|groups.planner.plans.tasks|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-detail|UpdateDetails|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: group-id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--id**|string|Read-only.|id|id|
 |**--description**|string|Description of the task|description|description|
 |**--preview-type**|choice||preview_type|previewType|
 |**--references**|any|Any object|references|references|
 |**--checklist**|any|Any object|checklist|checklist|
+
+### groupsplanner update-plan
+
+update-plan a groupsplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|groupsplanner|groups.planner|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-plan|UpdatePlans|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: group-id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--owner**|string|ID of the Group that owns the plan. A valid group must exist before this field can be set. After it is set, this property can’t be updated.|owner|owner|
+|**--title**|string|Required. Title of the plan.|title|title|
+|**--contexts**|any|Any object|contexts|contexts|
+|**--tasks**|array|Read-only. Nullable. Collection of tasks in the plan.|tasks|tasks|
+|**--buckets**|array|Read-only. Nullable. Collection of buckets in the plan.|buckets|buckets|
+|**--details-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--details-shared-with**|any|Any object|shared_with|sharedWith|
+|**--details-category-descriptions**|object|plannerCategoryDescriptions|category_descriptions|categoryDescriptions|
+|**--details-context-details**|any|Any object|context_details|contextDetails|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|user|user|
+
+### groupsplanner update-planner
+
+update-planner a groupsplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|groupsplanner|groups|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-planner|UpdatePlanner|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: group-id of group|group_id|group-id|
+|**--id**|string|Read-only.|id|id|
+|**--plans**|array|Read-only. Nullable. Returns the plannerPlans owned by the group.|plans|plans|
+
+### groupsplanner update-progress-task-board-format
+
+update-progress-task-board-format a groupsplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|groupsplanner|groups.planner.plans.tasks|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-progress-task-board-format|UpdateProgressTaskBoardFormat|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: group-id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--id**|string|Read-only.|id|id|
+|**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
+
+### groupsplanner update-task
+
+update-task a groupsplanner.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|groupsplanner|groups.planner.plans.buckets|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-task|UpdateTasks|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: group-id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: plannerPlan-id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: plannerBucket-id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: plannerTask-id of plannerTask|planner_task_id|plannerTask-id|
+|**--body**|object|New navigation property values|body|body|

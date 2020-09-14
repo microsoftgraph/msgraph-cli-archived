@@ -10,7 +10,7 @@ from ._bookings import Bookings
 __all__ = ['Bookings']
 
 try:
-    from ._patch import patch_sdk
+    from ._patch import patch_sdk  # type: ignore
     patch_sdk()
 except ImportError:
     pass

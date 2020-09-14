@@ -20,7 +20,7 @@ def load_command_table(self, _):
         operations_tmpl='azext_notification.vendored_sdks.notification.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('notification', notification_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'notification_update')
         g.custom_command('create-notification', 'notification_create_notification')
         g.custom_command('get-notification', 'notification_get_notification')
         g.custom_command('list-notification', 'notification_list_notification')
+        g.custom_command('update-notification', 'notification_update_notification')

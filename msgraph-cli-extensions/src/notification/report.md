@@ -72,9 +72,9 @@ list-notification a notification.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### notification update
+### notification update-notification
 
-update a notification.
+update-notification a notification.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -84,7 +84,7 @@ update a notification.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateNotifications|
+|update-notification|UpdateNotifications|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
