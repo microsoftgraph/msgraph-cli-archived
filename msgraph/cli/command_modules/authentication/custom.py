@@ -4,8 +4,9 @@
 # ------------------------------------
 from os import path, remove
 from knack.cli import CLIError
+from azure.identity import AuthenticationRecord
 
-from msgraph.cli.core.custom_browser_credential import CustomBrowserCredential
+from msgraph.cli.core.custom_browser_credential import get_credential
 from msgraph.cli.core.constants import CACHE_LOCATION
 
 
@@ -13,13 +14,22 @@ def login(scopes):
     # Stripping whitespaces so that users don't have to worry about how
     # they enter scopes. ie "user.read, mail.read" or "user.read,mail.read"
     login_scopes = [scope.strip() for scope in scopes.split(',')]
-    credential = CustomBrowserCredential()
-    result = credential.login(login_scopes)
+    credential = get_credential()
 
-    if not result:
+    auth_record = credential.authenticate(scopes=login_scopes)
+    _save_auth_record(auth_record)
+
+    if not auth_record:
         raise CLIError('Login failed')
 
     print('Logged in successfully')
+
+
+def _save_auth_record(auth_record: AuthenticationRecord):
+    record = auth_record.serialize()
+
+    with open(CACHE_LOCATION, 'w') as file:
+        file.write(record)
 
 
 def logout():

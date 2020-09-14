@@ -6,7 +6,7 @@
 from pathlib import Path
 from os import path
 
-CACHE_LOCATION = path.join(Path.home(), '.mg', 'mg.bin')
+CACHE_LOCATION = path.join(Path.home(), '.mg', 'record.txt')
 CLIENT_ID = 'f7218512-c727-4138-9fb9-a0fe2500650c'
 
 CLI_COMMON_KWARGS = [
