@@ -26,8 +26,8 @@ azure-mgmt-resource = "==9.0.0"
 azure-mgmt-core = "==1.2.0"
 PyJWT = "*"
 pyOpenSSL = ">=17.1.0"
-azure-identity = "==1.3.1"
 msal-extensions = "==0.2.2"
+azure-identity = "==1.4.0b7"
 
 [requires]
 python_version = "3.8"
