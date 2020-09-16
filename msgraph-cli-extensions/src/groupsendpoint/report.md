@@ -70,9 +70,9 @@ list-endpoint a groupsendpoint.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### groupsendpoint update
+### groupsendpoint update-endpoint
 
-update a groupsendpoint.
+update-endpoint a groupsendpoint.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -82,7 +82,7 @@ update a groupsendpoint.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateEndpoints|
+|update-endpoint|UpdateEndpoints|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

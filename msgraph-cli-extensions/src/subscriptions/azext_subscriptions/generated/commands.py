@@ -18,12 +18,12 @@ def load_command_table(self, _):
     from azext_subscriptions.generated._client_factory import cf_subscription_subscription
     subscriptions_subscription_subscription = CliCommandType(
         operations_tmpl='azext_subscriptions.vendored_sdks.subscriptions.operations._subscription_subscription_operatio'
-        'ns#SubscriptionOperations.{}',
+        'ns#SubscriptionSubscriptionOperations.{}',
         client_factory=cf_subscription_subscription)
     with self.command_group('subscriptions', subscriptions_subscription_subscription,
                             client_factory=cf_subscription_subscription) as g:
-        g.custom_command('update', 'subscriptions_update')
-        g.custom_command('delete', 'subscriptions_delete')
+        g.custom_command('delete', 'subscriptions_delete', confirmation=True)
         g.custom_command('create-subscription', 'subscriptions_create_subscription')
         g.custom_command('get-subscription', 'subscriptions_get_subscription')
         g.custom_command('list-subscription', 'subscriptions_list_subscription')
+        g.custom_command('update-subscription', 'subscriptions_update_subscription')

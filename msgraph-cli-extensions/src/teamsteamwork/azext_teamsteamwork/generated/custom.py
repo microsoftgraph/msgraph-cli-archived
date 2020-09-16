@@ -10,15 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def teamsteamwork_update(client,
-                         user_id,
-                         id_=None,
-                         installed_apps=None):
-    return client.update_teamwork(user_id=user_id,
-                                  id=id_,
-                                  installed_apps=installed_apps)
-
-
 def teamsteamwork_get_teamwork(client,
                                user_id,
                                select=None,
@@ -28,27 +19,13 @@ def teamsteamwork_get_teamwork(client,
                                expand=expand)
 
 
-def teamsteamwork_update(client,
-                         user_id,
-                         teams_app_installation_id,
-                         id_=None,
-                         teams_app_definition=None,
-                         teams_app_id=None,
-                         teams_app_external_id=None,
-                         teams_app_name=None,
-                         teams_app_display_name=None,
-                         teams_app_distribution_method=None,
-                         teams_app_app_definitions=None):
-    return client.update_installed_app(user_id=user_id,
-                                       teams_app_installation_id=teams_app_installation_id,
-                                       id=id_,
-                                       teams_app_definition=teams_app_definition,
-                                       microsoft_graph_entity_id=teams_app_id,
-                                       external_id=teams_app_external_id,
-                                       name=teams_app_name,
-                                       display_name=teams_app_display_name,
-                                       distribution_method=teams_app_distribution_method,
-                                       app_definitions=teams_app_app_definitions)
+def teamsteamwork_update_teamwork(client,
+                                  user_id,
+                                  id_=None,
+                                  installed_apps=None):
+    return client.update_teamwork(user_id=user_id,
+                                  id=id_,
+                                  installed_apps=installed_apps)
 
 
 def teamsteamwork_create_installed_app(client,
@@ -92,6 +69,29 @@ def teamsteamwork_list_installed_app(client,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
+
+
+def teamsteamwork_update_installed_app(client,
+                                       user_id,
+                                       teams_app_installation_id,
+                                       id_=None,
+                                       teams_app_definition=None,
+                                       teams_app_id=None,
+                                       teams_app_external_id=None,
+                                       teams_app_name=None,
+                                       teams_app_display_name=None,
+                                       teams_app_distribution_method=None,
+                                       teams_app_app_definitions=None):
+    return client.update_installed_app(user_id=user_id,
+                                       teams_app_installation_id=teams_app_installation_id,
+                                       id=id_,
+                                       teams_app_definition=teams_app_definition,
+                                       microsoft_graph_entity_id=teams_app_id,
+                                       external_id=teams_app_external_id,
+                                       name=teams_app_name,
+                                       display_name=teams_app_display_name,
+                                       distribution_method=teams_app_distribution_method,
+                                       app_definitions=teams_app_app_definitions)
 
 
 def teamsteamwork_get_team_app(client,

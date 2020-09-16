@@ -6,41 +6,59 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Get2ItemsItem(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    capability = "capability"
-    provider_id = "providerId"
-    provider_name = "providerName"
-    uri = "uri"
-    provider_resource_id = "providerResourceId"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Get6ItemsItem(str, Enum):
 
-    id = "id"
-    id_desc = "id desc"
-    deleted_date_time = "deletedDateTime"
-    deleted_date_time_desc = "deletedDateTime desc"
-    capability = "capability"
-    capability_desc = "capability desc"
-    provider_id = "providerId"
-    provider_id_desc = "providerId desc"
-    provider_name = "providerName"
-    provider_name_desc = "providerName desc"
-    uri = "uri"
-    uri_desc = "uri desc"
-    provider_resource_id = "providerResourceId"
-    provider_resource_id_desc = "providerResourceId desc"
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get7ItemsItem(str, Enum):
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    CAPABILITY = "capability"
+    PROVIDER_ID = "providerId"
+    PROVIDER_NAME = "providerName"
+    URI = "uri"
+    PROVIDER_RESOURCE_ID = "providerResourceId"
 
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    capability = "capability"
-    provider_id = "providerId"
-    provider_name = "providerName"
-    uri = "uri"
-    provider_resource_id = "providerResourceId"
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    CAPABILITY = "capability"
+    CAPABILITY_DESC = "capability desc"
+    PROVIDER_ID = "providerId"
+    PROVIDER_ID_DESC = "providerId desc"
+    PROVIDER_NAME = "providerName"
+    PROVIDER_NAME_DESC = "providerName desc"
+    URI = "uri"
+    URI_DESC = "uri desc"
+    PROVIDER_RESOURCE_ID = "providerResourceId"
+    PROVIDER_RESOURCE_ID_DESC = "providerResourceId desc"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    CAPABILITY = "capability"
+    PROVIDER_ID = "providerId"
+    PROVIDER_NAME = "providerName"
+    URI = "uri"
+    PROVIDER_RESOURCE_ID = "providerResourceId"

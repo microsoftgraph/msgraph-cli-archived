@@ -11,50 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def usersmail_update(client,
-                     user_id,
-                     mail_folder_id=None,
-                     id_=None,
-                     display_name=None,
-                     parent_folder_id=None,
-                     child_folder_count=None,
-                     unread_item_count=None,
-                     total_item_count=None,
-                     well_known_name=None,
-                     single_value_extended_properties=None,
-                     multi_value_extended_properties=None,
-                     messages=None,
-                     message_rules=None,
-                     child_folders=None,
-                     user_configurations=None,
-                     message_id=None,
-                     body=None,
-                     overrides=None):
-    if user_id is not None and mail_folder_id is not None:
-        return client.update_mail_folder(user_id=user_id,
-                                         mail_folder_id=mail_folder_id,
-                                         id=id_,
-                                         display_name=display_name,
-                                         parent_folder_id=parent_folder_id,
-                                         child_folder_count=child_folder_count,
-                                         unread_item_count=unread_item_count,
-                                         total_item_count=total_item_count,
-                                         well_known_name=well_known_name,
-                                         single_value_extended_properties=single_value_extended_properties,
-                                         multi_value_extended_properties=multi_value_extended_properties,
-                                         messages=messages,
-                                         message_rules=message_rules,
-                                         child_folders=child_folders,
-                                         user_configurations=user_configurations)
-    elif user_id is not None and message_id is not None and body is not None:
-        return client.update_message(user_id=user_id,
-                                     message_id=message_id,
-                                     body=body)
-    return client.update_inference_classification(user_id=user_id,
-                                                  id=id_,
-                                                  overrides=overrides)
-
-
 def usersmail_create_mail_folder(client,
                                  user_id,
                                  id_=None,
@@ -146,19 +102,55 @@ def usersmail_list_message(client,
                                expand=expand)
 
 
-def usersmail_update(client,
-                     user_id,
-                     inference_classification_override_id,
-                     id_=None,
-                     classify_as=None,
-                     sender_email_address_name=None,
-                     sender_email_address_address=None):
-    return client.update_override(user_id=user_id,
-                                  inference_classification_override_id=inference_classification_override_id,
-                                  id=id_,
-                                  classify_as=classify_as,
-                                  name=sender_email_address_name,
-                                  address=sender_email_address_address)
+def usersmail_update_inference_classification(client,
+                                              user_id,
+                                              id_=None,
+                                              overrides=None):
+    return client.update_inference_classification(user_id=user_id,
+                                                  id=id_,
+                                                  overrides=overrides)
+
+
+def usersmail_update_mail_folder(client,
+                                 user_id,
+                                 mail_folder_id,
+                                 id_=None,
+                                 display_name=None,
+                                 parent_folder_id=None,
+                                 child_folder_count=None,
+                                 unread_item_count=None,
+                                 total_item_count=None,
+                                 well_known_name=None,
+                                 single_value_extended_properties=None,
+                                 multi_value_extended_properties=None,
+                                 messages=None,
+                                 message_rules=None,
+                                 child_folders=None,
+                                 user_configurations=None):
+    return client.update_mail_folder(user_id=user_id,
+                                     mail_folder_id=mail_folder_id,
+                                     id=id_,
+                                     display_name=display_name,
+                                     parent_folder_id=parent_folder_id,
+                                     child_folder_count=child_folder_count,
+                                     unread_item_count=unread_item_count,
+                                     total_item_count=total_item_count,
+                                     well_known_name=well_known_name,
+                                     single_value_extended_properties=single_value_extended_properties,
+                                     multi_value_extended_properties=multi_value_extended_properties,
+                                     messages=messages,
+                                     message_rules=message_rules,
+                                     child_folders=child_folders,
+                                     user_configurations=user_configurations)
+
+
+def usersmail_update_message(client,
+                             user_id,
+                             message_id,
+                             body):
+    return client.update_message(user_id=user_id,
+                                 message_id=message_id,
+                                 body=body)
 
 
 def usersmail_create_override(client,
@@ -196,75 +188,19 @@ def usersmail_list_override(client,
                                 expand=expand)
 
 
-def usersmail_update(client,
-                     user_id,
-                     mail_folder_id,
-                     mail_folder_id1=None,
-                     id_=None,
-                     display_name=None,
-                     parent_folder_id=None,
-                     child_folder_count=None,
-                     unread_item_count=None,
-                     total_item_count=None,
-                     well_known_name=None,
-                     single_value_extended_properties=None,
-                     multi_value_extended_properties=None,
-                     messages=None,
-                     message_rules=None,
-                     child_folders=None,
-                     user_configurations=None,
-                     message_rule_id=None,
-                     body=None,
-                     message_id=None,
-                     multi_value_legacy_extended_property_id=None,
-                     value=None,
-                     single_value_legacy_extended_property_id=None,
-                     user_configuration_id=None,
-                     binary_data=None):
-    if user_id is not None and mail_folder_id is not None and mail_folder_id1 is not None:
-        return client.update_child_folder(user_id=user_id,
-                                          mail_folder_id=mail_folder_id,
-                                          mail_folder_id1=mail_folder_id1,
-                                          id=id_,
-                                          display_name=display_name,
-                                          parent_folder_id=parent_folder_id,
-                                          child_folder_count=child_folder_count,
-                                          unread_item_count=unread_item_count,
-                                          total_item_count=total_item_count,
-                                          well_known_name=well_known_name,
-                                          single_value_extended_properties=single_value_extended_properties,
-                                          multi_value_extended_properties=multi_value_extended_properties,
-                                          messages=messages,
-                                          message_rules=message_rules,
-                                          child_folders=child_folders,
-                                          user_configurations=user_configurations)
-    elif user_id is not None and mail_folder_id is not None and message_rule_id is not None and body is not None:
-        return client.update_message_rule(user_id=user_id,
-                                          mail_folder_id=mail_folder_id,
-                                          message_rule_id=message_rule_id,
-                                          body=body)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and body is not None:
-        return client.update_message(user_id=user_id,
-                                     mail_folder_id=mail_folder_id,
-                                     message_id=message_id,
-                                     body=body)
-    elif user_id is not None and mail_folder_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.update_multi_value_extended_property(user_id=user_id,
-                                                           mail_folder_id=mail_folder_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           id=id_,
-                                                           value=value)
-    elif user_id is not None and mail_folder_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.update_single_value_extended_property(user_id=user_id,
-                                                            mail_folder_id=mail_folder_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            id=id_,
-                                                            value=value)
-    return client.update_user_configuration(user_id=user_id,
-                                            mail_folder_id=mail_folder_id,
-                                            user_configuration_id=user_configuration_id,
-                                            id=id_,
-                                            binary_data=binary_data)
+def usersmail_update_override(client,
+                              user_id,
+                              inference_classification_override_id,
+                              id_=None,
+                              classify_as=None,
+                              sender_email_address_name=None,
+                              sender_email_address_address=None):
+    return client.update_override(user_id=user_id,
+                                  inference_classification_override_id=inference_classification_override_id,
+                                  id=id_,
+                                  classify_as=classify_as,
+                                  name=sender_email_address_name,
+                                  address=sender_email_address_address)
 
 
 def usersmail_create_child_folder(client,
@@ -507,74 +443,100 @@ def usersmail_list_user_configuration(client,
                                           expand=expand)
 
 
-def usersmail_update(client,
-                     user_id,
-                     mail_folder_id,
-                     message_id,
-                     content_type,
-                     attachment_id=None,
-                     id_=None,
-                     last_modified_date_time=None,
-                     name=None,
-                     size=None,
-                     is_inline=None,
-                     extension_id=None,
-                     mention_id=None,
-                     mentioned=None,
-                     mention_text=None,
-                     client_reference=None,
-                     created_by=None,
-                     created_date_time=None,
-                     server_created_date_time=None,
-                     deep_link=None,
-                     application=None,
-                     multi_value_legacy_extended_property_id=None,
-                     value=None,
-                     single_value_legacy_extended_property_id=None):
-    if user_id is not None and mail_folder_id is not None and message_id is not None and attachment_id is not None:
-        return client.update_attachment(user_id=user_id,
-                                        mail_folder_id=mail_folder_id,
-                                        message_id=message_id,
-                                        attachment_id=attachment_id,
-                                        id=id_,
-                                        last_modified_date_time=last_modified_date_time,
-                                        name=name,
-                                        content_type_parameter=content_type,
-                                        size=size,
-                                        is_inline=is_inline)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and extension_id is not None:
-        return client.update_extension(user_id=user_id,
-                                       mail_folder_id=mail_folder_id,
-                                       message_id=message_id,
-                                       extension_id=extension_id,
-                                       id=id_)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and mention_id is not None:
-        return client.update_mention(user_id=user_id,
-                                     mail_folder_id=mail_folder_id,
-                                     message_id=message_id,
-                                     mention_id=mention_id,
-                                     id=id_,
-                                     mentioned=mentioned,
-                                     mention_text=mention_text,
-                                     client_reference=client_reference,
-                                     created_by=created_by,
-                                     created_date_time=created_date_time,
-                                     server_created_date_time=server_created_date_time,
-                                     deep_link=deep_link,
-                                     application=application)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.update_multi_value_extended_property(user_id=user_id,
-                                                           mail_folder_id=mail_folder_id,
-                                                           message_id=message_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           id=id_,
-                                                           value=value)
+def usersmail_update_child_folder(client,
+                                  user_id,
+                                  mail_folder_id,
+                                  mail_folder_id1,
+                                  id_=None,
+                                  display_name=None,
+                                  parent_folder_id=None,
+                                  child_folder_count=None,
+                                  unread_item_count=None,
+                                  total_item_count=None,
+                                  well_known_name=None,
+                                  single_value_extended_properties=None,
+                                  multi_value_extended_properties=None,
+                                  messages=None,
+                                  message_rules=None,
+                                  child_folders=None,
+                                  user_configurations=None):
+    return client.update_child_folder(user_id=user_id,
+                                      mail_folder_id=mail_folder_id,
+                                      mail_folder_id1=mail_folder_id1,
+                                      id=id_,
+                                      display_name=display_name,
+                                      parent_folder_id=parent_folder_id,
+                                      child_folder_count=child_folder_count,
+                                      unread_item_count=unread_item_count,
+                                      total_item_count=total_item_count,
+                                      well_known_name=well_known_name,
+                                      single_value_extended_properties=single_value_extended_properties,
+                                      multi_value_extended_properties=multi_value_extended_properties,
+                                      messages=messages,
+                                      message_rules=message_rules,
+                                      child_folders=child_folders,
+                                      user_configurations=user_configurations)
+
+
+def usersmail_update_message(client,
+                             user_id,
+                             mail_folder_id,
+                             message_id,
+                             body):
+    return client.update_message(user_id=user_id,
+                                 mail_folder_id=mail_folder_id,
+                                 message_id=message_id,
+                                 body=body)
+
+
+def usersmail_update_message_rule(client,
+                                  user_id,
+                                  mail_folder_id,
+                                  message_rule_id,
+                                  body):
+    return client.update_message_rule(user_id=user_id,
+                                      mail_folder_id=mail_folder_id,
+                                      message_rule_id=message_rule_id,
+                                      body=body)
+
+
+def usersmail_update_multi_value_extended_property(client,
+                                                   user_id,
+                                                   mail_folder_id,
+                                                   multi_value_legacy_extended_property_id,
+                                                   id_=None,
+                                                   value=None):
+    return client.update_multi_value_extended_property(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       id=id_,
+                                                       value=value)
+
+
+def usersmail_update_single_value_extended_property(client,
+                                                    user_id,
+                                                    mail_folder_id,
+                                                    single_value_legacy_extended_property_id,
+                                                    id_=None,
+                                                    value=None):
     return client.update_single_value_extended_property(user_id=user_id,
                                                         mail_folder_id=mail_folder_id,
-                                                        message_id=message_id,
                                                         single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
                                                         id=id_,
                                                         value=value)
+
+
+def usersmail_update_user_configuration(client,
+                                        user_id,
+                                        mail_folder_id,
+                                        user_configuration_id,
+                                        id_=None,
+                                        binary_data=None):
+    return client.update_user_configuration(user_id=user_id,
+                                            mail_folder_id=mail_folder_id,
+                                            user_configuration_id=user_configuration_id,
+                                            id=id_,
+                                            binary_data=binary_data)
 
 
 def usersmail_create_attachment(client,
@@ -812,64 +774,95 @@ def usersmail_list_single_value_extended_property(client,
                                                       expand=expand)
 
 
-def usersmail_update(client,
-                     user_id,
-                     message_id,
-                     content_type,
-                     attachment_id=None,
-                     id_=None,
-                     last_modified_date_time=None,
-                     name=None,
-                     size=None,
-                     is_inline=None,
-                     extension_id=None,
-                     mention_id=None,
-                     mentioned=None,
-                     mention_text=None,
-                     client_reference=None,
-                     created_by=None,
-                     created_date_time=None,
-                     server_created_date_time=None,
-                     deep_link=None,
-                     application=None,
-                     multi_value_legacy_extended_property_id=None,
-                     value=None,
-                     single_value_legacy_extended_property_id=None):
-    if user_id is not None and message_id is not None and attachment_id is not None:
-        return client.update_attachment(user_id=user_id,
-                                        message_id=message_id,
-                                        attachment_id=attachment_id,
-                                        id=id_,
-                                        last_modified_date_time=last_modified_date_time,
-                                        name=name,
-                                        content_type_parameter=content_type,
-                                        size=size,
-                                        is_inline=is_inline)
-    elif user_id is not None and message_id is not None and extension_id is not None:
-        return client.update_extension(user_id=user_id,
-                                       message_id=message_id,
-                                       extension_id=extension_id,
-                                       id=id_)
-    elif user_id is not None and message_id is not None and mention_id is not None:
-        return client.update_mention(user_id=user_id,
-                                     message_id=message_id,
-                                     mention_id=mention_id,
-                                     id=id_,
-                                     mentioned=mentioned,
-                                     mention_text=mention_text,
-                                     client_reference=client_reference,
-                                     created_by=created_by,
-                                     created_date_time=created_date_time,
-                                     server_created_date_time=server_created_date_time,
-                                     deep_link=deep_link,
-                                     application=application)
-    elif user_id is not None and message_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.update_multi_value_extended_property(user_id=user_id,
-                                                           message_id=message_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           id=id_,
-                                                           value=value)
+def usersmail_update_attachment(client,
+                                user_id,
+                                mail_folder_id,
+                                message_id,
+                                attachment_id,
+                                content_type,
+                                id_=None,
+                                last_modified_date_time=None,
+                                name=None,
+                                size=None,
+                                is_inline=None):
+    return client.update_attachment(user_id=user_id,
+                                    mail_folder_id=mail_folder_id,
+                                    message_id=message_id,
+                                    attachment_id=attachment_id,
+                                    id=id_,
+                                    last_modified_date_time=last_modified_date_time,
+                                    name=name,
+                                    content_type_parameter=content_type,
+                                    size=size,
+                                    is_inline=is_inline)
+
+
+def usersmail_update_extension(client,
+                               user_id,
+                               mail_folder_id,
+                               message_id,
+                               extension_id,
+                               id_=None):
+    return client.update_extension(user_id=user_id,
+                                   mail_folder_id=mail_folder_id,
+                                   message_id=message_id,
+                                   extension_id=extension_id,
+                                   id=id_)
+
+
+def usersmail_update_mention(client,
+                             user_id,
+                             mail_folder_id,
+                             message_id,
+                             mention_id,
+                             id_=None,
+                             mentioned=None,
+                             mention_text=None,
+                             client_reference=None,
+                             created_by=None,
+                             created_date_time=None,
+                             server_created_date_time=None,
+                             deep_link=None,
+                             application=None):
+    return client.update_mention(user_id=user_id,
+                                 mail_folder_id=mail_folder_id,
+                                 message_id=message_id,
+                                 mention_id=mention_id,
+                                 id=id_,
+                                 mentioned=mentioned,
+                                 mention_text=mention_text,
+                                 client_reference=client_reference,
+                                 created_by=created_by,
+                                 created_date_time=created_date_time,
+                                 server_created_date_time=server_created_date_time,
+                                 deep_link=deep_link,
+                                 application=application)
+
+
+def usersmail_update_multi_value_extended_property(client,
+                                                   user_id,
+                                                   mail_folder_id,
+                                                   message_id,
+                                                   multi_value_legacy_extended_property_id,
+                                                   id_=None,
+                                                   value=None):
+    return client.update_multi_value_extended_property(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       message_id=message_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       id=id_,
+                                                       value=value)
+
+
+def usersmail_update_single_value_extended_property(client,
+                                                    user_id,
+                                                    mail_folder_id,
+                                                    message_id,
+                                                    single_value_legacy_extended_property_id,
+                                                    id_=None,
+                                                    value=None):
     return client.update_single_value_extended_property(user_id=user_id,
+                                                        mail_folder_id=mail_folder_id,
                                                         message_id=message_id,
                                                         single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
                                                         id=id_,
@@ -1079,3 +1072,88 @@ def usersmail_list_single_value_extended_property(client,
                                                       orderby=orderby,
                                                       select=select,
                                                       expand=expand)
+
+
+def usersmail_update_attachment(client,
+                                user_id,
+                                message_id,
+                                attachment_id,
+                                content_type,
+                                id_=None,
+                                last_modified_date_time=None,
+                                name=None,
+                                size=None,
+                                is_inline=None):
+    return client.update_attachment(user_id=user_id,
+                                    message_id=message_id,
+                                    attachment_id=attachment_id,
+                                    id=id_,
+                                    last_modified_date_time=last_modified_date_time,
+                                    name=name,
+                                    content_type_parameter=content_type,
+                                    size=size,
+                                    is_inline=is_inline)
+
+
+def usersmail_update_extension(client,
+                               user_id,
+                               message_id,
+                               extension_id,
+                               id_=None):
+    return client.update_extension(user_id=user_id,
+                                   message_id=message_id,
+                                   extension_id=extension_id,
+                                   id=id_)
+
+
+def usersmail_update_mention(client,
+                             user_id,
+                             message_id,
+                             mention_id,
+                             id_=None,
+                             mentioned=None,
+                             mention_text=None,
+                             client_reference=None,
+                             created_by=None,
+                             created_date_time=None,
+                             server_created_date_time=None,
+                             deep_link=None,
+                             application=None):
+    return client.update_mention(user_id=user_id,
+                                 message_id=message_id,
+                                 mention_id=mention_id,
+                                 id=id_,
+                                 mentioned=mentioned,
+                                 mention_text=mention_text,
+                                 client_reference=client_reference,
+                                 created_by=created_by,
+                                 created_date_time=created_date_time,
+                                 server_created_date_time=server_created_date_time,
+                                 deep_link=deep_link,
+                                 application=application)
+
+
+def usersmail_update_multi_value_extended_property(client,
+                                                   user_id,
+                                                   message_id,
+                                                   multi_value_legacy_extended_property_id,
+                                                   id_=None,
+                                                   value=None):
+    return client.update_multi_value_extended_property(user_id=user_id,
+                                                       message_id=message_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       id=id_,
+                                                       value=value)
+
+
+def usersmail_update_single_value_extended_property(client,
+                                                    user_id,
+                                                    message_id,
+                                                    single_value_legacy_extended_property_id,
+                                                    id_=None,
+                                                    value=None):
+    return client.update_single_value_extended_property(user_id=user_id,
+                                                        message_id=message_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        id=id_,
+                                                        value=value)

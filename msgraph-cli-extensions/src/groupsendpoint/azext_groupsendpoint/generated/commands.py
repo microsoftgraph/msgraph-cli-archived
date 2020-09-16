@@ -21,7 +21,7 @@ def load_command_table(self, _):
         '.{}',
         client_factory=cf_group)
     with self.command_group('groupsendpoint', groupsendpoint_group, client_factory=cf_group) as g:
-        g.custom_command('update', 'groupsendpoint_update')
         g.custom_command('create-endpoint', 'groupsendpoint_create_endpoint')
         g.custom_command('get-endpoint', 'groupsendpoint_get_endpoint')
         g.custom_command('list-endpoint', 'groupsendpoint_list_endpoint')
+        g.custom_command('update-endpoint', 'groupsendpoint_update_endpoint')

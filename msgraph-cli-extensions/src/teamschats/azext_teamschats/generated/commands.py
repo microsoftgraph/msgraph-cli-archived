@@ -17,21 +17,21 @@ def load_command_table(self, _):
 
     from azext_teamschats.generated._client_factory import cf_chat_chat
     teamschats_chat_chat = CliCommandType(
-        operations_tmpl='azext_teamschats.vendored_sdks.teamschats.operations._chat_chat_operations#ChatOperations.{}',
+        operations_tmpl='azext_teamschats.vendored_sdks.teamschats.operations._chat_chat_operations#ChatChatOperations.'
+        '{}',
         client_factory=cf_chat_chat)
     with self.command_group('teamschats', teamschats_chat_chat, client_factory=cf_chat_chat) as g:
-        g.custom_command('update', 'teamschats_update')
-        g.custom_command('delete', 'teamschats_delete')
+        g.custom_command('delete', 'teamschats_delete', confirmation=True)
         g.custom_command('create-chat', 'teamschats_create_chat')
         g.custom_command('get-chat', 'teamschats_get_chat')
         g.custom_command('list-chat', 'teamschats_list_chat')
+        g.custom_command('update-chat', 'teamschats_update_chat')
 
     from azext_teamschats.generated._client_factory import cf_chat
     teamschats_chat = CliCommandType(
         operations_tmpl='azext_teamschats.vendored_sdks.teamschats.operations._chat_operations#ChatOperations.{}',
         client_factory=cf_chat)
     with self.command_group('teamschats', teamschats_chat, client_factory=cf_chat) as g:
-        g.custom_command('update', 'teamschats_update')
         g.custom_command('all-message', 'teamschats_all_message')
         g.custom_command('create-installed-app', 'teamschats_create_installed_app')
         g.custom_command('create-member', 'teamschats_create_member')
@@ -42,6 +42,9 @@ def load_command_table(self, _):
         g.custom_command('list-installed-app', 'teamschats_list_installed_app')
         g.custom_command('list-member', 'teamschats_list_member')
         g.custom_command('list-message', 'teamschats_list_message')
+        g.custom_command('update-installed-app', 'teamschats_update_installed_app')
+        g.custom_command('update-member', 'teamschats_update_member')
+        g.custom_command('update-message', 'teamschats_update_message')
 
     from azext_teamschats.generated._client_factory import cf_chat_installed_app
     teamschats_chat_installed_app = CliCommandType(
@@ -59,7 +62,6 @@ def load_command_table(self, _):
         'tions.{}',
         client_factory=cf_chat_message)
     with self.command_group('teamschats', teamschats_chat_message, client_factory=cf_chat_message) as g:
-        g.custom_command('update', 'teamschats_update')
         g.custom_command('create-hosted-content', 'teamschats_create_hosted_content')
         g.custom_command('create-reply', 'teamschats_create_reply')
         g.custom_command('delta', 'teamschats_delta')
@@ -67,6 +69,8 @@ def load_command_table(self, _):
         g.custom_command('get-reply', 'teamschats_get_reply')
         g.custom_command('list-hosted-content', 'teamschats_list_hosted_content')
         g.custom_command('list-reply', 'teamschats_list_reply')
+        g.custom_command('update-hosted-content', 'teamschats_update_hosted_content')
+        g.custom_command('update-reply', 'teamschats_update_reply')
 
     from azext_teamschats.generated._client_factory import cf_chat_message_reply
     teamschats_chat_message_reply = CliCommandType(
@@ -81,7 +85,7 @@ def load_command_table(self, _):
         operations_tmpl='azext_teamschats.vendored_sdks.teamschats.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('teamschats', teamschats_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'teamschats_update')
         g.custom_command('create-chat', 'teamschats_create_chat')
         g.custom_command('get-chat', 'teamschats_get_chat')
         g.custom_command('list-chat', 'teamschats_list_chat')
+        g.custom_command('update-chat', 'teamschats_update_chat')

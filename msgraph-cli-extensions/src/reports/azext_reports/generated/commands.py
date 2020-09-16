@@ -17,19 +17,18 @@ def load_command_table(self, _):
 
     from azext_reports.generated._client_factory import cf_report_report_root
     reports_report_report_root = CliCommandType(
-        operations_tmpl='azext_reports.vendored_sdks.reports.operations._report_report_root_operations#ReportRootOperat'
-        'ions.{}',
+        operations_tmpl='azext_reports.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRoot'
+        'Operations.{}',
         client_factory=cf_report_report_root)
     with self.command_group('reports', reports_report_report_root, client_factory=cf_report_report_root) as g:
-        g.custom_command('update', 'reports_update')
         g.custom_command('get-report-root', 'reports_get_report_root')
+        g.custom_command('update-report-root', 'reports_update_report_root')
 
     from azext_reports.generated._client_factory import cf_report
     reports_report = CliCommandType(
         operations_tmpl='azext_reports.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
         client_factory=cf_report)
     with self.command_group('reports', reports_report, client_factory=cf_report) as g:
-        g.custom_command('update', 'reports_update')
         g.custom_command('create-application-sign-in-detailed-summary', 'reports_create_application_sign_in_detailed_su'
                          'mmary')
         g.custom_command('create-credential-user-registration-detail', 'reports_create_credential_user_registration_det'
@@ -195,3 +194,16 @@ def load_command_table(self, _):
                          'fd1')
         g.custom_command('managed-device-enrollment-top-failures4669', 'reports_managed_device_enrollment_top_failures4'
                          '669')
+        g.custom_command('update-application-sign-in-detailed-summary', 'reports_update_application_sign_in_detailed_su'
+                         'mmary')
+        g.custom_command('update-credential-user-registration-detail', 'reports_update_credential_user_registration_det'
+                         'ail')
+        g.custom_command('update-daily-print-usage-summary-by-printer', 'reports_update_daily_print_usage_summary_by_pr'
+                         'inter')
+        g.custom_command('update-daily-print-usage-summary-by-user',
+                         'reports_update_daily_print_usage_summary_by_user')
+        g.custom_command('update-monthly-print-usage-summary-by-printer', 'reports_update_monthly_print_usage_summary_b'
+                         'y_printer')
+        g.custom_command('update-monthly-print-usage-summary-by-user', 'reports_update_monthly_print_usage_summary_by_u'
+                         'ser')
+        g.custom_command('update-user-credential-usage-detail', 'reports_update_user_credential_usage_detail')

@@ -94,9 +94,9 @@ list-subscription a subscriptions.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### subscriptions update
+### subscriptions update-subscription
 
-update a subscriptions.
+update-subscription a subscriptions.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -106,7 +106,7 @@ update a subscriptions.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateSubscription|
+|update-subscription|UpdateSubscription|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

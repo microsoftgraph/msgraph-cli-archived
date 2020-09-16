@@ -22,8 +22,8 @@ def load_command_table(self, _):
         '}',
         client_factory=cf_group)
     with self.command_group('groupsonenote', groupsonenote_group, client_factory=cf_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('get-onenote', 'groupsonenote_get_onenote')
+        g.custom_command('update-onenote', 'groupsonenote_update_onenote')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote
     groupsonenote_group_onenote = CliCommandType(
@@ -31,7 +31,6 @@ def load_command_table(self, _):
         'oteOperations.{}',
         client_factory=cf_group_onenote)
     with self.command_group('groupsonenote', groupsonenote_group_onenote, client_factory=cf_group_onenote) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-notebook', 'groupsonenote_create_notebook')
         g.custom_command('create-operation', 'groupsonenote_create_operation')
         g.custom_command('create-page', 'groupsonenote_create_page')
@@ -50,6 +49,12 @@ def load_command_table(self, _):
         g.custom_command('list-resource', 'groupsonenote_list_resource')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-notebook', 'groupsonenote_update_notebook')
+        g.custom_command('update-operation', 'groupsonenote_update_operation')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-resource', 'groupsonenote_update_resource')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_notebook
     groupsonenote_group_onenote_notebook = CliCommandType(
@@ -58,13 +63,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_notebook,
                             client_factory=cf_group_onenote_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_notebook_section_group
     groupsonenote_group_onenote_notebook_section_group = CliCommandType(
@@ -73,7 +79,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_notebook_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_notebook_section_group,
                             client_factory=cf_group_onenote_notebook_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -82,6 +87,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_notebook_section_group_section
     groupsonenote_group_onenote_notebook_section_group_section = CliCommandType(
@@ -90,12 +99,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_notebook_section_group_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_notebook_section_group_section,
                             client_factory=cf_group_onenote_notebook_section_group_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_notebook_section_group_section_page
     groupsonenote_group_onenote_notebook_section_group_section_page = CliCommandType(
@@ -104,9 +115,10 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_notebook_section_group_section_page)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_notebook_section_group_section_page,
                             client_factory=cf_group_onenote_notebook_section_group_section_page) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section', 'groupsonenote_get_parent_section')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section', 'groupsonenote_update_parent_section')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_notebook_section
     groupsonenote_group_onenote_notebook_section = CliCommandType(
@@ -115,12 +127,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_notebook_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_notebook_section,
                             client_factory=cf_group_onenote_notebook_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_notebook_section_page
     groupsonenote_group_onenote_notebook_section_page = CliCommandType(
@@ -129,9 +143,10 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_notebook_section_page)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_notebook_section_page,
                             client_factory=cf_group_onenote_notebook_section_page) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section', 'groupsonenote_get_parent_section')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section', 'groupsonenote_update_parent_section')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_notebook_section_parent_section_group
     groupsonenote_group_onenote_notebook_section_parent_section_group = CliCommandType(
@@ -140,7 +155,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_notebook_section_parent_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_notebook_section_parent_section_group,
                             client_factory=cf_group_onenote_notebook_section_parent_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -149,6 +163,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page
     groupsonenote_group_onenote_page = CliCommandType(
@@ -157,9 +175,10 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page,
                             client_factory=cf_group_onenote_page) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section', 'groupsonenote_get_parent_section')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section', 'groupsonenote_update_parent_section')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_notebook
     groupsonenote_group_onenote_page_parent_notebook = CliCommandType(
@@ -168,13 +187,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_notebook,
                             client_factory=cf_group_onenote_page_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_notebook_section_group
     groupsonenote_group_onenote_page_parent_notebook_section_group = CliCommandType(
@@ -183,7 +203,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_notebook_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_notebook_section_group,
                             client_factory=cf_group_onenote_page_parent_notebook_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -192,6 +211,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_notebook_section_group_section
     groupsonenote_group_onenote_page_parent_notebook_section_group_section = CliCommandType(
@@ -200,12 +223,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_notebook_section_group_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_notebook_section_group_section,
                             client_factory=cf_group_onenote_page_parent_notebook_section_group_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_notebook_section
     groupsonenote_group_onenote_page_parent_notebook_section = CliCommandType(
@@ -214,12 +239,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_notebook_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_notebook_section,
                             client_factory=cf_group_onenote_page_parent_notebook_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_notebook_section_parent_section_group
     groupsonenote_group_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
@@ -229,7 +256,6 @@ def load_command_table(self, _):
     with self.command_group('groupsonenote',
                             groupsonenote_group_onenote_page_parent_notebook_section_parent_section_group,
                             client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -238,6 +264,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_section
     groupsonenote_group_onenote_page_parent_section = CliCommandType(
@@ -246,12 +276,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_section,
                             client_factory=cf_group_onenote_page_parent_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_section_parent_notebook
     groupsonenote_group_onenote_page_parent_section_parent_notebook = CliCommandType(
@@ -260,13 +292,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_section_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_section_parent_notebook,
                             client_factory=cf_group_onenote_page_parent_section_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_section_parent_notebook_section_group
     groupsonenote_group_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
@@ -276,7 +309,6 @@ def load_command_table(self, _):
     with self.command_group('groupsonenote',
                             groupsonenote_group_onenote_page_parent_section_parent_notebook_section_group,
                             client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -285,6 +317,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_section_group
     groupsonenote_group_onenote_page_parent_section_group = CliCommandType(
@@ -293,7 +329,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_section_group,
                             client_factory=cf_group_onenote_page_parent_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -302,6 +337,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_page_parent_section_group_parent_notebook
     groupsonenote_group_onenote_page_parent_section_group_parent_notebook = CliCommandType(
@@ -310,13 +349,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_page_parent_section_group_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_page_parent_section_group_parent_notebook,
                             client_factory=cf_group_onenote_page_parent_section_group_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group
     groupsonenote_group_onenote_section_group = CliCommandType(
@@ -325,7 +365,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group,
                             client_factory=cf_group_onenote_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -334,6 +373,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group_parent_notebook
     groupsonenote_group_onenote_section_group_parent_notebook = CliCommandType(
@@ -342,13 +385,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group_parent_notebook,
                             client_factory=cf_group_onenote_section_group_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group_parent_notebook_section
     groupsonenote_group_onenote_section_group_parent_notebook_section = CliCommandType(
@@ -357,12 +401,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group_parent_notebook_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group_parent_notebook_section,
                             client_factory=cf_group_onenote_section_group_parent_notebook_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group_parent_notebook_section_page
     groupsonenote_group_onenote_section_group_parent_notebook_section_page = CliCommandType(
@@ -371,9 +417,10 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group_parent_notebook_section_page)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group_parent_notebook_section_page,
                             client_factory=cf_group_onenote_section_group_parent_notebook_section_page) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section', 'groupsonenote_get_parent_section')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section', 'groupsonenote_update_parent_section')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group_section
     groupsonenote_group_onenote_section_group_section = CliCommandType(
@@ -382,12 +429,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group_section,
                             client_factory=cf_group_onenote_section_group_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group_section_page
     groupsonenote_group_onenote_section_group_section_page = CliCommandType(
@@ -396,9 +445,10 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group_section_page)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group_section_page,
                             client_factory=cf_group_onenote_section_group_section_page) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section', 'groupsonenote_get_parent_section')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section', 'groupsonenote_update_parent_section')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group_section_page_parent_notebook
     groupsonenote_group_onenote_section_group_section_page_parent_notebook = CliCommandType(
@@ -407,13 +457,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group_section_page_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group_section_page_parent_notebook,
                             client_factory=cf_group_onenote_section_group_section_page_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_group_section_parent_notebook
     groupsonenote_group_onenote_section_group_section_parent_notebook = CliCommandType(
@@ -422,13 +473,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_group_section_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_group_section_parent_notebook,
                             client_factory=cf_group_onenote_section_group_section_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section
     groupsonenote_group_onenote_section = CliCommandType(
@@ -437,12 +489,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section,
                             client_factory=cf_group_onenote_section) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-page', 'groupsonenote_create_page')
         g.custom_command('get-page', 'groupsonenote_get_page')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'groupsonenote_get_parent_section_group')
         g.custom_command('list-page', 'groupsonenote_list_page')
+        g.custom_command('update-page', 'groupsonenote_update_page')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_page
     groupsonenote_group_onenote_section_page = CliCommandType(
@@ -451,9 +505,10 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_page)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_page,
                             client_factory=cf_group_onenote_section_page) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
         g.custom_command('get-parent-section', 'groupsonenote_get_parent_section')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section', 'groupsonenote_update_parent_section')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_page_parent_notebook
     groupsonenote_group_onenote_section_page_parent_notebook = CliCommandType(
@@ -462,13 +517,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_page_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_page_parent_notebook,
                             client_factory=cf_group_onenote_section_page_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_page_parent_notebook_section_group
     groupsonenote_group_onenote_section_page_parent_notebook_section_group = CliCommandType(
@@ -477,7 +533,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_page_parent_notebook_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_page_parent_notebook_section_group,
                             client_factory=cf_group_onenote_section_page_parent_notebook_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -486,6 +541,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_parent_notebook
     groupsonenote_group_onenote_section_parent_notebook = CliCommandType(
@@ -494,13 +553,14 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_parent_notebook,
                             client_factory=cf_group_onenote_section_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_parent_notebook_section_group
     groupsonenote_group_onenote_section_parent_notebook_section_group = CliCommandType(
@@ -509,7 +569,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_parent_notebook_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_parent_notebook_section_group,
                             client_factory=cf_group_onenote_section_parent_notebook_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -518,6 +577,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_parent_section_group
     groupsonenote_group_onenote_section_parent_section_group = CliCommandType(
@@ -526,7 +589,6 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_parent_section_group)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_parent_section_group,
                             client_factory=cf_group_onenote_section_parent_section_group) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-parent-notebook', 'groupsonenote_get_parent_notebook')
@@ -535,6 +597,10 @@ def load_command_table(self, _):
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-parent-notebook', 'groupsonenote_update_parent_notebook')
+        g.custom_command('update-parent-section-group', 'groupsonenote_update_parent_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')
 
     from azext_groupsonenote.generated._client_factory import cf_group_onenote_section_parent_section_group_parent_notebook
     groupsonenote_group_onenote_section_parent_section_group_parent_notebook = CliCommandType(
@@ -543,10 +609,11 @@ def load_command_table(self, _):
         client_factory=cf_group_onenote_section_parent_section_group_parent_notebook)
     with self.command_group('groupsonenote', groupsonenote_group_onenote_section_parent_section_group_parent_notebook,
                             client_factory=cf_group_onenote_section_parent_section_group_parent_notebook) as g:
-        g.custom_command('update', 'groupsonenote_update')
         g.custom_command('create-section', 'groupsonenote_create_section')
         g.custom_command('create-section-group', 'groupsonenote_create_section_group')
         g.custom_command('get-section', 'groupsonenote_get_section')
         g.custom_command('get-section-group', 'groupsonenote_get_section_group')
         g.custom_command('list-section', 'groupsonenote_list_section')
         g.custom_command('list-section-group', 'groupsonenote_list_section_group')
+        g.custom_command('update-section', 'groupsonenote_update_section')
+        g.custom_command('update-section-group', 'groupsonenote_update_section_group')

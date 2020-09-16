@@ -17,19 +17,20 @@ def load_command_table(self, _):
 
     from azext_usersuser.generated._client_factory import cf_user_user
     usersuser_user_user = CliCommandType(
-        operations_tmpl='azext_usersuser.vendored_sdks.usersuser.operations._user_user_operations#UserOperations.{}',
+        operations_tmpl='azext_usersuser.vendored_sdks.usersuser.operations._user_user_operations#UserUserOperations.{}'
+        '',
         client_factory=cf_user_user)
     with self.command_group('usersuser', usersuser_user_user, client_factory=cf_user_user) as g:
-        g.custom_command('update', 'usersuser_update')
-        g.custom_command('delete', 'usersuser_delete')
+        g.custom_command('delete', 'usersuser_delete', confirmation=True)
         g.custom_command('create-user', 'usersuser_create_user')
         g.custom_command('get-user', 'usersuser_get_user')
         g.custom_command('list-user', 'usersuser_list_user')
+        g.custom_command('update-user', 'usersuser_update_user')
 
     from azext_usersuser.generated._client_factory import cf_user
     usersuser_user = CliCommandType(
         operations_tmpl='azext_usersuser.vendored_sdks.usersuser.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('usersuser', usersuser_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'usersuser_update')
         g.custom_command('get-presence', 'usersuser_get_presence')
+        g.custom_command('update-presence', 'usersuser_update_presence')

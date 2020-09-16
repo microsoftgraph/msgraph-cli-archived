@@ -10,7 +10,7 @@ from ._users_devices import UsersDevices
 __all__ = ['UsersDevices']
 
 try:
-    from ._patch import patch_sdk
+    from ._patch import patch_sdk  # type: ignore
     patch_sdk()
 except ImportError:
     pass

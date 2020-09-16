@@ -6,4298 +6,4316 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
-
-class Enum117(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum119(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-
-class Enum120(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum121(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum122(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    class_id = "classId"
-    class_id_desc = "classId desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    instructions = "instructions"
-    instructions_desc = "instructions desc"
-    close_date_time = "closeDateTime"
-    close_date_time_desc = "closeDateTime desc"
-    due_date_time = "dueDateTime"
-    due_date_time_desc = "dueDateTime desc"
-    assign_date_time = "assignDateTime"
-    assign_date_time_desc = "assignDateTime desc"
-    assigned_date_time = "assignedDateTime"
-    assigned_date_time_desc = "assignedDateTime desc"
-    grading = "grading"
-    grading_desc = "grading desc"
-    assign_to = "assignTo"
-    assign_to_desc = "assignTo desc"
-    allow_late_submissions = "allowLateSubmissions"
-    allow_late_submissions_desc = "allowLateSubmissions desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    allow_students_to_add_resources_to_submission_desc = "allowStudentsToAddResourcesToSubmission desc"
-    status = "status"
-    status_desc = "status desc"
-
-class Enum123(str, Enum):
-
-    id = "id"
-    class_id = "classId"
-    display_name = "displayName"
-    instructions = "instructions"
-    close_date_time = "closeDateTime"
-    due_date_time = "dueDateTime"
-    assign_date_time = "assignDateTime"
-    assigned_date_time = "assignedDateTime"
-    grading = "grading"
-    assign_to = "assignTo"
-    allow_late_submissions = "allowLateSubmissions"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    status = "status"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum124(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum125(str, Enum):
-
-    id = "id"
-    class_id = "classId"
-    display_name = "displayName"
-    instructions = "instructions"
-    close_date_time = "closeDateTime"
-    due_date_time = "dueDateTime"
-    assign_date_time = "assignDateTime"
-    assigned_date_time = "assignedDateTime"
-    grading = "grading"
-    assign_to = "assignTo"
-    allow_late_submissions = "allowLateSubmissions"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    status = "status"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum126(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum127(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-
-class Enum128(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum129(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum130(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    distribute_for_student_work = "distributeForStudentWork"
-    distribute_for_student_work_desc = "distributeForStudentWork desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-
-class Enum131(str, Enum):
-
-    id = "id"
-    distribute_for_student_work = "distributeForStudentWork"
-    resource = "resource"
-
-class Enum132(str, Enum):
-
-    id = "id"
-    distribute_for_student_work = "distributeForStudentWork"
-    resource = "resource"
-
-class Enum133(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    qualities = "qualities"
-    levels = "levels"
-    grading = "grading"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-
-class Enum134(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    recipient = "recipient"
-    recipient_desc = "recipient desc"
-    status = "status"
-    status_desc = "status desc"
-    submitted_by = "submittedBy"
-    submitted_by_desc = "submittedBy desc"
-    submitted_date_time = "submittedDateTime"
-    submitted_date_time_desc = "submittedDateTime desc"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_by_desc = "unsubmittedBy desc"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    unsubmitted_date_time_desc = "unsubmittedDateTime desc"
-    released_by = "releasedBy"
-    released_by_desc = "releasedBy desc"
-    released_date_time = "releasedDateTime"
-    released_date_time_desc = "releasedDateTime desc"
-    returned_by = "returnedBy"
-    returned_by_desc = "returnedBy desc"
-    returned_date_time = "returnedDateTime"
-    returned_date_time_desc = "returnedDateTime desc"
-    resources_folder_url = "resourcesFolderUrl"
-    resources_folder_url_desc = "resourcesFolderUrl desc"
-
-class Enum135(str, Enum):
-
-    id = "id"
-    recipient = "recipient"
-    status = "status"
-    submitted_by = "submittedBy"
-    submitted_date_time = "submittedDateTime"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    released_by = "releasedBy"
-    released_date_time = "releasedDateTime"
-    returned_by = "returnedBy"
-    returned_date_time = "returnedDateTime"
-    resources_folder_url = "resourcesFolderUrl"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum136(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum137(str, Enum):
-
-    id = "id"
-    recipient = "recipient"
-    status = "status"
-    submitted_by = "submittedBy"
-    submitted_date_time = "submittedDateTime"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    released_by = "releasedBy"
-    released_date_time = "releasedDateTime"
-    returned_by = "returnedBy"
-    returned_date_time = "returnedDateTime"
-    resources_folder_url = "resourcesFolderUrl"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum138(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum139(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-
-class Enum140(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-
-class Enum141(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-
-class Enum142(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    assignment_resource_url = "assignmentResourceUrl"
-    assignment_resource_url_desc = "assignmentResourceUrl desc"
-
-class Enum143(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum144(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum145(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    assignment_resource_url = "assignmentResourceUrl"
-    assignment_resource_url_desc = "assignmentResourceUrl desc"
-
-class Enum146(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum147(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum148(str, Enum):
-
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    assigned_labels = "assignedLabels"
-    assigned_licenses = "assignedLicenses"
-    classification = "classification"
-    created_by_app_id = "createdByAppId"
-    created_date_time = "createdDateTime"
-    description = "description"
-    display_name = "displayName"
-    expiration_date_time = "expirationDateTime"
-    group_types = "groupTypes"
-    has_members_with_license_errors = "hasMembersWithLicenseErrors"
-    is_assignable_to_role = "isAssignableToRole"
-    license_processing_state = "licenseProcessingState"
-    mail = "mail"
-    mail_enabled = "mailEnabled"
-    mail_nickname = "mailNickname"
-    mdm_app_id = "mdmAppId"
-    membership_rule = "membershipRule"
-    membership_rule_processing_state = "membershipRuleProcessingState"
-    on_premises_domain_name = "onPremisesDomainName"
-    on_premises_last_sync_date_time = "onPremisesLastSyncDateTime"
-    on_premises_net_bios_name = "onPremisesNetBiosName"
-    on_premises_provisioning_errors = "onPremisesProvisioningErrors"
-    on_premises_sam_account_name = "onPremisesSamAccountName"
-    on_premises_security_identifier = "onPremisesSecurityIdentifier"
-    on_premises_sync_enabled = "onPremisesSyncEnabled"
-    preferred_data_location = "preferredDataLocation"
-    preferred_language = "preferredLanguage"
-    proxy_addresses = "proxyAddresses"
-    renewed_date_time = "renewedDateTime"
-    resource_behavior_options = "resourceBehaviorOptions"
-    resource_provisioning_options = "resourceProvisioningOptions"
-    security_enabled = "securityEnabled"
-    security_identifier = "securityIdentifier"
-    theme = "theme"
-    visibility = "visibility"
-    access_type = "accessType"
-    allow_external_senders = "allowExternalSenders"
-    auto_subscribe_new_members = "autoSubscribeNewMembers"
-    is_favorite = "isFavorite"
-    is_subscribed_by_mail = "isSubscribedByMail"
-    unseen_count = "unseenCount"
-    unseen_conversations_count = "unseenConversationsCount"
-    unseen_messages_count = "unseenMessagesCount"
-    hide_from_outlook_clients = "hideFromOutlookClients"
-    hide_from_address_lists = "hideFromAddressLists"
-    is_archived = "isArchived"
-    app_role_assignments = "appRoleAssignments"
-    members = "members"
-    members_with_license_errors = "membersWithLicenseErrors"
-    member_of = "memberOf"
-    transitive_members = "transitiveMembers"
-    transitive_member_of = "transitiveMemberOf"
-    created_on_behalf_of = "createdOnBehalfOf"
-    owners = "owners"
-    settings = "settings"
-    endpoints = "endpoints"
-    permission_grants = "permissionGrants"
-    conversations = "conversations"
-    photos = "photos"
-    accepted_senders = "acceptedSenders"
-    rejected_senders = "rejectedSenders"
-    threads = "threads"
-    calendar = "calendar"
-    calendar_view = "calendarView"
-    events = "events"
-    photo = "photo"
-    drive = "drive"
-    drives = "drives"
-    sites = "sites"
-    extensions = "extensions"
-    group_lifecycle_policies = "groupLifecyclePolicies"
-    planner = "planner"
-    onenote = "onenote"
-    team = "team"
-
-class Enum149(str, Enum):
-
-    asterisk = "*"
-    app_role_assignments = "appRoleAssignments"
-    members = "members"
-    members_with_license_errors = "membersWithLicenseErrors"
-    member_of = "memberOf"
-    transitive_members = "transitiveMembers"
-    transitive_member_of = "transitiveMemberOf"
-    created_on_behalf_of = "createdOnBehalfOf"
-    owners = "owners"
-    settings = "settings"
-    endpoints = "endpoints"
-    permission_grants = "permissionGrants"
-    conversations = "conversations"
-    photos = "photos"
-    accepted_senders = "acceptedSenders"
-    rejected_senders = "rejectedSenders"
-    threads = "threads"
-    calendar = "calendar"
-    calendar_view = "calendarView"
-    events = "events"
-    photo = "photo"
-    drive = "drive"
-    drives = "drives"
-    sites = "sites"
-    extensions = "extensions"
-    group_lifecycle_policies = "groupLifecyclePolicies"
-    planner = "planner"
-    onenote = "onenote"
-    team = "team"
-
-class Enum150(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    related_contacts = "relatedContacts"
-    related_contacts_desc = "relatedContacts desc"
-    primary_role = "primaryRole"
-    primary_role_desc = "primaryRole desc"
-    middle_name = "middleName"
-    middle_name_desc = "middleName desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    residence_address = "residenceAddress"
-    residence_address_desc = "residenceAddress desc"
-    mailing_address = "mailingAddress"
-    mailing_address_desc = "mailingAddress desc"
-    student = "student"
-    student_desc = "student desc"
-    teacher = "teacher"
-    teacher_desc = "teacher desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    account_enabled = "accountEnabled"
-    account_enabled_desc = "accountEnabled desc"
-    assigned_licenses = "assignedLicenses"
-    assigned_licenses_desc = "assignedLicenses desc"
-    assigned_plans = "assignedPlans"
-    assigned_plans_desc = "assignedPlans desc"
-    business_phones = "businessPhones"
-    business_phones_desc = "businessPhones desc"
-    department = "department"
-    department_desc = "department desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    given_name = "givenName"
-    given_name_desc = "givenName desc"
-    mail = "mail"
-    mail_desc = "mail desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    mobile_phone = "mobilePhone"
-    mobile_phone_desc = "mobilePhone desc"
-    password_policies = "passwordPolicies"
-    password_policies_desc = "passwordPolicies desc"
-    password_profile = "passwordProfile"
-    password_profile_desc = "passwordProfile desc"
-    office_location = "officeLocation"
-    office_location_desc = "officeLocation desc"
-    preferred_language = "preferredLanguage"
-    preferred_language_desc = "preferredLanguage desc"
-    provisioned_plans = "provisionedPlans"
-    provisioned_plans_desc = "provisionedPlans desc"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    refresh_tokens_valid_from_date_time_desc = "refreshTokensValidFromDateTime desc"
-    show_in_address_list = "showInAddressList"
-    show_in_address_list_desc = "showInAddressList desc"
-    surname = "surname"
-    surname_desc = "surname desc"
-    usage_location = "usageLocation"
-    usage_location_desc = "usageLocation desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    user_type = "userType"
-    user_type_desc = "userType desc"
-    on_premises_info = "onPremisesInfo"
-    on_premises_info_desc = "onPremisesInfo desc"
-
-class Enum151(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum152(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum153(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum154(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum155(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    description = "description"
-    description_desc = "description desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    principal_email = "principalEmail"
-    principal_email_desc = "principalEmail desc"
-    principal_name = "principalName"
-    principal_name_desc = "principalName desc"
-    external_principal_id = "externalPrincipalId"
-    external_principal_id_desc = "externalPrincipalId desc"
-    lowest_grade = "lowestGrade"
-    lowest_grade_desc = "lowestGrade desc"
-    highest_grade = "highestGrade"
-    highest_grade_desc = "highestGrade desc"
-    school_number = "schoolNumber"
-    school_number_desc = "schoolNumber desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    phone = "phone"
-    phone_desc = "phone desc"
-    fax = "fax"
-    fax_desc = "fax desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    address = "address"
-    address_desc = "address desc"
-
-class Enum156(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum157(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum158(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum159(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum160(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    related_contacts = "relatedContacts"
-    related_contacts_desc = "relatedContacts desc"
-    primary_role = "primaryRole"
-    primary_role_desc = "primaryRole desc"
-    middle_name = "middleName"
-    middle_name_desc = "middleName desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    residence_address = "residenceAddress"
-    residence_address_desc = "residenceAddress desc"
-    mailing_address = "mailingAddress"
-    mailing_address_desc = "mailingAddress desc"
-    student = "student"
-    student_desc = "student desc"
-    teacher = "teacher"
-    teacher_desc = "teacher desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    account_enabled = "accountEnabled"
-    account_enabled_desc = "accountEnabled desc"
-    assigned_licenses = "assignedLicenses"
-    assigned_licenses_desc = "assignedLicenses desc"
-    assigned_plans = "assignedPlans"
-    assigned_plans_desc = "assignedPlans desc"
-    business_phones = "businessPhones"
-    business_phones_desc = "businessPhones desc"
-    department = "department"
-    department_desc = "department desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    given_name = "givenName"
-    given_name_desc = "givenName desc"
-    mail = "mail"
-    mail_desc = "mail desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    mobile_phone = "mobilePhone"
-    mobile_phone_desc = "mobilePhone desc"
-    password_policies = "passwordPolicies"
-    password_policies_desc = "passwordPolicies desc"
-    password_profile = "passwordProfile"
-    password_profile_desc = "passwordProfile desc"
-    office_location = "officeLocation"
-    office_location_desc = "officeLocation desc"
-    preferred_language = "preferredLanguage"
-    preferred_language_desc = "preferredLanguage desc"
-    provisioned_plans = "provisionedPlans"
-    provisioned_plans_desc = "provisionedPlans desc"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    refresh_tokens_valid_from_date_time_desc = "refreshTokensValidFromDateTime desc"
-    show_in_address_list = "showInAddressList"
-    show_in_address_list_desc = "showInAddressList desc"
-    surname = "surname"
-    surname_desc = "surname desc"
-    usage_location = "usageLocation"
-    usage_location_desc = "usageLocation desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    user_type = "userType"
-    user_type_desc = "userType desc"
-    on_premises_info = "onPremisesInfo"
-    on_premises_info_desc = "onPremisesInfo desc"
-
-class Enum161(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum162(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum163(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum164(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum165(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum166(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum167(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    class_id = "classId"
-    class_id_desc = "classId desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    instructions = "instructions"
-    instructions_desc = "instructions desc"
-    close_date_time = "closeDateTime"
-    close_date_time_desc = "closeDateTime desc"
-    due_date_time = "dueDateTime"
-    due_date_time_desc = "dueDateTime desc"
-    assign_date_time = "assignDateTime"
-    assign_date_time_desc = "assignDateTime desc"
-    assigned_date_time = "assignedDateTime"
-    assigned_date_time_desc = "assignedDateTime desc"
-    grading = "grading"
-    grading_desc = "grading desc"
-    assign_to = "assignTo"
-    assign_to_desc = "assignTo desc"
-    allow_late_submissions = "allowLateSubmissions"
-    allow_late_submissions_desc = "allowLateSubmissions desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    allow_students_to_add_resources_to_submission_desc = "allowStudentsToAddResourcesToSubmission desc"
-    status = "status"
-    status_desc = "status desc"
-
-class Enum168(str, Enum):
-
-    id = "id"
-    class_id = "classId"
-    display_name = "displayName"
-    instructions = "instructions"
-    close_date_time = "closeDateTime"
-    due_date_time = "dueDateTime"
-    assign_date_time = "assignDateTime"
-    assigned_date_time = "assignedDateTime"
-    grading = "grading"
-    assign_to = "assignTo"
-    allow_late_submissions = "allowLateSubmissions"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    status = "status"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum169(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum170(str, Enum):
-
-    id = "id"
-    class_id = "classId"
-    display_name = "displayName"
-    instructions = "instructions"
-    close_date_time = "closeDateTime"
-    due_date_time = "dueDateTime"
-    assign_date_time = "assignDateTime"
-    assigned_date_time = "assignedDateTime"
-    grading = "grading"
-    assign_to = "assignTo"
-    allow_late_submissions = "allowLateSubmissions"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    status = "status"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum171(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum172(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-
-class Enum173(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum174(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum175(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    distribute_for_student_work = "distributeForStudentWork"
-    distribute_for_student_work_desc = "distributeForStudentWork desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-
-class Enum176(str, Enum):
-
-    id = "id"
-    distribute_for_student_work = "distributeForStudentWork"
-    resource = "resource"
-
-class Enum177(str, Enum):
-
-    id = "id"
-    distribute_for_student_work = "distributeForStudentWork"
-    resource = "resource"
-
-class Enum178(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    qualities = "qualities"
-    levels = "levels"
-    grading = "grading"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-
-class Enum179(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    recipient = "recipient"
-    recipient_desc = "recipient desc"
-    status = "status"
-    status_desc = "status desc"
-    submitted_by = "submittedBy"
-    submitted_by_desc = "submittedBy desc"
-    submitted_date_time = "submittedDateTime"
-    submitted_date_time_desc = "submittedDateTime desc"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_by_desc = "unsubmittedBy desc"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    unsubmitted_date_time_desc = "unsubmittedDateTime desc"
-    released_by = "releasedBy"
-    released_by_desc = "releasedBy desc"
-    released_date_time = "releasedDateTime"
-    released_date_time_desc = "releasedDateTime desc"
-    returned_by = "returnedBy"
-    returned_by_desc = "returnedBy desc"
-    returned_date_time = "returnedDateTime"
-    returned_date_time_desc = "returnedDateTime desc"
-    resources_folder_url = "resourcesFolderUrl"
-    resources_folder_url_desc = "resourcesFolderUrl desc"
-
-class Enum180(str, Enum):
-
-    id = "id"
-    recipient = "recipient"
-    status = "status"
-    submitted_by = "submittedBy"
-    submitted_date_time = "submittedDateTime"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    released_by = "releasedBy"
-    released_date_time = "releasedDateTime"
-    returned_by = "returnedBy"
-    returned_date_time = "returnedDateTime"
-    resources_folder_url = "resourcesFolderUrl"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum181(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum182(str, Enum):
-
-    id = "id"
-    recipient = "recipient"
-    status = "status"
-    submitted_by = "submittedBy"
-    submitted_date_time = "submittedDateTime"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    released_by = "releasedBy"
-    released_date_time = "releasedDateTime"
-    returned_by = "returnedBy"
-    returned_date_time = "returnedDateTime"
-    resources_folder_url = "resourcesFolderUrl"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum183(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum184(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-
-class Enum185(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-
-class Enum186(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-
-class Enum187(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    assignment_resource_url = "assignmentResourceUrl"
-    assignment_resource_url_desc = "assignmentResourceUrl desc"
-
-class Enum188(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum189(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum190(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    assignment_resource_url = "assignmentResourceUrl"
-    assignment_resource_url_desc = "assignmentResourceUrl desc"
-
-class Enum191(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum192(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum193(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    description = "description"
-    description_desc = "description desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    class_code = "classCode"
-    class_code_desc = "classCode desc"
-    external_name = "externalName"
-    external_name_desc = "externalName desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    grade = "grade"
-    grade_desc = "grade desc"
-    term = "term"
-    term_desc = "term desc"
-    course = "course"
-    course_desc = "course desc"
-
-class Enum194(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum195(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum196(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum197(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum198(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    description = "description"
-    description_desc = "description desc"
-    qualities = "qualities"
-    qualities_desc = "qualities desc"
-    levels = "levels"
-    levels_desc = "levels desc"
-    grading = "grading"
-    grading_desc = "grading desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-
-class Enum199(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    qualities = "qualities"
-    levels = "levels"
-    grading = "grading"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-
-class Enum200(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    qualities = "qualities"
-    levels = "levels"
-    grading = "grading"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-
-class Enum201(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    description = "description"
-    description_desc = "description desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    principal_email = "principalEmail"
-    principal_email_desc = "principalEmail desc"
-    principal_name = "principalName"
-    principal_name_desc = "principalName desc"
-    external_principal_id = "externalPrincipalId"
-    external_principal_id_desc = "externalPrincipalId desc"
-    lowest_grade = "lowestGrade"
-    lowest_grade_desc = "lowestGrade desc"
-    highest_grade = "highestGrade"
-    highest_grade_desc = "highestGrade desc"
-    school_number = "schoolNumber"
-    school_number_desc = "schoolNumber desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    phone = "phone"
-    phone_desc = "phone desc"
-    fax = "fax"
-    fax_desc = "fax desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    address = "address"
-    address_desc = "address desc"
-
-class Enum202(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum203(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum204(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum205(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum206(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    description = "description"
-    description_desc = "description desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    class_code = "classCode"
-    class_code_desc = "classCode desc"
-    external_name = "externalName"
-    external_name_desc = "externalName desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    grade = "grade"
-    grade_desc = "grade desc"
-    term = "term"
-    term_desc = "term desc"
-    course = "course"
-    course_desc = "course desc"
-
-class Enum207(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum208(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum209(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum210(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum211(str, Enum):
-
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    sign_in_activity = "signInActivity"
-    account_enabled = "accountEnabled"
-    age_group = "ageGroup"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    city = "city"
-    company_name = "companyName"
-    consent_provided_for_minor = "consentProvidedForMinor"
-    country = "country"
-    created_date_time = "createdDateTime"
-    creation_type = "creationType"
-    department = "department"
-    device_keys = "deviceKeys"
-    display_name = "displayName"
-    employee_id = "employeeId"
-    fax_number = "faxNumber"
-    given_name = "givenName"
-    identities = "identities"
-    im_addresses = "imAddresses"
-    is_resource_account = "isResourceAccount"
-    job_title = "jobTitle"
-    last_password_change_date_time = "lastPasswordChangeDateTime"
-    legal_age_group_classification = "legalAgeGroupClassification"
-    license_assignment_states = "licenseAssignmentStates"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    on_premises_distinguished_name = "onPremisesDistinguishedName"
-    on_premises_extension_attributes = "onPremisesExtensionAttributes"
-    on_premises_immutable_id = "onPremisesImmutableId"
-    on_premises_last_sync_date_time = "onPremisesLastSyncDateTime"
-    on_premises_provisioning_errors = "onPremisesProvisioningErrors"
-    on_premises_security_identifier = "onPremisesSecurityIdentifier"
-    on_premises_sync_enabled = "onPremisesSyncEnabled"
-    on_premises_domain_name = "onPremisesDomainName"
-    on_premises_sam_account_name = "onPremisesSamAccountName"
-    on_premises_user_principal_name = "onPremisesUserPrincipalName"
-    other_mails = "otherMails"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    postal_code = "postalCode"
-    preferred_data_location = "preferredDataLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    proxy_addresses = "proxyAddresses"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    sign_in_sessions_valid_from_date_time = "signInSessionsValidFromDateTime"
-    state = "state"
-    street_address = "streetAddress"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    external_user_state = "externalUserState"
-    external_user_state_change_date_time = "externalUserStateChangeDateTime"
-    user_type = "userType"
-    mailbox_settings = "mailboxSettings"
-    identity_user_risk = "identityUserRisk"
-    device_enrollment_limit = "deviceEnrollmentLimit"
-    about_me = "aboutMe"
-    birthday = "birthday"
-    hire_date = "hireDate"
-    interests = "interests"
-    my_site = "mySite"
-    past_projects = "pastProjects"
-    preferred_name = "preferredName"
-    responsibilities = "responsibilities"
-    schools = "schools"
-    skills = "skills"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class Enum212(str, Enum):
-
-    asterisk = "*"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class Enum213(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    description = "description"
-    description_desc = "description desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    principal_email = "principalEmail"
-    principal_email_desc = "principalEmail desc"
-    principal_name = "principalName"
-    principal_name_desc = "principalName desc"
-    external_principal_id = "externalPrincipalId"
-    external_principal_id_desc = "externalPrincipalId desc"
-    lowest_grade = "lowestGrade"
-    lowest_grade_desc = "lowestGrade desc"
-    highest_grade = "highestGrade"
-    highest_grade_desc = "highestGrade desc"
-    school_number = "schoolNumber"
-    school_number_desc = "schoolNumber desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    phone = "phone"
-    phone_desc = "phone desc"
-    fax = "fax"
-    fax_desc = "fax desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    address = "address"
-    address_desc = "address desc"
-
-class Enum214(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum215(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum216(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum217(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum218(str, Enum):
-
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    display_name = "displayName"
-    description = "description"
-    visibility = "visibility"
-    members = "members"
-    scoped_role_members = "scopedRoleMembers"
-    extensions = "extensions"
-
-class Enum219(str, Enum):
-
-    asterisk = "*"
-    members = "members"
-    scoped_role_members = "scopedRoleMembers"
-    extensions = "extensions"
-
-class Enum220(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    description = "description"
-    description_desc = "description desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    class_code = "classCode"
-    class_code_desc = "classCode desc"
-    external_name = "externalName"
-    external_name_desc = "externalName desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    grade = "grade"
-    grade_desc = "grade desc"
-    term = "term"
-    term_desc = "term desc"
-    course = "course"
-    course_desc = "course desc"
-
-class Enum221(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum222(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum223(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum224(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum225(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    related_contacts = "relatedContacts"
-    related_contacts_desc = "relatedContacts desc"
-    primary_role = "primaryRole"
-    primary_role_desc = "primaryRole desc"
-    middle_name = "middleName"
-    middle_name_desc = "middleName desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    residence_address = "residenceAddress"
-    residence_address_desc = "residenceAddress desc"
-    mailing_address = "mailingAddress"
-    mailing_address_desc = "mailingAddress desc"
-    student = "student"
-    student_desc = "student desc"
-    teacher = "teacher"
-    teacher_desc = "teacher desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    account_enabled = "accountEnabled"
-    account_enabled_desc = "accountEnabled desc"
-    assigned_licenses = "assignedLicenses"
-    assigned_licenses_desc = "assignedLicenses desc"
-    assigned_plans = "assignedPlans"
-    assigned_plans_desc = "assignedPlans desc"
-    business_phones = "businessPhones"
-    business_phones_desc = "businessPhones desc"
-    department = "department"
-    department_desc = "department desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    given_name = "givenName"
-    given_name_desc = "givenName desc"
-    mail = "mail"
-    mail_desc = "mail desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    mobile_phone = "mobilePhone"
-    mobile_phone_desc = "mobilePhone desc"
-    password_policies = "passwordPolicies"
-    password_policies_desc = "passwordPolicies desc"
-    password_profile = "passwordProfile"
-    password_profile_desc = "passwordProfile desc"
-    office_location = "officeLocation"
-    office_location_desc = "officeLocation desc"
-    preferred_language = "preferredLanguage"
-    preferred_language_desc = "preferredLanguage desc"
-    provisioned_plans = "provisionedPlans"
-    provisioned_plans_desc = "provisionedPlans desc"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    refresh_tokens_valid_from_date_time_desc = "refreshTokensValidFromDateTime desc"
-    show_in_address_list = "showInAddressList"
-    show_in_address_list_desc = "showInAddressList desc"
-    surname = "surname"
-    surname_desc = "surname desc"
-    usage_location = "usageLocation"
-    usage_location_desc = "usageLocation desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    user_type = "userType"
-    user_type_desc = "userType desc"
-    on_premises_info = "onPremisesInfo"
-    on_premises_info_desc = "onPremisesInfo desc"
-
-class Enum226(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum227(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum228(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum229(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum230(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    data_provider = "dataProvider"
-    data_provider_desc = "dataProvider desc"
-    identity_synchronization_configuration = "identitySynchronizationConfiguration"
-    identity_synchronization_configuration_desc = "identitySynchronizationConfiguration desc"
-    licenses_to_assign = "licensesToAssign"
-    licenses_to_assign_desc = "licensesToAssign desc"
-    state = "state"
-    state_desc = "state desc"
-    handle_special_character_constraint = "handleSpecialCharacterConstraint"
-    handle_special_character_constraint_desc = "handleSpecialCharacterConstraint desc"
-
-class Enum231(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    data_provider = "dataProvider"
-    identity_synchronization_configuration = "identitySynchronizationConfiguration"
-    licenses_to_assign = "licensesToAssign"
-    state = "state"
-    handle_special_character_constraint = "handleSpecialCharacterConstraint"
-    errors = "errors"
-    profile_status = "profileStatus"
-
-class Enum232(str, Enum):
-
-    asterisk = "*"
-    errors = "errors"
-    profile_status = "profileStatus"
-
-class Enum233(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    data_provider = "dataProvider"
-    identity_synchronization_configuration = "identitySynchronizationConfiguration"
-    licenses_to_assign = "licensesToAssign"
-    state = "state"
-    handle_special_character_constraint = "handleSpecialCharacterConstraint"
-    errors = "errors"
-    profile_status = "profileStatus"
-
-class Enum234(str, Enum):
-
-    asterisk = "*"
-    errors = "errors"
-    profile_status = "profileStatus"
-
-class Enum235(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    entry_type = "entryType"
-    entry_type_desc = "entryType desc"
-    error_code = "errorCode"
-    error_code_desc = "errorCode desc"
-    error_message = "errorMessage"
-    error_message_desc = "errorMessage desc"
-    joining_value = "joiningValue"
-    joining_value_desc = "joiningValue desc"
-    recorded_date_time = "recordedDateTime"
-    recorded_date_time_desc = "recordedDateTime desc"
-    reportable_identifier = "reportableIdentifier"
-    reportable_identifier_desc = "reportableIdentifier desc"
-
-class Enum236(str, Enum):
-
-    id = "id"
-    entry_type = "entryType"
-    error_code = "errorCode"
-    error_message = "errorMessage"
-    joining_value = "joiningValue"
-    recorded_date_time = "recordedDateTime"
-    reportable_identifier = "reportableIdentifier"
-
-class Enum237(str, Enum):
-
-    id = "id"
-    entry_type = "entryType"
-    error_code = "errorCode"
-    error_message = "errorMessage"
-    joining_value = "joiningValue"
-    recorded_date_time = "recordedDateTime"
-    reportable_identifier = "reportableIdentifier"
-
-class Enum238(str, Enum):
-
-    id = "id"
-    status = "status"
-    last_synchronization_date_time = "lastSynchronizationDateTime"
-
-class Enum239(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    related_contacts = "relatedContacts"
-    related_contacts_desc = "relatedContacts desc"
-    primary_role = "primaryRole"
-    primary_role_desc = "primaryRole desc"
-    middle_name = "middleName"
-    middle_name_desc = "middleName desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    residence_address = "residenceAddress"
-    residence_address_desc = "residenceAddress desc"
-    mailing_address = "mailingAddress"
-    mailing_address_desc = "mailingAddress desc"
-    student = "student"
-    student_desc = "student desc"
-    teacher = "teacher"
-    teacher_desc = "teacher desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    account_enabled = "accountEnabled"
-    account_enabled_desc = "accountEnabled desc"
-    assigned_licenses = "assignedLicenses"
-    assigned_licenses_desc = "assignedLicenses desc"
-    assigned_plans = "assignedPlans"
-    assigned_plans_desc = "assignedPlans desc"
-    business_phones = "businessPhones"
-    business_phones_desc = "businessPhones desc"
-    department = "department"
-    department_desc = "department desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    given_name = "givenName"
-    given_name_desc = "givenName desc"
-    mail = "mail"
-    mail_desc = "mail desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    mobile_phone = "mobilePhone"
-    mobile_phone_desc = "mobilePhone desc"
-    password_policies = "passwordPolicies"
-    password_policies_desc = "passwordPolicies desc"
-    password_profile = "passwordProfile"
-    password_profile_desc = "passwordProfile desc"
-    office_location = "officeLocation"
-    office_location_desc = "officeLocation desc"
-    preferred_language = "preferredLanguage"
-    preferred_language_desc = "preferredLanguage desc"
-    provisioned_plans = "provisionedPlans"
-    provisioned_plans_desc = "provisionedPlans desc"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    refresh_tokens_valid_from_date_time_desc = "refreshTokensValidFromDateTime desc"
-    show_in_address_list = "showInAddressList"
-    show_in_address_list_desc = "showInAddressList desc"
-    surname = "surname"
-    surname_desc = "surname desc"
-    usage_location = "usageLocation"
-    usage_location_desc = "usageLocation desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    user_type = "userType"
-    user_type_desc = "userType desc"
-    on_premises_info = "onPremisesInfo"
-    on_premises_info_desc = "onPremisesInfo desc"
-
-class Enum240(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum241(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum242(str, Enum):
-
-    id = "id"
-    related_contacts = "relatedContacts"
-    primary_role = "primaryRole"
-    middle_name = "middleName"
-    external_source = "externalSource"
-    residence_address = "residenceAddress"
-    mailing_address = "mailingAddress"
-    student = "student"
-    teacher = "teacher"
-    created_by = "createdBy"
-    account_enabled = "accountEnabled"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    department = "department"
-    display_name = "displayName"
-    given_name = "givenName"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    user_type = "userType"
-    on_premises_info = "onPremisesInfo"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum243(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    rubrics = "rubrics"
-    classes = "classes"
-    taught_classes = "taughtClasses"
-    schools = "schools"
-    user = "user"
-
-class Enum244(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    class_id = "classId"
-    class_id_desc = "classId desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    instructions = "instructions"
-    instructions_desc = "instructions desc"
-    close_date_time = "closeDateTime"
-    close_date_time_desc = "closeDateTime desc"
-    due_date_time = "dueDateTime"
-    due_date_time_desc = "dueDateTime desc"
-    assign_date_time = "assignDateTime"
-    assign_date_time_desc = "assignDateTime desc"
-    assigned_date_time = "assignedDateTime"
-    assigned_date_time_desc = "assignedDateTime desc"
-    grading = "grading"
-    grading_desc = "grading desc"
-    assign_to = "assignTo"
-    assign_to_desc = "assignTo desc"
-    allow_late_submissions = "allowLateSubmissions"
-    allow_late_submissions_desc = "allowLateSubmissions desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    allow_students_to_add_resources_to_submission_desc = "allowStudentsToAddResourcesToSubmission desc"
-    status = "status"
-    status_desc = "status desc"
-
-class Enum245(str, Enum):
-
-    id = "id"
-    class_id = "classId"
-    display_name = "displayName"
-    instructions = "instructions"
-    close_date_time = "closeDateTime"
-    due_date_time = "dueDateTime"
-    assign_date_time = "assignDateTime"
-    assigned_date_time = "assignedDateTime"
-    grading = "grading"
-    assign_to = "assignTo"
-    allow_late_submissions = "allowLateSubmissions"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    status = "status"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum246(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum247(str, Enum):
-
-    id = "id"
-    class_id = "classId"
-    display_name = "displayName"
-    instructions = "instructions"
-    close_date_time = "closeDateTime"
-    due_date_time = "dueDateTime"
-    assign_date_time = "assignDateTime"
-    assigned_date_time = "assignedDateTime"
-    grading = "grading"
-    assign_to = "assignTo"
-    allow_late_submissions = "allowLateSubmissions"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-    allow_students_to_add_resources_to_submission = "allowStudentsToAddResourcesToSubmission"
-    status = "status"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum248(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submissions = "submissions"
-    categories = "categories"
-    rubric = "rubric"
-
-class Enum249(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-
-class Enum250(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum251(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-
-class Enum252(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    distribute_for_student_work = "distributeForStudentWork"
-    distribute_for_student_work_desc = "distributeForStudentWork desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-
-class Enum253(str, Enum):
-
-    id = "id"
-    distribute_for_student_work = "distributeForStudentWork"
-    resource = "resource"
-
-class Enum254(str, Enum):
-
-    id = "id"
-    distribute_for_student_work = "distributeForStudentWork"
-    resource = "resource"
-
-class Enum255(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    qualities = "qualities"
-    levels = "levels"
-    grading = "grading"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-
-class Enum256(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    recipient = "recipient"
-    recipient_desc = "recipient desc"
-    status = "status"
-    status_desc = "status desc"
-    submitted_by = "submittedBy"
-    submitted_by_desc = "submittedBy desc"
-    submitted_date_time = "submittedDateTime"
-    submitted_date_time_desc = "submittedDateTime desc"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_by_desc = "unsubmittedBy desc"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    unsubmitted_date_time_desc = "unsubmittedDateTime desc"
-    released_by = "releasedBy"
-    released_by_desc = "releasedBy desc"
-    released_date_time = "releasedDateTime"
-    released_date_time_desc = "releasedDateTime desc"
-    returned_by = "returnedBy"
-    returned_by_desc = "returnedBy desc"
-    returned_date_time = "returnedDateTime"
-    returned_date_time_desc = "returnedDateTime desc"
-    resources_folder_url = "resourcesFolderUrl"
-    resources_folder_url_desc = "resourcesFolderUrl desc"
-
-class Enum257(str, Enum):
-
-    id = "id"
-    recipient = "recipient"
-    status = "status"
-    submitted_by = "submittedBy"
-    submitted_date_time = "submittedDateTime"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    released_by = "releasedBy"
-    released_date_time = "releasedDateTime"
-    returned_by = "returnedBy"
-    returned_date_time = "returnedDateTime"
-    resources_folder_url = "resourcesFolderUrl"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum258(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum259(str, Enum):
-
-    id = "id"
-    recipient = "recipient"
-    status = "status"
-    submitted_by = "submittedBy"
-    submitted_date_time = "submittedDateTime"
-    unsubmitted_by = "unsubmittedBy"
-    unsubmitted_date_time = "unsubmittedDateTime"
-    released_by = "releasedBy"
-    released_date_time = "releasedDateTime"
-    returned_by = "returnedBy"
-    returned_date_time = "returnedDateTime"
-    resources_folder_url = "resourcesFolderUrl"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum260(str, Enum):
-
-    asterisk = "*"
-    resources = "resources"
-    submitted_resources = "submittedResources"
-    outcomes = "outcomes"
-
-class Enum261(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-
-class Enum262(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-
-class Enum263(str, Enum):
-
-    id = "id"
-    last_modified_by = "lastModifiedBy"
-    last_modified_date_time = "lastModifiedDateTime"
-
-class Enum264(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    assignment_resource_url = "assignmentResourceUrl"
-    assignment_resource_url_desc = "assignmentResourceUrl desc"
-
-class Enum265(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum266(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum267(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    resource = "resource"
-    resource_desc = "resource desc"
-    assignment_resource_url = "assignmentResourceUrl"
-    assignment_resource_url_desc = "assignmentResourceUrl desc"
-
-class Enum268(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum269(str, Enum):
-
-    id = "id"
-    resource = "resource"
-    assignment_resource_url = "assignmentResourceUrl"
-
-class Enum270(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    description = "description"
-    description_desc = "description desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    class_code = "classCode"
-    class_code_desc = "classCode desc"
-    external_name = "externalName"
-    external_name_desc = "externalName desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    grade = "grade"
-    grade_desc = "grade desc"
-    term = "term"
-    term_desc = "term desc"
-    course = "course"
-    course_desc = "course desc"
-
-class Enum271(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum272(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum273(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum274(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum275(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    description = "description"
-    description_desc = "description desc"
-    qualities = "qualities"
-    qualities_desc = "qualities desc"
-    levels = "levels"
-    levels_desc = "levels desc"
-    grading = "grading"
-    grading_desc = "grading desc"
-    created_date_time = "createdDateTime"
-    created_date_time_desc = "createdDateTime desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_date_time_desc = "lastModifiedDateTime desc"
-    last_modified_by = "lastModifiedBy"
-    last_modified_by_desc = "lastModifiedBy desc"
-
-class Enum276(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    qualities = "qualities"
-    levels = "levels"
-    grading = "grading"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-
-class Enum277(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    qualities = "qualities"
-    levels = "levels"
-    grading = "grading"
-    created_date_time = "createdDateTime"
-    created_by = "createdBy"
-    last_modified_date_time = "lastModifiedDateTime"
-    last_modified_by = "lastModifiedBy"
-
-class Enum278(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    description = "description"
-    description_desc = "description desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    principal_email = "principalEmail"
-    principal_email_desc = "principalEmail desc"
-    principal_name = "principalName"
-    principal_name_desc = "principalName desc"
-    external_principal_id = "externalPrincipalId"
-    external_principal_id_desc = "externalPrincipalId desc"
-    lowest_grade = "lowestGrade"
-    lowest_grade_desc = "lowestGrade desc"
-    highest_grade = "highestGrade"
-    highest_grade_desc = "highestGrade desc"
-    school_number = "schoolNumber"
-    school_number_desc = "schoolNumber desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    phone = "phone"
-    phone_desc = "phone desc"
-    fax = "fax"
-    fax_desc = "fax desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    address = "address"
-    address_desc = "address desc"
-
-class Enum279(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum280(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum281(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    description = "description"
-    external_source = "externalSource"
-    principal_email = "principalEmail"
-    principal_name = "principalName"
-    external_principal_id = "externalPrincipalId"
-    lowest_grade = "lowestGrade"
-    highest_grade = "highestGrade"
-    school_number = "schoolNumber"
-    external_id = "externalId"
-    phone = "phone"
-    fax = "fax"
-    created_by = "createdBy"
-    address = "address"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum282(str, Enum):
-
-    asterisk = "*"
-    classes = "classes"
-    users = "users"
-    administrative_unit = "administrativeUnit"
-
-class Enum283(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    description = "description"
-    description_desc = "description desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    class_code = "classCode"
-    class_code_desc = "classCode desc"
-    external_name = "externalName"
-    external_name_desc = "externalName desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    grade = "grade"
-    grade_desc = "grade desc"
-    term = "term"
-    term_desc = "term desc"
-    course = "course"
-    course_desc = "course desc"
-
-class Enum284(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum285(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum286(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum287(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Enum288(str, Enum):
-
-    id = "id"
-    deleted_date_time = "deletedDateTime"
-    sign_in_activity = "signInActivity"
-    account_enabled = "accountEnabled"
-    age_group = "ageGroup"
-    assigned_licenses = "assignedLicenses"
-    assigned_plans = "assignedPlans"
-    business_phones = "businessPhones"
-    city = "city"
-    company_name = "companyName"
-    consent_provided_for_minor = "consentProvidedForMinor"
-    country = "country"
-    created_date_time = "createdDateTime"
-    creation_type = "creationType"
-    department = "department"
-    device_keys = "deviceKeys"
-    display_name = "displayName"
-    employee_id = "employeeId"
-    fax_number = "faxNumber"
-    given_name = "givenName"
-    identities = "identities"
-    im_addresses = "imAddresses"
-    is_resource_account = "isResourceAccount"
-    job_title = "jobTitle"
-    last_password_change_date_time = "lastPasswordChangeDateTime"
-    legal_age_group_classification = "legalAgeGroupClassification"
-    license_assignment_states = "licenseAssignmentStates"
-    mail = "mail"
-    mail_nickname = "mailNickname"
-    mobile_phone = "mobilePhone"
-    on_premises_distinguished_name = "onPremisesDistinguishedName"
-    on_premises_extension_attributes = "onPremisesExtensionAttributes"
-    on_premises_immutable_id = "onPremisesImmutableId"
-    on_premises_last_sync_date_time = "onPremisesLastSyncDateTime"
-    on_premises_provisioning_errors = "onPremisesProvisioningErrors"
-    on_premises_security_identifier = "onPremisesSecurityIdentifier"
-    on_premises_sync_enabled = "onPremisesSyncEnabled"
-    on_premises_domain_name = "onPremisesDomainName"
-    on_premises_sam_account_name = "onPremisesSamAccountName"
-    on_premises_user_principal_name = "onPremisesUserPrincipalName"
-    other_mails = "otherMails"
-    password_policies = "passwordPolicies"
-    password_profile = "passwordProfile"
-    office_location = "officeLocation"
-    postal_code = "postalCode"
-    preferred_data_location = "preferredDataLocation"
-    preferred_language = "preferredLanguage"
-    provisioned_plans = "provisionedPlans"
-    proxy_addresses = "proxyAddresses"
-    refresh_tokens_valid_from_date_time = "refreshTokensValidFromDateTime"
-    show_in_address_list = "showInAddressList"
-    sign_in_sessions_valid_from_date_time = "signInSessionsValidFromDateTime"
-    state = "state"
-    street_address = "streetAddress"
-    surname = "surname"
-    usage_location = "usageLocation"
-    user_principal_name = "userPrincipalName"
-    external_user_state = "externalUserState"
-    external_user_state_change_date_time = "externalUserStateChangeDateTime"
-    user_type = "userType"
-    mailbox_settings = "mailboxSettings"
-    identity_user_risk = "identityUserRisk"
-    device_enrollment_limit = "deviceEnrollmentLimit"
-    about_me = "aboutMe"
-    birthday = "birthday"
-    hire_date = "hireDate"
-    interests = "interests"
-    my_site = "mySite"
-    past_projects = "pastProjects"
-    preferred_name = "preferredName"
-    responsibilities = "responsibilities"
-    schools = "schools"
-    skills = "skills"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class Enum289(str, Enum):
-
-    asterisk = "*"
-    analytics = "analytics"
-    information_protection = "informationProtection"
-    app_role_assignments = "appRoleAssignments"
-    created_objects = "createdObjects"
-    direct_reports = "directReports"
-    license_details = "licenseDetails"
-    manager = "manager"
-    member_of = "memberOf"
-    owned_devices = "ownedDevices"
-    owned_objects = "ownedObjects"
-    registered_devices = "registeredDevices"
-    scoped_role_member_of = "scopedRoleMemberOf"
-    transitive_member_of = "transitiveMemberOf"
-    outlook = "outlook"
-    messages = "messages"
-    joined_groups = "joinedGroups"
-    mail_folders = "mailFolders"
-    calendar = "calendar"
-    calendars = "calendars"
-    calendar_groups = "calendarGroups"
-    calendar_view = "calendarView"
-    events = "events"
-    people = "people"
-    contacts = "contacts"
-    contact_folders = "contactFolders"
-    inference_classification = "inferenceClassification"
-    photo = "photo"
-    photos = "photos"
-    drive = "drive"
-    drives = "drives"
-    followed_sites = "followedSites"
-    extensions = "extensions"
-    approvals = "approvals"
-    app_consent_requests_for_approval = "appConsentRequestsForApproval"
-    agreement_acceptances = "agreementAcceptances"
-    device_enrollment_configurations = "deviceEnrollmentConfigurations"
-    managed_devices = "managedDevices"
-    managed_app_registrations = "managedAppRegistrations"
-    windows_information_protection_device_registrations = "windowsInformationProtectionDeviceRegistrations"
-    device_management_troubleshooting_events = "deviceManagementTroubleshootingEvents"
-    mobile_app_intent_and_states = "mobileAppIntentAndStates"
-    mobile_app_troubleshooting_events = "mobileAppTroubleshootingEvents"
-    notifications = "notifications"
-    planner = "planner"
-    insights = "insights"
-    settings = "settings"
-    onenote = "onenote"
-    profile = "profile"
-    activities = "activities"
-    devices = "devices"
-    online_meetings = "onlineMeetings"
-    presence = "presence"
-    authentication = "authentication"
-    chats = "chats"
-    joined_teams = "joinedTeams"
-    teamwork = "teamwork"
-
-class Get0ItemsItem(str, Enum):
-
-    id = "id"
-    synchronization_profiles = "synchronizationProfiles"
-    classes = "classes"
-    schools = "schools"
-    users = "users"
-    me = "me"
-
-class Get1ItemsItem(str, Enum):
-
-    asterisk = "*"
-    synchronization_profiles = "synchronizationProfiles"
-    classes = "classes"
-    schools = "schools"
-    users = "users"
-    me = "me"
-
-class Get2ItemsItem(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Get5ItemsItem(str, Enum):
-
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    mail_nickname = "mailNickname"
-    mail_nickname_desc = "mailNickname desc"
-    description = "description"
-    description_desc = "description desc"
-    created_by = "createdBy"
-    created_by_desc = "createdBy desc"
-    class_code = "classCode"
-    class_code_desc = "classCode desc"
-    external_name = "externalName"
-    external_name_desc = "externalName desc"
-    external_id = "externalId"
-    external_id_desc = "externalId desc"
-    external_source = "externalSource"
-    external_source_desc = "externalSource desc"
-    grade = "grade"
-    grade_desc = "grade desc"
-    term = "term"
-    term_desc = "term desc"
-    course = "course"
-    course_desc = "course desc"
-
-class Get6ItemsItem(str, Enum):
-
-    id = "id"
-    display_name = "displayName"
-    mail_nickname = "mailNickname"
-    description = "description"
-    created_by = "createdBy"
-    class_code = "classCode"
-    external_name = "externalName"
-    external_id = "externalId"
-    external_source = "externalSource"
-    grade = "grade"
-    term = "term"
-    course = "course"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class Get7ItemsItem(str, Enum):
-
-    asterisk = "*"
-    assignments = "assignments"
-    assignment_categories = "assignmentCategories"
-    members = "members"
-    teachers = "teachers"
-    schools = "schools"
-    group = "group"
-
-class MicrosoftGraphAccessLevel(str, Enum):
-
-    everyone = "everyone"
-    invited = "invited"
-    locked = "locked"
-    same_enterprise = "sameEnterprise"
-    same_enterprise_and_federated = "sameEnterpriseAndFederated"
-
-class MicrosoftGraphActionState(str, Enum):
-
-    none = "none"
-    pending = "pending"
-    canceled = "canceled"
-    active = "active"
-    done = "done"
-    failed = "failed"
-    not_supported = "notSupported"
-
-class MicrosoftGraphAgreementAcceptanceState(str, Enum):
-
-    accepted = "accepted"
-    declined = "declined"
-
-class MicrosoftGraphAllowedAudiences(str, Enum):
-
-    me = "me"
-    family = "family"
-    contacts = "contacts"
-    group_members = "groupMembers"
-    organization = "organization"
-    federated_organizations = "federatedOrganizations"
-    everyone = "everyone"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAnalyticsActivityType(str, Enum):
-
-    email = "Email"
-    meeting = "Meeting"
-    focus = "Focus"
-    chat = "Chat"
-    call = "Call"
-
-class MicrosoftGraphAnniversaryType(str, Enum):
-
-    birthday = "birthday"
-    wedding = "wedding"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphApplicationMode(str, Enum):
-
-    manual = "manual"
-    automatic = "automatic"
-    recommended = "recommended"
-
-class MicrosoftGraphAppLogUploadState(str, Enum):
-
-    pending = "pending"
-    completed = "completed"
-    failed = "failed"
-
-class MicrosoftGraphAttendeeType(str, Enum):
-
-    required = "required"
-    optional = "optional"
-    resource = "resource"
-
-class MicrosoftGraphAuthenticationMethodSignInState(str, Enum):
-
-    not_supported = "notSupported"
-    not_allowed_by_policy = "notAllowedByPolicy"
-    not_enabled = "notEnabled"
-    phone_number_not_unique = "phoneNumberNotUnique"
-    ready = "ready"
-    not_configured = "notConfigured"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAuthenticationPhoneType(str, Enum):
-
-    mobile = "mobile"
-    alternate_mobile = "alternateMobile"
-    office = "office"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphAutomaticRepliesStatus(str, Enum):
-
-    disabled = "disabled"
-    always_enabled = "alwaysEnabled"
-    scheduled = "scheduled"
-
-class MicrosoftGraphBodyType(str, Enum):
-
-    text = "text"
-    html = "html"
-
-class MicrosoftGraphCalendarColor(str, Enum):
-
-    light_blue = "lightBlue"
-    light_green = "lightGreen"
-    light_orange = "lightOrange"
-    light_gray = "lightGray"
-    light_yellow = "lightYellow"
-    light_teal = "lightTeal"
-    light_pink = "lightPink"
-    light_brown = "lightBrown"
-    light_red = "lightRed"
-    max_color = "maxColor"
-    auto = "auto"
-
-class MicrosoftGraphCalendarRoleType(str, Enum):
-
-    none = "none"
-    free_busy_read = "freeBusyRead"
-    limited_read = "limitedRead"
-    read = "read"
-    write = "write"
-    delegate_without_private_event_access = "delegateWithoutPrivateEventAccess"
-    delegate_with_private_event_access = "delegateWithPrivateEventAccess"
-    custom = "custom"
-
-class MicrosoftGraphCategoryColor(str, Enum):
-
-    preset0 = "preset0"
-    preset1 = "preset1"
-    preset2 = "preset2"
-    preset3 = "preset3"
-    preset4 = "preset4"
-    preset5 = "preset5"
-    preset6 = "preset6"
-    preset7 = "preset7"
-    preset8 = "preset8"
-    preset9 = "preset9"
-    preset10 = "preset10"
-    preset11 = "preset11"
-    preset12 = "preset12"
-    preset13 = "preset13"
-    preset14 = "preset14"
-    preset15 = "preset15"
-    preset16 = "preset16"
-    preset17 = "preset17"
-    preset18 = "preset18"
-    preset19 = "preset19"
-    preset20 = "preset20"
-    preset21 = "preset21"
-    preset22 = "preset22"
-    preset23 = "preset23"
-    preset24 = "preset24"
-    none = "none"
-
-class MicrosoftGraphChannelMembershipType(str, Enum):
-
-    standard = "standard"
-    private = "private"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphChassisType(str, Enum):
-
-    unknown = "unknown"
-    desktop = "desktop"
-    laptop = "laptop"
-    works_workstation = "worksWorkstation"
-    enterprise_server = "enterpriseServer"
-    phone = "phone"
-    tablet = "tablet"
-    mobile_other = "mobileOther"
-    mobile_unknown = "mobileUnknown"
-
-class MicrosoftGraphChatMessageImportance(str, Enum):
-
-    normal = "normal"
-    high = "high"
-    urgent = "urgent"
-
-class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(str, Enum):
-
-    none = "none"
-    notify_sender = "notifySender"
-    block_access = "blockAccess"
-    block_access_external = "blockAccessExternal"
-
-class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(str, Enum):
-
-    none = "none"
-    override = "override"
-    report_false_positive = "reportFalsePositive"
-
-class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(str, Enum):
-
-    none = "none"
-    allow_false_positive_override = "allowFalsePositiveOverride"
-    allow_override_without_justification = "allowOverrideWithoutJustification"
-    allow_override_with_justification = "allowOverrideWithJustification"
-
-class MicrosoftGraphChatMessageType(str, Enum):
-
-    message = "message"
-    chat_event = "chatEvent"
-    typing = "typing"
-
-class MicrosoftGraphComplianceState(str, Enum):
-
-    unknown = "unknown"
-    compliant = "compliant"
-    noncompliant = "noncompliant"
-    conflict = "conflict"
-    error = "error"
-    in_grace_period = "inGracePeriod"
-    config_manager = "configManager"
-
-class MicrosoftGraphComplianceStatus(str, Enum):
-
-    unknown = "unknown"
-    not_applicable = "notApplicable"
-    compliant = "compliant"
-    remediated = "remediated"
-    non_compliant = "nonCompliant"
-    error = "error"
-    conflict = "conflict"
-    not_assigned = "notAssigned"
-
-class MicrosoftGraphConfigurationManagerClientState(str, Enum):
-
-    unknown = "unknown"
-    installed = "installed"
-    healthy = "healthy"
-    install_failed = "installFailed"
-    update_failed = "updateFailed"
-    communication_error = "communicationError"
-
-class MicrosoftGraphContactRelationship(str, Enum):
-
-    parent = "parent"
-    relative = "relative"
-    aide = "aide"
-    doctor = "doctor"
-    guardian = "guardian"
-    child = "child"
-    other = "other"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphDayOfWeek(str, Enum):
-
-    sunday = "sunday"
-    monday = "monday"
-    tuesday = "tuesday"
-    wednesday = "wednesday"
-    thursday = "thursday"
-    friday = "friday"
-    saturday = "saturday"
-
-class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(str, Enum):
-
-    send_to_delegate_and_information_to_principal = "sendToDelegateAndInformationToPrincipal"
-    send_to_delegate_and_principal = "sendToDelegateAndPrincipal"
-    send_to_delegate_only = "sendToDelegateOnly"
-
-class MicrosoftGraphDeviceAndAppManagementAssignmentSource(str, Enum):
-
-    direct = "direct"
-    policy_sets = "policySets"
-
-class MicrosoftGraphDeviceEnrollmentType(str, Enum):
-
-    unknown = "unknown"
-    user_enrollment = "userEnrollment"
-    device_enrollment_manager = "deviceEnrollmentManager"
-    apple_bulk_with_user = "appleBulkWithUser"
-    apple_bulk_without_user = "appleBulkWithoutUser"
-    windows_azure_ad_join = "windowsAzureADJoin"
-    windows_bulk_userless = "windowsBulkUserless"
-    windows_auto_enrollment = "windowsAutoEnrollment"
-    windows_bulk_azure_domain_join = "windowsBulkAzureDomainJoin"
-    windows_co_management = "windowsCoManagement"
-    apple_user_enrollment = "appleUserEnrollment"
-    apple_user_enrollment_with_service_account = "appleUserEnrollmentWithServiceAccount"
-    azure_ad_join_using_azure_vm_extension = "azureAdJoinUsingAzureVmExtension"
-
-class MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState(str, Enum):
-
-    running = "running"
-    reboot_required = "rebootRequired"
-    not_licensed = "notLicensed"
-    not_configured = "notConfigured"
-    virtualization_based_security_not_running = "virtualizationBasedSecurityNotRunning"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(str, Enum):
-
-    meet_hardware_requirements = "meetHardwareRequirements"
-    secure_boot_required = "secureBootRequired"
-    dma_protection_required = "dmaProtectionRequired"
-    hyper_v_not_supported_for_guest_vm = "hyperVNotSupportedForGuestVM"
-    hyper_v_not_available = "hyperVNotAvailable"
-
-class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState(str, Enum):
-
-    running = "running"
-    reboot_required = "rebootRequired"
-    require64_bit_architecture = "require64BitArchitecture"
-    not_licensed = "notLicensed"
-    not_configured = "notConfigured"
-    does_not_meet_hardware_requirements = "doesNotMeetHardwareRequirements"
-    other = "other"
-
-class MicrosoftGraphDeviceManagementExchangeAccessState(str, Enum):
-
-    none = "none"
-    unknown = "unknown"
-    allowed = "allowed"
-    blocked = "blocked"
-    quarantined = "quarantined"
-
-class MicrosoftGraphDeviceManagementExchangeAccessStateReason(str, Enum):
-
-    none = "none"
-    unknown = "unknown"
-    exchange_global_rule = "exchangeGlobalRule"
-    exchange_individual_rule = "exchangeIndividualRule"
-    exchange_device_rule = "exchangeDeviceRule"
-    exchange_upgrade = "exchangeUpgrade"
-    exchange_mailbox_policy = "exchangeMailboxPolicy"
-    other = "other"
-    compliant = "compliant"
-    not_compliant = "notCompliant"
-    not_enrolled = "notEnrolled"
-    unknown_location = "unknownLocation"
-    mfa_required = "mfaRequired"
-    azure_ad_block_due_to_access_policy = "azureADBlockDueToAccessPolicy"
-    compromised_password = "compromisedPassword"
-    device_not_known_with_managed_app = "deviceNotKnownWithManagedApp"
-
-class MicrosoftGraphDeviceRegistrationState(str, Enum):
-
-    not_registered = "notRegistered"
-    registered = "registered"
-    revoked = "revoked"
-    key_conflict = "keyConflict"
-    approval_pending = "approvalPending"
-    certificate_reset = "certificateReset"
-    not_registered_pending_enrollment = "notRegisteredPendingEnrollment"
-    unknown = "unknown"
-
-class MicrosoftGraphDeviceType(str, Enum):
-
-    desktop = "desktop"
-    windows_rt = "windowsRT"
-    win_mo6 = "winMO6"
-    nokia = "nokia"
-    windows_phone = "windowsPhone"
-    mac = "mac"
-    win_ce = "winCE"
-    win_embedded = "winEmbedded"
-    i_phone = "iPhone"
-    i_pad = "iPad"
-    i_pod = "iPod"
-    android = "android"
-    i_soc_consumer = "iSocConsumer"
-    unix = "unix"
-    mac_mdm = "macMDM"
-    holo_lens = "holoLens"
-    surface_hub = "surfaceHub"
-    android_for_work = "androidForWork"
-    android_enterprise = "androidEnterprise"
-    windows10_x = "windows10x"
-    blackberry = "blackberry"
-    palm = "palm"
-    unknown = "unknown"
-
-class MicrosoftGraphEducationAssignmentStatus(str, Enum):
-
-    draft = "draft"
-    published = "published"
-    assigned = "assigned"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphEducationExternalSource(str, Enum):
-
-    sis = "sis"
-    manual = "manual"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphEducationGender(str, Enum):
-
-    female = "female"
-    male = "male"
-    other = "other"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphEducationSubmissionStatus(str, Enum):
-
-    working = "working"
-    submitted = "submitted"
-    released = "released"
-    returned = "returned"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphEducationSynchronizationProfileState(str, Enum):
-
-    deleting = "deleting"
-    deletion_failed = "deletionFailed"
-    provisioning_failed = "provisioningFailed"
-    provisioned = "provisioned"
-    provisioning = "provisioning"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphEducationSynchronizationStatus(str, Enum):
-
-    paused = "paused"
-    in_progress = "inProgress"
-    success = "success"
-    error = "error"
-    validation_error = "validationError"
-    quarantined = "quarantined"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphEducationUserRole(str, Enum):
-
-    student = "student"
-    teacher = "teacher"
-    none = "none"
-    unknown_future_value = "unknownFutureValue"
-    faculty = "faculty"
-
-class MicrosoftGraphEmailType(str, Enum):
-
-    unknown = "unknown"
-    work = "work"
-    personal = "personal"
-    main = "main"
-    other = "other"
-
-class MicrosoftGraphEventType(str, Enum):
-
-    single_instance = "singleInstance"
-    occurrence = "occurrence"
-    exception = "exception"
-    series_master = "seriesMaster"
-
-class MicrosoftGraphExternalAudienceScope(str, Enum):
-
-    none = "none"
-    contacts_only = "contactsOnly"
-    all = "all"
-
-class MicrosoftGraphFollowupFlagStatus(str, Enum):
-
-    not_flagged = "notFlagged"
-    complete = "complete"
-    flagged = "flagged"
-
-class MicrosoftGraphFreeBusyStatus(str, Enum):
-
-    free = "free"
-    tentative = "tentative"
-    busy = "busy"
-    oof = "oof"
-    working_elsewhere = "workingElsewhere"
-    unknown = "unknown"
-
-class MicrosoftGraphGiphyRatingType(str, Enum):
-
-    strict = "strict"
-    moderate = "moderate"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphGroupAccessType(str, Enum):
-
-    none = "none"
-    private = "private"
-    secret = "secret"
-    public = "public"
-
-class MicrosoftGraphImportance(str, Enum):
-
-    low = "low"
-    normal = "normal"
-    high = "high"
-
-class MicrosoftGraphInferenceClassificationType(str, Enum):
-
-    focused = "focused"
-    other = "other"
-
-class MicrosoftGraphLanguageProficiencyLevel(str, Enum):
-
-    elementary = "elementary"
-    conversational = "conversational"
-    limited_working = "limitedWorking"
-    professional_working = "professionalWorking"
-    full_professional = "fullProfessional"
-    native_or_bilingual = "nativeOrBilingual"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphLocationType(str, Enum):
-
-    default = "default"
-    conference_room = "conferenceRoom"
-    home_address = "homeAddress"
-    business_address = "businessAddress"
-    geo_coordinates = "geoCoordinates"
-    street_address = "streetAddress"
-    hotel = "hotel"
-    restaurant = "restaurant"
-    local_business = "localBusiness"
-    postal_address = "postalAddress"
-
-class MicrosoftGraphLocationUniqueIdType(str, Enum):
-
-    unknown = "unknown"
-    location_store = "locationStore"
-    directory = "directory"
-    private = "private"
-    bing = "bing"
-
-class MicrosoftGraphLongRunningOperationStatus(str, Enum):
-
-    notstarted = "notstarted"
-    running = "running"
-    succeeded = "succeeded"
-    failed = "failed"
-
-class MicrosoftGraphLostModeState(str, Enum):
-
-    disabled = "disabled"
-    enabled = "enabled"
-
-class MicrosoftGraphManagedAppFlaggedReason(str, Enum):
-
-    none = "none"
-    rooted_device = "rootedDevice"
-    android_bootloader_unlocked = "androidBootloaderUnlocked"
-    android_factory_rom_modified = "androidFactoryRomModified"
-
-class MicrosoftGraphManagedDeviceArchitecture(str, Enum):
-
-    unknown = "unknown"
-    x86 = "x86"
-    x64 = "x64"
-    arm = "arm"
-    ar_m64 = "arM64"
-
-class MicrosoftGraphManagedDeviceOwnerType(str, Enum):
-
-    unknown = "unknown"
-    company = "company"
-    personal = "personal"
-
-class MicrosoftGraphManagedDevicePartnerReportedHealthState(str, Enum):
-
-    unknown = "unknown"
-    activated = "activated"
-    deactivated = "deactivated"
-    secured = "secured"
-    low_severity = "lowSeverity"
-    medium_severity = "mediumSeverity"
-    high_severity = "highSeverity"
-    unresponsive = "unresponsive"
-    compromised = "compromised"
-    misconfigured = "misconfigured"
-
-class MicrosoftGraphManagementAgentType(str, Enum):
-
-    eas = "eas"
-    mdm = "mdm"
-    eas_mdm = "easMdm"
-    intune_client = "intuneClient"
-    eas_intune_client = "easIntuneClient"
-    configuration_manager_client = "configurationManagerClient"
-    configuration_manager_client_mdm = "configurationManagerClientMdm"
-    configuration_manager_client_mdm_eas = "configurationManagerClientMdmEas"
-    unknown = "unknown"
-    jamf = "jamf"
-    google_cloud_device_policy_controller = "googleCloudDevicePolicyController"
-    microsoft365_managed_mdm = "microsoft365ManagedMdm"
-    windows_management_cloud_api = "windowsManagementCloudApi"
-
-class MicrosoftGraphManagementState(str, Enum):
-
-    managed = "managed"
-    retire_pending = "retirePending"
-    retire_failed = "retireFailed"
-    wipe_pending = "wipePending"
-    wipe_failed = "wipeFailed"
-    unhealthy = "unhealthy"
-    delete_pending = "deletePending"
-    retire_issued = "retireIssued"
-    wipe_issued = "wipeIssued"
-    wipe_canceled = "wipeCanceled"
-    retire_canceled = "retireCanceled"
-    discovered = "discovered"
-
-class MicrosoftGraphMeetingCapabilities(str, Enum):
-
-    question_and_answer = "questionAndAnswer"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphMessageActionFlag(str, Enum):
-
-    any = "any"
-    call = "call"
-    do_not_forward = "doNotForward"
-    follow_up = "followUp"
-    fyi = "fyi"
-    forward = "forward"
-    no_response_necessary = "noResponseNecessary"
-    read = "read"
-    reply = "reply"
-    reply_to_all = "replyToAll"
-    review = "review"
-
-class MicrosoftGraphMobileAppIntent(str, Enum):
-
-    available = "available"
-    not_available = "notAvailable"
-    required_install = "requiredInstall"
-    required_uninstall = "requiredUninstall"
-    required_and_available_install = "requiredAndAvailableInstall"
-    available_install_without_enrollment = "availableInstallWithoutEnrollment"
-    exclude = "exclude"
-
-class MicrosoftGraphOnenoteUserRole(str, Enum):
-
-    owner = "Owner"
-    contributor = "Contributor"
-    reader = "Reader"
-    none = "None"
-
-class MicrosoftGraphOnlineMeetingProviderType(str, Enum):
-
-    unknown = "unknown"
-    skype_for_business = "skypeForBusiness"
-    skype_for_consumer = "skypeForConsumer"
-    teams_for_business = "teamsForBusiness"
-
-class MicrosoftGraphOperationStatus(str, Enum):
-
-    not_started = "NotStarted"
-    running = "Running"
-    completed = "Completed"
-    failed = "Failed"
-
-class MicrosoftGraphOwnerType(str, Enum):
-
-    unknown = "unknown"
-    company = "company"
-    personal = "personal"
-
-class MicrosoftGraphPersonRelationship(str, Enum):
-
-    manager = "manager"
-    colleague = "colleague"
-    direct_report = "directReport"
-    dot_line_report = "dotLineReport"
-    assistant = "assistant"
-    dot_line_manager = "dotLineManager"
-    alternate_contact = "alternateContact"
-    friend = "friend"
-    spouse = "spouse"
-    sibling = "sibling"
-    child = "child"
-    parent = "parent"
-    sponsor = "sponsor"
-    emergency_contact = "emergencyContact"
-    other = "other"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphPhoneType(str, Enum):
-
-    home = "home"
-    business = "business"
-    mobile = "mobile"
-    other = "other"
-    assistant = "assistant"
-    home_fax = "homeFax"
-    business_fax = "businessFax"
-    other_fax = "otherFax"
-    pager = "pager"
-    radio = "radio"
-
-class MicrosoftGraphPhysicalAddressType(str, Enum):
-
-    unknown = "unknown"
-    home = "home"
-    business = "business"
-    other = "other"
-
-class MicrosoftGraphPlannerPreviewType(str, Enum):
-
-    automatic = "automatic"
-    no_preview = "noPreview"
-    checklist = "checklist"
-    description = "description"
-    reference = "reference"
-
-class MicrosoftGraphPolicyPlatformType(str, Enum):
-
-    android = "android"
-    android_for_work = "androidForWork"
-    i_os = "iOS"
-    mac_os = "macOS"
-    windows_phone81 = "windowsPhone81"
-    windows81_and_later = "windows81AndLater"
-    windows10_and_later = "windows10AndLater"
-    android_work_profile = "androidWorkProfile"
-    windows10_x_profile = "windows10XProfile"
-    all = "all"
-
-class MicrosoftGraphPriority(str, Enum):
-
-    none = "None"
-    high = "High"
-    low = "Low"
-
-class MicrosoftGraphRecurrencePatternType(str, Enum):
-
-    daily = "daily"
-    weekly = "weekly"
-    absolute_monthly = "absoluteMonthly"
-    relative_monthly = "relativeMonthly"
-    absolute_yearly = "absoluteYearly"
-    relative_yearly = "relativeYearly"
-
-class MicrosoftGraphRecurrenceRangeType(str, Enum):
-
-    end_date = "endDate"
-    no_end = "noEnd"
-    numbered = "numbered"
-
-class MicrosoftGraphResponseType(str, Enum):
-
-    none = "none"
-    organizer = "organizer"
-    tentatively_accepted = "tentativelyAccepted"
-    accepted = "accepted"
-    declined = "declined"
-    not_responded = "notResponded"
-
-class MicrosoftGraphResultantAppState(str, Enum):
-
-    installed = "installed"
-    failed = "failed"
-    not_installed = "notInstalled"
-    uninstall_failed = "uninstallFailed"
-    pending_install = "pendingInstall"
-    unknown = "unknown"
-    not_applicable = "notApplicable"
-
-class MicrosoftGraphScheduleChangeRequestActor(str, Enum):
-
-    sender = "sender"
-    recipient = "recipient"
-    manager = "manager"
-    system = "system"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphScheduleChangeState(str, Enum):
-
-    pending = "pending"
-    approved = "approved"
-    declined = "declined"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphScheduleEntityTheme(str, Enum):
-
-    white = "white"
-    blue = "blue"
-    green = "green"
-    purple = "purple"
-    pink = "pink"
-    yellow = "yellow"
-    gray = "gray"
-    dark_blue = "darkBlue"
-    dark_green = "darkGreen"
-    dark_purple = "darkPurple"
-    dark_pink = "darkPink"
-    dark_yellow = "darkYellow"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphSecurityBaselineComplianceState(str, Enum):
-
-    unknown = "unknown"
-    secure = "secure"
-    not_applicable = "notApplicable"
-    not_secure = "notSecure"
-    error = "error"
-    conflict = "conflict"
-
-class MicrosoftGraphSensitivity(str, Enum):
-
-    normal = "normal"
-    personal = "personal"
-    private = "private"
-    confidential = "confidential"
-
-class MicrosoftGraphSensitivityLabelTarget(str, Enum):
-
-    email = "email"
-    site = "site"
-    unified_group = "unifiedGroup"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphSkillProficiencyLevel(str, Enum):
-
-    elementary = "elementary"
-    limited_working = "limitedWorking"
-    general_professional = "generalProfessional"
-    advanced_professional = "advancedProfessional"
-    expert = "expert"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphStatus(str, Enum):
-
-    active = "active"
-    updated = "updated"
-    deleted = "deleted"
-    ignored = "ignored"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTaskStatus(str, Enum):
-
-    not_started = "notStarted"
-    in_progress = "inProgress"
-    completed = "completed"
-    waiting_on_others = "waitingOnOthers"
-    deferred = "deferred"
-
-class MicrosoftGraphTeamsAppDistributionMethod(str, Enum):
-
-    store = "store"
-    organization = "organization"
-    sideloaded = "sideloaded"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamsAsyncOperationStatus(str, Enum):
-
-    invalid = "invalid"
-    not_started = "notStarted"
-    in_progress = "inProgress"
-    succeeded = "succeeded"
-    failed = "failed"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamsAsyncOperationType(str, Enum):
-
-    invalid = "invalid"
-    clone_team = "cloneTeam"
-    archive_team = "archiveTeam"
-    unarchive_team = "unarchiveTeam"
-    create_team = "createTeam"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamSpecialization(str, Enum):
-
-    none = "none"
-    education_standard = "educationStandard"
-    education_class = "educationClass"
-    education_professional_learning_community = "educationProfessionalLearningCommunity"
-    education_staff = "educationStaff"
-    healthcare_standard = "healthcareStandard"
-    healthcare_care_coordination = "healthcareCareCoordination"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphTeamVisibilityType(str, Enum):
-
-    private = "private"
-    public = "public"
-    hidden_membership = "hiddenMembership"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatAssessmentContentType(str, Enum):
-
-    mail = "mail"
-    url = "url"
-    file = "file"
-
-class MicrosoftGraphThreatAssessmentRequestSource(str, Enum):
-
-    undefined = "undefined"
-    user = "user"
-    administrator = "administrator"
-
-class MicrosoftGraphThreatAssessmentResultType(str, Enum):
-
-    check_policy = "checkPolicy"
-    rescan = "rescan"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatAssessmentStatus(str, Enum):
-
-    pending = "pending"
-    completed = "completed"
-
-class MicrosoftGraphThreatCategory(str, Enum):
-
-    undefined = "undefined"
-    spam = "spam"
-    phishing = "phishing"
-    malware = "malware"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphThreatExpectedAssessment(str, Enum):
-
-    block = "block"
-    unblock = "unblock"
-
-class MicrosoftGraphTimeOffReasonIconType(str, Enum):
-
-    none = "none"
-    car = "car"
-    calendar = "calendar"
-    running = "running"
-    plane = "plane"
-    first_aid = "firstAid"
-    doctor = "doctor"
-    not_working = "notWorking"
-    clock = "clock"
-    jury_duty = "juryDuty"
-    globe = "globe"
-    cup = "cup"
-    phone = "phone"
-    weather = "weather"
-    umbrella = "umbrella"
-    piggy_bank = "piggyBank"
-    dog = "dog"
-    cake = "cake"
-    traffic_cone = "trafficCone"
-    pin = "pin"
-    sunny = "sunny"
-    unknown_future_value = "unknownFutureValue"
-
-class MicrosoftGraphUserRiskLevel(str, Enum):
-
-    unknown = "unknown"
-    none = "none"
-    low = "low"
-    medium = "medium"
-    high = "high"
-
-class MicrosoftGraphWebsiteType(str, Enum):
-
-    other = "other"
-    home = "home"
-    work = "work"
-    blog = "blog"
-    profile = "profile"
-
-class MicrosoftGraphWeekIndex(str, Enum):
-
-    first = "first"
-    second = "second"
-    third = "third"
-    fourth = "fourth"
-    last = "last"
-
-class MicrosoftGraphWindowsDeviceHealthState(str, Enum):
-
-    clean = "clean"
-    full_scan_pending = "fullScanPending"
-    reboot_pending = "rebootPending"
-    manual_steps_pending = "manualStepsPending"
-    offline_scan_pending = "offlineScanPending"
-    critical = "critical"
-
-class MicrosoftGraphWindowsMalwareCategory(str, Enum):
-
-    invalid = "invalid"
-    adware = "adware"
-    spyware = "spyware"
-    password_stealer = "passwordStealer"
-    trojan_downloader = "trojanDownloader"
-    worm = "worm"
-    backdoor = "backdoor"
-    remote_access_trojan = "remoteAccessTrojan"
-    trojan = "trojan"
-    email_flooder = "emailFlooder"
-    keylogger = "keylogger"
-    dialer = "dialer"
-    monitoring_software = "monitoringSoftware"
-    browser_modifier = "browserModifier"
-    cookie = "cookie"
-    browser_plugin = "browserPlugin"
-    aol_exploit = "aolExploit"
-    nuker = "nuker"
-    security_disabler = "securityDisabler"
-    joke_program = "jokeProgram"
-    hostile_active_x_control = "hostileActiveXControl"
-    software_bundler = "softwareBundler"
-    stealth_notifier = "stealthNotifier"
-    settings_modifier = "settingsModifier"
-    tool_bar = "toolBar"
-    remote_control_software = "remoteControlSoftware"
-    trojan_ftp = "trojanFtp"
-    potential_unwanted_software = "potentialUnwantedSoftware"
-    icq_exploit = "icqExploit"
-    trojan_telnet = "trojanTelnet"
-    exploit = "exploit"
-    filesharing_program = "filesharingProgram"
-    malware_creation_tool = "malwareCreationTool"
-    tool = "tool"
-    trojan_denial_of_service = "trojanDenialOfService"
-    trojan_dropper = "trojanDropper"
-    trojan_mass_mailer = "trojanMassMailer"
-    trojan_monitoring_software = "trojanMonitoringSoftware"
-    trojan_proxy_server = "trojanProxyServer"
-    virus = "virus"
-    known = "known"
-    unknown = "unknown"
-    spp = "spp"
-    behavior = "behavior"
-    vulnerability = "vulnerability"
-    policy = "policy"
-    enterprise_unwanted_software = "enterpriseUnwantedSoftware"
-    ransom = "ransom"
-    hips_rule = "hipsRule"
-
-class MicrosoftGraphWindowsMalwareExecutionState(str, Enum):
-
-    unknown = "unknown"
-    blocked = "blocked"
-    allowed = "allowed"
-    running = "running"
-    not_running = "notRunning"
-
-class MicrosoftGraphWindowsMalwareSeverity(str, Enum):
-
-    unknown = "unknown"
-    low = "low"
-    moderate = "moderate"
-    high = "high"
-    severe = "severe"
-
-class MicrosoftGraphWindowsMalwareState(str, Enum):
-
-    unknown = "unknown"
-    detected = "detected"
-    cleaned = "cleaned"
-    quarantined = "quarantined"
-    removed = "removed"
-    allowed = "allowed"
-    blocked = "blocked"
-    clean_failed = "cleanFailed"
-    quarantine_failed = "quarantineFailed"
-    remove_failed = "removeFailed"
-    allow_failed = "allowFailed"
-    abandoned = "abandoned"
-    block_failed = "blockFailed"
-
-class MicrosoftGraphWindowsMalwareThreatState(str, Enum):
-
-    active = "active"
-    action_failed = "actionFailed"
-    manual_steps_required = "manualStepsRequired"
-    full_scan_required = "fullScanRequired"
-    reboot_required = "rebootRequired"
-    remediated_with_non_critical_failures = "remediatedWithNonCriticalFailures"
-    quarantined = "quarantined"
-    removed = "removed"
-    cleaned = "cleaned"
-    allowed = "allowed"
-    no_status_cleared = "noStatusCleared"
+from enum import Enum, EnumMeta
+from six import with_metaclass
+
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
+
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
+
+
+class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum119(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+
+class Enum120(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLASS_ID = "classId"
+    CLASS_ID_DESC = "classId desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    INSTRUCTIONS = "instructions"
+    INSTRUCTIONS_DESC = "instructions desc"
+    CLOSE_DATE_TIME = "closeDateTime"
+    CLOSE_DATE_TIME_DESC = "closeDateTime desc"
+    DUE_DATE_TIME = "dueDateTime"
+    DUE_DATE_TIME_DESC = "dueDateTime desc"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGN_DATE_TIME_DESC = "assignDateTime desc"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    ASSIGNED_DATE_TIME_DESC = "assignedDateTime desc"
+    GRADING = "grading"
+    GRADING_DESC = "grading desc"
+    ASSIGN_TO = "assignTo"
+    ASSIGN_TO_DESC = "assignTo desc"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    ALLOW_LATE_SUBMISSIONS_DESC = "allowLateSubmissions desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION_DESC = "allowStudentsToAddResourcesToSubmission desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+
+class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASS_ID = "classId"
+    DISPLAY_NAME = "displayName"
+    INSTRUCTIONS = "instructions"
+    CLOSE_DATE_TIME = "closeDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    GRADING = "grading"
+    ASSIGN_TO = "assignTo"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    STATUS = "status"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum124(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum125(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASS_ID = "classId"
+    DISPLAY_NAME = "displayName"
+    INSTRUCTIONS = "instructions"
+    CLOSE_DATE_TIME = "closeDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    GRADING = "grading"
+    ASSIGN_TO = "assignTo"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    STATUS = "status"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum126(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum127(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+
+class Enum128(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum129(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum130(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    DISTRIBUTE_FOR_STUDENT_WORK_DESC = "distributeForStudentWork desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+
+class Enum131(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    RESOURCE = "resource"
+
+class Enum132(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    RESOURCE = "resource"
+
+class Enum133(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    QUALITIES = "qualities"
+    LEVELS = "levels"
+    GRADING = "grading"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+
+class Enum134(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RECIPIENT = "recipient"
+    RECIPIENT_DESC = "recipient desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_BY_DESC = "submittedBy desc"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    SUBMITTED_DATE_TIME_DESC = "submittedDateTime desc"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_BY_DESC = "unsubmittedBy desc"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    UNSUBMITTED_DATE_TIME_DESC = "unsubmittedDateTime desc"
+    RELEASED_BY = "releasedBy"
+    RELEASED_BY_DESC = "releasedBy desc"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RELEASED_DATE_TIME_DESC = "releasedDateTime desc"
+    RETURNED_BY = "returnedBy"
+    RETURNED_BY_DESC = "returnedBy desc"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RETURNED_DATE_TIME_DESC = "returnedDateTime desc"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES_FOLDER_URL_DESC = "resourcesFolderUrl desc"
+
+class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RECIPIENT = "recipient"
+    STATUS = "status"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    RELEASED_BY = "releasedBy"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RETURNED_BY = "returnedBy"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum136(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum137(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RECIPIENT = "recipient"
+    STATUS = "status"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    RELEASED_BY = "releasedBy"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RETURNED_BY = "returnedBy"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum138(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum139(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+
+class Enum140(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+
+class Enum141(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+
+class Enum142(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+    ASSIGNMENT_RESOURCE_URL_DESC = "assignmentResourceUrl desc"
+
+class Enum143(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum144(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum145(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+    ASSIGNMENT_RESOURCE_URL_DESC = "assignmentResourceUrl desc"
+
+class Enum146(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum147(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum148(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ASSIGNED_LABELS = "assignedLabels"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    CLASSIFICATION = "classification"
+    CREATED_BY_APP_ID = "createdByAppId"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    EXPIRATION_DATE_TIME = "expirationDateTime"
+    GROUP_TYPES = "groupTypes"
+    HAS_MEMBERS_WITH_LICENSE_ERRORS = "hasMembersWithLicenseErrors"
+    IS_ASSIGNABLE_TO_ROLE = "isAssignableToRole"
+    LICENSE_PROCESSING_STATE = "licenseProcessingState"
+    MAIL = "mail"
+    MAIL_ENABLED = "mailEnabled"
+    MAIL_NICKNAME = "mailNickname"
+    MDM_APP_ID = "mdmAppId"
+    MEMBERSHIP_RULE = "membershipRule"
+    MEMBERSHIP_RULE_PROCESSING_STATE = "membershipRuleProcessingState"
+    ON_PREMISES_DOMAIN_NAME = "onPremisesDomainName"
+    ON_PREMISES_LAST_SYNC_DATE_TIME = "onPremisesLastSyncDateTime"
+    ON_PREMISES_NET_BIOS_NAME = "onPremisesNetBiosName"
+    ON_PREMISES_PROVISIONING_ERRORS = "onPremisesProvisioningErrors"
+    ON_PREMISES_SAM_ACCOUNT_NAME = "onPremisesSamAccountName"
+    ON_PREMISES_SECURITY_IDENTIFIER = "onPremisesSecurityIdentifier"
+    ON_PREMISES_SYNC_ENABLED = "onPremisesSyncEnabled"
+    PREFERRED_DATA_LOCATION = "preferredDataLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROXY_ADDRESSES = "proxyAddresses"
+    RENEWED_DATE_TIME = "renewedDateTime"
+    RESOURCE_BEHAVIOR_OPTIONS = "resourceBehaviorOptions"
+    RESOURCE_PROVISIONING_OPTIONS = "resourceProvisioningOptions"
+    SECURITY_ENABLED = "securityEnabled"
+    SECURITY_IDENTIFIER = "securityIdentifier"
+    THEME = "theme"
+    VISIBILITY = "visibility"
+    ACCESS_TYPE = "accessType"
+    ALLOW_EXTERNAL_SENDERS = "allowExternalSenders"
+    AUTO_SUBSCRIBE_NEW_MEMBERS = "autoSubscribeNewMembers"
+    IS_FAVORITE = "isFavorite"
+    IS_SUBSCRIBED_BY_MAIL = "isSubscribedByMail"
+    UNSEEN_COUNT = "unseenCount"
+    UNSEEN_CONVERSATIONS_COUNT = "unseenConversationsCount"
+    UNSEEN_MESSAGES_COUNT = "unseenMessagesCount"
+    HIDE_FROM_OUTLOOK_CLIENTS = "hideFromOutlookClients"
+    HIDE_FROM_ADDRESS_LISTS = "hideFromAddressLists"
+    IS_ARCHIVED = "isArchived"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    MEMBERS = "members"
+    MEMBERS_WITH_LICENSE_ERRORS = "membersWithLicenseErrors"
+    MEMBER_OF = "memberOf"
+    TRANSITIVE_MEMBERS = "transitiveMembers"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    CREATED_ON_BEHALF_OF = "createdOnBehalfOf"
+    OWNERS = "owners"
+    SETTINGS = "settings"
+    ENDPOINTS = "endpoints"
+    PERMISSION_GRANTS = "permissionGrants"
+    CONVERSATIONS = "conversations"
+    PHOTOS = "photos"
+    ACCEPTED_SENDERS = "acceptedSenders"
+    REJECTED_SENDERS = "rejectedSenders"
+    THREADS = "threads"
+    CALENDAR = "calendar"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PHOTO = "photo"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    SITES = "sites"
+    EXTENSIONS = "extensions"
+    GROUP_LIFECYCLE_POLICIES = "groupLifecyclePolicies"
+    PLANNER = "planner"
+    ONENOTE = "onenote"
+    TEAM = "team"
+
+class Enum149(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    MEMBERS = "members"
+    MEMBERS_WITH_LICENSE_ERRORS = "membersWithLicenseErrors"
+    MEMBER_OF = "memberOf"
+    TRANSITIVE_MEMBERS = "transitiveMembers"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    CREATED_ON_BEHALF_OF = "createdOnBehalfOf"
+    OWNERS = "owners"
+    SETTINGS = "settings"
+    ENDPOINTS = "endpoints"
+    PERMISSION_GRANTS = "permissionGrants"
+    CONVERSATIONS = "conversations"
+    PHOTOS = "photos"
+    ACCEPTED_SENDERS = "acceptedSenders"
+    REJECTED_SENDERS = "rejectedSenders"
+    THREADS = "threads"
+    CALENDAR = "calendar"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PHOTO = "photo"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    SITES = "sites"
+    EXTENSIONS = "extensions"
+    GROUP_LIFECYCLE_POLICIES = "groupLifecyclePolicies"
+    PLANNER = "planner"
+    ONENOTE = "onenote"
+    TEAM = "team"
+
+class Enum150(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RELATED_CONTACTS = "relatedContacts"
+    RELATED_CONTACTS_DESC = "relatedContacts desc"
+    PRIMARY_ROLE = "primaryRole"
+    PRIMARY_ROLE_DESC = "primaryRole desc"
+    MIDDLE_NAME = "middleName"
+    MIDDLE_NAME_DESC = "middleName desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    RESIDENCE_ADDRESS_DESC = "residenceAddress desc"
+    MAILING_ADDRESS = "mailingAddress"
+    MAILING_ADDRESS_DESC = "mailingAddress desc"
+    STUDENT = "student"
+    STUDENT_DESC = "student desc"
+    TEACHER = "teacher"
+    TEACHER_DESC = "teacher desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ACCOUNT_ENABLED_DESC = "accountEnabled desc"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_LICENSES_DESC = "assignedLicenses desc"
+    ASSIGNED_PLANS = "assignedPlans"
+    ASSIGNED_PLANS_DESC = "assignedPlans desc"
+    BUSINESS_PHONES = "businessPhones"
+    BUSINESS_PHONES_DESC = "businessPhones desc"
+    DEPARTMENT = "department"
+    DEPARTMENT_DESC = "department desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    GIVEN_NAME = "givenName"
+    GIVEN_NAME_DESC = "givenName desc"
+    MAIL = "mail"
+    MAIL_DESC = "mail desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    MOBILE_PHONE = "mobilePhone"
+    MOBILE_PHONE_DESC = "mobilePhone desc"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_POLICIES_DESC = "passwordPolicies desc"
+    PASSWORD_PROFILE = "passwordProfile"
+    PASSWORD_PROFILE_DESC = "passwordProfile desc"
+    OFFICE_LOCATION = "officeLocation"
+    OFFICE_LOCATION_DESC = "officeLocation desc"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PREFERRED_LANGUAGE_DESC = "preferredLanguage desc"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROVISIONED_PLANS_DESC = "provisionedPlans desc"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME_DESC = "refreshTokensValidFromDateTime desc"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SHOW_IN_ADDRESS_LIST_DESC = "showInAddressList desc"
+    SURNAME = "surname"
+    SURNAME_DESC = "surname desc"
+    USAGE_LOCATION = "usageLocation"
+    USAGE_LOCATION_DESC = "usageLocation desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USER_TYPE = "userType"
+    USER_TYPE_DESC = "userType desc"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ON_PREMISES_INFO_DESC = "onPremisesInfo desc"
+
+class Enum151(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum152(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum153(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum154(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum155(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_EMAIL_DESC = "principalEmail desc"
+    PRINCIPAL_NAME = "principalName"
+    PRINCIPAL_NAME_DESC = "principalName desc"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    EXTERNAL_PRINCIPAL_ID_DESC = "externalPrincipalId desc"
+    LOWEST_GRADE = "lowestGrade"
+    LOWEST_GRADE_DESC = "lowestGrade desc"
+    HIGHEST_GRADE = "highestGrade"
+    HIGHEST_GRADE_DESC = "highestGrade desc"
+    SCHOOL_NUMBER = "schoolNumber"
+    SCHOOL_NUMBER_DESC = "schoolNumber desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    PHONE = "phone"
+    PHONE_DESC = "phone desc"
+    FAX = "fax"
+    FAX_DESC = "fax desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ADDRESS = "address"
+    ADDRESS_DESC = "address desc"
+
+class Enum156(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum157(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum158(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum159(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum160(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RELATED_CONTACTS = "relatedContacts"
+    RELATED_CONTACTS_DESC = "relatedContacts desc"
+    PRIMARY_ROLE = "primaryRole"
+    PRIMARY_ROLE_DESC = "primaryRole desc"
+    MIDDLE_NAME = "middleName"
+    MIDDLE_NAME_DESC = "middleName desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    RESIDENCE_ADDRESS_DESC = "residenceAddress desc"
+    MAILING_ADDRESS = "mailingAddress"
+    MAILING_ADDRESS_DESC = "mailingAddress desc"
+    STUDENT = "student"
+    STUDENT_DESC = "student desc"
+    TEACHER = "teacher"
+    TEACHER_DESC = "teacher desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ACCOUNT_ENABLED_DESC = "accountEnabled desc"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_LICENSES_DESC = "assignedLicenses desc"
+    ASSIGNED_PLANS = "assignedPlans"
+    ASSIGNED_PLANS_DESC = "assignedPlans desc"
+    BUSINESS_PHONES = "businessPhones"
+    BUSINESS_PHONES_DESC = "businessPhones desc"
+    DEPARTMENT = "department"
+    DEPARTMENT_DESC = "department desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    GIVEN_NAME = "givenName"
+    GIVEN_NAME_DESC = "givenName desc"
+    MAIL = "mail"
+    MAIL_DESC = "mail desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    MOBILE_PHONE = "mobilePhone"
+    MOBILE_PHONE_DESC = "mobilePhone desc"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_POLICIES_DESC = "passwordPolicies desc"
+    PASSWORD_PROFILE = "passwordProfile"
+    PASSWORD_PROFILE_DESC = "passwordProfile desc"
+    OFFICE_LOCATION = "officeLocation"
+    OFFICE_LOCATION_DESC = "officeLocation desc"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PREFERRED_LANGUAGE_DESC = "preferredLanguage desc"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROVISIONED_PLANS_DESC = "provisionedPlans desc"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME_DESC = "refreshTokensValidFromDateTime desc"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SHOW_IN_ADDRESS_LIST_DESC = "showInAddressList desc"
+    SURNAME = "surname"
+    SURNAME_DESC = "surname desc"
+    USAGE_LOCATION = "usageLocation"
+    USAGE_LOCATION_DESC = "usageLocation desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USER_TYPE = "userType"
+    USER_TYPE_DESC = "userType desc"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ON_PREMISES_INFO_DESC = "onPremisesInfo desc"
+
+class Enum161(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum162(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum163(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum164(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum165(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum166(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum167(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLASS_ID = "classId"
+    CLASS_ID_DESC = "classId desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    INSTRUCTIONS = "instructions"
+    INSTRUCTIONS_DESC = "instructions desc"
+    CLOSE_DATE_TIME = "closeDateTime"
+    CLOSE_DATE_TIME_DESC = "closeDateTime desc"
+    DUE_DATE_TIME = "dueDateTime"
+    DUE_DATE_TIME_DESC = "dueDateTime desc"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGN_DATE_TIME_DESC = "assignDateTime desc"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    ASSIGNED_DATE_TIME_DESC = "assignedDateTime desc"
+    GRADING = "grading"
+    GRADING_DESC = "grading desc"
+    ASSIGN_TO = "assignTo"
+    ASSIGN_TO_DESC = "assignTo desc"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    ALLOW_LATE_SUBMISSIONS_DESC = "allowLateSubmissions desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION_DESC = "allowStudentsToAddResourcesToSubmission desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+
+class Enum168(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASS_ID = "classId"
+    DISPLAY_NAME = "displayName"
+    INSTRUCTIONS = "instructions"
+    CLOSE_DATE_TIME = "closeDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    GRADING = "grading"
+    ASSIGN_TO = "assignTo"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    STATUS = "status"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum169(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum170(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASS_ID = "classId"
+    DISPLAY_NAME = "displayName"
+    INSTRUCTIONS = "instructions"
+    CLOSE_DATE_TIME = "closeDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    GRADING = "grading"
+    ASSIGN_TO = "assignTo"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    STATUS = "status"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum171(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum172(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+
+class Enum173(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum174(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum175(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    DISTRIBUTE_FOR_STUDENT_WORK_DESC = "distributeForStudentWork desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+
+class Enum176(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    RESOURCE = "resource"
+
+class Enum177(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    RESOURCE = "resource"
+
+class Enum178(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    QUALITIES = "qualities"
+    LEVELS = "levels"
+    GRADING = "grading"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+
+class Enum179(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RECIPIENT = "recipient"
+    RECIPIENT_DESC = "recipient desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_BY_DESC = "submittedBy desc"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    SUBMITTED_DATE_TIME_DESC = "submittedDateTime desc"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_BY_DESC = "unsubmittedBy desc"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    UNSUBMITTED_DATE_TIME_DESC = "unsubmittedDateTime desc"
+    RELEASED_BY = "releasedBy"
+    RELEASED_BY_DESC = "releasedBy desc"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RELEASED_DATE_TIME_DESC = "releasedDateTime desc"
+    RETURNED_BY = "returnedBy"
+    RETURNED_BY_DESC = "returnedBy desc"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RETURNED_DATE_TIME_DESC = "returnedDateTime desc"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES_FOLDER_URL_DESC = "resourcesFolderUrl desc"
+
+class Enum180(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RECIPIENT = "recipient"
+    STATUS = "status"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    RELEASED_BY = "releasedBy"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RETURNED_BY = "returnedBy"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum181(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum182(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RECIPIENT = "recipient"
+    STATUS = "status"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    RELEASED_BY = "releasedBy"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RETURNED_BY = "returnedBy"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum183(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum184(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+
+class Enum185(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+
+class Enum186(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+
+class Enum187(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+    ASSIGNMENT_RESOURCE_URL_DESC = "assignmentResourceUrl desc"
+
+class Enum188(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum189(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum190(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+    ASSIGNMENT_RESOURCE_URL_DESC = "assignmentResourceUrl desc"
+
+class Enum191(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum192(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum193(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CLASS_CODE = "classCode"
+    CLASS_CODE_DESC = "classCode desc"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_NAME_DESC = "externalName desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    GRADE = "grade"
+    GRADE_DESC = "grade desc"
+    TERM = "term"
+    TERM_DESC = "term desc"
+    COURSE = "course"
+    COURSE_DESC = "course desc"
+
+class Enum194(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum195(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum196(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum197(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum198(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    QUALITIES = "qualities"
+    QUALITIES_DESC = "qualities desc"
+    LEVELS = "levels"
+    LEVELS_DESC = "levels desc"
+    GRADING = "grading"
+    GRADING_DESC = "grading desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+
+class Enum199(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    QUALITIES = "qualities"
+    LEVELS = "levels"
+    GRADING = "grading"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+
+class Enum200(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    QUALITIES = "qualities"
+    LEVELS = "levels"
+    GRADING = "grading"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+
+class Enum201(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_EMAIL_DESC = "principalEmail desc"
+    PRINCIPAL_NAME = "principalName"
+    PRINCIPAL_NAME_DESC = "principalName desc"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    EXTERNAL_PRINCIPAL_ID_DESC = "externalPrincipalId desc"
+    LOWEST_GRADE = "lowestGrade"
+    LOWEST_GRADE_DESC = "lowestGrade desc"
+    HIGHEST_GRADE = "highestGrade"
+    HIGHEST_GRADE_DESC = "highestGrade desc"
+    SCHOOL_NUMBER = "schoolNumber"
+    SCHOOL_NUMBER_DESC = "schoolNumber desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    PHONE = "phone"
+    PHONE_DESC = "phone desc"
+    FAX = "fax"
+    FAX_DESC = "fax desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ADDRESS = "address"
+    ADDRESS_DESC = "address desc"
+
+class Enum202(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum203(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum204(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum205(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum206(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CLASS_CODE = "classCode"
+    CLASS_CODE_DESC = "classCode desc"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_NAME_DESC = "externalName desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    GRADE = "grade"
+    GRADE_DESC = "grade desc"
+    TERM = "term"
+    TERM_DESC = "term desc"
+    COURSE = "course"
+    COURSE_DESC = "course desc"
+
+class Enum207(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum208(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum209(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum210(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum211(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SIGN_IN_ACTIVITY = "signInActivity"
+    ACCOUNT_ENABLED = "accountEnabled"
+    AGE_GROUP = "ageGroup"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    CITY = "city"
+    COMPANY_NAME = "companyName"
+    CONSENT_PROVIDED_FOR_MINOR = "consentProvidedForMinor"
+    COUNTRY = "country"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATION_TYPE = "creationType"
+    DEPARTMENT = "department"
+    DEVICE_KEYS = "deviceKeys"
+    DISPLAY_NAME = "displayName"
+    EMPLOYEE_ID = "employeeId"
+    FAX_NUMBER = "faxNumber"
+    GIVEN_NAME = "givenName"
+    IDENTITIES = "identities"
+    IM_ADDRESSES = "imAddresses"
+    IS_RESOURCE_ACCOUNT = "isResourceAccount"
+    JOB_TITLE = "jobTitle"
+    LAST_PASSWORD_CHANGE_DATE_TIME = "lastPasswordChangeDateTime"
+    LEGAL_AGE_GROUP_CLASSIFICATION = "legalAgeGroupClassification"
+    LICENSE_ASSIGNMENT_STATES = "licenseAssignmentStates"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    ON_PREMISES_DISTINGUISHED_NAME = "onPremisesDistinguishedName"
+    ON_PREMISES_EXTENSION_ATTRIBUTES = "onPremisesExtensionAttributes"
+    ON_PREMISES_IMMUTABLE_ID = "onPremisesImmutableId"
+    ON_PREMISES_LAST_SYNC_DATE_TIME = "onPremisesLastSyncDateTime"
+    ON_PREMISES_PROVISIONING_ERRORS = "onPremisesProvisioningErrors"
+    ON_PREMISES_SECURITY_IDENTIFIER = "onPremisesSecurityIdentifier"
+    ON_PREMISES_SYNC_ENABLED = "onPremisesSyncEnabled"
+    ON_PREMISES_DOMAIN_NAME = "onPremisesDomainName"
+    ON_PREMISES_SAM_ACCOUNT_NAME = "onPremisesSamAccountName"
+    ON_PREMISES_USER_PRINCIPAL_NAME = "onPremisesUserPrincipalName"
+    OTHER_MAILS = "otherMails"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    POSTAL_CODE = "postalCode"
+    PREFERRED_DATA_LOCATION = "preferredDataLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROXY_ADDRESSES = "proxyAddresses"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SIGN_IN_SESSIONS_VALID_FROM_DATE_TIME = "signInSessionsValidFromDateTime"
+    STATE = "state"
+    STREET_ADDRESS = "streetAddress"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    EXTERNAL_USER_STATE = "externalUserState"
+    EXTERNAL_USER_STATE_CHANGE_DATE_TIME = "externalUserStateChangeDateTime"
+    USER_TYPE = "userType"
+    MAILBOX_SETTINGS = "mailboxSettings"
+    IDENTITY_USER_RISK = "identityUserRisk"
+    DEVICE_ENROLLMENT_LIMIT = "deviceEnrollmentLimit"
+    ABOUT_ME = "aboutMe"
+    BIRTHDAY = "birthday"
+    HIRE_DATE = "hireDate"
+    INTERESTS = "interests"
+    MY_SITE = "mySite"
+    PAST_PROJECTS = "pastProjects"
+    PREFERRED_NAME = "preferredName"
+    RESPONSIBILITIES = "responsibilities"
+    SCHOOLS = "schools"
+    SKILLS = "skills"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class Enum212(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class Enum213(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_EMAIL_DESC = "principalEmail desc"
+    PRINCIPAL_NAME = "principalName"
+    PRINCIPAL_NAME_DESC = "principalName desc"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    EXTERNAL_PRINCIPAL_ID_DESC = "externalPrincipalId desc"
+    LOWEST_GRADE = "lowestGrade"
+    LOWEST_GRADE_DESC = "lowestGrade desc"
+    HIGHEST_GRADE = "highestGrade"
+    HIGHEST_GRADE_DESC = "highestGrade desc"
+    SCHOOL_NUMBER = "schoolNumber"
+    SCHOOL_NUMBER_DESC = "schoolNumber desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    PHONE = "phone"
+    PHONE_DESC = "phone desc"
+    FAX = "fax"
+    FAX_DESC = "fax desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ADDRESS = "address"
+    ADDRESS_DESC = "address desc"
+
+class Enum214(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum215(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum216(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum217(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum218(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    VISIBILITY = "visibility"
+    MEMBERS = "members"
+    SCOPED_ROLE_MEMBERS = "scopedRoleMembers"
+    EXTENSIONS = "extensions"
+
+class Enum219(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    MEMBERS = "members"
+    SCOPED_ROLE_MEMBERS = "scopedRoleMembers"
+    EXTENSIONS = "extensions"
+
+class Enum220(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CLASS_CODE = "classCode"
+    CLASS_CODE_DESC = "classCode desc"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_NAME_DESC = "externalName desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    GRADE = "grade"
+    GRADE_DESC = "grade desc"
+    TERM = "term"
+    TERM_DESC = "term desc"
+    COURSE = "course"
+    COURSE_DESC = "course desc"
+
+class Enum221(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum222(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum223(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum224(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum225(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RELATED_CONTACTS = "relatedContacts"
+    RELATED_CONTACTS_DESC = "relatedContacts desc"
+    PRIMARY_ROLE = "primaryRole"
+    PRIMARY_ROLE_DESC = "primaryRole desc"
+    MIDDLE_NAME = "middleName"
+    MIDDLE_NAME_DESC = "middleName desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    RESIDENCE_ADDRESS_DESC = "residenceAddress desc"
+    MAILING_ADDRESS = "mailingAddress"
+    MAILING_ADDRESS_DESC = "mailingAddress desc"
+    STUDENT = "student"
+    STUDENT_DESC = "student desc"
+    TEACHER = "teacher"
+    TEACHER_DESC = "teacher desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ACCOUNT_ENABLED_DESC = "accountEnabled desc"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_LICENSES_DESC = "assignedLicenses desc"
+    ASSIGNED_PLANS = "assignedPlans"
+    ASSIGNED_PLANS_DESC = "assignedPlans desc"
+    BUSINESS_PHONES = "businessPhones"
+    BUSINESS_PHONES_DESC = "businessPhones desc"
+    DEPARTMENT = "department"
+    DEPARTMENT_DESC = "department desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    GIVEN_NAME = "givenName"
+    GIVEN_NAME_DESC = "givenName desc"
+    MAIL = "mail"
+    MAIL_DESC = "mail desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    MOBILE_PHONE = "mobilePhone"
+    MOBILE_PHONE_DESC = "mobilePhone desc"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_POLICIES_DESC = "passwordPolicies desc"
+    PASSWORD_PROFILE = "passwordProfile"
+    PASSWORD_PROFILE_DESC = "passwordProfile desc"
+    OFFICE_LOCATION = "officeLocation"
+    OFFICE_LOCATION_DESC = "officeLocation desc"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PREFERRED_LANGUAGE_DESC = "preferredLanguage desc"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROVISIONED_PLANS_DESC = "provisionedPlans desc"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME_DESC = "refreshTokensValidFromDateTime desc"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SHOW_IN_ADDRESS_LIST_DESC = "showInAddressList desc"
+    SURNAME = "surname"
+    SURNAME_DESC = "surname desc"
+    USAGE_LOCATION = "usageLocation"
+    USAGE_LOCATION_DESC = "usageLocation desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USER_TYPE = "userType"
+    USER_TYPE_DESC = "userType desc"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ON_PREMISES_INFO_DESC = "onPremisesInfo desc"
+
+class Enum226(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum227(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum228(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum229(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum230(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DATA_PROVIDER = "dataProvider"
+    DATA_PROVIDER_DESC = "dataProvider desc"
+    IDENTITY_SYNCHRONIZATION_CONFIGURATION = "identitySynchronizationConfiguration"
+    IDENTITY_SYNCHRONIZATION_CONFIGURATION_DESC = "identitySynchronizationConfiguration desc"
+    LICENSES_TO_ASSIGN = "licensesToAssign"
+    LICENSES_TO_ASSIGN_DESC = "licensesToAssign desc"
+    STATE = "state"
+    STATE_DESC = "state desc"
+    HANDLE_SPECIAL_CHARACTER_CONSTRAINT = "handleSpecialCharacterConstraint"
+    HANDLE_SPECIAL_CHARACTER_CONSTRAINT_DESC = "handleSpecialCharacterConstraint desc"
+
+class Enum231(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DATA_PROVIDER = "dataProvider"
+    IDENTITY_SYNCHRONIZATION_CONFIGURATION = "identitySynchronizationConfiguration"
+    LICENSES_TO_ASSIGN = "licensesToAssign"
+    STATE = "state"
+    HANDLE_SPECIAL_CHARACTER_CONSTRAINT = "handleSpecialCharacterConstraint"
+    ERRORS = "errors"
+    PROFILE_STATUS = "profileStatus"
+
+class Enum232(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ERRORS = "errors"
+    PROFILE_STATUS = "profileStatus"
+
+class Enum233(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DATA_PROVIDER = "dataProvider"
+    IDENTITY_SYNCHRONIZATION_CONFIGURATION = "identitySynchronizationConfiguration"
+    LICENSES_TO_ASSIGN = "licensesToAssign"
+    STATE = "state"
+    HANDLE_SPECIAL_CHARACTER_CONSTRAINT = "handleSpecialCharacterConstraint"
+    ERRORS = "errors"
+    PROFILE_STATUS = "profileStatus"
+
+class Enum234(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ERRORS = "errors"
+    PROFILE_STATUS = "profileStatus"
+
+class Enum235(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ENTRY_TYPE = "entryType"
+    ENTRY_TYPE_DESC = "entryType desc"
+    ERROR_CODE = "errorCode"
+    ERROR_CODE_DESC = "errorCode desc"
+    ERROR_MESSAGE = "errorMessage"
+    ERROR_MESSAGE_DESC = "errorMessage desc"
+    JOINING_VALUE = "joiningValue"
+    JOINING_VALUE_DESC = "joiningValue desc"
+    RECORDED_DATE_TIME = "recordedDateTime"
+    RECORDED_DATE_TIME_DESC = "recordedDateTime desc"
+    REPORTABLE_IDENTIFIER = "reportableIdentifier"
+    REPORTABLE_IDENTIFIER_DESC = "reportableIdentifier desc"
+
+class Enum236(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ENTRY_TYPE = "entryType"
+    ERROR_CODE = "errorCode"
+    ERROR_MESSAGE = "errorMessage"
+    JOINING_VALUE = "joiningValue"
+    RECORDED_DATE_TIME = "recordedDateTime"
+    REPORTABLE_IDENTIFIER = "reportableIdentifier"
+
+class Enum237(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ENTRY_TYPE = "entryType"
+    ERROR_CODE = "errorCode"
+    ERROR_MESSAGE = "errorMessage"
+    JOINING_VALUE = "joiningValue"
+    RECORDED_DATE_TIME = "recordedDateTime"
+    REPORTABLE_IDENTIFIER = "reportableIdentifier"
+
+class Enum238(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    STATUS = "status"
+    LAST_SYNCHRONIZATION_DATE_TIME = "lastSynchronizationDateTime"
+
+class Enum239(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RELATED_CONTACTS = "relatedContacts"
+    RELATED_CONTACTS_DESC = "relatedContacts desc"
+    PRIMARY_ROLE = "primaryRole"
+    PRIMARY_ROLE_DESC = "primaryRole desc"
+    MIDDLE_NAME = "middleName"
+    MIDDLE_NAME_DESC = "middleName desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    RESIDENCE_ADDRESS_DESC = "residenceAddress desc"
+    MAILING_ADDRESS = "mailingAddress"
+    MAILING_ADDRESS_DESC = "mailingAddress desc"
+    STUDENT = "student"
+    STUDENT_DESC = "student desc"
+    TEACHER = "teacher"
+    TEACHER_DESC = "teacher desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ACCOUNT_ENABLED_DESC = "accountEnabled desc"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_LICENSES_DESC = "assignedLicenses desc"
+    ASSIGNED_PLANS = "assignedPlans"
+    ASSIGNED_PLANS_DESC = "assignedPlans desc"
+    BUSINESS_PHONES = "businessPhones"
+    BUSINESS_PHONES_DESC = "businessPhones desc"
+    DEPARTMENT = "department"
+    DEPARTMENT_DESC = "department desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    GIVEN_NAME = "givenName"
+    GIVEN_NAME_DESC = "givenName desc"
+    MAIL = "mail"
+    MAIL_DESC = "mail desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    MOBILE_PHONE = "mobilePhone"
+    MOBILE_PHONE_DESC = "mobilePhone desc"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_POLICIES_DESC = "passwordPolicies desc"
+    PASSWORD_PROFILE = "passwordProfile"
+    PASSWORD_PROFILE_DESC = "passwordProfile desc"
+    OFFICE_LOCATION = "officeLocation"
+    OFFICE_LOCATION_DESC = "officeLocation desc"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PREFERRED_LANGUAGE_DESC = "preferredLanguage desc"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROVISIONED_PLANS_DESC = "provisionedPlans desc"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME_DESC = "refreshTokensValidFromDateTime desc"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SHOW_IN_ADDRESS_LIST_DESC = "showInAddressList desc"
+    SURNAME = "surname"
+    SURNAME_DESC = "surname desc"
+    USAGE_LOCATION = "usageLocation"
+    USAGE_LOCATION_DESC = "usageLocation desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USER_TYPE = "userType"
+    USER_TYPE_DESC = "userType desc"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ON_PREMISES_INFO_DESC = "onPremisesInfo desc"
+
+class Enum240(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum241(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum242(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RELATED_CONTACTS = "relatedContacts"
+    PRIMARY_ROLE = "primaryRole"
+    MIDDLE_NAME = "middleName"
+    EXTERNAL_SOURCE = "externalSource"
+    RESIDENCE_ADDRESS = "residenceAddress"
+    MAILING_ADDRESS = "mailingAddress"
+    STUDENT = "student"
+    TEACHER = "teacher"
+    CREATED_BY = "createdBy"
+    ACCOUNT_ENABLED = "accountEnabled"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    DEPARTMENT = "department"
+    DISPLAY_NAME = "displayName"
+    GIVEN_NAME = "givenName"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_TYPE = "userType"
+    ON_PREMISES_INFO = "onPremisesInfo"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum243(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    RUBRICS = "rubrics"
+    CLASSES = "classes"
+    TAUGHT_CLASSES = "taughtClasses"
+    SCHOOLS = "schools"
+    USER = "user"
+
+class Enum244(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLASS_ID = "classId"
+    CLASS_ID_DESC = "classId desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    INSTRUCTIONS = "instructions"
+    INSTRUCTIONS_DESC = "instructions desc"
+    CLOSE_DATE_TIME = "closeDateTime"
+    CLOSE_DATE_TIME_DESC = "closeDateTime desc"
+    DUE_DATE_TIME = "dueDateTime"
+    DUE_DATE_TIME_DESC = "dueDateTime desc"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGN_DATE_TIME_DESC = "assignDateTime desc"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    ASSIGNED_DATE_TIME_DESC = "assignedDateTime desc"
+    GRADING = "grading"
+    GRADING_DESC = "grading desc"
+    ASSIGN_TO = "assignTo"
+    ASSIGN_TO_DESC = "assignTo desc"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    ALLOW_LATE_SUBMISSIONS_DESC = "allowLateSubmissions desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION_DESC = "allowStudentsToAddResourcesToSubmission desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+
+class Enum245(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASS_ID = "classId"
+    DISPLAY_NAME = "displayName"
+    INSTRUCTIONS = "instructions"
+    CLOSE_DATE_TIME = "closeDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    GRADING = "grading"
+    ASSIGN_TO = "assignTo"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    STATUS = "status"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum246(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum247(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASS_ID = "classId"
+    DISPLAY_NAME = "displayName"
+    INSTRUCTIONS = "instructions"
+    CLOSE_DATE_TIME = "closeDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    ASSIGN_DATE_TIME = "assignDateTime"
+    ASSIGNED_DATE_TIME = "assignedDateTime"
+    GRADING = "grading"
+    ASSIGN_TO = "assignTo"
+    ALLOW_LATE_SUBMISSIONS = "allowLateSubmissions"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    ALLOW_STUDENTS_TO_ADD_RESOURCES_TO_SUBMISSION = "allowStudentsToAddResourcesToSubmission"
+    STATUS = "status"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum248(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMISSIONS = "submissions"
+    CATEGORIES = "categories"
+    RUBRIC = "rubric"
+
+class Enum249(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+
+class Enum250(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum251(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+
+class Enum252(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    DISTRIBUTE_FOR_STUDENT_WORK_DESC = "distributeForStudentWork desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+
+class Enum253(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    RESOURCE = "resource"
+
+class Enum254(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISTRIBUTE_FOR_STUDENT_WORK = "distributeForStudentWork"
+    RESOURCE = "resource"
+
+class Enum255(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    QUALITIES = "qualities"
+    LEVELS = "levels"
+    GRADING = "grading"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+
+class Enum256(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RECIPIENT = "recipient"
+    RECIPIENT_DESC = "recipient desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_BY_DESC = "submittedBy desc"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    SUBMITTED_DATE_TIME_DESC = "submittedDateTime desc"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_BY_DESC = "unsubmittedBy desc"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    UNSUBMITTED_DATE_TIME_DESC = "unsubmittedDateTime desc"
+    RELEASED_BY = "releasedBy"
+    RELEASED_BY_DESC = "releasedBy desc"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RELEASED_DATE_TIME_DESC = "releasedDateTime desc"
+    RETURNED_BY = "returnedBy"
+    RETURNED_BY_DESC = "returnedBy desc"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RETURNED_DATE_TIME_DESC = "returnedDateTime desc"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES_FOLDER_URL_DESC = "resourcesFolderUrl desc"
+
+class Enum257(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RECIPIENT = "recipient"
+    STATUS = "status"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    RELEASED_BY = "releasedBy"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RETURNED_BY = "returnedBy"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum258(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum259(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RECIPIENT = "recipient"
+    STATUS = "status"
+    SUBMITTED_BY = "submittedBy"
+    SUBMITTED_DATE_TIME = "submittedDateTime"
+    UNSUBMITTED_BY = "unsubmittedBy"
+    UNSUBMITTED_DATE_TIME = "unsubmittedDateTime"
+    RELEASED_BY = "releasedBy"
+    RELEASED_DATE_TIME = "releasedDateTime"
+    RETURNED_BY = "returnedBy"
+    RETURNED_DATE_TIME = "returnedDateTime"
+    RESOURCES_FOLDER_URL = "resourcesFolderUrl"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum260(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    RESOURCES = "resources"
+    SUBMITTED_RESOURCES = "submittedResources"
+    OUTCOMES = "outcomes"
+
+class Enum261(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+
+class Enum262(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+
+class Enum263(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+
+class Enum264(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+    ASSIGNMENT_RESOURCE_URL_DESC = "assignmentResourceUrl desc"
+
+class Enum265(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum266(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum267(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    RESOURCE = "resource"
+    RESOURCE_DESC = "resource desc"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+    ASSIGNMENT_RESOURCE_URL_DESC = "assignmentResourceUrl desc"
+
+class Enum268(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum269(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    RESOURCE = "resource"
+    ASSIGNMENT_RESOURCE_URL = "assignmentResourceUrl"
+
+class Enum270(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CLASS_CODE = "classCode"
+    CLASS_CODE_DESC = "classCode desc"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_NAME_DESC = "externalName desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    GRADE = "grade"
+    GRADE_DESC = "grade desc"
+    TERM = "term"
+    TERM_DESC = "term desc"
+    COURSE = "course"
+    COURSE_DESC = "course desc"
+
+class Enum271(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum272(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum273(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum274(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum275(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    QUALITIES = "qualities"
+    QUALITIES_DESC = "qualities desc"
+    LEVELS = "levels"
+    LEVELS_DESC = "levels desc"
+    GRADING = "grading"
+    GRADING_DESC = "grading desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+
+class Enum276(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    QUALITIES = "qualities"
+    LEVELS = "levels"
+    GRADING = "grading"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+
+class Enum277(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    QUALITIES = "qualities"
+    LEVELS = "levels"
+    GRADING = "grading"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_BY = "createdBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+
+class Enum278(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_EMAIL_DESC = "principalEmail desc"
+    PRINCIPAL_NAME = "principalName"
+    PRINCIPAL_NAME_DESC = "principalName desc"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    EXTERNAL_PRINCIPAL_ID_DESC = "externalPrincipalId desc"
+    LOWEST_GRADE = "lowestGrade"
+    LOWEST_GRADE_DESC = "lowestGrade desc"
+    HIGHEST_GRADE = "highestGrade"
+    HIGHEST_GRADE_DESC = "highestGrade desc"
+    SCHOOL_NUMBER = "schoolNumber"
+    SCHOOL_NUMBER_DESC = "schoolNumber desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    PHONE = "phone"
+    PHONE_DESC = "phone desc"
+    FAX = "fax"
+    FAX_DESC = "fax desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    ADDRESS = "address"
+    ADDRESS_DESC = "address desc"
+
+class Enum279(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum280(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum281(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DESCRIPTION = "description"
+    EXTERNAL_SOURCE = "externalSource"
+    PRINCIPAL_EMAIL = "principalEmail"
+    PRINCIPAL_NAME = "principalName"
+    EXTERNAL_PRINCIPAL_ID = "externalPrincipalId"
+    LOWEST_GRADE = "lowestGrade"
+    HIGHEST_GRADE = "highestGrade"
+    SCHOOL_NUMBER = "schoolNumber"
+    EXTERNAL_ID = "externalId"
+    PHONE = "phone"
+    FAX = "fax"
+    CREATED_BY = "createdBy"
+    ADDRESS = "address"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum282(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CLASSES = "classes"
+    USERS = "users"
+    ADMINISTRATIVE_UNIT = "administrativeUnit"
+
+class Enum283(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CLASS_CODE = "classCode"
+    CLASS_CODE_DESC = "classCode desc"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_NAME_DESC = "externalName desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    GRADE = "grade"
+    GRADE_DESC = "grade desc"
+    TERM = "term"
+    TERM_DESC = "term desc"
+    COURSE = "course"
+    COURSE_DESC = "course desc"
+
+class Enum284(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum285(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum286(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum287(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Enum288(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+    SIGN_IN_ACTIVITY = "signInActivity"
+    ACCOUNT_ENABLED = "accountEnabled"
+    AGE_GROUP = "ageGroup"
+    ASSIGNED_LICENSES = "assignedLicenses"
+    ASSIGNED_PLANS = "assignedPlans"
+    BUSINESS_PHONES = "businessPhones"
+    CITY = "city"
+    COMPANY_NAME = "companyName"
+    CONSENT_PROVIDED_FOR_MINOR = "consentProvidedForMinor"
+    COUNTRY = "country"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATION_TYPE = "creationType"
+    DEPARTMENT = "department"
+    DEVICE_KEYS = "deviceKeys"
+    DISPLAY_NAME = "displayName"
+    EMPLOYEE_ID = "employeeId"
+    FAX_NUMBER = "faxNumber"
+    GIVEN_NAME = "givenName"
+    IDENTITIES = "identities"
+    IM_ADDRESSES = "imAddresses"
+    IS_RESOURCE_ACCOUNT = "isResourceAccount"
+    JOB_TITLE = "jobTitle"
+    LAST_PASSWORD_CHANGE_DATE_TIME = "lastPasswordChangeDateTime"
+    LEGAL_AGE_GROUP_CLASSIFICATION = "legalAgeGroupClassification"
+    LICENSE_ASSIGNMENT_STATES = "licenseAssignmentStates"
+    MAIL = "mail"
+    MAIL_NICKNAME = "mailNickname"
+    MOBILE_PHONE = "mobilePhone"
+    ON_PREMISES_DISTINGUISHED_NAME = "onPremisesDistinguishedName"
+    ON_PREMISES_EXTENSION_ATTRIBUTES = "onPremisesExtensionAttributes"
+    ON_PREMISES_IMMUTABLE_ID = "onPremisesImmutableId"
+    ON_PREMISES_LAST_SYNC_DATE_TIME = "onPremisesLastSyncDateTime"
+    ON_PREMISES_PROVISIONING_ERRORS = "onPremisesProvisioningErrors"
+    ON_PREMISES_SECURITY_IDENTIFIER = "onPremisesSecurityIdentifier"
+    ON_PREMISES_SYNC_ENABLED = "onPremisesSyncEnabled"
+    ON_PREMISES_DOMAIN_NAME = "onPremisesDomainName"
+    ON_PREMISES_SAM_ACCOUNT_NAME = "onPremisesSamAccountName"
+    ON_PREMISES_USER_PRINCIPAL_NAME = "onPremisesUserPrincipalName"
+    OTHER_MAILS = "otherMails"
+    PASSWORD_POLICIES = "passwordPolicies"
+    PASSWORD_PROFILE = "passwordProfile"
+    OFFICE_LOCATION = "officeLocation"
+    POSTAL_CODE = "postalCode"
+    PREFERRED_DATA_LOCATION = "preferredDataLocation"
+    PREFERRED_LANGUAGE = "preferredLanguage"
+    PROVISIONED_PLANS = "provisionedPlans"
+    PROXY_ADDRESSES = "proxyAddresses"
+    REFRESH_TOKENS_VALID_FROM_DATE_TIME = "refreshTokensValidFromDateTime"
+    SHOW_IN_ADDRESS_LIST = "showInAddressList"
+    SIGN_IN_SESSIONS_VALID_FROM_DATE_TIME = "signInSessionsValidFromDateTime"
+    STATE = "state"
+    STREET_ADDRESS = "streetAddress"
+    SURNAME = "surname"
+    USAGE_LOCATION = "usageLocation"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    EXTERNAL_USER_STATE = "externalUserState"
+    EXTERNAL_USER_STATE_CHANGE_DATE_TIME = "externalUserStateChangeDateTime"
+    USER_TYPE = "userType"
+    MAILBOX_SETTINGS = "mailboxSettings"
+    IDENTITY_USER_RISK = "identityUserRisk"
+    DEVICE_ENROLLMENT_LIMIT = "deviceEnrollmentLimit"
+    ABOUT_ME = "aboutMe"
+    BIRTHDAY = "birthday"
+    HIRE_DATE = "hireDate"
+    INTERESTS = "interests"
+    MY_SITE = "mySite"
+    PAST_PROJECTS = "pastProjects"
+    PREFERRED_NAME = "preferredName"
+    RESPONSIBILITIES = "responsibilities"
+    SCHOOLS = "schools"
+    SKILLS = "skills"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class Enum289(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ANALYTICS = "analytics"
+    INFORMATION_PROTECTION = "informationProtection"
+    APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
+    CREATED_OBJECTS = "createdObjects"
+    DIRECT_REPORTS = "directReports"
+    LICENSE_DETAILS = "licenseDetails"
+    MANAGER = "manager"
+    MEMBER_OF = "memberOf"
+    OWNED_DEVICES = "ownedDevices"
+    OWNED_OBJECTS = "ownedObjects"
+    REGISTERED_DEVICES = "registeredDevices"
+    SCOPED_ROLE_MEMBER_OF = "scopedRoleMemberOf"
+    TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
+    OUTLOOK = "outlook"
+    MESSAGES = "messages"
+    JOINED_GROUPS = "joinedGroups"
+    MAIL_FOLDERS = "mailFolders"
+    CALENDAR = "calendar"
+    CALENDARS = "calendars"
+    CALENDAR_GROUPS = "calendarGroups"
+    CALENDAR_VIEW = "calendarView"
+    EVENTS = "events"
+    PEOPLE = "people"
+    CONTACTS = "contacts"
+    CONTACT_FOLDERS = "contactFolders"
+    INFERENCE_CLASSIFICATION = "inferenceClassification"
+    PHOTO = "photo"
+    PHOTOS = "photos"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    FOLLOWED_SITES = "followedSites"
+    EXTENSIONS = "extensions"
+    APPROVALS = "approvals"
+    APP_CONSENT_REQUESTS_FOR_APPROVAL = "appConsentRequestsForApproval"
+    AGREEMENT_ACCEPTANCES = "agreementAcceptances"
+    DEVICE_ENROLLMENT_CONFIGURATIONS = "deviceEnrollmentConfigurations"
+    MANAGED_DEVICES = "managedDevices"
+    MANAGED_APP_REGISTRATIONS = "managedAppRegistrations"
+    WINDOWS_INFORMATION_PROTECTION_DEVICE_REGISTRATIONS = "windowsInformationProtectionDeviceRegistrations"
+    DEVICE_MANAGEMENT_TROUBLESHOOTING_EVENTS = "deviceManagementTroubleshootingEvents"
+    MOBILE_APP_INTENT_AND_STATES = "mobileAppIntentAndStates"
+    MOBILE_APP_TROUBLESHOOTING_EVENTS = "mobileAppTroubleshootingEvents"
+    NOTIFICATIONS = "notifications"
+    PLANNER = "planner"
+    INSIGHTS = "insights"
+    SETTINGS = "settings"
+    ONENOTE = "onenote"
+    PROFILE = "profile"
+    ACTIVITIES = "activities"
+    DEVICES = "devices"
+    ONLINE_MEETINGS = "onlineMeetings"
+    PRESENCE = "presence"
+    AUTHENTICATION = "authentication"
+    CHATS = "chats"
+    JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+
+class Get0ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    SYNCHRONIZATION_PROFILES = "synchronizationProfiles"
+    CLASSES = "classes"
+    SCHOOLS = "schools"
+    USERS = "users"
+    ME = "me"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SYNCHRONIZATION_PROFILES = "synchronizationProfiles"
+    CLASSES = "classes"
+    SCHOOLS = "schools"
+    USERS = "users"
+    ME = "me"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    MAIL_NICKNAME = "mailNickname"
+    MAIL_NICKNAME_DESC = "mailNickname desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CLASS_CODE = "classCode"
+    CLASS_CODE_DESC = "classCode desc"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_NAME_DESC = "externalName desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    EXTERNAL_SOURCE = "externalSource"
+    EXTERNAL_SOURCE_DESC = "externalSource desc"
+    GRADE = "grade"
+    GRADE_DESC = "grade desc"
+    TERM = "term"
+    TERM_DESC = "term desc"
+    COURSE = "course"
+    COURSE_DESC = "course desc"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    MAIL_NICKNAME = "mailNickname"
+    DESCRIPTION = "description"
+    CREATED_BY = "createdBy"
+    CLASS_CODE = "classCode"
+    EXTERNAL_NAME = "externalName"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_SOURCE = "externalSource"
+    GRADE = "grade"
+    TERM = "term"
+    COURSE = "course"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    ASSIGNMENTS = "assignments"
+    ASSIGNMENT_CATEGORIES = "assignmentCategories"
+    MEMBERS = "members"
+    TEACHERS = "teachers"
+    SCHOOLS = "schools"
+    GROUP = "group"
+
+class MicrosoftGraphAccessLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EVERYONE = "everyone"
+    INVITED = "invited"
+    LOCKED = "locked"
+    SAME_ENTERPRISE = "sameEnterprise"
+    SAME_ENTERPRISE_AND_FEDERATED = "sameEnterpriseAndFederated"
+
+class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    PENDING = "pending"
+    CANCELED = "canceled"
+    ACTIVE = "active"
+    DONE = "done"
+    FAILED = "failed"
+    NOT_SUPPORTED = "notSupported"
+
+class MicrosoftGraphAgreementAcceptanceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACCEPTED = "accepted"
+    DECLINED = "declined"
+
+class MicrosoftGraphAllowedAudiences(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ME = "me"
+    FAMILY = "family"
+    CONTACTS = "contacts"
+    GROUP_MEMBERS = "groupMembers"
+    ORGANIZATION = "organization"
+    FEDERATED_ORGANIZATIONS = "federatedOrganizations"
+    EVERYONE = "everyone"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAnalyticsActivityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "Email"
+    MEETING = "Meeting"
+    FOCUS = "Focus"
+    CHAT = "Chat"
+    CALL = "Call"
+
+class MicrosoftGraphAnniversaryType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    BIRTHDAY = "birthday"
+    WEDDING = "wedding"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphApplicationMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANUAL = "manual"
+    AUTOMATIC = "automatic"
+    RECOMMENDED = "recommended"
+
+class MicrosoftGraphAppLogUploadState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+class MicrosoftGraphAttendeeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    REQUIRED = "required"
+    OPTIONAL = "optional"
+    RESOURCE = "resource"
+
+class MicrosoftGraphAuthenticationMethodSignInState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_SUPPORTED = "notSupported"
+    NOT_ALLOWED_BY_POLICY = "notAllowedByPolicy"
+    NOT_ENABLED = "notEnabled"
+    PHONE_NUMBER_NOT_UNIQUE = "phoneNumberNotUnique"
+    READY = "ready"
+    NOT_CONFIGURED = "notConfigured"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAuthenticationPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MOBILE = "mobile"
+    ALTERNATE_MOBILE = "alternateMobile"
+    OFFICE = "office"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphAutomaticRepliesStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DISABLED = "disabled"
+    ALWAYS_ENABLED = "alwaysEnabled"
+    SCHEDULED = "scheduled"
+
+class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    TEXT = "text"
+    HTML = "html"
+
+class MicrosoftGraphCalendarColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    LIGHT_BLUE = "lightBlue"
+    LIGHT_GREEN = "lightGreen"
+    LIGHT_ORANGE = "lightOrange"
+    LIGHT_GRAY = "lightGray"
+    LIGHT_YELLOW = "lightYellow"
+    LIGHT_TEAL = "lightTeal"
+    LIGHT_PINK = "lightPink"
+    LIGHT_BROWN = "lightBrown"
+    LIGHT_RED = "lightRed"
+    MAX_COLOR = "maxColor"
+    AUTO = "auto"
+
+class MicrosoftGraphCalendarRoleType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    FREE_BUSY_READ = "freeBusyRead"
+    LIMITED_READ = "limitedRead"
+    READ = "read"
+    WRITE = "write"
+    DELEGATE_WITHOUT_PRIVATE_EVENT_ACCESS = "delegateWithoutPrivateEventAccess"
+    DELEGATE_WITH_PRIVATE_EVENT_ACCESS = "delegateWithPrivateEventAccess"
+    CUSTOM = "custom"
+
+class MicrosoftGraphCategoryColor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PRESET0 = "preset0"
+    PRESET1 = "preset1"
+    PRESET2 = "preset2"
+    PRESET3 = "preset3"
+    PRESET4 = "preset4"
+    PRESET5 = "preset5"
+    PRESET6 = "preset6"
+    PRESET7 = "preset7"
+    PRESET8 = "preset8"
+    PRESET9 = "preset9"
+    PRESET10 = "preset10"
+    PRESET11 = "preset11"
+    PRESET12 = "preset12"
+    PRESET13 = "preset13"
+    PRESET14 = "preset14"
+    PRESET15 = "preset15"
+    PRESET16 = "preset16"
+    PRESET17 = "preset17"
+    PRESET18 = "preset18"
+    PRESET19 = "preset19"
+    PRESET20 = "preset20"
+    PRESET21 = "preset21"
+    PRESET22 = "preset22"
+    PRESET23 = "preset23"
+    PRESET24 = "preset24"
+    NONE = "none"
+
+class MicrosoftGraphChannelMembershipType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STANDARD = "standard"
+    PRIVATE = "private"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphChassisType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    DESKTOP = "desktop"
+    LAPTOP = "laptop"
+    WORKS_WORKSTATION = "worksWorkstation"
+    ENTERPRISE_SERVER = "enterpriseServer"
+    PHONE = "phone"
+    TABLET = "tablet"
+    MOBILE_OTHER = "mobileOther"
+    MOBILE_UNKNOWN = "mobileUnknown"
+
+class MicrosoftGraphChatMessageImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    HIGH = "high"
+    URGENT = "urgent"
+
+class MicrosoftGraphChatMessagePolicyViolationDlpActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    NOTIFY_SENDER = "notifySender"
+    BLOCK_ACCESS = "blockAccess"
+    BLOCK_ACCESS_EXTERNAL = "blockAccessExternal"
+
+class MicrosoftGraphChatMessagePolicyViolationUserActionTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    OVERRIDE = "override"
+    REPORT_FALSE_POSITIVE = "reportFalsePositive"
+
+class MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ALLOW_FALSE_POSITIVE_OVERRIDE = "allowFalsePositiveOverride"
+    ALLOW_OVERRIDE_WITHOUT_JUSTIFICATION = "allowOverrideWithoutJustification"
+    ALLOW_OVERRIDE_WITH_JUSTIFICATION = "allowOverrideWithJustification"
+
+class MicrosoftGraphChatMessageType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MESSAGE = "message"
+    CHAT_EVENT = "chatEvent"
+    TYPING = "typing"
+
+class MicrosoftGraphComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPLIANT = "compliant"
+    NONCOMPLIANT = "noncompliant"
+    CONFLICT = "conflict"
+    ERROR = "error"
+    IN_GRACE_PERIOD = "inGracePeriod"
+    CONFIG_MANAGER = "configManager"
+
+class MicrosoftGraphComplianceStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    NOT_APPLICABLE = "notApplicable"
+    COMPLIANT = "compliant"
+    REMEDIATED = "remediated"
+    NON_COMPLIANT = "nonCompliant"
+    ERROR = "error"
+    CONFLICT = "conflict"
+    NOT_ASSIGNED = "notAssigned"
+
+class MicrosoftGraphConfigurationManagerClientState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    INSTALLED = "installed"
+    HEALTHY = "healthy"
+    INSTALL_FAILED = "installFailed"
+    UPDATE_FAILED = "updateFailed"
+    COMMUNICATION_ERROR = "communicationError"
+
+class MicrosoftGraphContactRelationship(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PARENT = "parent"
+    RELATIVE = "relative"
+    AIDE = "aide"
+    DOCTOR = "doctor"
+    GUARDIAN = "guardian"
+    CHILD = "child"
+    OTHER = "other"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphDayOfWeek(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SUNDAY = "sunday"
+    MONDAY = "monday"
+    TUESDAY = "tuesday"
+    WEDNESDAY = "wednesday"
+    THURSDAY = "thursday"
+    FRIDAY = "friday"
+    SATURDAY = "saturday"
+
+class MicrosoftGraphDelegateMeetingMessageDeliveryOptions(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SEND_TO_DELEGATE_AND_INFORMATION_TO_PRINCIPAL = "sendToDelegateAndInformationToPrincipal"
+    SEND_TO_DELEGATE_AND_PRINCIPAL = "sendToDelegateAndPrincipal"
+    SEND_TO_DELEGATE_ONLY = "sendToDelegateOnly"
+
+class MicrosoftGraphDeviceAndAppManagementAssignmentSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DIRECT = "direct"
+    POLICY_SETS = "policySets"
+
+class MicrosoftGraphDeviceEnrollmentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    USER_ENROLLMENT = "userEnrollment"
+    DEVICE_ENROLLMENT_MANAGER = "deviceEnrollmentManager"
+    APPLE_BULK_WITH_USER = "appleBulkWithUser"
+    APPLE_BULK_WITHOUT_USER = "appleBulkWithoutUser"
+    WINDOWS_AZURE_AD_JOIN = "windowsAzureADJoin"
+    WINDOWS_BULK_USERLESS = "windowsBulkUserless"
+    WINDOWS_AUTO_ENROLLMENT = "windowsAutoEnrollment"
+    WINDOWS_BULK_AZURE_DOMAIN_JOIN = "windowsBulkAzureDomainJoin"
+    WINDOWS_CO_MANAGEMENT = "windowsCoManagement"
+    APPLE_USER_ENROLLMENT = "appleUserEnrollment"
+    APPLE_USER_ENROLLMENT_WITH_SERVICE_ACCOUNT = "appleUserEnrollmentWithServiceAccount"
+    AZURE_AD_JOIN_USING_AZURE_VM_EXTENSION = "azureAdJoinUsingAzureVmExtension"
+
+class MicrosoftGraphDeviceGuardLocalSystemAuthorityCredentialGuardState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    RUNNING = "running"
+    REBOOT_REQUIRED = "rebootRequired"
+    NOT_LICENSED = "notLicensed"
+    NOT_CONFIGURED = "notConfigured"
+    VIRTUALIZATION_BASED_SECURITY_NOT_RUNNING = "virtualizationBasedSecurityNotRunning"
+
+class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MEET_HARDWARE_REQUIREMENTS = "meetHardwareRequirements"
+    SECURE_BOOT_REQUIRED = "secureBootRequired"
+    DMA_PROTECTION_REQUIRED = "dmaProtectionRequired"
+    HYPER_V_NOT_SUPPORTED_FOR_GUEST_VM = "hyperVNotSupportedForGuestVM"
+    HYPER_V_NOT_AVAILABLE = "hyperVNotAvailable"
+
+class MicrosoftGraphDeviceGuardVirtualizationBasedSecurityState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    RUNNING = "running"
+    REBOOT_REQUIRED = "rebootRequired"
+    REQUIRE64_BIT_ARCHITECTURE = "require64BitArchitecture"
+    NOT_LICENSED = "notLicensed"
+    NOT_CONFIGURED = "notConfigured"
+    DOES_NOT_MEET_HARDWARE_REQUIREMENTS = "doesNotMeetHardwareRequirements"
+    OTHER = "other"
+
+class MicrosoftGraphDeviceManagementExchangeAccessState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    UNKNOWN = "unknown"
+    ALLOWED = "allowed"
+    BLOCKED = "blocked"
+    QUARANTINED = "quarantined"
+
+class MicrosoftGraphDeviceManagementExchangeAccessStateReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    UNKNOWN = "unknown"
+    EXCHANGE_GLOBAL_RULE = "exchangeGlobalRule"
+    EXCHANGE_INDIVIDUAL_RULE = "exchangeIndividualRule"
+    EXCHANGE_DEVICE_RULE = "exchangeDeviceRule"
+    EXCHANGE_UPGRADE = "exchangeUpgrade"
+    EXCHANGE_MAILBOX_POLICY = "exchangeMailboxPolicy"
+    OTHER = "other"
+    COMPLIANT = "compliant"
+    NOT_COMPLIANT = "notCompliant"
+    NOT_ENROLLED = "notEnrolled"
+    UNKNOWN_LOCATION = "unknownLocation"
+    MFA_REQUIRED = "mfaRequired"
+    AZURE_AD_BLOCK_DUE_TO_ACCESS_POLICY = "azureADBlockDueToAccessPolicy"
+    COMPROMISED_PASSWORD = "compromisedPassword"
+    DEVICE_NOT_KNOWN_WITH_MANAGED_APP = "deviceNotKnownWithManagedApp"
+
+class MicrosoftGraphDeviceRegistrationState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_REGISTERED = "notRegistered"
+    REGISTERED = "registered"
+    REVOKED = "revoked"
+    KEY_CONFLICT = "keyConflict"
+    APPROVAL_PENDING = "approvalPending"
+    CERTIFICATE_RESET = "certificateReset"
+    NOT_REGISTERED_PENDING_ENROLLMENT = "notRegisteredPendingEnrollment"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphDeviceType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DESKTOP = "desktop"
+    WINDOWS_RT = "windowsRT"
+    WIN_MO6 = "winMO6"
+    NOKIA = "nokia"
+    WINDOWS_PHONE = "windowsPhone"
+    MAC = "mac"
+    WIN_CE = "winCE"
+    WIN_EMBEDDED = "winEmbedded"
+    I_PHONE = "iPhone"
+    I_PAD = "iPad"
+    I_POD = "iPod"
+    ANDROID = "android"
+    I_SOC_CONSUMER = "iSocConsumer"
+    UNIX = "unix"
+    MAC_MDM = "macMDM"
+    HOLO_LENS = "holoLens"
+    SURFACE_HUB = "surfaceHub"
+    ANDROID_FOR_WORK = "androidForWork"
+    ANDROID_ENTERPRISE = "androidEnterprise"
+    WINDOWS10_X = "windows10x"
+    BLACKBERRY = "blackberry"
+    PALM = "palm"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphEducationAssignmentStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DRAFT = "draft"
+    PUBLISHED = "published"
+    ASSIGNED = "assigned"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphEducationExternalSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SIS = "sis"
+    MANUAL = "manual"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphEducationGender(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FEMALE = "female"
+    MALE = "male"
+    OTHER = "other"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphEducationSubmissionStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    WORKING = "working"
+    SUBMITTED = "submitted"
+    RELEASED = "released"
+    RETURNED = "returned"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphEducationSynchronizationProfileState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DELETING = "deleting"
+    DELETION_FAILED = "deletionFailed"
+    PROVISIONING_FAILED = "provisioningFailed"
+    PROVISIONED = "provisioned"
+    PROVISIONING = "provisioning"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphEducationSynchronizationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PAUSED = "paused"
+    IN_PROGRESS = "inProgress"
+    SUCCESS = "success"
+    ERROR = "error"
+    VALIDATION_ERROR = "validationError"
+    QUARANTINED = "quarantined"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphEducationUserRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STUDENT = "student"
+    TEACHER = "teacher"
+    NONE = "none"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    FACULTY = "faculty"
+
+class MicrosoftGraphEmailType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    WORK = "work"
+    PERSONAL = "personal"
+    MAIN = "main"
+    OTHER = "other"
+
+class MicrosoftGraphEventType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SINGLE_INSTANCE = "singleInstance"
+    OCCURRENCE = "occurrence"
+    EXCEPTION = "exception"
+    SERIES_MASTER = "seriesMaster"
+
+class MicrosoftGraphExternalAudienceScope(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    CONTACTS_ONLY = "contactsOnly"
+    ALL = "all"
+
+class MicrosoftGraphFollowupFlagStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_FLAGGED = "notFlagged"
+    COMPLETE = "complete"
+    FLAGGED = "flagged"
+
+class MicrosoftGraphFreeBusyStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FREE = "free"
+    TENTATIVE = "tentative"
+    BUSY = "busy"
+    OOF = "oof"
+    WORKING_ELSEWHERE = "workingElsewhere"
+    UNKNOWN = "unknown"
+
+class MicrosoftGraphGiphyRatingType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STRICT = "strict"
+    MODERATE = "moderate"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphGroupAccessType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    PRIVATE = "private"
+    SECRET = "secret"
+    PUBLIC = "public"
+
+class MicrosoftGraphImportance(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    LOW = "low"
+    NORMAL = "normal"
+    HIGH = "high"
+
+class MicrosoftGraphInferenceClassificationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FOCUSED = "focused"
+    OTHER = "other"
+
+class MicrosoftGraphLanguageProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ELEMENTARY = "elementary"
+    CONVERSATIONAL = "conversational"
+    LIMITED_WORKING = "limitedWorking"
+    PROFESSIONAL_WORKING = "professionalWorking"
+    FULL_PROFESSIONAL = "fullProfessional"
+    NATIVE_OR_BILINGUAL = "nativeOrBilingual"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphLocationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DEFAULT = "default"
+    CONFERENCE_ROOM = "conferenceRoom"
+    HOME_ADDRESS = "homeAddress"
+    BUSINESS_ADDRESS = "businessAddress"
+    GEO_COORDINATES = "geoCoordinates"
+    STREET_ADDRESS = "streetAddress"
+    HOTEL = "hotel"
+    RESTAURANT = "restaurant"
+    LOCAL_BUSINESS = "localBusiness"
+    POSTAL_ADDRESS = "postalAddress"
+
+class MicrosoftGraphLocationUniqueIdType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    LOCATION_STORE = "locationStore"
+    DIRECTORY = "directory"
+    PRIVATE = "private"
+    BING = "bing"
+
+class MicrosoftGraphLongRunningOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOTSTARTED = "notstarted"
+    RUNNING = "running"
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+
+class MicrosoftGraphLostModeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DISABLED = "disabled"
+    ENABLED = "enabled"
+
+class MicrosoftGraphManagedAppFlaggedReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ROOTED_DEVICE = "rootedDevice"
+    ANDROID_BOOTLOADER_UNLOCKED = "androidBootloaderUnlocked"
+    ANDROID_FACTORY_ROM_MODIFIED = "androidFactoryRomModified"
+
+class MicrosoftGraphManagedDeviceArchitecture(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    X86 = "x86"
+    X64 = "x64"
+    ARM = "arm"
+    AR_M64 = "arM64"
+
+class MicrosoftGraphManagedDeviceOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPANY = "company"
+    PERSONAL = "personal"
+
+class MicrosoftGraphManagedDevicePartnerReportedHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    ACTIVATED = "activated"
+    DEACTIVATED = "deactivated"
+    SECURED = "secured"
+    LOW_SEVERITY = "lowSeverity"
+    MEDIUM_SEVERITY = "mediumSeverity"
+    HIGH_SEVERITY = "highSeverity"
+    UNRESPONSIVE = "unresponsive"
+    COMPROMISED = "compromised"
+    MISCONFIGURED = "misconfigured"
+
+class MicrosoftGraphManagementAgentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EAS = "eas"
+    MDM = "mdm"
+    EAS_MDM = "easMdm"
+    INTUNE_CLIENT = "intuneClient"
+    EAS_INTUNE_CLIENT = "easIntuneClient"
+    CONFIGURATION_MANAGER_CLIENT = "configurationManagerClient"
+    CONFIGURATION_MANAGER_CLIENT_MDM = "configurationManagerClientMdm"
+    CONFIGURATION_MANAGER_CLIENT_MDM_EAS = "configurationManagerClientMdmEas"
+    UNKNOWN = "unknown"
+    JAMF = "jamf"
+    GOOGLE_CLOUD_DEVICE_POLICY_CONTROLLER = "googleCloudDevicePolicyController"
+    MICROSOFT365_MANAGED_MDM = "microsoft365ManagedMdm"
+    WINDOWS_MANAGEMENT_CLOUD_API = "windowsManagementCloudApi"
+
+class MicrosoftGraphManagementState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANAGED = "managed"
+    RETIRE_PENDING = "retirePending"
+    RETIRE_FAILED = "retireFailed"
+    WIPE_PENDING = "wipePending"
+    WIPE_FAILED = "wipeFailed"
+    UNHEALTHY = "unhealthy"
+    DELETE_PENDING = "deletePending"
+    RETIRE_ISSUED = "retireIssued"
+    WIPE_ISSUED = "wipeIssued"
+    WIPE_CANCELED = "wipeCanceled"
+    RETIRE_CANCELED = "retireCanceled"
+    DISCOVERED = "discovered"
+
+class MicrosoftGraphMeetingCapabilities(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    QUESTION_AND_ANSWER = "questionAndAnswer"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphMessageActionFlag(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ANY = "any"
+    CALL = "call"
+    DO_NOT_FORWARD = "doNotForward"
+    FOLLOW_UP = "followUp"
+    FYI = "fyi"
+    FORWARD = "forward"
+    NO_RESPONSE_NECESSARY = "noResponseNecessary"
+    READ = "read"
+    REPLY = "reply"
+    REPLY_TO_ALL = "replyToAll"
+    REVIEW = "review"
+
+class MicrosoftGraphMobileAppIntent(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AVAILABLE = "available"
+    NOT_AVAILABLE = "notAvailable"
+    REQUIRED_INSTALL = "requiredInstall"
+    REQUIRED_UNINSTALL = "requiredUninstall"
+    REQUIRED_AND_AVAILABLE_INSTALL = "requiredAndAvailableInstall"
+    AVAILABLE_INSTALL_WITHOUT_ENROLLMENT = "availableInstallWithoutEnrollment"
+    EXCLUDE = "exclude"
+
+class MicrosoftGraphOnenoteUserRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OWNER = "Owner"
+    CONTRIBUTOR = "Contributor"
+    READER = "Reader"
+    NONE = "None"
+
+class MicrosoftGraphOnlineMeetingProviderType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    SKYPE_FOR_BUSINESS = "skypeForBusiness"
+    SKYPE_FOR_CONSUMER = "skypeForConsumer"
+    TEAMS_FOR_BUSINESS = "teamsForBusiness"
+
+class MicrosoftGraphOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "NotStarted"
+    RUNNING = "Running"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+class MicrosoftGraphOwnerType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    COMPANY = "company"
+    PERSONAL = "personal"
+
+class MicrosoftGraphPersonRelationship(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MANAGER = "manager"
+    COLLEAGUE = "colleague"
+    DIRECT_REPORT = "directReport"
+    DOT_LINE_REPORT = "dotLineReport"
+    ASSISTANT = "assistant"
+    DOT_LINE_MANAGER = "dotLineManager"
+    ALTERNATE_CONTACT = "alternateContact"
+    FRIEND = "friend"
+    SPOUSE = "spouse"
+    SIBLING = "sibling"
+    CHILD = "child"
+    PARENT = "parent"
+    SPONSOR = "sponsor"
+    EMERGENCY_CONTACT = "emergencyContact"
+    OTHER = "other"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphPhoneType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    HOME = "home"
+    BUSINESS = "business"
+    MOBILE = "mobile"
+    OTHER = "other"
+    ASSISTANT = "assistant"
+    HOME_FAX = "homeFax"
+    BUSINESS_FAX = "businessFax"
+    OTHER_FAX = "otherFax"
+    PAGER = "pager"
+    RADIO = "radio"
+
+class MicrosoftGraphPhysicalAddressType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    HOME = "home"
+    BUSINESS = "business"
+    OTHER = "other"
+
+class MicrosoftGraphPlannerPreviewType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AUTOMATIC = "automatic"
+    NO_PREVIEW = "noPreview"
+    CHECKLIST = "checklist"
+    DESCRIPTION = "description"
+    REFERENCE = "reference"
+
+class MicrosoftGraphPolicyPlatformType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ANDROID = "android"
+    ANDROID_FOR_WORK = "androidForWork"
+    I_OS = "iOS"
+    MAC_OS = "macOS"
+    WINDOWS_PHONE81 = "windowsPhone81"
+    WINDOWS81_AND_LATER = "windows81AndLater"
+    WINDOWS10_AND_LATER = "windows10AndLater"
+    ANDROID_WORK_PROFILE = "androidWorkProfile"
+    WINDOWS10_X_PROFILE = "windows10XProfile"
+    ALL = "all"
+
+class MicrosoftGraphPriority(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "None"
+    HIGH = "High"
+    LOW = "Low"
+
+class MicrosoftGraphRecurrencePatternType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DAILY = "daily"
+    WEEKLY = "weekly"
+    ABSOLUTE_MONTHLY = "absoluteMonthly"
+    RELATIVE_MONTHLY = "relativeMonthly"
+    ABSOLUTE_YEARLY = "absoluteYearly"
+    RELATIVE_YEARLY = "relativeYearly"
+
+class MicrosoftGraphRecurrenceRangeType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    END_DATE = "endDate"
+    NO_END = "noEnd"
+    NUMBERED = "numbered"
+
+class MicrosoftGraphResponseType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    ORGANIZER = "organizer"
+    TENTATIVELY_ACCEPTED = "tentativelyAccepted"
+    ACCEPTED = "accepted"
+    DECLINED = "declined"
+    NOT_RESPONDED = "notResponded"
+
+class MicrosoftGraphResultantAppState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INSTALLED = "installed"
+    FAILED = "failed"
+    NOT_INSTALLED = "notInstalled"
+    UNINSTALL_FAILED = "uninstallFailed"
+    PENDING_INSTALL = "pendingInstall"
+    UNKNOWN = "unknown"
+    NOT_APPLICABLE = "notApplicable"
+
+class MicrosoftGraphScheduleChangeRequestActor(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    SENDER = "sender"
+    RECIPIENT = "recipient"
+    MANAGER = "manager"
+    SYSTEM = "system"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphScheduleChangeState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    APPROVED = "approved"
+    DECLINED = "declined"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphScheduleEntityTheme(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    WHITE = "white"
+    BLUE = "blue"
+    GREEN = "green"
+    PURPLE = "purple"
+    PINK = "pink"
+    YELLOW = "yellow"
+    GRAY = "gray"
+    DARK_BLUE = "darkBlue"
+    DARK_GREEN = "darkGreen"
+    DARK_PURPLE = "darkPurple"
+    DARK_PINK = "darkPink"
+    DARK_YELLOW = "darkYellow"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphSecurityBaselineComplianceState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    SECURE = "secure"
+    NOT_APPLICABLE = "notApplicable"
+    NOT_SECURE = "notSecure"
+    ERROR = "error"
+    CONFLICT = "conflict"
+
+class MicrosoftGraphSensitivity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NORMAL = "normal"
+    PERSONAL = "personal"
+    PRIVATE = "private"
+    CONFIDENTIAL = "confidential"
+
+class MicrosoftGraphSensitivityLabelTarget(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "email"
+    SITE = "site"
+    UNIFIED_GROUP = "unifiedGroup"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphSkillProficiencyLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ELEMENTARY = "elementary"
+    LIMITED_WORKING = "limitedWorking"
+    GENERAL_PROFESSIONAL = "generalProfessional"
+    ADVANCED_PROFESSIONAL = "advancedProfessional"
+    EXPERT = "expert"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACTIVE = "active"
+    UPDATED = "updated"
+    DELETED = "deleted"
+    IGNORED = "ignored"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    COMPLETED = "completed"
+    WAITING_ON_OTHERS = "waitingOnOthers"
+    DEFERRED = "deferred"
+
+class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    STORE = "store"
+    ORGANIZATION = "organization"
+    SIDELOADED = "sideloaded"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamsAsyncOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamsAsyncOperationType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    CLONE_TEAM = "cloneTeam"
+    ARCHIVE_TEAM = "archiveTeam"
+    UNARCHIVE_TEAM = "unarchiveTeam"
+    CREATE_TEAM = "createTeam"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamSpecialization(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    EDUCATION_STANDARD = "educationStandard"
+    EDUCATION_CLASS = "educationClass"
+    EDUCATION_PROFESSIONAL_LEARNING_COMMUNITY = "educationProfessionalLearningCommunity"
+    EDUCATION_STAFF = "educationStaff"
+    HEALTHCARE_STANDARD = "healthcareStandard"
+    HEALTHCARE_CARE_COORDINATION = "healthcareCareCoordination"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphTeamVisibilityType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PRIVATE = "private"
+    PUBLIC = "public"
+    HIDDEN_MEMBERSHIP = "hiddenMembership"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatAssessmentContentType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    MAIL = "mail"
+    URL = "url"
+    FILE = "file"
+
+class MicrosoftGraphThreatAssessmentRequestSource(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNDEFINED = "undefined"
+    USER = "user"
+    ADMINISTRATOR = "administrator"
+
+class MicrosoftGraphThreatAssessmentResultType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    CHECK_POLICY = "checkPolicy"
+    RESCAN = "rescan"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatAssessmentStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    PENDING = "pending"
+    COMPLETED = "completed"
+
+class MicrosoftGraphThreatCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNDEFINED = "undefined"
+    SPAM = "spam"
+    PHISHING = "phishing"
+    MALWARE = "malware"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphThreatExpectedAssessment(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    BLOCK = "block"
+    UNBLOCK = "unblock"
+
+class MicrosoftGraphTimeOffReasonIconType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    CAR = "car"
+    CALENDAR = "calendar"
+    RUNNING = "running"
+    PLANE = "plane"
+    FIRST_AID = "firstAid"
+    DOCTOR = "doctor"
+    NOT_WORKING = "notWorking"
+    CLOCK = "clock"
+    JURY_DUTY = "juryDuty"
+    GLOBE = "globe"
+    CUP = "cup"
+    PHONE = "phone"
+    WEATHER = "weather"
+    UMBRELLA = "umbrella"
+    PIGGY_BANK = "piggyBank"
+    DOG = "dog"
+    CAKE = "cake"
+    TRAFFIC_CONE = "trafficCone"
+    PIN = "pin"
+    SUNNY = "sunny"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphUserRiskLevel(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    NONE = "none"
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+
+class MicrosoftGraphWebsiteType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    OTHER = "other"
+    HOME = "home"
+    WORK = "work"
+    BLOG = "blog"
+    PROFILE = "profile"
+
+class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FIRST = "first"
+    SECOND = "second"
+    THIRD = "third"
+    FOURTH = "fourth"
+    LAST = "last"
+
+class MicrosoftGraphWindowsDeviceHealthState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    CLEAN = "clean"
+    FULL_SCAN_PENDING = "fullScanPending"
+    REBOOT_PENDING = "rebootPending"
+    MANUAL_STEPS_PENDING = "manualStepsPending"
+    OFFLINE_SCAN_PENDING = "offlineScanPending"
+    CRITICAL = "critical"
+
+class MicrosoftGraphWindowsMalwareCategory(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INVALID = "invalid"
+    ADWARE = "adware"
+    SPYWARE = "spyware"
+    PASSWORD_STEALER = "passwordStealer"
+    TROJAN_DOWNLOADER = "trojanDownloader"
+    WORM = "worm"
+    BACKDOOR = "backdoor"
+    REMOTE_ACCESS_TROJAN = "remoteAccessTrojan"
+    TROJAN = "trojan"
+    EMAIL_FLOODER = "emailFlooder"
+    KEYLOGGER = "keylogger"
+    DIALER = "dialer"
+    MONITORING_SOFTWARE = "monitoringSoftware"
+    BROWSER_MODIFIER = "browserModifier"
+    COOKIE = "cookie"
+    BROWSER_PLUGIN = "browserPlugin"
+    AOL_EXPLOIT = "aolExploit"
+    NUKER = "nuker"
+    SECURITY_DISABLER = "securityDisabler"
+    JOKE_PROGRAM = "jokeProgram"
+    HOSTILE_ACTIVE_X_CONTROL = "hostileActiveXControl"
+    SOFTWARE_BUNDLER = "softwareBundler"
+    STEALTH_NOTIFIER = "stealthNotifier"
+    SETTINGS_MODIFIER = "settingsModifier"
+    TOOL_BAR = "toolBar"
+    REMOTE_CONTROL_SOFTWARE = "remoteControlSoftware"
+    TROJAN_FTP = "trojanFtp"
+    POTENTIAL_UNWANTED_SOFTWARE = "potentialUnwantedSoftware"
+    ICQ_EXPLOIT = "icqExploit"
+    TROJAN_TELNET = "trojanTelnet"
+    EXPLOIT = "exploit"
+    FILESHARING_PROGRAM = "filesharingProgram"
+    MALWARE_CREATION_TOOL = "malwareCreationTool"
+    TOOL = "tool"
+    TROJAN_DENIAL_OF_SERVICE = "trojanDenialOfService"
+    TROJAN_DROPPER = "trojanDropper"
+    TROJAN_MASS_MAILER = "trojanMassMailer"
+    TROJAN_MONITORING_SOFTWARE = "trojanMonitoringSoftware"
+    TROJAN_PROXY_SERVER = "trojanProxyServer"
+    VIRUS = "virus"
+    KNOWN = "known"
+    UNKNOWN = "unknown"
+    SPP = "spp"
+    BEHAVIOR = "behavior"
+    VULNERABILITY = "vulnerability"
+    POLICY = "policy"
+    ENTERPRISE_UNWANTED_SOFTWARE = "enterpriseUnwantedSoftware"
+    RANSOM = "ransom"
+    HIPS_RULE = "hipsRule"
+
+class MicrosoftGraphWindowsMalwareExecutionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    BLOCKED = "blocked"
+    ALLOWED = "allowed"
+    RUNNING = "running"
+    NOT_RUNNING = "notRunning"
+
+class MicrosoftGraphWindowsMalwareSeverity(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    LOW = "low"
+    MODERATE = "moderate"
+    HIGH = "high"
+    SEVERE = "severe"
+
+class MicrosoftGraphWindowsMalwareState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    DETECTED = "detected"
+    CLEANED = "cleaned"
+    QUARANTINED = "quarantined"
+    REMOVED = "removed"
+    ALLOWED = "allowed"
+    BLOCKED = "blocked"
+    CLEAN_FAILED = "cleanFailed"
+    QUARANTINE_FAILED = "quarantineFailed"
+    REMOVE_FAILED = "removeFailed"
+    ALLOW_FAILED = "allowFailed"
+    ABANDONED = "abandoned"
+    BLOCK_FAILED = "blockFailed"
+
+class MicrosoftGraphWindowsMalwareThreatState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACTIVE = "active"
+    ACTION_FAILED = "actionFailed"
+    MANUAL_STEPS_REQUIRED = "manualStepsRequired"
+    FULL_SCAN_REQUIRED = "fullScanRequired"
+    REBOOT_REQUIRED = "rebootRequired"
+    REMEDIATED_WITH_NON_CRITICAL_FAILURES = "remediatedWithNonCriticalFailures"
+    QUARANTINED = "quarantined"
+    REMOVED = "removed"
+    CLEANED = "cleaned"
+    ALLOWED = "allowed"
+    NO_STATUS_CLEARED = "noStatusCleared"

@@ -6,330 +6,348 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Enum10(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    id = "id"
-    user_principal_name = "userPrincipalName"
-    user_display_name = "userDisplayName"
-    auth_methods = "authMethods"
-    is_registered = "isRegistered"
-    is_enabled = "isEnabled"
-    is_capable = "isCapable"
-    is_mfa_registered = "isMfaRegistered"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Enum11(str, Enum):
 
-    id = "id"
-    id_desc = "id desc"
-    printer_id = "printerId"
-    printer_id_desc = "printerId desc"
-    usage_date = "usageDate"
-    usage_date_desc = "usageDate desc"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_black_and_white_job_count_desc = "completedBlackAndWhiteJobCount desc"
-    completed_color_job_count = "completedColorJobCount"
-    completed_color_job_count_desc = "completedColorJobCount desc"
-    incomplete_job_count = "incompleteJobCount"
-    incomplete_job_count_desc = "incompleteJobCount desc"
+class Enum10(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum12(str, Enum):
+    ID = "id"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_DISPLAY_NAME = "userDisplayName"
+    AUTH_METHODS = "authMethods"
+    IS_REGISTERED = "isRegistered"
+    IS_ENABLED = "isEnabled"
+    IS_CAPABLE = "isCapable"
+    IS_MFA_REGISTERED = "isMfaRegistered"
 
-    id = "id"
-    printer_id = "printerId"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum11(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum13(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    PRINTER_ID = "printerId"
+    PRINTER_ID_DESC = "printerId desc"
+    USAGE_DATE = "usageDate"
+    USAGE_DATE_DESC = "usageDate desc"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT_DESC = "completedBlackAndWhiteJobCount desc"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    COMPLETED_COLOR_JOB_COUNT_DESC = "completedColorJobCount desc"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
+    INCOMPLETE_JOB_COUNT_DESC = "incompleteJobCount desc"
 
-    id = "id"
-    printer_id = "printerId"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum12(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum14(str, Enum):
+    ID = "id"
+    PRINTER_ID = "printerId"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    id_desc = "id desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    usage_date = "usageDate"
-    usage_date_desc = "usageDate desc"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_black_and_white_job_count_desc = "completedBlackAndWhiteJobCount desc"
-    completed_color_job_count = "completedColorJobCount"
-    completed_color_job_count_desc = "completedColorJobCount desc"
-    incomplete_job_count = "incompleteJobCount"
-    incomplete_job_count_desc = "incompleteJobCount desc"
+class Enum13(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum15(str, Enum):
+    ID = "id"
+    PRINTER_ID = "printerId"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    user_principal_name = "userPrincipalName"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum14(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum16(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USAGE_DATE = "usageDate"
+    USAGE_DATE_DESC = "usageDate desc"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT_DESC = "completedBlackAndWhiteJobCount desc"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    COMPLETED_COLOR_JOB_COUNT_DESC = "completedColorJobCount desc"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
+    INCOMPLETE_JOB_COUNT_DESC = "incompleteJobCount desc"
 
-    id = "id"
-    user_principal_name = "userPrincipalName"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum20(str, Enum):
+    ID = "id"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    id_desc = "id desc"
-    printer_id = "printerId"
-    printer_id_desc = "printerId desc"
-    usage_date = "usageDate"
-    usage_date_desc = "usageDate desc"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_black_and_white_job_count_desc = "completedBlackAndWhiteJobCount desc"
-    completed_color_job_count = "completedColorJobCount"
-    completed_color_job_count_desc = "completedColorJobCount desc"
-    incomplete_job_count = "incompleteJobCount"
-    incomplete_job_count_desc = "incompleteJobCount desc"
+class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum21(str, Enum):
+    ID = "id"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    printer_id = "printerId"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum20(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum22(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    PRINTER_ID = "printerId"
+    PRINTER_ID_DESC = "printerId desc"
+    USAGE_DATE = "usageDate"
+    USAGE_DATE_DESC = "usageDate desc"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT_DESC = "completedBlackAndWhiteJobCount desc"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    COMPLETED_COLOR_JOB_COUNT_DESC = "completedColorJobCount desc"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
+    INCOMPLETE_JOB_COUNT_DESC = "incompleteJobCount desc"
 
-    id = "id"
-    printer_id = "printerId"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum21(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum23(str, Enum):
+    ID = "id"
+    PRINTER_ID = "printerId"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    id_desc = "id desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    usage_date = "usageDate"
-    usage_date_desc = "usageDate desc"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_black_and_white_job_count_desc = "completedBlackAndWhiteJobCount desc"
-    completed_color_job_count = "completedColorJobCount"
-    completed_color_job_count_desc = "completedColorJobCount desc"
-    incomplete_job_count = "incompleteJobCount"
-    incomplete_job_count_desc = "incompleteJobCount desc"
+class Enum22(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum24(str, Enum):
+    ID = "id"
+    PRINTER_ID = "printerId"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    user_principal_name = "userPrincipalName"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum23(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum25(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USAGE_DATE = "usageDate"
+    USAGE_DATE_DESC = "usageDate desc"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT_DESC = "completedBlackAndWhiteJobCount desc"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    COMPLETED_COLOR_JOB_COUNT_DESC = "completedColorJobCount desc"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
+    INCOMPLETE_JOB_COUNT_DESC = "incompleteJobCount desc"
 
-    id = "id"
-    user_principal_name = "userPrincipalName"
-    usage_date = "usageDate"
-    completed_black_and_white_job_count = "completedBlackAndWhiteJobCount"
-    completed_color_job_count = "completedColorJobCount"
-    incomplete_job_count = "incompleteJobCount"
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum26(str, Enum):
+    ID = "id"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    id_desc = "id desc"
-    feature = "feature"
-    feature_desc = "feature desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    user_display_name = "userDisplayName"
-    user_display_name_desc = "userDisplayName desc"
-    is_success = "isSuccess"
-    is_success_desc = "isSuccess desc"
-    auth_method = "authMethod"
-    auth_method_desc = "authMethod desc"
-    failure_reason = "failureReason"
-    failure_reason_desc = "failureReason desc"
-    event_date_time = "eventDateTime"
-    event_date_time_desc = "eventDateTime desc"
+class Enum25(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum27(str, Enum):
+    ID = "id"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USAGE_DATE = "usageDate"
+    COMPLETED_BLACK_AND_WHITE_JOB_COUNT = "completedBlackAndWhiteJobCount"
+    COMPLETED_COLOR_JOB_COUNT = "completedColorJobCount"
+    INCOMPLETE_JOB_COUNT = "incompleteJobCount"
 
-    id = "id"
-    feature = "feature"
-    user_principal_name = "userPrincipalName"
-    user_display_name = "userDisplayName"
-    is_success = "isSuccess"
-    auth_method = "authMethod"
-    failure_reason = "failureReason"
-    event_date_time = "eventDateTime"
+class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum28(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    FEATURE = "feature"
+    FEATURE_DESC = "feature desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USER_DISPLAY_NAME = "userDisplayName"
+    USER_DISPLAY_NAME_DESC = "userDisplayName desc"
+    IS_SUCCESS = "isSuccess"
+    IS_SUCCESS_DESC = "isSuccess desc"
+    AUTH_METHOD = "authMethod"
+    AUTH_METHOD_DESC = "authMethod desc"
+    FAILURE_REASON = "failureReason"
+    FAILURE_REASON_DESC = "failureReason desc"
+    EVENT_DATE_TIME = "eventDateTime"
+    EVENT_DATE_TIME_DESC = "eventDateTime desc"
 
-    id = "id"
-    feature = "feature"
-    user_principal_name = "userPrincipalName"
-    user_display_name = "userDisplayName"
-    is_success = "isSuccess"
-    auth_method = "authMethod"
-    failure_reason = "failureReason"
-    event_date_time = "eventDateTime"
+class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum7(str, Enum):
+    ID = "id"
+    FEATURE = "feature"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_DISPLAY_NAME = "userDisplayName"
+    IS_SUCCESS = "isSuccess"
+    AUTH_METHOD = "authMethod"
+    FAILURE_REASON = "failureReason"
+    EVENT_DATE_TIME = "eventDateTime"
 
-    id = "id"
-    app_id = "appId"
-    app_display_name = "appDisplayName"
-    status = "status"
-    sign_in_count = "signInCount"
-    aggregated_event_date_time = "aggregatedEventDateTime"
+class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum8(str, Enum):
+    ID = "id"
+    FEATURE = "feature"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_DISPLAY_NAME = "userDisplayName"
+    IS_SUCCESS = "isSuccess"
+    AUTH_METHOD = "authMethod"
+    FAILURE_REASON = "failureReason"
+    EVENT_DATE_TIME = "eventDateTime"
 
-    id = "id"
-    id_desc = "id desc"
-    user_principal_name = "userPrincipalName"
-    user_principal_name_desc = "userPrincipalName desc"
-    user_display_name = "userDisplayName"
-    user_display_name_desc = "userDisplayName desc"
-    auth_methods = "authMethods"
-    auth_methods_desc = "authMethods desc"
-    is_registered = "isRegistered"
-    is_registered_desc = "isRegistered desc"
-    is_enabled = "isEnabled"
-    is_enabled_desc = "isEnabled desc"
-    is_capable = "isCapable"
-    is_capable_desc = "isCapable desc"
-    is_mfa_registered = "isMfaRegistered"
-    is_mfa_registered_desc = "isMfaRegistered desc"
+class Enum7(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Enum9(str, Enum):
+    ID = "id"
+    APP_ID = "appId"
+    APP_DISPLAY_NAME = "appDisplayName"
+    STATUS = "status"
+    SIGN_IN_COUNT = "signInCount"
+    AGGREGATED_EVENT_DATE_TIME = "aggregatedEventDateTime"
 
-    id = "id"
-    user_principal_name = "userPrincipalName"
-    user_display_name = "userDisplayName"
-    auth_methods = "authMethods"
-    is_registered = "isRegistered"
-    is_enabled = "isEnabled"
-    is_capable = "isCapable"
-    is_mfa_registered = "isMfaRegistered"
+class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get0ItemsItem(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    USER_DISPLAY_NAME = "userDisplayName"
+    USER_DISPLAY_NAME_DESC = "userDisplayName desc"
+    AUTH_METHODS = "authMethods"
+    AUTH_METHODS_DESC = "authMethods desc"
+    IS_REGISTERED = "isRegistered"
+    IS_REGISTERED_DESC = "isRegistered desc"
+    IS_ENABLED = "isEnabled"
+    IS_ENABLED_DESC = "isEnabled desc"
+    IS_CAPABLE = "isCapable"
+    IS_CAPABLE_DESC = "isCapable desc"
+    IS_MFA_REGISTERED = "isMfaRegistered"
+    IS_MFA_REGISTERED_DESC = "isMfaRegistered desc"
 
-    id = "id"
-    application_sign_in_detailed_summary = "applicationSignInDetailedSummary"
-    credential_user_registration_details = "credentialUserRegistrationDetails"
-    user_credential_usage_details = "userCredentialUsageDetails"
-    daily_print_usage_summaries_by_user = "dailyPrintUsageSummariesByUser"
-    monthly_print_usage_summaries_by_user = "monthlyPrintUsageSummariesByUser"
-    daily_print_usage_summaries_by_printer = "dailyPrintUsageSummariesByPrinter"
-    monthly_print_usage_summaries_by_printer = "monthlyPrintUsageSummariesByPrinter"
+class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get1ItemsItem(str, Enum):
+    ID = "id"
+    USER_PRINCIPAL_NAME = "userPrincipalName"
+    USER_DISPLAY_NAME = "userDisplayName"
+    AUTH_METHODS = "authMethods"
+    IS_REGISTERED = "isRegistered"
+    IS_ENABLED = "isEnabled"
+    IS_CAPABLE = "isCapable"
+    IS_MFA_REGISTERED = "isMfaRegistered"
 
-    asterisk = "*"
-    application_sign_in_detailed_summary = "applicationSignInDetailedSummary"
-    credential_user_registration_details = "credentialUserRegistrationDetails"
-    user_credential_usage_details = "userCredentialUsageDetails"
-    daily_print_usage_summaries_by_user = "dailyPrintUsageSummariesByUser"
-    monthly_print_usage_summaries_by_user = "monthlyPrintUsageSummariesByUser"
-    daily_print_usage_summaries_by_printer = "dailyPrintUsageSummariesByPrinter"
-    monthly_print_usage_summaries_by_printer = "monthlyPrintUsageSummariesByPrinter"
+class Get0ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get5ItemsItem(str, Enum):
+    ID = "id"
+    APPLICATION_SIGN_IN_DETAILED_SUMMARY = "applicationSignInDetailedSummary"
+    CREDENTIAL_USER_REGISTRATION_DETAILS = "credentialUserRegistrationDetails"
+    USER_CREDENTIAL_USAGE_DETAILS = "userCredentialUsageDetails"
+    DAILY_PRINT_USAGE_SUMMARIES_BY_USER = "dailyPrintUsageSummariesByUser"
+    MONTHLY_PRINT_USAGE_SUMMARIES_BY_USER = "monthlyPrintUsageSummariesByUser"
+    DAILY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "dailyPrintUsageSummariesByPrinter"
+    MONTHLY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "monthlyPrintUsageSummariesByPrinter"
 
-    id = "id"
-    id_desc = "id desc"
-    app_id = "appId"
-    app_id_desc = "appId desc"
-    app_display_name = "appDisplayName"
-    app_display_name_desc = "appDisplayName desc"
-    status = "status"
-    status_desc = "status desc"
-    sign_in_count = "signInCount"
-    sign_in_count_desc = "signInCount desc"
-    aggregated_event_date_time = "aggregatedEventDateTime"
-    aggregated_event_date_time_desc = "aggregatedEventDateTime desc"
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get6ItemsItem(str, Enum):
+    ASTERISK = "*"
+    APPLICATION_SIGN_IN_DETAILED_SUMMARY = "applicationSignInDetailedSummary"
+    CREDENTIAL_USER_REGISTRATION_DETAILS = "credentialUserRegistrationDetails"
+    USER_CREDENTIAL_USAGE_DETAILS = "userCredentialUsageDetails"
+    DAILY_PRINT_USAGE_SUMMARIES_BY_USER = "dailyPrintUsageSummariesByUser"
+    MONTHLY_PRINT_USAGE_SUMMARIES_BY_USER = "monthlyPrintUsageSummariesByUser"
+    DAILY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "dailyPrintUsageSummariesByPrinter"
+    MONTHLY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "monthlyPrintUsageSummariesByPrinter"
 
-    id = "id"
-    app_id = "appId"
-    app_display_name = "appDisplayName"
-    status = "status"
-    sign_in_count = "signInCount"
-    aggregated_event_date_time = "aggregatedEventDateTime"
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphAzureAdLicenseType(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    APP_ID = "appId"
+    APP_ID_DESC = "appId desc"
+    APP_DISPLAY_NAME = "appDisplayName"
+    APP_DISPLAY_NAME_DESC = "appDisplayName desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+    SIGN_IN_COUNT = "signInCount"
+    SIGN_IN_COUNT_DESC = "signInCount desc"
+    AGGREGATED_EVENT_DATE_TIME = "aggregatedEventDateTime"
+    AGGREGATED_EVENT_DATE_TIME_DESC = "aggregatedEventDateTime desc"
 
-    none = "none"
-    free = "free"
-    basic = "basic"
-    premium_p1 = "premiumP1"
-    premium_p2 = "premiumP2"
-    unknown_future_value = "unknownFutureValue"
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphFeatureType(str, Enum):
+    ID = "id"
+    APP_ID = "appId"
+    APP_DISPLAY_NAME = "appDisplayName"
+    STATUS = "status"
+    SIGN_IN_COUNT = "signInCount"
+    AGGREGATED_EVENT_DATE_TIME = "aggregatedEventDateTime"
 
-    registration = "registration"
-    reset = "reset"
-    unknown_future_value = "unknownFutureValue"
+class MicrosoftGraphAzureAdLicenseType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphMigrationStatus(str, Enum):
+    NONE = "none"
+    FREE = "free"
+    BASIC = "basic"
+    PREMIUM_P1 = "premiumP1"
+    PREMIUM_P2 = "premiumP2"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-    ready = "ready"
-    needs_review = "needsReview"
-    additional_steps_required = "additionalStepsRequired"
-    unknown_future_value = "unknownFutureValue"
+class MicrosoftGraphFeatureType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphRegistrationAuthMethod(str, Enum):
+    REGISTRATION = "registration"
+    RESET = "reset"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-    email = "email"
-    mobile_phone = "mobilePhone"
-    office_phone = "officePhone"
-    security_question = "securityQuestion"
-    app_notification = "appNotification"
-    app_code = "appCode"
-    alternate_mobile_phone = "alternateMobilePhone"
-    fido = "fido"
-    app_password = "appPassword"
-    unknown_future_value = "unknownFutureValue"
+class MicrosoftGraphMigrationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphRegistrationStatusType(str, Enum):
+    READY = "ready"
+    NEEDS_REVIEW = "needsReview"
+    ADDITIONAL_STEPS_REQUIRED = "additionalStepsRequired"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-    registered = "registered"
-    enabled = "enabled"
-    capable = "capable"
-    mfa_registered = "mfaRegistered"
-    unknown_future_value = "unknownFutureValue"
+class MicrosoftGraphRegistrationAuthMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphUsageAuthMethod(str, Enum):
+    EMAIL = "email"
+    MOBILE_PHONE = "mobilePhone"
+    OFFICE_PHONE = "officePhone"
+    SECURITY_QUESTION = "securityQuestion"
+    APP_NOTIFICATION = "appNotification"
+    APP_CODE = "appCode"
+    ALTERNATE_MOBILE_PHONE = "alternateMobilePhone"
+    FIDO = "fido"
+    APP_PASSWORD = "appPassword"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-    email = "email"
-    mobile_sms = "mobileSMS"
-    mobile_call = "mobileCall"
-    office_phone = "officePhone"
-    security_question = "securityQuestion"
-    app_notification = "appNotification"
-    app_code = "appCode"
-    alternate_mobile_call = "alternateMobileCall"
-    fido = "fido"
-    app_password = "appPassword"
-    unknown_future_value = "unknownFutureValue"
+class MicrosoftGraphRegistrationStatusType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    REGISTERED = "registered"
+    ENABLED = "enabled"
+    CAPABLE = "capable"
+    MFA_REGISTERED = "mfaRegistered"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphUsageAuthMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "email"
+    MOBILE_SMS = "mobileSMS"
+    MOBILE_CALL = "mobileCall"
+    OFFICE_PHONE = "officePhone"
+    SECURITY_QUESTION = "securityQuestion"
+    APP_NOTIFICATION = "appNotification"
+    APP_CODE = "appCode"
+    ALTERNATE_MOBILE_CALL = "alternateMobileCall"
+    FIDO = "fido"
+    APP_PASSWORD = "appPassword"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"

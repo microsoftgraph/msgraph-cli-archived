@@ -17,14 +17,14 @@ helps['teamsteamwork'] = """
     short-summary: teamsteamwork
 """
 
-helps['teamsteamwork update'] = """
-    type: command
-    short-summary: Update the navigation property teamwork in users
-"""
-
 helps['teamsteamwork get-teamwork'] = """
     type: command
-    short-summary: Get teamwork from users
+    short-summary: "Get teamwork from users"
+"""
+
+helps['teamsteamwork update-teamwork'] = """
+    type: command
+    short-summary: "Update the navigation property teamwork in users"
 """
 
 helps['teamsteamwork'] = """
@@ -32,38 +32,12 @@ helps['teamsteamwork'] = """
     short-summary: teamsteamwork
 """
 
-helps['teamsteamwork update'] = """
-    type: command
-    short-summary: Update the navigation property installedApps in users
-    parameters:
-      - name: --teams-app-definition
-        short-summary: teamsAppDefinition
-        long-summary: |
-            Usage: --teams-app-definition teams-app-id=XX display-name=XX version=XX id=XX
-
-            teams-app-id: The id from the Teams App manifest.
-            display-name: The name of the app provided by the app developer.
-            version: The version number of the application.
-            id: Read-only.
-      - name: --teams-app-app-definitions
-        short-summary: The details for each version of the app.
-        long-summary: |
-            Usage: --teams-app-app-definitions teams-app-id=XX display-name=XX version=XX id=XX
-
-            teams-app-id: The id from the Teams App manifest.
-            display-name: The name of the app provided by the app developer.
-            version: The version number of the application.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
-"""
-
 helps['teamsteamwork create-installed-app'] = """
     type: command
-    short-summary: Create new navigation property to installedApps for users
+    short-summary: "Create new navigation property to installedApps for users"
     parameters:
       - name: --teams-app-definition
-        short-summary: teamsAppDefinition
+        short-summary: "teamsAppDefinition"
         long-summary: |
             Usage: --teams-app-definition teams-app-id=XX display-name=XX version=XX id=XX
 
@@ -72,7 +46,7 @@ helps['teamsteamwork create-installed-app'] = """
             version: The version number of the application.
             id: Read-only.
       - name: --teams-app-app-definitions
-        short-summary: The details for each version of the app.
+        short-summary: "The details for each version of the app."
         long-summary: |
             Usage: --teams-app-app-definitions teams-app-id=XX display-name=XX version=XX id=XX
 
@@ -86,12 +60,38 @@ helps['teamsteamwork create-installed-app'] = """
 
 helps['teamsteamwork get-installed-app'] = """
     type: command
-    short-summary: Get installedApps from users
+    short-summary: "Get installedApps from users"
 """
 
 helps['teamsteamwork list-installed-app'] = """
     type: command
-    short-summary: Get installedApps from users
+    short-summary: "Get installedApps from users"
+"""
+
+helps['teamsteamwork update-installed-app'] = """
+    type: command
+    short-summary: "Update the navigation property installedApps in users"
+    parameters:
+      - name: --teams-app-definition
+        short-summary: "teamsAppDefinition"
+        long-summary: |
+            Usage: --teams-app-definition teams-app-id=XX display-name=XX version=XX id=XX
+
+            teams-app-id: The id from the Teams App manifest.
+            display-name: The name of the app provided by the app developer.
+            version: The version number of the application.
+            id: Read-only.
+      - name: --teams-app-app-definitions
+        short-summary: "The details for each version of the app."
+        long-summary: |
+            Usage: --teams-app-app-definitions teams-app-id=XX display-name=XX version=XX id=XX
+
+            teams-app-id: The id from the Teams App manifest.
+            display-name: The name of the app provided by the app developer.
+            version: The version number of the application.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
 """
 
 helps['teamsteamwork'] = """
@@ -101,10 +101,10 @@ helps['teamsteamwork'] = """
 
 helps['teamsteamwork get-team-app'] = """
     type: command
-    short-summary: Get teamsApp from users
+    short-summary: "Get teamsApp from users"
 """
 
 helps['teamsteamwork get-team-app-definition'] = """
     type: command
-    short-summary: Get teamsAppDefinition from users
+    short-summary: "Get teamsAppDefinition from users"
 """

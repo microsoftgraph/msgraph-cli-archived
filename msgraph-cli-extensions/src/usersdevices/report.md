@@ -95,9 +95,9 @@ list-device a usersdevices.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### usersdevices update
+### usersdevices update-device
 
-update a usersdevices.
+update-device a usersdevices.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -107,7 +107,7 @@ update a usersdevices.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateDevices|
+|update-device|UpdateDevices|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|

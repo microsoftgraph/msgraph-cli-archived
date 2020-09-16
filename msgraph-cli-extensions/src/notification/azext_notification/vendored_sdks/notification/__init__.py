@@ -10,7 +10,7 @@ from ._notification import Notification
 __all__ = ['Notification']
 
 try:
-    from ._patch import patch_sdk
+    from ._patch import patch_sdk  # type: ignore
     patch_sdk()
 except ImportError:
     pass

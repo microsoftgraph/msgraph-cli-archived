@@ -20,7 +20,7 @@ def load_command_table(self, _):
         operations_tmpl='azext_usersdevices.vendored_sdks.usersdevices.operations._user_operations#UserOperations.{}',
         client_factory=cf_user)
     with self.command_group('usersdevices', usersdevices_user, client_factory=cf_user) as g:
-        g.custom_command('update', 'usersdevices_update')
         g.custom_command('create-device', 'usersdevices_create_device')
         g.custom_command('get-device', 'usersdevices_get_device')
         g.custom_command('list-device', 'usersdevices_list_device')
+        g.custom_command('update-device', 'usersdevices_update_device')

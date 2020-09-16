@@ -6,40 +6,58 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from enum import Enum
+from enum import Enum, EnumMeta
+from six import with_metaclass
 
-class Get1ItemsItem(str, Enum):
+class _CaseInsensitiveEnumMeta(EnumMeta):
+    def __getitem__(self, name):
+        return super().__getitem__(name.upper())
 
-    id = "id"
-    display_name = "displayName"
-    geo_coordinates = "geoCoordinates"
-    phone = "phone"
-    address = "address"
+    def __getattr__(cls, name):
+        """Return the enum member matching `name`
+        We use __getattr__ instead of descriptors or inserting into the enum
+        class' __dict__ in order to support `name` and `value` being both
+        properties for enum members (which live in the class' __dict__) and
+        enum members themselves.
+        """
+        try:
+            return cls._member_map_[name.upper()]
+        except KeyError:
+            raise AttributeError(name)
 
-class Get5ItemsItem(str, Enum):
 
-    id = "id"
-    id_desc = "id desc"
-    display_name = "displayName"
-    display_name_desc = "displayName desc"
-    geo_coordinates = "geoCoordinates"
-    geo_coordinates_desc = "geoCoordinates desc"
-    phone = "phone"
-    phone_desc = "phone desc"
-    address = "address"
-    address_desc = "address desc"
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class Get6ItemsItem(str, Enum):
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    GEO_COORDINATES = "geoCoordinates"
+    PHONE = "phone"
+    ADDRESS = "address"
 
-    id = "id"
-    display_name = "displayName"
-    geo_coordinates = "geoCoordinates"
-    phone = "phone"
-    address = "address"
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-class MicrosoftGraphPhysicalAddressType(str, Enum):
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    GEO_COORDINATES = "geoCoordinates"
+    GEO_COORDINATES_DESC = "geoCoordinates desc"
+    PHONE = "phone"
+    PHONE_DESC = "phone desc"
+    ADDRESS = "address"
+    ADDRESS_DESC = "address desc"
 
-    unknown = "unknown"
-    home = "home"
-    business = "business"
-    other = "other"
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    GEO_COORDINATES = "geoCoordinates"
+    PHONE = "phone"
+    ADDRESS = "address"
+
+class MicrosoftGraphPhysicalAddressType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    HOME = "home"
+    BUSINESS = "business"
+    OTHER = "other"

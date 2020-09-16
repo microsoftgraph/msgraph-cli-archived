@@ -10,7 +10,7 @@ from ._places import Places
 __all__ = ['Places']
 
 try:
-    from ._patch import patch_sdk
+    from ._patch import patch_sdk  # type: ignore
     patch_sdk()
 except ImportError:
     pass

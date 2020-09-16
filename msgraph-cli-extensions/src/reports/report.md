@@ -2347,9 +2347,9 @@ managed-device-enrollment-top-failures4669 a reports.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 
-### reports update
+### reports update-application-sign-in-detailed-summary
 
-update a reports.
+update-application-sign-in-detailed-summary a reports.
 
 #### Command group
 |Name (az)|Swagger name|
@@ -2359,22 +2359,12 @@ update a reports.
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update|UpdateApplicationSignInDetailedSummary|
-|update|UpdateCredentialUserRegistrationDetails|
-|update|UpdateDailyPrintUsageSummariesByPrinter|
-|update|UpdateDailyPrintUsageSummariesByUser|
-|update|UpdateMonthlyPrintUsageSummariesByPrinter|
-|update|UpdateMonthlyPrintUsageSummariesByUser|
-|update|UpdateUserCredentialUsageDetails|
+|update-application-sign-in-detailed-summary|UpdateApplicationSignInDetailedSummary|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--application-sign-in-detailed-summary-id**|string|key: applicationSignInDetailedSummary-id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
-|**--credential-user-registration-details-id**|string|key: credentialUserRegistrationDetails-id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
-|**--print-usage-summary-by-printer-id**|string|key: PrintUsageSummaryByPrinter-id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
-|**--print-usage-summary-by-user-id**|string|key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-|**--user-credential-usage-details-id**|string|key: userCredentialUsageDetails-id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
 |**--id**|string|Read-only.|id|id|
 |**--app-id**|string||app_id|appId|
 |**--app-display-name**|string||app_display_name|appDisplayName|
@@ -2383,6 +2373,26 @@ update a reports.
 |**--status-error-code**|integer|Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.|error_code|errorCode|
 |**--status-failure-reason**|string|Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.|failure_reason|failureReason|
 |**--status-additional-details**|string|Provides additional details on the sign-in activity|additional_details|additionalDetails|
+
+### reports update-credential-user-registration-detail
+
+update-credential-user-registration-detail a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|reports|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-credential-user-registration-detail|UpdateCredentialUserRegistrationDetails|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--credential-user-registration-details-id**|string|key: credentialUserRegistrationDetails-id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
+|**--id**|string|Read-only.|id|id|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--auth-methods**|array||auth_methods|authMethods|
@@ -2390,12 +2400,155 @@ update a reports.
 |**--is-enabled**|boolean||is_enabled|isEnabled|
 |**--is-capable**|boolean||is_capable|isCapable|
 |**--is-mfa-registered**|boolean||is_mfa_registered|isMfaRegistered|
+
+### reports update-daily-print-usage-summary-by-printer
+
+update-daily-print-usage-summary-by-printer a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|reports|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-daily-print-usage-summary-by-printer|UpdateDailyPrintUsageSummariesByPrinter|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-printer-id**|string|key: PrintUsageSummaryByPrinter-id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+|**--id**|string|Read-only.|id|id|
 |**--printer-id**|string||printer_id|printerId|
 |**--usage-date**|date||usage_date|usageDate|
 |**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
 |**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
 |**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
+
+### reports update-daily-print-usage-summary-by-user
+
+update-daily-print-usage-summary-by-user a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|reports|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-daily-print-usage-summary-by-user|UpdateDailyPrintUsageSummariesByUser|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-user-id**|string|key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+|**--id**|string|Read-only.|id|id|
+|**--user-principal-name**|string||user_principal_name|userPrincipalName|
+|**--usage-date**|date||usage_date|usageDate|
+|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
+|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
+|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
+
+### reports update-monthly-print-usage-summary-by-printer
+
+update-monthly-print-usage-summary-by-printer a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|reports|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-monthly-print-usage-summary-by-printer|UpdateMonthlyPrintUsageSummariesByPrinter|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-printer-id**|string|key: PrintUsageSummaryByPrinter-id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+|**--id**|string|Read-only.|id|id|
+|**--printer-id**|string||printer_id|printerId|
+|**--usage-date**|date||usage_date|usageDate|
+|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
+|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
+|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
+
+### reports update-monthly-print-usage-summary-by-user
+
+update-monthly-print-usage-summary-by-user a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|reports|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-monthly-print-usage-summary-by-user|UpdateMonthlyPrintUsageSummariesByUser|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-user-id**|string|key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+|**--id**|string|Read-only.|id|id|
+|**--user-principal-name**|string||user_principal_name|userPrincipalName|
+|**--usage-date**|date||usage_date|usageDate|
+|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
+|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
+|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
+
+### reports update-report-root
+
+update-report-root a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|reports.reportRoot|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-report-root|UpdateReportRoot|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--application-sign-in-detailed-summary**|array||application_sign_in_detailed_summary|applicationSignInDetailedSummary|
+|**--credential-user-registration-details**|array||credential_user_registration_details|credentialUserRegistrationDetails|
+|**--user-credential-usage-details**|array||user_credential_usage_details|userCredentialUsageDetails|
+|**--daily-print-usage-summaries-by-user**|array||daily_print_usage_summaries_by_user|dailyPrintUsageSummariesByUser|
+|**--monthly-print-usage-summaries-by-user**|array||monthly_print_usage_summaries_by_user|monthlyPrintUsageSummariesByUser|
+|**--daily-print-usage-summaries-by-printer**|array||daily_print_usage_summaries_by_printer|dailyPrintUsageSummariesByPrinter|
+|**--monthly-print-usage-summaries-by-printer**|array||monthly_print_usage_summaries_by_printer|monthlyPrintUsageSummariesByPrinter|
+
+### reports update-user-credential-usage-detail
+
+update-user-credential-usage-detail a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|reports|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-user-credential-usage-detail|UpdateUserCredentialUsageDetails|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-credential-usage-details-id**|string|key: userCredentialUsageDetails-id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
+|**--id**|string|Read-only.|id|id|
 |**--feature**|choice||feature|feature|
+|**--user-principal-name**|string||user_principal_name|userPrincipalName|
+|**--user-display-name**|string||user_display_name|userDisplayName|
 |**--is-success**|boolean||is_success|isSuccess|
 |**--auth-method**|choice||auth_method|authMethod|
 |**--failure-reason**|string||failure_reason|failureReason|

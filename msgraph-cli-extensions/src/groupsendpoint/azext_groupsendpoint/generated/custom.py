@@ -10,27 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def groupsendpoint_update(client,
-                          group_id,
-                          endpoint_id,
-                          id_=None,
-                          deleted_date_time=None,
-                          capability=None,
-                          provider_id=None,
-                          provider_name=None,
-                          uri=None,
-                          provider_resource_id=None):
-    return client.update_endpoint(group_id=group_id,
-                                  endpoint_id=endpoint_id,
-                                  id=id_,
-                                  deleted_date_time=deleted_date_time,
-                                  capability=capability,
-                                  provider_id=provider_id,
-                                  provider_name=provider_name,
-                                  uri=uri,
-                                  provider_resource_id=provider_resource_id)
-
-
 def groupsendpoint_create_endpoint(client,
                                    group_id,
                                    id_=None,
@@ -70,3 +49,24 @@ def groupsendpoint_list_endpoint(client,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
+
+
+def groupsendpoint_update_endpoint(client,
+                                   group_id,
+                                   endpoint_id,
+                                   id_=None,
+                                   deleted_date_time=None,
+                                   capability=None,
+                                   provider_id=None,
+                                   provider_name=None,
+                                   uri=None,
+                                   provider_resource_id=None):
+    return client.update_endpoint(group_id=group_id,
+                                  endpoint_id=endpoint_id,
+                                  id=id_,
+                                  deleted_date_time=deleted_date_time,
+                                  capability=capability,
+                                  provider_id=provider_id,
+                                  provider_name=provider_name,
+                                  uri=uri,
+                                  provider_resource_id=provider_resource_id)

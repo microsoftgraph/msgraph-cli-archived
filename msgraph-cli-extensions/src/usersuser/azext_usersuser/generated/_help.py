@@ -17,29 +17,29 @@ helps['usersuser'] = """
     short-summary: usersuser
 """
 
-helps['usersuser update'] = """
-    type: command
-    short-summary: Update entity in users
-"""
-
 helps['usersuser delete'] = """
     type: command
-    short-summary: Delete entity from users
+    short-summary: "Delete entity from users"
 """
 
 helps['usersuser create-user'] = """
     type: command
-    short-summary: Add new entity to users
+    short-summary: "Add new entity to users"
 """
 
 helps['usersuser get-user'] = """
     type: command
-    short-summary: Get entity from users by key
+    short-summary: "Get entity from users by key"
 """
 
 helps['usersuser list-user'] = """
     type: command
-    short-summary: Get entities from users
+    short-summary: "Get entities from users"
+"""
+
+helps['usersuser update-user'] = """
+    type: command
+    short-summary: "Update entity in users"
 """
 
 helps['usersuser'] = """
@@ -47,12 +47,12 @@ helps['usersuser'] = """
     short-summary: usersuser
 """
 
-helps['usersuser update'] = """
-    type: command
-    short-summary: Update the navigation property presence in users
-"""
-
 helps['usersuser get-presence'] = """
     type: command
-    short-summary: Get presence from users
+    short-summary: "Get presence from users"
+"""
+
+helps['usersuser update-presence'] = """
+    type: command
+    short-summary: "Update the navigation property presence in users"
 """
