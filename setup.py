@@ -47,7 +47,7 @@ DEPENDENCIES = [
     'sshtunnel',
     'argcomplete~=1.8',
     'azure-cli-telemetry',
-    'azure-identity==1.3.1',
+    'azure-identity==1.4.0b7',
     'colorama>=0.3.9',
     'humanfriendly>=4.7,<9.0',
     'jmespath',
@@ -63,7 +63,7 @@ DEPENDENCIES = [
     'six~=1.12',
     'pkginfo>=1.5.0.1',
     'azure-mgmt-resource==9.0.0',
-    'azure-mgmt-core==1.0.0'
+    'azure-mgmt-core==1.2.0'
 ]
 
 TESTS_REQUIRE = ['mock']

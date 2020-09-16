@@ -35,8 +35,12 @@ class Authentication:
     def _save_auth_record(self, auth_record: AuthenticationRecord):
         record = auth_record.serialize()
 
-        with open(AUTH_RECORD_LOCATION, 'w') as file:
-            file.write(record)
+        try:
+            with open(AUTH_RECORD_LOCATION, 'w') as file:
+                file.write(record)
+        except IOError as ex:
+            raise CLIException('Authentication session not saved, you\'ll be prompted \
+                to login when running a command') from ex
 
     def _get_auth_record(self, login) -> AuthenticationRecord:
         result = None
@@ -55,7 +59,11 @@ class Authentication:
 
     def _delete_auth_record(self):
         if path.isfile(AUTH_RECORD_LOCATION):
-            remove(AUTH_RECORD_LOCATION)
-            print('Logged out successfully')
+            try:
+                remove(AUTH_RECORD_LOCATION)
+                print('Logged out successfully')
+            except IOError as ex:
+                print('Logout failed')
+                raise CLIException(ex)
         else:
             print('You\'re already logged out')
