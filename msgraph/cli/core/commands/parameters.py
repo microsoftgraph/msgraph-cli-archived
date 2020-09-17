@@ -1,7 +1,7 @@
 import argparse
 from knack.util import CLIError
 from knack import ArgumentsContext
-from knack.arguments import (CLIArgumentType, CaseInsensitiveList, ignore_type, ArgumentsContext)
+from knack.arguments import (CLIArgumentType, CaseInsensitiveList)
 
 
 class GraphArgumentContext(ArgumentsContext):
