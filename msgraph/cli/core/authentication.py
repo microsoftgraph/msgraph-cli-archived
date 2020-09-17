@@ -29,6 +29,7 @@ class Authentication:
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
             enable_persistent_cache=True,
+            allow_unencrypted_cache=True,
             authentication_record=auth_record,
         )
 
