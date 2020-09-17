@@ -101,7 +101,7 @@ export DH_OPTIONS=-v
 
 
 %:
-${TAB}dh \$@ --with=python3 --buildsystem=pybuild --sourcedirectory $source_dir
+${TAB}dh \$@ --buildsystem=pybuild --sourcedirectory $source_dir
 
 override_dh_install:
 ${TAB}mkdir -p debian/msgraph-cli/opt/mg
