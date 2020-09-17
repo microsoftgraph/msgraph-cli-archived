@@ -21,7 +21,7 @@ $ mg [ group ] [ command ] {parameters}
 
 #### Login
 ```bash
-$ mg login --scopes "user.read, mail.read"
+$ mg login --scopes "user.read.all"
 ```
 
 #### Query
