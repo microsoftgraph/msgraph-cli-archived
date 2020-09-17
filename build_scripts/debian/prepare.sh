@@ -78,7 +78,7 @@ Microsoft Graph CLI
 
 Copyright (c) Microsoft Corporation
 
-All rights reserved. 
+All rights reserved.
 
 MIT License
 
@@ -101,7 +101,7 @@ export DH_OPTIONS=-v
 
 
 %:
-${TAB}dh \$@ --sourcedirectory $source_dir
+${TAB}dh \$@ --with=python3 --buildsystem=pybuild --sourcedirectory $source_dir
 
 override_dh_install:
 ${TAB}mkdir -p debian/msgraph-cli/opt/mg

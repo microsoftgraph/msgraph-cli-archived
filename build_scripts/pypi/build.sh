@@ -10,10 +10,10 @@ echo "Starting at `pwd`"
 cd $BUILD_SOURCESDIRECTORY
 
 echo "Search setup files from `pwd`."
-python --version
+python3 --version
 
-pip install -U pip setuptools wheel
-pip list
+pip3 install -U pip setuptools wheel
+pip3 list
 
-python setup.py bdist_wheel -d $BUILD_STAGINGDIRECTORY
-python setup.py sdist  -d $BUILD_STAGINGDIRECTORY
+python3 setup.py bdist_wheel -d $BUILD_STAGINGDIRECTORY
+python3 setup.py sdist  -d $BUILD_STAGINGDIRECTORY
