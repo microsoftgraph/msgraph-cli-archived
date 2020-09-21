@@ -21,14 +21,14 @@ RUN ${PYTHON_SRC_DIR}/*/configure --srcdir ${PYTHON_SRC_DIR}/* --prefix $(pwd)/p
         ln /msgraph-cli/python_env/bin/python3 /msgraph-cli/python_env/bin/python && \
         ln /msgraph-cli/python_env/bin/pip3 /msgraph-cli/python_env/bin/pip
 
- ENV PATH=/msgraph-cli/python_env/bin:$PATH
+ENV PATH=/msgraph-cli/python_env/bin:$PATH
 
 RUN pip install wheel
 
 COPY . .
 
 RUN mkdir -p ./bin/pypi && \
-        BUILD_STAGINGDIRECTORY=/msgraph-cli/bin/pypi ./build_scripts/pypi/build.sh && \
+        BUILD_STAGINGDIRECTORY=/msgraph-cli/bin/pypi ./build_scripts/debian/build.sh && \
         if [ -d ./privates ]; then find ./privates -name '*.whl' | xargs pip install; fi && \
         find ./bin/pypi -name '*.whl' | xargs pip3 install && \
         pip install --force-reinstall urllib3==1.24.2
@@ -43,6 +43,7 @@ RUN mkdir -p ./debian && \
 
 FROM $base_image AS execution-env
 
+COPY /msgraph-cli_all.deb .
 COPY --from=build-env /msgraph-cli_all.deb /msgraph-cli_all.deb
 
 RUN dpkg -i /msgraph-cli_all.deb && \
