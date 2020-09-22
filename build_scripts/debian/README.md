@@ -15,7 +15,7 @@ unsigned `.deb` built from the current contents of your msgraph-cli directory. T
 you can run the following commands:
 
 ``` bash
-docker run --name debian microsoft/azure-cli:ubuntu-builder
+docker run --name debian microsoft/msgraph-cli:ubuntu-builder
 docker cp debian:/msgraph-cli_all.deb .
 ```
 
