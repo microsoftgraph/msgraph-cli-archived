@@ -98,10 +98,10 @@ cat > $debian_dir/rules << EOM
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 export DH_OPTIONS=-v
-
+export PYBUILD_SYSTEM=distutils
 
 %:
-${TAB}dh \$@ --buildsystem=pybuild --sourcedirectory $source_dir
+${TAB}dh \$@ --with python3 --buildsystem=pybuild --system=custom
 
 override_dh_install:
 ${TAB}mkdir -p debian/msgraph-cli/opt/mg

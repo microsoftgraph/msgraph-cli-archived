@@ -61,8 +61,31 @@ else
 fi
 
 
-
-python="${python_dir}/Python-3.6.10/python_env/bin/python3"
+#TODO: Use absolute path
+python="${python_dir}/Python-3.6.10/python_env/bin/python3.6"
 pip="${python_dir}/Python-3.6.10/python_env/bin/pip3"
 
-$pip install wheel
+$pip list
+
+pushd "../"
+"debian/${python}" install_extensions.py
+popd
+
+pushd "../../"
+"build_scripts/debian/${python}" setup.py bdist_wheel 
+"build_scripts/debian/${python}" setup.py sdist 
+popd
+
+$pip install --force-reinstall urllib3==1.24.2 distutils
+
+cli_version=0.0.0-dev
+cli_version_revision=1
+
+rm -rf ./debian
+
+export PYBUILD_SYSTEM=distutils
+
+mkdir -p ./debian && \
+        CLI_VERSION=${cli_version} CLI_VERSION_REVISION=${cli_version_revision} ./prepare.sh ./debian ../../az.completion ../../ && \
+        dpkg-buildpackage -us -uc -rsudo && \
+        cp /msgraph-cli_${cli_version}-${cli_version_revision}_all.deb /msgraph-cli_all.deb
