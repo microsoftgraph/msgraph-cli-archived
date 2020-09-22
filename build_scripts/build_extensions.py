@@ -8,8 +8,7 @@ from os import path
 from setuptools import sandbox
 
 path_to_extensions = path.join(os.getcwd(), 'msgraph-cli-extensions', 'src')
-path_to_manifest = path.join(
-    os.getcwd(), 'msgraph', 'cli', 'core', 'installed_extensions.py')
+path_to_manifest = path.join(os.getcwd(), 'msgraph', 'cli', 'core', 'installed_extensions.py')
 
 
 def build_extensions(extensions_directory=path_to_extensions):
@@ -25,15 +24,15 @@ def build_extensions(extensions_directory=path_to_extensions):
 
     for extension in extensions:
         add_extension_to_manifest(manifest, extension)
-        sandbox.run_setup(path.join(path_to_extensions, extension,
-                                    'setup.py'), ['clean', 'bdist_wheel'])
+        sandbox.run_setup(path.join(path_to_extensions, extension, 'setup.py'),
+                          ['clean', 'bdist_wheel'])
 
     manifest.write(']')
     manifest.close()
 
 
 def add_extension_to_manifest(manifest, extension):
-    manifest.write(f''' 'azext_{extension}','''+'\n')
+    manifest.write(f''' 'azext_{extension}',''' + '\n')
 
 
 build_extensions()

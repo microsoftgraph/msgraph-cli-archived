@@ -19,7 +19,7 @@ pr: none
 
 pool:
   vmImage: 'vs2017-win2016'
-  
+
 strategy:
   matrix:
     Python37:
@@ -39,6 +39,16 @@ steps:
 - script: |
     python build_scripts/build_extensions.py
   displayName: 'Build msgraph extensions'
+
+- task: CmdLine@2
+  displayName: 'Build debian package'
+  inputs:
+    workindDirectory: $(Agent.BuildDirectory)
+    script: |
+      docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
+      docker run --name debian microsoft/msgraph-cli:ubuntu-builder
+      docker cp debian:/msgraph-cli_all.deb build_scripts/windows/out/msgraph-cli_all.deb
+
 
 - task: CmdLine@2
   displayName: 'Build Windows MSI'
