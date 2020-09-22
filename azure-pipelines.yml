@@ -24,15 +24,15 @@ stages:
       - script: |
           python build_scripts/build_extensions.py
         displayName: 'Build cli extensions'
-    - task: CmdLine@2
-      displayName: 'Build Windows MSI'
-      inputs:
-        workingDirectory: $(Agent.BuildDirectory)
-        script: |
-          python setup.py sdist bdist_wheel
-          set  CLI_VERSION=$(CLI_VERSION)
-          set
-          build_scripts/windows/scripts/build.cmd
+      - task: CmdLine@2
+        displayName: 'Build msgraph-cli'
+        inputs:
+          workingDirectory: $(Agent.BuildDirectory)
+          script: |
+            python setup.py sdist bdist_wheel
+            set CLI_VERSION=$(CLI_VERSION)
+            set
+            build_scripts/windows/scripts/build.cmd
       - task: PublishPipelineArtifact@0
         displayName: 'Publish msgraph-cli artifact'
         inputs:
