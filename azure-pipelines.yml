@@ -40,7 +40,7 @@ stages:
       - task: PublishPipelineArtifact@0
         displayName: 'Publish msgraph-cli artifact'
         inputs:
-          TargetPath: 'build_scripts/windows/out'
+          TargetPath: 'build_scripts/windows/out/*.msi'
           ArtifcatName: msgraph-msi
 
 
