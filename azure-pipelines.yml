@@ -1,75 +1,50 @@
-# Python package
-# Create and test a Python package on multiple Python versions.
-# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+name: msgraph_cli_$(Date:yyyyMMdd)
 
-name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+stages:
+- stage: BuildPackages
+  displayName: 'Build Packages'
+  jobs:
+  - job: BuildMSIPackage
+    displayName: "Build MSI Package"
+    pool:
+      vmImage: 'vs2017-win2016'
+    strategy:
+      matrix:
+        Python37:
+          python.version: '3.7'
+    steps:
+      - task: UsePythonVersion@0
+        displayName: 'Use Python $(python.version)'
+        inputs:
+          versionSpec: '$(python.version)'
+      - script: |
+          python -m pip install --upgrade pip
+          pip install wheel
+        displayName: 'Upgrade pip and install wheel'
+      - script: |
+          python build_scripts/build_extensions.py
+        displayName: 'Build cli extensions'
+      - task: CmdLine@2
+        displayName: 'Build msgraph-cli'
+        inputs:
+          workingDirectory: $(Agent.BuildDirectory)
+          script: |
+            python setup.py sdist bdist_wheel
+            set CLI_VERSION=$(CLI_VERSION)
+            set
+            build_scripts/windows/scripts/build.cmd
+       - task: PublishPipelineArtifact@0
+         displayName: 'Publish msgraph-cli artifact'
+         inputs:
+           TargetPath: 'build_scripts/windows/out'
+           ArtifcatName: msgraph-msi
+#   - job: BuildDebianPackage
+#     displayName: "Build Debian Package"
 
-trigger:
-  branches:
-    include:
-      - main
-  paths:
-    include:
-      - msgraph/*
-      - msgraph-cli-extensions/*
-      - build_scripts/*
-
-pr: none
-
-pool:
-  vmImage: 'vs2017-win2016'
-
-strategy:
-  matrix:
-    Python37:
-      python.version: '3.7'
-
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
-
-- script: |
-    python -m pip install --upgrade pip
-    pip install wheel
-  displayName: 'Install dependencies'
-
-- script: |
-    python build_scripts/build_extensions.py
-  displayName: 'Build msgraph extensions'
-
-- task: CmdLine@2
-  displayName: 'Build debian package'
-  inputs:
-    workindDirectory: $(Agent.BuildDirectory)
-    script: |
-      docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
-      docker run --name debian microsoft/msgraph-cli:ubuntu-builder
-      docker cp debian:/msgraph-cli_all.deb build_scripts/windows/out/msgraph-cli_all.deb
-
-
-- task: CmdLine@2
-  displayName: 'Build Windows MSI'
-  inputs:
-    workindDirectory: $(Agent.BuildDirectory)
-    script: |
-      python setup.py sdist bdist_wheel
-      set  CLI_VERSION=$(CLI_VERSION)
-      set
-      build_scripts/windows/scripts/build.cmd
-
-- task: PublishPipelineArtifact@0
-  displayName: 'Publish Artifact: MSI'
-  inputs:
-    TargetPath: 'build_scripts/windows/out/'
-    ArtifactName: msi
-
-- task: GitHubRelease@0
-  inputs:
-    gitHubConnection: 'ddyett'
-    repositoryName: 'microsoftgraph/msgraph-cli'
-    tagSource: 'manual'
-    tag: '$(Build.BuildNumber)'
-    assets: 'build_scripts/windows/out/*.msi'
+# - stage: DeployPackages
+#   displayName: 'Deploy Packages'
+#   jobs:
+#   - deployment: DeployToChocolatey
+#     displayName: "Deploy MSI package to Chocolatey"
+#   - deployment: DeployToApt
+#     displayName: "Deploy Debian package to apt repository"
