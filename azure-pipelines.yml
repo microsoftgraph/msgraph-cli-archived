@@ -17,27 +17,33 @@ stages:
         displayName: 'Use Python $(python.version)'
         inputs:
           versionSpec: '$(python.version)'
+
       - script: |
           python -m pip install --upgrade pip
           pip install wheel
         displayName: 'Upgrade pip and install wheel'
+
       - script: |
           python build_scripts/build_extensions.py
         displayName: 'Build cli extensions'
+
       - task: CmdLine@2
         displayName: 'Build msgraph-cli'
         inputs:
-          workingDirectory: $(Agent.BuildDirectory)
           script: |
             python setup.py sdist bdist_wheel
             set CLI_VERSION=$(CLI_VERSION)
             set
-            build_scripts/windows/scripts/build.cmd
+            cd build_scripts/windows/scripts
+            build.cmd
+
       - task: PublishPipelineArtifact@0
         displayName: 'Publish msgraph-cli artifact'
         inputs:
           TargetPath: 'build_scripts/windows/out'
           ArtifcatName: msgraph-msi
+
+
   # - job: BuildDebianPackage
   #   displayName: "Build Debian Package"
 
