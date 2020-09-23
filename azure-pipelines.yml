@@ -108,6 +108,6 @@ stages:
             tagSource: 'manual'
             tag: '$(Build.BuildNumber)'
             assets: |
-              $(Build.ArtifactStagingDirectory)/*.msi
-              $(Build.ArtifactStagingDirectory)/*.deb
+              $(Build.ArtifactStagingDirectory)/msgraph-msi/*.msi
+              $(Build.ArtifactStagingDirectory)/msgraph-deb/*.deb
 
