@@ -41,7 +41,7 @@ stages:
         displayName: 'Publish msgraph-cli artifact'
         inputs:
           TargetPath: 'build_scripts/windows/out/'
-          ArtifactName: msgraph-msi
+          ArtifactName: msgraph_msi
 
 
   # - job: BuildDebianPackage
@@ -102,7 +102,7 @@ stages:
             ls -la $(Pipeline.Workspace)
 
             echo "Showing msgraph/cli"
-            ls $(Pipeline.Workspace)/msgraph-cli
+            ls $(Pipeline.Workspace)/msgraph_msi
           displayName: 'Directory structure'
     
         # - task: GitHubRelease@0
