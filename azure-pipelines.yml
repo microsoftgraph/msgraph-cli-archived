@@ -98,18 +98,21 @@ stages:
             source: current
 
         - bash: |
-            ls -la
-            ls $(Pipeline.Workspace)
+            echo "Showing msgraph-deb"
+            ls $(Pipeline.Workspace)/msgraph-deb
+
+            echo "Showing msgraph/cli"
+            ls $(Pipeline.Workspace)/msgraph-cli
           displayName: 'Directory structure'
     
-        - task: GitHubRelease@0
-          inputs:
-            gitHubConnection: 'ddyett'
-            repositoryName: 'microsoftgraph/msgraph-cli'
-            tagSource: 'manual'
-            tag: '$(Build.BuildNumber)'
-            assets: |
-              '$(Pipeline.Workspace)/msgraph-msi/*.msi'
-              '$(Pipeline.Workspace)/msgraph-deb/*.deb'
+        # - task: GitHubRelease@0
+        #   inputs:
+        #     gitHubConnection: 'ddyett'
+        #     repositoryName: 'microsoftgraph/msgraph-cli'
+        #     tagSource: 'manual'
+        #     tag: '$(Build.BuildNumber)'
+        #     assets: |
+        #       '$(Pipeline.Workspace)/msgraph-msi/*.msi'
+        #       '$(Pipeline.Workspace)/msgraph-deb/*.deb'
 
 
