@@ -44,8 +44,21 @@ stages:
           ArtifcatName: msgraph-msi
 
 
-  # - job: BuildDebianPackage
-  #   displayName: "Build Debian Package"
+  - job: BuildDebianPackage
+    displayName: "Build Debian Package"
+    pool:
+      vmImage: 'ubuntu-18.04'
+      strategy:
+        matrix:
+          Python37:
+            python.version: '3.7'
+      steps: 
+        - task: UsePythonVersion@0
+          displayName: 'Use Python $(python.version)'
+
+        - script: |
+            docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
+
 
 # - stage: DeployPackages
 #   displayName: 'Deploy Packages'
