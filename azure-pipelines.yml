@@ -87,27 +87,27 @@ stages:
 
 
 - stage: ReleaseToGithub
-  job: ReleaseToGithub
-  displayName: "Release to GitHub"
-  pool:
-      vmImage: 'ubuntu-18.04'
+  jobs:
+    - job: ReleaseToGithub
+      displayName: "Release to GitHub"
+      pool:
+        vmImage: 'ubuntu-18.04'
+      steps:
+        # - task: DownloadPipelineArtifact@2
+        #     inputs:
+        #       artifact: msgraph-deb
 
-  steps:
-    # - task: DownloadPipelineArtifact@2
-    #     inputs:
-    #       artifact: msgraph-deb
-
-    # - task: DownloadPipelineArtifact@2
-    #     inputs:
-    #       artifact: msgraph-msi
+        # - task: DownloadPipelineArtifact@2
+        #     inputs:
+        #       artifact: msgraph-msi
     
-    - task: GitHubRelease@0
-      inputs:
-        gitHubConnection: 'ddyett'
-        repositoryName: 'microsoftgraph/msgraph-cli'
-        tagSource: 'manual'
-        tab: '$(Build.BuildNumber)'
-        assets: |
-          $(Build.ArtifactStagingDirectory)/*.msi
-          $(Build.ArtifactStagingDirectory)/*.deb
+        - task: GitHubRelease@0
+          inputs:
+            gitHubConnection: 'ddyett'
+            repositoryName: 'microsoftgraph/msgraph-cli'
+            tagSource: 'manual'
+            tab: '$(Build.BuildNumber)'
+            assets: |
+              $(Build.ArtifactStagingDirectory)/*.msi
+              $(Build.ArtifactStagingDirectory)/*.deb
 
