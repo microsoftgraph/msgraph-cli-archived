@@ -57,11 +57,18 @@ stages:
         displayName: 'Use Python $(python.version)'
 
       - bash: |
+          python build_scripts/build_extensions.py
+        displayName: 'Build cli extensions'          
+
+      - bash: |
           chmod u+x build_scripts/debian/build.sh
           chmod u+x build_scripts/debian/prepare.sh
           
           docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
           docker run --name debian microsoft/msgraph-cli:ubuntu-builder
+
+          mkdir -p debian/out/
+
           docker cp debian:/msgraph-cli_all.deb ./debian/out/
         displayName: 'Build docker image'
 
