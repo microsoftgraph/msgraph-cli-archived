@@ -103,5 +103,5 @@ stages:
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
             tag: '$(Build.BuildNumber)'
-            assets: $(Pipeline.workspace)
+            assets: '/home/vsts/work/1'
 
