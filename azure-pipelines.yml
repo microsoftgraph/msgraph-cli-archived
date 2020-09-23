@@ -41,7 +41,7 @@ stages:
         displayName: 'Publish msgraph-cli artifact'
         inputs:
           TargetPath: 'build_scripts/windows/out/'
-          ArtifcatName: msgraph-msi
+          ArtifactName: msgraph-msi
 
 
   - job: BuildDebianPackage
@@ -81,7 +81,7 @@ stages:
         displayName: 'Publish msgraph-cli debian artifact'
         inputs:
           TargetPath: 'debian/out'
-          ArtifcatName: msgraph-deb
+          ArtifactName: msgraph-deb
 
 
 
@@ -103,5 +103,5 @@ stages:
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
             tag: '$(Build.BuildNumber)'
-            assets: '/home/vsts/work/1'
+            assets: '$(Pipeline.Workspace)'
 
