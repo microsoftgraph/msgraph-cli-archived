@@ -96,10 +96,6 @@ stages:
         - task: DownloadPipelineArtifact@2
           inputs:
             source: current
-
-        - task: DownloadPipelineArtifact@2
-          inputs:
-            source: current
     
         - task: GitHubRelease@0
           inputs:
@@ -107,7 +103,5 @@ stages:
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
             tag: '$(Build.BuildNumber)'
-            assets: |
-              $(Pipeline.workspace)/msgraph-msi/*.msi
-              $(Pipeline.workspace)/msgraph-deb/*.deb
+            assets: $(Pipeline.workspace)
 
