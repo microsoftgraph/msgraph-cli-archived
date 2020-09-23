@@ -96,18 +96,10 @@ stages:
         - task: DownloadPipelineArtifact@2
           inputs:
             source: current
-            runId: $(Build.BuildId)
-            project: $(Build.TriggeredBy.ProjectID)
-            pipeline: $(System.DefinitionId)
-            artifact: msgraph-deb
 
         - task: DownloadPipelineArtifact@2
           inputs:
             source: current
-            runId: $(Build.BuildId)
-            project: $(Build.TriggeredBy.ProjectID)
-            pipeline: $(System.DefinitionId)
-            artifact: msgraph-msi
     
         - task: GitHubRelease@0
           inputs:
