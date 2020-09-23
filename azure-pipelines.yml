@@ -87,7 +87,6 @@ stages:
 
 
 - stage: ReleaseToGithub
-  displayName: 'Release to GitHub'
   job: ReleaseToGithub
   displayName: "Release to GitHub"
   pool:
