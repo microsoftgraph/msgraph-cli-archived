@@ -94,19 +94,19 @@ stages:
         vmImage: 'ubuntu-18.04'
       steps:
         - task: DownloadPipelineArtifact@2
-          source: current
-          runId: $(Build.BuildId)
-          project: $(Build.TriggeredBy.ProjectID)
-          pipeline: $(System.DefinitionId)
           inputs:
+            source: current
+            runId: $(Build.BuildId)
+            project: $(Build.TriggeredBy.ProjectID)
+            pipeline: $(System.DefinitionId)
             artifact: msgraph-deb
 
         - task: DownloadPipelineArtifact@2
-          source: current
-          runId: $(Build.BuildId)
-          project: $(Build.TriggeredBy.ProjectID)
-          pipeline: $(System.DefinitionId)
           inputs:
+            source: current
+            runId: $(Build.BuildId)
+            project: $(Build.TriggeredBy.ProjectID)
+            pipeline: $(System.DefinitionId)
             artifact: msgraph-msi
     
         - task: GitHubRelease@0
