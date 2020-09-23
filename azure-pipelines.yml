@@ -4,44 +4,44 @@ stages:
 - stage: BuildPackages
   displayName: 'Build Packages'
   jobs:
-  - job: BuildMSIPackage
-    displayName: "Build MSI Package"
-    pool:
-      vmImage: 'vs2017-win2016'
-    strategy:
-      matrix:
-        Python37:
-          python.version: '3.7'
-    steps:
-      - task: UsePythonVersion@0
-        displayName: 'Use Python $(python.version)'
-        inputs:
-          versionSpec: '$(python.version)'
+  # - job: BuildMSIPackage
+  #   displayName: "Build MSI Package"
+  #   pool:
+  #     vmImage: 'vs2017-win2016'
+  #   strategy:
+  #     matrix:
+  #       Python37:
+  #         python.version: '3.7'
+  #   steps:
+  #     - task: UsePythonVersion@0
+  #       displayName: 'Use Python $(python.version)'
+  #       inputs:
+  #         versionSpec: '$(python.version)'
 
-      - script: |
-          python -m pip install --upgrade pip
-          pip install wheel
-        displayName: 'Upgrade pip and install wheel'
+  #     - script: |
+  #         python -m pip install --upgrade pip
+  #         pip install wheel
+  #       displayName: 'Upgrade pip and install wheel'
 
-      - script: |
-          python build_scripts/build_extensions.py
-        displayName: 'Build cli extensions'
+  #     - script: |
+  #         python build_scripts/build_extensions.py
+  #       displayName: 'Build cli extensions'
 
-      - task: CmdLine@2
-        displayName: 'Build msgraph-cli'
-        inputs:
-          script: |
-            python setup.py sdist bdist_wheel
-            set CLI_VERSION=$(CLI_VERSION)
-            set
-            cd build_scripts/windows/scripts
-            build.cmd
+  #     - task: CmdLine@2
+  #       displayName: 'Build msgraph-cli'
+  #       inputs:
+  #         script: |
+  #           python setup.py sdist bdist_wheel
+  #           set CLI_VERSION=$(CLI_VERSION)
+  #           set
+  #           cd build_scripts/windows/scripts
+  #           build.cmd
 
-      - task: PublishPipelineArtifact@0
-        displayName: 'Publish msgraph-cli artifact'
-        inputs:
-          TargetPath: 'build_scripts/windows/out/*.msi'
-          ArtifcatName: msgraph-msi
+  #     - task: PublishPipelineArtifact@0
+  #       displayName: 'Publish msgraph-cli artifact'
+  #       inputs:
+  #         TargetPath: 'build_scripts/windows/out/*.msi'
+  #         ArtifcatName: msgraph-msi
 
 
   - job: BuildDebianPackage
@@ -56,9 +56,11 @@ stages:
         - task: UsePythonVersion@0
           displayName: 'Use Python $(python.version)'
 
-        - script: |
+        - bash: |
             docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
           displayName: 'Build docker image'
+
+
 
 
 # - stage: DeployPackages
