@@ -106,7 +106,7 @@ stages:
             gitHubConnection: 'ddyett'
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
-            tab: '$(Build.BuildNumber)'
+            tag: '$(Build.BuildNumber)'
             assets: |
               $(Build.ArtifactStagingDirectory)/*.msi
               $(Build.ArtifactStagingDirectory)/*.deb
