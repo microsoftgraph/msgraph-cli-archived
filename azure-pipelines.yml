@@ -57,7 +57,7 @@ stages:
         displayName: 'Use Python $(python.version)'
 
       - bash: |
-          docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
+          docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
         displayName: 'Build docker image'
 
 
