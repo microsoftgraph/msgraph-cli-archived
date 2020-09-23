@@ -94,12 +94,12 @@ stages:
         vmImage: 'ubuntu-18.04'
       steps:
         - task: DownloadPipelineArtifact@2
-            inputs:
-              artifact: msgraph-deb
+          inputs:
+            artifact: msgraph-deb
 
         - task: DownloadPipelineArtifact@2
-            inputs:
-              artifact: msgraph-msi
+          inputs:
+            artifact: msgraph-msi
     
         - task: GitHubRelease@0
           inputs:
