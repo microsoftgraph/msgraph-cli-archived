@@ -37,7 +37,7 @@ stages:
             cd build_scripts/windows/scripts
             build.cmd
 
-      - task: PublishPipelineArtifact@0
+      - task: PublishPipelineArtifact@1
         displayName: 'Publish msgraph-cli artifact'
         inputs:
           TargetPath: 'build_scripts/windows/out/'
@@ -77,7 +77,7 @@ stages:
           docker cp debian:/msgraph-cli_all.deb ./debian/out/
         displayName: 'Build docker image'
 
-      - task: PublishPipelineArtifact@0
+      - task: PublishPipelineArtifact@1
         displayName: 'Publish msgraph-cli debian artifact'
         inputs:
           TargetPath: 'debian/out'
