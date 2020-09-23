@@ -58,6 +58,7 @@ stages:
 
         - script: |
             docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
+          displayName: 'Build docker image'
 
 
 # - stage: DeployPackages
