@@ -52,13 +52,13 @@ stages:
         matrix:
           Python37:
             python.version: '3.7'
-      steps: 
-        - task: UsePythonVersion@0
-          displayName: 'Use Python $(python.version)'
+    steps: 
+      - task: UsePythonVersion@0
+        displayName: 'Use Python $(python.version)'
 
-        - bash: |
-            docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
-          displayName: 'Build docker image'
+      - bash: |
+          docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
+        displayName: 'Build docker image'
 
 
 
