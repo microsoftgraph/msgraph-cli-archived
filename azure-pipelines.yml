@@ -86,10 +86,29 @@ stages:
 
 
 
-# - stage: DeployPackages
-#   displayName: 'Deploy Packages'
-#   jobs:
-#   - deployment: DeployToChocolatey
-#     displayName: "Deploy MSI package to Chocolatey"
-#   - deployment: DeployToApt
-#     displayName: "Deploy Debian package to apt repository"
+- stage: ReleaseToGithub
+  displayName: 'Release to GitHub'
+  job: ReleaseToGithub
+  displayName: "Release to GitHub"
+  pool:
+      vmImage: 'ubuntu-18.04'
+
+  steps:
+    # - task: DownloadPipelineArtifact@2
+    #     inputs:
+    #       artifact: msgraph-deb
+
+    # - task: DownloadPipelineArtifact@2
+    #     inputs:
+    #       artifact: msgraph-msi
+    
+    - task: GitHubRelease@0
+      inputs:
+        gitHubConnection: 'ddyett'
+        repositoryName: 'microsoftgraph/msgraph-cli'
+        tagSource: 'manual'
+        tab: '$(Build.BuildNumber)'
+        assets: |
+          $(Build.ArtifactStagingDirectory)/*.msi
+          $(Build.ArtifactStagingDirectory)/*.deb
+
