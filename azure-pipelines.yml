@@ -56,6 +56,11 @@ stages:
       - task: UsePythonVersion@0
         displayName: 'Use Python $(python.version)'
 
+      - script: |
+          python -m pip install --upgrade pip
+          pip install wheel
+        displayName: 'Upgrade pip and install wheel'
+
       - bash: |
           python build_scripts/build_extensions.py
         displayName: 'Build cli extensions'          
