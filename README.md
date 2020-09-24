@@ -8,7 +8,15 @@ This project is still in its early phases, but we are building not only on the w
 
 **Windows**
 
-Download the MSI package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
+Download the .msi package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
+
+**Linux**
+
+Download the .deb package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
+``` bash
+sudo dpkg -i msgraph-cli_all.deb
+```
+
 ### Developer installation 
 
 ## Usage
