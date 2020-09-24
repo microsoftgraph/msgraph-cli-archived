@@ -12,7 +12,7 @@ Download the .msi package from the latest [release](https://github.com/microsoft
 
 **Linux**
 
-Download the .deb package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
+Download the .deb package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases) and install the package with the command below.
 ``` bash
 sudo dpkg -i msgraph-cli_all.deb
 ```
