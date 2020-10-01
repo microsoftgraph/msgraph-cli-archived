@@ -1,75 +1,123 @@
-# Python package
-# Create and test a Python package on multiple Python versions.
-# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
-
-name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+name: msgraph_cli_$(Build.BuildId)
 
 trigger:
   branches:
     include:
       - main
-  paths:
-    include:
-      - msgraph/*
-      - msgraph-cli-extensions/*
-      - build_scripts/*
 
-pr: none
+stages:
+- stage: BuildPackages
+  displayName: 'Build Packages'
+  jobs:
+  - job: BuildMSIPackage
+    displayName: "Build MSI Package"
+    pool:
+      vmImage: 'vs2017-win2016'
+    strategy:
+      matrix:
+        Python37:
+          python.version: '3.7'
+    steps:
+      - task: UsePythonVersion@0
+        displayName: 'Use Python $(python.version)'
+        inputs:
+          versionSpec: '$(python.version)'
 
-pool:
-  vmImage: 'vs2017-win2016'
+      - script: |
+          python -m pip install --upgrade pip
+          pip install wheel
+        displayName: 'Upgrade pip and install wheel'
 
-strategy:
-  matrix:
-    Python37:
-      python.version: '3.7'
+      - script: |
+          python build_scripts/build_extensions.py
+        displayName: 'Build cli extensions'
 
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+      - task: CmdLine@2
+        displayName: 'Build msgraph-cli'
+        inputs:
+          script: |
+            python setup.py sdist bdist_wheel
+            set CLI_VERSION=$(CLI_VERSION)
+            set
+            cd build_scripts/windows/scripts
+            build.cmd
 
-- script: |
-    python -m pip install --upgrade pip
-    pip install wheel
-  displayName: 'Install dependencies'
-
-- script: |
-    python build_scripts/build_extensions.py
-  displayName: 'Build msgraph extensions'
-
-- task: CmdLine@2
-  displayName: 'Build debian package'
-  inputs:
-    workindDirectory: $(Agent.BuildDirectory)
-    script: |
-      docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder.
-      docker run --name debian microsoft/msgraph-cli:ubuntu-builder
-      docker cp debian:/msgraph-cli_all.deb build_scripts/windows/out/msgraph-cli_all.deb
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish msgraph-cli artifact'
+        inputs:
+          TargetPath: 'build_scripts/windows/out/'
+          ArtifactName: msgraph_msi
 
 
-- task: CmdLine@2
-  displayName: 'Build Windows MSI'
-  inputs:
-    workindDirectory: $(Agent.BuildDirectory)
-    script: |
-      python setup.py sdist bdist_wheel
-      set  CLI_VERSION=$(CLI_VERSION)
-      set
-      build_scripts/windows/scripts/build.cmd
+  - job: BuildDebianPackage
+    displayName: "Build Debian Package"
+    pool:
+      vmImage: 'ubuntu-18.04'
+      strategy:
+        matrix:
+          Python37:
+            python.version: '3.7'
+    steps: 
+      - task: UsePythonVersion@0
+        displayName: 'Use Python $(python.version)'
 
-- task: PublishPipelineArtifact@0
-  displayName: 'Publish Artifact: MSI'
-  inputs:
-    TargetPath: 'build_scripts/windows/out/'
-    ArtifactName: msi
+      - script: |
+          python -m pip install --upgrade pip
+          pip install wheel
+        displayName: 'Upgrade pip and install wheel'
 
-- task: GitHubRelease@0
-  inputs:
-    gitHubConnection: 'ddyett'
-    repositoryName: 'microsoftgraph/msgraph-cli'
-    tagSource: 'manual'
-    tag: '$(Build.BuildNumber)'
-    assets: 'build_scripts/windows/out/*.msi'
+      - bash: |
+          python build_scripts/build_extensions.py
+        displayName: 'Build cli extensions'          
+
+      - bash: |
+          chmod u+x build_scripts/debian/build.sh
+          chmod u+x build_scripts/debian/prepare.sh
+          
+          docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
+          docker run --name debian microsoft/msgraph-cli:ubuntu-builder
+
+          mkdir -p debian/out/
+
+          docker cp debian:/msgraph-cli_all.deb ./debian/out/
+        displayName: 'Build docker image'
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish msgraph-cli debian artifact'
+        inputs:
+          TargetPath: 'debian/out'
+          ArtifactName: msgraph_deb
+
+
+
+
+- stage: ReleaseToGithub
+  jobs:
+    - job: ReleaseToGithub
+      displayName: "Release to GitHub"
+      pool:
+        vmImage: 'ubuntu-18.04'
+      steps:
+        - task: DownloadPipelineArtifact@2
+          inputs:
+            source: current
+
+        - bash: |
+            echo "Show whats in the build directory"
+            ls -la $(Pipeline.Workspace)
+
+            echo "Showing msgraph/cli"
+            ls $(Pipeline.Workspace)/msgraph_msi
+          displayName: 'Directory structure'
+    
+        - task: GitHubRelease@0
+          inputs:
+            gitHubConnection: 'ddyett'
+            repositoryName: 'microsoftgraph/msgraph-cli'
+            tagSource: 'manual'
+            tag: '$(Build.BuildNumber)'
+            assets: |
+              $(Pipeline.Workspace)/msgraph_msi/*.msi
+              $(Pipeline.Workspace)/msgraph_deb/*.deb
+
+
