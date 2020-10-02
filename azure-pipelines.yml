@@ -152,4 +152,4 @@ stages:
           displayName: 'Publish msgraph-cli debian artifact'
           inputs:
             TargetPath: './msgraph-cli.rb'
-            ArtifactName: msgraph_deb
+            ArtifactName: homebrew_formula
