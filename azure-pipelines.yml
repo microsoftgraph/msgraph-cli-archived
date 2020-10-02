@@ -121,3 +121,35 @@ stages:
               $(Pipeline.Workspace)/msgraph_deb/*.deb
 
 
+
+
+- stage: BuildHomebrewFormula
+  jobs:
+    - job: BuildHomebrewFormula
+      displayName: "Generate HomebrewFormula"
+      pool:
+        vmImage: 'ubuntu-18.04'
+        strategy:
+          matrix:
+            Python37:
+              python.version: '3.7'
+      steps:
+        - task: UsePythonVersion@0
+          displayName: 'Use Python $(python.version)'
+
+        - script: |
+            python -m pip install --upgrade pip
+            pip install build_scripts/homebrew/requirements.txt
+          displayName: 'Upgrade pip and install dependencies'
+
+        - bash: |
+            export GITHUB_RELEASE_TAR='https://github.com/microsoftgraph/msgraph-cli/archive/msgraph_cli_$(Build.BuildId).tar.gz'
+            python build_scripts/homebrew/generate_formula.py
+
+          displayName: "Generate homebrew formula"
+
+        - task: PublishPipelineArtifact@1
+          displayName: 'Publish msgraph-cli debian artifact'
+          inputs:
+            TargetPath: './msgraph-cli.rb'
+            ArtifactName: msgraph_deb
