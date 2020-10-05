@@ -6,6 +6,7 @@
 import os
 import jinja2
 import hashlib
+from enum import Enum
 import requests
 from poet.poet import make_graph, RESOURCE_TEMPLATE
 
@@ -14,26 +15,30 @@ CLI_VERSION = os.environ['CLI_VERSION']
 GITHUB_RELEASE_TAR = os.environ['GITHUB_RELEASE_TAR']
 
 
+class BuildMethod(Enum):
+    UPDATE_EXISTING = 0
+    USE_TEMPLATE = 1
+
+
 def main():
-    generate_formula(build_method='use_template')
+    generate_formula(build_method=BuildMethod.USE_TEMPLATE)
 
 
-def generate_formula(build_method: str, **_):
+def generate_formula(build_method: BuildMethod, **_):
     content = ''
-    if build_method is None or build_method == 'update_existing':
-        # content = update_formula()
+    if build_method is None or build_method == BuildMethod.UPDATE_EXISTING:
         pass
-    elif build_method == 'use_template':
+    elif build_method == BuildMethod.USE_TEMPLATE:
         content = generate_formula_with_template()
-    with open('msgraph-cli.rb', mode='w') as fq:
-        fq.write(content)
+    with open('msgraph-cli.rb', mode='w') as formula:
+        formula.write(content)
 
 
 def generate_formula_with_template() -> str:
     """Generate a brew formula by using a template"""
     template_path = os.path.join(os.path.dirname(__file__), TEMPLATE_FILE_NAME)
-    with open(template_path, mode='r') as fq:
-        template_content = fq.read()
+    with open(template_path, mode='r') as template:
+        template_content = template.read()
 
     template = jinja2.Template(template_content)
     content = template.render(
