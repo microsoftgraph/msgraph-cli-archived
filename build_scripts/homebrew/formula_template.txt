@@ -1,0 +1,50 @@
+class MsgraphCli < Formula
+  include Language::Python::Virtualenv
+  
+  desc "Python based command line tools for interacting with Microsoft Graph"
+  homepage "https://developer.microsoft.com/en-us/graph"
+  version "{{ cli_version }}"
+  url "{{ github_release_tar }}"
+  sha256 "{{ sha256 }}"
+  license "MIT"
+
+  depends_on "openssl@1.1"
+  depends_on "python@3.8"
+
+  uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
+  {{resources}}
+
+  def install
+    # Work around Xcode 11 clang bug
+    # https://code.videolan.org/videolan/libbluray/issues/20
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+    venv = virtualenv_create(libexec, "python3")
+
+    venv.pip_install resources
+
+    extensions = Dir.glob('msgraph-cli-extensions/src/*')
+
+    # install msgraph module
+    venv.pip_install buildpath
+    
+    # Install extensions
+    extensions.each do |extension|
+      cd buildpath/"#{extension}" do
+        venv.pip_install extension
+      end
+    end
+
+
+    (bin/"graph").write <<~EOS
+      #!/usr/bin/env bash
+      MG_INSTALLER=HOMEBREW #{libexec}/bin/python -m msgraph.cli \"$@\"
+    EOS
+
+    bash_completion.install "az.completion" => "graph"
+  end
+end

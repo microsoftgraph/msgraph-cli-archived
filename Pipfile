@@ -7,6 +7,8 @@ verify_ssl = true
 yapf = "*"
 pylint = "*"
 wheel = "*"
+homebrew-pypi-poet = "*"
+jinja2 = "*"
 
 [packages]
 argcomplete = "~=1.8"
