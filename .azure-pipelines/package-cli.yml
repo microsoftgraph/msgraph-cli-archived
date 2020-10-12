@@ -141,7 +141,7 @@ stages:
 
         - bash: |
             python -m pip install --upgrade pip
-            pip install ../build_scripts/homebrew/requirements.txt
+            pip install -r ../build_scripts/homebrew/requirements.txt 
             pip install .
           displayName: 'Upgrade pip and install dependencies'
 
