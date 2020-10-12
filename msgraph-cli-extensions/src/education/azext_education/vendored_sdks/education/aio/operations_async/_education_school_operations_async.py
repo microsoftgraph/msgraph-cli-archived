@@ -41,99 +41,40 @@ class EducationSchoolOperations:
         self._deserialize = deserializer
         self._config = config
 
-    async def get_administrative_unit(
-        self,
-        education_school_id: str,
-        select: Optional[List[Union[str, "models.Enum218"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum219"]]] = None,
-        **kwargs
-    ) -> "models.MicrosoftGraphAdministrativeUnit":
-        """Get administrativeUnit from education.
-
-        Get administrativeUnit from education.
-
-        :param education_school_id: key: educationSchool-id of educationSchool.
-        :type education_school_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum218]
-        :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum219]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphAdministrativeUnit, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphAdministrativeUnit
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAdministrativeUnit"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_administrative_unit.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphAdministrativeUnit', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_administrative_unit.metadata = {'url': '/education/schools/{educationSchool-id}/administrativeUnit'}  # type: ignore
-
     def list_class(
         self,
         education_school_id: str,
-        orderby: Optional[List[Union[str, "models.Enum220"]]] = None,
-        select: Optional[List[Union[str, "models.Enum221"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum222"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum100"]]] = None,
+        select: Optional[List[Union[str, "models.Enum101"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum102"]]] = None,
         **kwargs
-    ) -> AsyncIterable["models.CollectionOfEducationClass2"]:
+    ) -> AsyncIterable["models.CollectionOfEducationClass1"]:
         """Get classes from education.
 
         Get classes from education.
 
-        :param education_school_id: key: educationSchool-id of educationSchool.
+        :param education_school_id: key: id of educationSchool.
         :type education_school_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum220]
+        :type orderby: list[str or ~education.models.Enum100]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum221]
+        :type select: list[str or ~education.models.Enum101]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum222]
+        :type expand: list[str or ~education.models.Enum102]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfEducationClass2 or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationClass2]
+        :return: An iterator like instance of either CollectionOfEducationClass1 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationClass1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationClass2"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationClass1"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         def prepare_request(next_link=None):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
             header_parameters['Accept'] = 'application/json'
 
             if not next_link:
@@ -170,7 +111,7 @@ class EducationSchoolOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfEducationClass2', pipeline_response)
+            deserialized = self._deserialize('CollectionOfEducationClass1', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -194,91 +135,172 @@ class EducationSchoolOperations:
         )
     list_class.metadata = {'url': '/education/schools/{educationSchool-id}/classes'}  # type: ignore
 
-    async def get_class(
+    def list_ref_class(
         self,
         education_school_id: str,
-        education_class_id: str,
-        select: Optional[List[Union[str, "models.Enum223"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum224"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum103"]]] = None,
         **kwargs
-    ) -> "models.MicrosoftGraphEducationClass":
-        """Get classes from education.
+    ) -> AsyncIterable["models.CollectionOfLinksOfEducationClass0"]:
+        """Get ref of classes from education.
 
-        Get classes from education.
+        Get ref of classes from education.
 
-        :param education_school_id: key: educationSchool-id of educationSchool.
+        :param education_school_id: key: id of educationSchool.
         :type education_school_id: str
-        :param education_class_id: key: educationClass-id of educationClass.
-        :type education_class_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum223]
-        :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum224]
+        :param orderby: Order items by property values.
+        :type orderby: list[str or ~education.models.Enum103]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationClass, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationClass
+        :return: An iterator like instance of either CollectionOfLinksOfEducationClass0 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationClass0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationClass"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfEducationClass0"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
+
+            if not next_link:
+                # Construct URL
+                url = self.list_ref_class.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
+
+        async def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfLinksOfEducationClass0', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, AsyncList(list_of_elem)
+
+        async def get_next(next_link=None):
+            request = prepare_request(next_link)
+
+            pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
+
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+            return pipeline_response
+
+        return AsyncItemPaged(
+            get_next, extract_data
+        )
+    list_ref_class.metadata = {'url': '/education/schools/{educationSchool-id}/classes/$ref'}  # type: ignore
+
+    async def create_ref_class(
+        self,
+        education_school_id: str,
+        body: Dict[str, object],
+        **kwargs
+    ) -> Dict[str, object]:
+        """Create new navigation property ref to classes for education.
+
+        Create new navigation property ref to classes for education.
+
+        :param education_school_id: key: id of educationSchool.
+        :type education_school_id: str
+        :param body: New navigation property ref value.
+        :type body: dict[str, object]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: dict mapping str to object, or the result of cls(response)
+        :rtype: dict[str, object]
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
 
         # Construct URL
-        url = self.get_class.metadata['url']  # type: ignore
+        url = self.create_ref_class.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
-            'educationClass-id': self._serialize.url("education_class_id", education_class_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
-        request = self._client.get(url, query_parameters, header_parameters)
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(body, '{object}')
+        body_content_kwargs['content'] = body_content
+        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
+
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
-        if response.status_code not in [200]:
+        if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationClass', pipeline_response)
+        deserialized = self._deserialize('{object}', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_class.metadata = {'url': '/education/schools/{educationSchool-id}/classes/{educationClass-id}'}  # type: ignore
+    create_ref_class.metadata = {'url': '/education/schools/{educationSchool-id}/classes/$ref'}  # type: ignore
 
     def list_user(
         self,
         education_school_id: str,
-        orderby: Optional[List[Union[str, "models.Enum225"]]] = None,
-        select: Optional[List[Union[str, "models.Enum226"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum227"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum104"]]] = None,
+        select: Optional[List[Union[str, "models.Enum105"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum106"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationUser1"]:
         """Get users from education.
 
         Get users from education.
 
-        :param education_school_id: key: educationSchool-id of educationSchool.
+        :param education_school_id: key: id of educationSchool.
         :type education_school_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum225]
+        :type orderby: list[str or ~education.models.Enum104]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum226]
+        :type select: list[str or ~education.models.Enum105]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum227]
+        :type expand: list[str or ~education.models.Enum106]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfEducationUser1 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationUser1]
@@ -287,10 +309,12 @@ class EducationSchoolOperations:
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationUser1"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         def prepare_request(next_link=None):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
             header_parameters['Accept'] = 'application/json'
 
             if not next_link:
@@ -351,111 +375,148 @@ class EducationSchoolOperations:
         )
     list_user.metadata = {'url': '/education/schools/{educationSchool-id}/users'}  # type: ignore
 
-    async def get_user(
+    def list_ref_user(
         self,
         education_school_id: str,
-        education_user_id: str,
-        select: Optional[List[Union[str, "models.Enum228"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum229"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum107"]]] = None,
         **kwargs
-    ) -> "models.MicrosoftGraphEducationUser":
-        """Get users from education.
+    ) -> AsyncIterable["models.CollectionOfLinksOfEducationUser1"]:
+        """Get ref of users from education.
 
-        Get users from education.
+        Get ref of users from education.
 
-        :param education_school_id: key: educationSchool-id of educationSchool.
+        :param education_school_id: key: id of educationSchool.
         :type education_school_id: str
-        :param education_user_id: key: educationUser-id of educationUser.
-        :type education_user_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum228]
-        :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum229]
+        :param orderby: Order items by property values.
+        :type orderby: list[str or ~education.models.Enum107]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphEducationUser, or the result of cls(response)
-        :rtype: ~education.models.MicrosoftGraphEducationUser
+        :return: An iterator like instance of either CollectionOfLinksOfEducationUser1 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationUser1]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfEducationUser1"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
+
+            if not next_link:
+                # Construct URL
+                url = self.list_ref_user.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
+
+        async def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfLinksOfEducationUser1', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, AsyncList(list_of_elem)
+
+        async def get_next(next_link=None):
+            request = prepare_request(next_link)
+
+            pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
+
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+            return pipeline_response
+
+        return AsyncItemPaged(
+            get_next, extract_data
+        )
+    list_ref_user.metadata = {'url': '/education/schools/{educationSchool-id}/users/$ref'}  # type: ignore
+
+    async def create_ref_user(
+        self,
+        education_school_id: str,
+        body: Dict[str, object],
+        **kwargs
+    ) -> Dict[str, object]:
+        """Create new navigation property ref to users for education.
+
+        Create new navigation property ref to users for education.
+
+        :param education_school_id: key: id of educationSchool.
+        :type education_school_id: str
+        :param body: New navigation property ref value.
+        :type body: dict[str, object]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: dict mapping str to object, or the result of cls(response)
+        :rtype: dict[str, object]
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
 
         # Construct URL
-        url = self.get_user.metadata['url']  # type: ignore
+        url = self.create_ref_user.metadata['url']  # type: ignore
         path_format_arguments = {
             'educationSchool-id': self._serialize.url("education_school_id", education_school_id, 'str'),
-            'educationUser-id': self._serialize.url("education_user_id", education_user_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
-        request = self._client.get(url, query_parameters, header_parameters)
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(body, '{object}')
+        body_content_kwargs['content'] = body_content
+        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
+
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
-        if response.status_code not in [200]:
+        if response.status_code not in [201]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphEducationUser', pipeline_response)
+        deserialized = self._deserialize('{object}', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_user.metadata = {'url': '/education/schools/{educationSchool-id}/users/{educationUser-id}'}  # type: ignore
-
-    async def delta(
-        self,
-        **kwargs
-    ) -> List["models.MicrosoftGraphEducationSchool"]:
-        """Invoke function delta.
-
-        Invoke function delta.
-
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEducationSchool, or the result of cls(response)
-        :rtype: list[~education.models.MicrosoftGraphEducationSchool]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEducationSchool"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.delta.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphEducationSchool]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    delta.metadata = {'url': '/education/schools/microsoft.graph.delta()'}  # type: ignore
+    create_ref_user.metadata = {'url': '/education/schools/{educationSchool-id}/users/$ref'}  # type: ignore

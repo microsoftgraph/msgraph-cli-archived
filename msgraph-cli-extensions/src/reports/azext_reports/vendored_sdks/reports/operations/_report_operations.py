@@ -10,7 +10,6 @@ from typing import TYPE_CHECKING
 import warnings
 
 from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
-from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -19,7 +18,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, Optional, TypeVar
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -46,1214 +45,6 @@ class ReportOperations(object):
         self._deserialize = deserializer
         self._config = config
 
-    def list_application_sign_in_detailed_summary(
-        self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> Iterable["models.CollectionOfApplicationSignInDetailedSummary"]
-        """Get applicationSignInDetailedSummary from reports.
-
-        Get applicationSignInDetailedSummary from reports.
-
-        :param orderby: Order items by property values.
-        :type orderby: list[str or ~reports.models.Get5ItemsItem]
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Get6ItemsItem]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfApplicationSignInDetailedSummary or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~reports.models.CollectionOfApplicationSignInDetailedSummary]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfApplicationSignInDetailedSummary"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        def prepare_request(next_link=None):
-            # Construct headers
-            header_parameters = {}  # type: Dict[str, Any]
-            header_parameters['Accept'] = 'application/json'
-
-            if not next_link:
-                # Construct URL
-                url = self.list_application_sign_in_detailed_summary.metadata['url']  # type: ignore
-                # Construct parameters
-                query_parameters = {}  # type: Dict[str, Any]
-                if self._config.top is not None:
-                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-                if self._config.skip is not None:
-                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-                if self._config.search is not None:
-                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-                if self._config.filter is not None:
-                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-                if self._config.count is not None:
-                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-                if orderby is not None:
-                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-                if select is not None:
-                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-                if expand is not None:
-                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-                request = self._client.get(url, query_parameters, header_parameters)
-            else:
-                url = next_link
-                query_parameters = {}  # type: Dict[str, Any]
-                request = self._client.get(url, query_parameters, header_parameters)
-            return request
-
-        def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfApplicationSignInDetailedSummary', pipeline_response)
-            list_of_elem = deserialized.value
-            if cls:
-                list_of_elem = cls(list_of_elem)
-            return deserialized.odata_next_link or None, iter(list_of_elem)
-
-        def get_next(next_link=None):
-            request = prepare_request(next_link)
-
-            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-            response = pipeline_response.http_response
-
-            if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
-                map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-            return pipeline_response
-
-        return ItemPaged(
-            get_next, extract_data
-        )
-    list_application_sign_in_detailed_summary.metadata = {'url': '/reports/applicationSignInDetailedSummary'}  # type: ignore
-
-    def create_application_sign_in_detailed_summary(
-        self,
-        id=None,  # type: Optional[str]
-        app_id=None,  # type: Optional[str]
-        app_display_name=None,  # type: Optional[str]
-        sign_in_count=None,  # type: Optional[int]
-        aggregated_event_date_time=None,  # type: Optional[datetime.datetime]
-        error_code=None,  # type: Optional[int]
-        failure_reason=None,  # type: Optional[str]
-        additional_details=None,  # type: Optional[str]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphApplicationSignInDetailedSummary"
-        """Create new navigation property to applicationSignInDetailedSummary for reports.
-
-        Create new navigation property to applicationSignInDetailedSummary for reports.
-
-        :param id: Read-only.
-        :type id: str
-        :param app_id:
-        :type app_id: str
-        :param app_display_name:
-        :type app_display_name: str
-        :param sign_in_count:
-        :type sign_in_count: long
-        :param aggregated_event_date_time:
-        :type aggregated_event_date_time: ~datetime.datetime
-        :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
-         Check out the list of error codes and messages.
-        :type error_code: int
-        :param failure_reason: Provides the error message or the reason for failure for the
-         corresponding sign-in activity. Check out the list of error codes and messages.
-        :type failure_reason: str
-        :param additional_details: Provides additional details on the sign-in activity.
-        :type additional_details: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphApplicationSignInDetailedSummary, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphApplicationSignInDetailedSummary
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphApplicationSignInDetailedSummary"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphApplicationSignInDetailedSummary(id=id, app_id=app_id, app_display_name=app_display_name, sign_in_count=sign_in_count, aggregated_event_date_time=aggregated_event_date_time, error_code=error_code, failure_reason=failure_reason, additional_details=additional_details)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.create_application_sign_in_detailed_summary.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-        header_parameters['Accept'] = 'application/json'
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphApplicationSignInDetailedSummary')
-        body_content_kwargs['content'] = body_content
-        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [201]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphApplicationSignInDetailedSummary', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    create_application_sign_in_detailed_summary.metadata = {'url': '/reports/applicationSignInDetailedSummary'}  # type: ignore
-
-    def get_application_sign_in_detailed_summary(
-        self,
-        application_sign_in_detailed_summary_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum7"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphApplicationSignInDetailedSummary"
-        """Get applicationSignInDetailedSummary from reports.
-
-        Get applicationSignInDetailedSummary from reports.
-
-        :param application_sign_in_detailed_summary_id: key: applicationSignInDetailedSummary-id of
-         applicationSignInDetailedSummary.
-        :type application_sign_in_detailed_summary_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum7]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphApplicationSignInDetailedSummary, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphApplicationSignInDetailedSummary
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphApplicationSignInDetailedSummary"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_application_sign_in_detailed_summary.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'applicationSignInDetailedSummary-id': self._serialize.url("application_sign_in_detailed_summary_id", application_sign_in_detailed_summary_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphApplicationSignInDetailedSummary', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_application_sign_in_detailed_summary.metadata = {'url': '/reports/applicationSignInDetailedSummary/{applicationSignInDetailedSummary-id}'}  # type: ignore
-
-    def update_application_sign_in_detailed_summary(
-        self,
-        application_sign_in_detailed_summary_id,  # type: str
-        id=None,  # type: Optional[str]
-        app_id=None,  # type: Optional[str]
-        app_display_name=None,  # type: Optional[str]
-        sign_in_count=None,  # type: Optional[int]
-        aggregated_event_date_time=None,  # type: Optional[datetime.datetime]
-        error_code=None,  # type: Optional[int]
-        failure_reason=None,  # type: Optional[str]
-        additional_details=None,  # type: Optional[str]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> None
-        """Update the navigation property applicationSignInDetailedSummary in reports.
-
-        Update the navigation property applicationSignInDetailedSummary in reports.
-
-        :param application_sign_in_detailed_summary_id: key: applicationSignInDetailedSummary-id of
-         applicationSignInDetailedSummary.
-        :type application_sign_in_detailed_summary_id: str
-        :param id: Read-only.
-        :type id: str
-        :param app_id:
-        :type app_id: str
-        :param app_display_name:
-        :type app_display_name: str
-        :param sign_in_count:
-        :type sign_in_count: long
-        :param aggregated_event_date_time:
-        :type aggregated_event_date_time: ~datetime.datetime
-        :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
-         Check out the list of error codes and messages.
-        :type error_code: int
-        :param failure_reason: Provides the error message or the reason for failure for the
-         corresponding sign-in activity. Check out the list of error codes and messages.
-        :type failure_reason: str
-        :param additional_details: Provides additional details on the sign-in activity.
-        :type additional_details: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: None, or the result of cls(response)
-        :rtype: None
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphApplicationSignInDetailedSummary(id=id, app_id=app_id, app_display_name=app_display_name, sign_in_count=sign_in_count, aggregated_event_date_time=aggregated_event_date_time, error_code=error_code, failure_reason=failure_reason, additional_details=additional_details)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.update_application_sign_in_detailed_summary.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'applicationSignInDetailedSummary-id': self._serialize.url("application_sign_in_detailed_summary_id", application_sign_in_detailed_summary_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphApplicationSignInDetailedSummary')
-        body_content_kwargs['content'] = body_content
-        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [204]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        if cls:
-            return cls(pipeline_response, None, {})
-
-    update_application_sign_in_detailed_summary.metadata = {'url': '/reports/applicationSignInDetailedSummary/{applicationSignInDetailedSummary-id}'}  # type: ignore
-
-    def list_credential_user_registration_detail(
-        self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum8"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum9"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> Iterable["models.CollectionOfCredentialUserRegistrationDetails"]
-        """Get credentialUserRegistrationDetails from reports.
-
-        Get credentialUserRegistrationDetails from reports.
-
-        :param orderby: Order items by property values.
-        :type orderby: list[str or ~reports.models.Enum8]
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum9]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfCredentialUserRegistrationDetails or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~reports.models.CollectionOfCredentialUserRegistrationDetails]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCredentialUserRegistrationDetails"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        def prepare_request(next_link=None):
-            # Construct headers
-            header_parameters = {}  # type: Dict[str, Any]
-            header_parameters['Accept'] = 'application/json'
-
-            if not next_link:
-                # Construct URL
-                url = self.list_credential_user_registration_detail.metadata['url']  # type: ignore
-                # Construct parameters
-                query_parameters = {}  # type: Dict[str, Any]
-                if self._config.top is not None:
-                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-                if self._config.skip is not None:
-                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-                if self._config.search is not None:
-                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-                if self._config.filter is not None:
-                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-                if self._config.count is not None:
-                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-                if orderby is not None:
-                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-                if select is not None:
-                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-                if expand is not None:
-                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-                request = self._client.get(url, query_parameters, header_parameters)
-            else:
-                url = next_link
-                query_parameters = {}  # type: Dict[str, Any]
-                request = self._client.get(url, query_parameters, header_parameters)
-            return request
-
-        def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfCredentialUserRegistrationDetails', pipeline_response)
-            list_of_elem = deserialized.value
-            if cls:
-                list_of_elem = cls(list_of_elem)
-            return deserialized.odata_next_link or None, iter(list_of_elem)
-
-        def get_next(next_link=None):
-            request = prepare_request(next_link)
-
-            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-            response = pipeline_response.http_response
-
-            if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
-                map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-            return pipeline_response
-
-        return ItemPaged(
-            get_next, extract_data
-        )
-    list_credential_user_registration_detail.metadata = {'url': '/reports/credentialUserRegistrationDetails'}  # type: ignore
-
-    def create_credential_user_registration_detail(
-        self,
-        id=None,  # type: Optional[str]
-        user_principal_name=None,  # type: Optional[str]
-        user_display_name=None,  # type: Optional[str]
-        auth_methods=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphRegistrationAuthMethod"]]]
-        is_registered=None,  # type: Optional[bool]
-        is_enabled=None,  # type: Optional[bool]
-        is_capable=None,  # type: Optional[bool]
-        is_mfa_registered=None,  # type: Optional[bool]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphCredentialUserRegistrationDetails"
-        """Create new navigation property to credentialUserRegistrationDetails for reports.
-
-        Create new navigation property to credentialUserRegistrationDetails for reports.
-
-        :param id: Read-only.
-        :type id: str
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param user_display_name:
-        :type user_display_name: str
-        :param auth_methods:
-        :type auth_methods: list[str or ~reports.models.MicrosoftGraphRegistrationAuthMethod]
-        :param is_registered:
-        :type is_registered: bool
-        :param is_enabled:
-        :type is_enabled: bool
-        :param is_capable:
-        :type is_capable: bool
-        :param is_mfa_registered:
-        :type is_mfa_registered: bool
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCredentialUserRegistrationDetails, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphCredentialUserRegistrationDetails
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCredentialUserRegistrationDetails"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphCredentialUserRegistrationDetails(id=id, user_principal_name=user_principal_name, user_display_name=user_display_name, auth_methods=auth_methods, is_registered=is_registered, is_enabled=is_enabled, is_capable=is_capable, is_mfa_registered=is_mfa_registered)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.create_credential_user_registration_detail.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-        header_parameters['Accept'] = 'application/json'
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCredentialUserRegistrationDetails')
-        body_content_kwargs['content'] = body_content
-        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [201]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphCredentialUserRegistrationDetails', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    create_credential_user_registration_detail.metadata = {'url': '/reports/credentialUserRegistrationDetails'}  # type: ignore
-
-    def get_credential_user_registration_detail(
-        self,
-        credential_user_registration_details_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum10"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphCredentialUserRegistrationDetails"
-        """Get credentialUserRegistrationDetails from reports.
-
-        Get credentialUserRegistrationDetails from reports.
-
-        :param credential_user_registration_details_id: key: credentialUserRegistrationDetails-id of
-         credentialUserRegistrationDetails.
-        :type credential_user_registration_details_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum10]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCredentialUserRegistrationDetails, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphCredentialUserRegistrationDetails
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCredentialUserRegistrationDetails"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_credential_user_registration_detail.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'credentialUserRegistrationDetails-id': self._serialize.url("credential_user_registration_details_id", credential_user_registration_details_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphCredentialUserRegistrationDetails', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_credential_user_registration_detail.metadata = {'url': '/reports/credentialUserRegistrationDetails/{credentialUserRegistrationDetails-id}'}  # type: ignore
-
-    def update_credential_user_registration_detail(
-        self,
-        credential_user_registration_details_id,  # type: str
-        id=None,  # type: Optional[str]
-        user_principal_name=None,  # type: Optional[str]
-        user_display_name=None,  # type: Optional[str]
-        auth_methods=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphRegistrationAuthMethod"]]]
-        is_registered=None,  # type: Optional[bool]
-        is_enabled=None,  # type: Optional[bool]
-        is_capable=None,  # type: Optional[bool]
-        is_mfa_registered=None,  # type: Optional[bool]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> None
-        """Update the navigation property credentialUserRegistrationDetails in reports.
-
-        Update the navigation property credentialUserRegistrationDetails in reports.
-
-        :param credential_user_registration_details_id: key: credentialUserRegistrationDetails-id of
-         credentialUserRegistrationDetails.
-        :type credential_user_registration_details_id: str
-        :param id: Read-only.
-        :type id: str
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param user_display_name:
-        :type user_display_name: str
-        :param auth_methods:
-        :type auth_methods: list[str or ~reports.models.MicrosoftGraphRegistrationAuthMethod]
-        :param is_registered:
-        :type is_registered: bool
-        :param is_enabled:
-        :type is_enabled: bool
-        :param is_capable:
-        :type is_capable: bool
-        :param is_mfa_registered:
-        :type is_mfa_registered: bool
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: None, or the result of cls(response)
-        :rtype: None
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphCredentialUserRegistrationDetails(id=id, user_principal_name=user_principal_name, user_display_name=user_display_name, auth_methods=auth_methods, is_registered=is_registered, is_enabled=is_enabled, is_capable=is_capable, is_mfa_registered=is_mfa_registered)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.update_credential_user_registration_detail.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'credentialUserRegistrationDetails-id': self._serialize.url("credential_user_registration_details_id", credential_user_registration_details_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCredentialUserRegistrationDetails')
-        body_content_kwargs['content'] = body_content
-        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [204]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        if cls:
-            return cls(pipeline_response, None, {})
-
-    update_credential_user_registration_detail.metadata = {'url': '/reports/credentialUserRegistrationDetails/{credentialUserRegistrationDetails-id}'}  # type: ignore
-
-    def list_daily_print_usage_summary_by_printer(
-        self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum11"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum12"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> Iterable["models.CollectionOfPrintUsageSummaryByPrinter"]
-        """Get dailyPrintUsageSummariesByPrinter from reports.
-
-        Get dailyPrintUsageSummariesByPrinter from reports.
-
-        :param orderby: Order items by property values.
-        :type orderby: list[str or ~reports.models.Enum11]
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum12]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfPrintUsageSummaryByPrinter or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~reports.models.CollectionOfPrintUsageSummaryByPrinter]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintUsageSummaryByPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        def prepare_request(next_link=None):
-            # Construct headers
-            header_parameters = {}  # type: Dict[str, Any]
-            header_parameters['Accept'] = 'application/json'
-
-            if not next_link:
-                # Construct URL
-                url = self.list_daily_print_usage_summary_by_printer.metadata['url']  # type: ignore
-                # Construct parameters
-                query_parameters = {}  # type: Dict[str, Any]
-                if self._config.top is not None:
-                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-                if self._config.skip is not None:
-                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-                if self._config.search is not None:
-                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-                if self._config.filter is not None:
-                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-                if self._config.count is not None:
-                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-                if orderby is not None:
-                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-                if select is not None:
-                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-                if expand is not None:
-                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-                request = self._client.get(url, query_parameters, header_parameters)
-            else:
-                url = next_link
-                query_parameters = {}  # type: Dict[str, Any]
-                request = self._client.get(url, query_parameters, header_parameters)
-            return request
-
-        def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfPrintUsageSummaryByPrinter', pipeline_response)
-            list_of_elem = deserialized.value
-            if cls:
-                list_of_elem = cls(list_of_elem)
-            return deserialized.odata_next_link or None, iter(list_of_elem)
-
-        def get_next(next_link=None):
-            request = prepare_request(next_link)
-
-            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-            response = pipeline_response.http_response
-
-            if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
-                map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-            return pipeline_response
-
-        return ItemPaged(
-            get_next, extract_data
-        )
-    list_daily_print_usage_summary_by_printer.metadata = {'url': '/reports/dailyPrintUsageSummariesByPrinter'}  # type: ignore
-
-    def create_daily_print_usage_summary_by_printer(
-        self,
-        id=None,  # type: Optional[str]
-        printer_id=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByPrinter"
-        """Create new navigation property to dailyPrintUsageSummariesByPrinter for reports.
-
-        Create new navigation property to dailyPrintUsageSummariesByPrinter for reports.
-
-        :param id: Read-only.
-        :type id: str
-        :param printer_id:
-        :type printer_id: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByPrinter, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByPrinter(id=id, printer_id=printer_id, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.create_daily_print_usage_summary_by_printer.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-        header_parameters['Accept'] = 'application/json'
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByPrinter')
-        body_content_kwargs['content'] = body_content
-        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [201]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByPrinter', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    create_daily_print_usage_summary_by_printer.metadata = {'url': '/reports/dailyPrintUsageSummariesByPrinter'}  # type: ignore
-
-    def get_daily_print_usage_summary_by_printer(
-        self,
-        print_usage_summary_by_printer_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum13"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByPrinter"
-        """Get dailyPrintUsageSummariesByPrinter from reports.
-
-        Get dailyPrintUsageSummariesByPrinter from reports.
-
-        :param print_usage_summary_by_printer_id: key: PrintUsageSummaryByPrinter-id of
-         PrintUsageSummaryByPrinter.
-        :type print_usage_summary_by_printer_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum13]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByPrinter, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_daily_print_usage_summary_by_printer.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByPrinter-id': self._serialize.url("print_usage_summary_by_printer_id", print_usage_summary_by_printer_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByPrinter', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_daily_print_usage_summary_by_printer.metadata = {'url': '/reports/dailyPrintUsageSummariesByPrinter/{PrintUsageSummaryByPrinter-id}'}  # type: ignore
-
-    def update_daily_print_usage_summary_by_printer(
-        self,
-        print_usage_summary_by_printer_id,  # type: str
-        id=None,  # type: Optional[str]
-        printer_id=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> None
-        """Update the navigation property dailyPrintUsageSummariesByPrinter in reports.
-
-        Update the navigation property dailyPrintUsageSummariesByPrinter in reports.
-
-        :param print_usage_summary_by_printer_id: key: PrintUsageSummaryByPrinter-id of
-         PrintUsageSummaryByPrinter.
-        :type print_usage_summary_by_printer_id: str
-        :param id: Read-only.
-        :type id: str
-        :param printer_id:
-        :type printer_id: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: None, or the result of cls(response)
-        :rtype: None
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByPrinter(id=id, printer_id=printer_id, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.update_daily_print_usage_summary_by_printer.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByPrinter-id': self._serialize.url("print_usage_summary_by_printer_id", print_usage_summary_by_printer_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByPrinter')
-        body_content_kwargs['content'] = body_content
-        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [204]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        if cls:
-            return cls(pipeline_response, None, {})
-
-    update_daily_print_usage_summary_by_printer.metadata = {'url': '/reports/dailyPrintUsageSummariesByPrinter/{PrintUsageSummaryByPrinter-id}'}  # type: ignore
-
-    def list_daily_print_usage_summary_by_user(
-        self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum14"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum15"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> Iterable["models.CollectionOfPrintUsageSummaryByUser"]
-        """Get dailyPrintUsageSummariesByUser from reports.
-
-        Get dailyPrintUsageSummariesByUser from reports.
-
-        :param orderby: Order items by property values.
-        :type orderby: list[str or ~reports.models.Enum14]
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum15]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfPrintUsageSummaryByUser or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~reports.models.CollectionOfPrintUsageSummaryByUser]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintUsageSummaryByUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        def prepare_request(next_link=None):
-            # Construct headers
-            header_parameters = {}  # type: Dict[str, Any]
-            header_parameters['Accept'] = 'application/json'
-
-            if not next_link:
-                # Construct URL
-                url = self.list_daily_print_usage_summary_by_user.metadata['url']  # type: ignore
-                # Construct parameters
-                query_parameters = {}  # type: Dict[str, Any]
-                if self._config.top is not None:
-                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-                if self._config.skip is not None:
-                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-                if self._config.search is not None:
-                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-                if self._config.filter is not None:
-                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-                if self._config.count is not None:
-                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-                if orderby is not None:
-                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-                if select is not None:
-                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-                if expand is not None:
-                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-                request = self._client.get(url, query_parameters, header_parameters)
-            else:
-                url = next_link
-                query_parameters = {}  # type: Dict[str, Any]
-                request = self._client.get(url, query_parameters, header_parameters)
-            return request
-
-        def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfPrintUsageSummaryByUser', pipeline_response)
-            list_of_elem = deserialized.value
-            if cls:
-                list_of_elem = cls(list_of_elem)
-            return deserialized.odata_next_link or None, iter(list_of_elem)
-
-        def get_next(next_link=None):
-            request = prepare_request(next_link)
-
-            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-            response = pipeline_response.http_response
-
-            if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
-                map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-            return pipeline_response
-
-        return ItemPaged(
-            get_next, extract_data
-        )
-    list_daily_print_usage_summary_by_user.metadata = {'url': '/reports/dailyPrintUsageSummariesByUser'}  # type: ignore
-
-    def create_daily_print_usage_summary_by_user(
-        self,
-        id=None,  # type: Optional[str]
-        user_principal_name=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByUser"
-        """Create new navigation property to dailyPrintUsageSummariesByUser for reports.
-
-        Create new navigation property to dailyPrintUsageSummariesByUser for reports.
-
-        :param id: Read-only.
-        :type id: str
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByUser, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByUser
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByUser(id=id, user_principal_name=user_principal_name, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.create_daily_print_usage_summary_by_user.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-        header_parameters['Accept'] = 'application/json'
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByUser')
-        body_content_kwargs['content'] = body_content
-        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [201]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByUser', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    create_daily_print_usage_summary_by_user.metadata = {'url': '/reports/dailyPrintUsageSummariesByUser'}  # type: ignore
-
-    def get_daily_print_usage_summary_by_user(
-        self,
-        print_usage_summary_by_user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum16"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByUser"
-        """Get dailyPrintUsageSummariesByUser from reports.
-
-        Get dailyPrintUsageSummariesByUser from reports.
-
-        :param print_usage_summary_by_user_id: key: PrintUsageSummaryByUser-id of
-         PrintUsageSummaryByUser.
-        :type print_usage_summary_by_user_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum16]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByUser, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByUser
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_daily_print_usage_summary_by_user.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByUser-id': self._serialize.url("print_usage_summary_by_user_id", print_usage_summary_by_user_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByUser', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_daily_print_usage_summary_by_user.metadata = {'url': '/reports/dailyPrintUsageSummariesByUser/{PrintUsageSummaryByUser-id}'}  # type: ignore
-
-    def update_daily_print_usage_summary_by_user(
-        self,
-        print_usage_summary_by_user_id,  # type: str
-        id=None,  # type: Optional[str]
-        user_principal_name=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> None
-        """Update the navigation property dailyPrintUsageSummariesByUser in reports.
-
-        Update the navigation property dailyPrintUsageSummariesByUser in reports.
-
-        :param print_usage_summary_by_user_id: key: PrintUsageSummaryByUser-id of
-         PrintUsageSummaryByUser.
-        :type print_usage_summary_by_user_id: str
-        :param id: Read-only.
-        :type id: str
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: None, or the result of cls(response)
-        :rtype: None
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByUser(id=id, user_principal_name=user_principal_name, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.update_daily_print_usage_summary_by_user.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByUser-id': self._serialize.url("print_usage_summary_by_user_id", print_usage_summary_by_user_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByUser')
-        body_content_kwargs['content'] = body_content
-        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [204]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        if cls:
-            return cls(pipeline_response, None, {})
-
-    update_daily_print_usage_summary_by_user.metadata = {'url': '/reports/dailyPrintUsageSummariesByUser/{PrintUsageSummaryByUser-id}'}  # type: ignore
-
     def device_configuration_device_activity(
         self,
         **kwargs  # type: Any
@@ -1271,6 +62,7 @@ class ReportOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.device_configuration_device_activity.metadata['url']  # type: ignore
@@ -1280,6 +72,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1316,6 +109,7 @@ class ReportOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.device_configuration_user_activity.metadata['url']  # type: ignore
@@ -1325,6 +119,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1344,310 +139,12 @@ class ReportOperations(object):
         return deserialized
     device_configuration_user_activity.metadata = {'url': '/reports/microsoft.graph.deviceConfigurationUserActivity()'}  # type: ignore
 
-    def get_azure_ad_application_sign_in_summary(
-        self,
-        period,  # type: str
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> List["models.MicrosoftGraphApplicationSignInSummary"]
-        """Invoke function getAzureADApplicationSignInSummary.
-
-        Invoke function getAzureADApplicationSignInSummary.
-
-        :param period:
-        :type period: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphApplicationSignInSummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphApplicationSignInSummary]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphApplicationSignInSummary"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_azure_ad_application_sign_in_summary.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'period': self._serialize.url("period", period, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphApplicationSignInSummary]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_azure_ad_application_sign_in_summary.metadata = {'url': '/reports/microsoft.graph.getAzureADApplicationSignInSummary(period={period})'}  # type: ignore
-
-    def get_azure_ad_feature_usage(
-        self,
-        period,  # type: str
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> List["models.MicrosoftGraphAzureAdFeatureUsage"]
-        """Invoke function getAzureADFeatureUsage.
-
-        Invoke function getAzureADFeatureUsage.
-
-        :param period:
-        :type period: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphAzureAdFeatureUsage, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphAzureAdFeatureUsage]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphAzureAdFeatureUsage"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_azure_ad_feature_usage.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'period': self._serialize.url("period", period, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphAzureAdFeatureUsage]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_azure_ad_feature_usage.metadata = {'url': '/reports/microsoft.graph.getAzureADFeatureUsage(period={period})'}  # type: ignore
-
-    def get_azure_ad_license_usage(
-        self,
-        period,  # type: str
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> List["models.MicrosoftGraphAzureAdLicenseUsage"]
-        """Invoke function getAzureADLicenseUsage.
-
-        Invoke function getAzureADLicenseUsage.
-
-        :param period:
-        :type period: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphAzureAdLicenseUsage, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphAzureAdLicenseUsage]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphAzureAdLicenseUsage"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_azure_ad_license_usage.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'period': self._serialize.url("period", period, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphAzureAdLicenseUsage]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_azure_ad_license_usage.metadata = {'url': '/reports/microsoft.graph.getAzureADLicenseUsage(period={period})'}  # type: ignore
-
-    def get_azure_ad_user_feature_usage(
-        self,
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> List["models.MicrosoftGraphAzureAdUserFeatureUsage"]
-        """Invoke function getAzureADUserFeatureUsage.
-
-        Invoke function getAzureADUserFeatureUsage.
-
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphAzureAdUserFeatureUsage, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphAzureAdUserFeatureUsage]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphAzureAdUserFeatureUsage"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_azure_ad_user_feature_usage.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphAzureAdUserFeatureUsage]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_azure_ad_user_feature_usage.metadata = {'url': '/reports/microsoft.graph.getAzureADUserFeatureUsage()'}  # type: ignore
-
-    def get_credential_usage_summary(
-        self,
-        period,  # type: str
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> List["models.MicrosoftGraphCredentialUsageSummary"]
-        """Invoke function getCredentialUsageSummary.
-
-        Invoke function getCredentialUsageSummary.
-
-        :param period:
-        :type period: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphCredentialUsageSummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphCredentialUsageSummary]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphCredentialUsageSummary"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_credential_usage_summary.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'period': self._serialize.url("period", period, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphCredentialUsageSummary]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_credential_usage_summary.metadata = {'url': '/reports/microsoft.graph.getCredentialUsageSummary(period={period})'}  # type: ignore
-
-    def get_credential_user_registration_count(
-        self,
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> List["models.MicrosoftGraphCredentialUserRegistrationCount"]
-        """Invoke function getCredentialUserRegistrationCount.
-
-        Invoke function getCredentialUserRegistrationCount.
-
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphCredentialUserRegistrationCount, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphCredentialUserRegistrationCount]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphCredentialUserRegistrationCount"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_credential_user_registration_count.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphCredentialUserRegistrationCount]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_credential_user_registration_count.metadata = {'url': '/reports/microsoft.graph.getCredentialUserRegistrationCount()'}  # type: ignore
-
     def get_email_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailActivitySummary"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityCounts.
 
         Invoke function getEmailActivityCounts.
@@ -1655,13 +152,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailActivitySummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailActivitySummary]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailActivitySummary"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_activity_count.metadata['url']  # type: ignore
@@ -1675,6 +173,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1686,20 +185,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailActivitySummary]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_email_activity_count.metadata = {'url': '/reports/microsoft.graph.getEmailActivityCounts(period={period})'}  # type: ignore
+    get_email_activity_count.metadata = {'url': '/reports/microsoft.graph.getEmailActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_email_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailActivitySummary"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityUserCounts.
 
         Invoke function getEmailActivityUserCounts.
@@ -1707,13 +206,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailActivitySummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailActivitySummary]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailActivitySummary"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_activity_user_count.metadata['url']  # type: ignore
@@ -1727,6 +227,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1738,20 +239,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailActivitySummary]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_email_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailActivityUserCounts(period={period})'}  # type: ignore
+    get_email_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_email_activity_user_detail_fe32(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityUserDetail.
 
         Invoke function getEmailActivityUserDetail.
@@ -1759,13 +260,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_activity_user_detail_fe32.metadata['url']  # type: ignore
@@ -1779,6 +281,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1790,7 +293,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1803,7 +306,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailActivityUserDetail.
 
         Invoke function getEmailActivityUserDetail.
@@ -1811,13 +314,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_activity_user_detail_ddb2.metadata['url']  # type: ignore
@@ -1831,6 +335,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1842,20 +347,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_email_activity_user_detail_ddb2.metadata = {'url': '/reports/microsoft.graph.getEmailActivityUserDetail(period={period})'}  # type: ignore
+    get_email_activity_user_detail_ddb2.metadata = {'url': '/reports/microsoft.graph.getEmailActivityUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_email_app_usage_app_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailAppUsageAppsUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageAppsUserCounts.
 
         Invoke function getEmailAppUsageAppsUserCounts.
@@ -1863,13 +368,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailAppUsageAppsUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailAppUsageAppsUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAppUsageAppsUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_app_usage_app_user_count.metadata['url']  # type: ignore
@@ -1883,6 +389,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1894,20 +401,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailAppUsageAppsUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_email_app_usage_app_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageAppsUserCounts(period={period})'}  # type: ignore
+    get_email_app_usage_app_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageAppsUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_email_app_usage_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailAppUsageUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageUserCounts.
 
         Invoke function getEmailAppUsageUserCounts.
@@ -1915,13 +422,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailAppUsageUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailAppUsageUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAppUsageUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_app_usage_user_count.metadata['url']  # type: ignore
@@ -1935,6 +443,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1946,20 +455,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailAppUsageUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_email_app_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageUserCounts(period={period})'}  # type: ignore
+    get_email_app_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_email_app_usage_user_detail62_ec(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailAppUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageUserDetail.
 
         Invoke function getEmailAppUsageUserDetail.
@@ -1967,13 +476,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailAppUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailAppUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAppUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_app_usage_user_detail62_ec.metadata['url']  # type: ignore
@@ -1987,6 +497,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -1998,7 +509,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailAppUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2011,7 +522,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailAppUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageUserDetail.
 
         Invoke function getEmailAppUsageUserDetail.
@@ -2019,13 +530,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailAppUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailAppUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAppUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_app_usage_user_detail546_b.metadata['url']  # type: ignore
@@ -2039,6 +551,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2050,20 +563,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailAppUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_email_app_usage_user_detail546_b.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageUserDetail(period={period})'}  # type: ignore
+    get_email_app_usage_user_detail546_b.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_email_app_usage_version_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphEmailAppUsageVersionsUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getEmailAppUsageVersionsUserCounts.
 
         Invoke function getEmailAppUsageVersionsUserCounts.
@@ -2071,13 +584,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphEmailAppUsageVersionsUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphEmailAppUsageVersionsUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphEmailAppUsageVersionsUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_email_app_usage_version_user_count.metadata['url']  # type: ignore
@@ -2091,6 +605,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2102,20 +617,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphEmailAppUsageVersionsUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_email_app_usage_version_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageVersionsUserCounts(period={period})'}  # type: ignore
+    get_email_app_usage_version_user_count.metadata = {'url': '/reports/microsoft.graph.getEmailAppUsageVersionsUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_mailbox_usage_detail(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphMailboxUsageDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageDetail.
 
         Invoke function getMailboxUsageDetail.
@@ -2123,13 +638,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphMailboxUsageDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphMailboxUsageDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphMailboxUsageDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_mailbox_usage_detail.metadata['url']  # type: ignore
@@ -2143,6 +659,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2154,20 +671,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphMailboxUsageDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_mailbox_usage_detail.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageDetail(period={period})'}  # type: ignore
+    get_mailbox_usage_detail.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageDetail(period=\'{period}\')'}  # type: ignore
 
     def get_mailbox_usage_mailbox_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphMailboxUsageMailboxCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageMailboxCounts.
 
         Invoke function getMailboxUsageMailboxCounts.
@@ -2175,13 +692,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphMailboxUsageMailboxCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphMailboxUsageMailboxCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphMailboxUsageMailboxCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_mailbox_usage_mailbox_count.metadata['url']  # type: ignore
@@ -2195,6 +713,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2206,20 +725,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphMailboxUsageMailboxCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_mailbox_usage_mailbox_count.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageMailboxCounts(period={period})'}  # type: ignore
+    get_mailbox_usage_mailbox_count.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageMailboxCounts(period=\'{period}\')'}  # type: ignore
 
     def get_mailbox_usage_quota_status_mailbox_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageQuotaStatusMailboxCounts.
 
         Invoke function getMailboxUsageQuotaStatusMailboxCounts.
@@ -2227,13 +746,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_mailbox_usage_quota_status_mailbox_count.metadata['url']  # type: ignore
@@ -2247,6 +767,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2258,20 +779,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_mailbox_usage_quota_status_mailbox_count.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageQuotaStatusMailboxCounts(period={period})'}  # type: ignore
+    get_mailbox_usage_quota_status_mailbox_count.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageQuotaStatusMailboxCounts(period=\'{period}\')'}  # type: ignore
 
     def get_mailbox_usage_storage(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphMailboxUsageStorage"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getMailboxUsageStorage.
 
         Invoke function getMailboxUsageStorage.
@@ -2279,13 +800,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphMailboxUsageStorage, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphMailboxUsageStorage]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphMailboxUsageStorage"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_mailbox_usage_storage.metadata['url']  # type: ignore
@@ -2299,6 +821,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2310,31 +833,32 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphMailboxUsageStorage]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_mailbox_usage_storage.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageStorage(period={period})'}  # type: ignore
+    get_mailbox_usage_storage.metadata = {'url': '/reports/microsoft.graph.getMailboxUsageStorage(period=\'{period}\')'}  # type: ignore
 
     def get_office365_activation_count(
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365ActivationCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActivationCounts.
 
         Invoke function getOffice365ActivationCounts.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365ActivationCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365ActivationCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365ActivationCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_activation_count.metadata['url']  # type: ignore
@@ -2344,6 +868,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2355,7 +880,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365ActivationCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2367,19 +892,20 @@ class ReportOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365ActivationsUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActivationsUserCounts.
 
         Invoke function getOffice365ActivationsUserCounts.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365ActivationsUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365ActivationsUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365ActivationsUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_activation_user_count.metadata['url']  # type: ignore
@@ -2389,6 +915,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2400,7 +927,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365ActivationsUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2412,19 +939,20 @@ class ReportOperations(object):
         self,
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365ActivationsUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActivationsUserDetail.
 
         Invoke function getOffice365ActivationsUserDetail.
 
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365ActivationsUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365ActivationsUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365ActivationsUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_activation_user_detail.metadata['url']  # type: ignore
@@ -2434,6 +962,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2445,7 +974,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365ActivationsUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2458,7 +987,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365ActiveUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActiveUserCounts.
 
         Invoke function getOffice365ActiveUserCounts.
@@ -2466,13 +995,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365ActiveUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365ActiveUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365ActiveUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_active_user_count.metadata['url']  # type: ignore
@@ -2486,6 +1016,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2497,20 +1028,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365ActiveUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_active_user_count.metadata = {'url': '/reports/microsoft.graph.getOffice365ActiveUserCounts(period={period})'}  # type: ignore
+    get_office365_active_user_count.metadata = {'url': '/reports/microsoft.graph.getOffice365ActiveUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_office365_active_user_detail_d389(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365ActiveUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActiveUserDetail.
 
         Invoke function getOffice365ActiveUserDetail.
@@ -2518,13 +1049,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365ActiveUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365ActiveUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365ActiveUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_active_user_detail_d389.metadata['url']  # type: ignore
@@ -2538,6 +1070,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2549,7 +1082,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365ActiveUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2562,7 +1095,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365ActiveUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ActiveUserDetail.
 
         Invoke function getOffice365ActiveUserDetail.
@@ -2570,13 +1103,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365ActiveUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365ActiveUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365ActiveUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_active_user_detail68_ad.metadata['url']  # type: ignore
@@ -2590,6 +1124,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2601,20 +1136,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365ActiveUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_active_user_detail68_ad.metadata = {'url': '/reports/microsoft.graph.getOffice365ActiveUserDetail(period={period})'}  # type: ignore
+    get_office365_active_user_detail68_ad.metadata = {'url': '/reports/microsoft.graph.getOffice365ActiveUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_office365_group_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365GroupsActivityCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityCounts.
 
         Invoke function getOffice365GroupsActivityCounts.
@@ -2622,13 +1157,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365GroupsActivityCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365GroupsActivityCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365GroupsActivityCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_group_activity_count.metadata['url']  # type: ignore
@@ -2642,6 +1178,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2653,20 +1190,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365GroupsActivityCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_group_activity_count.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityCounts(period={period})'}  # type: ignore
+    get_office365_group_activity_count.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_office365_group_activity_detail81_cc(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365GroupsActivityDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityDetail.
 
         Invoke function getOffice365GroupsActivityDetail.
@@ -2674,13 +1211,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365GroupsActivityDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365GroupsActivityDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365GroupsActivityDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_group_activity_detail81_cc.metadata['url']  # type: ignore
@@ -2694,6 +1232,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2705,7 +1244,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365GroupsActivityDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -2718,7 +1257,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365GroupsActivityDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityDetail.
 
         Invoke function getOffice365GroupsActivityDetail.
@@ -2726,13 +1265,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365GroupsActivityDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365GroupsActivityDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365GroupsActivityDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_group_activity_detail38_f6.metadata['url']  # type: ignore
@@ -2746,6 +1286,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2757,20 +1298,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365GroupsActivityDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_group_activity_detail38_f6.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityDetail(period={period})'}  # type: ignore
+    get_office365_group_activity_detail38_f6.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityDetail(period=\'{period}\')'}  # type: ignore
 
     def get_office365_group_activity_file_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365GroupsActivityFileCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityFileCounts.
 
         Invoke function getOffice365GroupsActivityFileCounts.
@@ -2778,13 +1319,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365GroupsActivityFileCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365GroupsActivityFileCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365GroupsActivityFileCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_group_activity_file_count.metadata['url']  # type: ignore
@@ -2798,6 +1340,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2809,20 +1352,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365GroupsActivityFileCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_group_activity_file_count.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityFileCounts(period={period})'}  # type: ignore
+    get_office365_group_activity_file_count.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityFileCounts(period=\'{period}\')'}  # type: ignore
 
     def get_office365_group_activity_group_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365GroupsActivityGroupCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityGroupCounts.
 
         Invoke function getOffice365GroupsActivityGroupCounts.
@@ -2830,13 +1373,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365GroupsActivityGroupCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365GroupsActivityGroupCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365GroupsActivityGroupCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_group_activity_group_count.metadata['url']  # type: ignore
@@ -2850,6 +1394,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2861,20 +1406,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365GroupsActivityGroupCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_group_activity_group_count.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityGroupCounts(period={period})'}  # type: ignore
+    get_office365_group_activity_group_count.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityGroupCounts(period=\'{period}\')'}  # type: ignore
 
     def get_office365_group_activity_storage(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365GroupsActivityStorage"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365GroupsActivityStorage.
 
         Invoke function getOffice365GroupsActivityStorage.
@@ -2882,13 +1427,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365GroupsActivityStorage, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365GroupsActivityStorage]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365GroupsActivityStorage"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_group_activity_storage.metadata['url']  # type: ignore
@@ -2902,6 +1448,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2913,20 +1460,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365GroupsActivityStorage]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_group_activity_storage.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityStorage(period={period})'}  # type: ignore
+    get_office365_group_activity_storage.metadata = {'url': '/reports/microsoft.graph.getOffice365GroupsActivityStorage(period=\'{period}\')'}  # type: ignore
 
     def get_office365_service_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOffice365ServicesUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOffice365ServicesUserCounts.
 
         Invoke function getOffice365ServicesUserCounts.
@@ -2934,13 +1481,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOffice365ServicesUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOffice365ServicesUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOffice365ServicesUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_office365_service_user_count.metadata['url']  # type: ignore
@@ -2954,6 +1502,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -2965,20 +1514,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOffice365ServicesUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_office365_service_user_count.metadata = {'url': '/reports/microsoft.graph.getOffice365ServicesUserCounts(period={period})'}  # type: ignore
+    get_office365_service_user_count.metadata = {'url': '/reports/microsoft.graph.getOffice365ServicesUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_one_drive_activity_file_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSiteActivitySummary"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityFileCounts.
 
         Invoke function getOneDriveActivityFileCounts.
@@ -2986,13 +1535,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSiteActivitySummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSiteActivitySummary]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSiteActivitySummary"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_activity_file_count.metadata['url']  # type: ignore
@@ -3006,6 +1556,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3017,20 +1568,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSiteActivitySummary]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_one_drive_activity_file_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveActivityFileCounts(period={period})'}  # type: ignore
+    get_one_drive_activity_file_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveActivityFileCounts(period=\'{period}\')'}  # type: ignore
 
     def get_one_drive_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSiteActivitySummary"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityUserCounts.
 
         Invoke function getOneDriveActivityUserCounts.
@@ -3038,13 +1589,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSiteActivitySummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSiteActivitySummary]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSiteActivitySummary"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_activity_user_count.metadata['url']  # type: ignore
@@ -3058,6 +1610,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3069,20 +1622,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSiteActivitySummary]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_one_drive_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveActivityUserCounts(period={period})'}  # type: ignore
+    get_one_drive_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_one_drive_activity_user_detail05_f1(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOneDriveActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityUserDetail.
 
         Invoke function getOneDriveActivityUserDetail.
@@ -3090,13 +1643,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOneDriveActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOneDriveActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOneDriveActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_activity_user_detail05_f1.metadata['url']  # type: ignore
@@ -3110,6 +1664,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3121,7 +1676,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOneDriveActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3134,7 +1689,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOneDriveActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveActivityUserDetail.
 
         Invoke function getOneDriveActivityUserDetail.
@@ -3142,13 +1697,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOneDriveActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOneDriveActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOneDriveActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_activity_user_detail_c424.metadata['url']  # type: ignore
@@ -3162,6 +1718,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3173,20 +1730,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOneDriveActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_one_drive_activity_user_detail_c424.metadata = {'url': '/reports/microsoft.graph.getOneDriveActivityUserDetail(period={period})'}  # type: ignore
+    get_one_drive_activity_user_detail_c424.metadata = {'url': '/reports/microsoft.graph.getOneDriveActivityUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_one_drive_usage_account_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOneDriveUsageAccountCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageAccountCounts.
 
         Invoke function getOneDriveUsageAccountCounts.
@@ -3194,13 +1751,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOneDriveUsageAccountCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOneDriveUsageAccountCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOneDriveUsageAccountCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_usage_account_count.metadata['url']  # type: ignore
@@ -3214,6 +1772,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3225,20 +1784,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOneDriveUsageAccountCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_one_drive_usage_account_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageAccountCounts(period={period})'}  # type: ignore
+    get_one_drive_usage_account_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageAccountCounts(period=\'{period}\')'}  # type: ignore
 
     def get_one_drive_usage_account_detail_e827(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOneDriveUsageAccountDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageAccountDetail.
 
         Invoke function getOneDriveUsageAccountDetail.
@@ -3246,13 +1805,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOneDriveUsageAccountDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOneDriveUsageAccountDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOneDriveUsageAccountDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_usage_account_detail_e827.metadata['url']  # type: ignore
@@ -3266,6 +1826,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3277,7 +1838,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOneDriveUsageAccountDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3290,7 +1851,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOneDriveUsageAccountDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageAccountDetail.
 
         Invoke function getOneDriveUsageAccountDetail.
@@ -3298,13 +1859,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOneDriveUsageAccountDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOneDriveUsageAccountDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOneDriveUsageAccountDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_usage_account_detail_dd7_f.metadata['url']  # type: ignore
@@ -3318,6 +1880,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3329,20 +1892,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOneDriveUsageAccountDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_one_drive_usage_account_detail_dd7_f.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageAccountDetail(period={period})'}  # type: ignore
+    get_one_drive_usage_account_detail_dd7_f.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageAccountDetail(period=\'{period}\')'}  # type: ignore
 
     def get_one_drive_usage_file_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphOneDriveUsageFileCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageFileCounts.
 
         Invoke function getOneDriveUsageFileCounts.
@@ -3350,13 +1913,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphOneDriveUsageFileCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphOneDriveUsageFileCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphOneDriveUsageFileCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_usage_file_count.metadata['url']  # type: ignore
@@ -3370,6 +1934,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3381,20 +1946,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphOneDriveUsageFileCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_one_drive_usage_file_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageFileCounts(period={period})'}  # type: ignore
+    get_one_drive_usage_file_count.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageFileCounts(period=\'{period}\')'}  # type: ignore
 
     def get_one_drive_usage_storage(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSiteUsageStorage"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getOneDriveUsageStorage.
 
         Invoke function getOneDriveUsageStorage.
@@ -3402,13 +1967,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSiteUsageStorage, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSiteUsageStorage]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSiteUsageStorage"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_one_drive_usage_storage.metadata['url']  # type: ignore
@@ -3422,6 +1988,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3433,72 +2000,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSiteUsageStorage]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_one_drive_usage_storage.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageStorage(period={period})'}  # type: ignore
-
-    def get_relying_party_detailed_summary(
-        self,
-        period,  # type: str
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> List["models.MicrosoftGraphRelyingPartyDetailedSummary"]
-        """Invoke function getRelyingPartyDetailedSummary.
-
-        Invoke function getRelyingPartyDetailedSummary.
-
-        :param period:
-        :type period: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphRelyingPartyDetailedSummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphRelyingPartyDetailedSummary]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphRelyingPartyDetailedSummary"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_relying_party_detailed_summary.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'period': self._serialize.url("period", period, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphRelyingPartyDetailedSummary]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_relying_party_detailed_summary.metadata = {'url': '/reports/microsoft.graph.getRelyingPartyDetailedSummary(period={period})'}  # type: ignore
+    get_one_drive_usage_storage.metadata = {'url': '/reports/microsoft.graph.getOneDriveUsageStorage(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_activity_file_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSiteActivitySummary"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityFileCounts.
 
         Invoke function getSharePointActivityFileCounts.
@@ -3506,13 +2021,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSiteActivitySummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSiteActivitySummary]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSiteActivitySummary"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_activity_file_count.metadata['url']  # type: ignore
@@ -3526,6 +2042,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3537,20 +2054,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSiteActivitySummary]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_activity_file_count.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityFileCounts(period={period})'}  # type: ignore
+    get_share_point_activity_file_count.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityFileCounts(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_activity_page(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointActivityPages"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityPages.
 
         Invoke function getSharePointActivityPages.
@@ -3558,13 +2075,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointActivityPages, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointActivityPages]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointActivityPages"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_activity_page.metadata['url']  # type: ignore
@@ -3578,6 +2096,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3589,20 +2108,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointActivityPages]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_activity_page.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityPages(period={period})'}  # type: ignore
+    get_share_point_activity_page.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityPages(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointActivityUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityUserCounts.
 
         Invoke function getSharePointActivityUserCounts.
@@ -3610,13 +2129,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointActivityUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointActivityUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointActivityUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_activity_user_count.metadata['url']  # type: ignore
@@ -3630,6 +2150,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3641,20 +2162,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointActivityUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityUserCounts(period={period})'}  # type: ignore
+    get_share_point_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_activity_user_detail_f3_be(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityUserDetail.
 
         Invoke function getSharePointActivityUserDetail.
@@ -3662,13 +2183,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_activity_user_detail_f3_be.metadata['url']  # type: ignore
@@ -3682,6 +2204,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3693,7 +2216,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3706,7 +2229,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointActivityUserDetail.
 
         Invoke function getSharePointActivityUserDetail.
@@ -3714,13 +2237,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_activity_user_detail_b778.metadata['url']  # type: ignore
@@ -3734,6 +2258,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3745,20 +2270,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_activity_user_detail_b778.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityUserDetail(period={period})'}  # type: ignore
+    get_share_point_activity_user_detail_b778.metadata = {'url': '/reports/microsoft.graph.getSharePointActivityUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_site_usage_detail_d27_a(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointSiteUsageDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageDetail.
 
         Invoke function getSharePointSiteUsageDetail.
@@ -3766,13 +2291,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointSiteUsageDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointSiteUsageDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointSiteUsageDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_site_usage_detail_d27_a.metadata['url']  # type: ignore
@@ -3786,6 +2312,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3797,7 +2324,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointSiteUsageDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -3810,7 +2337,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointSiteUsageDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageDetail.
 
         Invoke function getSharePointSiteUsageDetail.
@@ -3818,13 +2345,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointSiteUsageDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointSiteUsageDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointSiteUsageDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_site_usage_detail204_b.metadata['url']  # type: ignore
@@ -3838,6 +2366,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3849,20 +2378,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointSiteUsageDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_site_usage_detail204_b.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageDetail(period={period})'}  # type: ignore
+    get_share_point_site_usage_detail204_b.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageDetail(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_site_usage_file_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointSiteUsageFileCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageFileCounts.
 
         Invoke function getSharePointSiteUsageFileCounts.
@@ -3870,13 +2399,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointSiteUsageFileCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointSiteUsageFileCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointSiteUsageFileCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_site_usage_file_count.metadata['url']  # type: ignore
@@ -3890,6 +2420,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3901,20 +2432,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointSiteUsageFileCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_site_usage_file_count.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageFileCounts(period={period})'}  # type: ignore
+    get_share_point_site_usage_file_count.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageFileCounts(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_site_usage_page(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointSiteUsagePages"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsagePages.
 
         Invoke function getSharePointSiteUsagePages.
@@ -3922,13 +2453,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointSiteUsagePages, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointSiteUsagePages]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointSiteUsagePages"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_site_usage_page.metadata['url']  # type: ignore
@@ -3942,6 +2474,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -3953,20 +2486,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointSiteUsagePages]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_site_usage_page.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsagePages(period={period})'}  # type: ignore
+    get_share_point_site_usage_page.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsagePages(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_site_usage_site_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSharePointSiteUsageSiteCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageSiteCounts.
 
         Invoke function getSharePointSiteUsageSiteCounts.
@@ -3974,13 +2507,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSharePointSiteUsageSiteCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSharePointSiteUsageSiteCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSharePointSiteUsageSiteCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_site_usage_site_count.metadata['url']  # type: ignore
@@ -3994,6 +2528,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4005,20 +2540,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSharePointSiteUsageSiteCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_site_usage_site_count.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageSiteCounts(period={period})'}  # type: ignore
+    get_share_point_site_usage_site_count.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageSiteCounts(period=\'{period}\')'}  # type: ignore
 
     def get_share_point_site_usage_storage(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSiteUsageStorage"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSharePointSiteUsageStorage.
 
         Invoke function getSharePointSiteUsageStorage.
@@ -4026,13 +2561,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSiteUsageStorage, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSiteUsageStorage]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSiteUsageStorage"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_share_point_site_usage_storage.metadata['url']  # type: ignore
@@ -4046,6 +2582,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4057,20 +2594,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSiteUsageStorage]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_share_point_site_usage_storage.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageStorage(period={period})'}  # type: ignore
+    get_share_point_site_usage_storage.metadata = {'url': '/reports/microsoft.graph.getSharePointSiteUsageStorage(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessActivityCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityCounts.
 
         Invoke function getSkypeForBusinessActivityCounts.
@@ -4078,13 +2615,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessActivityCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessActivityCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessActivityCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_activity_count.metadata['url']  # type: ignore
@@ -4098,6 +2636,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4109,20 +2648,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessActivityCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessActivityCounts(period={period})'}  # type: ignore
+    get_skype_for_business_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessActivityUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityUserCounts.
 
         Invoke function getSkypeForBusinessActivityUserCounts.
@@ -4130,13 +2669,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessActivityUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessActivityUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessActivityUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_activity_user_count.metadata['url']  # type: ignore
@@ -4150,6 +2690,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4161,20 +2702,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessActivityUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessActivityUserCounts(period={period})'}  # type: ignore
+    get_skype_for_business_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_activity_user_detail_e4_c9(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityUserDetail.
 
         Invoke function getSkypeForBusinessActivityUserDetail.
@@ -4182,13 +2723,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_activity_user_detail_e4_c9.metadata['url']  # type: ignore
@@ -4202,6 +2744,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4213,7 +2756,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4226,7 +2769,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessActivityUserDetail.
 
         Invoke function getSkypeForBusinessActivityUserDetail.
@@ -4234,13 +2777,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_activity_user_detail744_e.metadata['url']  # type: ignore
@@ -4254,6 +2798,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4265,20 +2810,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_activity_user_detail744_e.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessActivityUserDetail(period={period})'}  # type: ignore
+    get_skype_for_business_activity_user_detail744_e.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessActivityUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_device_usage_distribution_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts.
 
         Invoke function getSkypeForBusinessDeviceUsageDistributionUserCounts.
@@ -4286,13 +2831,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_device_usage_distribution_user_count.metadata['url']  # type: ignore
@@ -4306,6 +2852,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4317,20 +2864,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_device_usage_distribution_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period={period})'}  # type: ignore
+    get_skype_for_business_device_usage_distribution_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_device_usage_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageUserCounts.
 
         Invoke function getSkypeForBusinessDeviceUsageUserCounts.
@@ -4338,13 +2885,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_device_usage_user_count.metadata['url']  # type: ignore
@@ -4358,6 +2906,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4369,20 +2918,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_device_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessDeviceUsageUserCounts(period={period})'}  # type: ignore
+    get_skype_for_business_device_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessDeviceUsageUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_device_usage_user_detail_a692(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageUserDetail.
 
         Invoke function getSkypeForBusinessDeviceUsageUserDetail.
@@ -4390,13 +2939,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_device_usage_user_detail_a692.metadata['url']  # type: ignore
@@ -4410,6 +2960,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4421,7 +2972,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -4434,7 +2985,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessDeviceUsageUserDetail.
 
         Invoke function getSkypeForBusinessDeviceUsageUserDetail.
@@ -4442,13 +2993,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_device_usage_user_detail_e753.metadata['url']  # type: ignore
@@ -4462,6 +3014,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4473,20 +3026,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_device_usage_user_detail_e753.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(period={period})'}  # type: ignore
+    get_skype_for_business_device_usage_user_detail_e753.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_organizer_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessOrganizerActivityCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessOrganizerActivityCounts.
 
         Invoke function getSkypeForBusinessOrganizerActivityCounts.
@@ -4494,13 +3047,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessOrganizerActivityCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessOrganizerActivityCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessOrganizerActivityCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_organizer_activity_count.metadata['url']  # type: ignore
@@ -4514,6 +3068,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4525,20 +3080,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessOrganizerActivityCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_organizer_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessOrganizerActivityCounts(period={period})'}  # type: ignore
+    get_skype_for_business_organizer_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessOrganizerActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_organizer_activity_minute_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts.
 
         Invoke function getSkypeForBusinessOrganizerActivityMinuteCounts.
@@ -4546,13 +3101,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_organizer_activity_minute_count.metadata['url']  # type: ignore
@@ -4566,6 +3122,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4577,20 +3134,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_organizer_activity_minute_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessOrganizerActivityMinuteCounts(period={period})'}  # type: ignore
+    get_skype_for_business_organizer_activity_minute_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessOrganizerActivityMinuteCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_organizer_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessOrganizerActivityUserCounts.
 
         Invoke function getSkypeForBusinessOrganizerActivityUserCounts.
@@ -4598,13 +3155,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_organizer_activity_user_count.metadata['url']  # type: ignore
@@ -4618,6 +3176,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4629,20 +3188,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_organizer_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessOrganizerActivityUserCounts(period={period})'}  # type: ignore
+    get_skype_for_business_organizer_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessOrganizerActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_participant_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessParticipantActivityCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessParticipantActivityCounts.
 
         Invoke function getSkypeForBusinessParticipantActivityCounts.
@@ -4650,13 +3209,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessParticipantActivityCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessParticipantActivityCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessParticipantActivityCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_participant_activity_count.metadata['url']  # type: ignore
@@ -4670,6 +3230,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4681,20 +3242,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessParticipantActivityCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_participant_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessParticipantActivityCounts(period={period})'}  # type: ignore
+    get_skype_for_business_participant_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessParticipantActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_participant_activity_minute_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessParticipantActivityMinuteCounts.
 
         Invoke function getSkypeForBusinessParticipantActivityMinuteCounts.
@@ -4702,13 +3263,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_participant_activity_minute_count.metadata['url']  # type: ignore
@@ -4722,6 +3284,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4733,20 +3296,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_participant_activity_minute_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessParticipantActivityMinuteCounts(period={period})'}  # type: ignore
+    get_skype_for_business_participant_activity_minute_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessParticipantActivityMinuteCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_participant_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessParticipantActivityUserCounts.
 
         Invoke function getSkypeForBusinessParticipantActivityUserCounts.
@@ -4754,13 +3317,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_participant_activity_user_count.metadata['url']  # type: ignore
@@ -4774,6 +3338,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4785,20 +3350,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_participant_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessParticipantActivityUserCounts(period={period})'}  # type: ignore
+    get_skype_for_business_participant_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessParticipantActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_peer_to_peer_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessPeerToPeerActivityCounts.
 
         Invoke function getSkypeForBusinessPeerToPeerActivityCounts.
@@ -4806,13 +3371,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_peer_to_peer_activity_count.metadata['url']  # type: ignore
@@ -4826,6 +3392,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4837,20 +3404,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_peer_to_peer_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityCounts(period={period})'}  # type: ignore
+    get_skype_for_business_peer_to_peer_activity_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_peer_to_peer_activity_minute_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts.
 
         Invoke function getSkypeForBusinessPeerToPeerActivityMinuteCounts.
@@ -4858,13 +3425,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_peer_to_peer_activity_minute_count.metadata['url']  # type: ignore
@@ -4878,6 +3446,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4889,20 +3458,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_peer_to_peer_activity_minute_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityMinuteCounts(period={period})'}  # type: ignore
+    get_skype_for_business_peer_to_peer_activity_minute_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityMinuteCounts(period=\'{period}\')'}  # type: ignore
 
     def get_skype_for_business_peer_to_peer_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts.
 
         Invoke function getSkypeForBusinessPeerToPeerActivityUserCounts.
@@ -4910,13 +3479,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_skype_for_business_peer_to_peer_activity_user_count.metadata['url']  # type: ignore
@@ -4930,6 +3500,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4941,20 +3512,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_skype_for_business_peer_to_peer_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityUserCounts(period={period})'}  # type: ignore
+    get_skype_for_business_peer_to_peer_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_team_device_usage_distribution_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsDeviceUsageDistributionUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageDistributionUserCounts.
 
         Invoke function getTeamsDeviceUsageDistributionUserCounts.
@@ -4962,13 +3533,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsDeviceUsageDistributionUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsDeviceUsageDistributionUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsDeviceUsageDistributionUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_device_usage_distribution_user_count.metadata['url']  # type: ignore
@@ -4982,6 +3554,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -4993,20 +3566,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphTeamsDeviceUsageDistributionUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_team_device_usage_distribution_user_count.metadata = {'url': '/reports/microsoft.graph.getTeamsDeviceUsageDistributionUserCounts(period={period})'}  # type: ignore
+    get_team_device_usage_distribution_user_count.metadata = {'url': '/reports/microsoft.graph.getTeamsDeviceUsageDistributionUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_team_device_usage_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsDeviceUsageUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageUserCounts.
 
         Invoke function getTeamsDeviceUsageUserCounts.
@@ -5014,13 +3587,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsDeviceUsageUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsDeviceUsageUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsDeviceUsageUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_device_usage_user_count.metadata['url']  # type: ignore
@@ -5034,6 +3608,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5045,20 +3620,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphTeamsDeviceUsageUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_team_device_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getTeamsDeviceUsageUserCounts(period={period})'}  # type: ignore
+    get_team_device_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getTeamsDeviceUsageUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_team_device_usage_user_detail7148(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsDeviceUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageUserDetail.
 
         Invoke function getTeamsDeviceUsageUserDetail.
@@ -5066,13 +3641,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsDeviceUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsDeviceUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsDeviceUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_device_usage_user_detail7148.metadata['url']  # type: ignore
@@ -5086,6 +3662,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5097,7 +3674,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphTeamsDeviceUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -5110,7 +3687,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsDeviceUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsDeviceUsageUserDetail.
 
         Invoke function getTeamsDeviceUsageUserDetail.
@@ -5118,13 +3695,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsDeviceUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsDeviceUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsDeviceUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_device_usage_user_detail7565.metadata['url']  # type: ignore
@@ -5138,6 +3716,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5149,20 +3728,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphTeamsDeviceUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_team_device_usage_user_detail7565.metadata = {'url': '/reports/microsoft.graph.getTeamsDeviceUsageUserDetail(period={period})'}  # type: ignore
+    get_team_device_usage_user_detail7565.metadata = {'url': '/reports/microsoft.graph.getTeamsDeviceUsageUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_team_user_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsUserActivityCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityCounts.
 
         Invoke function getTeamsUserActivityCounts.
@@ -5170,13 +3749,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsUserActivityCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsUserActivityCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsUserActivityCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_user_activity_count.metadata['url']  # type: ignore
@@ -5190,6 +3770,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5201,20 +3782,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphTeamsUserActivityCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_team_user_activity_count.metadata = {'url': '/reports/microsoft.graph.getTeamsUserActivityCounts(period={period})'}  # type: ignore
+    get_team_user_activity_count.metadata = {'url': '/reports/microsoft.graph.getTeamsUserActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_team_user_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsUserActivityUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityUserCounts.
 
         Invoke function getTeamsUserActivityUserCounts.
@@ -5222,13 +3803,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsUserActivityUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsUserActivityUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsUserActivityUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_user_activity_user_count.metadata['url']  # type: ignore
@@ -5242,6 +3824,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5253,20 +3836,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphTeamsUserActivityUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_team_user_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getTeamsUserActivityUserCounts(period={period})'}  # type: ignore
+    get_team_user_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getTeamsUserActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_team_user_activity_user_detail_a3_f1(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsUserActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityUserDetail.
 
         Invoke function getTeamsUserActivityUserDetail.
@@ -5274,13 +3857,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsUserActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsUserActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsUserActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_user_activity_user_detail_a3_f1.metadata['url']  # type: ignore
@@ -5294,6 +3878,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5305,7 +3890,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphTeamsUserActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -5318,7 +3903,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphTeamsUserActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getTeamsUserActivityUserDetail.
 
         Invoke function getTeamsUserActivityUserDetail.
@@ -5326,13 +3911,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphTeamsUserActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphTeamsUserActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphTeamsUserActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_team_user_activity_user_detail_eb13.metadata['url']  # type: ignore
@@ -5346,58 +3932,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphTeamsUserActivityUserDetail]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_team_user_activity_user_detail_eb13.metadata = {'url': '/reports/microsoft.graph.getTeamsUserActivityUserDetail(period={period})'}  # type: ignore
-
-    def get_tenant_secure_score(
-        self,
-        period,  # type: int
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphReport"
-        """Invoke function getTenantSecureScores.
-
-        Invoke function getTenantSecureScores.
-
-        :param period:
-        :type period: int
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphReport, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphReport
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_tenant_secure_score.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'period': self._serialize.url("period", period, 'int', maximum=2147483647, minimum=-2147483648),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5415,14 +3950,14 @@ class ReportOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_tenant_secure_score.metadata = {'url': '/reports/microsoft.graph.getTenantSecureScores(period={period})'}  # type: ignore
+    get_team_user_activity_user_detail_eb13.metadata = {'url': '/reports/microsoft.graph.getTeamsUserActivityUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerActivitySummary"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityCounts.
 
         Invoke function getYammerActivityCounts.
@@ -5430,13 +3965,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerActivitySummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerActivitySummary]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerActivitySummary"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_activity_count.metadata['url']  # type: ignore
@@ -5450,6 +3986,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5461,20 +3998,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerActivitySummary]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_activity_count.metadata = {'url': '/reports/microsoft.graph.getYammerActivityCounts(period={period})'}  # type: ignore
+    get_yammer_activity_count.metadata = {'url': '/reports/microsoft.graph.getYammerActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_activity_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerActivitySummary"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityUserCounts.
 
         Invoke function getYammerActivityUserCounts.
@@ -5482,13 +4019,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerActivitySummary, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerActivitySummary]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerActivitySummary"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_activity_user_count.metadata['url']  # type: ignore
@@ -5502,6 +4040,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5513,20 +4052,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerActivitySummary]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getYammerActivityUserCounts(period={period})'}  # type: ignore
+    get_yammer_activity_user_count.metadata = {'url': '/reports/microsoft.graph.getYammerActivityUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_activity_user_detail_ac30(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityUserDetail.
 
         Invoke function getYammerActivityUserDetail.
@@ -5534,13 +4073,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_activity_user_detail_ac30.metadata['url']  # type: ignore
@@ -5554,6 +4094,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5565,7 +4106,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -5578,7 +4119,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerActivityUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerActivityUserDetail.
 
         Invoke function getYammerActivityUserDetail.
@@ -5586,13 +4127,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerActivityUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerActivityUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerActivityUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_activity_user_detail15_a5.metadata['url']  # type: ignore
@@ -5606,6 +4148,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5617,20 +4160,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerActivityUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_activity_user_detail15_a5.metadata = {'url': '/reports/microsoft.graph.getYammerActivityUserDetail(period={period})'}  # type: ignore
+    get_yammer_activity_user_detail15_a5.metadata = {'url': '/reports/microsoft.graph.getYammerActivityUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_device_usage_distribution_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerDeviceUsageDistributionUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageDistributionUserCounts.
 
         Invoke function getYammerDeviceUsageDistributionUserCounts.
@@ -5638,13 +4181,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerDeviceUsageDistributionUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerDeviceUsageDistributionUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerDeviceUsageDistributionUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_device_usage_distribution_user_count.metadata['url']  # type: ignore
@@ -5658,6 +4202,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5669,20 +4214,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerDeviceUsageDistributionUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_device_usage_distribution_user_count.metadata = {'url': '/reports/microsoft.graph.getYammerDeviceUsageDistributionUserCounts(period={period})'}  # type: ignore
+    get_yammer_device_usage_distribution_user_count.metadata = {'url': '/reports/microsoft.graph.getYammerDeviceUsageDistributionUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_device_usage_user_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerDeviceUsageUserCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageUserCounts.
 
         Invoke function getYammerDeviceUsageUserCounts.
@@ -5690,13 +4235,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerDeviceUsageUserCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerDeviceUsageUserCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerDeviceUsageUserCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_device_usage_user_count.metadata['url']  # type: ignore
@@ -5710,6 +4256,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5721,20 +4268,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerDeviceUsageUserCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_device_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getYammerDeviceUsageUserCounts(period={period})'}  # type: ignore
+    get_yammer_device_usage_user_count.metadata = {'url': '/reports/microsoft.graph.getYammerDeviceUsageUserCounts(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_device_usage_user_detail_d0_ac(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerDeviceUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageUserDetail.
 
         Invoke function getYammerDeviceUsageUserDetail.
@@ -5742,13 +4289,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerDeviceUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerDeviceUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerDeviceUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_device_usage_user_detail_d0_ac.metadata['url']  # type: ignore
@@ -5762,6 +4310,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5773,7 +4322,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerDeviceUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -5786,7 +4335,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerDeviceUsageUserDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerDeviceUsageUserDetail.
 
         Invoke function getYammerDeviceUsageUserDetail.
@@ -5794,13 +4343,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerDeviceUsageUserDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerDeviceUsageUserDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerDeviceUsageUserDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_device_usage_user_detail_cfad.metadata['url']  # type: ignore
@@ -5814,6 +4364,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5825,20 +4376,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerDeviceUsageUserDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_device_usage_user_detail_cfad.metadata = {'url': '/reports/microsoft.graph.getYammerDeviceUsageUserDetail(period={period})'}  # type: ignore
+    get_yammer_device_usage_user_detail_cfad.metadata = {'url': '/reports/microsoft.graph.getYammerDeviceUsageUserDetail(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_group_activity_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerGroupsActivityCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityCounts.
 
         Invoke function getYammerGroupsActivityCounts.
@@ -5846,13 +4397,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerGroupsActivityCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerGroupsActivityCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerGroupsActivityCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_group_activity_count.metadata['url']  # type: ignore
@@ -5866,6 +4418,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5877,20 +4430,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerGroupsActivityCounts]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_group_activity_count.metadata = {'url': '/reports/microsoft.graph.getYammerGroupsActivityCounts(period={period})'}  # type: ignore
+    get_yammer_group_activity_count.metadata = {'url': '/reports/microsoft.graph.getYammerGroupsActivityCounts(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_group_activity_detail_da9_a(
         self,
         date,  # type: datetime.date
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerGroupsActivityDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityDetail.
 
         Invoke function getYammerGroupsActivityDetail.
@@ -5898,13 +4451,14 @@ class ReportOperations(object):
         :param date:
         :type date: ~datetime.date
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerGroupsActivityDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerGroupsActivityDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerGroupsActivityDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_group_activity_detail_da9_a.metadata['url']  # type: ignore
@@ -5918,6 +4472,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5929,7 +4484,7 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerGroupsActivityDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -5942,7 +4497,7 @@ class ReportOperations(object):
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerGroupsActivityDetail"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityDetail.
 
         Invoke function getYammerGroupsActivityDetail.
@@ -5950,13 +4505,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerGroupsActivityDetail, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerGroupsActivityDetail]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerGroupsActivityDetail"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_group_activity_detail0_d7_d.metadata['url']  # type: ignore
@@ -5970,6 +4526,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -5981,20 +4538,20 @@ class ReportOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('[MicrosoftGraphYammerGroupsActivityDetail]', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_yammer_group_activity_detail0_d7_d.metadata = {'url': '/reports/microsoft.graph.getYammerGroupsActivityDetail(period={period})'}  # type: ignore
+    get_yammer_group_activity_detail0_d7_d.metadata = {'url': '/reports/microsoft.graph.getYammerGroupsActivityDetail(period=\'{period}\')'}  # type: ignore
 
     def get_yammer_group_activity_group_count(
         self,
         period,  # type: str
         **kwargs  # type: Any
     ):
-        # type: (...) -> List["models.MicrosoftGraphYammerGroupsActivityGroupCounts"]
+        # type: (...) -> "models.MicrosoftGraphReport"
         """Invoke function getYammerGroupsActivityGroupCounts.
 
         Invoke function getYammerGroupsActivityGroupCounts.
@@ -6002,13 +4559,14 @@ class ReportOperations(object):
         :param period:
         :type period: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: list of MicrosoftGraphYammerGroupsActivityGroupCounts, or the result of cls(response)
-        :rtype: list[~reports.models.MicrosoftGraphYammerGroupsActivityGroupCounts]
+        :return: MicrosoftGraphReport, or the result of cls(response)
+        :rtype: ~reports.models.MicrosoftGraphReport
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphYammerGroupsActivityGroupCounts"]]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_yammer_group_activity_group_count.metadata['url']  # type: ignore
@@ -6022,70 +4580,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('[MicrosoftGraphYammerGroupsActivityGroupCounts]', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_yammer_group_activity_group_count.metadata = {'url': '/reports/microsoft.graph.getYammerGroupsActivityGroupCounts(period={period})'}  # type: ignore
-
-    def managed_device_enrollment_abandonment_detail(
-        self,
-        skip,  # type: int
-        top,  # type: int
-        filter,  # type: str
-        skip_token,  # type: str
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphReport"
-        """Invoke function managedDeviceEnrollmentAbandonmentDetails.
-
-        Invoke function managedDeviceEnrollmentAbandonmentDetails.
-
-        :param skip:
-        :type skip: int
-        :param top:
-        :type top: int
-        :param filter:
-        :type filter: str
-        :param skip_token:
-        :type skip_token: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphReport, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphReport
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.managed_device_enrollment_abandonment_detail.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'skip': self._serialize.url("skip", skip, 'int', maximum=2147483647, minimum=-2147483648),
-            'top': self._serialize.url("top", top, 'int', maximum=2147483647, minimum=-2147483648),
-            'filter': self._serialize.url("filter", filter, 'str'),
-            'skipToken': self._serialize.url("skip_token", skip_token, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -6103,71 +4598,7 @@ class ReportOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    managed_device_enrollment_abandonment_detail.metadata = {'url': '/reports/microsoft.graph.managedDeviceEnrollmentAbandonmentDetails(skip={skip},top={top},filter={filter},skipToken={skipToken})'}  # type: ignore
-
-    def managed_device_enrollment_abandonment_summary(
-        self,
-        skip,  # type: int
-        top,  # type: int
-        filter,  # type: str
-        skip_token,  # type: str
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphReport"
-        """Invoke function managedDeviceEnrollmentAbandonmentSummary.
-
-        Invoke function managedDeviceEnrollmentAbandonmentSummary.
-
-        :param skip:
-        :type skip: int
-        :param top:
-        :type top: int
-        :param filter:
-        :type filter: str
-        :param skip_token:
-        :type skip_token: str
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphReport, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphReport
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.managed_device_enrollment_abandonment_summary.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'skip': self._serialize.url("skip", skip, 'int', maximum=2147483647, minimum=-2147483648),
-            'top': self._serialize.url("top", top, 'int', maximum=2147483647, minimum=-2147483648),
-            'filter': self._serialize.url("filter", filter, 'str'),
-            'skipToken': self._serialize.url("skip_token", skip_token, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    managed_device_enrollment_abandonment_summary.metadata = {'url': '/reports/microsoft.graph.managedDeviceEnrollmentAbandonmentSummary(skip={skip},top={top},filter={filter},skipToken={skipToken})'}  # type: ignore
+    get_yammer_group_activity_group_count.metadata = {'url': '/reports/microsoft.graph.getYammerGroupsActivityGroupCounts(period=\'{period}\')'}  # type: ignore
 
     def managed_device_enrollment_failure_details027_e(
         self,
@@ -6186,6 +4617,7 @@ class ReportOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.managed_device_enrollment_failure_details027_e.metadata['url']  # type: ignore
@@ -6195,6 +4627,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -6243,6 +4676,7 @@ class ReportOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.managed_device_enrollment_failure_details2_b3_d.metadata['url']  # type: ignore
@@ -6259,6 +4693,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -6276,52 +4711,7 @@ class ReportOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    managed_device_enrollment_failure_details2_b3_d.metadata = {'url': '/reports/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter={filter},skipToken={skipToken})'}  # type: ignore
-
-    def managed_device_enrollment_failure_trend(
-        self,
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphReport"
-        """Invoke function managedDeviceEnrollmentFailureTrends.
-
-        Invoke function managedDeviceEnrollmentFailureTrends.
-
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphReport, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphReport
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.managed_device_enrollment_failure_trend.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphReport', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    managed_device_enrollment_failure_trend.metadata = {'url': '/reports/microsoft.graph.managedDeviceEnrollmentFailureTrends()'}  # type: ignore
+    managed_device_enrollment_failure_details2_b3_d.metadata = {'url': '/reports/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter=\'{filter}\',skipToken=\'{skipToken}\')'}  # type: ignore
 
     def managed_device_enrollment_top_failures4669(
         self,
@@ -6340,6 +4730,7 @@ class ReportOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.managed_device_enrollment_top_failures4669.metadata['url']  # type: ignore
@@ -6349,6 +4740,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -6388,6 +4780,7 @@ class ReportOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReport"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.managed_device_enrollment_top_failure_afd1.metadata['url']  # type: ignore
@@ -6401,6 +4794,7 @@ class ReportOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -6418,901 +4812,4 @@ class ReportOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    managed_device_enrollment_top_failure_afd1.metadata = {'url': '/reports/microsoft.graph.managedDeviceEnrollmentTopFailures(period={period})'}  # type: ignore
-
-    def list_monthly_print_usage_summary_by_printer(
-        self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum20"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum21"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> Iterable["models.CollectionOfPrintUsageSummaryByPrinter0"]
-        """Get monthlyPrintUsageSummariesByPrinter from reports.
-
-        Get monthlyPrintUsageSummariesByPrinter from reports.
-
-        :param orderby: Order items by property values.
-        :type orderby: list[str or ~reports.models.Enum20]
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum21]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfPrintUsageSummaryByPrinter0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~reports.models.CollectionOfPrintUsageSummaryByPrinter0]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintUsageSummaryByPrinter0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        def prepare_request(next_link=None):
-            # Construct headers
-            header_parameters = {}  # type: Dict[str, Any]
-            header_parameters['Accept'] = 'application/json'
-
-            if not next_link:
-                # Construct URL
-                url = self.list_monthly_print_usage_summary_by_printer.metadata['url']  # type: ignore
-                # Construct parameters
-                query_parameters = {}  # type: Dict[str, Any]
-                if self._config.top is not None:
-                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-                if self._config.skip is not None:
-                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-                if self._config.search is not None:
-                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-                if self._config.filter is not None:
-                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-                if self._config.count is not None:
-                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-                if orderby is not None:
-                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-                if select is not None:
-                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-                if expand is not None:
-                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-                request = self._client.get(url, query_parameters, header_parameters)
-            else:
-                url = next_link
-                query_parameters = {}  # type: Dict[str, Any]
-                request = self._client.get(url, query_parameters, header_parameters)
-            return request
-
-        def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfPrintUsageSummaryByPrinter0', pipeline_response)
-            list_of_elem = deserialized.value
-            if cls:
-                list_of_elem = cls(list_of_elem)
-            return deserialized.odata_next_link or None, iter(list_of_elem)
-
-        def get_next(next_link=None):
-            request = prepare_request(next_link)
-
-            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-            response = pipeline_response.http_response
-
-            if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
-                map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-            return pipeline_response
-
-        return ItemPaged(
-            get_next, extract_data
-        )
-    list_monthly_print_usage_summary_by_printer.metadata = {'url': '/reports/monthlyPrintUsageSummariesByPrinter'}  # type: ignore
-
-    def create_monthly_print_usage_summary_by_printer(
-        self,
-        id=None,  # type: Optional[str]
-        printer_id=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByPrinter"
-        """Create new navigation property to monthlyPrintUsageSummariesByPrinter for reports.
-
-        Create new navigation property to monthlyPrintUsageSummariesByPrinter for reports.
-
-        :param id: Read-only.
-        :type id: str
-        :param printer_id:
-        :type printer_id: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByPrinter, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByPrinter(id=id, printer_id=printer_id, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.create_monthly_print_usage_summary_by_printer.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-        header_parameters['Accept'] = 'application/json'
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByPrinter')
-        body_content_kwargs['content'] = body_content
-        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [201]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByPrinter', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    create_monthly_print_usage_summary_by_printer.metadata = {'url': '/reports/monthlyPrintUsageSummariesByPrinter'}  # type: ignore
-
-    def get_monthly_print_usage_summary_by_printer(
-        self,
-        print_usage_summary_by_printer_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum22"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByPrinter"
-        """Get monthlyPrintUsageSummariesByPrinter from reports.
-
-        Get monthlyPrintUsageSummariesByPrinter from reports.
-
-        :param print_usage_summary_by_printer_id: key: PrintUsageSummaryByPrinter-id of
-         PrintUsageSummaryByPrinter.
-        :type print_usage_summary_by_printer_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum22]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByPrinter, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_monthly_print_usage_summary_by_printer.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByPrinter-id': self._serialize.url("print_usage_summary_by_printer_id", print_usage_summary_by_printer_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByPrinter', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_monthly_print_usage_summary_by_printer.metadata = {'url': '/reports/monthlyPrintUsageSummariesByPrinter/{PrintUsageSummaryByPrinter-id}'}  # type: ignore
-
-    def update_monthly_print_usage_summary_by_printer(
-        self,
-        print_usage_summary_by_printer_id,  # type: str
-        id=None,  # type: Optional[str]
-        printer_id=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> None
-        """Update the navigation property monthlyPrintUsageSummariesByPrinter in reports.
-
-        Update the navigation property monthlyPrintUsageSummariesByPrinter in reports.
-
-        :param print_usage_summary_by_printer_id: key: PrintUsageSummaryByPrinter-id of
-         PrintUsageSummaryByPrinter.
-        :type print_usage_summary_by_printer_id: str
-        :param id: Read-only.
-        :type id: str
-        :param printer_id:
-        :type printer_id: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: None, or the result of cls(response)
-        :rtype: None
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByPrinter(id=id, printer_id=printer_id, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.update_monthly_print_usage_summary_by_printer.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByPrinter-id': self._serialize.url("print_usage_summary_by_printer_id", print_usage_summary_by_printer_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByPrinter')
-        body_content_kwargs['content'] = body_content
-        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [204]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        if cls:
-            return cls(pipeline_response, None, {})
-
-    update_monthly_print_usage_summary_by_printer.metadata = {'url': '/reports/monthlyPrintUsageSummariesByPrinter/{PrintUsageSummaryByPrinter-id}'}  # type: ignore
-
-    def list_monthly_print_usage_summary_by_user(
-        self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum23"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum24"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> Iterable["models.CollectionOfPrintUsageSummaryByUser0"]
-        """Get monthlyPrintUsageSummariesByUser from reports.
-
-        Get monthlyPrintUsageSummariesByUser from reports.
-
-        :param orderby: Order items by property values.
-        :type orderby: list[str or ~reports.models.Enum23]
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum24]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfPrintUsageSummaryByUser0 or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~reports.models.CollectionOfPrintUsageSummaryByUser0]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintUsageSummaryByUser0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        def prepare_request(next_link=None):
-            # Construct headers
-            header_parameters = {}  # type: Dict[str, Any]
-            header_parameters['Accept'] = 'application/json'
-
-            if not next_link:
-                # Construct URL
-                url = self.list_monthly_print_usage_summary_by_user.metadata['url']  # type: ignore
-                # Construct parameters
-                query_parameters = {}  # type: Dict[str, Any]
-                if self._config.top is not None:
-                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-                if self._config.skip is not None:
-                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-                if self._config.search is not None:
-                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-                if self._config.filter is not None:
-                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-                if self._config.count is not None:
-                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-                if orderby is not None:
-                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-                if select is not None:
-                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-                if expand is not None:
-                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-                request = self._client.get(url, query_parameters, header_parameters)
-            else:
-                url = next_link
-                query_parameters = {}  # type: Dict[str, Any]
-                request = self._client.get(url, query_parameters, header_parameters)
-            return request
-
-        def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfPrintUsageSummaryByUser0', pipeline_response)
-            list_of_elem = deserialized.value
-            if cls:
-                list_of_elem = cls(list_of_elem)
-            return deserialized.odata_next_link or None, iter(list_of_elem)
-
-        def get_next(next_link=None):
-            request = prepare_request(next_link)
-
-            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-            response = pipeline_response.http_response
-
-            if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
-                map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-            return pipeline_response
-
-        return ItemPaged(
-            get_next, extract_data
-        )
-    list_monthly_print_usage_summary_by_user.metadata = {'url': '/reports/monthlyPrintUsageSummariesByUser'}  # type: ignore
-
-    def create_monthly_print_usage_summary_by_user(
-        self,
-        id=None,  # type: Optional[str]
-        user_principal_name=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByUser"
-        """Create new navigation property to monthlyPrintUsageSummariesByUser for reports.
-
-        Create new navigation property to monthlyPrintUsageSummariesByUser for reports.
-
-        :param id: Read-only.
-        :type id: str
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByUser, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByUser
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByUser(id=id, user_principal_name=user_principal_name, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.create_monthly_print_usage_summary_by_user.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-        header_parameters['Accept'] = 'application/json'
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByUser')
-        body_content_kwargs['content'] = body_content
-        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [201]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByUser', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    create_monthly_print_usage_summary_by_user.metadata = {'url': '/reports/monthlyPrintUsageSummariesByUser'}  # type: ignore
-
-    def get_monthly_print_usage_summary_by_user(
-        self,
-        print_usage_summary_by_user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum25"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphPrintUsageSummaryByUser"
-        """Get monthlyPrintUsageSummariesByUser from reports.
-
-        Get monthlyPrintUsageSummariesByUser from reports.
-
-        :param print_usage_summary_by_user_id: key: PrintUsageSummaryByUser-id of
-         PrintUsageSummaryByUser.
-        :type print_usage_summary_by_user_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum25]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphPrintUsageSummaryByUser, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphPrintUsageSummaryByUser
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintUsageSummaryByUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_monthly_print_usage_summary_by_user.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByUser-id': self._serialize.url("print_usage_summary_by_user_id", print_usage_summary_by_user_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphPrintUsageSummaryByUser', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_monthly_print_usage_summary_by_user.metadata = {'url': '/reports/monthlyPrintUsageSummariesByUser/{PrintUsageSummaryByUser-id}'}  # type: ignore
-
-    def update_monthly_print_usage_summary_by_user(
-        self,
-        print_usage_summary_by_user_id,  # type: str
-        id=None,  # type: Optional[str]
-        user_principal_name=None,  # type: Optional[str]
-        usage_date=None,  # type: Optional[datetime.date]
-        completed_black_and_white_job_count=None,  # type: Optional[int]
-        completed_color_job_count=None,  # type: Optional[int]
-        incomplete_job_count=None,  # type: Optional[int]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> None
-        """Update the navigation property monthlyPrintUsageSummariesByUser in reports.
-
-        Update the navigation property monthlyPrintUsageSummariesByUser in reports.
-
-        :param print_usage_summary_by_user_id: key: PrintUsageSummaryByUser-id of
-         PrintUsageSummaryByUser.
-        :type print_usage_summary_by_user_id: str
-        :param id: Read-only.
-        :type id: str
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param usage_date:
-        :type usage_date: ~datetime.date
-        :param completed_black_and_white_job_count:
-        :type completed_black_and_white_job_count: long
-        :param completed_color_job_count:
-        :type completed_color_job_count: long
-        :param incomplete_job_count:
-        :type incomplete_job_count: long
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: None, or the result of cls(response)
-        :rtype: None
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrintUsageSummaryByUser(id=id, user_principal_name=user_principal_name, usage_date=usage_date, completed_black_and_white_job_count=completed_black_and_white_job_count, completed_color_job_count=completed_color_job_count, incomplete_job_count=incomplete_job_count)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.update_monthly_print_usage_summary_by_user.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'PrintUsageSummaryByUser-id': self._serialize.url("print_usage_summary_by_user_id", print_usage_summary_by_user_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintUsageSummaryByUser')
-        body_content_kwargs['content'] = body_content
-        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [204]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        if cls:
-            return cls(pipeline_response, None, {})
-
-    update_monthly_print_usage_summary_by_user.metadata = {'url': '/reports/monthlyPrintUsageSummariesByUser/{PrintUsageSummaryByUser-id}'}  # type: ignore
-
-    def list_user_credential_usage_detail(
-        self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum26"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum27"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> Iterable["models.CollectionOfUserCredentialUsageDetails"]
-        """Get userCredentialUsageDetails from reports.
-
-        Get userCredentialUsageDetails from reports.
-
-        :param orderby: Order items by property values.
-        :type orderby: list[str or ~reports.models.Enum26]
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum27]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfUserCredentialUsageDetails or the result of cls(response)
-        :rtype: ~azure.core.paging.ItemPaged[~reports.models.CollectionOfUserCredentialUsageDetails]
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfUserCredentialUsageDetails"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        def prepare_request(next_link=None):
-            # Construct headers
-            header_parameters = {}  # type: Dict[str, Any]
-            header_parameters['Accept'] = 'application/json'
-
-            if not next_link:
-                # Construct URL
-                url = self.list_user_credential_usage_detail.metadata['url']  # type: ignore
-                # Construct parameters
-                query_parameters = {}  # type: Dict[str, Any]
-                if self._config.top is not None:
-                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-                if self._config.skip is not None:
-                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-                if self._config.search is not None:
-                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-                if self._config.filter is not None:
-                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-                if self._config.count is not None:
-                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-                if orderby is not None:
-                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-                if select is not None:
-                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-                if expand is not None:
-                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-                request = self._client.get(url, query_parameters, header_parameters)
-            else:
-                url = next_link
-                query_parameters = {}  # type: Dict[str, Any]
-                request = self._client.get(url, query_parameters, header_parameters)
-            return request
-
-        def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfUserCredentialUsageDetails', pipeline_response)
-            list_of_elem = deserialized.value
-            if cls:
-                list_of_elem = cls(list_of_elem)
-            return deserialized.odata_next_link or None, iter(list_of_elem)
-
-        def get_next(next_link=None):
-            request = prepare_request(next_link)
-
-            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-            response = pipeline_response.http_response
-
-            if response.status_code not in [200]:
-                error = self._deserialize(models.OdataError, response)
-                map_error(status_code=response.status_code, response=response, error_map=error_map)
-                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-            return pipeline_response
-
-        return ItemPaged(
-            get_next, extract_data
-        )
-    list_user_credential_usage_detail.metadata = {'url': '/reports/userCredentialUsageDetails'}  # type: ignore
-
-    def create_user_credential_usage_detail(
-        self,
-        id=None,  # type: Optional[str]
-        feature=None,  # type: Optional[Union[str, "models.MicrosoftGraphFeatureType"]]
-        user_principal_name=None,  # type: Optional[str]
-        user_display_name=None,  # type: Optional[str]
-        is_success=None,  # type: Optional[bool]
-        auth_method=None,  # type: Optional[Union[str, "models.MicrosoftGraphUsageAuthMethod"]]
-        failure_reason=None,  # type: Optional[str]
-        event_date_time=None,  # type: Optional[datetime.datetime]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphUserCredentialUsageDetails"
-        """Create new navigation property to userCredentialUsageDetails for reports.
-
-        Create new navigation property to userCredentialUsageDetails for reports.
-
-        :param id: Read-only.
-        :type id: str
-        :param feature:
-        :type feature: str or ~reports.models.MicrosoftGraphFeatureType
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param user_display_name:
-        :type user_display_name: str
-        :param is_success:
-        :type is_success: bool
-        :param auth_method:
-        :type auth_method: str or ~reports.models.MicrosoftGraphUsageAuthMethod
-        :param failure_reason:
-        :type failure_reason: str
-        :param event_date_time:
-        :type event_date_time: ~datetime.datetime
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphUserCredentialUsageDetails, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphUserCredentialUsageDetails
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserCredentialUsageDetails"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphUserCredentialUsageDetails(id=id, feature=feature, user_principal_name=user_principal_name, user_display_name=user_display_name, is_success=is_success, auth_method=auth_method, failure_reason=failure_reason, event_date_time=event_date_time)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.create_user_credential_usage_detail.metadata['url']  # type: ignore
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-        header_parameters['Accept'] = 'application/json'
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUserCredentialUsageDetails')
-        body_content_kwargs['content'] = body_content
-        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [201]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphUserCredentialUsageDetails', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    create_user_credential_usage_detail.metadata = {'url': '/reports/userCredentialUsageDetails'}  # type: ignore
-
-    def get_user_credential_usage_detail(
-        self,
-        user_credential_usage_details_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum28"]]]
-        expand=None,  # type: Optional[List[str]]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> "models.MicrosoftGraphUserCredentialUsageDetails"
-        """Get userCredentialUsageDetails from reports.
-
-        Get userCredentialUsageDetails from reports.
-
-        :param user_credential_usage_details_id: key: userCredentialUsageDetails-id of
-         userCredentialUsageDetails.
-        :type user_credential_usage_details_id: str
-        :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Enum28]
-        :param expand: Expand related entities.
-        :type expand: list[str]
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphUserCredentialUsageDetails, or the result of cls(response)
-        :rtype: ~reports.models.MicrosoftGraphUserCredentialUsageDetails
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserCredentialUsageDetails"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        # Construct URL
-        url = self.get_user_credential_usage_detail.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'userCredentialUsageDetails-id': self._serialize.url("user_credential_usage_details_id", user_credential_usage_details_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = 'application/json'
-
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        deserialized = self._deserialize('MicrosoftGraphUserCredentialUsageDetails', pipeline_response)
-
-        if cls:
-            return cls(pipeline_response, deserialized, {})
-
-        return deserialized
-    get_user_credential_usage_detail.metadata = {'url': '/reports/userCredentialUsageDetails/{userCredentialUsageDetails-id}'}  # type: ignore
-
-    def update_user_credential_usage_detail(
-        self,
-        user_credential_usage_details_id,  # type: str
-        id=None,  # type: Optional[str]
-        feature=None,  # type: Optional[Union[str, "models.MicrosoftGraphFeatureType"]]
-        user_principal_name=None,  # type: Optional[str]
-        user_display_name=None,  # type: Optional[str]
-        is_success=None,  # type: Optional[bool]
-        auth_method=None,  # type: Optional[Union[str, "models.MicrosoftGraphUsageAuthMethod"]]
-        failure_reason=None,  # type: Optional[str]
-        event_date_time=None,  # type: Optional[datetime.datetime]
-        **kwargs  # type: Any
-    ):
-        # type: (...) -> None
-        """Update the navigation property userCredentialUsageDetails in reports.
-
-        Update the navigation property userCredentialUsageDetails in reports.
-
-        :param user_credential_usage_details_id: key: userCredentialUsageDetails-id of
-         userCredentialUsageDetails.
-        :type user_credential_usage_details_id: str
-        :param id: Read-only.
-        :type id: str
-        :param feature:
-        :type feature: str or ~reports.models.MicrosoftGraphFeatureType
-        :param user_principal_name:
-        :type user_principal_name: str
-        :param user_display_name:
-        :type user_display_name: str
-        :param is_success:
-        :type is_success: bool
-        :param auth_method:
-        :type auth_method: str or ~reports.models.MicrosoftGraphUsageAuthMethod
-        :param failure_reason:
-        :type failure_reason: str
-        :param event_date_time:
-        :type event_date_time: ~datetime.datetime
-        :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: None, or the result of cls(response)
-        :rtype: None
-        :raises: ~azure.core.exceptions.HttpResponseError
-        """
-        cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
-        error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphUserCredentialUsageDetails(id=id, feature=feature, user_principal_name=user_principal_name, user_display_name=user_display_name, is_success=is_success, auth_method=auth_method, failure_reason=failure_reason, event_date_time=event_date_time)
-        content_type = kwargs.pop("content_type", "application/json")
-
-        # Construct URL
-        url = self.update_user_credential_usage_detail.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'userCredentialUsageDetails-id': self._serialize.url("user_credential_usage_details_id", user_credential_usage_details_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
-
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
-
-        body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUserCredentialUsageDetails')
-        body_content_kwargs['content'] = body_content
-        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
-
-        if response.status_code not in [204]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
-
-        if cls:
-            return cls(pipeline_response, None, {})
-
-    update_user_credential_usage_detail.metadata = {'url': '/reports/userCredentialUsageDetails/{userCredentialUsageDetails-id}'}  # type: ignore
+    managed_device_enrollment_top_failure_afd1.metadata = {'url': '/reports/microsoft.graph.managedDeviceEnrollmentTopFailures(period=\'{period}\')'}  # type: ignore

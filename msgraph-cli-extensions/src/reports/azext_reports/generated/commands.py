@@ -15,6 +15,35 @@ from msgraph.cli.core.commands import CliCommandType
 
 def load_command_table(self, _):
 
+    from azext_reports.generated._client_factory import cf_audit_log_audit_log_root
+    reports_audit_log_audit_log_root = CliCommandType(
+        operations_tmpl='azext_reports.vendored_sdks.reports.operations._audit_log_audit_log_root_operations#AuditLogAu'
+        'ditLogRootOperations.{}',
+        client_factory=cf_audit_log_audit_log_root)
+    with self.command_group('reports', reports_audit_log_audit_log_root,
+                            client_factory=cf_audit_log_audit_log_root) as g:
+        g.custom_command('get-audit-log-root', 'reports_get_audit_log_root')
+        g.custom_command('update-audit-log-root', 'reports_update_audit_log_root')
+
+    from azext_reports.generated._client_factory import cf_audit_log
+    reports_audit_log = CliCommandType(
+        operations_tmpl='azext_reports.vendored_sdks.reports.operations._audit_log_operations#AuditLogOperations.{}',
+        client_factory=cf_audit_log)
+    with self.command_group('reports', reports_audit_log, client_factory=cf_audit_log) as g:
+        g.custom_command('delete', 'reports_delete', confirmation=True)
+        g.custom_command('create-directory-audit', 'reports_create_directory_audit')
+        g.custom_command('create-restricted-sign-in', 'reports_create_restricted_sign_in')
+        g.custom_command('create-sign-in', 'reports_create_sign_in')
+        g.custom_command('get-directory-audit', 'reports_get_directory_audit')
+        g.custom_command('get-restricted-sign-in', 'reports_get_restricted_sign_in')
+        g.custom_command('get-sign-in', 'reports_get_sign_in')
+        g.custom_command('list-directory-audit', 'reports_list_directory_audit')
+        g.custom_command('list-restricted-sign-in', 'reports_list_restricted_sign_in')
+        g.custom_command('list-sign-in', 'reports_list_sign_in')
+        g.custom_command('update-directory-audit', 'reports_update_directory_audit')
+        g.custom_command('update-restricted-sign-in', 'reports_update_restricted_sign_in')
+        g.custom_command('update-sign-in', 'reports_update_sign_in')
+
     from azext_reports.generated._client_factory import cf_report_report_root
     reports_report_report_root = CliCommandType(
         operations_tmpl='azext_reports.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRoot'
@@ -29,34 +58,8 @@ def load_command_table(self, _):
         operations_tmpl='azext_reports.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
         client_factory=cf_report)
     with self.command_group('reports', reports_report, client_factory=cf_report) as g:
-        g.custom_command('create-application-sign-in-detailed-summary', 'reports_create_application_sign_in_detailed_su'
-                         'mmary')
-        g.custom_command('create-credential-user-registration-detail', 'reports_create_credential_user_registration_det'
-                         'ail')
-        g.custom_command('create-daily-print-usage-summary-by-printer', 'reports_create_daily_print_usage_summary_by_pr'
-                         'inter')
-        g.custom_command('create-daily-print-usage-summary-by-user',
-                         'reports_create_daily_print_usage_summary_by_user')
-        g.custom_command('create-monthly-print-usage-summary-by-printer', 'reports_create_monthly_print_usage_summary_b'
-                         'y_printer')
-        g.custom_command('create-monthly-print-usage-summary-by-user', 'reports_create_monthly_print_usage_summary_by_u'
-                         'ser')
-        g.custom_command('create-user-credential-usage-detail', 'reports_create_user_credential_usage_detail')
         g.custom_command('device-configuration-device-activity', 'reports_device_configuration_device_activity')
         g.custom_command('device-configuration-user-activity', 'reports_device_configuration_user_activity')
-        g.custom_command('get-application-sign-in-detailed-summary',
-                         'reports_get_application_sign_in_detailed_summary')
-        g.custom_command('get-azure-ad-application-sign-in-summary',
-                         'reports_get_azure_ad_application_sign_in_summary')
-        g.custom_command('get-azure-ad-feature-usage', 'reports_get_azure_ad_feature_usage')
-        g.custom_command('get-azure-ad-license-usage', 'reports_get_azure_ad_license_usage')
-        g.custom_command('get-azure-ad-user-feature-usage', 'reports_get_azure_ad_user_feature_usage')
-        g.custom_command('get-credential-usage-summary', 'reports_get_credential_usage_summary')
-        g.custom_command('get-credential-user-registration-count', 'reports_get_credential_user_registration_count')
-        g.custom_command('get-credential-user-registration-detail', 'reports_get_credential_user_registration_detail')
-        g.custom_command('get-daily-print-usage-summary-by-printer',
-                         'reports_get_daily_print_usage_summary_by_printer')
-        g.custom_command('get-daily-print-usage-summary-by-user', 'reports_get_daily_print_usage_summary_by_user')
         g.custom_command('get-email-activity-count', 'reports_get_email_activity_count')
         g.custom_command('get-email-activity-user-count', 'reports_get_email_activity_user_count')
         g.custom_command('get-email-activity-user-detail-ddb2', 'reports_get_email_activity_user_detail_ddb2')
@@ -71,9 +74,6 @@ def load_command_table(self, _):
         g.custom_command('get-mailbox-usage-quota-status-mailbox-count', 'reports_get_mailbox_usage_quota_status_mailbo'
                          'x_count')
         g.custom_command('get-mailbox-usage-storage', 'reports_get_mailbox_usage_storage')
-        g.custom_command('get-monthly-print-usage-summary-by-printer', 'reports_get_monthly_print_usage_summary_by_prin'
-                         'ter')
-        g.custom_command('get-monthly-print-usage-summary-by-user', 'reports_get_monthly_print_usage_summary_by_user')
         g.custom_command('get-office365-activation-count', 'reports_get_office365_activation_count')
         g.custom_command('get-office365-activation-user-count', 'reports_get_office365_activation_user_count')
         g.custom_command('get-office365-activation-user-detail', 'reports_get_office365_activation_user_detail')
@@ -100,7 +100,6 @@ def load_command_table(self, _):
         g.custom_command('get-one-drive-usage-account-detail-e827', 'reports_get_one_drive_usage_account_detail_e827')
         g.custom_command('get-one-drive-usage-file-count', 'reports_get_one_drive_usage_file_count')
         g.custom_command('get-one-drive-usage-storage', 'reports_get_one_drive_usage_storage')
-        g.custom_command('get-relying-party-detailed-summary', 'reports_get_relying_party_detailed_summary')
         g.custom_command('get-share-point-activity-file-count', 'reports_get_share_point_activity_file_count')
         g.custom_command('get-share-point-activity-page', 'reports_get_share_point_activity_page')
         g.custom_command('get-share-point-activity-user-count', 'reports_get_share_point_activity_user_count')
@@ -157,8 +156,6 @@ def load_command_table(self, _):
         g.custom_command('get-team-user-activity-user-detail-a3-f1',
                          'reports_get_team_user_activity_user_detail_a3_f1')
         g.custom_command('get-team-user-activity-user-detail-eb13', 'reports_get_team_user_activity_user_detail_eb13')
-        g.custom_command('get-tenant-secure-score', 'reports_get_tenant_secure_score')
-        g.custom_command('get-user-credential-usage-detail', 'reports_get_user_credential_usage_detail')
         g.custom_command('get-yammer-activity-count', 'reports_get_yammer_activity_count')
         g.custom_command('get-yammer-activity-user-count', 'reports_get_yammer_activity_user_count')
         g.custom_command('get-yammer-activity-user-detail-ac30', 'reports_get_yammer_activity_user_detail_ac30')
@@ -174,36 +171,11 @@ def load_command_table(self, _):
         g.custom_command('get-yammer-group-activity-detail-da9-a', 'reports_get_yammer_group_activity_detail_da9_a')
         g.custom_command('get-yammer-group-activity-detail0-d7-d', 'reports_get_yammer_group_activity_detail0_d7_d')
         g.custom_command('get-yammer-group-activity-group-count', 'reports_get_yammer_group_activity_group_count')
-        g.custom_command('list-application-sign-in-detailed-summary', 'reports_list_application_sign_in_detailed_summar'
-                         'y')
-        g.custom_command('list-credential-user-registration-detail',
-                         'reports_list_credential_user_registration_detail')
-        g.custom_command('list-daily-print-usage-summary', 'reports_list_daily_print_usage_summary')
-        g.custom_command('list-monthly-print-usage-summary', 'reports_list_monthly_print_usage_summary')
-        g.custom_command('list-user-credential-usage-detail', 'reports_list_user_credential_usage_detail')
-        g.custom_command('managed-device-enrollment-abandonment-detail', 'reports_managed_device_enrollment_abandonment'
-                         '_detail')
-        g.custom_command('managed-device-enrollment-abandonment-summary', 'reports_managed_device_enrollment_abandonmen'
-                         't_summary')
         g.custom_command('managed-device-enrollment-failure-details027-e', 'reports_managed_device_enrollment_failure_d'
                          'etails027_e')
         g.custom_command('managed-device-enrollment-failure-details2-b3-d', 'reports_managed_device_enrollment_failure_'
                          'details2_b3_d')
-        g.custom_command('managed-device-enrollment-failure-trend', 'reports_managed_device_enrollment_failure_trend')
         g.custom_command('managed-device-enrollment-top-failure-afd1', 'reports_managed_device_enrollment_top_failure_a'
                          'fd1')
         g.custom_command('managed-device-enrollment-top-failures4669', 'reports_managed_device_enrollment_top_failures4'
                          '669')
-        g.custom_command('update-application-sign-in-detailed-summary', 'reports_update_application_sign_in_detailed_su'
-                         'mmary')
-        g.custom_command('update-credential-user-registration-detail', 'reports_update_credential_user_registration_det'
-                         'ail')
-        g.custom_command('update-daily-print-usage-summary-by-printer', 'reports_update_daily_print_usage_summary_by_pr'
-                         'inter')
-        g.custom_command('update-daily-print-usage-summary-by-user',
-                         'reports_update_daily_print_usage_summary_by_user')
-        g.custom_command('update-monthly-print-usage-summary-by-printer', 'reports_update_monthly_print_usage_summary_b'
-                         'y_printer')
-        g.custom_command('update-monthly-print-usage-summary-by-user', 'reports_update_monthly_print_usage_summary_by_u'
-                         'ser')
-        g.custom_command('update-user-credential-usage-detail', 'reports_update_user_credential_usage_detail')

@@ -8,7 +8,15 @@ This project is still in its early phases, but we are building not only on the w
 
 **Windows**
 
-Download the MSI package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
+Download the .msi package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
+
+**Linux**
+
+Download the .deb package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases) and install the package with the command below.
+``` bash
+sudo dpkg -i msgraph-cli_all.deb
+```
+
 ### Developer installation 
 
 ## Usage
@@ -21,7 +29,7 @@ $ mg [ group ] [ command ] {parameters}
 
 #### Login
 ```bash
-$ mg login --scopes "user.read, mail.read"
+$ mg login --scopes "user.read.all"
 ```
 
 #### Query
@@ -29,7 +37,7 @@ $ mg login --scopes "user.read, mail.read"
 You can use the `--query` parameter and the [JMESPath](http://jmespath.org/) query syntax to customize your output.
 
 ```bash
-$ mg usersuser list-user --query "[?userType=='Member'].{name: displayName, email: mail}" --output table
+$ mg users list-user --query "[?userType=='Member'].{name: displayName, email: mail}" --output table
 
 Name                      Email
 ------------------------  -------------------------------------

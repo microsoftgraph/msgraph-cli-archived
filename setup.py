@@ -45,6 +45,7 @@ CLASSIFIERS = [
 
 DEPENDENCIES = [
     'sshtunnel',
+    'portalocker~=1.6',
     'argcomplete~=1.8',
     'azure-cli-telemetry',
     'azure-identity==1.4.0b7',

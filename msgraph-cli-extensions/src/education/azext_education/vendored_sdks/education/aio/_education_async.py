@@ -16,84 +16,30 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration_async import EducationConfiguration
-from .operations_async import EducationRootOperations
+from .operations_async import EducationEducationRootOperations
 from .operations_async import EducationOperations
 from .operations_async import EducationClassOperations
-from .operations_async import EducationClassAssignmentOperations
-from .operations_async import EducationClassAssignmentSubmissionOperations
-from .operations_async import EducationClassMemberOperations
-from .operations_async import EducationClassSchoolOperations
-from .operations_async import EducationClassTeacherOperations
 from .operations_async import EducationMeOperations
-from .operations_async import EducationMeAssignmentOperations
-from .operations_async import EducationMeAssignmentSubmissionOperations
-from .operations_async import EducationMeClassOperations
-from .operations_async import EducationMeSchoolOperations
-from .operations_async import EducationMeTaughtClassOperations
 from .operations_async import EducationSchoolOperations
-from .operations_async import EducationSchoolClassOperations
-from .operations_async import EducationSchoolUserOperations
-from .operations_async import EducationSynchronizationProfileOperations
 from .operations_async import EducationUserOperations
-from .operations_async import EducationUserAssignmentOperations
-from .operations_async import EducationUserAssignmentSubmissionOperations
-from .operations_async import EducationUserClassOperations
-from .operations_async import EducationUserSchoolOperations
-from .operations_async import EducationUserTaughtClassOperations
 from .. import models
 
 
 class Education(object):
     """Education.
 
-    :ivar education_root: EducationRootOperations operations
-    :vartype education_root: education.aio.operations_async.EducationRootOperations
+    :ivar education_education_root: EducationEducationRootOperations operations
+    :vartype education_education_root: education.aio.operations_async.EducationEducationRootOperations
     :ivar education: EducationOperations operations
     :vartype education: education.aio.operations_async.EducationOperations
     :ivar education_class: EducationClassOperations operations
     :vartype education_class: education.aio.operations_async.EducationClassOperations
-    :ivar education_class_assignment: EducationClassAssignmentOperations operations
-    :vartype education_class_assignment: education.aio.operations_async.EducationClassAssignmentOperations
-    :ivar education_class_assignment_submission: EducationClassAssignmentSubmissionOperations operations
-    :vartype education_class_assignment_submission: education.aio.operations_async.EducationClassAssignmentSubmissionOperations
-    :ivar education_class_member: EducationClassMemberOperations operations
-    :vartype education_class_member: education.aio.operations_async.EducationClassMemberOperations
-    :ivar education_class_school: EducationClassSchoolOperations operations
-    :vartype education_class_school: education.aio.operations_async.EducationClassSchoolOperations
-    :ivar education_class_teacher: EducationClassTeacherOperations operations
-    :vartype education_class_teacher: education.aio.operations_async.EducationClassTeacherOperations
     :ivar education_me: EducationMeOperations operations
     :vartype education_me: education.aio.operations_async.EducationMeOperations
-    :ivar education_me_assignment: EducationMeAssignmentOperations operations
-    :vartype education_me_assignment: education.aio.operations_async.EducationMeAssignmentOperations
-    :ivar education_me_assignment_submission: EducationMeAssignmentSubmissionOperations operations
-    :vartype education_me_assignment_submission: education.aio.operations_async.EducationMeAssignmentSubmissionOperations
-    :ivar education_me_class: EducationMeClassOperations operations
-    :vartype education_me_class: education.aio.operations_async.EducationMeClassOperations
-    :ivar education_me_school: EducationMeSchoolOperations operations
-    :vartype education_me_school: education.aio.operations_async.EducationMeSchoolOperations
-    :ivar education_me_taught_class: EducationMeTaughtClassOperations operations
-    :vartype education_me_taught_class: education.aio.operations_async.EducationMeTaughtClassOperations
     :ivar education_school: EducationSchoolOperations operations
     :vartype education_school: education.aio.operations_async.EducationSchoolOperations
-    :ivar education_school_class: EducationSchoolClassOperations operations
-    :vartype education_school_class: education.aio.operations_async.EducationSchoolClassOperations
-    :ivar education_school_user: EducationSchoolUserOperations operations
-    :vartype education_school_user: education.aio.operations_async.EducationSchoolUserOperations
-    :ivar education_synchronization_profile: EducationSynchronizationProfileOperations operations
-    :vartype education_synchronization_profile: education.aio.operations_async.EducationSynchronizationProfileOperations
     :ivar education_user: EducationUserOperations operations
     :vartype education_user: education.aio.operations_async.EducationUserOperations
-    :ivar education_user_assignment: EducationUserAssignmentOperations operations
-    :vartype education_user_assignment: education.aio.operations_async.EducationUserAssignmentOperations
-    :ivar education_user_assignment_submission: EducationUserAssignmentSubmissionOperations operations
-    :vartype education_user_assignment_submission: education.aio.operations_async.EducationUserAssignmentSubmissionOperations
-    :ivar education_user_class: EducationUserClassOperations operations
-    :vartype education_user_class: education.aio.operations_async.EducationUserClassOperations
-    :ivar education_user_school: EducationUserSchoolOperations operations
-    :vartype education_user_school: education.aio.operations_async.EducationUserSchoolOperations
-    :ivar education_user_taught_class: EducationUserTaughtClassOperations operations
-    :vartype education_user_taught_class: education.aio.operations_async.EducationUserTaughtClassOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -122,7 +68,7 @@ class Education(object):
         **kwargs: Any
     ) -> None:
         if not base_url:
-            base_url = 'https://graph.microsoft.com/beta'
+            base_url = 'https://graph.microsoft.com/v1.0'
         self._config = EducationConfiguration(credential, top, skip, search, filter, count, **kwargs)
         self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
@@ -130,53 +76,17 @@ class Education(object):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-        self.education_root = EducationRootOperations(
+        self.education_education_root = EducationEducationRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.education = EducationOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.education_class = EducationClassOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_assignment = EducationClassAssignmentOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_assignment_submission = EducationClassAssignmentSubmissionOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_member = EducationClassMemberOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_school = EducationClassSchoolOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_teacher = EducationClassTeacherOperations(
-            self._client, self._config, self._serialize, self._deserialize)
         self.education_me = EducationMeOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_assignment = EducationMeAssignmentOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_assignment_submission = EducationMeAssignmentSubmissionOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_class = EducationMeClassOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_school = EducationMeSchoolOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_taught_class = EducationMeTaughtClassOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.education_school = EducationSchoolOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_school_class = EducationSchoolClassOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_school_user = EducationSchoolUserOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_synchronization_profile = EducationSynchronizationProfileOperations(
-            self._client, self._config, self._serialize, self._deserialize)
         self.education_user = EducationUserOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_assignment = EducationUserAssignmentOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_assignment_submission = EducationUserAssignmentSubmissionOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_class = EducationUserClassOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_school = EducationUserSchoolOperations(
-            self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_taught_class = EducationUserTaughtClassOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:
