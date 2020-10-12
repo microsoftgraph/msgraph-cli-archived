@@ -18,6 +18,14 @@ def cf_reports_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
+def cf_audit_log_audit_log_root(cli_ctx, *_):
+    return cf_reports_cl(cli_ctx).audit_log_audit_log_root
+
+
+def cf_audit_log(cli_ctx, *_):
+    return cf_reports_cl(cli_ctx).audit_log
+
+
 def cf_report_report_root(cli_ctx, *_):
     return cf_reports_cl(cli_ctx).report_report_root
 

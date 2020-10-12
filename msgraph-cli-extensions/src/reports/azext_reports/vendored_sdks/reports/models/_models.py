@@ -10,17 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class CollectionOfApplicationSignInDetailedSummary(msrest.serialization.Model):
-    """Collection of applicationSignInDetailedSummary.
+class CollectionOfDirectoryAudit(msrest.serialization.Model):
+    """Collection of directoryAudit.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~reports.models.MicrosoftGraphApplicationSignInDetailedSummary]
+    :type value: list[~reports.models.MicrosoftGraphDirectoryAudit]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
-        'value': {'key': 'value', 'type': '[MicrosoftGraphApplicationSignInDetailedSummary]'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDirectoryAudit]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -28,22 +32,27 @@ class CollectionOfApplicationSignInDetailedSummary(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfApplicationSignInDetailedSummary, self).__init__(**kwargs)
+        super(CollectionOfDirectoryAudit, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfCredentialUserRegistrationDetails(msrest.serialization.Model):
-    """Collection of credentialUserRegistrationDetails.
+class CollectionOfRestrictedSignIn(msrest.serialization.Model):
+    """Collection of restrictedSignIn.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~reports.models.MicrosoftGraphCredentialUserRegistrationDetails]
+    :type value: list[~reports.models.MicrosoftGraphRestrictedSignIn]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
-        'value': {'key': 'value', 'type': '[MicrosoftGraphCredentialUserRegistrationDetails]'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphRestrictedSignIn]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -51,22 +60,27 @@ class CollectionOfCredentialUserRegistrationDetails(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfCredentialUserRegistrationDetails, self).__init__(**kwargs)
+        super(CollectionOfRestrictedSignIn, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfPrintUsageSummaryByPrinter(msrest.serialization.Model):
-    """Collection of PrintUsageSummaryByPrinter.
+class CollectionOfSignIn(msrest.serialization.Model):
+    """Collection of signIn.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter]
+    :type value: list[~reports.models.MicrosoftGraphSignIn]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintUsageSummaryByPrinter]'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphSignIn]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -74,111 +88,135 @@ class CollectionOfPrintUsageSummaryByPrinter(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfPrintUsageSummaryByPrinter, self).__init__(**kwargs)
+        super(CollectionOfSignIn, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfPrintUsageSummaryByPrinter0(msrest.serialization.Model):
-    """Collection of PrintUsageSummaryByPrinter.
+class MicrosoftGraphAppIdentity(msrest.serialization.Model):
+    """appIdentity.
 
-    :param value:
-    :type value: list[~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter]
-    :param odata_next_link:
-    :type odata_next_link: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param app_id: Refers to the Unique GUID representing Application Id in the Azure Active
+     Directory.
+    :type app_id: str
+    :param display_name: Refers to the Application Name displayed in the Azure Portal.
+    :type display_name: str
+    :param service_principal_id: Refers to the Unique GUID indicating Service Principal Id in Azure
+     Active Directory for the corresponding App.
+    :type service_principal_id: str
+    :param service_principal_name: Refers to the Service Principal Name is the Application name in
+     the tenant.
+    :type service_principal_name: str
     """
 
     _attribute_map = {
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintUsageSummaryByPrinter]'},
-        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'app_id': {'key': 'appId', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'service_principal_id': {'key': 'servicePrincipalId', 'type': 'str'},
+        'service_principal_name': {'key': 'servicePrincipalName', 'type': 'str'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(CollectionOfPrintUsageSummaryByPrinter0, self).__init__(**kwargs)
-        self.value = kwargs.get('value', None)
-        self.odata_next_link = kwargs.get('odata_next_link', None)
+        super(MicrosoftGraphAppIdentity, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.app_id = kwargs.get('app_id', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.service_principal_id = kwargs.get('service_principal_id', None)
+        self.service_principal_name = kwargs.get('service_principal_name', None)
 
 
-class CollectionOfPrintUsageSummaryByUser(msrest.serialization.Model):
-    """Collection of PrintUsageSummaryByUser.
+class MicrosoftGraphAppliedConditionalAccessPolicy(msrest.serialization.Model):
+    """appliedConditionalAccessPolicy.
 
-    :param value:
-    :type value: list[~reports.models.MicrosoftGraphPrintUsageSummaryByUser]
-    :param odata_next_link:
-    :type odata_next_link: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param display_name: Refers to the Name of the conditional access policy (example: 'Require MFA
+     for Salesforce').
+    :type display_name: str
+    :param enforced_grant_controls: Refers to the grant controls enforced by the conditional access
+     policy (example: 'Require multi-factor authentication').
+    :type enforced_grant_controls: list[str]
+    :param enforced_session_controls: Refers to the session controls enforced by the conditional
+     access policy (example: 'Require app enforced controls').
+    :type enforced_session_controls: list[str]
+    :param id: Unique GUID of the conditional access policy.
+    :type id: str
+    :param result:  Possible values include: "success", "failure", "notApplied", "notEnabled",
+     "unknown", "unknownFutureValue".
+    :type result: str or ~reports.models.MicrosoftGraphAppliedConditionalAccessPolicyResult
     """
 
     _attribute_map = {
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintUsageSummaryByUser]'},
-        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'enforced_grant_controls': {'key': 'enforcedGrantControls', 'type': '[str]'},
+        'enforced_session_controls': {'key': 'enforcedSessionControls', 'type': '[str]'},
+        'id': {'key': 'id', 'type': 'str'},
+        'result': {'key': 'result', 'type': 'str'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(CollectionOfPrintUsageSummaryByUser, self).__init__(**kwargs)
-        self.value = kwargs.get('value', None)
-        self.odata_next_link = kwargs.get('odata_next_link', None)
+        super(MicrosoftGraphAppliedConditionalAccessPolicy, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.enforced_grant_controls = kwargs.get('enforced_grant_controls', None)
+        self.enforced_session_controls = kwargs.get('enforced_session_controls', None)
+        self.id = kwargs.get('id', None)
+        self.result = kwargs.get('result', None)
 
 
-class CollectionOfPrintUsageSummaryByUser0(msrest.serialization.Model):
-    """Collection of PrintUsageSummaryByUser.
+class MicrosoftGraphAuditActivityInitiator(msrest.serialization.Model):
+    """auditActivityInitiator.
 
-    :param value:
-    :type value: list[~reports.models.MicrosoftGraphPrintUsageSummaryByUser]
-    :param odata_next_link:
-    :type odata_next_link: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param app: appIdentity.
+    :type app: ~reports.models.MicrosoftGraphAppIdentity
+    :param user: userIdentity.
+    :type user: ~reports.models.MicrosoftGraphUserIdentity
     """
 
     _attribute_map = {
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintUsageSummaryByUser]'},
-        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'app': {'key': 'app', 'type': 'MicrosoftGraphAppIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphUserIdentity'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(CollectionOfPrintUsageSummaryByUser0, self).__init__(**kwargs)
-        self.value = kwargs.get('value', None)
-        self.odata_next_link = kwargs.get('odata_next_link', None)
-
-
-class CollectionOfUserCredentialUsageDetails(msrest.serialization.Model):
-    """Collection of userCredentialUsageDetails.
-
-    :param value:
-    :type value: list[~reports.models.MicrosoftGraphUserCredentialUsageDetails]
-    :param odata_next_link:
-    :type odata_next_link: str
-    """
-
-    _attribute_map = {
-        'value': {'key': 'value', 'type': '[MicrosoftGraphUserCredentialUsageDetails]'},
-        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(CollectionOfUserCredentialUsageDetails, self).__init__(**kwargs)
-        self.value = kwargs.get('value', None)
-        self.odata_next_link = kwargs.get('odata_next_link', None)
+        super(MicrosoftGraphAuditActivityInitiator, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.app = kwargs.get('app', None)
+        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphEntity(msrest.serialization.Model):
     """entity.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     """
 
     _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
     }
 
@@ -187,719 +225,222 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         **kwargs
     ):
         super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
-    """applicationSignInDetailedSummary.
+class MicrosoftGraphAuditLogRoot(MicrosoftGraphEntity):
+    """auditLogRoot.
 
     :param id: Read-only.
     :type id: str
-    :param app_id:
-    :type app_id: str
-    :param app_display_name:
-    :type app_display_name: str
-    :param sign_in_count:
-    :type sign_in_count: long
-    :param aggregated_event_date_time:
-    :type aggregated_event_date_time: ~datetime.datetime
-    :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
-     Check out the list of error codes and messages.
-    :type error_code: int
-    :param failure_reason: Provides the error message or the reason for failure for the
-     corresponding sign-in activity. Check out the list of error codes and messages.
-    :type failure_reason: str
-    :param additional_details: Provides additional details on the sign-in activity.
-    :type additional_details: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param directory_audits: Read-only. Nullable.
+    :type directory_audits: list[~reports.models.MicrosoftGraphDirectoryAudit]
+    :param restricted_sign_ins:
+    :type restricted_sign_ins: list[~reports.models.MicrosoftGraphRestrictedSignIn]
+    :param sign_ins: Read-only. Nullable.
+    :type sign_ins: list[~reports.models.MicrosoftGraphSignIn]
     """
-
-    _validation = {
-        'error_code': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'app_id': {'key': 'appId', 'type': 'str'},
-        'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
-        'sign_in_count': {'key': 'signInCount', 'type': 'long'},
-        'aggregated_event_date_time': {'key': 'aggregatedEventDateTime', 'type': 'iso-8601'},
-        'error_code': {'key': 'status.errorCode', 'type': 'int'},
-        'failure_reason': {'key': 'status.failureReason', 'type': 'str'},
-        'additional_details': {'key': 'status.additionalDetails', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'directory_audits': {'key': 'directoryAudits', 'type': '[MicrosoftGraphDirectoryAudit]'},
+        'restricted_sign_ins': {'key': 'restrictedSignIns', 'type': '[MicrosoftGraphRestrictedSignIn]'},
+        'sign_ins': {'key': 'signIns', 'type': '[MicrosoftGraphSignIn]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphApplicationSignInDetailedSummary, self).__init__(**kwargs)
-        self.app_id = kwargs.get('app_id', None)
-        self.app_display_name = kwargs.get('app_display_name', None)
-        self.sign_in_count = kwargs.get('sign_in_count', None)
-        self.aggregated_event_date_time = kwargs.get('aggregated_event_date_time', None)
-        self.error_code = kwargs.get('error_code', None)
-        self.failure_reason = kwargs.get('failure_reason', None)
+        super(MicrosoftGraphAuditLogRoot, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.directory_audits = kwargs.get('directory_audits', None)
+        self.restricted_sign_ins = kwargs.get('restricted_sign_ins', None)
+        self.sign_ins = kwargs.get('sign_ins', None)
+
+
+class MicrosoftGraphDeviceDetail(msrest.serialization.Model):
+    """deviceDetail.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param browser: Indicates the browser information of the used for signing in.
+    :type browser: str
+    :param device_id: Refers to the UniqueID of the device used for signing in.
+    :type device_id: str
+    :param display_name: Refers to the name of the device used for signing in.
+    :type display_name: str
+    :param is_compliant: Indicates whether the device is compliant.
+    :type is_compliant: bool
+    :param is_managed: Indicates whether the device is managed.
+    :type is_managed: bool
+    :param operating_system: Indicates the operating system name and version used for signing in.
+    :type operating_system: str
+    :param trust_type: Provides information about whether the signed-in device is Workplace Joined,
+     AzureAD Joined, Domain Joined.
+    :type trust_type: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'browser': {'key': 'browser', 'type': 'str'},
+        'device_id': {'key': 'deviceId', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'is_compliant': {'key': 'isCompliant', 'type': 'bool'},
+        'is_managed': {'key': 'isManaged', 'type': 'bool'},
+        'operating_system': {'key': 'operatingSystem', 'type': 'str'},
+        'trust_type': {'key': 'trustType', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphDeviceDetail, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.browser = kwargs.get('browser', None)
+        self.device_id = kwargs.get('device_id', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.is_compliant = kwargs.get('is_compliant', None)
+        self.is_managed = kwargs.get('is_managed', None)
+        self.operating_system = kwargs.get('operating_system', None)
+        self.trust_type = kwargs.get('trust_type', None)
+
+
+class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
+    """directoryAudit.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param activity_date_time: Indicates the date and time the activity was performed. The
+     Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+     this: '2014-01-01T00:00:00Z'.
+    :type activity_date_time: ~datetime.datetime
+    :param activity_display_name: Indicates the activity name or the operation name (examples:
+     'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
+    :type activity_display_name: str
+    :param additional_details: Indicates additional details on the activity.
+    :type additional_details: list[~reports.models.MicrosoftGraphKeyValue]
+    :param category: Indicates which resource category that's targeted by the activity. (For
+     example: User Management, Group Management etc..).
+    :type category: str
+    :param correlation_id: Indicates a unique ID that helps correlate activities that span across
+     various services. Can be used to trace logs across services.
+    :type correlation_id: str
+    :param logged_by_service: Indicates information on which service initiated the activity (For
+     example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft
+     Identity Manager, Privileged Identity Management.
+    :type logged_by_service: str
+    :param operation_type:
+    :type operation_type: str
+    :param result:  Possible values include: "success", "failure", "timeout", "unknownFutureValue".
+    :type result: str or ~reports.models.MicrosoftGraphOperationResult
+    :param result_reason: Describes cause of 'failure' or 'timeout' results.
+    :type result_reason: str
+    :param target_resources: Indicates information on which resource was changed due to the
+     activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or
+     Other.
+    :type target_resources: list[~reports.models.MicrosoftGraphTargetResource]
+    :param app: appIdentity.
+    :type app: ~reports.models.MicrosoftGraphAppIdentity
+    :param user: userIdentity.
+    :type user: ~reports.models.MicrosoftGraphUserIdentity
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'activity_date_time': {'key': 'activityDateTime', 'type': 'iso-8601'},
+        'activity_display_name': {'key': 'activityDisplayName', 'type': 'str'},
+        'additional_details': {'key': 'additionalDetails', 'type': '[MicrosoftGraphKeyValue]'},
+        'category': {'key': 'category', 'type': 'str'},
+        'correlation_id': {'key': 'correlationId', 'type': 'str'},
+        'logged_by_service': {'key': 'loggedByService', 'type': 'str'},
+        'operation_type': {'key': 'operationType', 'type': 'str'},
+        'result': {'key': 'result', 'type': 'str'},
+        'result_reason': {'key': 'resultReason', 'type': 'str'},
+        'target_resources': {'key': 'targetResources', 'type': '[MicrosoftGraphTargetResource]'},
+        'app': {'key': 'initiatedBy.app', 'type': 'MicrosoftGraphAppIdentity'},
+        'user': {'key': 'initiatedBy.user', 'type': 'MicrosoftGraphUserIdentity'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphDirectoryAudit, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.activity_date_time = kwargs.get('activity_date_time', None)
+        self.activity_display_name = kwargs.get('activity_display_name', None)
         self.additional_details = kwargs.get('additional_details', None)
+        self.category = kwargs.get('category', None)
+        self.correlation_id = kwargs.get('correlation_id', None)
+        self.logged_by_service = kwargs.get('logged_by_service', None)
+        self.operation_type = kwargs.get('operation_type', None)
+        self.result = kwargs.get('result', None)
+        self.result_reason = kwargs.get('result_reason', None)
+        self.target_resources = kwargs.get('target_resources', None)
+        self.app = kwargs.get('app', None)
+        self.user = kwargs.get('user', None)
 
 
-class MicrosoftGraphApplicationSignInSummary(MicrosoftGraphEntity):
-    """applicationSignInSummary.
+class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
+    """geoCoordinates.
 
-    :param id: Read-only.
-    :type id: str
-    :param app_display_name:
-    :type app_display_name: str
-    :param successful_sign_in_count:
-    :type successful_sign_in_count: long
-    :param failed_sign_in_count:
-    :type failed_sign_in_count: long
-    :param success_percentage:
-    :type success_percentage: float
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-
+     only.
+    :type altitude: float
+    :param latitude: Optional. The latitude, in decimal, for the item. Read-only.
+    :type latitude: float
+    :param longitude: Optional. The longitude, in decimal, for the item. Read-only.
+    :type longitude: float
     """
 
     _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
-        'successful_sign_in_count': {'key': 'successfulSignInCount', 'type': 'long'},
-        'failed_sign_in_count': {'key': 'failedSignInCount', 'type': 'long'},
-        'success_percentage': {'key': 'successPercentage', 'type': 'float'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'altitude': {'key': 'altitude', 'type': 'float'},
+        'latitude': {'key': 'latitude', 'type': 'float'},
+        'longitude': {'key': 'longitude', 'type': 'float'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphApplicationSignInSummary, self).__init__(**kwargs)
-        self.app_display_name = kwargs.get('app_display_name', None)
-        self.successful_sign_in_count = kwargs.get('successful_sign_in_count', None)
-        self.failed_sign_in_count = kwargs.get('failed_sign_in_count', None)
-        self.success_percentage = kwargs.get('success_percentage', None)
-
-
-class MicrosoftGraphAzureAdFeatureUsage(MicrosoftGraphEntity):
-    """azureADFeatureUsage.
-
-    :param id: Read-only.
-    :type id: str
-    :param snapshot_date_time:
-    :type snapshot_date_time: ~datetime.datetime
-    :param feature_name:
-    :type feature_name: str
-    :param usage:
-    :type usage: int
-    """
-
-    _validation = {
-        'usage': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'snapshot_date_time': {'key': 'snapshotDateTime', 'type': 'iso-8601'},
-        'feature_name': {'key': 'featureName', 'type': 'str'},
-        'usage': {'key': 'usage', 'type': 'int'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphAzureAdFeatureUsage, self).__init__(**kwargs)
-        self.snapshot_date_time = kwargs.get('snapshot_date_time', None)
-        self.feature_name = kwargs.get('feature_name', None)
-        self.usage = kwargs.get('usage', None)
-
-
-class MicrosoftGraphAzureAdLicenseUsage(MicrosoftGraphEntity):
-    """azureADLicenseUsage.
-
-    :param id: Read-only.
-    :type id: str
-    :param snapshot_date_time:
-    :type snapshot_date_time: ~datetime.datetime
-    :param license_info_details:
-    :type license_info_details: list[~reports.models.MicrosoftGraphLicenseInfoDetail]
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'snapshot_date_time': {'key': 'snapshotDateTime', 'type': 'iso-8601'},
-        'license_info_details': {'key': 'licenseInfoDetails', 'type': '[MicrosoftGraphLicenseInfoDetail]'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphAzureAdLicenseUsage, self).__init__(**kwargs)
-        self.snapshot_date_time = kwargs.get('snapshot_date_time', None)
-        self.license_info_details = kwargs.get('license_info_details', None)
-
-
-class MicrosoftGraphAzureAdUserFeatureUsage(MicrosoftGraphEntity):
-    """azureADUserFeatureUsage.
-
-    :param id: Read-only.
-    :type id: str
-    :param last_updated_date_time:
-    :type last_updated_date_time: ~datetime.datetime
-    :param user_id:
-    :type user_id: str
-    :param user_display_name:
-    :type user_display_name: str
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param license_recommended:  Possible values include: "none", "free", "basic", "premiumP1",
-     "premiumP2", "unknownFutureValue".
-    :type license_recommended: str or ~reports.models.MicrosoftGraphAzureAdLicenseType
-    :param license_assigned:  Possible values include: "none", "free", "basic", "premiumP1",
-     "premiumP2", "unknownFutureValue".
-    :type license_assigned: str or ~reports.models.MicrosoftGraphAzureAdLicenseType
-    :param feature_usage_details:
-    :type feature_usage_details: list[~reports.models.MicrosoftGraphFeatureUsageDetail]
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'last_updated_date_time': {'key': 'lastUpdatedDateTime', 'type': 'iso-8601'},
-        'user_id': {'key': 'userId', 'type': 'str'},
-        'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'license_recommended': {'key': 'licenseRecommended', 'type': 'str'},
-        'license_assigned': {'key': 'licenseAssigned', 'type': 'str'},
-        'feature_usage_details': {'key': 'featureUsageDetails', 'type': '[MicrosoftGraphFeatureUsageDetail]'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphAzureAdUserFeatureUsage, self).__init__(**kwargs)
-        self.last_updated_date_time = kwargs.get('last_updated_date_time', None)
-        self.user_id = kwargs.get('user_id', None)
-        self.user_display_name = kwargs.get('user_display_name', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.license_recommended = kwargs.get('license_recommended', None)
-        self.license_assigned = kwargs.get('license_assigned', None)
-        self.feature_usage_details = kwargs.get('feature_usage_details', None)
-
-
-class MicrosoftGraphCredentialUsageSummary(MicrosoftGraphEntity):
-    """credentialUsageSummary.
-
-    :param id: Read-only.
-    :type id: str
-    :param feature:  Possible values include: "registration", "reset", "unknownFutureValue".
-    :type feature: str or ~reports.models.MicrosoftGraphFeatureType
-    :param successful_activity_count:
-    :type successful_activity_count: long
-    :param failure_activity_count:
-    :type failure_activity_count: long
-    :param auth_method:  Possible values include: "email", "mobileSMS", "mobileCall",
-     "officePhone", "securityQuestion", "appNotification", "appCode", "alternateMobileCall", "fido",
-     "appPassword", "unknownFutureValue".
-    :type auth_method: str or ~reports.models.MicrosoftGraphUsageAuthMethod
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'feature': {'key': 'feature', 'type': 'str'},
-        'successful_activity_count': {'key': 'successfulActivityCount', 'type': 'long'},
-        'failure_activity_count': {'key': 'failureActivityCount', 'type': 'long'},
-        'auth_method': {'key': 'authMethod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphCredentialUsageSummary, self).__init__(**kwargs)
-        self.feature = kwargs.get('feature', None)
-        self.successful_activity_count = kwargs.get('successful_activity_count', None)
-        self.failure_activity_count = kwargs.get('failure_activity_count', None)
-        self.auth_method = kwargs.get('auth_method', None)
-
-
-class MicrosoftGraphCredentialUserRegistrationCount(MicrosoftGraphEntity):
-    """credentialUserRegistrationCount.
-
-    :param id: Read-only.
-    :type id: str
-    :param total_user_count:
-    :type total_user_count: long
-    :param user_registration_counts:
-    :type user_registration_counts: list[~reports.models.MicrosoftGraphUserRegistrationCount]
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'total_user_count': {'key': 'totalUserCount', 'type': 'long'},
-        'user_registration_counts': {'key': 'userRegistrationCounts', 'type': '[MicrosoftGraphUserRegistrationCount]'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphCredentialUserRegistrationCount, self).__init__(**kwargs)
-        self.total_user_count = kwargs.get('total_user_count', None)
-        self.user_registration_counts = kwargs.get('user_registration_counts', None)
-
-
-class MicrosoftGraphCredentialUserRegistrationDetails(MicrosoftGraphEntity):
-    """credentialUserRegistrationDetails.
-
-    :param id: Read-only.
-    :type id: str
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param user_display_name:
-    :type user_display_name: str
-    :param auth_methods:
-    :type auth_methods: list[str or ~reports.models.MicrosoftGraphRegistrationAuthMethod]
-    :param is_registered:
-    :type is_registered: bool
-    :param is_enabled:
-    :type is_enabled: bool
-    :param is_capable:
-    :type is_capable: bool
-    :param is_mfa_registered:
-    :type is_mfa_registered: bool
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
-        'auth_methods': {'key': 'authMethods', 'type': '[str]'},
-        'is_registered': {'key': 'isRegistered', 'type': 'bool'},
-        'is_enabled': {'key': 'isEnabled', 'type': 'bool'},
-        'is_capable': {'key': 'isCapable', 'type': 'bool'},
-        'is_mfa_registered': {'key': 'isMfaRegistered', 'type': 'bool'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphCredentialUserRegistrationDetails, self).__init__(**kwargs)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.user_display_name = kwargs.get('user_display_name', None)
-        self.auth_methods = kwargs.get('auth_methods', None)
-        self.is_registered = kwargs.get('is_registered', None)
-        self.is_enabled = kwargs.get('is_enabled', None)
-        self.is_capable = kwargs.get('is_capable', None)
-        self.is_mfa_registered = kwargs.get('is_mfa_registered', None)
-
-
-class MicrosoftGraphEmailActivitySummary(MicrosoftGraphEntity):
-    """emailActivitySummary.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param send:
-    :type send: long
-    :param receive:
-    :type receive: long
-    :param read:
-    :type read: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'send': {'key': 'send', 'type': 'long'},
-        'receive': {'key': 'receive', 'type': 'long'},
-        'read': {'key': 'read', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphEmailActivitySummary, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.send = kwargs.get('send', None)
-        self.receive = kwargs.get('receive', None)
-        self.read = kwargs.get('read', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphEmailActivityUserDetail(MicrosoftGraphEntity):
-    """emailActivityUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param display_name:
-    :type display_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param send_count:
-    :type send_count: long
-    :param receive_count:
-    :type receive_count: long
-    :param read_count:
-    :type read_count: long
-    :param assigned_products:
-    :type assigned_products: list[str]
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'display_name': {'key': 'displayName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'send_count': {'key': 'sendCount', 'type': 'long'},
-        'receive_count': {'key': 'receiveCount', 'type': 'long'},
-        'read_count': {'key': 'readCount', 'type': 'long'},
-        'assigned_products': {'key': 'assignedProducts', 'type': '[str]'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphEmailActivityUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.send_count = kwargs.get('send_count', None)
-        self.receive_count = kwargs.get('receive_count', None)
-        self.read_count = kwargs.get('read_count', None)
-        self.assigned_products = kwargs.get('assigned_products', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphEmailAppUsageAppsUserCounts(MicrosoftGraphEntity):
-    """emailAppUsageAppsUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param mail_for_mac:
-    :type mail_for_mac: long
-    :param outlook_for_mac:
-    :type outlook_for_mac: long
-    :param outlook_for_windows:
-    :type outlook_for_windows: long
-    :param outlook_for_mobile:
-    :type outlook_for_mobile: long
-    :param other_for_mobile:
-    :type other_for_mobile: long
-    :param outlook_for_web:
-    :type outlook_for_web: long
-    :param pop3_app:
-    :type pop3_app: long
-    :param imap4_app:
-    :type imap4_app: long
-    :param smtp_app:
-    :type smtp_app: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'mail_for_mac': {'key': 'mailForMac', 'type': 'long'},
-        'outlook_for_mac': {'key': 'outlookForMac', 'type': 'long'},
-        'outlook_for_windows': {'key': 'outlookForWindows', 'type': 'long'},
-        'outlook_for_mobile': {'key': 'outlookForMobile', 'type': 'long'},
-        'other_for_mobile': {'key': 'otherForMobile', 'type': 'long'},
-        'outlook_for_web': {'key': 'outlookForWeb', 'type': 'long'},
-        'pop3_app': {'key': 'pop3App', 'type': 'long'},
-        'imap4_app': {'key': 'imap4App', 'type': 'long'},
-        'smtp_app': {'key': 'smtpApp', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphEmailAppUsageAppsUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.mail_for_mac = kwargs.get('mail_for_mac', None)
-        self.outlook_for_mac = kwargs.get('outlook_for_mac', None)
-        self.outlook_for_windows = kwargs.get('outlook_for_windows', None)
-        self.outlook_for_mobile = kwargs.get('outlook_for_mobile', None)
-        self.other_for_mobile = kwargs.get('other_for_mobile', None)
-        self.outlook_for_web = kwargs.get('outlook_for_web', None)
-        self.pop3_app = kwargs.get('pop3_app', None)
-        self.imap4_app = kwargs.get('imap4_app', None)
-        self.smtp_app = kwargs.get('smtp_app', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphEmailAppUsageUserCounts(MicrosoftGraphEntity):
-    """emailAppUsageUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param mail_for_mac:
-    :type mail_for_mac: long
-    :param outlook_for_mac:
-    :type outlook_for_mac: long
-    :param outlook_for_windows:
-    :type outlook_for_windows: long
-    :param outlook_for_mobile:
-    :type outlook_for_mobile: long
-    :param other_for_mobile:
-    :type other_for_mobile: long
-    :param outlook_for_web:
-    :type outlook_for_web: long
-    :param pop3_app:
-    :type pop3_app: long
-    :param imap4_app:
-    :type imap4_app: long
-    :param smtp_app:
-    :type smtp_app: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'mail_for_mac': {'key': 'mailForMac', 'type': 'long'},
-        'outlook_for_mac': {'key': 'outlookForMac', 'type': 'long'},
-        'outlook_for_windows': {'key': 'outlookForWindows', 'type': 'long'},
-        'outlook_for_mobile': {'key': 'outlookForMobile', 'type': 'long'},
-        'other_for_mobile': {'key': 'otherForMobile', 'type': 'long'},
-        'outlook_for_web': {'key': 'outlookForWeb', 'type': 'long'},
-        'pop3_app': {'key': 'pop3App', 'type': 'long'},
-        'imap4_app': {'key': 'imap4App', 'type': 'long'},
-        'smtp_app': {'key': 'smtpApp', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphEmailAppUsageUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.mail_for_mac = kwargs.get('mail_for_mac', None)
-        self.outlook_for_mac = kwargs.get('outlook_for_mac', None)
-        self.outlook_for_windows = kwargs.get('outlook_for_windows', None)
-        self.outlook_for_mobile = kwargs.get('outlook_for_mobile', None)
-        self.other_for_mobile = kwargs.get('other_for_mobile', None)
-        self.outlook_for_web = kwargs.get('outlook_for_web', None)
-        self.pop3_app = kwargs.get('pop3_app', None)
-        self.imap4_app = kwargs.get('imap4_app', None)
-        self.smtp_app = kwargs.get('smtp_app', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphEmailAppUsageUserDetail(MicrosoftGraphEntity):
-    """emailAppUsageUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param display_name:
-    :type display_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param mail_for_mac:
-    :type mail_for_mac: list[str]
-    :param outlook_for_mac:
-    :type outlook_for_mac: list[str]
-    :param outlook_for_windows:
-    :type outlook_for_windows: list[str]
-    :param outlook_for_mobile:
-    :type outlook_for_mobile: list[str]
-    :param other_for_mobile:
-    :type other_for_mobile: list[str]
-    :param outlook_for_web:
-    :type outlook_for_web: list[str]
-    :param pop3_app:
-    :type pop3_app: list[str]
-    :param imap4_app:
-    :type imap4_app: list[str]
-    :param smtp_app:
-    :type smtp_app: list[str]
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'display_name': {'key': 'displayName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'mail_for_mac': {'key': 'mailForMac', 'type': '[str]'},
-        'outlook_for_mac': {'key': 'outlookForMac', 'type': '[str]'},
-        'outlook_for_windows': {'key': 'outlookForWindows', 'type': '[str]'},
-        'outlook_for_mobile': {'key': 'outlookForMobile', 'type': '[str]'},
-        'other_for_mobile': {'key': 'otherForMobile', 'type': '[str]'},
-        'outlook_for_web': {'key': 'outlookForWeb', 'type': '[str]'},
-        'pop3_app': {'key': 'pop3App', 'type': '[str]'},
-        'imap4_app': {'key': 'imap4App', 'type': '[str]'},
-        'smtp_app': {'key': 'smtpApp', 'type': '[str]'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphEmailAppUsageUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.mail_for_mac = kwargs.get('mail_for_mac', None)
-        self.outlook_for_mac = kwargs.get('outlook_for_mac', None)
-        self.outlook_for_windows = kwargs.get('outlook_for_windows', None)
-        self.outlook_for_mobile = kwargs.get('outlook_for_mobile', None)
-        self.other_for_mobile = kwargs.get('other_for_mobile', None)
-        self.outlook_for_web = kwargs.get('outlook_for_web', None)
-        self.pop3_app = kwargs.get('pop3_app', None)
-        self.imap4_app = kwargs.get('imap4_app', None)
-        self.smtp_app = kwargs.get('smtp_app', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphEmailAppUsageVersionsUserCounts(MicrosoftGraphEntity):
-    """emailAppUsageVersionsUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param outlook2016:
-    :type outlook2016: long
-    :param outlook2013:
-    :type outlook2013: long
-    :param outlook2010:
-    :type outlook2010: long
-    :param outlook2007:
-    :type outlook2007: long
-    :param undetermined:
-    :type undetermined: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'outlook2016': {'key': 'outlook2016', 'type': 'long'},
-        'outlook2013': {'key': 'outlook2013', 'type': 'long'},
-        'outlook2010': {'key': 'outlook2010', 'type': 'long'},
-        'outlook2007': {'key': 'outlook2007', 'type': 'long'},
-        'undetermined': {'key': 'undetermined', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphEmailAppUsageVersionsUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.outlook2016 = kwargs.get('outlook2016', None)
-        self.outlook2013 = kwargs.get('outlook2013', None)
-        self.outlook2010 = kwargs.get('outlook2010', None)
-        self.outlook2007 = kwargs.get('outlook2007', None)
-        self.undetermined = kwargs.get('undetermined', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphFeatureUsageDetail(msrest.serialization.Model):
-    """featureUsageDetail.
-
-    :param feature_name:
-    :type feature_name: str
-    :param license_required:  Possible values include: "none", "free", "basic", "premiumP1",
-     "premiumP2", "unknownFutureValue".
-    :type license_required: str or ~reports.models.MicrosoftGraphAzureAdLicenseType
-    :param license_assigned:  Possible values include: "none", "free", "basic", "premiumP1",
-     "premiumP2", "unknownFutureValue".
-    :type license_assigned: str or ~reports.models.MicrosoftGraphAzureAdLicenseType
-    :param last_used_date_time:
-    :type last_used_date_time: ~datetime.datetime
-    :param last_configured_date_time:
-    :type last_configured_date_time: ~datetime.datetime
-    """
-
-    _attribute_map = {
-        'feature_name': {'key': 'featureName', 'type': 'str'},
-        'license_required': {'key': 'licenseRequired', 'type': 'str'},
-        'license_assigned': {'key': 'licenseAssigned', 'type': 'str'},
-        'last_used_date_time': {'key': 'lastUsedDateTime', 'type': 'iso-8601'},
-        'last_configured_date_time': {'key': 'lastConfiguredDateTime', 'type': 'iso-8601'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphFeatureUsageDetail, self).__init__(**kwargs)
-        self.feature_name = kwargs.get('feature_name', None)
-        self.license_required = kwargs.get('license_required', None)
-        self.license_assigned = kwargs.get('license_assigned', None)
-        self.last_used_date_time = kwargs.get('last_used_date_time', None)
-        self.last_configured_date_time = kwargs.get('last_configured_date_time', None)
-
-
-class MicrosoftGraphKeyValuePair(msrest.serialization.Model):
-    """keyValuePair.
-
-    :param name: Name for this key-value pair.
-    :type name: str
-    :param value: Value for this key-value pair.
+        super(MicrosoftGraphGeoCoordinates, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.altitude = kwargs.get('altitude', None)
+        self.latitude = kwargs.get('latitude', None)
+        self.longitude = kwargs.get('longitude', None)
+
+
+class MicrosoftGraphKeyValue(msrest.serialization.Model):
+    """keyValue.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param key: Key for the key-value pair.
+    :type key: str
+    :param value: Value for the key-value pair.
     :type value: str
     """
 
     _attribute_map = {
-        'name': {'key': 'name', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'key': {'key': 'key', 'type': 'str'},
         'value': {'key': 'value', 'type': 'str'},
     }
 
@@ -907,1230 +448,56 @@ class MicrosoftGraphKeyValuePair(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphKeyValuePair, self).__init__(**kwargs)
-        self.name = kwargs.get('name', None)
+        super(MicrosoftGraphKeyValue, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.key = kwargs.get('key', None)
         self.value = kwargs.get('value', None)
 
 
-class MicrosoftGraphLicenseInfoDetail(msrest.serialization.Model):
-    """licenseInfoDetail.
+class MicrosoftGraphModifiedProperty(msrest.serialization.Model):
+    """modifiedProperty.
 
-    :param license_type:  Possible values include: "none", "free", "basic", "premiumP1",
-     "premiumP2", "unknownFutureValue".
-    :type license_type: str or ~reports.models.MicrosoftGraphAzureAdLicenseType
-    :param total_license_count:
-    :type total_license_count: int
-    :param total_assigned_count:
-    :type total_assigned_count: int
-    :param total_usage_count:
-    :type total_usage_count: int
-    """
-
-    _validation = {
-        'total_license_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'total_assigned_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'total_usage_count': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
-    _attribute_map = {
-        'license_type': {'key': 'licenseType', 'type': 'str'},
-        'total_license_count': {'key': 'totalLicenseCount', 'type': 'int'},
-        'total_assigned_count': {'key': 'totalAssignedCount', 'type': 'int'},
-        'total_usage_count': {'key': 'totalUsageCount', 'type': 'int'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphLicenseInfoDetail, self).__init__(**kwargs)
-        self.license_type = kwargs.get('license_type', None)
-        self.total_license_count = kwargs.get('total_license_count', None)
-        self.total_assigned_count = kwargs.get('total_assigned_count', None)
-        self.total_usage_count = kwargs.get('total_usage_count', None)
-
-
-class MicrosoftGraphMailboxUsageDetail(MicrosoftGraphEntity):
-    """mailboxUsageDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param display_name:
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param display_name: Indicates the property name of the target attribute that was changed.
     :type display_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param created_date:
-    :type created_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param item_count:
-    :type item_count: long
-    :param storage_used_in_bytes:
-    :type storage_used_in_bytes: long
-    :param deleted_item_count:
-    :type deleted_item_count: long
-    :param deleted_item_size_in_bytes:
-    :type deleted_item_size_in_bytes: long
-    :param issue_warning_quota_in_bytes:
-    :type issue_warning_quota_in_bytes: long
-    :param prohibit_send_quota_in_bytes:
-    :type prohibit_send_quota_in_bytes: long
-    :param prohibit_send_receive_quota_in_bytes:
-    :type prohibit_send_receive_quota_in_bytes: long
-    :param report_period:
-    :type report_period: str
+    :param new_value: Indicates the updated value for the propery.
+    :type new_value: str
+    :param old_value: Indicates the previous value (before the update) for the property.
+    :type old_value: str
     """
 
     _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'created_date': {'key': 'createdDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'item_count': {'key': 'itemCount', 'type': 'long'},
-        'storage_used_in_bytes': {'key': 'storageUsedInBytes', 'type': 'long'},
-        'deleted_item_count': {'key': 'deletedItemCount', 'type': 'long'},
-        'deleted_item_size_in_bytes': {'key': 'deletedItemSizeInBytes', 'type': 'long'},
-        'issue_warning_quota_in_bytes': {'key': 'issueWarningQuotaInBytes', 'type': 'long'},
-        'prohibit_send_quota_in_bytes': {'key': 'prohibitSendQuotaInBytes', 'type': 'long'},
-        'prohibit_send_receive_quota_in_bytes': {'key': 'prohibitSendReceiveQuotaInBytes', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
+        'new_value': {'key': 'newValue', 'type': 'str'},
+        'old_value': {'key': 'oldValue', 'type': 'str'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMailboxUsageDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
+        super(MicrosoftGraphModifiedProperty, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.created_date = kwargs.get('created_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.item_count = kwargs.get('item_count', None)
-        self.storage_used_in_bytes = kwargs.get('storage_used_in_bytes', None)
-        self.deleted_item_count = kwargs.get('deleted_item_count', None)
-        self.deleted_item_size_in_bytes = kwargs.get('deleted_item_size_in_bytes', None)
-        self.issue_warning_quota_in_bytes = kwargs.get('issue_warning_quota_in_bytes', None)
-        self.prohibit_send_quota_in_bytes = kwargs.get('prohibit_send_quota_in_bytes', None)
-        self.prohibit_send_receive_quota_in_bytes = kwargs.get('prohibit_send_receive_quota_in_bytes', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphMailboxUsageMailboxCounts(MicrosoftGraphEntity):
-    """mailboxUsageMailboxCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphMailboxUsageMailboxCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts(MicrosoftGraphEntity):
-    """mailboxUsageQuotaStatusMailboxCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param under_limit:
-    :type under_limit: long
-    :param warning_issued:
-    :type warning_issued: long
-    :param send_prohibited:
-    :type send_prohibited: long
-    :param send_receive_prohibited:
-    :type send_receive_prohibited: long
-    :param indeterminate:
-    :type indeterminate: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'under_limit': {'key': 'underLimit', 'type': 'long'},
-        'warning_issued': {'key': 'warningIssued', 'type': 'long'},
-        'send_prohibited': {'key': 'sendProhibited', 'type': 'long'},
-        'send_receive_prohibited': {'key': 'sendReceiveProhibited', 'type': 'long'},
-        'indeterminate': {'key': 'indeterminate', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphMailboxUsageQuotaStatusMailboxCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.under_limit = kwargs.get('under_limit', None)
-        self.warning_issued = kwargs.get('warning_issued', None)
-        self.send_prohibited = kwargs.get('send_prohibited', None)
-        self.send_receive_prohibited = kwargs.get('send_receive_prohibited', None)
-        self.indeterminate = kwargs.get('indeterminate', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphMailboxUsageStorage(MicrosoftGraphEntity):
-    """mailboxUsageStorage.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param storage_used_in_bytes:
-    :type storage_used_in_bytes: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'storage_used_in_bytes': {'key': 'storageUsedInBytes', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphMailboxUsageStorage, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.storage_used_in_bytes = kwargs.get('storage_used_in_bytes', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOffice365ActivationCounts(MicrosoftGraphEntity):
-    """office365ActivationCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param product_type:
-    :type product_type: str
-    :param windows:
-    :type windows: long
-    :param mac:
-    :type mac: long
-    :param android:
-    :type android: long
-    :param ios:
-    :type ios: long
-    :param windows10_mobile:
-    :type windows10_mobile: long
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'product_type': {'key': 'productType', 'type': 'str'},
-        'windows': {'key': 'windows', 'type': 'long'},
-        'mac': {'key': 'mac', 'type': 'long'},
-        'android': {'key': 'android', 'type': 'long'},
-        'ios': {'key': 'ios', 'type': 'long'},
-        'windows10_mobile': {'key': 'windows10Mobile', 'type': 'long'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365ActivationCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.product_type = kwargs.get('product_type', None)
-        self.windows = kwargs.get('windows', None)
-        self.mac = kwargs.get('mac', None)
-        self.android = kwargs.get('android', None)
-        self.ios = kwargs.get('ios', None)
-        self.windows10_mobile = kwargs.get('windows10_mobile', None)
-
-
-class MicrosoftGraphOffice365ActivationsUserCounts(MicrosoftGraphEntity):
-    """office365ActivationsUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param product_type:
-    :type product_type: str
-    :param assigned:
-    :type assigned: long
-    :param activated:
-    :type activated: long
-    :param shared_computer_activation:
-    :type shared_computer_activation: long
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'product_type': {'key': 'productType', 'type': 'str'},
-        'assigned': {'key': 'assigned', 'type': 'long'},
-        'activated': {'key': 'activated', 'type': 'long'},
-        'shared_computer_activation': {'key': 'sharedComputerActivation', 'type': 'long'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365ActivationsUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.product_type = kwargs.get('product_type', None)
-        self.assigned = kwargs.get('assigned', None)
-        self.activated = kwargs.get('activated', None)
-        self.shared_computer_activation = kwargs.get('shared_computer_activation', None)
-
-
-class MicrosoftGraphOffice365ActivationsUserDetail(MicrosoftGraphEntity):
-    """office365ActivationsUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param display_name:
-    :type display_name: str
-    :param user_activation_counts:
-    :type user_activation_counts: list[~reports.models.MicrosoftGraphUserActivationCounts]
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'display_name': {'key': 'displayName', 'type': 'str'},
-        'user_activation_counts': {'key': 'userActivationCounts', 'type': '[MicrosoftGraphUserActivationCounts]'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365ActivationsUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.user_activation_counts = kwargs.get('user_activation_counts', None)
-
-
-class MicrosoftGraphOffice365ActiveUserCounts(MicrosoftGraphEntity):
-    """office365ActiveUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param office365:
-    :type office365: long
-    :param exchange:
-    :type exchange: long
-    :param one_drive:
-    :type one_drive: long
-    :param share_point:
-    :type share_point: long
-    :param skype_for_business:
-    :type skype_for_business: long
-    :param yammer:
-    :type yammer: long
-    :param teams:
-    :type teams: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'office365': {'key': 'office365', 'type': 'long'},
-        'exchange': {'key': 'exchange', 'type': 'long'},
-        'one_drive': {'key': 'oneDrive', 'type': 'long'},
-        'share_point': {'key': 'sharePoint', 'type': 'long'},
-        'skype_for_business': {'key': 'skypeForBusiness', 'type': 'long'},
-        'yammer': {'key': 'yammer', 'type': 'long'},
-        'teams': {'key': 'teams', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365ActiveUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.office365 = kwargs.get('office365', None)
-        self.exchange = kwargs.get('exchange', None)
-        self.one_drive = kwargs.get('one_drive', None)
-        self.share_point = kwargs.get('share_point', None)
-        self.skype_for_business = kwargs.get('skype_for_business', None)
-        self.yammer = kwargs.get('yammer', None)
-        self.teams = kwargs.get('teams', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOffice365ActiveUserDetail(MicrosoftGraphEntity):
-    """office365ActiveUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param display_name:
-    :type display_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param has_exchange_license:
-    :type has_exchange_license: bool
-    :param has_one_drive_license:
-    :type has_one_drive_license: bool
-    :param has_share_point_license:
-    :type has_share_point_license: bool
-    :param has_skype_for_business_license:
-    :type has_skype_for_business_license: bool
-    :param has_yammer_license:
-    :type has_yammer_license: bool
-    :param has_teams_license:
-    :type has_teams_license: bool
-    :param exchange_last_activity_date:
-    :type exchange_last_activity_date: ~datetime.date
-    :param one_drive_last_activity_date:
-    :type one_drive_last_activity_date: ~datetime.date
-    :param share_point_last_activity_date:
-    :type share_point_last_activity_date: ~datetime.date
-    :param skype_for_business_last_activity_date:
-    :type skype_for_business_last_activity_date: ~datetime.date
-    :param yammer_last_activity_date:
-    :type yammer_last_activity_date: ~datetime.date
-    :param teams_last_activity_date:
-    :type teams_last_activity_date: ~datetime.date
-    :param exchange_license_assign_date:
-    :type exchange_license_assign_date: ~datetime.date
-    :param one_drive_license_assign_date:
-    :type one_drive_license_assign_date: ~datetime.date
-    :param share_point_license_assign_date:
-    :type share_point_license_assign_date: ~datetime.date
-    :param skype_for_business_license_assign_date:
-    :type skype_for_business_license_assign_date: ~datetime.date
-    :param yammer_license_assign_date:
-    :type yammer_license_assign_date: ~datetime.date
-    :param teams_license_assign_date:
-    :type teams_license_assign_date: ~datetime.date
-    :param assigned_products:
-    :type assigned_products: list[str]
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'display_name': {'key': 'displayName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'has_exchange_license': {'key': 'hasExchangeLicense', 'type': 'bool'},
-        'has_one_drive_license': {'key': 'hasOneDriveLicense', 'type': 'bool'},
-        'has_share_point_license': {'key': 'hasSharePointLicense', 'type': 'bool'},
-        'has_skype_for_business_license': {'key': 'hasSkypeForBusinessLicense', 'type': 'bool'},
-        'has_yammer_license': {'key': 'hasYammerLicense', 'type': 'bool'},
-        'has_teams_license': {'key': 'hasTeamsLicense', 'type': 'bool'},
-        'exchange_last_activity_date': {'key': 'exchangeLastActivityDate', 'type': 'date'},
-        'one_drive_last_activity_date': {'key': 'oneDriveLastActivityDate', 'type': 'date'},
-        'share_point_last_activity_date': {'key': 'sharePointLastActivityDate', 'type': 'date'},
-        'skype_for_business_last_activity_date': {'key': 'skypeForBusinessLastActivityDate', 'type': 'date'},
-        'yammer_last_activity_date': {'key': 'yammerLastActivityDate', 'type': 'date'},
-        'teams_last_activity_date': {'key': 'teamsLastActivityDate', 'type': 'date'},
-        'exchange_license_assign_date': {'key': 'exchangeLicenseAssignDate', 'type': 'date'},
-        'one_drive_license_assign_date': {'key': 'oneDriveLicenseAssignDate', 'type': 'date'},
-        'share_point_license_assign_date': {'key': 'sharePointLicenseAssignDate', 'type': 'date'},
-        'skype_for_business_license_assign_date': {'key': 'skypeForBusinessLicenseAssignDate', 'type': 'date'},
-        'yammer_license_assign_date': {'key': 'yammerLicenseAssignDate', 'type': 'date'},
-        'teams_license_assign_date': {'key': 'teamsLicenseAssignDate', 'type': 'date'},
-        'assigned_products': {'key': 'assignedProducts', 'type': '[str]'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365ActiveUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.has_exchange_license = kwargs.get('has_exchange_license', None)
-        self.has_one_drive_license = kwargs.get('has_one_drive_license', None)
-        self.has_share_point_license = kwargs.get('has_share_point_license', None)
-        self.has_skype_for_business_license = kwargs.get('has_skype_for_business_license', None)
-        self.has_yammer_license = kwargs.get('has_yammer_license', None)
-        self.has_teams_license = kwargs.get('has_teams_license', None)
-        self.exchange_last_activity_date = kwargs.get('exchange_last_activity_date', None)
-        self.one_drive_last_activity_date = kwargs.get('one_drive_last_activity_date', None)
-        self.share_point_last_activity_date = kwargs.get('share_point_last_activity_date', None)
-        self.skype_for_business_last_activity_date = kwargs.get('skype_for_business_last_activity_date', None)
-        self.yammer_last_activity_date = kwargs.get('yammer_last_activity_date', None)
-        self.teams_last_activity_date = kwargs.get('teams_last_activity_date', None)
-        self.exchange_license_assign_date = kwargs.get('exchange_license_assign_date', None)
-        self.one_drive_license_assign_date = kwargs.get('one_drive_license_assign_date', None)
-        self.share_point_license_assign_date = kwargs.get('share_point_license_assign_date', None)
-        self.skype_for_business_license_assign_date = kwargs.get('skype_for_business_license_assign_date', None)
-        self.yammer_license_assign_date = kwargs.get('yammer_license_assign_date', None)
-        self.teams_license_assign_date = kwargs.get('teams_license_assign_date', None)
-        self.assigned_products = kwargs.get('assigned_products', None)
-
-
-class MicrosoftGraphOffice365GroupsActivityCounts(MicrosoftGraphEntity):
-    """office365GroupsActivityCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param exchange_emails_received:
-    :type exchange_emails_received: long
-    :param yammer_messages_posted:
-    :type yammer_messages_posted: long
-    :param yammer_messages_read:
-    :type yammer_messages_read: long
-    :param yammer_messages_liked:
-    :type yammer_messages_liked: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'exchange_emails_received': {'key': 'exchangeEmailsReceived', 'type': 'long'},
-        'yammer_messages_posted': {'key': 'yammerMessagesPosted', 'type': 'long'},
-        'yammer_messages_read': {'key': 'yammerMessagesRead', 'type': 'long'},
-        'yammer_messages_liked': {'key': 'yammerMessagesLiked', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365GroupsActivityCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.exchange_emails_received = kwargs.get('exchange_emails_received', None)
-        self.yammer_messages_posted = kwargs.get('yammer_messages_posted', None)
-        self.yammer_messages_read = kwargs.get('yammer_messages_read', None)
-        self.yammer_messages_liked = kwargs.get('yammer_messages_liked', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOffice365GroupsActivityDetail(MicrosoftGraphEntity):
-    """office365GroupsActivityDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param group_id:
-    :type group_id: str
-    :param group_display_name:
-    :type group_display_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param owner_principal_name:
-    :type owner_principal_name: str
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param group_type:
-    :type group_type: str
-    :param member_count:
-    :type member_count: long
-    :param external_member_count:
-    :type external_member_count: long
-    :param exchange_received_email_count:
-    :type exchange_received_email_count: long
-    :param share_point_active_file_count:
-    :type share_point_active_file_count: long
-    :param yammer_posted_message_count:
-    :type yammer_posted_message_count: long
-    :param yammer_read_message_count:
-    :type yammer_read_message_count: long
-    :param yammer_liked_message_count:
-    :type yammer_liked_message_count: long
-    :param exchange_mailbox_total_item_count:
-    :type exchange_mailbox_total_item_count: long
-    :param exchange_mailbox_storage_used_in_bytes:
-    :type exchange_mailbox_storage_used_in_bytes: long
-    :param share_point_total_file_count:
-    :type share_point_total_file_count: long
-    :param share_point_site_storage_used_in_bytes:
-    :type share_point_site_storage_used_in_bytes: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'group_id': {'key': 'groupId', 'type': 'str'},
-        'group_display_name': {'key': 'groupDisplayName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'owner_principal_name': {'key': 'ownerPrincipalName', 'type': 'str'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'group_type': {'key': 'groupType', 'type': 'str'},
-        'member_count': {'key': 'memberCount', 'type': 'long'},
-        'external_member_count': {'key': 'externalMemberCount', 'type': 'long'},
-        'exchange_received_email_count': {'key': 'exchangeReceivedEmailCount', 'type': 'long'},
-        'share_point_active_file_count': {'key': 'sharePointActiveFileCount', 'type': 'long'},
-        'yammer_posted_message_count': {'key': 'yammerPostedMessageCount', 'type': 'long'},
-        'yammer_read_message_count': {'key': 'yammerReadMessageCount', 'type': 'long'},
-        'yammer_liked_message_count': {'key': 'yammerLikedMessageCount', 'type': 'long'},
-        'exchange_mailbox_total_item_count': {'key': 'exchangeMailboxTotalItemCount', 'type': 'long'},
-        'exchange_mailbox_storage_used_in_bytes': {'key': 'exchangeMailboxStorageUsedInBytes', 'type': 'long'},
-        'share_point_total_file_count': {'key': 'sharePointTotalFileCount', 'type': 'long'},
-        'share_point_site_storage_used_in_bytes': {'key': 'sharePointSiteStorageUsedInBytes', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365GroupsActivityDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.group_id = kwargs.get('group_id', None)
-        self.group_display_name = kwargs.get('group_display_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.owner_principal_name = kwargs.get('owner_principal_name', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.group_type = kwargs.get('group_type', None)
-        self.member_count = kwargs.get('member_count', None)
-        self.external_member_count = kwargs.get('external_member_count', None)
-        self.exchange_received_email_count = kwargs.get('exchange_received_email_count', None)
-        self.share_point_active_file_count = kwargs.get('share_point_active_file_count', None)
-        self.yammer_posted_message_count = kwargs.get('yammer_posted_message_count', None)
-        self.yammer_read_message_count = kwargs.get('yammer_read_message_count', None)
-        self.yammer_liked_message_count = kwargs.get('yammer_liked_message_count', None)
-        self.exchange_mailbox_total_item_count = kwargs.get('exchange_mailbox_total_item_count', None)
-        self.exchange_mailbox_storage_used_in_bytes = kwargs.get('exchange_mailbox_storage_used_in_bytes', None)
-        self.share_point_total_file_count = kwargs.get('share_point_total_file_count', None)
-        self.share_point_site_storage_used_in_bytes = kwargs.get('share_point_site_storage_used_in_bytes', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOffice365GroupsActivityFileCounts(MicrosoftGraphEntity):
-    """office365GroupsActivityFileCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365GroupsActivityFileCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOffice365GroupsActivityGroupCounts(MicrosoftGraphEntity):
-    """office365GroupsActivityGroupCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365GroupsActivityGroupCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOffice365GroupsActivityStorage(MicrosoftGraphEntity):
-    """office365GroupsActivityStorage.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param mailbox_storage_used_in_bytes:
-    :type mailbox_storage_used_in_bytes: long
-    :param site_storage_used_in_bytes:
-    :type site_storage_used_in_bytes: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'mailbox_storage_used_in_bytes': {'key': 'mailboxStorageUsedInBytes', 'type': 'long'},
-        'site_storage_used_in_bytes': {'key': 'siteStorageUsedInBytes', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365GroupsActivityStorage, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.mailbox_storage_used_in_bytes = kwargs.get('mailbox_storage_used_in_bytes', None)
-        self.site_storage_used_in_bytes = kwargs.get('site_storage_used_in_bytes', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOffice365ServicesUserCounts(MicrosoftGraphEntity):
-    """office365ServicesUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param exchange_active:
-    :type exchange_active: long
-    :param exchange_inactive:
-    :type exchange_inactive: long
-    :param one_drive_active:
-    :type one_drive_active: long
-    :param one_drive_inactive:
-    :type one_drive_inactive: long
-    :param share_point_active:
-    :type share_point_active: long
-    :param share_point_inactive:
-    :type share_point_inactive: long
-    :param skype_for_business_active:
-    :type skype_for_business_active: long
-    :param skype_for_business_inactive:
-    :type skype_for_business_inactive: long
-    :param yammer_active:
-    :type yammer_active: long
-    :param yammer_inactive:
-    :type yammer_inactive: long
-    :param teams_active:
-    :type teams_active: long
-    :param teams_inactive:
-    :type teams_inactive: long
-    :param office365_active:
-    :type office365_active: long
-    :param office365_inactive:
-    :type office365_inactive: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'exchange_active': {'key': 'exchangeActive', 'type': 'long'},
-        'exchange_inactive': {'key': 'exchangeInactive', 'type': 'long'},
-        'one_drive_active': {'key': 'oneDriveActive', 'type': 'long'},
-        'one_drive_inactive': {'key': 'oneDriveInactive', 'type': 'long'},
-        'share_point_active': {'key': 'sharePointActive', 'type': 'long'},
-        'share_point_inactive': {'key': 'sharePointInactive', 'type': 'long'},
-        'skype_for_business_active': {'key': 'skypeForBusinessActive', 'type': 'long'},
-        'skype_for_business_inactive': {'key': 'skypeForBusinessInactive', 'type': 'long'},
-        'yammer_active': {'key': 'yammerActive', 'type': 'long'},
-        'yammer_inactive': {'key': 'yammerInactive', 'type': 'long'},
-        'teams_active': {'key': 'teamsActive', 'type': 'long'},
-        'teams_inactive': {'key': 'teamsInactive', 'type': 'long'},
-        'office365_active': {'key': 'office365Active', 'type': 'long'},
-        'office365_inactive': {'key': 'office365Inactive', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOffice365ServicesUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.exchange_active = kwargs.get('exchange_active', None)
-        self.exchange_inactive = kwargs.get('exchange_inactive', None)
-        self.one_drive_active = kwargs.get('one_drive_active', None)
-        self.one_drive_inactive = kwargs.get('one_drive_inactive', None)
-        self.share_point_active = kwargs.get('share_point_active', None)
-        self.share_point_inactive = kwargs.get('share_point_inactive', None)
-        self.skype_for_business_active = kwargs.get('skype_for_business_active', None)
-        self.skype_for_business_inactive = kwargs.get('skype_for_business_inactive', None)
-        self.yammer_active = kwargs.get('yammer_active', None)
-        self.yammer_inactive = kwargs.get('yammer_inactive', None)
-        self.teams_active = kwargs.get('teams_active', None)
-        self.teams_inactive = kwargs.get('teams_inactive', None)
-        self.office365_active = kwargs.get('office365_active', None)
-        self.office365_inactive = kwargs.get('office365_inactive', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOneDriveActivityUserDetail(MicrosoftGraphEntity):
-    """oneDriveActivityUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param viewed_or_edited_file_count:
-    :type viewed_or_edited_file_count: long
-    :param synced_file_count:
-    :type synced_file_count: long
-    :param shared_internally_file_count:
-    :type shared_internally_file_count: long
-    :param shared_externally_file_count:
-    :type shared_externally_file_count: long
-    :param assigned_products:
-    :type assigned_products: list[str]
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'viewed_or_edited_file_count': {'key': 'viewedOrEditedFileCount', 'type': 'long'},
-        'synced_file_count': {'key': 'syncedFileCount', 'type': 'long'},
-        'shared_internally_file_count': {'key': 'sharedInternallyFileCount', 'type': 'long'},
-        'shared_externally_file_count': {'key': 'sharedExternallyFileCount', 'type': 'long'},
-        'assigned_products': {'key': 'assignedProducts', 'type': '[str]'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOneDriveActivityUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.viewed_or_edited_file_count = kwargs.get('viewed_or_edited_file_count', None)
-        self.synced_file_count = kwargs.get('synced_file_count', None)
-        self.shared_internally_file_count = kwargs.get('shared_internally_file_count', None)
-        self.shared_externally_file_count = kwargs.get('shared_externally_file_count', None)
-        self.assigned_products = kwargs.get('assigned_products', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOneDriveUsageAccountCounts(MicrosoftGraphEntity):
-    """oneDriveUsageAccountCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_type:
-    :type site_type: str
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_type': {'key': 'siteType', 'type': 'str'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOneDriveUsageAccountCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_type = kwargs.get('site_type', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOneDriveUsageAccountDetail(MicrosoftGraphEntity):
-    """oneDriveUsageAccountDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_url:
-    :type site_url: str
-    :param owner_display_name:
-    :type owner_display_name: str
-    :param owner_principal_name:
-    :type owner_principal_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param file_count:
-    :type file_count: long
-    :param active_file_count:
-    :type active_file_count: long
-    :param storage_used_in_bytes:
-    :type storage_used_in_bytes: long
-    :param storage_allocated_in_bytes:
-    :type storage_allocated_in_bytes: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_url': {'key': 'siteUrl', 'type': 'str'},
-        'owner_display_name': {'key': 'ownerDisplayName', 'type': 'str'},
-        'owner_principal_name': {'key': 'ownerPrincipalName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'file_count': {'key': 'fileCount', 'type': 'long'},
-        'active_file_count': {'key': 'activeFileCount', 'type': 'long'},
-        'storage_used_in_bytes': {'key': 'storageUsedInBytes', 'type': 'long'},
-        'storage_allocated_in_bytes': {'key': 'storageAllocatedInBytes', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOneDriveUsageAccountDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_url = kwargs.get('site_url', None)
-        self.owner_display_name = kwargs.get('owner_display_name', None)
-        self.owner_principal_name = kwargs.get('owner_principal_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.file_count = kwargs.get('file_count', None)
-        self.active_file_count = kwargs.get('active_file_count', None)
-        self.storage_used_in_bytes = kwargs.get('storage_used_in_bytes', None)
-        self.storage_allocated_in_bytes = kwargs.get('storage_allocated_in_bytes', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphOneDriveUsageFileCounts(MicrosoftGraphEntity):
-    """oneDriveUsageFileCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_type:
-    :type site_type: str
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_type': {'key': 'siteType', 'type': 'str'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphOneDriveUsageFileCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_type = kwargs.get('site_type', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphPrintUsageSummaryByPrinter(MicrosoftGraphEntity):
-    """PrintUsageSummaryByPrinter.
-
-    :param id: Read-only.
-    :type id: str
-    :param printer_id:
-    :type printer_id: str
-    :param usage_date:
-    :type usage_date: ~datetime.date
-    :param completed_black_and_white_job_count:
-    :type completed_black_and_white_job_count: long
-    :param completed_color_job_count:
-    :type completed_color_job_count: long
-    :param incomplete_job_count:
-    :type incomplete_job_count: long
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'printer_id': {'key': 'printerId', 'type': 'str'},
-        'usage_date': {'key': 'usageDate', 'type': 'date'},
-        'completed_black_and_white_job_count': {'key': 'completedBlackAndWhiteJobCount', 'type': 'long'},
-        'completed_color_job_count': {'key': 'completedColorJobCount', 'type': 'long'},
-        'incomplete_job_count': {'key': 'incompleteJobCount', 'type': 'long'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphPrintUsageSummaryByPrinter, self).__init__(**kwargs)
-        self.printer_id = kwargs.get('printer_id', None)
-        self.usage_date = kwargs.get('usage_date', None)
-        self.completed_black_and_white_job_count = kwargs.get('completed_black_and_white_job_count', None)
-        self.completed_color_job_count = kwargs.get('completed_color_job_count', None)
-        self.incomplete_job_count = kwargs.get('incomplete_job_count', None)
-
-
-class MicrosoftGraphPrintUsageSummaryByUser(MicrosoftGraphEntity):
-    """PrintUsageSummaryByUser.
-
-    :param id: Read-only.
-    :type id: str
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param usage_date:
-    :type usage_date: ~datetime.date
-    :param completed_black_and_white_job_count:
-    :type completed_black_and_white_job_count: long
-    :param completed_color_job_count:
-    :type completed_color_job_count: long
-    :param incomplete_job_count:
-    :type incomplete_job_count: long
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'usage_date': {'key': 'usageDate', 'type': 'date'},
-        'completed_black_and_white_job_count': {'key': 'completedBlackAndWhiteJobCount', 'type': 'long'},
-        'completed_color_job_count': {'key': 'completedColorJobCount', 'type': 'long'},
-        'incomplete_job_count': {'key': 'incompleteJobCount', 'type': 'long'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphPrintUsageSummaryByUser, self).__init__(**kwargs)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.usage_date = kwargs.get('usage_date', None)
-        self.completed_black_and_white_job_count = kwargs.get('completed_black_and_white_job_count', None)
-        self.completed_color_job_count = kwargs.get('completed_color_job_count', None)
-        self.incomplete_job_count = kwargs.get('incomplete_job_count', None)
-
-
-class MicrosoftGraphRelyingPartyDetailedSummary(MicrosoftGraphEntity):
-    """relyingPartyDetailedSummary.
-
-    :param id: Read-only.
-    :type id: str
-    :param relying_party_id:
-    :type relying_party_id: str
-    :param service_id:
-    :type service_id: str
-    :param relying_party_name:
-    :type relying_party_name: str
-    :param successful_sign_in_count:
-    :type successful_sign_in_count: long
-    :param failed_sign_in_count:
-    :type failed_sign_in_count: long
-    :param total_sign_in_count:
-    :type total_sign_in_count: long
-    :param sign_in_success_rate:
-    :type sign_in_success_rate: float
-    :param unique_user_count:
-    :type unique_user_count: long
-    :param migration_status:  Possible values include: "ready", "needsReview",
-     "additionalStepsRequired", "unknownFutureValue".
-    :type migration_status: str or ~reports.models.MicrosoftGraphMigrationStatus
-    :param migration_validation_details:
-    :type migration_validation_details: list[~reports.models.MicrosoftGraphKeyValuePair]
-    :param reply_urls:
-    :type reply_urls: list[str]
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'relying_party_id': {'key': 'relyingPartyId', 'type': 'str'},
-        'service_id': {'key': 'serviceId', 'type': 'str'},
-        'relying_party_name': {'key': 'relyingPartyName', 'type': 'str'},
-        'successful_sign_in_count': {'key': 'successfulSignInCount', 'type': 'long'},
-        'failed_sign_in_count': {'key': 'failedSignInCount', 'type': 'long'},
-        'total_sign_in_count': {'key': 'totalSignInCount', 'type': 'long'},
-        'sign_in_success_rate': {'key': 'signInSuccessRate', 'type': 'float'},
-        'unique_user_count': {'key': 'uniqueUserCount', 'type': 'long'},
-        'migration_status': {'key': 'migrationStatus', 'type': 'str'},
-        'migration_validation_details': {'key': 'migrationValidationDetails', 'type': '[MicrosoftGraphKeyValuePair]'},
-        'reply_urls': {'key': 'replyUrls', 'type': '[str]'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphRelyingPartyDetailedSummary, self).__init__(**kwargs)
-        self.relying_party_id = kwargs.get('relying_party_id', None)
-        self.service_id = kwargs.get('service_id', None)
-        self.relying_party_name = kwargs.get('relying_party_name', None)
-        self.successful_sign_in_count = kwargs.get('successful_sign_in_count', None)
-        self.failed_sign_in_count = kwargs.get('failed_sign_in_count', None)
-        self.total_sign_in_count = kwargs.get('total_sign_in_count', None)
-        self.sign_in_success_rate = kwargs.get('sign_in_success_rate', None)
-        self.unique_user_count = kwargs.get('unique_user_count', None)
-        self.migration_status = kwargs.get('migration_status', None)
-        self.migration_validation_details = kwargs.get('migration_validation_details', None)
-        self.reply_urls = kwargs.get('reply_urls', None)
+        self.new_value = kwargs.get('new_value', None)
+        self.old_value = kwargs.get('old_value', None)
 
 
 class MicrosoftGraphReport(msrest.serialization.Model):
-    """report.
+    """Device Configuration profile History reports.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param content: Not yet documented.
     :type content: bytes
     """
 
     _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
         'content': {'key': 'content', 'type': 'base64'},
     }
 
@@ -2139,6 +506,7 @@ class MicrosoftGraphReport(msrest.serialization.Model):
         **kwargs
     ):
         super(MicrosoftGraphReport, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
 
 
@@ -2147,38 +515,14 @@ class MicrosoftGraphReportRoot(MicrosoftGraphEntity):
 
     :param id: Read-only.
     :type id: str
-    :param application_sign_in_detailed_summary:
-    :type application_sign_in_detailed_summary:
-     list[~reports.models.MicrosoftGraphApplicationSignInDetailedSummary]
-    :param credential_user_registration_details:
-    :type credential_user_registration_details:
-     list[~reports.models.MicrosoftGraphCredentialUserRegistrationDetails]
-    :param user_credential_usage_details:
-    :type user_credential_usage_details:
-     list[~reports.models.MicrosoftGraphUserCredentialUsageDetails]
-    :param daily_print_usage_summaries_by_user:
-    :type daily_print_usage_summaries_by_user:
-     list[~reports.models.MicrosoftGraphPrintUsageSummaryByUser]
-    :param monthly_print_usage_summaries_by_user:
-    :type monthly_print_usage_summaries_by_user:
-     list[~reports.models.MicrosoftGraphPrintUsageSummaryByUser]
-    :param daily_print_usage_summaries_by_printer:
-    :type daily_print_usage_summaries_by_printer:
-     list[~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter]
-    :param monthly_print_usage_summaries_by_printer:
-    :type monthly_print_usage_summaries_by_printer:
-     list[~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter]
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'application_sign_in_detailed_summary': {'key': 'applicationSignInDetailedSummary', 'type': '[MicrosoftGraphApplicationSignInDetailedSummary]'},
-        'credential_user_registration_details': {'key': 'credentialUserRegistrationDetails', 'type': '[MicrosoftGraphCredentialUserRegistrationDetails]'},
-        'user_credential_usage_details': {'key': 'userCredentialUsageDetails', 'type': '[MicrosoftGraphUserCredentialUsageDetails]'},
-        'daily_print_usage_summaries_by_user': {'key': 'dailyPrintUsageSummariesByUser', 'type': '[MicrosoftGraphPrintUsageSummaryByUser]'},
-        'monthly_print_usage_summaries_by_user': {'key': 'monthlyPrintUsageSummariesByUser', 'type': '[MicrosoftGraphPrintUsageSummaryByUser]'},
-        'daily_print_usage_summaries_by_printer': {'key': 'dailyPrintUsageSummariesByPrinter', 'type': '[MicrosoftGraphPrintUsageSummaryByPrinter]'},
-        'monthly_print_usage_summaries_by_printer': {'key': 'monthlyPrintUsageSummariesByPrinter', 'type': '[MicrosoftGraphPrintUsageSummaryByPrinter]'},
+        'additional_properties': {'key': '', 'type': '{object}'},
     }
 
     def __init__(
@@ -2186,2170 +530,449 @@ class MicrosoftGraphReportRoot(MicrosoftGraphEntity):
         **kwargs
     ):
         super(MicrosoftGraphReportRoot, self).__init__(**kwargs)
-        self.application_sign_in_detailed_summary = kwargs.get('application_sign_in_detailed_summary', None)
-        self.credential_user_registration_details = kwargs.get('credential_user_registration_details', None)
-        self.user_credential_usage_details = kwargs.get('user_credential_usage_details', None)
-        self.daily_print_usage_summaries_by_user = kwargs.get('daily_print_usage_summaries_by_user', None)
-        self.monthly_print_usage_summaries_by_user = kwargs.get('monthly_print_usage_summaries_by_user', None)
-        self.daily_print_usage_summaries_by_printer = kwargs.get('daily_print_usage_summaries_by_printer', None)
-        self.monthly_print_usage_summaries_by_printer = kwargs.get('monthly_print_usage_summaries_by_printer', None)
+        self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class MicrosoftGraphSharePointActivityPages(MicrosoftGraphEntity):
-    """sharePointActivityPages.
+class MicrosoftGraphSignIn(MicrosoftGraphEntity):
+    """signIn.
 
     :param id: Read-only.
     :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param visited_page_count:
-    :type visited_page_count: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'visited_page_count': {'key': 'visitedPageCount', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSharePointActivityPages, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.visited_page_count = kwargs.get('visited_page_count', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSharePointActivityUserCounts(MicrosoftGraphEntity):
-    """sharePointActivityUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param visited_page:
-    :type visited_page: long
-    :param viewed_or_edited:
-    :type viewed_or_edited: long
-    :param synced:
-    :type synced: long
-    :param shared_internally:
-    :type shared_internally: long
-    :param shared_externally:
-    :type shared_externally: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'visited_page': {'key': 'visitedPage', 'type': 'long'},
-        'viewed_or_edited': {'key': 'viewedOrEdited', 'type': 'long'},
-        'synced': {'key': 'synced', 'type': 'long'},
-        'shared_internally': {'key': 'sharedInternally', 'type': 'long'},
-        'shared_externally': {'key': 'sharedExternally', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSharePointActivityUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.visited_page = kwargs.get('visited_page', None)
-        self.viewed_or_edited = kwargs.get('viewed_or_edited', None)
-        self.synced = kwargs.get('synced', None)
-        self.shared_internally = kwargs.get('shared_internally', None)
-        self.shared_externally = kwargs.get('shared_externally', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSharePointActivityUserDetail(MicrosoftGraphEntity):
-    """sharePointActivityUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param viewed_or_edited_file_count:
-    :type viewed_or_edited_file_count: long
-    :param synced_file_count:
-    :type synced_file_count: long
-    :param shared_internally_file_count:
-    :type shared_internally_file_count: long
-    :param shared_externally_file_count:
-    :type shared_externally_file_count: long
-    :param visited_page_count:
-    :type visited_page_count: long
-    :param assigned_products:
-    :type assigned_products: list[str]
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'viewed_or_edited_file_count': {'key': 'viewedOrEditedFileCount', 'type': 'long'},
-        'synced_file_count': {'key': 'syncedFileCount', 'type': 'long'},
-        'shared_internally_file_count': {'key': 'sharedInternallyFileCount', 'type': 'long'},
-        'shared_externally_file_count': {'key': 'sharedExternallyFileCount', 'type': 'long'},
-        'visited_page_count': {'key': 'visitedPageCount', 'type': 'long'},
-        'assigned_products': {'key': 'assignedProducts', 'type': '[str]'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSharePointActivityUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.viewed_or_edited_file_count = kwargs.get('viewed_or_edited_file_count', None)
-        self.synced_file_count = kwargs.get('synced_file_count', None)
-        self.shared_internally_file_count = kwargs.get('shared_internally_file_count', None)
-        self.shared_externally_file_count = kwargs.get('shared_externally_file_count', None)
-        self.visited_page_count = kwargs.get('visited_page_count', None)
-        self.assigned_products = kwargs.get('assigned_products', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSharePointSiteUsageDetail(MicrosoftGraphEntity):
-    """sharePointSiteUsageDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_id:
-    :type site_id: str
-    :param site_url:
-    :type site_url: str
-    :param owner_display_name:
-    :type owner_display_name: str
-    :param owner_principal_name:
-    :type owner_principal_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param file_count:
-    :type file_count: long
-    :param active_file_count:
-    :type active_file_count: long
-    :param page_view_count:
-    :type page_view_count: long
-    :param visited_page_count:
-    :type visited_page_count: long
-    :param storage_used_in_bytes:
-    :type storage_used_in_bytes: long
-    :param storage_allocated_in_bytes:
-    :type storage_allocated_in_bytes: long
-    :param root_web_template:
-    :type root_web_template: str
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_id': {'key': 'siteId', 'type': 'str'},
-        'site_url': {'key': 'siteUrl', 'type': 'str'},
-        'owner_display_name': {'key': 'ownerDisplayName', 'type': 'str'},
-        'owner_principal_name': {'key': 'ownerPrincipalName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'file_count': {'key': 'fileCount', 'type': 'long'},
-        'active_file_count': {'key': 'activeFileCount', 'type': 'long'},
-        'page_view_count': {'key': 'pageViewCount', 'type': 'long'},
-        'visited_page_count': {'key': 'visitedPageCount', 'type': 'long'},
-        'storage_used_in_bytes': {'key': 'storageUsedInBytes', 'type': 'long'},
-        'storage_allocated_in_bytes': {'key': 'storageAllocatedInBytes', 'type': 'long'},
-        'root_web_template': {'key': 'rootWebTemplate', 'type': 'str'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSharePointSiteUsageDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_id = kwargs.get('site_id', None)
-        self.site_url = kwargs.get('site_url', None)
-        self.owner_display_name = kwargs.get('owner_display_name', None)
-        self.owner_principal_name = kwargs.get('owner_principal_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.file_count = kwargs.get('file_count', None)
-        self.active_file_count = kwargs.get('active_file_count', None)
-        self.page_view_count = kwargs.get('page_view_count', None)
-        self.visited_page_count = kwargs.get('visited_page_count', None)
-        self.storage_used_in_bytes = kwargs.get('storage_used_in_bytes', None)
-        self.storage_allocated_in_bytes = kwargs.get('storage_allocated_in_bytes', None)
-        self.root_web_template = kwargs.get('root_web_template', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSharePointSiteUsageFileCounts(MicrosoftGraphEntity):
-    """sharePointSiteUsageFileCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_type:
-    :type site_type: str
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_type': {'key': 'siteType', 'type': 'str'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSharePointSiteUsageFileCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_type = kwargs.get('site_type', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSharePointSiteUsagePages(MicrosoftGraphEntity):
-    """sharePointSiteUsagePages.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_type:
-    :type site_type: str
-    :param page_view_count:
-    :type page_view_count: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_type': {'key': 'siteType', 'type': 'str'},
-        'page_view_count': {'key': 'pageViewCount', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSharePointSiteUsagePages, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_type = kwargs.get('site_type', None)
-        self.page_view_count = kwargs.get('page_view_count', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSharePointSiteUsageSiteCounts(MicrosoftGraphEntity):
-    """sharePointSiteUsageSiteCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_type:
-    :type site_type: str
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_type': {'key': 'siteType', 'type': 'str'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSharePointSiteUsageSiteCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_type = kwargs.get('site_type', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSiteActivitySummary(MicrosoftGraphEntity):
-    """siteActivitySummary.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param viewed_or_edited:
-    :type viewed_or_edited: long
-    :param synced:
-    :type synced: long
-    :param shared_internally:
-    :type shared_internally: long
-    :param shared_externally:
-    :type shared_externally: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'viewed_or_edited': {'key': 'viewedOrEdited', 'type': 'long'},
-        'synced': {'key': 'synced', 'type': 'long'},
-        'shared_internally': {'key': 'sharedInternally', 'type': 'long'},
-        'shared_externally': {'key': 'sharedExternally', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSiteActivitySummary, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.viewed_or_edited = kwargs.get('viewed_or_edited', None)
-        self.synced = kwargs.get('synced', None)
-        self.shared_internally = kwargs.get('shared_internally', None)
-        self.shared_externally = kwargs.get('shared_externally', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSiteUsageStorage(MicrosoftGraphEntity):
-    """siteUsageStorage.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param site_type:
-    :type site_type: str
-    :param storage_used_in_bytes:
-    :type storage_used_in_bytes: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'site_type': {'key': 'siteType', 'type': 'str'},
-        'storage_used_in_bytes': {'key': 'storageUsedInBytes', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSiteUsageStorage, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.site_type = kwargs.get('site_type', None)
-        self.storage_used_in_bytes = kwargs.get('storage_used_in_bytes', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessActivityCounts(MicrosoftGraphEntity):
-    """skypeForBusinessActivityCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param peer_to_peer:
-    :type peer_to_peer: long
-    :param organized:
-    :type organized: long
-    :param participated:
-    :type participated: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'peer_to_peer': {'key': 'peerToPeer', 'type': 'long'},
-        'organized': {'key': 'organized', 'type': 'long'},
-        'participated': {'key': 'participated', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessActivityCounts, self).__init__(**kwargs)
-        self.peer_to_peer = kwargs.get('peer_to_peer', None)
-        self.organized = kwargs.get('organized', None)
-        self.participated = kwargs.get('participated', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessActivityUserCounts(MicrosoftGraphEntity):
-    """skypeForBusinessActivityUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param peer_to_peer:
-    :type peer_to_peer: long
-    :param organized:
-    :type organized: long
-    :param participated:
-    :type participated: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'peer_to_peer': {'key': 'peerToPeer', 'type': 'long'},
-        'organized': {'key': 'organized', 'type': 'long'},
-        'participated': {'key': 'participated', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessActivityUserCounts, self).__init__(**kwargs)
-        self.peer_to_peer = kwargs.get('peer_to_peer', None)
-        self.organized = kwargs.get('organized', None)
-        self.participated = kwargs.get('participated', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessActivityUserDetail(MicrosoftGraphEntity):
-    """skypeForBusinessActivityUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param total_peer_to_peer_session_count:
-    :type total_peer_to_peer_session_count: long
-    :param total_organized_conference_count:
-    :type total_organized_conference_count: long
-    :param total_participated_conference_count:
-    :type total_participated_conference_count: long
-    :param peer_to_peer_last_activity_date:
-    :type peer_to_peer_last_activity_date: ~datetime.date
-    :param organized_conference_last_activity_date:
-    :type organized_conference_last_activity_date: ~datetime.date
-    :param participated_conference_last_activity_date:
-    :type participated_conference_last_activity_date: ~datetime.date
-    :param peer_to_peer_im_count:
-    :type peer_to_peer_im_count: long
-    :param peer_to_peer_audio_count:
-    :type peer_to_peer_audio_count: long
-    :param peer_to_peer_audio_minutes:
-    :type peer_to_peer_audio_minutes: long
-    :param peer_to_peer_video_count:
-    :type peer_to_peer_video_count: long
-    :param peer_to_peer_video_minutes:
-    :type peer_to_peer_video_minutes: long
-    :param peer_to_peer_app_sharing_count:
-    :type peer_to_peer_app_sharing_count: long
-    :param peer_to_peer_file_transfer_count:
-    :type peer_to_peer_file_transfer_count: long
-    :param organized_conference_im_count:
-    :type organized_conference_im_count: long
-    :param organized_conference_audio_video_count:
-    :type organized_conference_audio_video_count: long
-    :param organized_conference_audio_video_minutes:
-    :type organized_conference_audio_video_minutes: long
-    :param organized_conference_app_sharing_count:
-    :type organized_conference_app_sharing_count: long
-    :param organized_conference_web_count:
-    :type organized_conference_web_count: long
-    :param organized_conference_dial_in_out3_rd_party_count:
-    :type organized_conference_dial_in_out3_rd_party_count: long
-    :param organized_conference_cloud_dial_in_out_microsoft_count:
-    :type organized_conference_cloud_dial_in_out_microsoft_count: long
-    :param organized_conference_cloud_dial_in_microsoft_minutes:
-    :type organized_conference_cloud_dial_in_microsoft_minutes: long
-    :param organized_conference_cloud_dial_out_microsoft_minutes:
-    :type organized_conference_cloud_dial_out_microsoft_minutes: long
-    :param participated_conference_im_count:
-    :type participated_conference_im_count: long
-    :param participated_conference_audio_video_count:
-    :type participated_conference_audio_video_count: long
-    :param participated_conference_audio_video_minutes:
-    :type participated_conference_audio_video_minutes: long
-    :param participated_conference_app_sharing_count:
-    :type participated_conference_app_sharing_count: long
-    :param participated_conference_web_count:
-    :type participated_conference_web_count: long
-    :param participated_conference_dial_in_out3_rd_party_count:
-    :type participated_conference_dial_in_out3_rd_party_count: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param assigned_products:
-    :type assigned_products: list[str]
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'total_peer_to_peer_session_count': {'key': 'totalPeerToPeerSessionCount', 'type': 'long'},
-        'total_organized_conference_count': {'key': 'totalOrganizedConferenceCount', 'type': 'long'},
-        'total_participated_conference_count': {'key': 'totalParticipatedConferenceCount', 'type': 'long'},
-        'peer_to_peer_last_activity_date': {'key': 'peerToPeerLastActivityDate', 'type': 'date'},
-        'organized_conference_last_activity_date': {'key': 'organizedConferenceLastActivityDate', 'type': 'date'},
-        'participated_conference_last_activity_date': {'key': 'participatedConferenceLastActivityDate', 'type': 'date'},
-        'peer_to_peer_im_count': {'key': 'peerToPeerIMCount', 'type': 'long'},
-        'peer_to_peer_audio_count': {'key': 'peerToPeerAudioCount', 'type': 'long'},
-        'peer_to_peer_audio_minutes': {'key': 'peerToPeerAudioMinutes', 'type': 'long'},
-        'peer_to_peer_video_count': {'key': 'peerToPeerVideoCount', 'type': 'long'},
-        'peer_to_peer_video_minutes': {'key': 'peerToPeerVideoMinutes', 'type': 'long'},
-        'peer_to_peer_app_sharing_count': {'key': 'peerToPeerAppSharingCount', 'type': 'long'},
-        'peer_to_peer_file_transfer_count': {'key': 'peerToPeerFileTransferCount', 'type': 'long'},
-        'organized_conference_im_count': {'key': 'organizedConferenceIMCount', 'type': 'long'},
-        'organized_conference_audio_video_count': {'key': 'organizedConferenceAudioVideoCount', 'type': 'long'},
-        'organized_conference_audio_video_minutes': {'key': 'organizedConferenceAudioVideoMinutes', 'type': 'long'},
-        'organized_conference_app_sharing_count': {'key': 'organizedConferenceAppSharingCount', 'type': 'long'},
-        'organized_conference_web_count': {'key': 'organizedConferenceWebCount', 'type': 'long'},
-        'organized_conference_dial_in_out3_rd_party_count': {'key': 'organizedConferenceDialInOut3rdPartyCount', 'type': 'long'},
-        'organized_conference_cloud_dial_in_out_microsoft_count': {'key': 'organizedConferenceCloudDialInOutMicrosoftCount', 'type': 'long'},
-        'organized_conference_cloud_dial_in_microsoft_minutes': {'key': 'organizedConferenceCloudDialInMicrosoftMinutes', 'type': 'long'},
-        'organized_conference_cloud_dial_out_microsoft_minutes': {'key': 'organizedConferenceCloudDialOutMicrosoftMinutes', 'type': 'long'},
-        'participated_conference_im_count': {'key': 'participatedConferenceIMCount', 'type': 'long'},
-        'participated_conference_audio_video_count': {'key': 'participatedConferenceAudioVideoCount', 'type': 'long'},
-        'participated_conference_audio_video_minutes': {'key': 'participatedConferenceAudioVideoMinutes', 'type': 'long'},
-        'participated_conference_app_sharing_count': {'key': 'participatedConferenceAppSharingCount', 'type': 'long'},
-        'participated_conference_web_count': {'key': 'participatedConferenceWebCount', 'type': 'long'},
-        'participated_conference_dial_in_out3_rd_party_count': {'key': 'participatedConferenceDialInOut3rdPartyCount', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'assigned_products': {'key': 'assignedProducts', 'type': '[str]'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessActivityUserDetail, self).__init__(**kwargs)
-        self.total_peer_to_peer_session_count = kwargs.get('total_peer_to_peer_session_count', None)
-        self.total_organized_conference_count = kwargs.get('total_organized_conference_count', None)
-        self.total_participated_conference_count = kwargs.get('total_participated_conference_count', None)
-        self.peer_to_peer_last_activity_date = kwargs.get('peer_to_peer_last_activity_date', None)
-        self.organized_conference_last_activity_date = kwargs.get('organized_conference_last_activity_date', None)
-        self.participated_conference_last_activity_date = kwargs.get('participated_conference_last_activity_date', None)
-        self.peer_to_peer_im_count = kwargs.get('peer_to_peer_im_count', None)
-        self.peer_to_peer_audio_count = kwargs.get('peer_to_peer_audio_count', None)
-        self.peer_to_peer_audio_minutes = kwargs.get('peer_to_peer_audio_minutes', None)
-        self.peer_to_peer_video_count = kwargs.get('peer_to_peer_video_count', None)
-        self.peer_to_peer_video_minutes = kwargs.get('peer_to_peer_video_minutes', None)
-        self.peer_to_peer_app_sharing_count = kwargs.get('peer_to_peer_app_sharing_count', None)
-        self.peer_to_peer_file_transfer_count = kwargs.get('peer_to_peer_file_transfer_count', None)
-        self.organized_conference_im_count = kwargs.get('organized_conference_im_count', None)
-        self.organized_conference_audio_video_count = kwargs.get('organized_conference_audio_video_count', None)
-        self.organized_conference_audio_video_minutes = kwargs.get('organized_conference_audio_video_minutes', None)
-        self.organized_conference_app_sharing_count = kwargs.get('organized_conference_app_sharing_count', None)
-        self.organized_conference_web_count = kwargs.get('organized_conference_web_count', None)
-        self.organized_conference_dial_in_out3_rd_party_count = kwargs.get('organized_conference_dial_in_out3_rd_party_count', None)
-        self.organized_conference_cloud_dial_in_out_microsoft_count = kwargs.get('organized_conference_cloud_dial_in_out_microsoft_count', None)
-        self.organized_conference_cloud_dial_in_microsoft_minutes = kwargs.get('organized_conference_cloud_dial_in_microsoft_minutes', None)
-        self.organized_conference_cloud_dial_out_microsoft_minutes = kwargs.get('organized_conference_cloud_dial_out_microsoft_minutes', None)
-        self.participated_conference_im_count = kwargs.get('participated_conference_im_count', None)
-        self.participated_conference_audio_video_count = kwargs.get('participated_conference_audio_video_count', None)
-        self.participated_conference_audio_video_minutes = kwargs.get('participated_conference_audio_video_minutes', None)
-        self.participated_conference_app_sharing_count = kwargs.get('participated_conference_app_sharing_count', None)
-        self.participated_conference_web_count = kwargs.get('participated_conference_web_count', None)
-        self.participated_conference_dial_in_out3_rd_party_count = kwargs.get('participated_conference_dial_in_out3_rd_party_count', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.assigned_products = kwargs.get('assigned_products', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts(MicrosoftGraphEntity):
-    """skypeForBusinessDeviceUsageDistributionUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param windows:
-    :type windows: int
-    :param windows_phone:
-    :type windows_phone: int
-    :param android_phone:
-    :type android_phone: int
-    :param i_phone:
-    :type i_phone: int
-    :param i_pad:
-    :type i_pad: int
-    :param report_period:
-    :type report_period: str
-    """
-
-    _validation = {
-        'windows': {'maximum': 2147483647, 'minimum': -2147483648},
-        'windows_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'android_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_pad': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'windows': {'key': 'windows', 'type': 'int'},
-        'windows_phone': {'key': 'windowsPhone', 'type': 'int'},
-        'android_phone': {'key': 'androidPhone', 'type': 'int'},
-        'i_phone': {'key': 'iPhone', 'type': 'int'},
-        'i_pad': {'key': 'iPad', 'type': 'int'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessDeviceUsageDistributionUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.windows = kwargs.get('windows', None)
-        self.windows_phone = kwargs.get('windows_phone', None)
-        self.android_phone = kwargs.get('android_phone', None)
-        self.i_phone = kwargs.get('i_phone', None)
-        self.i_pad = kwargs.get('i_pad', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts(MicrosoftGraphEntity):
-    """skypeForBusinessDeviceUsageUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param windows:
-    :type windows: int
-    :param windows_phone:
-    :type windows_phone: int
-    :param android_phone:
-    :type android_phone: int
-    :param i_phone:
-    :type i_phone: int
-    :param i_pad:
-    :type i_pad: int
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _validation = {
-        'windows': {'maximum': 2147483647, 'minimum': -2147483648},
-        'windows_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'android_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_pad': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'windows': {'key': 'windows', 'type': 'int'},
-        'windows_phone': {'key': 'windowsPhone', 'type': 'int'},
-        'android_phone': {'key': 'androidPhone', 'type': 'int'},
-        'i_phone': {'key': 'iPhone', 'type': 'int'},
-        'i_pad': {'key': 'iPad', 'type': 'int'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessDeviceUsageUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.windows = kwargs.get('windows', None)
-        self.windows_phone = kwargs.get('windows_phone', None)
-        self.android_phone = kwargs.get('android_phone', None)
-        self.i_phone = kwargs.get('i_phone', None)
-        self.i_pad = kwargs.get('i_pad', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail(MicrosoftGraphEntity):
-    """skypeForBusinessDeviceUsageUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param used_windows:
-    :type used_windows: bool
-    :param used_windows_phone:
-    :type used_windows_phone: bool
-    :param used_android_phone:
-    :type used_android_phone: bool
-    :param usedi_phone:
-    :type usedi_phone: bool
-    :param usedi_pad:
-    :type usedi_pad: bool
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'used_windows': {'key': 'usedWindows', 'type': 'bool'},
-        'used_windows_phone': {'key': 'usedWindowsPhone', 'type': 'bool'},
-        'used_android_phone': {'key': 'usedAndroidPhone', 'type': 'bool'},
-        'usedi_phone': {'key': 'usediPhone', 'type': 'bool'},
-        'usedi_pad': {'key': 'usediPad', 'type': 'bool'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessDeviceUsageUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.used_windows = kwargs.get('used_windows', None)
-        self.used_windows_phone = kwargs.get('used_windows_phone', None)
-        self.used_android_phone = kwargs.get('used_android_phone', None)
-        self.usedi_phone = kwargs.get('usedi_phone', None)
-        self.usedi_pad = kwargs.get('usedi_pad', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessOrganizerActivityCounts(MicrosoftGraphEntity):
-    """skypeForBusinessOrganizerActivityCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param im:
-    :type im: long
-    :param audio_video:
-    :type audio_video: long
-    :param app_sharing:
-    :type app_sharing: long
-    :param web:
-    :type web: long
-    :param dial_in_out3_rd_party:
-    :type dial_in_out3_rd_party: long
-    :param dial_in_out_microsoft:
-    :type dial_in_out_microsoft: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'im': {'key': 'im', 'type': 'long'},
-        'audio_video': {'key': 'audioVideo', 'type': 'long'},
-        'app_sharing': {'key': 'appSharing', 'type': 'long'},
-        'web': {'key': 'web', 'type': 'long'},
-        'dial_in_out3_rd_party': {'key': 'dialInOut3rdParty', 'type': 'long'},
-        'dial_in_out_microsoft': {'key': 'dialInOutMicrosoft', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessOrganizerActivityCounts, self).__init__(**kwargs)
-        self.im = kwargs.get('im', None)
-        self.audio_video = kwargs.get('audio_video', None)
-        self.app_sharing = kwargs.get('app_sharing', None)
-        self.web = kwargs.get('web', None)
-        self.dial_in_out3_rd_party = kwargs.get('dial_in_out3_rd_party', None)
-        self.dial_in_out_microsoft = kwargs.get('dial_in_out_microsoft', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts(MicrosoftGraphEntity):
-    """skypeForBusinessOrganizerActivityMinuteCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param audio_video:
-    :type audio_video: long
-    :param dial_in_microsoft:
-    :type dial_in_microsoft: long
-    :param dial_out_microsoft:
-    :type dial_out_microsoft: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'audio_video': {'key': 'audioVideo', 'type': 'long'},
-        'dial_in_microsoft': {'key': 'dialInMicrosoft', 'type': 'long'},
-        'dial_out_microsoft': {'key': 'dialOutMicrosoft', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessOrganizerActivityMinuteCounts, self).__init__(**kwargs)
-        self.audio_video = kwargs.get('audio_video', None)
-        self.dial_in_microsoft = kwargs.get('dial_in_microsoft', None)
-        self.dial_out_microsoft = kwargs.get('dial_out_microsoft', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts(MicrosoftGraphEntity):
-    """skypeForBusinessOrganizerActivityUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param im:
-    :type im: long
-    :param audio_video:
-    :type audio_video: long
-    :param app_sharing:
-    :type app_sharing: long
-    :param web:
-    :type web: long
-    :param dial_in_out3_rd_party:
-    :type dial_in_out3_rd_party: long
-    :param dial_in_out_microsoft:
-    :type dial_in_out_microsoft: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'im': {'key': 'im', 'type': 'long'},
-        'audio_video': {'key': 'audioVideo', 'type': 'long'},
-        'app_sharing': {'key': 'appSharing', 'type': 'long'},
-        'web': {'key': 'web', 'type': 'long'},
-        'dial_in_out3_rd_party': {'key': 'dialInOut3rdParty', 'type': 'long'},
-        'dial_in_out_microsoft': {'key': 'dialInOutMicrosoft', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessOrganizerActivityUserCounts, self).__init__(**kwargs)
-        self.im = kwargs.get('im', None)
-        self.audio_video = kwargs.get('audio_video', None)
-        self.app_sharing = kwargs.get('app_sharing', None)
-        self.web = kwargs.get('web', None)
-        self.dial_in_out3_rd_party = kwargs.get('dial_in_out3_rd_party', None)
-        self.dial_in_out_microsoft = kwargs.get('dial_in_out_microsoft', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessParticipantActivityCounts(MicrosoftGraphEntity):
-    """skypeForBusinessParticipantActivityCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param im:
-    :type im: long
-    :param audio_video:
-    :type audio_video: long
-    :param app_sharing:
-    :type app_sharing: long
-    :param web:
-    :type web: long
-    :param dial_in_out3_rd_party:
-    :type dial_in_out3_rd_party: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'im': {'key': 'im', 'type': 'long'},
-        'audio_video': {'key': 'audioVideo', 'type': 'long'},
-        'app_sharing': {'key': 'appSharing', 'type': 'long'},
-        'web': {'key': 'web', 'type': 'long'},
-        'dial_in_out3_rd_party': {'key': 'dialInOut3rdParty', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessParticipantActivityCounts, self).__init__(**kwargs)
-        self.im = kwargs.get('im', None)
-        self.audio_video = kwargs.get('audio_video', None)
-        self.app_sharing = kwargs.get('app_sharing', None)
-        self.web = kwargs.get('web', None)
-        self.dial_in_out3_rd_party = kwargs.get('dial_in_out3_rd_party', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts(MicrosoftGraphEntity):
-    """skypeForBusinessParticipantActivityMinuteCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param audiovideo:
-    :type audiovideo: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'audiovideo': {'key': 'audiovideo', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessParticipantActivityMinuteCounts, self).__init__(**kwargs)
-        self.audiovideo = kwargs.get('audiovideo', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts(MicrosoftGraphEntity):
-    """skypeForBusinessParticipantActivityUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param im:
-    :type im: long
-    :param audio_video:
-    :type audio_video: long
-    :param app_sharing:
-    :type app_sharing: long
-    :param web:
-    :type web: long
-    :param dial_in_out3_rd_party:
-    :type dial_in_out3_rd_party: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'im': {'key': 'im', 'type': 'long'},
-        'audio_video': {'key': 'audioVideo', 'type': 'long'},
-        'app_sharing': {'key': 'appSharing', 'type': 'long'},
-        'web': {'key': 'web', 'type': 'long'},
-        'dial_in_out3_rd_party': {'key': 'dialInOut3rdParty', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessParticipantActivityUserCounts, self).__init__(**kwargs)
-        self.im = kwargs.get('im', None)
-        self.audio_video = kwargs.get('audio_video', None)
-        self.app_sharing = kwargs.get('app_sharing', None)
-        self.web = kwargs.get('web', None)
-        self.dial_in_out3_rd_party = kwargs.get('dial_in_out3_rd_party', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts(MicrosoftGraphEntity):
-    """skypeForBusinessPeerToPeerActivityCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param im:
-    :type im: long
-    :param audio:
-    :type audio: long
-    :param video:
-    :type video: long
-    :param app_sharing:
-    :type app_sharing: long
-    :param file_transfer:
-    :type file_transfer: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'im': {'key': 'im', 'type': 'long'},
-        'audio': {'key': 'audio', 'type': 'long'},
-        'video': {'key': 'video', 'type': 'long'},
-        'app_sharing': {'key': 'appSharing', 'type': 'long'},
-        'file_transfer': {'key': 'fileTransfer', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessPeerToPeerActivityCounts, self).__init__(**kwargs)
-        self.im = kwargs.get('im', None)
-        self.audio = kwargs.get('audio', None)
-        self.video = kwargs.get('video', None)
-        self.app_sharing = kwargs.get('app_sharing', None)
-        self.file_transfer = kwargs.get('file_transfer', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts(MicrosoftGraphEntity):
-    """skypeForBusinessPeerToPeerActivityMinuteCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param audio:
-    :type audio: long
-    :param video:
-    :type video: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'audio': {'key': 'audio', 'type': 'long'},
-        'video': {'key': 'video', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessPeerToPeerActivityMinuteCounts, self).__init__(**kwargs)
-        self.audio = kwargs.get('audio', None)
-        self.video = kwargs.get('video', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts(MicrosoftGraphEntity):
-    """skypeForBusinessPeerToPeerActivityUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param im:
-    :type im: long
-    :param audio:
-    :type audio: long
-    :param video:
-    :type video: long
-    :param app_sharing:
-    :type app_sharing: long
-    :param file_transfer:
-    :type file_transfer: long
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'im': {'key': 'im', 'type': 'long'},
-        'audio': {'key': 'audio', 'type': 'long'},
-        'video': {'key': 'video', 'type': 'long'},
-        'app_sharing': {'key': 'appSharing', 'type': 'long'},
-        'file_transfer': {'key': 'fileTransfer', 'type': 'long'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphSkypeForBusinessPeerToPeerActivityUserCounts, self).__init__(**kwargs)
-        self.im = kwargs.get('im', None)
-        self.audio = kwargs.get('audio', None)
-        self.video = kwargs.get('video', None)
-        self.app_sharing = kwargs.get('app_sharing', None)
-        self.file_transfer = kwargs.get('file_transfer', None)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphTeamsDeviceUsageDistributionUserCounts(MicrosoftGraphEntity):
-    """teamsDeviceUsageDistributionUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param web:
-    :type web: long
-    :param windows_phone:
-    :type windows_phone: long
-    :param android_phone:
-    :type android_phone: long
-    :param ios:
-    :type ios: long
-    :param mac:
-    :type mac: long
-    :param windows:
-    :type windows: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'web': {'key': 'web', 'type': 'long'},
-        'windows_phone': {'key': 'windowsPhone', 'type': 'long'},
-        'android_phone': {'key': 'androidPhone', 'type': 'long'},
-        'ios': {'key': 'ios', 'type': 'long'},
-        'mac': {'key': 'mac', 'type': 'long'},
-        'windows': {'key': 'windows', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphTeamsDeviceUsageDistributionUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.web = kwargs.get('web', None)
-        self.windows_phone = kwargs.get('windows_phone', None)
-        self.android_phone = kwargs.get('android_phone', None)
-        self.ios = kwargs.get('ios', None)
-        self.mac = kwargs.get('mac', None)
-        self.windows = kwargs.get('windows', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphTeamsDeviceUsageUserCounts(MicrosoftGraphEntity):
-    """teamsDeviceUsageUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param web:
-    :type web: long
-    :param windows_phone:
-    :type windows_phone: long
-    :param android_phone:
-    :type android_phone: long
-    :param ios:
-    :type ios: long
-    :param mac:
-    :type mac: long
-    :param windows:
-    :type windows: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'web': {'key': 'web', 'type': 'long'},
-        'windows_phone': {'key': 'windowsPhone', 'type': 'long'},
-        'android_phone': {'key': 'androidPhone', 'type': 'long'},
-        'ios': {'key': 'ios', 'type': 'long'},
-        'mac': {'key': 'mac', 'type': 'long'},
-        'windows': {'key': 'windows', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphTeamsDeviceUsageUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.web = kwargs.get('web', None)
-        self.windows_phone = kwargs.get('windows_phone', None)
-        self.android_phone = kwargs.get('android_phone', None)
-        self.ios = kwargs.get('ios', None)
-        self.mac = kwargs.get('mac', None)
-        self.windows = kwargs.get('windows', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphTeamsDeviceUsageUserDetail(MicrosoftGraphEntity):
-    """teamsDeviceUsageUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param used_web:
-    :type used_web: bool
-    :param used_windows_phone:
-    :type used_windows_phone: bool
-    :param usedi_os:
-    :type usedi_os: bool
-    :param used_mac:
-    :type used_mac: bool
-    :param used_android_phone:
-    :type used_android_phone: bool
-    :param used_windows:
-    :type used_windows: bool
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'used_web': {'key': 'usedWeb', 'type': 'bool'},
-        'used_windows_phone': {'key': 'usedWindowsPhone', 'type': 'bool'},
-        'usedi_os': {'key': 'usediOS', 'type': 'bool'},
-        'used_mac': {'key': 'usedMac', 'type': 'bool'},
-        'used_android_phone': {'key': 'usedAndroidPhone', 'type': 'bool'},
-        'used_windows': {'key': 'usedWindows', 'type': 'bool'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphTeamsDeviceUsageUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.used_web = kwargs.get('used_web', None)
-        self.used_windows_phone = kwargs.get('used_windows_phone', None)
-        self.usedi_os = kwargs.get('usedi_os', None)
-        self.used_mac = kwargs.get('used_mac', None)
-        self.used_android_phone = kwargs.get('used_android_phone', None)
-        self.used_windows = kwargs.get('used_windows', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphTeamsUserActivityCounts(MicrosoftGraphEntity):
-    """teamsUserActivityCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param team_chat_messages:
-    :type team_chat_messages: long
-    :param private_chat_messages:
-    :type private_chat_messages: long
-    :param calls:
-    :type calls: long
-    :param meetings:
-    :type meetings: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'team_chat_messages': {'key': 'teamChatMessages', 'type': 'long'},
-        'private_chat_messages': {'key': 'privateChatMessages', 'type': 'long'},
-        'calls': {'key': 'calls', 'type': 'long'},
-        'meetings': {'key': 'meetings', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphTeamsUserActivityCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.team_chat_messages = kwargs.get('team_chat_messages', None)
-        self.private_chat_messages = kwargs.get('private_chat_messages', None)
-        self.calls = kwargs.get('calls', None)
-        self.meetings = kwargs.get('meetings', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphTeamsUserActivityUserCounts(MicrosoftGraphEntity):
-    """teamsUserActivityUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param team_chat_messages:
-    :type team_chat_messages: long
-    :param private_chat_messages:
-    :type private_chat_messages: long
-    :param calls:
-    :type calls: long
-    :param meetings:
-    :type meetings: long
-    :param other_actions:
-    :type other_actions: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'team_chat_messages': {'key': 'teamChatMessages', 'type': 'long'},
-        'private_chat_messages': {'key': 'privateChatMessages', 'type': 'long'},
-        'calls': {'key': 'calls', 'type': 'long'},
-        'meetings': {'key': 'meetings', 'type': 'long'},
-        'other_actions': {'key': 'otherActions', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphTeamsUserActivityUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.team_chat_messages = kwargs.get('team_chat_messages', None)
-        self.private_chat_messages = kwargs.get('private_chat_messages', None)
-        self.calls = kwargs.get('calls', None)
-        self.meetings = kwargs.get('meetings', None)
-        self.other_actions = kwargs.get('other_actions', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphTeamsUserActivityUserDetail(MicrosoftGraphEntity):
-    """teamsUserActivityUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param is_deleted:
-    :type is_deleted: bool
-    :param deleted_date:
-    :type deleted_date: ~datetime.date
-    :param assigned_products:
-    :type assigned_products: list[str]
-    :param team_chat_message_count:
-    :type team_chat_message_count: long
-    :param private_chat_message_count:
-    :type private_chat_message_count: long
-    :param call_count:
-    :type call_count: long
-    :param meeting_count:
-    :type meeting_count: long
-    :param has_other_action:
-    :type has_other_action: bool
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'deleted_date': {'key': 'deletedDate', 'type': 'date'},
-        'assigned_products': {'key': 'assignedProducts', 'type': '[str]'},
-        'team_chat_message_count': {'key': 'teamChatMessageCount', 'type': 'long'},
-        'private_chat_message_count': {'key': 'privateChatMessageCount', 'type': 'long'},
-        'call_count': {'key': 'callCount', 'type': 'long'},
-        'meeting_count': {'key': 'meetingCount', 'type': 'long'},
-        'has_other_action': {'key': 'hasOtherAction', 'type': 'bool'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphTeamsUserActivityUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.deleted_date = kwargs.get('deleted_date', None)
-        self.assigned_products = kwargs.get('assigned_products', None)
-        self.team_chat_message_count = kwargs.get('team_chat_message_count', None)
-        self.private_chat_message_count = kwargs.get('private_chat_message_count', None)
-        self.call_count = kwargs.get('call_count', None)
-        self.meeting_count = kwargs.get('meeting_count', None)
-        self.has_other_action = kwargs.get('has_other_action', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphUserActivationCounts(msrest.serialization.Model):
-    """userActivationCounts.
-
-    :param product_type:
-    :type product_type: str
-    :param last_activated_date:
-    :type last_activated_date: ~datetime.date
-    :param windows:
-    :type windows: long
-    :param mac:
-    :type mac: long
-    :param windows10_mobile:
-    :type windows10_mobile: long
-    :param ios:
-    :type ios: long
-    :param android:
-    :type android: long
-    :param activated_on_shared_computer:
-    :type activated_on_shared_computer: bool
-    """
-
-    _attribute_map = {
-        'product_type': {'key': 'productType', 'type': 'str'},
-        'last_activated_date': {'key': 'lastActivatedDate', 'type': 'date'},
-        'windows': {'key': 'windows', 'type': 'long'},
-        'mac': {'key': 'mac', 'type': 'long'},
-        'windows10_mobile': {'key': 'windows10Mobile', 'type': 'long'},
-        'ios': {'key': 'ios', 'type': 'long'},
-        'android': {'key': 'android', 'type': 'long'},
-        'activated_on_shared_computer': {'key': 'activatedOnSharedComputer', 'type': 'bool'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphUserActivationCounts, self).__init__(**kwargs)
-        self.product_type = kwargs.get('product_type', None)
-        self.last_activated_date = kwargs.get('last_activated_date', None)
-        self.windows = kwargs.get('windows', None)
-        self.mac = kwargs.get('mac', None)
-        self.windows10_mobile = kwargs.get('windows10_mobile', None)
-        self.ios = kwargs.get('ios', None)
-        self.android = kwargs.get('android', None)
-        self.activated_on_shared_computer = kwargs.get('activated_on_shared_computer', None)
-
-
-class MicrosoftGraphUserCredentialUsageDetails(MicrosoftGraphEntity):
-    """userCredentialUsageDetails.
-
-    :param id: Read-only.
-    :type id: str
-    :param feature:  Possible values include: "registration", "reset", "unknownFutureValue".
-    :type feature: str or ~reports.models.MicrosoftGraphFeatureType
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param user_display_name:
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param app_display_name: App name displayed in the Azure Portal.
+    :type app_display_name: str
+    :param app_id: Unique GUID representing the app ID in the Azure Active Directory.
+    :type app_id: str
+    :param applied_conditional_access_policies:
+    :type applied_conditional_access_policies:
+     list[~reports.models.MicrosoftGraphAppliedConditionalAccessPolicy]
+    :param client_app_used: Identifies the legacy client used for sign-in activity.  Includes
+     Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.
+    :type client_app_used: str
+    :param conditional_access_status:  Possible values include: "success", "failure", "notApplied",
+     "unknownFutureValue".
+    :type conditional_access_status: str or ~reports.models.MicrosoftGraphConditionalAccessStatus
+    :param correlation_id: The request ID sent from the client when the sign-in is initiated; used
+     to troubleshoot sign-in activity.
+    :type correlation_id: str
+    :param created_date_time: Date and time (UTC) the sign-in was initiated. Example: midnight on
+     Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.
+    :type created_date_time: ~datetime.datetime
+    :param device_detail: deviceDetail.
+    :type device_detail: ~reports.models.MicrosoftGraphDeviceDetail
+    :param ip_address: IP address of the client used to sign in.
+    :type ip_address: str
+    :param is_interactive: Indicates if a sign-in is interactive or not.
+    :type is_interactive: bool
+    :param resource_display_name: Name of the resource the user signed into.
+    :type resource_display_name: str
+    :param resource_id: ID of the resource that the user signed into.
+    :type resource_id: str
+    :param risk_detail:  Possible values include: "none", "adminGeneratedTemporaryPassword",
+     "userPerformedSecuredPasswordChange", "userPerformedSecuredPasswordReset",
+     "adminConfirmedSigninSafe", "aiConfirmedSigninSafe", "userPassedMFADrivenByRiskBasedPolicy",
+     "adminDismissedAllRiskForUser", "adminConfirmedSigninCompromised", "hidden",
+     "adminConfirmedUserCompromised", "unknownFutureValue".
+    :type risk_detail: str or ~reports.models.MicrosoftGraphRiskDetail
+    :param risk_event_types: Risk event types associated with the sign-in. The possible values are:
+     unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+     malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+     investigationsThreatIntelligence,  generic, and unknownFutureValue.
+    :type risk_event_types: list[str or ~reports.models.MicrosoftGraphRiskEventType]
+    :param risk_event_types_v2: The list of risk event types associated with the sign-in. Possible
+     values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+     malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+     investigationsThreatIntelligence,  generic, or unknownFutureValue.
+    :type risk_event_types_v2: list[str]
+    :param risk_level_aggregated:  Possible values include: "low", "medium", "high", "hidden",
+     "none", "unknownFutureValue".
+    :type risk_level_aggregated: str or ~reports.models.MicrosoftGraphRiskLevel
+    :param risk_level_during_sign_in:  Possible values include: "low", "medium", "high", "hidden",
+     "none", "unknownFutureValue".
+    :type risk_level_during_sign_in: str or ~reports.models.MicrosoftGraphRiskLevel
+    :param risk_state:  Possible values include: "none", "confirmedSafe", "remediated",
+     "dismissed", "atRisk", "confirmedCompromised", "unknownFutureValue".
+    :type risk_state: str or ~reports.models.MicrosoftGraphRiskState
+    :param status: signInStatus.
+    :type status: ~reports.models.MicrosoftGraphSignInStatus
+    :param user_display_name: Display name of the user that initiated the sign-in.
     :type user_display_name: str
-    :param is_success:
-    :type is_success: bool
-    :param auth_method:  Possible values include: "email", "mobileSMS", "mobileCall",
-     "officePhone", "securityQuestion", "appNotification", "appCode", "alternateMobileCall", "fido",
-     "appPassword", "unknownFutureValue".
-    :type auth_method: str or ~reports.models.MicrosoftGraphUsageAuthMethod
-    :param failure_reason:
-    :type failure_reason: str
-    :param event_date_time:
-    :type event_date_time: ~datetime.datetime
+    :param user_id: ID of the user that initiated the sign-in.
+    :type user_id: str
+    :param user_principal_name: User principal name of the user that initiated the sign-in.
+    :type user_principal_name: str
+    :param city: Provides the city where the sign-in originated. This is calculated using
+     latitude/longitude information from the sign-in activity.
+    :type city: str
+    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
+     originated.  This is calculated using latitude/longitude information from the sign-in activity.
+    :type country_or_region: str
+    :param geo_coordinates: geoCoordinates.
+    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
+    :param state: Provides the State where the sign-in originated. This is calculated using
+     latitude/longitude information from the sign-in activity.
+    :type state: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'feature': {'key': 'feature', 'type': 'str'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
+        'app_id': {'key': 'appId', 'type': 'str'},
+        'applied_conditional_access_policies': {'key': 'appliedConditionalAccessPolicies', 'type': '[MicrosoftGraphAppliedConditionalAccessPolicy]'},
+        'client_app_used': {'key': 'clientAppUsed', 'type': 'str'},
+        'conditional_access_status': {'key': 'conditionalAccessStatus', 'type': 'str'},
+        'correlation_id': {'key': 'correlationId', 'type': 'str'},
+        'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
+        'ip_address': {'key': 'ipAddress', 'type': 'str'},
+        'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
+        'resource_display_name': {'key': 'resourceDisplayName', 'type': 'str'},
+        'resource_id': {'key': 'resourceId', 'type': 'str'},
+        'risk_detail': {'key': 'riskDetail', 'type': 'str'},
+        'risk_event_types': {'key': 'riskEventTypes', 'type': '[str]'},
+        'risk_event_types_v2': {'key': 'riskEventTypes_v2', 'type': '[str]'},
+        'risk_level_aggregated': {'key': 'riskLevelAggregated', 'type': 'str'},
+        'risk_level_during_sign_in': {'key': 'riskLevelDuringSignIn', 'type': 'str'},
+        'risk_state': {'key': 'riskState', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
-        'is_success': {'key': 'isSuccess', 'type': 'bool'},
-        'auth_method': {'key': 'authMethod', 'type': 'str'},
-        'failure_reason': {'key': 'failureReason', 'type': 'str'},
-        'event_date_time': {'key': 'eventDateTime', 'type': 'iso-8601'},
+        'user_id': {'key': 'userId', 'type': 'str'},
+        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
+        'city': {'key': 'location.city', 'type': 'str'},
+        'country_or_region': {'key': 'location.countryOrRegion', 'type': 'str'},
+        'geo_coordinates': {'key': 'location.geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
+        'state': {'key': 'location.state', 'type': 'str'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphUserCredentialUsageDetails, self).__init__(**kwargs)
-        self.feature = kwargs.get('feature', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
+        super(MicrosoftGraphSignIn, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.app_display_name = kwargs.get('app_display_name', None)
+        self.app_id = kwargs.get('app_id', None)
+        self.applied_conditional_access_policies = kwargs.get('applied_conditional_access_policies', None)
+        self.client_app_used = kwargs.get('client_app_used', None)
+        self.conditional_access_status = kwargs.get('conditional_access_status', None)
+        self.correlation_id = kwargs.get('correlation_id', None)
+        self.created_date_time = kwargs.get('created_date_time', None)
+        self.device_detail = kwargs.get('device_detail', None)
+        self.ip_address = kwargs.get('ip_address', None)
+        self.is_interactive = kwargs.get('is_interactive', None)
+        self.resource_display_name = kwargs.get('resource_display_name', None)
+        self.resource_id = kwargs.get('resource_id', None)
+        self.risk_detail = kwargs.get('risk_detail', None)
+        self.risk_event_types = kwargs.get('risk_event_types', None)
+        self.risk_event_types_v2 = kwargs.get('risk_event_types_v2', None)
+        self.risk_level_aggregated = kwargs.get('risk_level_aggregated', None)
+        self.risk_level_during_sign_in = kwargs.get('risk_level_during_sign_in', None)
+        self.risk_state = kwargs.get('risk_state', None)
+        self.status = kwargs.get('status', None)
         self.user_display_name = kwargs.get('user_display_name', None)
-        self.is_success = kwargs.get('is_success', None)
-        self.auth_method = kwargs.get('auth_method', None)
+        self.user_id = kwargs.get('user_id', None)
+        self.user_principal_name = kwargs.get('user_principal_name', None)
+        self.city = kwargs.get('city', None)
+        self.country_or_region = kwargs.get('country_or_region', None)
+        self.geo_coordinates = kwargs.get('geo_coordinates', None)
+        self.state = kwargs.get('state', None)
+
+
+class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
+    """restrictedSignIn.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param app_display_name: App name displayed in the Azure Portal.
+    :type app_display_name: str
+    :param app_id: Unique GUID representing the app ID in the Azure Active Directory.
+    :type app_id: str
+    :param applied_conditional_access_policies:
+    :type applied_conditional_access_policies:
+     list[~reports.models.MicrosoftGraphAppliedConditionalAccessPolicy]
+    :param client_app_used: Identifies the legacy client used for sign-in activity.  Includes
+     Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.
+    :type client_app_used: str
+    :param conditional_access_status:  Possible values include: "success", "failure", "notApplied",
+     "unknownFutureValue".
+    :type conditional_access_status: str or ~reports.models.MicrosoftGraphConditionalAccessStatus
+    :param correlation_id: The request ID sent from the client when the sign-in is initiated; used
+     to troubleshoot sign-in activity.
+    :type correlation_id: str
+    :param created_date_time: Date and time (UTC) the sign-in was initiated. Example: midnight on
+     Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.
+    :type created_date_time: ~datetime.datetime
+    :param device_detail: deviceDetail.
+    :type device_detail: ~reports.models.MicrosoftGraphDeviceDetail
+    :param ip_address: IP address of the client used to sign in.
+    :type ip_address: str
+    :param is_interactive: Indicates if a sign-in is interactive or not.
+    :type is_interactive: bool
+    :param resource_display_name: Name of the resource the user signed into.
+    :type resource_display_name: str
+    :param resource_id: ID of the resource that the user signed into.
+    :type resource_id: str
+    :param risk_detail:  Possible values include: "none", "adminGeneratedTemporaryPassword",
+     "userPerformedSecuredPasswordChange", "userPerformedSecuredPasswordReset",
+     "adminConfirmedSigninSafe", "aiConfirmedSigninSafe", "userPassedMFADrivenByRiskBasedPolicy",
+     "adminDismissedAllRiskForUser", "adminConfirmedSigninCompromised", "hidden",
+     "adminConfirmedUserCompromised", "unknownFutureValue".
+    :type risk_detail: str or ~reports.models.MicrosoftGraphRiskDetail
+    :param risk_event_types: Risk event types associated with the sign-in. The possible values are:
+     unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+     malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+     investigationsThreatIntelligence,  generic, and unknownFutureValue.
+    :type risk_event_types: list[str or ~reports.models.MicrosoftGraphRiskEventType]
+    :param risk_event_types_v2: The list of risk event types associated with the sign-in. Possible
+     values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures,
+     malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials,
+     investigationsThreatIntelligence,  generic, or unknownFutureValue.
+    :type risk_event_types_v2: list[str]
+    :param risk_level_aggregated:  Possible values include: "low", "medium", "high", "hidden",
+     "none", "unknownFutureValue".
+    :type risk_level_aggregated: str or ~reports.models.MicrosoftGraphRiskLevel
+    :param risk_level_during_sign_in:  Possible values include: "low", "medium", "high", "hidden",
+     "none", "unknownFutureValue".
+    :type risk_level_during_sign_in: str or ~reports.models.MicrosoftGraphRiskLevel
+    :param risk_state:  Possible values include: "none", "confirmedSafe", "remediated",
+     "dismissed", "atRisk", "confirmedCompromised", "unknownFutureValue".
+    :type risk_state: str or ~reports.models.MicrosoftGraphRiskState
+    :param status: signInStatus.
+    :type status: ~reports.models.MicrosoftGraphSignInStatus
+    :param user_display_name: Display name of the user that initiated the sign-in.
+    :type user_display_name: str
+    :param user_id: ID of the user that initiated the sign-in.
+    :type user_id: str
+    :param user_principal_name: User principal name of the user that initiated the sign-in.
+    :type user_principal_name: str
+    :param city: Provides the city where the sign-in originated. This is calculated using
+     latitude/longitude information from the sign-in activity.
+    :type city: str
+    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
+     originated.  This is calculated using latitude/longitude information from the sign-in activity.
+    :type country_or_region: str
+    :param geo_coordinates: geoCoordinates.
+    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
+    :param state: Provides the State where the sign-in originated. This is calculated using
+     latitude/longitude information from the sign-in activity.
+    :type state: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param target_tenant_id:
+    :type target_tenant_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
+        'app_id': {'key': 'appId', 'type': 'str'},
+        'applied_conditional_access_policies': {'key': 'appliedConditionalAccessPolicies', 'type': '[MicrosoftGraphAppliedConditionalAccessPolicy]'},
+        'client_app_used': {'key': 'clientAppUsed', 'type': 'str'},
+        'conditional_access_status': {'key': 'conditionalAccessStatus', 'type': 'str'},
+        'correlation_id': {'key': 'correlationId', 'type': 'str'},
+        'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
+        'ip_address': {'key': 'ipAddress', 'type': 'str'},
+        'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
+        'resource_display_name': {'key': 'resourceDisplayName', 'type': 'str'},
+        'resource_id': {'key': 'resourceId', 'type': 'str'},
+        'risk_detail': {'key': 'riskDetail', 'type': 'str'},
+        'risk_event_types': {'key': 'riskEventTypes', 'type': '[str]'},
+        'risk_event_types_v2': {'key': 'riskEventTypes_v2', 'type': '[str]'},
+        'risk_level_aggregated': {'key': 'riskLevelAggregated', 'type': 'str'},
+        'risk_level_during_sign_in': {'key': 'riskLevelDuringSignIn', 'type': 'str'},
+        'risk_state': {'key': 'riskState', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
+        'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
+        'user_id': {'key': 'userId', 'type': 'str'},
+        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
+        'city': {'key': 'location.city', 'type': 'str'},
+        'country_or_region': {'key': 'location.countryOrRegion', 'type': 'str'},
+        'geo_coordinates': {'key': 'location.geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
+        'state': {'key': 'location.state', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'target_tenant_id': {'key': 'targetTenantId', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphRestrictedSignIn, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.target_tenant_id = kwargs.get('target_tenant_id', None)
+
+
+class MicrosoftGraphSignInLocation(msrest.serialization.Model):
+    """signInLocation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param city: Provides the city where the sign-in originated. This is calculated using
+     latitude/longitude information from the sign-in activity.
+    :type city: str
+    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
+     originated.  This is calculated using latitude/longitude information from the sign-in activity.
+    :type country_or_region: str
+    :param geo_coordinates: geoCoordinates.
+    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
+    :param state: Provides the State where the sign-in originated. This is calculated using
+     latitude/longitude information from the sign-in activity.
+    :type state: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'city': {'key': 'city', 'type': 'str'},
+        'country_or_region': {'key': 'countryOrRegion', 'type': 'str'},
+        'geo_coordinates': {'key': 'geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
+        'state': {'key': 'state', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphSignInLocation, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.city = kwargs.get('city', None)
+        self.country_or_region = kwargs.get('country_or_region', None)
+        self.geo_coordinates = kwargs.get('geo_coordinates', None)
+        self.state = kwargs.get('state', None)
+
+
+class MicrosoftGraphSignInStatus(msrest.serialization.Model):
+    """signInStatus.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param additional_details: Provides additional details on the sign-in activity.
+    :type additional_details: str
+    :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
+     Check out the list of error codes and messages.
+    :type error_code: int
+    :param failure_reason: Provides the error message or the reason for failure for the
+     corresponding sign-in activity. Check out the list of error codes and messages.
+    :type failure_reason: str
+    """
+
+    _validation = {
+        'error_code': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'additional_details': {'key': 'additionalDetails', 'type': 'str'},
+        'error_code': {'key': 'errorCode', 'type': 'int'},
+        'failure_reason': {'key': 'failureReason', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphSignInStatus, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.additional_details = kwargs.get('additional_details', None)
+        self.error_code = kwargs.get('error_code', None)
         self.failure_reason = kwargs.get('failure_reason', None)
-        self.event_date_time = kwargs.get('event_date_time', None)
 
 
-class MicrosoftGraphUserRegistrationCount(msrest.serialization.Model):
-    """userRegistrationCount.
+class MicrosoftGraphTargetResource(msrest.serialization.Model):
+    """targetResource.
 
-    :param registration_status:  Possible values include: "registered", "enabled", "capable",
-     "mfaRegistered", "unknownFutureValue".
-    :type registration_status: str or ~reports.models.MicrosoftGraphRegistrationStatusType
-    :param registration_count:
-    :type registration_count: long
-    """
-
-    _attribute_map = {
-        'registration_status': {'key': 'registrationStatus', 'type': 'str'},
-        'registration_count': {'key': 'registrationCount', 'type': 'long'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphUserRegistrationCount, self).__init__(**kwargs)
-        self.registration_status = kwargs.get('registration_status', None)
-        self.registration_count = kwargs.get('registration_count', None)
-
-
-class MicrosoftGraphYammerActivitySummary(MicrosoftGraphEntity):
-    """yammerActivitySummary.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param liked:
-    :type liked: long
-    :param posted:
-    :type posted: long
-    :param read:
-    :type read: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'liked': {'key': 'liked', 'type': 'long'},
-        'posted': {'key': 'posted', 'type': 'long'},
-        'read': {'key': 'read', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphYammerActivitySummary, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.liked = kwargs.get('liked', None)
-        self.posted = kwargs.get('posted', None)
-        self.read = kwargs.get('read', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphYammerActivityUserDetail(MicrosoftGraphEntity):
-    """yammerActivityUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
-    :type user_principal_name: str
-    :param display_name:
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param display_name: Indicates the visible name defined for the resource. Typically specified
+     when the resource is created.
     :type display_name: str
-    :param user_state:
-    :type user_state: str
-    :param state_change_date:
-    :type state_change_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param posted_count:
-    :type posted_count: long
-    :param read_count:
-    :type read_count: long
-    :param liked_count:
-    :type liked_count: long
-    :param assigned_products:
-    :type assigned_products: list[str]
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'display_name': {'key': 'displayName', 'type': 'str'},
-        'user_state': {'key': 'userState', 'type': 'str'},
-        'state_change_date': {'key': 'stateChangeDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'posted_count': {'key': 'postedCount', 'type': 'long'},
-        'read_count': {'key': 'readCount', 'type': 'long'},
-        'liked_count': {'key': 'likedCount', 'type': 'long'},
-        'assigned_products': {'key': 'assignedProducts', 'type': '[str]'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphYammerActivityUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.user_state = kwargs.get('user_state', None)
-        self.state_change_date = kwargs.get('state_change_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.posted_count = kwargs.get('posted_count', None)
-        self.read_count = kwargs.get('read_count', None)
-        self.liked_count = kwargs.get('liked_count', None)
-        self.assigned_products = kwargs.get('assigned_products', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphYammerDeviceUsageDistributionUserCounts(MicrosoftGraphEntity):
-    """yammerDeviceUsageDistributionUserCounts.
-
-    :param id: Read-only.
+    :param group_type:  Possible values include: "unifiedGroups", "azureAD", "unknownFutureValue".
+    :type group_type: str or ~reports.models.MicrosoftGraphGroupType
+    :param id: Indicates the unique ID of the resource.
     :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param web:
-    :type web: int
-    :param windows_phone:
-    :type windows_phone: int
-    :param android_phone:
-    :type android_phone: int
-    :param i_phone:
-    :type i_phone: int
-    :param i_pad:
-    :type i_pad: int
-    :param other:
-    :type other: int
-    :param report_period:
-    :type report_period: str
-    """
-
-    _validation = {
-        'web': {'maximum': 2147483647, 'minimum': -2147483648},
-        'windows_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'android_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_pad': {'maximum': 2147483647, 'minimum': -2147483648},
-        'other': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'web': {'key': 'web', 'type': 'int'},
-        'windows_phone': {'key': 'windowsPhone', 'type': 'int'},
-        'android_phone': {'key': 'androidPhone', 'type': 'int'},
-        'i_phone': {'key': 'iPhone', 'type': 'int'},
-        'i_pad': {'key': 'iPad', 'type': 'int'},
-        'other': {'key': 'other', 'type': 'int'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphYammerDeviceUsageDistributionUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.web = kwargs.get('web', None)
-        self.windows_phone = kwargs.get('windows_phone', None)
-        self.android_phone = kwargs.get('android_phone', None)
-        self.i_phone = kwargs.get('i_phone', None)
-        self.i_pad = kwargs.get('i_pad', None)
-        self.other = kwargs.get('other', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphYammerDeviceUsageUserCounts(MicrosoftGraphEntity):
-    """yammerDeviceUsageUserCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param web:
-    :type web: int
-    :param windows_phone:
-    :type windows_phone: int
-    :param android_phone:
-    :type android_phone: int
-    :param i_phone:
-    :type i_phone: int
-    :param i_pad:
-    :type i_pad: int
-    :param other:
-    :type other: int
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _validation = {
-        'web': {'maximum': 2147483647, 'minimum': -2147483648},
-        'windows_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'android_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_phone': {'maximum': 2147483647, 'minimum': -2147483648},
-        'i_pad': {'maximum': 2147483647, 'minimum': -2147483648},
-        'other': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'web': {'key': 'web', 'type': 'int'},
-        'windows_phone': {'key': 'windowsPhone', 'type': 'int'},
-        'android_phone': {'key': 'androidPhone', 'type': 'int'},
-        'i_phone': {'key': 'iPhone', 'type': 'int'},
-        'i_pad': {'key': 'iPad', 'type': 'int'},
-        'other': {'key': 'other', 'type': 'int'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphYammerDeviceUsageUserCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.web = kwargs.get('web', None)
-        self.windows_phone = kwargs.get('windows_phone', None)
-        self.android_phone = kwargs.get('android_phone', None)
-        self.i_phone = kwargs.get('i_phone', None)
-        self.i_pad = kwargs.get('i_pad', None)
-        self.other = kwargs.get('other', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphYammerDeviceUsageUserDetail(MicrosoftGraphEntity):
-    """yammerDeviceUsageUserDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param user_principal_name:
+    :param modified_properties: Indicates name, old value and new value of each attribute that
+     changed. Property values depend on the operation type.
+    :type modified_properties: list[~reports.models.MicrosoftGraphModifiedProperty]
+    :param type: Describes the resource type.  Example values include Application, Group,
+     ServicePrincipal, and User.
+    :type type: str
+    :param user_principal_name: When type is set to User, this includes the user name that
+     initiated the action; null for other types.
     :type user_principal_name: str
-    :param display_name:
-    :type display_name: str
-    :param user_state:
-    :type user_state: str
-    :param state_change_date:
-    :type state_change_date: ~datetime.date
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param used_web:
-    :type used_web: bool
-    :param used_windows_phone:
-    :type used_windows_phone: bool
-    :param used_android_phone:
-    :type used_android_phone: bool
-    :param usedi_phone:
-    :type usedi_phone: bool
-    :param usedi_pad:
-    :type usedi_pad: bool
-    :param used_others:
-    :type used_others: bool
-    :param report_period:
-    :type report_period: str
     """
 
     _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'user_state': {'key': 'userState', 'type': 'str'},
-        'state_change_date': {'key': 'stateChangeDate', 'type': 'date'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
-        'used_web': {'key': 'usedWeb', 'type': 'bool'},
-        'used_windows_phone': {'key': 'usedWindowsPhone', 'type': 'bool'},
-        'used_android_phone': {'key': 'usedAndroidPhone', 'type': 'bool'},
-        'usedi_phone': {'key': 'usediPhone', 'type': 'bool'},
-        'usedi_pad': {'key': 'usediPad', 'type': 'bool'},
-        'used_others': {'key': 'usedOthers', 'type': 'bool'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphYammerDeviceUsageUserDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.user_state = kwargs.get('user_state', None)
-        self.state_change_date = kwargs.get('state_change_date', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
-        self.used_web = kwargs.get('used_web', None)
-        self.used_windows_phone = kwargs.get('used_windows_phone', None)
-        self.used_android_phone = kwargs.get('used_android_phone', None)
-        self.usedi_phone = kwargs.get('usedi_phone', None)
-        self.usedi_pad = kwargs.get('usedi_pad', None)
-        self.used_others = kwargs.get('used_others', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphYammerGroupsActivityCounts(MicrosoftGraphEntity):
-    """yammerGroupsActivityCounts.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param liked:
-    :type liked: long
-    :param posted:
-    :type posted: long
-    :param read:
-    :type read: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'liked': {'key': 'liked', 'type': 'long'},
-        'posted': {'key': 'posted', 'type': 'long'},
-        'read': {'key': 'read', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
-    }
-
-    def __init__(
-        self,
-        **kwargs
-    ):
-        super(MicrosoftGraphYammerGroupsActivityCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.liked = kwargs.get('liked', None)
-        self.posted = kwargs.get('posted', None)
-        self.read = kwargs.get('read', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
-
-
-class MicrosoftGraphYammerGroupsActivityDetail(MicrosoftGraphEntity):
-    """yammerGroupsActivityDetail.
-
-    :param id: Read-only.
-    :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param group_display_name:
-    :type group_display_name: str
-    :param is_deleted:
-    :type is_deleted: bool
-    :param owner_principal_name:
-    :type owner_principal_name: str
-    :param last_activity_date:
-    :type last_activity_date: ~datetime.date
-    :param group_type:
-    :type group_type: str
-    :param office365_connected:
-    :type office365_connected: bool
-    :param member_count:
-    :type member_count: long
-    :param posted_count:
-    :type posted_count: long
-    :param read_count:
-    :type read_count: long
-    :param liked_count:
-    :type liked_count: long
-    :param report_period:
-    :type report_period: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'group_display_name': {'key': 'groupDisplayName', 'type': 'str'},
-        'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
-        'owner_principal_name': {'key': 'ownerPrincipalName', 'type': 'str'},
-        'last_activity_date': {'key': 'lastActivityDate', 'type': 'date'},
         'group_type': {'key': 'groupType', 'type': 'str'},
-        'office365_connected': {'key': 'office365Connected', 'type': 'bool'},
-        'member_count': {'key': 'memberCount', 'type': 'long'},
-        'posted_count': {'key': 'postedCount', 'type': 'long'},
-        'read_count': {'key': 'readCount', 'type': 'long'},
-        'liked_count': {'key': 'likedCount', 'type': 'long'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'modified_properties': {'key': 'modifiedProperties', 'type': '[MicrosoftGraphModifiedProperty]'},
+        'type': {'key': 'type', 'type': 'str'},
+        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphYammerGroupsActivityDetail, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.group_display_name = kwargs.get('group_display_name', None)
-        self.is_deleted = kwargs.get('is_deleted', None)
-        self.owner_principal_name = kwargs.get('owner_principal_name', None)
-        self.last_activity_date = kwargs.get('last_activity_date', None)
+        super(MicrosoftGraphTargetResource, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.display_name = kwargs.get('display_name', None)
         self.group_type = kwargs.get('group_type', None)
-        self.office365_connected = kwargs.get('office365_connected', None)
-        self.member_count = kwargs.get('member_count', None)
-        self.posted_count = kwargs.get('posted_count', None)
-        self.read_count = kwargs.get('read_count', None)
-        self.liked_count = kwargs.get('liked_count', None)
-        self.report_period = kwargs.get('report_period', None)
+        self.id = kwargs.get('id', None)
+        self.modified_properties = kwargs.get('modified_properties', None)
+        self.type = kwargs.get('type', None)
+        self.user_principal_name = kwargs.get('user_principal_name', None)
 
 
-class MicrosoftGraphYammerGroupsActivityGroupCounts(MicrosoftGraphEntity):
-    """yammerGroupsActivityGroupCounts.
+class MicrosoftGraphUserIdentity(msrest.serialization.Model):
+    """userIdentity.
 
-    :param id: Read-only.
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param display_name: The identity's display name. Note that this may not always be available or
+     up-to-date.
+    :type display_name: str
+    :param id: Unique identifier for the identity.
     :type id: str
-    :param report_refresh_date:
-    :type report_refresh_date: ~datetime.date
-    :param total:
-    :type total: long
-    :param active:
-    :type active: long
-    :param report_date:
-    :type report_date: ~datetime.date
-    :param report_period:
-    :type report_period: str
+    :param ip_address: Indicates the client IP address used by user performing the activity (audit
+     log only).
+    :type ip_address: str
+    :param user_principal_name: The userPrincipalName attribute of the user.
+    :type user_principal_name: str
     """
 
     _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
         'id': {'key': 'id', 'type': 'str'},
-        'report_refresh_date': {'key': 'reportRefreshDate', 'type': 'date'},
-        'total': {'key': 'total', 'type': 'long'},
-        'active': {'key': 'active', 'type': 'long'},
-        'report_date': {'key': 'reportDate', 'type': 'date'},
-        'report_period': {'key': 'reportPeriod', 'type': 'str'},
+        'ip_address': {'key': 'ipAddress', 'type': 'str'},
+        'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphYammerGroupsActivityGroupCounts, self).__init__(**kwargs)
-        self.report_refresh_date = kwargs.get('report_refresh_date', None)
-        self.total = kwargs.get('total', None)
-        self.active = kwargs.get('active', None)
-        self.report_date = kwargs.get('report_date', None)
-        self.report_period = kwargs.get('report_period', None)
+        super(MicrosoftGraphUserIdentity, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.id = kwargs.get('id', None)
+        self.ip_address = kwargs.get('ip_address', None)
+        self.user_principal_name = kwargs.get('user_principal_name', None)
 
 
 class OdataError(msrest.serialization.Model):
@@ -4357,6 +980,9 @@ class OdataError(msrest.serialization.Model):
 
     All required parameters must be populated in order to send to Azure.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param error: Required.
     :type error: ~reports.models.OdataErrorMain
     """
@@ -4366,6 +992,7 @@ class OdataError(msrest.serialization.Model):
     }
 
     _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
         'error': {'key': 'error', 'type': 'OdataErrorMain'},
     }
 
@@ -4374,6 +1001,7 @@ class OdataError(msrest.serialization.Model):
         **kwargs
     ):
         super(OdataError, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
@@ -4382,6 +1010,9 @@ class OdataErrorDetail(msrest.serialization.Model):
 
     All required parameters must be populated in order to send to Azure.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param code: Required.
     :type code: str
     :param message: Required.
@@ -4396,6 +1027,7 @@ class OdataErrorDetail(msrest.serialization.Model):
     }
 
     _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
@@ -4406,6 +1038,7 @@ class OdataErrorDetail(msrest.serialization.Model):
         **kwargs
     ):
         super(OdataErrorDetail, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
@@ -4416,6 +1049,9 @@ class OdataErrorMain(msrest.serialization.Model):
 
     All required parameters must be populated in order to send to Azure.
 
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
     :param code: Required.
     :type code: str
     :param message: Required.
@@ -4425,7 +1061,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param details:
     :type details: list[~reports.models.OdataErrorDetail]
     :param innererror: The structure of this object is service-specific.
-    :type innererror: object
+    :type innererror: dict[str, object]
     """
 
     _validation = {
@@ -4434,11 +1070,12 @@ class OdataErrorMain(msrest.serialization.Model):
     }
 
     _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
         'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
-        'innererror': {'key': 'innererror', 'type': 'object'},
+        'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
     def __init__(
@@ -4446,6 +1083,7 @@ class OdataErrorMain(msrest.serialization.Model):
         **kwargs
     ):
         super(OdataErrorMain, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)

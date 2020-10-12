@@ -1,178 +1,150 @@
 # Azure CLI Module Creation Report
 
-### reports create-application-sign-in-detailed-summary
+### reports create-directory-audit
 
-create-application-sign-in-detailed-summary a reports.
+create-directory-audit a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-application-sign-in-detailed-summary|CreateApplicationSignInDetailedSummary|
+|create-directory-audit|CreateDirectoryAudits|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
-|**--app-id**|string||app_id|appId|
-|**--app-display-name**|string||app_display_name|appDisplayName|
-|**--sign-in-count**|integer||sign_in_count|signInCount|
-|**--aggregated-event-date-time**|date-time||aggregated_event_date_time|aggregatedEventDateTime|
-|**--status-error-code**|integer|Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.|error_code|errorCode|
-|**--status-failure-reason**|string|Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.|failure_reason|failureReason|
-|**--status-additional-details**|string|Provides additional details on the sign-in activity|additional_details|additionalDetails|
+|**--activity-date-time**|date-time|Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|activity_date_time|activityDateTime|
+|**--activity-display-name**|string|Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.|activity_display_name|activityDisplayName|
+|**--additional-details**|array|Indicates additional details on the activity.|additional_details|additionalDetails|
+|**--category**|string|Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)|category|category|
+|**--correlation-id**|string|Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.|correlation_id|correlationId|
+|**--logged-by-service**|string|Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.|logged_by_service|loggedByService|
+|**--operation-type**|string||operation_type|operationType|
+|**--result**|choice||result|result|
+|**--result-reason**|string|Describes cause of 'failure' or 'timeout' results.|result_reason|resultReason|
+|**--target-resources**|array|Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.|target_resources|targetResources|
+|**--initiated-by-app**|object|appIdentity|app|app|
+|**--initiated-by-user**|object|userIdentity|user|user|
 
-### reports create-credential-user-registration-detail
+### reports create-restricted-sign-in
 
-create-credential-user-registration-detail a reports.
+create-restricted-sign-in a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-credential-user-registration-detail|CreateCredentialUserRegistrationDetails|
+|create-restricted-sign-in|CreateRestrictedSignIns|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--user-display-name**|string||user_display_name|userDisplayName|
-|**--auth-methods**|array||auth_methods|authMethods|
-|**--is-registered**|boolean||is_registered|isRegistered|
-|**--is-enabled**|boolean||is_enabled|isEnabled|
-|**--is-capable**|boolean||is_capable|isCapable|
-|**--is-mfa-registered**|boolean||is_mfa_registered|isMfaRegistered|
+|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
+|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
+|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
+|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
+|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
+|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
+|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
+|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
+|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
+|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
+|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
+|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
+|**--risk-detail**|choice||risk_detail|riskDetail|
+|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
+|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
+|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
+|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
+|**--risk-state**|choice||risk_state|riskState|
+|**--status**|object|signInStatus|status|status|
+|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
+|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
+|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
+|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+|**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
 
-### reports create-daily-print-usage-summary-by-printer
+### reports create-sign-in
 
-create-daily-print-usage-summary-by-printer a reports.
+create-sign-in a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-daily-print-usage-summary-by-printer|CreateDailyPrintUsageSummariesByPrinter|
+|create-sign-in|CreateSignIns|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
-|**--printer-id**|string||printer_id|printerId|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
+|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
+|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
+|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
+|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
+|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
+|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
+|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
+|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
+|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
+|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
+|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
+|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
+|**--risk-detail**|choice||risk_detail|riskDetail|
+|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
+|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
+|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
+|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
+|**--risk-state**|choice||risk_state|riskState|
+|**--status**|object|signInStatus|status|status|
+|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
+|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
+|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
+|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 
-### reports create-daily-print-usage-summary-by-user
+### reports delete
 
-create-daily-print-usage-summary-by-user a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-daily-print-usage-summary-by-user|CreateDailyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
-
-### reports create-monthly-print-usage-summary-by-printer
-
-create-monthly-print-usage-summary-by-printer a reports.
+delete a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|create-monthly-print-usage-summary-by-printer|CreateMonthlyPrintUsageSummariesByPrinter|
+|delete|DeleteDirectoryAudits|
+|delete|DeleteRestrictedSignIns|
+|delete|DeleteSignIns|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--printer-id**|string||printer_id|printerId|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
-
-### reports create-monthly-print-usage-summary-by-user
-
-create-monthly-print-usage-summary-by-user a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-monthly-print-usage-summary-by-user|CreateMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
-
-### reports create-user-credential-usage-detail
-
-create-user-credential-usage-detail a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user-credential-usage-detail|CreateUserCredentialUsageDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--feature**|choice||feature|feature|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--user-display-name**|string||user_display_name|userDisplayName|
-|**--is-success**|boolean||is_success|isSuccess|
-|**--auth-method**|choice||auth_method|authMethod|
-|**--failure-reason**|string||failure_reason|failureReason|
-|**--event-date-time**|date-time||event_date_time|eventDateTime|
+|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 ### reports device-configuration-device-activity
 
@@ -210,199 +182,44 @@ device-configuration-user-activity a reports.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 
-### reports get-application-sign-in-detailed-summary
+### reports get-audit-log-root
 
-get-application-sign-in-detailed-summary a reports.
+get-audit-log-root a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs.auditLogRoot|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-application-sign-in-detailed-summary|GetApplicationSignInDetailedSummary|
+|get-audit-log-root|GetAuditLogRoot|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--application-sign-in-detailed-summary-id**|string|key: applicationSignInDetailedSummary-id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports get-azure-ad-application-sign-in-summary
+### reports get-directory-audit
 
-get-azure-ad-application-sign-in-summary a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-azure-ad-application-sign-in-summary|getAzureADApplicationSignInSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--period**|string||period|period|
-
-### reports get-azure-ad-feature-usage
-
-get-azure-ad-feature-usage a reports.
+get-directory-audit a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|get-azure-ad-feature-usage|getAzureADFeatureUsage|
+|get-directory-audit|GetDirectoryAudits|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--period**|string||period|period|
-
-### reports get-azure-ad-license-usage
-
-get-azure-ad-license-usage a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-azure-ad-license-usage|getAzureADLicenseUsage|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--period**|string||period|period|
-
-### reports get-azure-ad-user-feature-usage
-
-get-azure-ad-user-feature-usage a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-azure-ad-user-feature-usage|getAzureADUserFeatureUsage|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### reports get-credential-usage-summary
-
-get-credential-usage-summary a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-credential-usage-summary|getCredentialUsageSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--period**|string||period|period|
-
-### reports get-credential-user-registration-count
-
-get-credential-user-registration-count a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-credential-user-registration-count|getCredentialUserRegistrationCount|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### reports get-credential-user-registration-detail
-
-get-credential-user-registration-detail a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-credential-user-registration-detail|GetCredentialUserRegistrationDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--credential-user-registration-details-id**|string|key: credentialUserRegistrationDetails-id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports get-daily-print-usage-summary-by-printer
-
-get-daily-print-usage-summary-by-printer a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-daily-print-usage-summary-by-printer|GetDailyPrintUsageSummariesByPrinter|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-printer-id**|string|key: PrintUsageSummaryByPrinter-id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports get-daily-print-usage-summary-by-user
-
-get-daily-print-usage-summary-by-user a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-daily-print-usage-summary-by-user|GetDailyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-user-id**|string|key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -652,48 +469,6 @@ get-mailbox-usage-storage a reports.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
-
-### reports get-monthly-print-usage-summary-by-printer
-
-get-monthly-print-usage-summary-by-printer a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-monthly-print-usage-summary-by-printer|GetMonthlyPrintUsageSummariesByPrinter|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-printer-id**|string|key: PrintUsageSummaryByPrinter-id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports get-monthly-print-usage-summary-by-user
-
-get-monthly-print-usage-summary-by-user a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-monthly-print-usage-summary-by-user|GetMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-user-id**|string|key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
 
 ### reports get-office365-activation-count
 
@@ -1110,25 +885,6 @@ get-one-drive-usage-storage a reports.
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports get-relying-party-detailed-summary
-
-get-relying-party-detailed-summary a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-relying-party-detailed-summary|getRelyingPartyDetailedSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--period**|string||period|period|
-
 ### reports get-report-root
 
 get-report-root a reports.
@@ -1146,6 +902,27 @@ get-report-root a reports.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### reports get-restricted-sign-in
+
+get-restricted-sign-in a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|auditLogs|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-restricted-sign-in|GetRestrictedSignIns|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -1357,6 +1134,27 @@ get-share-point-site-usage-storage a reports.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
+
+### reports get-sign-in
+
+get-sign-in a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|auditLogs|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-sign-in|GetSignIns|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
 ### reports get-skype-for-business-activity-count
 
@@ -1833,46 +1631,6 @@ get-team-user-activity-user-detail-eb13 a reports.
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports get-tenant-secure-score
-
-get-tenant-secure-score a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-tenant-secure-score|getTenantSecureScores|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--period**|integer||period|period|
-
-### reports get-user-credential-usage-detail
-
-get-user-credential-usage-detail a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-credential-usage-detail|GetUserCredentialUsageDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-credential-usage-details-id**|string|key: userCredentialUsageDetails-id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
 ### reports get-yammer-activity-count
 
 get-yammer-activity-count a reports.
@@ -2101,19 +1859,19 @@ get-yammer-group-activity-group-count a reports.
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports list-application-sign-in-detailed-summary
+### reports list-directory-audit
 
-list-application-sign-in-detailed-summary a reports.
+list-directory-audit a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|list-application-sign-in-detailed-summary|ListApplicationSignInDetailedSummary|
+|list-directory-audit|ListDirectoryAudits|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2122,19 +1880,19 @@ list-application-sign-in-detailed-summary a reports.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports list-credential-user-registration-detail
+### reports list-restricted-sign-in
 
-list-credential-user-registration-detail a reports.
+list-restricted-sign-in a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|list-credential-user-registration-detail|ListCredentialUserRegistrationDetails|
+|list-restricted-sign-in|ListRestrictedSignIns|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2143,20 +1901,19 @@ list-credential-user-registration-detail a reports.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports list-daily-print-usage-summary
+### reports list-sign-in
 
-list-daily-print-usage-summary a reports.
+list-sign-in a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|list-daily-print-usage-summary|ListDailyPrintUsageSummariesByPrinter|
-|list-daily-print-usage-summary|ListDailyPrintUsageSummariesByUser|
+|list-sign-in|ListSignIns|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2164,93 +1921,6 @@ list-daily-print-usage-summary a reports.
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
-
-### reports list-monthly-print-usage-summary
-
-list-monthly-print-usage-summary a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-monthly-print-usage-summary|ListMonthlyPrintUsageSummariesByPrinter|
-|list-monthly-print-usage-summary|ListMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports list-user-credential-usage-detail
-
-list-user-credential-usage-detail a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user-credential-usage-detail|ListUserCredentialUsageDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports managed-device-enrollment-abandonment-detail
-
-managed-device-enrollment-abandonment-detail a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-abandonment-detail|managedDeviceEnrollmentAbandonmentDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--skip**|integer||skip|skip|
-|**--top**|integer||top|top|
-|**--filter**|string||filter|filter|
-|**--skip-token**|string||skip_token|skipToken|
-
-### reports managed-device-enrollment-abandonment-summary
-
-managed-device-enrollment-abandonment-summary a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-abandonment-summary|managedDeviceEnrollmentAbandonmentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--skip**|integer||skip|skip|
-|**--top**|integer||top|top|
-|**--filter**|string||filter|filter|
-|**--skip-token**|string||skip_token|skipToken|
 
 ### reports managed-device-enrollment-failure-details027-e
 
@@ -2292,24 +1962,6 @@ managed-device-enrollment-failure-details2-b3-d a reports.
 |**--filter**|string||filter|filter|
 |**--skip-token**|string||skip_token|skipToken|
 
-### reports managed-device-enrollment-failure-trend
-
-managed-device-enrollment-failure-trend a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-failure-trend|managedDeviceEnrollmentFailureTrends|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
 ### reports managed-device-enrollment-top-failure-afd1
 
 managed-device-enrollment-top-failure-afd1 a reports.
@@ -2347,159 +1999,59 @@ managed-device-enrollment-top-failures4669 a reports.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 
-### reports update-application-sign-in-detailed-summary
+### reports update-audit-log-root
 
-update-application-sign-in-detailed-summary a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-application-sign-in-detailed-summary|UpdateApplicationSignInDetailedSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-sign-in-detailed-summary-id**|string|key: applicationSignInDetailedSummary-id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
-|**--id**|string|Read-only.|id|id|
-|**--app-id**|string||app_id|appId|
-|**--app-display-name**|string||app_display_name|appDisplayName|
-|**--sign-in-count**|integer||sign_in_count|signInCount|
-|**--aggregated-event-date-time**|date-time||aggregated_event_date_time|aggregatedEventDateTime|
-|**--status-error-code**|integer|Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.|error_code|errorCode|
-|**--status-failure-reason**|string|Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.|failure_reason|failureReason|
-|**--status-additional-details**|string|Provides additional details on the sign-in activity|additional_details|additionalDetails|
-
-### reports update-credential-user-registration-detail
-
-update-credential-user-registration-detail a reports.
+update-audit-log-root a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs.auditLogRoot|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-credential-user-registration-detail|UpdateCredentialUserRegistrationDetails|
+|update-audit-log-root|UpdateAuditLogRoot|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--credential-user-registration-details-id**|string|key: credentialUserRegistrationDetails-id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
 |**--id**|string|Read-only.|id|id|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--user-display-name**|string||user_display_name|userDisplayName|
-|**--auth-methods**|array||auth_methods|authMethods|
-|**--is-registered**|boolean||is_registered|isRegistered|
-|**--is-enabled**|boolean||is_enabled|isEnabled|
-|**--is-capable**|boolean||is_capable|isCapable|
-|**--is-mfa-registered**|boolean||is_mfa_registered|isMfaRegistered|
+|**--directory-audits**|array|Read-only. Nullable.|directory_audits|directoryAudits|
+|**--restricted-sign-ins**|array||restricted_sign_ins|restrictedSignIns|
+|**--sign-ins**|array|Read-only. Nullable.|sign_ins|signIns|
 
-### reports update-daily-print-usage-summary-by-printer
+### reports update-directory-audit
 
-update-daily-print-usage-summary-by-printer a reports.
+update-directory-audit a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-daily-print-usage-summary-by-printer|UpdateDailyPrintUsageSummariesByPrinter|
+|update-directory-audit|UpdateDirectoryAudits|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--print-usage-summary-by-printer-id**|string|key: PrintUsageSummaryByPrinter-id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
 |**--id**|string|Read-only.|id|id|
-|**--printer-id**|string||printer_id|printerId|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
-
-### reports update-daily-print-usage-summary-by-user
-
-update-daily-print-usage-summary-by-user a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-daily-print-usage-summary-by-user|UpdateDailyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-user-id**|string|key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-|**--id**|string|Read-only.|id|id|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
-
-### reports update-monthly-print-usage-summary-by-printer
-
-update-monthly-print-usage-summary-by-printer a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-monthly-print-usage-summary-by-printer|UpdateMonthlyPrintUsageSummariesByPrinter|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-printer-id**|string|key: PrintUsageSummaryByPrinter-id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
-|**--id**|string|Read-only.|id|id|
-|**--printer-id**|string||printer_id|printerId|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
-
-### reports update-monthly-print-usage-summary-by-user
-
-update-monthly-print-usage-summary-by-user a reports.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-monthly-print-usage-summary-by-user|UpdateMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-user-id**|string|key: PrintUsageSummaryByUser-id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-|**--id**|string|Read-only.|id|id|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--usage-date**|date||usage_date|usageDate|
-|**--completed-black-and-white-job-count**|integer||completed_black_and_white_job_count|completedBlackAndWhiteJobCount|
-|**--completed-color-job-count**|integer||completed_color_job_count|completedColorJobCount|
-|**--incomplete-job-count**|integer||incomplete_job_count|incompleteJobCount|
+|**--activity-date-time**|date-time|Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|activity_date_time|activityDateTime|
+|**--activity-display-name**|string|Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.|activity_display_name|activityDisplayName|
+|**--additional-details**|array|Indicates additional details on the activity.|additional_details|additionalDetails|
+|**--category**|string|Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)|category|category|
+|**--correlation-id**|string|Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.|correlation_id|correlationId|
+|**--logged-by-service**|string|Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.|logged_by_service|loggedByService|
+|**--operation-type**|string||operation_type|operationType|
+|**--result**|choice||result|result|
+|**--result-reason**|string|Describes cause of 'failure' or 'timeout' results.|result_reason|resultReason|
+|**--target-resources**|array|Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.|target_resources|targetResources|
+|**--initiated-by-app**|object|appIdentity|app|app|
+|**--initiated-by-user**|object|userIdentity|user|user|
 
 ### reports update-report-root
 
@@ -2519,37 +2071,96 @@ update-report-root a reports.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
-|**--application-sign-in-detailed-summary**|array||application_sign_in_detailed_summary|applicationSignInDetailedSummary|
-|**--credential-user-registration-details**|array||credential_user_registration_details|credentialUserRegistrationDetails|
-|**--user-credential-usage-details**|array||user_credential_usage_details|userCredentialUsageDetails|
-|**--daily-print-usage-summaries-by-user**|array||daily_print_usage_summaries_by_user|dailyPrintUsageSummariesByUser|
-|**--monthly-print-usage-summaries-by-user**|array||monthly_print_usage_summaries_by_user|monthlyPrintUsageSummariesByUser|
-|**--daily-print-usage-summaries-by-printer**|array||daily_print_usage_summaries_by_printer|dailyPrintUsageSummariesByPrinter|
-|**--monthly-print-usage-summaries-by-printer**|array||monthly_print_usage_summaries_by_printer|monthlyPrintUsageSummariesByPrinter|
 
-### reports update-user-credential-usage-detail
+### reports update-restricted-sign-in
 
-update-user-credential-usage-detail a reports.
+update-restricted-sign-in a reports.
 
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|reports|reports|
+|reports|auditLogs|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|update-user-credential-usage-detail|UpdateUserCredentialUsageDetails|
+|update-restricted-sign-in|UpdateRestrictedSignIns|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--user-credential-usage-details-id**|string|key: userCredentialUsageDetails-id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
 |**--id**|string|Read-only.|id|id|
-|**--feature**|choice||feature|feature|
-|**--user-principal-name**|string||user_principal_name|userPrincipalName|
-|**--user-display-name**|string||user_display_name|userDisplayName|
-|**--is-success**|boolean||is_success|isSuccess|
-|**--auth-method**|choice||auth_method|authMethod|
-|**--failure-reason**|string||failure_reason|failureReason|
-|**--event-date-time**|date-time||event_date_time|eventDateTime|
+|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
+|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
+|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
+|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
+|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
+|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
+|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
+|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
+|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
+|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
+|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
+|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
+|**--risk-detail**|choice||risk_detail|riskDetail|
+|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
+|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
+|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
+|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
+|**--risk-state**|choice||risk_state|riskState|
+|**--status**|object|signInStatus|status|status|
+|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
+|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
+|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
+|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+|**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
+
+### reports update-sign-in
+
+update-sign-in a reports.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|reports|auditLogs|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-sign-in|UpdateSignIns|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+|**--id**|string|Read-only.|id|id|
+|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
+|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
+|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
+|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
+|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
+|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
+|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
+|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
+|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
+|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
+|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
+|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
+|**--risk-detail**|choice||risk_detail|riskDetail|
+|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
+|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
+|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
+|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
+|**--risk-state**|choice||risk_state|riskState|
+|**--status**|object|signInStatus|status|status|
+|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
+|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
+|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
+|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|

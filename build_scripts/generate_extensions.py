@@ -10,27 +10,28 @@ def generate_extension_from_open_api_description():
         file_name, file_path = item
         file_name = remove_file_extension_and_group(file_name)
 
-        # Don't generate extensions with long filenames.
-        # Extensions with long filenames prevent successful installation of the CLI.
-        if len(file_name) < 15:
-            # Config files are used to modify generated extensions
-            generate_az_config_for(file_name)
-            generate_cli_config_for(file_name)
-            generate_python_config_for(file_name)
+        # Config files are used to modify generated extensions
+        generate_az_config_for(file_name)
+        generate_cli_config_for(file_name)
+        generate_python_config_for(file_name)
 
-            subprocess.run(
-                ['autorest-beta', '--az', '--v3', f'''--input-file:{file_path}''',
-                 r'''--azure-cli-extension-folder=../msgraph-cli-extensions''',
-                 r'''--use=@autorest/python@5.1.0-preview.4''',
-                 r'''--use=@autorest/modelerfour@4.14.366''',
-                 r'''--use=@autorest/az@1.5.0'''],
-                shell=True)
+        subprocess.run([
+            'autorest',
+            '--az',
+            '--v3',
+            f'''--input-file:{file_path}''',
+            r'''--azure-cli-extension-folder=../msgraph-cli-extensions''',
+            r'''--use=@autorest/python@5.1.0-preview.4''',
+            r'''--use=@autorest/modelerfour@4.15.421''',
+            r'''--use=@autorest/az@1.5.1''',
+        ],
+                       shell=True)
 
 
 def get_open_api_descriptions():
     result = []
 
-    open_api_dir = path.join(os.getcwd(), os.pardir, 'open-api-docs', 'beta')
+    open_api_dir = path.join(os.getcwd(), os.pardir, 'open-api-docs', 'v1.0')
     open_api_files = os.listdir(open_api_dir)
 
     for file in open_api_files:
@@ -71,6 +72,7 @@ az:
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
   client-base-url-bound: false
+
 az-output-folder: $(azure-cli-extension-folder)/src/{file_name}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}/vendored_sdks/{file_name}"
 cli-core-lib: msgraph.cli.core
@@ -80,6 +82,12 @@ directive:
           group: ^{file_name}(.*)
       set:
           group: {file_name}
+
+modelerfour:
+    lenient-model-deduplication: true
+    group-parameters: true
+    flatten-models: true
+    flatten-payloads: true 
 ```
   """
     write_to('readme.az.md', config)
