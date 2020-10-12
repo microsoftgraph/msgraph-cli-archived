@@ -6,10 +6,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
+from ._audit_log_audit_log_root_operations_async import AuditLogAuditLogRootOperations
+from ._audit_log_operations_async import AuditLogOperations
 from ._report_report_root_operations_async import ReportReportRootOperations
 from ._report_operations_async import ReportOperations
 
 __all__ = [
+    'AuditLogAuditLogRootOperations',
+    'AuditLogOperations',
     'ReportReportRootOperations',
     'ReportOperations',
 ]

@@ -18,8 +18,8 @@ def cf_education_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_education_root(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_root
+def cf_education_education_root(cli_ctx, *_):
+    return cf_education_cl(cli_ctx).education_education_root
 
 
 def cf_education(cli_ctx, *_):
@@ -30,85 +30,13 @@ def cf_education_class(cli_ctx, *_):
     return cf_education_cl(cli_ctx).education_class
 
 
-def cf_education_class_assignment(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_class_assignment
-
-
-def cf_education_class_assignment_submission(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_class_assignment_submission
-
-
-def cf_education_class_member(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_class_member
-
-
-def cf_education_class_school(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_class_school
-
-
-def cf_education_class_teacher(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_class_teacher
-
-
 def cf_education_me(cli_ctx, *_):
     return cf_education_cl(cli_ctx).education_me
-
-
-def cf_education_me_assignment(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_me_assignment
-
-
-def cf_education_me_assignment_submission(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_me_assignment_submission
-
-
-def cf_education_me_class(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_me_class
-
-
-def cf_education_me_school(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_me_school
-
-
-def cf_education_me_taught_class(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_me_taught_class
 
 
 def cf_education_school(cli_ctx, *_):
     return cf_education_cl(cli_ctx).education_school
 
 
-def cf_education_school_class(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_school_class
-
-
-def cf_education_school_user(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_school_user
-
-
-def cf_education_synchronization_profile(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_synchronization_profile
-
-
 def cf_education_user(cli_ctx, *_):
     return cf_education_cl(cli_ctx).education_user
-
-
-def cf_education_user_assignment(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_user_assignment
-
-
-def cf_education_user_assignment_submission(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_user_assignment_submission
-
-
-def cf_education_user_class(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_user_class
-
-
-def cf_education_user_school(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_user_school
-
-
-def cf_education_user_taught_class(cli_ctx, *_):
-    return cf_education_cl(cli_ctx).education_user_taught_class

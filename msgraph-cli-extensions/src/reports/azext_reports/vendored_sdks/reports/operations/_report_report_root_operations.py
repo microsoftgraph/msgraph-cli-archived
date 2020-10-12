@@ -17,7 +17,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -46,8 +46,8 @@ class ReportReportRootOperations(object):
 
     def get_report_root(
         self,
-        select=None,  # type: Optional[List[Union[str, "models.Get0ItemsItem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get1ItemsItem"]]]
+        select=None,  # type: Optional[List[str]]
+        expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphReportRoot"
@@ -56,9 +56,9 @@ class ReportReportRootOperations(object):
         Get reports.
 
         :param select: Select properties to be returned.
-        :type select: list[str or ~reports.models.Get0ItemsItem]
+        :type select: list[str]
         :param expand: Expand related entities.
-        :type expand: list[str or ~reports.models.Get1ItemsItem]
+        :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphReportRoot, or the result of cls(response)
         :rtype: ~reports.models.MicrosoftGraphReportRoot
@@ -67,6 +67,7 @@ class ReportReportRootOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReportRoot"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
 
         # Construct URL
         url = self.get_report_root.metadata['url']  # type: ignore
@@ -80,6 +81,7 @@ class ReportReportRootOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
@@ -102,13 +104,6 @@ class ReportReportRootOperations(object):
     def update_report_root(
         self,
         id=None,  # type: Optional[str]
-        application_sign_in_detailed_summary=None,  # type: Optional[List["models.MicrosoftGraphApplicationSignInDetailedSummary"]]
-        credential_user_registration_details=None,  # type: Optional[List["models.MicrosoftGraphCredentialUserRegistrationDetails"]]
-        user_credential_usage_details=None,  # type: Optional[List["models.MicrosoftGraphUserCredentialUsageDetails"]]
-        daily_print_usage_summaries_by_user=None,  # type: Optional[List["models.MicrosoftGraphPrintUsageSummaryByUser"]]
-        monthly_print_usage_summaries_by_user=None,  # type: Optional[List["models.MicrosoftGraphPrintUsageSummaryByUser"]]
-        daily_print_usage_summaries_by_printer=None,  # type: Optional[List["models.MicrosoftGraphPrintUsageSummaryByPrinter"]]
-        monthly_print_usage_summaries_by_printer=None,  # type: Optional[List["models.MicrosoftGraphPrintUsageSummaryByPrinter"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -118,20 +113,6 @@ class ReportReportRootOperations(object):
 
         :param id: Read-only.
         :type id: str
-        :param application_sign_in_detailed_summary:
-        :type application_sign_in_detailed_summary: list[~reports.models.MicrosoftGraphApplicationSignInDetailedSummary]
-        :param credential_user_registration_details:
-        :type credential_user_registration_details: list[~reports.models.MicrosoftGraphCredentialUserRegistrationDetails]
-        :param user_credential_usage_details:
-        :type user_credential_usage_details: list[~reports.models.MicrosoftGraphUserCredentialUsageDetails]
-        :param daily_print_usage_summaries_by_user:
-        :type daily_print_usage_summaries_by_user: list[~reports.models.MicrosoftGraphPrintUsageSummaryByUser]
-        :param monthly_print_usage_summaries_by_user:
-        :type monthly_print_usage_summaries_by_user: list[~reports.models.MicrosoftGraphPrintUsageSummaryByUser]
-        :param daily_print_usage_summaries_by_printer:
-        :type daily_print_usage_summaries_by_printer: list[~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter]
-        :param monthly_print_usage_summaries_by_printer:
-        :type monthly_print_usage_summaries_by_printer: list[~reports.models.MicrosoftGraphPrintUsageSummaryByPrinter]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -141,8 +122,9 @@ class ReportReportRootOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphReportRoot(id=id, application_sign_in_detailed_summary=application_sign_in_detailed_summary, credential_user_registration_details=credential_user_registration_details, user_credential_usage_details=user_credential_usage_details, daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user, monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user, daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer, monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer)
+        _body = models.MicrosoftGraphReportRoot(id=id)
         content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
 
         # Construct URL
         url = self.update_report_root.metadata['url']  # type: ignore
@@ -153,6 +135,7 @@ class ReportReportRootOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content = self._serialize.body(_body, 'MicrosoftGraphReportRoot')

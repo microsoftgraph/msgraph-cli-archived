@@ -16,6 +16,8 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration_async import ReportsConfiguration
+from .operations_async import AuditLogAuditLogRootOperations
+from .operations_async import AuditLogOperations
 from .operations_async import ReportReportRootOperations
 from .operations_async import ReportOperations
 from .. import models
@@ -24,6 +26,10 @@ from .. import models
 class Reports(object):
     """Reports.
 
+    :ivar audit_log_audit_log_root: AuditLogAuditLogRootOperations operations
+    :vartype audit_log_audit_log_root: reports.aio.operations_async.AuditLogAuditLogRootOperations
+    :ivar audit_log: AuditLogOperations operations
+    :vartype audit_log: reports.aio.operations_async.AuditLogOperations
     :ivar report_report_root: ReportReportRootOperations operations
     :vartype report_report_root: reports.aio.operations_async.ReportReportRootOperations
     :ivar report: ReportOperations operations
@@ -56,7 +62,7 @@ class Reports(object):
         **kwargs: Any
     ) -> None:
         if not base_url:
-            base_url = 'https://graph.microsoft.com/beta'
+            base_url = 'https://graph.microsoft.com/v1.0'
         self._config = ReportsConfiguration(credential, top, skip, search, filter, count, **kwargs)
         self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
@@ -64,6 +70,10 @@ class Reports(object):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
+        self.audit_log_audit_log_root = AuditLogAuditLogRootOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.audit_log = AuditLogOperations(
+            self._client, self._config, self._serialize, self._deserialize)
         self.report_report_root = ReportReportRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.report = ReportOperations(

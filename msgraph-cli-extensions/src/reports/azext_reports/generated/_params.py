@@ -14,18 +14,354 @@ from msgraph.cli.core.commands.parameters import (
     get_three_state_flag,
     get_enum_type
 )
+from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_reports.action import (
-    AddApplicationSignInDetailedSummary,
-    AddCredentialUserRegistrationDetails,
-    AddUserCredentialUsageDetails,
-    AddDailyPrintUsageSummariesByUser,
-    AddMonthlyPrintUsageSummariesByUser,
-    AddDailyPrintUsageSummariesByPrinter,
-    AddMonthlyPrintUsageSummariesByPrinter
+    AddRestrictedSignIns,
+    AddAdditionalDetails,
+    AddTargetResources,
+    AddInitiatedByApp,
+    AddInitiatedByUser,
+    AddAppliedConditionalAccessPolicies,
+    AddDeviceDetail,
+    AddStatus,
+    AddLocationGeoCoordinates
 )
 
 
 def load_arguments(self, _):
+
+    with self.argument_context('reports get-audit-log-root') as c:
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports update-audit-log-root') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('directory_audits', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('restricted_sign_ins', action=AddRestrictedSignIns, nargs='*', help='')
+        c.argument('sign_ins', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('reports delete') as c:
+        c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
+        c.argument('sign_in_id', type=str, help='key: id of signIn')
+
+    with self.argument_context('reports create-directory-audit') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
+                   'type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('activity_display_name', type=str, help='Indicates the activity name or the operation name '
+                   '(examples: \'Create User\' and \'Add member to group\'). For full list, see Azure AD activity '
+                   'list.')
+        c.argument('additional_details', action=AddAdditionalDetails, nargs='*', help='Indicates additional details on '
+                   'the activity.')
+        c.argument('category', type=str, help='Indicates which resource category that\'s targeted by the activity. '
+                   '(For example: User Management, Group Management etc..)')
+        c.argument('correlation_id', type=str, help='Indicates a unique ID that helps correlate activities that span '
+                   'across various services. Can be used to trace logs across services.')
+        c.argument('logged_by_service', type=str, help='Indicates information on which service initiated the activity '
+                   '(For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft '
+                   'Identity Manager, Privileged Identity Management.')
+        c.argument('operation_type', type=str, help='')
+        c.argument('result', arg_type=get_enum_type(['success', 'failure', 'timeout', 'unknownFutureValue']), help='')
+        c.argument('result_reason', type=str, help='Describes cause of \'failure\' or \'timeout\' results.')
+        c.argument('target_resources', action=AddTargetResources, nargs='*', help='Indicates information on which '
+                   'resource was changed due to the activity. Target Resource Type can be User, Device, Directory, '
+                   'App, Role, Group, Policy or Other.')
+        c.argument('initiated_by_app', action=AddInitiatedByApp, nargs='*', help='appIdentity')
+        c.argument('initiated_by_user', action=AddInitiatedByUser, nargs='*', help='userIdentity')
+
+    with self.argument_context('reports create-restricted-sign-in') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
+        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
+        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='*', help=''
+                   '')
+        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
+                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
+        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
+                   'initiated; used to troubleshoot sign-in activity.')
+        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
+                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
+        c.argument('device_detail', action=AddDeviceDetail, nargs='*', help='deviceDetail')
+        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
+        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
+                   'not.')
+        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
+        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
+        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword', ''
+                                                          'userPerformedSecuredPasswordChange', ''
+                                                          'userPerformedSecuredPasswordReset', ''
+                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe', ''
+                                                          'userPassedMFADrivenByRiskBasedPolicy', ''
+                                                          'adminDismissedAllRiskForUser', ''
+                                                          'adminConfirmedSigninCompromised', 'hidden', ''
+                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
+                   help='')
+        c.argument('risk_event_types', nargs='*', help='Risk event types associated with the sign-in. The possible '
+                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, and unknownFutureValue.')
+        c.argument('risk_event_types_v2', nargs='*', help='The list of risk event types associated with the sign-in. '
+                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, or unknownFutureValue.')
+        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                    'unknownFutureValue']), help='')
+        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
+                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
+        c.argument('status', action=AddStatus, nargs='*', help='signInStatus')
+        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
+        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
+        c.argument('user_principal_name', type=str,
+                   help='User principal name of the user that initiated the sign-in.')
+        c.argument('location_city', type=str, help='Provides the city where the sign-in originated. This is calculated '
+                   'using latitude/longitude information from the sign-in activity.')
+        c.argument('location_country_or_region', type=str, help='Provides the country code info (2 letter code) where '
+                   'the sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
+                   'activity.')
+        c.argument('location_geo_coordinates', action=AddLocationGeoCoordinates, nargs='*', help='geoCoordinates')
+        c.argument('location_state', type=str, help='Provides the State where the sign-in originated. This is '
+                   'calculated using latitude/longitude information from the sign-in activity.')
+        c.argument('target_tenant_id', help='')
+
+    with self.argument_context('reports create-sign-in') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
+        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
+        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='*', help=''
+                   '')
+        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
+                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
+        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
+                   'initiated; used to troubleshoot sign-in activity.')
+        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
+                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
+        c.argument('device_detail', action=AddDeviceDetail, nargs='*', help='deviceDetail')
+        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
+        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
+                   'not.')
+        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
+        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
+        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword', ''
+                                                          'userPerformedSecuredPasswordChange', ''
+                                                          'userPerformedSecuredPasswordReset', ''
+                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe', ''
+                                                          'userPassedMFADrivenByRiskBasedPolicy', ''
+                                                          'adminDismissedAllRiskForUser', ''
+                                                          'adminConfirmedSigninCompromised', 'hidden', ''
+                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
+                   help='')
+        c.argument('risk_event_types', nargs='*', help='Risk event types associated with the sign-in. The possible '
+                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, and unknownFutureValue.')
+        c.argument('risk_event_types_v2', nargs='*', help='The list of risk event types associated with the sign-in. '
+                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, or unknownFutureValue.')
+        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                    'unknownFutureValue']), help='')
+        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
+                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
+        c.argument('status', action=AddStatus, nargs='*', help='signInStatus')
+        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
+        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
+        c.argument('user_principal_name', type=str,
+                   help='User principal name of the user that initiated the sign-in.')
+        c.argument('location_city', type=str, help='Provides the city where the sign-in originated. This is calculated '
+                   'using latitude/longitude information from the sign-in activity.')
+        c.argument('location_country_or_region', type=str, help='Provides the country code info (2 letter code) where '
+                   'the sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
+                   'activity.')
+        c.argument('location_geo_coordinates', action=AddLocationGeoCoordinates, nargs='*', help='geoCoordinates')
+        c.argument('location_state', type=str, help='Provides the State where the sign-in originated. This is '
+                   'calculated using latitude/longitude information from the sign-in activity.')
+
+    with self.argument_context('reports get-directory-audit') as c:
+        c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports get-restricted-sign-in') as c:
+        c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports get-sign-in') as c:
+        c.argument('sign_in_id', type=str, help='key: id of signIn')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports list-directory-audit') as c:
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports list-restricted-sign-in') as c:
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports list-sign-in') as c:
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('reports update-directory-audit') as c:
+        c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
+                   'type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('activity_display_name', type=str, help='Indicates the activity name or the operation name '
+                   '(examples: \'Create User\' and \'Add member to group\'). For full list, see Azure AD activity '
+                   'list.')
+        c.argument('additional_details', action=AddAdditionalDetails, nargs='*', help='Indicates additional details on '
+                   'the activity.')
+        c.argument('category', type=str, help='Indicates which resource category that\'s targeted by the activity. '
+                   '(For example: User Management, Group Management etc..)')
+        c.argument('correlation_id', type=str, help='Indicates a unique ID that helps correlate activities that span '
+                   'across various services. Can be used to trace logs across services.')
+        c.argument('logged_by_service', type=str, help='Indicates information on which service initiated the activity '
+                   '(For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft '
+                   'Identity Manager, Privileged Identity Management.')
+        c.argument('operation_type', type=str, help='')
+        c.argument('result', arg_type=get_enum_type(['success', 'failure', 'timeout', 'unknownFutureValue']), help='')
+        c.argument('result_reason', type=str, help='Describes cause of \'failure\' or \'timeout\' results.')
+        c.argument('target_resources', action=AddTargetResources, nargs='*', help='Indicates information on which '
+                   'resource was changed due to the activity. Target Resource Type can be User, Device, Directory, '
+                   'App, Role, Group, Policy or Other.')
+        c.argument('initiated_by_app', action=AddInitiatedByApp, nargs='*', help='appIdentity')
+        c.argument('initiated_by_user', action=AddInitiatedByUser, nargs='*', help='userIdentity')
+
+    with self.argument_context('reports update-restricted-sign-in') as c:
+        c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
+        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
+        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='*', help=''
+                   '')
+        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
+                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
+        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
+                   'initiated; used to troubleshoot sign-in activity.')
+        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
+                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
+        c.argument('device_detail', action=AddDeviceDetail, nargs='*', help='deviceDetail')
+        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
+        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
+                   'not.')
+        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
+        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
+        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword', ''
+                                                          'userPerformedSecuredPasswordChange', ''
+                                                          'userPerformedSecuredPasswordReset', ''
+                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe', ''
+                                                          'userPassedMFADrivenByRiskBasedPolicy', ''
+                                                          'adminDismissedAllRiskForUser', ''
+                                                          'adminConfirmedSigninCompromised', 'hidden', ''
+                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
+                   help='')
+        c.argument('risk_event_types', nargs='*', help='Risk event types associated with the sign-in. The possible '
+                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, and unknownFutureValue.')
+        c.argument('risk_event_types_v2', nargs='*', help='The list of risk event types associated with the sign-in. '
+                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, or unknownFutureValue.')
+        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                    'unknownFutureValue']), help='')
+        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
+                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
+        c.argument('status', action=AddStatus, nargs='*', help='signInStatus')
+        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
+        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
+        c.argument('user_principal_name', type=str,
+                   help='User principal name of the user that initiated the sign-in.')
+        c.argument('location_city', type=str, help='Provides the city where the sign-in originated. This is calculated '
+                   'using latitude/longitude information from the sign-in activity.')
+        c.argument('location_country_or_region', type=str, help='Provides the country code info (2 letter code) where '
+                   'the sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
+                   'activity.')
+        c.argument('location_geo_coordinates', action=AddLocationGeoCoordinates, nargs='*', help='geoCoordinates')
+        c.argument('location_state', type=str, help='Provides the State where the sign-in originated. This is '
+                   'calculated using latitude/longitude information from the sign-in activity.')
+        c.argument('target_tenant_id', help='')
+
+    with self.argument_context('reports update-sign-in') as c:
+        c.argument('sign_in_id', type=str, help='key: id of signIn')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
+        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
+        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='*', help=''
+                   '')
+        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
+                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
+        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
+                   'initiated; used to troubleshoot sign-in activity.')
+        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
+                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
+        c.argument('device_detail', action=AddDeviceDetail, nargs='*', help='deviceDetail')
+        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
+        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
+                   'not.')
+        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
+        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
+        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword', ''
+                                                          'userPerformedSecuredPasswordChange', ''
+                                                          'userPerformedSecuredPasswordReset', ''
+                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe', ''
+                                                          'userPassedMFADrivenByRiskBasedPolicy', ''
+                                                          'adminDismissedAllRiskForUser', ''
+                                                          'adminConfirmedSigninCompromised', 'hidden', ''
+                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
+                   help='')
+        c.argument('risk_event_types', nargs='*', help='Risk event types associated with the sign-in. The possible '
+                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, and unknownFutureValue.')
+        c.argument('risk_event_types_v2', nargs='*', help='The list of risk event types associated with the sign-in. '
+                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, or unknownFutureValue.')
+        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                    'unknownFutureValue']), help='')
+        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none', ''
+                                                                        'unknownFutureValue']), help='')
+        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
+                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
+        c.argument('status', action=AddStatus, nargs='*', help='signInStatus')
+        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
+        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
+        c.argument('user_principal_name', type=str,
+                   help='User principal name of the user that initiated the sign-in.')
+        c.argument('location_city', type=str, help='Provides the city where the sign-in originated. This is calculated '
+                   'using latitude/longitude information from the sign-in activity.')
+        c.argument('location_country_or_region', type=str, help='Provides the country code info (2 letter code) where '
+                   'the sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
+                   'activity.')
+        c.argument('location_geo_coordinates', action=AddLocationGeoCoordinates, nargs='*', help='geoCoordinates')
+        c.argument('location_state', type=str, help='Provides the State where the sign-in originated. This is '
+                   'calculated using latitude/longitude information from the sign-in activity.')
 
     with self.argument_context('reports get-report-root') as c:
         c.argument('select', nargs='*', help='Select properties to be returned')
@@ -33,122 +369,6 @@ def load_arguments(self, _):
 
     with self.argument_context('reports update-report-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('application_sign_in_detailed_summary', action=AddApplicationSignInDetailedSummary, nargs='*',
-                   help='')
-        c.argument('credential_user_registration_details', action=AddCredentialUserRegistrationDetails, nargs='*',
-                   help='')
-        c.argument('user_credential_usage_details', action=AddUserCredentialUsageDetails, nargs='*', help='')
-        c.argument('daily_print_usage_summaries_by_user', action=AddDailyPrintUsageSummariesByUser, nargs='*',
-                   help='')
-        c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='*',
-                   help='')
-        c.argument('daily_print_usage_summaries_by_printer', action=AddDailyPrintUsageSummariesByPrinter, nargs='*',
-                   help='')
-        c.argument('monthly_print_usage_summaries_by_printer', action=AddMonthlyPrintUsageSummariesByPrinter,
-                   nargs='*', help='')
-
-    with self.argument_context('reports create-application-sign-in-detailed-summary') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('app_id', type=str, help='')
-        c.argument('app_display_name', type=str, help='')
-        c.argument('sign_in_count', type=int, help='')
-        c.argument('aggregated_event_date_time', help='')
-        c.argument('status_error_code', type=int, help='Provides the 5-6digit error code that\'s generated during a '
-                   'sign-in failure. Check out the list of error codes and messages.')
-        c.argument('status_failure_reason', type=str, help='Provides the error message or the reason for failure for '
-                   'the corresponding sign-in activity. Check out the list of error codes and messages.')
-        c.argument('status_additional_details', type=str, help='Provides additional details on the sign-in activity')
-
-    with self.argument_context('reports create-credential-user-registration-detail') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('user_display_name', type=str, help='')
-        c.argument('auth_methods', nargs='*', help='')
-        c.argument('is_registered', arg_type=get_three_state_flag(), help='')
-        c.argument('is_enabled', arg_type=get_three_state_flag(), help='')
-        c.argument('is_capable', arg_type=get_three_state_flag(), help='')
-        c.argument('is_mfa_registered', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('reports create-daily-print-usage-summary-by-printer') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('printer_id', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports create-daily-print-usage-summary-by-user') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports create-monthly-print-usage-summary-by-printer') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('printer_id', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports create-monthly-print-usage-summary-by-user') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports create-user-credential-usage-detail') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('feature', arg_type=get_enum_type(['registration', 'reset', 'unknownFutureValue']), help='')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('user_display_name', type=str, help='')
-        c.argument('is_success', arg_type=get_three_state_flag(), help='')
-        c.argument('auth_method', arg_type=get_enum_type(['email', 'mobileSMS', 'mobileCall', 'officePhone', ''
-                                                          'securityQuestion', 'appNotification', 'appCode', ''
-                                                          'alternateMobileCall', 'fido', 'appPassword', ''
-                                                          'unknownFutureValue']), help='')
-        c.argument('failure_reason', type=str, help='')
-        c.argument('event_date_time', help='')
-
-    with self.argument_context('reports get-application-sign-in-detailed-summary') as c:
-        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: applicationSignInDetailedSummary-id '
-                   'of applicationSignInDetailedSummary')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports get-azure-ad-application-sign-in-summary') as c:
-        c.argument('period', type=str, help='')
-
-    with self.argument_context('reports get-azure-ad-feature-usage') as c:
-        c.argument('period', type=str, help='')
-
-    with self.argument_context('reports get-azure-ad-license-usage') as c:
-        c.argument('period', type=str, help='')
-
-    with self.argument_context('reports get-credential-usage-summary') as c:
-        c.argument('period', type=str, help='')
-
-    with self.argument_context('reports get-credential-user-registration-detail') as c:
-        c.argument('credential_user_registration_details_id', type=str, help='key: credentialUserRegistrationDetails-id'
-                   ' of credentialUserRegistrationDetails')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports get-daily-print-usage-summary-by-printer') as c:
-        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
-                   'PrintUsageSummaryByPrinter')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports get-daily-print-usage-summary-by-user') as c:
-        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
-                   'PrintUsageSummaryByUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-email-activity-count') as c:
         c.argument('period', type=str, help='')
@@ -188,18 +408,6 @@ def load_arguments(self, _):
 
     with self.argument_context('reports get-mailbox-usage-storage') as c:
         c.argument('period', type=str, help='')
-
-    with self.argument_context('reports get-monthly-print-usage-summary-by-printer') as c:
-        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
-                   'PrintUsageSummaryByPrinter')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports get-monthly-print-usage-summary-by-user') as c:
-        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
-                   'PrintUsageSummaryByUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('reports get-office365-active-user-count') as c:
         c.argument('period', type=str, help='')
@@ -256,9 +464,6 @@ def load_arguments(self, _):
         c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-one-drive-usage-storage') as c:
-        c.argument('period', type=str, help='')
-
-    with self.argument_context('reports get-relying-party-detailed-summary') as c:
         c.argument('period', type=str, help='')
 
     with self.argument_context('reports get-share-point-activity-file-count') as c:
@@ -369,15 +574,6 @@ def load_arguments(self, _):
     with self.argument_context('reports get-team-user-activity-user-detail-eb13') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports get-tenant-secure-score') as c:
-        c.argument('period', type=int, help='')
-
-    with self.argument_context('reports get-user-credential-usage-detail') as c:
-        c.argument('user_credential_usage_details_id', type=str, help='key: userCredentialUsageDetails-id of '
-                   'userCredentialUsageDetails')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('reports get-yammer-activity-count') as c:
         c.argument('period', type=str, help='')
 
@@ -414,43 +610,6 @@ def load_arguments(self, _):
     with self.argument_context('reports get-yammer-group-activity-group-count') as c:
         c.argument('period', type=str, help='')
 
-    with self.argument_context('reports list-application-sign-in-detailed-summary') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports list-credential-user-registration-detail') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports list-daily-print-usage-summary') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports list-monthly-print-usage-summary') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports list-user-credential-usage-detail') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('reports managed-device-enrollment-abandonment-detail') as c:
-        c.argument('skip', type=int, help='')
-        c.argument('top', type=int, help='')
-        c.argument('filter_', options_list=['--filter'], type=str, help='')
-        c.argument('skip_token', type=str, help='')
-
-    with self.argument_context('reports managed-device-enrollment-abandonment-summary') as c:
-        c.argument('skip', type=int, help='')
-        c.argument('top', type=int, help='')
-        c.argument('filter_', options_list=['--filter'], type=str, help='')
-        c.argument('skip_token', type=str, help='')
-
     with self.argument_context('reports managed-device-enrollment-failure-details2-b3-d') as c:
         c.argument('skip', type=int, help='')
         c.argument('top', type=int, help='')
@@ -459,84 +618,3 @@ def load_arguments(self, _):
 
     with self.argument_context('reports managed-device-enrollment-top-failure-afd1') as c:
         c.argument('period', type=str, help='')
-
-    with self.argument_context('reports update-application-sign-in-detailed-summary') as c:
-        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: applicationSignInDetailedSummary-id '
-                   'of applicationSignInDetailedSummary')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('app_id', type=str, help='')
-        c.argument('app_display_name', type=str, help='')
-        c.argument('sign_in_count', type=int, help='')
-        c.argument('aggregated_event_date_time', help='')
-        c.argument('status_error_code', type=int, help='Provides the 5-6digit error code that\'s generated during a '
-                   'sign-in failure. Check out the list of error codes and messages.')
-        c.argument('status_failure_reason', type=str, help='Provides the error message or the reason for failure for '
-                   'the corresponding sign-in activity. Check out the list of error codes and messages.')
-        c.argument('status_additional_details', type=str, help='Provides additional details on the sign-in activity')
-
-    with self.argument_context('reports update-credential-user-registration-detail') as c:
-        c.argument('credential_user_registration_details_id', type=str, help='key: credentialUserRegistrationDetails-id'
-                   ' of credentialUserRegistrationDetails')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('user_display_name', type=str, help='')
-        c.argument('auth_methods', nargs='*', help='')
-        c.argument('is_registered', arg_type=get_three_state_flag(), help='')
-        c.argument('is_enabled', arg_type=get_three_state_flag(), help='')
-        c.argument('is_capable', arg_type=get_three_state_flag(), help='')
-        c.argument('is_mfa_registered', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('reports update-daily-print-usage-summary-by-printer') as c:
-        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
-                   'PrintUsageSummaryByPrinter')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('printer_id', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports update-daily-print-usage-summary-by-user') as c:
-        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
-                   'PrintUsageSummaryByUser')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports update-monthly-print-usage-summary-by-printer') as c:
-        c.argument('print_usage_summary_by_printer_id', type=str, help='key: PrintUsageSummaryByPrinter-id of '
-                   'PrintUsageSummaryByPrinter')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('printer_id', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports update-monthly-print-usage-summary-by-user') as c:
-        c.argument('print_usage_summary_by_user_id', type=str, help='key: PrintUsageSummaryByUser-id of '
-                   'PrintUsageSummaryByUser')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('usage_date', help='')
-        c.argument('completed_black_and_white_job_count', type=int, help='')
-        c.argument('completed_color_job_count', type=int, help='')
-        c.argument('incomplete_job_count', type=int, help='')
-
-    with self.argument_context('reports update-user-credential-usage-detail') as c:
-        c.argument('user_credential_usage_details_id', type=str, help='key: userCredentialUsageDetails-id of '
-                   'userCredentialUsageDetails')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('feature', arg_type=get_enum_type(['registration', 'reset', 'unknownFutureValue']), help='')
-        c.argument('user_principal_name', type=str, help='')
-        c.argument('user_display_name', type=str, help='')
-        c.argument('is_success', arg_type=get_three_state_flag(), help='')
-        c.argument('auth_method', arg_type=get_enum_type(['email', 'mobileSMS', 'mobileCall', 'officePhone', ''
-                                                          'securityQuestion', 'appNotification', 'appCode', ''
-                                                          'alternateMobileCall', 'fido', 'appPassword', ''
-                                                          'unknownFutureValue']), help='')
-        c.argument('failure_reason', type=str, help='')
-        c.argument('event_date_time', help='')
