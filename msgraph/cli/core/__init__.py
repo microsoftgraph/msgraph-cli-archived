@@ -26,7 +26,7 @@ from msgraph.cli.core.commands.parameters import GraphArgumentContext
 from ._help import GraphCliHelp
 from msgraph.cli.core.constants import EXCLUDED_PARAMS
 
-__version__ = environ['CLI_VERSION']
+__version__ = '1.0.0'
 
 
 class MgCLI(CLI):
@@ -39,7 +39,7 @@ class MgCLI(CLI):
 
 class MainCommandsLoader(CLICommandsLoader):
     """
-    Loads command_tables from msgraph.cli.command_modules and from installed extensions.
+    Loads command_tables from msgraph.command_modules and from installed extensions.
     """
     def __init__(self, cli_ctx=None):
         super(MainCommandsLoader, self).__init__(cli_ctx)
@@ -99,7 +99,7 @@ class MainCommandsLoader(CLICommandsLoader):
                 loader._update_command_definitions()  # pylint: disable=protected-access
 
     def _update_command_table_from_modules(self, args):
-        """Loads command_table from msgraph.cli.command_modules
+        """Loads command_table from msgraph.command_modules
 
         :params args: List of the arguments from the commandline
         """
@@ -107,7 +107,7 @@ class MainCommandsLoader(CLICommandsLoader):
         BLACKLISTED_MODS = ['context', 'shell', 'documentdb', 'component']
 
         try:
-            modules = import_module('msgraph.cli.command_modules')
+            modules = import_module('msgraph.command_modules')
             installed_command_modules = [
                 modname for _, modname, _ in pkgutil.iter_modules(modules.__path__)
                 if modname not in BLACKLISTED_MODS
