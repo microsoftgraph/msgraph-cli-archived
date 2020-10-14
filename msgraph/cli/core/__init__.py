@@ -6,6 +6,7 @@
 import six
 import types
 import pkgutil
+from os import environ
 from knack import CLI
 from knack.cli import logger
 from importlib import import_module
@@ -25,7 +26,15 @@ from msgraph.cli.core.commands.parameters import GraphArgumentContext
 from ._help import GraphCliHelp
 from msgraph.cli.core.constants import EXCLUDED_PARAMS
 
-__version__ = '1.0.0'
+__version__ = environ['CLI_VERSION']
+
+
+class MgCLI(CLI):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def get_cli_version(self):
+        return __version__
 
 
 class MainCommandsLoader(CLICommandsLoader):
@@ -126,7 +135,7 @@ class MainCommandsLoader(CLICommandsLoader):
 
 # This is the entry point into the Knack CLI framework.
 def get_default_cli():
-    return CLI(
+    return MgCLI(
         cli_name='mg',
         commands_loader_cls=MainCommandsLoader,
         invocation_cls=GraphCliCommandInvoker,
