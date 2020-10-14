@@ -11,7 +11,7 @@ from msgraph.cli.core.commands import GraphCommandGroup, GraphCliCommand
 from msgraph.cli.core.commands._util import get_arg_list
 from msgraph.cli.core.commands.client_factory import resolve_client_arg_name
 from msgraph.cli.core.commands.parameters import GraphArgumentContext
-from ._help import GraphCliHelp
+from msgraph.cli.core.help._help import GraphCliHelp
 from msgraph.cli.core.constants import EXCLUDED_PARAMS
 from msgraph.cli.core.command_loaders import MainCommandsLoader, ExtensionCommandsLoader
 __version__ = '1.0.0'

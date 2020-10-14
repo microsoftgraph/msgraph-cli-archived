@@ -7,7 +7,7 @@ import abc
 import os
 import yaml
 
-from msgraph.cli.core._help import (HelpExample, CliHelpFile)
+from msgraph.cli.core.help._help import (HelpExample, CliHelpFile)
 
 from knack.util import CLIError
 from knack.log import get_logger

@@ -178,7 +178,7 @@ class GraphCliHelp(CLIPrintMixin, CLIHelp):
             pass
 
     def _register_help_loaders(self):
-        import msgraph.cli.core._help_loaders as help_loaders
+        import msgraph.cli.core.help._help_loaders as help_loaders
         import inspect
 
         def is_loader_cls(cls):
