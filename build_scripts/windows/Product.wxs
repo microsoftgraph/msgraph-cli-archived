@@ -13,7 +13,7 @@
            Language="1033"
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.ProductAuthor)"
-           UpgradeCode="dff82af0-3f95-4ac9-8efd-948604fdb028">
+           UpgradeCode="A0091D6E-C4F1-4912-B0FC-AE96E75F2A39">
 
     <Package InstallerVersion="200"
              Compressed="yes"
@@ -29,7 +29,7 @@
     <Property Id="ARPHELPLINK" Value="https://docs.microsoft.com/cli/azure" />
     <Property Id="ARPURLINFOABOUT" Value="https://docs.microsoft.com/cli/azure/overview" />
     <Property Id="ARPURLUPDATEINFO" Value="https://docs.microsoft.com/cli/azure/overview" />
-    <Property Id="ApplicationFolderName" Value="Microsoft SDKs\Azure" />
+    <Property Id="ApplicationFolderName" Value="Microsoft SDKs\Microsoft Graph" />
     <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
 
     <Feature Id="ProductFeature"
@@ -81,17 +81,17 @@
     <ComponentGroup Id="MsgraphCliSettingsGroup">
       <Component Id="RemoveCLIFolder"
                  Directory="DynamicCliDir"
-                 Guid="{24DA394D-B03D-4623-A0D9-852DB51EF9F4}">
+                 Guid="{8FED52CB-6732-466A-8F3E-5EDEE6D187C4}">
         <RemoveFolder Id="DynamicCliDir" On="uninstall" />
       </Component>
       <Component Id="RemoveMsgraphCLIFolder"
                  Directory="MSGRAPHCLIFOLDER"
-                 Guid="{6AF97701-6A7A-4292-95D6-ED34CD4C97C0}">
+                 Guid="{9A0EAF0A-0982-4749-AF05-871AF8190D27}">
         <RemoveFolder Id="MSGRAPHCLIFOLDER" On="uninstall" />
       </Component>
       <Component Id="MsgraphCliSystemPath"
                  Directory="DynamicCliDir"
-                 Guid="{3B60CA67-DB92-465A-BC96-3CA6CAEFF41B}">
+                 Guid="{7B59A756-07CA-4299-A9DC-671C4E23921F}">
         <Environment Id="MsgraphCliAddedToPATH"
                      Name="PATH"
                      Value="[DynamicCliDir]wbin"
@@ -103,7 +103,7 @@
       </Component>
       <Component Id="MsgraphCliRegistry"
                  Directory="DynamicCliDir"
-                 Guid="{BDEEE50E-70D3-4990-BFF9-FCF8114AA701}">
+                 Guid="{60D547F6-7993-4A3B-B1EE-E4100FBAED66}">
         <RegistryValue Root="HKCU"
                        Key="Software\Microsoft\$(var.ProductName)"
                        Name="installed"
@@ -113,7 +113,7 @@
       </Component>
       <Component Id="MsgraphCliVersion"
                  Directory="DynamicCliDir"
-                 Guid="{A5647E93-02B7-4CED-802A-DDD7416E0231}">
+                 Guid="{4F8E016A-1334-4641-9621-03A4DF3C438F}">
         <RegistryValue Root="HKLM"
                        Key="Software\Microsoft\$(var.ProductName)"
                        Name="version"
