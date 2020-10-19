@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Update APT packages
 RUN apt-get update
 RUN apt-get install -y libssl-dev libffi-dev python3-dev debhelper zlib1g-dev wget dh-python python3 python3-setuptools python3-pip \
-unzip
+        unzip
 
 # Download Python source code
 ARG python_version="3.6.10"

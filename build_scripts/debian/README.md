@@ -21,6 +21,7 @@ docker cp debian:/msgraph-cli_all.deb ./debian/out
 
 
 Run the commands below in a linux environment like wsl if you're on windows.
+
 Verification
 ------------
 

@@ -12,7 +12,14 @@ Download the .msi package from the latest [release](https://github.com/microsoft
 
 **Linux**
 
+If you're using **Ubuntu 20.04+**, download and install **[libffi6](http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb)**
+
+```bash
+sudo apt install path/to/libff6
+```
+
 Download the .deb package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases) and install the package with the command below.
+
 ``` bash
 sudo dpkg -i msgraph-cli_all.deb
 ```
