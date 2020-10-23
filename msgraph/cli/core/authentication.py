@@ -2,16 +2,24 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
+import sys
 from os import path, remove
 from azure.identity import InteractiveBrowserCredential, AuthenticationRecord
+import logging
 
 from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, CLIENT_ID
 from msgraph.cli.core.exceptions import CLIException
 
-
 class Authentication:
     def login(self, scopes: [str]) -> bool:
-        auth_record = self.get_credential(login=True).authenticate(scopes=scopes)
+        auth_record = None
+
+        try:
+            auth_record = self.get_credential(login=True).authenticate(scopes=scopes)
+        except:
+            print('Token stored in plain text. Install python3-gi to store token securely')
+            auth_record = self.get_credential(login=True,
+                                              encrypted_cache=True).authenticate(scopes=scopes)
 
         if not auth_record:
             return False
@@ -23,13 +31,13 @@ class Authentication:
         # By deleting the authentication record, we logout the user
         self._delete_auth_record()
 
-    def get_credential(self, login=False) -> InteractiveBrowserCredential:
+    def get_credential(self, login=False, encrypted_cache=False) -> InteractiveBrowserCredential:
         auth_record = self._get_auth_record(login)
 
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
             enable_persistent_cache=True,
-            allow_unencrypted_cache=True,
+            allow_unencrypted_cache=encrypted_cache,
             authentication_record=auth_record,
         )
 
