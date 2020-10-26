@@ -12,30 +12,33 @@ from msgraph.cli.core.exceptions import CLIException
 
 
 class Authentication:
-    def login(self, scopes: [str], encrypt_cache=False) -> bool:
-        credential = self.get_credential(encrypt_cache=encrypt_cache)
+    def login(self, scopes: [str]) -> bool:
+        auth_record = None
 
         try:
+            credential = self.get_credential()
             auth_record = credential.authenticate(scopes=scopes)
+        except:
+            print('Token stored in a plain text file, install PyGObject to encrypt token')
+            
+            credential = self.get_credential(unencrypt_cache=True)
+            auth_record = credential.authenticate(scopes=scopes)
+        
+        if auth_record is None:
+            return False
 
-            if auth_record is None:
-                return False
-
-            self._save_auth_record(auth_record)
-            return True
-        except Exception:
-            print('Token stored in a plain text file, install python3-gi to encrypt token')
-            self.login(scopes, encrypt_cache=True)
+        self._save_auth_record(auth_record)
+        return True
 
     def logout(self):
         # By deleting the authentication record, we logout the user
         self._delete_auth_record()
 
-    def get_credential(self, auth_record=None, encrypt_cache=False) -> InteractiveBrowserCredential:
+    def get_credential(self, auth_record=None, unencrypt_cache=False) -> InteractiveBrowserCredential:
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
             enable_persistent_cache=True,
-            allow_unencrypted_cache=encrypt_cache,
+            allow_unencrypted_cache=unencrypt_cache,
             authentication_record=auth_record,
         )
 
