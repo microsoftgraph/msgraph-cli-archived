@@ -24,7 +24,17 @@ Download the .deb package from the latest [release](https://github.com/microsoft
 sudo dpkg -i msgraph-cli_all.deb
 ```
 
-### Developer installation 
+**Docker**
+
+Build a docker image by running the command below.
+```bash
+docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
+```
+
+Run the docker container interactively using the command below.
+```bash
+docker run -it --name deb microsoft/msgraph-cli:ubuntu-builder   
+```
 
 ## Usage
 

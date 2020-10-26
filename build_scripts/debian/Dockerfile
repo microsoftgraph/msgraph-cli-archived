@@ -28,6 +28,9 @@ RUN pip install wheel
 
 COPY . .
 
+RUN chmod u+x ./build_scripts/debian/build.sh && \
+        chmod u+x ./build_scripts/debian/prepare.sh
+
 RUN mkdir -p ./bin/pypi && \
         BUILD_STAGINGDIRECTORY=/msgraph-cli/bin/pypi ./build_scripts/debian/build.sh && \
         if [ -d ./privates ]; then find ./privates -name '*.whl' | xargs pip install; fi && \
@@ -42,10 +45,4 @@ RUN mkdir -p ./debian && \
         dpkg-buildpackage -us -uc && \
         cp /msgraph-cli_${cli_version}-${cli_version_revision}_all.deb /msgraph-cli_all.deb
 
-FROM $base_image AS execution-env
-
-COPY /msgraph-cli_all.deb .
-COPY --from=build-env /msgraph-cli_all.deb /msgraph-cli_all.deb
-
-RUN dpkg -i /msgraph-cli_all.deb && \
-        rm /msgraph-cli_all.deb
+RUN dpkg -i /msgraph-cli_all.deb

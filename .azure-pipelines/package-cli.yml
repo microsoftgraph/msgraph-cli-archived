@@ -30,10 +30,6 @@ stages:
           pip install wheel
         displayName: 'Upgrade pip and install wheel'
 
-      - script: |
-          python build_scripts/build_extensions.py
-        displayName: 'Build cli extensions'
-
       - task: CmdLine@2
         displayName: 'Build msgraph-cli'
         inputs:
@@ -66,16 +62,9 @@ stages:
       - script: |
           python -m pip install --upgrade pip
           pip install wheel
-        displayName: 'Upgrade pip and install wheel'
+        displayName: 'Upgrade pip and install wheel'        
 
       - bash: |
-          python build_scripts/build_extensions.py
-        displayName: 'Build cli extensions'          
-
-      - bash: |
-          chmod u+x build_scripts/debian/build.sh
-          chmod u+x build_scripts/debian/prepare.sh
-          
           docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
           docker run --name debian microsoft/msgraph-cli:ubuntu-builder
 
