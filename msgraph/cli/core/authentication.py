@@ -10,34 +10,32 @@ import logging
 from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, CLIENT_ID
 from msgraph.cli.core.exceptions import CLIException
 
+
 class Authentication:
-    def login(self, scopes: [str]) -> bool:
-        auth_record = None
+    def login(self, scopes: [str], encrypt_cache=False) -> bool:
+        credential = self.get_credential(encrypt_cache=encrypt_cache)
 
         try:
-            auth_record = self.get_credential(login=True).authenticate(scopes=scopes)
-        except:
-            print('Token stored in plain text. Install python3-gi to store token securely')
-            auth_record = self.get_credential(login=True,
-                                              encrypted_cache=True).authenticate(scopes=scopes)
+            auth_record = credential.authenticate(scopes=scopes)
 
-        if not auth_record:
-            return False
+            if auth_record is None:
+                return False
 
-        self._save_auth_record(auth_record)
-        return True
+            self._save_auth_record(auth_record)
+            return True
+        except Exception:
+            print('Token stored in a plain text file, install python3-gi to encrypt token')
+            self.login(scopes, encrypt_cache=True)
 
     def logout(self):
         # By deleting the authentication record, we logout the user
         self._delete_auth_record()
 
-    def get_credential(self, login=False, encrypted_cache=False) -> InteractiveBrowserCredential:
-        auth_record = self._get_auth_record(login)
-
+    def get_credential(self, auth_record=None, encrypt_cache=False) -> InteractiveBrowserCredential:
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
             enable_persistent_cache=True,
-            allow_unencrypted_cache=encrypted_cache,
+            allow_unencrypted_cache=encrypt_cache,
             authentication_record=auth_record,
         )
 
@@ -51,13 +49,8 @@ class Authentication:
             raise CLIException('Authentication session not saved, you\'ll be prompted \
                 to login when running a command') from ex
 
-    def _get_auth_record(self, login) -> AuthenticationRecord:
+    def get_auth_record(self) -> AuthenticationRecord:
         result = None
-
-        # If we are logging in, return with None since we don't need
-        # AuthenticationRecord object.
-        if login:
-            return result
 
         try:
             with open(AUTH_RECORD_LOCATION, 'r') as file:
