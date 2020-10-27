@@ -13,32 +13,36 @@ from msgraph.cli.core.exceptions import CLIException
 
 class Authentication:
     def login(self, scopes: [str]) -> bool:
-        auth_record = None
-
         try:
             credential = self.get_credential()
             auth_record = credential.authenticate(scopes=scopes)
-        except:
-            print('Token stored in a plain text file, install PyGObject to encrypt token')
-            
-            credential = self.get_credential(unencrypt_cache=True)
-            auth_record = credential.authenticate(scopes=scopes)
-        
-        if auth_record is None:
-            return False
 
-        self._save_auth_record(auth_record)
-        return True
+            if auth_record is None:
+                return False
+
+            self._save_auth_record(auth_record)
+            return True
+
+        # get_credential will throw an error if the host OS doesn't have PyGObject installed
+        except:
+            warning = '''
+            Token can't be stored securely. Install PyGObject to store token securely.
+
+            sudo apt install libgirepository1.0-dev libcairo2-dev python3-dev gir1.2-secret-1
+            pip install pygobject
+            '''
+            print(warning)
+            return False
 
     def logout(self):
         # By deleting the authentication record, we logout the user
         self._delete_auth_record()
 
-    def get_credential(self, auth_record=None, unencrypt_cache=False) -> InteractiveBrowserCredential:
+    def get_credential(self, auth_record=None) -> InteractiveBrowserCredential:
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
             enable_persistent_cache=True,
-            allow_unencrypted_cache=unencrypt_cache,
+            allow_unencrypted_cache=False,
             authentication_record=auth_record,
         )
 
