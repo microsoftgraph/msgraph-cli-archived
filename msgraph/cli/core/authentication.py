@@ -22,9 +22,7 @@ class Authentication:
 
             self._save_auth_record(auth_record)
             return True
-
-        # get_credential will throw an error if the host OS doesn't have PyGObject installed
-        except:
+        except ValueError:
             warning = '''
             Token can't be stored securely. Install PyGObject to store token securely.
 
@@ -39,6 +37,8 @@ class Authentication:
         self._delete_auth_record()
 
     def get_credential(self, auth_record=None) -> InteractiveBrowserCredential:
+        '''Throws a ValueError exception if the host OS doesn't have PyGObject installed
+        '''
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
             enable_persistent_cache=True,
