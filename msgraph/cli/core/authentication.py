@@ -37,7 +37,11 @@ class Authentication:
         self._delete_auth_record()
 
     def get_credential(self, auth_record=None) -> InteractiveBrowserCredential:
-        '''Throws a ValueError exception if the host OS doesn't have PyGObject installed
+        '''
+        Raises
+        ------
+        ValueError
+            If PyGObject is not installed in the host Linux OS.
         '''
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
