@@ -5,8 +5,8 @@
 
 from msgraph.cli.core import AzCommandsLoader
 from msgraph.cli.core.commands import CliCommandType
-from msgraph.cli.command_modules.profile._exception_handler import profile_exception_handler
-import msgraph.cli.command_modules.profile._help
+from msgraph.command_modules.profile._exception_handler import profile_exception_handler
+import msgraph.command_modules.profile._help
 
 
 class ProfileCommandsLoader(AzCommandsLoader):
@@ -17,9 +17,8 @@ class ProfileCommandsLoader(AzCommandsLoader):
 
     def load_command_table(self, args):
         # operations_tmpl is the file that contains the implementation of the command
-        command_type = CliCommandType(
-            operations_tmpl='msgraph.cli.command_modules.profile.custom#{}',
-            exception_handler=profile_exception_handler)
+        command_type = CliCommandType(operations_tmpl='msgraph.command_modules.profile.custom#{}',
+                                      exception_handler=profile_exception_handler)
         with self.command_group('cloud', command_type) as group:
             group.command('list', 'list_clouds')
             group.command('select', 'select_cloud')

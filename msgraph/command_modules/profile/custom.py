@@ -1,44 +1,19 @@
-# ------------------------------------
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT License.
-# ------------------------------------
+# coding=utf-8
+# --------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for license information.
+# --------------------------------------------------------------------------------------------
 
-CLOUDS = {
-    'PUBLIC': {
-        'client_id': '',
-        'endpoint': 'graph.microsoft.com',
-        'authority': 'https://login.microsoftonline.com'
-    },
-    'US_GOV_L4': {
-        'client_id': '',
-        'endpoint': 'https://graph.microsoft.us',
-        'authority': 'https://login.microsoftonline.us'
-    },
-    'US_GOV_L5': {
-        'client_id': '',
-        'endpoint': 'https://dod-graph.microsoft.us',
-        'authority': 'https://login.microsoftonline.us'
-    },
-    'GERMANY': {
-        'client_id': '',
-        'endpoint': 'https://graph.microsoft.de',
-        'authority': 'https://login.microsoftonline.de'
-    },
-    'CHINA': {
-        'client_id': '',
-        'endpoint': 'https://microsoftgraph.chinacloudapi.cn',
-        'authority': '	https://login.chinacloudapi.cn'
-    }
-}
+from knack.prompting import prompt_choice_list
 
-
-def list_clouds():
-    for cloud in list(CLOUDS.keys()):
-        print(cloud)
+from .constants import CLOUDS
 
 
 def select_cloud():
-    print('Selecting a cloud')
+    supported_clouds = list(CLOUDS.keys())
+    selected = prompt_choice_list('Select a cloud', supported_clouds)
+    print(f'Selected {supported_clouds[selected]}')
+    # Save selected cloud in profile.json
 
 
 def add_cloud():

@@ -2,10 +2,9 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
-import sys
+
 from os import path, remove
 from azure.identity import InteractiveBrowserCredential, AuthenticationRecord
-import logging
 
 from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, CLIENT_ID
 from msgraph.cli.core.exceptions import CLIException
