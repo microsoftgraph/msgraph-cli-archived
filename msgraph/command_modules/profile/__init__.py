@@ -20,7 +20,6 @@ class ProfileCommandsLoader(AzCommandsLoader):
         command_type = CliCommandType(operations_tmpl='msgraph.command_modules.profile.custom#{}',
                                       exception_handler=profile_exception_handler)
         with self.command_group('cloud', command_type) as group:
-            group.command('list', 'list_clouds')
             group.command('select', 'select_cloud')
             group.command('add', 'add_cloud')
             group.command('reset', 'reset_cloud')
