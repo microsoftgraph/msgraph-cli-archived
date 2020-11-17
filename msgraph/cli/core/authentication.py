@@ -11,6 +11,7 @@ from msgraph.cli.core.exceptions import CLIException
 
 
 class Authentication:
+    # TODO: Allow users to pass client id
     def login(self, scopes: [str]) -> bool:
         try:
             credential = self.get_credential()
