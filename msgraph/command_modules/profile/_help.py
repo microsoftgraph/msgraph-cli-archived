@@ -5,7 +5,9 @@
 # --------------------------------------------------------------------------------------------
 from knack.help_files import helps
 
-helps['select'] = """
+helps['cloud select'] = """
 type: command
 short-summary: Select a cloud from supported clouds.
 """
+
+#TODO: Add help for cloud add

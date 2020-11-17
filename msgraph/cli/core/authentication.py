@@ -42,6 +42,7 @@ class Authentication:
         ValueError
             If PyGObject is not installed in the host Linux OS.
         '''
+        # TODO: get authority from profile.json
         return InteractiveBrowserCredential(
             client_id=CLIENT_ID,
             enable_persistent_cache=True,
