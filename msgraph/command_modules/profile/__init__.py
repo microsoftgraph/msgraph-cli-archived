@@ -22,7 +22,6 @@ class ProfileCommandsLoader(AzCommandsLoader):
         with self.command_group('cloud', command_type) as group:
             group.command('select', 'select_cloud')
             group.command('add', 'add_cloud')
-            group.command('reset', 'reset_cloud')
 
         return self.command_table
 
