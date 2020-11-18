@@ -11,23 +11,20 @@ from msgraph.cli import read_profile, write_profile
 
 def select_cloud():
     profile = read_profile()
-
     user_defined_clouds = profile.get('user_defined_clouds', {})
 
     for cloud in user_defined_clouds:
         DEFAULT_CLOUDS.update(cloud)
-
     supported_clouds = list(DEFAULT_CLOUDS.keys())
-    selected = prompt_choice_list('Select a cloud', supported_clouds)
 
+    selected = prompt_choice_list('Select a cloud', supported_clouds)
     profile['cloud'] = DEFAULT_CLOUDS.get(supported_clouds[selected])
     write_profile(json.dumps(profile))
-
     print(f'Selected {supported_clouds[selected]}')
 
 
 def add_cloud(name: str, endpoint: str, authority: str):
-    #TODO: validate that endpoint and authority are valid urls
+    _validate(endpoint)
 
     cloud = {name: {'endpoint': endpoint, 'authority': authority}}
 
@@ -41,3 +38,12 @@ def add_cloud(name: str, endpoint: str, authority: str):
 
     write_profile(json.dumps(profile))
     print(f'Cloud "{name}" added successfully')
+
+
+def _validate(url: str):
+    from urllib import request
+
+    try:
+        request.urlopen(url)
+    except IOError as error:
+        raise Exception('Invalid endpoint')
