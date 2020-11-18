@@ -8,13 +8,14 @@ from azure.identity import InteractiveBrowserCredential, AuthenticationRecord
 
 from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, CLIENT_ID
 from msgraph.cli.core.exceptions import CLIException
+from msgraph.cli import read_profile
 
 
 class Authentication:
     # TODO: Allow users to pass client id
-    def login(self, scopes: [str]) -> bool:
+    def login(self, scopes: [str], client_id=None) -> bool:
         try:
-            credential = self.get_credential()
+            credential = self.get_credential(client_id)
             auth_record = credential.authenticate(scopes=scopes)
 
             if auth_record is None:
@@ -36,16 +37,22 @@ class Authentication:
         # By deleting the authentication record, we logout the user
         self._delete_auth_record()
 
-    def get_credential(self, auth_record=None) -> InteractiveBrowserCredential:
+    def get_credential(self, auth_record=None, user_client_id=None) -> InteractiveBrowserCredential:
         '''
         Raises
         ------
         ValueError
             If PyGObject is not installed in the host Linux OS.
         '''
-        # TODO: get authority from profile.json
+        profile = read_profile()
+        user_cloud = profile.get('cloud', None)
+
+        authority = user_cloud['authority'] if user_cloud else 'https://graph.microsoftonline.com'
+        client_id = user_client_id or CLIENT_ID
+
         return InteractiveBrowserCredential(
-            client_id=CLIENT_ID,
+            authority=authority,
+            client_id=client_id,
             enable_persistent_cache=True,
             allow_unencrypted_cache=False,
             authentication_record=auth_record,
