@@ -7,6 +7,7 @@ from knack.cli import logger
 from knack.util import CLIError
 
 from msgraph.cli.core.authentication import Authentication
+from msgraph.cli.core.profile import read_profile
 from msgraph.core import GraphSession
 
 
@@ -41,5 +42,13 @@ def get_mgmt_service_client(cli_ctx, client_type, **kwargs):
     credential = auth.get_credential(auth_record=record)
     graph_session = GraphSession(credential=credential)
 
-    client = client_type({}, session=graph_session)
+    base_url = None
+    cloud = read_profile().get('cloud', None)
+
+    if cloud:
+        base_url = cloud.get('endpoint')
+    else:
+        base_url = 'https://graph.microsoft.com/v1.0'
+
+    client = client_type({}, session=graph_session, base_url=base_url)
     return client

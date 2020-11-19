@@ -8,14 +8,13 @@ from azure.identity import InteractiveBrowserCredential, AuthenticationRecord
 
 from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, CLIENT_ID
 from msgraph.cli.core.exceptions import CLIException
-from msgraph.cli import read_profile
+from msgraph.cli.core.profile import read_profile
 
 
 class Authentication:
-    # TODO: Allow users to pass client id
     def login(self, scopes: [str], client_id=None) -> bool:
         try:
-            credential = self.get_credential(client_id)
+            credential = self.get_credential(user_client_id=client_id)
             auth_record = credential.authenticate(scopes=scopes)
 
             if auth_record is None:
@@ -47,7 +46,7 @@ class Authentication:
         profile = read_profile()
         user_cloud = profile.get('cloud', None)
 
-        authority = user_cloud['authority'] if user_cloud else 'https://graph.microsoftonline.com'
+        authority = user_cloud['authority'] if user_cloud else 'https://login.microsoftonline.com'
         client_id = user_client_id or CLIENT_ID
 
         return InteractiveBrowserCredential(
