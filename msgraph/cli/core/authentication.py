@@ -48,13 +48,18 @@ class Authentication:
 
         authority = user_cloud['authority'] if user_cloud else 'https://login.microsoftonline.com'
         client_id = user_client_id or CLIENT_ID
+        if auth_record:
+            return InteractiveBrowserCredential(
+                enable_persistent_cache=True,
+                allow_unencrypted_cache=False,
+                authentication_record=auth_record,
+            )
 
         return InteractiveBrowserCredential(
             authority=authority,
             client_id=client_id,
             enable_persistent_cache=True,
             allow_unencrypted_cache=False,
-            authentication_record=auth_record,
         )
 
     def _save_auth_record(self, auth_record: AuthenticationRecord):

@@ -47,6 +47,7 @@ def get_mgmt_service_client(cli_ctx, client_type, **kwargs):
 
     if cloud:
         base_url = cloud.get('endpoint')
+        print(base_url)
     else:
         base_url = 'https://graph.microsoft.com/v1.0'
 
