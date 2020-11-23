@@ -6,7 +6,7 @@
 from os import path, remove
 from azure.identity import InteractiveBrowserCredential, AuthenticationRecord
 
-from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, CLIENT_ID
+from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, DEFAULT_CLIENT_ID, DEFAULT_AUTHORITY
 from msgraph.cli.core.exceptions import CLIException
 from msgraph.cli.core.profile import read_profile
 
@@ -45,9 +45,13 @@ class Authentication:
         '''
         profile = read_profile()
         user_cloud = profile.get('cloud', None)
+        cloud_authority = user_cloud.get('authority', None)
 
-        authority = user_cloud['authority'] if user_cloud else 'https://login.microsoftonline.com'
-        client_id = user_client_id or CLIENT_ID
+        authority = cloud_authority or DEFAULT_AUTHORITY
+        client_id = user_client_id or DEFAULT_CLIENT_ID
+
+        # Once a user is authenticated they get an auth_record object which will have the authority and client_id
+        # therefore we don't need to pass authority and client_id to InteractiveBrowserCredential.
         if auth_record:
             return InteractiveBrowserCredential(
                 enable_persistent_cache=True,
@@ -55,6 +59,7 @@ class Authentication:
                 authentication_record=auth_record,
             )
 
+        # Passes authority and client_id when the user doesn't have an auth record
         return InteractiveBrowserCredential(
             authority=authority,
             client_id=client_id,

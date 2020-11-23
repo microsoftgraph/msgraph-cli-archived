@@ -8,7 +8,8 @@ from os import path
 
 AUTH_RECORD_LOCATION = path.join(Path.home(), '.mg', 'record.txt')
 PROFILE_LOCATION = path.join(Path.home(), '.mg', 'profile.json')
-CLIENT_ID = '837b13ab-6d14-4dc7-837f-8954cc87fdc0'
+DEFAULT_CLIENT_ID = '837b13ab-6d14-4dc7-837f-8954cc87fdc0'
+DEFAULT_AUTHORITY = 'https://login.microsoftonline.com'
 
 CLI_COMMON_KWARGS = [
     'min_api', 'max_api', 'resource_type', 'operation_group', 'custom_command_type', 'command_type',

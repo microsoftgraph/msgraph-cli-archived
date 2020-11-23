@@ -11,6 +11,8 @@ def read_profile() -> dict:
             result = file.read()
         return json.loads(result)
     except IOError as ex:
+        # This error will be thrown if a user has not selected a cloud before.
+        # Returning an empty dictionary so that the result can be processed by json.loads()
         return {}
 
 
