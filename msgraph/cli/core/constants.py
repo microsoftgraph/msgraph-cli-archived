@@ -29,11 +29,11 @@ EXCLUDED_PARAMS = [
 
 DEFAULT_CLOUDS = {
     'PUBLIC': {
-        'endpoint': 'https://graph.microsoft.com',
+        'endpoint': 'https://graph.microsoft.com/v1.0',
         'authority': 'https://login.microsoftonline.com'
     },
     'US_GOV_L4': {
-        'endpoint': 'https://graph.microsoft.us',
+        'endpoint': 'https://graph.microsoft.us/v1.0',
         'authority': 'https://login.microsoftonline.us'
     },
     'US_GOV_L5': {
@@ -41,11 +41,11 @@ DEFAULT_CLOUDS = {
         'authority': 'https://login.microsoftonline.us'
     },
     'GERMANY': {
-        'endpoint': 'https://graph.microsoft.de',
+        'endpoint': 'https://graph.microsoft.de/v1.0',
         'authority': 'https://login.microsoftonline.de'
     },
     'CHINA': {
-        'endpoint': 'https://microsoftgraph.chinacloudapi.cn',
+        'endpoint': 'https://microsoftgraph.chinacloudapi.cn/v1.0',
         'authority': 'https://login.chinacloudapi.cn'
     }
 }
