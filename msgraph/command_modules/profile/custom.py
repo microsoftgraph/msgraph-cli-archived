@@ -20,7 +20,8 @@ def select_cloud():
     selected = prompt_choice_list('Select a cloud', supported_clouds)
     profile['cloud'] = DEFAULT_CLOUDS.get(supported_clouds[selected])
     write_profile(json.dumps(profile))
-    print(f'Selected {supported_clouds[selected]}')
+
+    print(f'Selected {supported_clouds[selected]} cloud')
 
 
 def add_cloud(name: str, endpoint: str, authority: str):
