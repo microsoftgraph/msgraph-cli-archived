@@ -54,6 +54,10 @@ These settings don't need to apply `--cli` on the command line.
 ``` yaml $(cli)
 cli:
   cli-name: {file_name}
+  flatten:
+    cli-flatten-set-enabled: true
+    cli-flatten-payload: true
+    cli-flatten-payload-max-prop: 100
 ```
     """
     write_to('readme.cli.md', config)
@@ -87,7 +91,7 @@ modelerfour:
     lenient-model-deduplication: true
     group-parameters: true
     flatten-models: true
-    flatten-payloads: true 
+    flatten-payloads: true
 ```
   """
     write_to('readme.az.md', config)
@@ -105,7 +109,7 @@ Use `--python-mode=update` if you already have a setup.py and just want to updat
 python:
   azure-arm: true
   license-header: MICROSOFT_MIT_NO_VERSION
-  payload-flattening-threshold: 2
+  payload-flattening-threshold: 1
   namespace: azure.mgmt.{file_name}
   package-name: azure-mgmt-{file_name}
   package-version: 0.1.0
@@ -114,11 +118,13 @@ python:
 ``` yaml $(python) && $(python-mode) == 'update'
 python:
   no-namespace-folders: true
+  payload-flattening-threshold: 1
   output-folder: $(python-sdks-folder)/{file_name}/azure-mgmt-{file_name}/azure/mgmt/{file_name}
 ```
 ``` yaml $(python) && $(python-mode) == 'create'
 python:
   basic-setup-py: true
+  payload-flattening-threshold: 1
   output-folder: $(python-sdks-folder)/msgraph/extensions/{file_name}/azure-mgmt-{file_name}
 ```
   """

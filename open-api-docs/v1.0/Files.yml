@@ -754,6 +754,72 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  '/drives/{drive-id}/following/{driveItem-id}/content':
+    get:
+      tags:
+        - drives.driveItem
+      summary: Get media content for the navigation property following from drives
+      operationId: drives_GetFollowingContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - drives.driveItem
+      summary: Update media content for the navigation property following in drives
+      operationId: drives_SetFollowingContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   '/drives/{drive-id}/items':
     get:
       tags:
@@ -1191,6 +1257,72 @@ paths:
           description: ETag
           schema:
             type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/drives/{drive-id}/items/{driveItem-id}/content':
+    get:
+      tags:
+        - drives.driveItem
+      summary: Get media content for the navigation property items from drives
+      operationId: drives_GetItemsContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - drives.driveItem
+      summary: Update media content for the navigation property items in drives
+      operationId: drives_SetItemsContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
       responses:
         '204':
           description: Success
@@ -3093,6 +3225,72 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  '/drives/{drive-id}/list/items/{listItem-id}/driveItem/content':
+    get:
+      tags:
+        - drives.list
+      summary: Get media content for the navigation property driveItem from drives
+      operationId: drives.list.items_GetDriveItemContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: listItem-id
+          in: path
+          description: 'key: id of listItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: listItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - drives.list
+      summary: Update media content for the navigation property driveItem in drives
+      operationId: drives.list.items_SetDriveItemContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: listItem-id
+          in: path
+          description: 'key: id of listItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: listItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   '/drives/{drive-id}/list/items/{listItem-id}/fields':
     get:
       tags:
@@ -4306,6 +4504,58 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  '/drives/{drive-id}/root/content':
+    get:
+      tags:
+        - drives.driveItem
+      summary: Get media content for the navigation property root from drives
+      operationId: drives_GetRootContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - drives.driveItem
+      summary: Update media content for the navigation property root in drives
+      operationId: drives_SetRootContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   '/drives/{drive-id}/special':
     get:
       tags:
@@ -4743,6 +4993,72 @@ paths:
           description: ETag
           schema:
             type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/drives/{drive-id}/special/{driveItem-id}/content':
+    get:
+      tags:
+        - drives.driveItem
+      summary: Get media content for the navigation property special from drives
+      operationId: drives_GetSpecialContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - drives.driveItem
+      summary: Update media content for the navigation property special in drives
+      operationId: drives_SetSpecialContent
+      parameters:
+        - name: drive-id
+          in: path
+          description: 'key: id of drive'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: drive
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
       responses:
         '204':
           description: Success
@@ -5747,6 +6063,58 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  '/shares/{sharedDriveItem-id}/driveItem/content':
+    get:
+      tags:
+        - shares.driveItem
+      summary: Get media content for the navigation property driveItem from shares
+      operationId: shares_GetDriveItemContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - shares.driveItem
+      summary: Update media content for the navigation property driveItem in shares
+      operationId: shares_SetDriveItemContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   '/shares/{sharedDriveItem-id}/items':
     get:
       tags:
@@ -6184,6 +6552,72 @@ paths:
           description: ETag
           schema:
             type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/shares/{sharedDriveItem-id}/items/{driveItem-id}/content':
+    get:
+      tags:
+        - shares.driveItem
+      summary: Get media content for the navigation property items from shares
+      operationId: shares_GetItemsContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - shares.driveItem
+      summary: Update media content for the navigation property items in shares
+      operationId: shares_SetItemsContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+        - name: driveItem-id
+          in: path
+          description: 'key: id of driveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: driveItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
       responses:
         '204':
           description: Success
@@ -8086,6 +8520,72 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/driveItem/content':
+    get:
+      tags:
+        - shares.list
+      summary: Get media content for the navigation property driveItem from shares
+      operationId: shares.list.items_GetDriveItemContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+        - name: listItem-id
+          in: path
+          description: 'key: id of listItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: listItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - shares.list
+      summary: Update media content for the navigation property driveItem in shares
+      operationId: shares.list.items_SetDriveItemContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+        - name: listItem-id
+          in: path
+          description: 'key: id of listItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: listItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/fields':
     get:
       tags:
@@ -9517,6 +10017,58 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  '/shares/{sharedDriveItem-id}/listItem/driveItem/content':
+    get:
+      tags:
+        - shares.listItem
+      summary: Get media content for the navigation property driveItem from shares
+      operationId: shares.listItem_GetDriveItemContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - shares.listItem
+      summary: Update media content for the navigation property driveItem in shares
+      operationId: shares.listItem_SetDriveItemContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   '/shares/{sharedDriveItem-id}/listItem/fields':
     get:
       tags:
@@ -10417,6 +10969,58 @@ paths:
           description: ETag
           schema:
             type: string
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/shares/{sharedDriveItem-id}/root/content':
+    get:
+      tags:
+        - shares.driveItem
+      summary: Get media content for the navigation property root from shares
+      operationId: shares_GetRootContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+      responses:
+        '200':
+          description: Retrieved media content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    put:
+      tags:
+        - shares.driveItem
+      summary: Update media content for the navigation property root in shares
+      operationId: shares_SetRootContent
+      parameters:
+        - name: sharedDriveItem-id
+          in: path
+          description: 'key: id of sharedDriveItem'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: sharedDriveItem
+      requestBody:
+        description: New media content.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        required: true
       responses:
         '204':
           description: Success
@@ -11539,9 +12143,11 @@ components:
               nullable: true
             latestSupportedTlsVersion:
               type: string
+              description: 'Specifies the latest version of Transport Layer Security (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph defaults the property to v1_2.'
               nullable: true
             lifecycleNotificationUrl:
               type: string
+              description: 'The URL of the endpoint that receives lifecycle notifications, including subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle notifications.'
               nullable: true
             notificationUrl:
               type: string
@@ -12891,7 +13497,7 @@ components:
               nullable: true
             employeeId:
               type: string
-              description: The employee identifier assigned to the user by the organization. Supports $filter.
+              description: The employee identifier assigned to the user by the organization. Returned only on $select. Supports $filter.
               nullable: true
             externalUserState:
               type: string
@@ -12928,7 +13534,7 @@ components:
               nullable: true
             jobTitle:
               type: string
-              description: The user’s job title. Supports $filter.
+              description: The user's job title. Supports $filter.
               nullable: true
             lastPasswordChangeDateTime:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
@@ -12973,7 +13579,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.onPremisesExtensionAttributes'
             onPremisesImmutableId:
               type: string
-              description: 'This property is used to associate an on-premises Active Directory user account to their Azure AD user object. This property must be specified when creating a new user account in the Graph if you are using a federated domain for the user’s userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when specifying this property. Supports $filter.'
+              description: 'This property is used to associate an on-premises Active Directory user account to their Azure AD user object. This property must be specified when creating a new user account in the Graph if you are using a federated domain for the user''s userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when specifying this property. Supports $filter.'
               nullable: true
             onPremisesLastSyncDateTime:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
@@ -13059,7 +13665,7 @@ components:
               nullable: true
             userPrincipalName:
               type: string
-              description: 'The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user''s email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization. Supports $filter and $orderby.'
+              description: 'The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user''s email name. The general format is alias@domain, where domain must be present in the tenant''s collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization. Supports $filter and $orderby.'
               nullable: true
             userType:
               type: string
@@ -13085,7 +13691,7 @@ components:
             hireDate:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
               type: string
-              description: 'The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z'''
+              description: 'The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.'
               format: date-time
             interests:
               type: array
@@ -13287,6 +13893,10 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.team'
+            teamwork:
+              $ref: '#/components/schemas/microsoft.graph.userTeamwork'
+            todo:
+              $ref: '#/components/schemas/microsoft.graph.todo'
           additionalProperties:
             type: object
           description: Represents an Azure Active Directory user object.
@@ -14232,6 +14842,12 @@ components:
               $ref: '#/components/schemas/microsoft.graph.calendarColor'
             defaultOnlineMeetingProvider:
               $ref: '#/components/schemas/microsoft.graph.onlineMeetingProviderType'
+            hexColor:
+              type: string
+              nullable: true
+            isDefaultCalendar:
+              type: boolean
+              nullable: true
             isRemovable:
               type: boolean
               description: Indicates whether this user calendar can be deleted from the user mailbox.
@@ -14329,7 +14945,7 @@ components:
               nullable: true
             iCalUId:
               type: string
-              description: A unique identifier that is shared by all instances of an event across different calendars. Read-only.
+              description: A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.
               nullable: true
             importance:
               $ref: '#/components/schemas/microsoft.graph.importance'
@@ -14340,6 +14956,9 @@ components:
             isCancelled:
               type: boolean
               description: Set to true if the event has been canceled.
+              nullable: true
+            isDraft:
+              type: boolean
               nullable: true
             isOnlineMeeting:
               type: boolean
@@ -14829,7 +15448,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.itemBody'
             webLink:
               type: string
-              description: 'The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.'
+              description: 'The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.'
               nullable: true
             attachments:
               type: array
@@ -15496,6 +16115,31 @@ components:
               $ref: '#/components/schemas/microsoft.graph.channel'
             template:
               $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+          additionalProperties:
+            type: object
+    microsoft.graph.userTeamwork:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: userTeamwork
+          type: object
+          properties:
+            installedApps:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.userScopeTeamsAppInstallation'
+              description: The apps installed in the personal scope of this user.
+          additionalProperties:
+            type: object
+    microsoft.graph.todo:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: todo
+          type: object
+          properties:
+            lists:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.todoTaskList'
           additionalProperties:
             type: object
     microsoft.graph.workbookCommentReply:
@@ -17405,7 +18049,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.channelMembershipType'
             webUrl:
               type: string
-              description: 'A hyperlink that will navigate to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.'
+              description: 'A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.'
               nullable: true
             filesFolder:
               $ref: '#/components/schemas/microsoft.graph.driveItem'
@@ -17486,7 +18130,6 @@ components:
               nullable: true
             mailNickname:
               type: string
-              description: 'The mail alias for the group, unique in the organization. This property must be specified when a group is created. Returned by default. Supports $filter.'
               nullable: true
             membershipRule:
               type: string
@@ -17498,23 +18141,19 @@ components:
               nullable: true
             onPremisesDomainName:
               type: string
-              description: 'Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.'
               nullable: true
             onPremisesLastSyncDateTime:
               pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
               type: string
-              description: 'Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned by default. Read-only. Supports $filter.'
               format: date-time
               nullable: true
             onPremisesNetBiosName:
               type: string
-              description: Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
               nullable: true
             onPremisesProvisioningErrors:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.onPremisesProvisioningError'
-              description: Errors when using Microsoft synchronization product during provisioning. Returned by default.
             onPremisesSamAccountName:
               type: string
               description: Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
@@ -17774,6 +18413,41 @@ components:
         - $ref: '#/components/schemas/microsoft.graph.entity'
         - title: teamsTemplate
           type: object
+          additionalProperties:
+            type: object
+    microsoft.graph.userScopeTeamsAppInstallation:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.teamsAppInstallation'
+        - title: userScopeTeamsAppInstallation
+          type: object
+          properties:
+            chat:
+              $ref: '#/components/schemas/microsoft.graph.chat'
+          additionalProperties:
+            type: object
+    microsoft.graph.todoTaskList:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: todoTaskList
+          type: object
+          properties:
+            displayName:
+              type: string
+              nullable: true
+            isOwner:
+              type: boolean
+            isShared:
+              type: boolean
+            wellknownListName:
+              $ref: '#/components/schemas/microsoft.graph.wellknownListName'
+            extensions:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.extension'
+            tasks:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.todoTask'
           additionalProperties:
             type: object
     microsoft.graph.workbookFilter:
@@ -19398,6 +20072,68 @@ components:
         - failed
         - unknownFutureValue
       type: string
+    microsoft.graph.chat:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: chat
+          type: object
+          additionalProperties:
+            type: object
+    microsoft.graph.wellknownListName:
+      title: wellknownListName
+      enum:
+        - none
+        - defaultList
+        - flaggedEmails
+        - unknownFutureValue
+      type: string
+    microsoft.graph.todoTask:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: todoTask
+          type: object
+          properties:
+            body:
+              $ref: '#/components/schemas/microsoft.graph.itemBody'
+            bodyLastModifiedDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              format: date-time
+            completedDateTime:
+              $ref: '#/components/schemas/microsoft.graph.dateTimeTimeZone'
+            createdDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              format: date-time
+            dueDateTime:
+              $ref: '#/components/schemas/microsoft.graph.dateTimeTimeZone'
+            importance:
+              $ref: '#/components/schemas/microsoft.graph.importance'
+            isReminderOn:
+              type: boolean
+            lastModifiedDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              format: date-time
+            recurrence:
+              $ref: '#/components/schemas/microsoft.graph.patternedRecurrence'
+            reminderDateTime:
+              $ref: '#/components/schemas/microsoft.graph.dateTimeTimeZone'
+            status:
+              $ref: '#/components/schemas/microsoft.graph.taskStatus'
+            title:
+              type: string
+              nullable: true
+            extensions:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.extension'
+            linkedResources:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.linkedResource'
+          additionalProperties:
+            type: object
     microsoft.graph.workbookFilterCriteria:
       title: workbookFilterCriteria
       type: object
@@ -19910,6 +20646,7 @@ components:
           $ref: '#/components/schemas/microsoft.graph.chatMessagePolicyViolationDlpActionTypes'
         justificationText:
           type: string
+          description: Justification text provided by the sender of the message when overriding a policy violation.
           nullable: true
         policyTip:
           $ref: '#/components/schemas/microsoft.graph.chatMessagePolicyViolationPolicyTip'
@@ -20041,6 +20778,35 @@ components:
         - sideloaded
         - unknownFutureValue
       type: string
+    microsoft.graph.taskStatus:
+      title: taskStatus
+      enum:
+        - notStarted
+        - inProgress
+        - completed
+        - waitingOnOthers
+        - deferred
+      type: string
+    microsoft.graph.linkedResource:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: linkedResource
+          type: object
+          properties:
+            applicationName:
+              type: string
+              nullable: true
+            displayName:
+              type: string
+              nullable: true
+            externalId:
+              type: string
+              nullable: true
+            webUrl:
+              type: string
+              nullable: true
+          additionalProperties:
+            type: object
     microsoft.graph.workbookChartAxisFormat:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.entity'
@@ -20186,15 +20952,18 @@ components:
       properties:
         complianceUrl:
           type: string
+          description: 'The URL a user can visit to read about the data loss prevention policies for the organization. (ie, policies about what users shouldn''t say in chats)'
           nullable: true
         generalText:
           type: string
+          description: Explanatory text shown to the sender of the message.
           nullable: true
         matchedConditionDescriptions:
           type: array
           items:
             type: string
             nullable: true
+          description: 'The list of improper data in the message that was detected by the data loss prevention app. Each DLP app defines its own conditions, examples include ''Credit Card Number'' and ''Social Security Number''.'
       additionalProperties:
         type: object
     microsoft.graph.chatMessagePolicyViolationUserActionTypes:
