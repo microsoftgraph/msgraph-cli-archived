@@ -44,7 +44,7 @@ class ContractContractOperations:
 
     def list_contract(
         self,
-        orderby: Optional[List[Union[str, "models.Enum16"]]] = None,
+        orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
         select: Optional[List[Union[str, "models.Enum17"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
@@ -54,7 +54,7 @@ class ContractContractOperations:
         Get entities from contracts.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_directory_management.models.Enum16]
+        :type orderby: list[str or ~identity_directory_management.models.Get5ItemsItem]
         :param select: Select properties to be returned.
         :type select: list[str or ~identity_directory_management.models.Enum17]
         :param expand: Expand related entities.

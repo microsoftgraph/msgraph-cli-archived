@@ -44,8 +44,8 @@ class PolicyPermissionGrantPolicyOperations:
     def list_exclude(
         self,
         permission_grant_policy_id: str,
-        orderby: Optional[List[Union[str, "models.Enum138"]]] = None,
-        select: Optional[List[Union[str, "models.Enum139"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum140"]]] = None,
+        select: Optional[List[Union[str, "models.Enum141"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfPermissionGrantConditionSet"]:
@@ -56,9 +56,9 @@ class PolicyPermissionGrantPolicyOperations:
         :param permission_grant_policy_id: key: id of permissionGrantPolicy.
         :type permission_grant_policy_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum138]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum140]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum139]
+        :type select: list[str or ~identity_sign_ins.models.Enum141]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -227,7 +227,7 @@ class PolicyPermissionGrantPolicyOperations:
         self,
         permission_grant_policy_id: str,
         permission_grant_condition_set_id: str,
-        select: Optional[List[Union[str, "models.Enum140"]]] = None,
+        select: Optional[List[Union[str, "models.Enum142"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphPermissionGrantConditionSet":
@@ -240,7 +240,7 @@ class PolicyPermissionGrantPolicyOperations:
         :param permission_grant_condition_set_id: key: id of permissionGrantConditionSet.
         :type permission_grant_condition_set_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum140]
+        :type select: list[str or ~identity_sign_ins.models.Enum142]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -439,8 +439,8 @@ class PolicyPermissionGrantPolicyOperations:
     def list_include(
         self,
         permission_grant_policy_id: str,
-        orderby: Optional[List[Union[str, "models.Enum141"]]] = None,
-        select: Optional[List[Union[str, "models.Enum142"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum143"]]] = None,
+        select: Optional[List[Union[str, "models.Enum144"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfPermissionGrantConditionSet0"]:
@@ -451,9 +451,9 @@ class PolicyPermissionGrantPolicyOperations:
         :param permission_grant_policy_id: key: id of permissionGrantPolicy.
         :type permission_grant_policy_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum141]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum143]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum142]
+        :type select: list[str or ~identity_sign_ins.models.Enum144]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -622,7 +622,7 @@ class PolicyPermissionGrantPolicyOperations:
         self,
         permission_grant_policy_id: str,
         permission_grant_condition_set_id: str,
-        select: Optional[List[Union[str, "models.Enum143"]]] = None,
+        select: Optional[List[Union[str, "models.Enum145"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphPermissionGrantConditionSet":
@@ -635,7 +635,7 @@ class PolicyPermissionGrantPolicyOperations:
         :param permission_grant_condition_set_id: key: id of permissionGrantConditionSet.
         :type permission_grant_condition_set_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum143]
+        :type select: list[str or ~identity_sign_ins.models.Enum145]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

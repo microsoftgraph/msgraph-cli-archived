@@ -36,8 +36,8 @@ create-notebook a notes.
 |**--user-role**|choice||user_role|userRole|
 |**--section-groups**|array|The section groups in the notebook. Read-only. Nullable.|section_groups|sectionGroups|
 |**--sections**|array|The sections in the notebook. Read-only. Nullable.|sections|sections|
-|**--links-one-note-client-url**|object|externalLink|one_note_client_url|oneNoteClientUrl|
-|**--links-one-note-web-url**|object|externalLink|one_note_web_url|oneNoteWebUrl|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes create-operation
 
@@ -85,7 +85,21 @@ create-page a notes.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--self**|string|The endpoint where you can get details about the page. Read-only.|self|self|
+|**--created-date-time**|date-time|The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|created_date_time|createdDateTime|
+|**--content**|byte-array|The page's HTML content.|content|content|
+|**--content-url**|string|The URL for the page's HTML content.  Read-only.|content_url|contentUrl|
+|**--created-by-app-id**|string|The unique identifier of the application that created the page. Read-only.|created_by_app_id|createdByAppId|
+|**--last-modified-date-time**|date-time|The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--level**|integer|The indentation level of the page. Read-only.|level|level|
+|**--order**|integer|The order of the page within its parent section. Read-only.|order|order|
+|**--title**|string|The title of the page.|title|title|
+|**--user-tags**|array||user_tags|userTags|
+|**--parent-notebook**|object|notebook|parent_notebook|parentNotebook|
+|**--parent-section**|object|onenoteSection|parent_section|parentSection|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes create-resource
 
@@ -129,7 +143,24 @@ create-section a notes.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--self**|string|The endpoint where you can get details about the page. Read-only.|self|self|
+|**--created-date-time**|date-time|The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|created_date_time|createdDateTime|
+|**--display-name**|string|The name of the notebook.|display_name|displayName|
+|**--last-modified-date-time**|date-time|The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--last-modified-by-user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--is-default**|boolean|Indicates whether this is the user's default section. Read-only.|is_default|isDefault|
+|**--pages-url**|string|The pages endpoint where you can get details for all the pages in the section. Read-only.|pages_url|pagesUrl|
+|**--pages**|array|The collection of pages in the section.  Read-only. Nullable.|pages|pages|
+|**--parent-notebook**|object|notebook|parent_notebook|parentNotebook|
+|**--parent-section-group**|object|sectionGroup|parent_section_group|parentSectionGroup|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes create-section-group
 
@@ -280,6 +311,27 @@ get-page a notes.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### notes get-page-content
+
+get-page-content a notes.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|notes|users.onenote.sections|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-page-content|GetPagesContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+
 ### notes get-parent-notebook
 
 get-parent-notebook a notes.
@@ -368,6 +420,26 @@ get-resource a notes.
 |**--onenote-resource-id**|string|key: id of onenoteResource|onenote_resource_id|onenoteResource-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### notes get-resource-content
+
+get-resource-content a notes.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|notes|users.onenote|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-resource-content|GetResourcesContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-resource-id**|string|key: id of onenoteResource|onenote_resource_id|onenoteResource-id|
 
 ### notes get-section
 
@@ -550,6 +622,49 @@ list-section-group a notes.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### notes set-page-content
+
+set-page-content a notes.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|notes|users.onenote.sections|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-page-content|SetPagesContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
+|**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
+|**--data**|binary|New media content.|data|data|
+
+### notes set-resource-content
+
+set-resource-content a notes.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|notes|users.onenote|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-resource-content|SetResourcesContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--onenote-resource-id**|string|key: id of onenoteResource|onenote_resource_id|onenoteResource-id|
+|**--data**|binary|New media content.|data|data|
+
 ### notes update-notebook
 
 update-notebook a notes.
@@ -587,8 +702,8 @@ update-notebook a notes.
 |**--user-role**|choice||user_role|userRole|
 |**--section-groups**|array|The section groups in the notebook. Read-only. Nullable.|section_groups|sectionGroups|
 |**--sections**|array|The sections in the notebook. Read-only. Nullable.|sections|sections|
-|**--links-one-note-client-url**|object|externalLink|one_note_client_url|oneNoteClientUrl|
-|**--links-one-note-web-url**|object|externalLink|one_note_web_url|oneNoteWebUrl|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes update-onenote
 
@@ -664,7 +779,21 @@ update-page a notes.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
 |**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--self**|string|The endpoint where you can get details about the page. Read-only.|self|self|
+|**--created-date-time**|date-time|The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|created_date_time|createdDateTime|
+|**--content**|byte-array|The page's HTML content.|content|content|
+|**--content-url**|string|The URL for the page's HTML content.  Read-only.|content_url|contentUrl|
+|**--created-by-app-id**|string|The unique identifier of the application that created the page. Read-only.|created_by_app_id|createdByAppId|
+|**--last-modified-date-time**|date-time|The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--level**|integer|The indentation level of the page. Read-only.|level|level|
+|**--order**|integer|The order of the page within its parent section. Read-only.|order|order|
+|**--title**|string|The title of the page.|title|title|
+|**--user-tags**|array||user_tags|userTags|
+|**--parent-notebook**|object|notebook|parent_notebook|parentNotebook|
+|**--parent-section**|object|onenoteSection|parent_section|parentSection|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes update-parent-notebook
 
@@ -703,8 +832,8 @@ update-parent-notebook a notes.
 |**--user-role**|choice||user_role|userRole|
 |**--section-groups**|array|The section groups in the notebook. Read-only. Nullable.|section_groups|sectionGroups|
 |**--sections**|array|The sections in the notebook. Read-only. Nullable.|sections|sections|
-|**--links-one-note-client-url**|object|externalLink|one_note_client_url|oneNoteClientUrl|
-|**--links-one-note-web-url**|object|externalLink|one_note_web_url|oneNoteWebUrl|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes update-parent-section
 
@@ -726,7 +855,24 @@ update-parent-section a notes.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
 |**--onenote-page-id**|string|key: id of onenotePage|onenote_page_id|onenotePage-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--self**|string|The endpoint where you can get details about the page. Read-only.|self|self|
+|**--created-date-time**|date-time|The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|created_date_time|createdDateTime|
+|**--display-name**|string|The name of the notebook.|display_name|displayName|
+|**--last-modified-date-time**|date-time|The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--last-modified-by-user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--is-default**|boolean|Indicates whether this is the user's default section. Read-only.|is_default|isDefault|
+|**--pages-url**|string|The pages endpoint where you can get details for all the pages in the section. Read-only.|pages_url|pagesUrl|
+|**--pages**|array|The collection of pages in the section.  Read-only. Nullable.|pages|pages|
+|**--parent-notebook**|object|notebook|parent_notebook|parentNotebook|
+|**--parent-section-group**|object|sectionGroup|parent_section_group|parentSectionGroup|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes update-parent-section-group
 
@@ -809,7 +955,24 @@ update-section a notes.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--onenote-section-id**|string|key: id of onenoteSection|onenote_section_id|onenoteSection-id|
 |**--onenote-section-id1**|string|key: id of onenoteSection|onenote_section_id1|onenoteSection-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--self**|string|The endpoint where you can get details about the page. Read-only.|self|self|
+|**--created-date-time**|date-time|The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|created_date_time|createdDateTime|
+|**--display-name**|string|The name of the notebook.|display_name|displayName|
+|**--last-modified-date-time**|date-time|The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--last-modified-by-user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--is-default**|boolean|Indicates whether this is the user's default section. Read-only.|is_default|isDefault|
+|**--pages-url**|string|The pages endpoint where you can get details for all the pages in the section. Read-only.|pages_url|pagesUrl|
+|**--pages**|array|The collection of pages in the section.  Read-only. Nullable.|pages|pages|
+|**--parent-notebook**|object|notebook|parent_notebook|parentNotebook|
+|**--parent-section-group**|object|sectionGroup|parent_section_group|parentSectionGroup|
+|**--links-one-note-web-url-href**|string|The url of the link.|href|href|
+|**--links-one-note-client-url-href**|string|The url of the link.|microsoft_graph_external_link_href|href|
 
 ### notes update-section-group
 

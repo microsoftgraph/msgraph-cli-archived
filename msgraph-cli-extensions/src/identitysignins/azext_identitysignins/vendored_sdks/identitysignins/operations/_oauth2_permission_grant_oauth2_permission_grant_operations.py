@@ -47,8 +47,8 @@ class Oauth2PermissionGrantOAuth2PermissionGrantOperations(object):
 
     def list_o_auth2_permission_grant(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum105"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum106"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum107"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum108"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -58,9 +58,9 @@ class Oauth2PermissionGrantOAuth2PermissionGrantOperations(object):
         Get entities from oauth2PermissionGrants.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum105]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum107]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum106]
+        :type select: list[str or ~identity_sign_ins.models.Enum108]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -224,7 +224,7 @@ class Oauth2PermissionGrantOAuth2PermissionGrantOperations(object):
     def get_o_auth2_permission_grant(
         self,
         o_auth2_permission_grant_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum107"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum109"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -236,7 +236,7 @@ class Oauth2PermissionGrantOAuth2PermissionGrantOperations(object):
         :param o_auth2_permission_grant_id: key: id of oAuth2PermissionGrant.
         :type o_auth2_permission_grant_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum107]
+        :type select: list[str or ~identity_sign_ins.models.Enum109]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

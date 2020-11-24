@@ -43,7 +43,7 @@ class ChatChatOperations:
 
     def list_chat(
         self,
-        orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum9"]]] = None,
         select: Optional[List[str]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
@@ -53,7 +53,7 @@ class ChatChatOperations:
         Get entities from chats.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Get5ItemsItem]
+        :type orderby: list[str or ~teams.models.Enum9]
         :param select: Select properties to be returned.
         :type select: list[str]
         :param expand: Expand related entities.

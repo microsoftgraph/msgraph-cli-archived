@@ -45,8 +45,8 @@ class SiteSiteOperations:
     def list_site(
         self,
         orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
-        select: Optional[List[Union[str, "models.Enum65"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum66"]]] = None,
+        select: Optional[List[Union[str, "models.Enum67"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum68"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfSite0"]:
         """Get entities from sites.
@@ -56,9 +56,9 @@ class SiteSiteOperations:
         :param orderby: Order items by property values.
         :type orderby: list[str or ~sites.models.Get5ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum65]
+        :type select: list[str or ~sites.models.Enum67]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum66]
+        :type expand: list[str or ~sites.models.Enum68]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfSite0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~sites.models.CollectionOfSite0]
@@ -346,7 +346,7 @@ class SiteSiteOperations:
         self,
         site_id: str,
         select: Optional[List[Union[str, "models.Get1ItemsItem"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum68"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum70"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphSite":
         """Get entity from sites by key.
@@ -358,7 +358,7 @@ class SiteSiteOperations:
         :param select: Select properties to be returned.
         :type select: list[str or ~sites.models.Get1ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum68]
+        :type expand: list[str or ~sites.models.Enum70]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSite, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphSite

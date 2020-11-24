@@ -125,6 +125,119 @@ associated with the user won't show up as having changed when using delta.
 helps['education create-user'] = """
     type: command
     short-summary: "Create new navigation property to users for education"
+    parameters:
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --mailing-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --mailing-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --residence-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --residence-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --student
+        short-summary: "educationStudent"
+        long-summary: |
+            Usage: --student birth-date=XX external-id=XX gender=XX grade=XX graduation-year=XX student-number=XX
+
+            birth-date: Birth date of the student.
+            external-id: ID of the student in the source system.
+            grade: Current grade level of the student.
+            graduation-year: Year the student is graduating from the school.
+            student-number: Student Number.
+      - name: --teacher
+        short-summary: "educationTeacher"
+        long-summary: |
+            Usage: --teacher external-id=XX teacher-number=XX
+
+            external-id: ID of the teacher in the source system.
+            teacher-number: Teacher number.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education get-class'] = """
@@ -207,6 +320,119 @@ associated with the user won't show up as having changed when using delta.
 helps['education update-me'] = """
     type: command
     short-summary: "Update the navigation property me in education"
+    parameters:
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --mailing-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --mailing-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --residence-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --residence-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --student
+        short-summary: "educationStudent"
+        long-summary: |
+            Usage: --student birth-date=XX external-id=XX gender=XX grade=XX graduation-year=XX student-number=XX
+
+            birth-date: Birth date of the student.
+            external-id: ID of the student in the source system.
+            grade: Current grade level of the student.
+            graduation-year: Year the student is graduating from the school.
+            student-number: Student Number.
+      - name: --teacher
+        short-summary: "educationTeacher"
+        long-summary: |
+            Usage: --teacher external-id=XX teacher-number=XX
+
+            external-id: ID of the teacher in the source system.
+            teacher-number: Teacher number.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education update-school'] = """
@@ -255,6 +481,119 @@ associated with the user won't show up as having changed when using delta.
 helps['education update-user'] = """
     type: command
     short-summary: "Update the navigation property users in education"
+    parameters:
+      - name: --assigned-licenses
+        short-summary: "The licenses that are assigned to the user. Not nullable."
+        long-summary: |
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
+
+            disabled-plans: A collection of the unique identifiers for plans that have been disabled.
+            sku-id: The unique identifier for the SKU.
+
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --assigned-plans
+        short-summary: "The plans that are assigned to the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --assigned-plans assigned-date-time=XX capability-status=XX service=XX service-plan-id=XX
+
+            assigned-date-time: The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z. \
+The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, \
+midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            capability-status: For example, 'Enabled'.
+            service: The name of the service; for example, 'Exchange'.
+            service-plan-id: A GUID that identifies the service plan.
+
+            Multiple actions can be specified by using more than one --assigned-plans argument.
+      - name: --mailing-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --mailing-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --password-profile
+        short-summary: "passwordProfile"
+        long-summary: |
+            Usage: --password-profile force-change-password-next-sign-in=XX force-change-password-next-sign-in-with-mfa\
+=XX password=XX
+
+            force-change-password-next-sign-in: true if the user must change her password on the next login; otherwise \
+false.
+            force-change-password-next-sign-in-with-mfa: If true, at next sign-in, the user must perform a \
+multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to \
+forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before \
+password change. After a password change, this property will be automatically reset to false. If not set, default is \
+false.
+            password: The password for the user. This property is required when a user is created. It can be updated, \
+but the user will be required to change the password on the next login. The password must satisfy minimum requirements \
+as specified by the user’s passwordPolicies property. By default, a strong password is required.
+      - name: --provisioned-plans
+        short-summary: "The plans that are provisioned for the user. Read-only. Not nullable."
+        long-summary: |
+            Usage: --provisioned-plans capability-status=XX provisioning-status=XX service=XX
+
+            capability-status: For example, 'Enabled'.
+            provisioning-status: For example, 'Success'.
+            service: The name of the service; for example, 'AccessControlS2S'
+
+            Multiple actions can be specified by using more than one --provisioned-plans argument.
+      - name: --residence-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --residence-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --student
+        short-summary: "educationStudent"
+        long-summary: |
+            Usage: --student birth-date=XX external-id=XX gender=XX grade=XX graduation-year=XX student-number=XX
+
+            birth-date: Birth date of the student.
+            external-id: ID of the student in the source system.
+            grade: Current grade level of the student.
+            graduation-year: Year the student is graduating from the school.
+            student-number: Student Number.
+      - name: --teacher
+        short-summary: "educationTeacher"
+        long-summary: |
+            Usage: --teacher external-id=XX teacher-number=XX
+
+            external-id: ID of the teacher in the source system.
+            teacher-number: Teacher number.
+      - name: --created-by-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --created-by-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --created-by-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education'] = """

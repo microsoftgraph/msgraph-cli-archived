@@ -49,8 +49,8 @@ class SiteOperations(object):
     def get_analytic(
         self,
         site_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum69"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum70"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum71"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum72"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphItemAnalytics"
@@ -61,9 +61,9 @@ class SiteOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum69]
+        :type select: list[str or ~sites.models.Enum71]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum70]
+        :type expand: list[str or ~sites.models.Enum72]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphItemAnalytics, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphItemAnalytics
@@ -281,8 +281,8 @@ class SiteOperations(object):
     def list_column(
         self,
         site_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum71"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum72"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum73"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum74"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -294,9 +294,9 @@ class SiteOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum71]
+        :type orderby: list[str or ~sites.models.Enum73]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum72]
+        :type select: list[str or ~sites.models.Enum74]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -505,7 +505,7 @@ class SiteOperations(object):
         self,
         site_id,  # type: str
         column_definition_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum73"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -519,7 +519,7 @@ class SiteOperations(object):
         :param column_definition_id: key: id of columnDefinition.
         :type column_definition_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum73]
+        :type select: list[str or ~sites.models.Enum75]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -759,9 +759,9 @@ class SiteOperations(object):
     def list_content_type(
         self,
         site_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum74"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum76"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum76"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum77"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum78"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfContentType"]
@@ -772,11 +772,11 @@ class SiteOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum74]
+        :type orderby: list[str or ~sites.models.Enum76]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum75]
+        :type select: list[str or ~sites.models.Enum77]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum76]
+        :type expand: list[str or ~sites.models.Enum78]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfContentType or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfContentType]
@@ -976,8 +976,8 @@ class SiteOperations(object):
         self,
         site_id,  # type: str
         content_type_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum77"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum78"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum80"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphContentType"
@@ -990,9 +990,9 @@ class SiteOperations(object):
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum77]
+        :type select: list[str or ~sites.models.Enum79]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum78]
+        :type expand: list[str or ~sites.models.Enum80]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphContentType, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphContentType
@@ -1223,8 +1223,8 @@ class SiteOperations(object):
     def get_drive(
         self,
         site_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum82"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum83"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum84"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum85"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDrive"
@@ -1235,9 +1235,9 @@ class SiteOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum82]
+        :type select: list[str or ~sites.models.Enum84]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum83]
+        :type expand: list[str or ~sites.models.Enum85]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDrive, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphDrive
@@ -1524,9 +1524,9 @@ class SiteOperations(object):
     def list_drive(
         self,
         site_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum84"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum85"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum87"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum88"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfDrive"]
@@ -1537,11 +1537,11 @@ class SiteOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum84]
+        :type orderby: list[str or ~sites.models.Enum86]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum85]
+        :type select: list[str or ~sites.models.Enum87]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum86]
+        :type expand: list[str or ~sites.models.Enum88]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfDrive or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfDrive]
@@ -1806,8 +1806,8 @@ class SiteOperations(object):
         self,
         site_id,  # type: str
         drive_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum87"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum88"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum89"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum90"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDrive"
@@ -1820,9 +1820,9 @@ class SiteOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum87]
+        :type select: list[str or ~sites.models.Enum89]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum88]
+        :type expand: list[str or ~sites.models.Enum90]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDrive, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphDrive
@@ -2119,9 +2119,9 @@ class SiteOperations(object):
     def list_list(
         self,
         site_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum89"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum90"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum91"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum91"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum92"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum93"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfList"]
@@ -2132,11 +2132,11 @@ class SiteOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum89]
+        :type orderby: list[str or ~sites.models.Enum91]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum90]
+        :type select: list[str or ~sites.models.Enum92]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum91]
+        :type expand: list[str or ~sites.models.Enum93]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfList or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfList]
@@ -2375,8 +2375,8 @@ class SiteOperations(object):
         self,
         site_id,  # type: str
         list_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum92"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum93"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum94"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum95"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphList"
@@ -2389,9 +2389,9 @@ class SiteOperations(object):
         :param list_id: key: id of list.
         :type list_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum92]
+        :type select: list[str or ~sites.models.Enum94]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum93]
+        :type expand: list[str or ~sites.models.Enum95]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphList, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphList
@@ -2839,9 +2839,9 @@ class SiteOperations(object):
     def list_site(
         self,
         site_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum127"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum128"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum129"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum129"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum130"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum131"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfSite1"]
@@ -2852,11 +2852,11 @@ class SiteOperations(object):
         :param site_id: key: id of site.
         :type site_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum127]
+        :type orderby: list[str or ~sites.models.Enum129]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum128]
+        :type select: list[str or ~sites.models.Enum130]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum129]
+        :type expand: list[str or ~sites.models.Enum131]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfSite1 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfSite1]
@@ -3156,8 +3156,8 @@ class SiteOperations(object):
         self,
         site_id,  # type: str
         site_id1,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum130"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum131"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum132"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum133"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphSite"
@@ -3170,9 +3170,9 @@ class SiteOperations(object):
         :param site_id1: key: id of site.
         :type site_id1: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum130]
+        :type select: list[str or ~sites.models.Enum132]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum131]
+        :type expand: list[str or ~sites.models.Enum133]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSite, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphSite

@@ -49,7 +49,7 @@ helps['users'] = """
 
 helps['users delete'] = """
     type: command
-    short-summary: "Delete navigation property settings for users"
+    short-summary: "Delete navigation property todo for users"
 """
 
 helps['users create-extension'] = """
@@ -149,6 +149,11 @@ helps['users get-photo'] = """
     short-summary: "Get photo from users"
 """
 
+helps['users get-photo-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property photo from users"
+"""
+
 helps['users get-ref-manager'] = """
     type: command
     short-summary: "Get ref of manager from users"
@@ -157,6 +162,11 @@ helps['users get-ref-manager'] = """
 helps['users get-setting'] = """
     type: command
     short-summary: "Get settings from users"
+"""
+
+helps['users get-todo'] = """
+    type: command
+    short-summary: "Get todo from users"
 """
 
 helps['users list-created-object'] = """
@@ -254,6 +264,11 @@ helps['users list-transitive-member-of'] = """
     short-summary: "Get transitiveMemberOf from users"
 """
 
+helps['users set-photo-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property photo in users"
+"""
+
 helps['users set-ref-manager'] = """
     type: command
     short-summary: "Update the ref of navigation property manager in users"
@@ -340,6 +355,11 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
+helps['users update-todo'] = """
+    type: command
+    short-summary: "Update the navigation property todo in users"
+"""
+
 helps['users'] = """
     type: group
     short-summary: users
@@ -416,4 +436,306 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['users'] = """
+    type: group
+    short-summary: users
+"""
+
+helps['users delete'] = """
+    type: command
+    short-summary: "Delete navigation property lists for users"
+"""
+
+helps['users create-list'] = """
+    type: command
+    short-summary: "Create new navigation property to lists for users"
+    parameters:
+      - name: --extensions
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+"""
+
+helps['users get-list'] = """
+    type: command
+    short-summary: "Get lists from users"
+"""
+
+helps['users list-list'] = """
+    type: command
+    short-summary: "Get lists from users"
+"""
+
+helps['users update-list'] = """
+    type: command
+    short-summary: "Update the navigation property lists in users"
+    parameters:
+      - name: --extensions
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+"""
+
+helps['users'] = """
+    type: group
+    short-summary: users
+"""
+
+helps['users delete'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for users"
+"""
+
+helps['users create-extension'] = """
+    type: command
+    short-summary: "Create new navigation property to extensions for users"
+"""
+
+helps['users create-task'] = """
+    type: command
+    short-summary: "Create new navigation property to tasks for users"
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --reminder-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --reminder-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --extensions
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --linked-resources
+        long-summary: |
+            Usage: --linked-resources application-name=XX display-name=XX external-id=XX web-url=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --linked-resources argument.
+      - name: --recurrence-pattern
+        short-summary: "recurrencePattern"
+        long-summary: |
+            Usage: --recurrence-pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX \
+month=XX type=XX
+
+            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
+absoluteYearly.
+            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
+sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
+daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
+is weekly, relativeMonthly, or relativeYearly.
+            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
+depending on the type. Required.
+            month: The month in which the event occurs.  This is a number from 1 to 12.
+      - name: --recurrence-range
+        short-summary: "recurrenceRange"
+        long-summary: |
+            Usage: --recurrence-range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX \
+type=XX
+
+            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
+event, the last occurrence of the meeting may not be this date. Required if type is endDate.
+            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
+numbered.
+            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
+time zone of the event is used.
+            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
+this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
+the recurring event. Required.
+"""
+
+helps['users get-extension'] = """
+    type: command
+    short-summary: "Get extensions from users"
+"""
+
+helps['users get-task'] = """
+    type: command
+    short-summary: "Get tasks from users"
+"""
+
+helps['users list-extension'] = """
+    type: command
+    short-summary: "Get extensions from users"
+"""
+
+helps['users list-task'] = """
+    type: command
+    short-summary: "Get tasks from users"
+"""
+
+helps['users update-extension'] = """
+    type: command
+    short-summary: "Update the navigation property extensions in users"
+"""
+
+helps['users update-task'] = """
+    type: command
+    short-summary: "Update the navigation property tasks in users"
+    parameters:
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --reminder-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --reminder-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --extensions
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --linked-resources
+        long-summary: |
+            Usage: --linked-resources application-name=XX display-name=XX external-id=XX web-url=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --linked-resources argument.
+      - name: --recurrence-pattern
+        short-summary: "recurrencePattern"
+        long-summary: |
+            Usage: --recurrence-pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX \
+month=XX type=XX
+
+            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
+absoluteYearly.
+            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
+sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
+daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
+is weekly, relativeMonthly, or relativeYearly.
+            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
+depending on the type. Required.
+            month: The month in which the event occurs.  This is a number from 1 to 12.
+      - name: --recurrence-range
+        short-summary: "recurrenceRange"
+        long-summary: |
+            Usage: --recurrence-range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX \
+type=XX
+
+            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
+event, the last occurrence of the meeting may not be this date. Required if type is endDate.
+            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
+numbered.
+            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
+time zone of the event is used.
+            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
+this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
+the recurring event. Required.
+"""
+
+helps['users'] = """
+    type: group
+    short-summary: users
+"""
+
+helps['users delete'] = """
+    type: command
+    short-summary: "Delete navigation property linkedResources for users"
+"""
+
+helps['users create-extension'] = """
+    type: command
+    short-summary: "Create new navigation property to extensions for users"
+"""
+
+helps['users create-linked-resource'] = """
+    type: command
+    short-summary: "Create new navigation property to linkedResources for users"
+"""
+
+helps['users get-extension'] = """
+    type: command
+    short-summary: "Get extensions from users"
+"""
+
+helps['users get-linked-resource'] = """
+    type: command
+    short-summary: "Get linkedResources from users"
+"""
+
+helps['users list-extension'] = """
+    type: command
+    short-summary: "Get extensions from users"
+"""
+
+helps['users list-linked-resource'] = """
+    type: command
+    short-summary: "Get linkedResources from users"
+"""
+
+helps['users update-extension'] = """
+    type: command
+    short-summary: "Update the navigation property extensions in users"
+"""
+
+helps['users update-linked-resource'] = """
+    type: command
+    short-summary: "Update the navigation property linkedResources in users"
 """

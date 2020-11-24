@@ -26,22 +26,264 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
             raise AttributeError(name)
 
 
-class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum24(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    AUDIO_CONFERENCING = "audioConferencing"
-    CHAT_INFO = "chatInfo"
-    CREATION_DATE_TIME = "creationDateTime"
     END_DATE_TIME = "endDateTime"
-    EXTERNAL_ID = "externalId"
-    JOIN_INFORMATION = "joinInformation"
     JOIN_WEB_URL = "joinWebUrl"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    MODALITIES = "modalities"
+    ORGANIZER = "organizer"
     PARTICIPANTS = "participants"
     START_DATE_TIME = "startDateTime"
-    SUBJECT = "subject"
-    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+    TYPE = "type"
+    VERSION = "version"
+    SESSIONS = "sessions"
 
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum26(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CALLEE = "callee"
+    CALLEE_DESC = "callee desc"
+    CALLER = "caller"
+    CALLER_DESC = "caller desc"
+    END_DATE_TIME = "endDateTime"
+    END_DATE_TIME_DESC = "endDateTime desc"
+    FAILURE_INFO = "failureInfo"
+    FAILURE_INFO_DESC = "failureInfo desc"
+    MODALITIES = "modalities"
+    MODALITIES_DESC = "modalities desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+
+class Enum27(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CALLEE = "callee"
+    CALLER = "caller"
+    END_DATE_TIME = "endDateTime"
+    FAILURE_INFO = "failureInfo"
+    MODALITIES = "modalities"
+    START_DATE_TIME = "startDateTime"
+    SEGMENTS = "segments"
+
+class Enum29(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CALLEE = "callee"
+    CALLER = "caller"
+    END_DATE_TIME = "endDateTime"
+    FAILURE_INFO = "failureInfo"
+    MODALITIES = "modalities"
+    START_DATE_TIME = "startDateTime"
+    SEGMENTS = "segments"
+
+class Enum31(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CALLEE = "callee"
+    CALLEE_DESC = "callee desc"
+    CALLER = "caller"
+    CALLER_DESC = "caller desc"
+    END_DATE_TIME = "endDateTime"
+    END_DATE_TIME_DESC = "endDateTime desc"
+    FAILURE_INFO = "failureInfo"
+    FAILURE_INFO_DESC = "failureInfo desc"
+    MEDIA = "media"
+    MEDIA_DESC = "media desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+
+class Enum32(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CALLEE = "callee"
+    CALLER = "caller"
+    END_DATE_TIME = "endDateTime"
+    FAILURE_INFO = "failureInfo"
+    MEDIA = "media"
+    START_DATE_TIME = "startDateTime"
+
+class Enum33(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CALLEE = "callee"
+    CALLER = "caller"
+    END_DATE_TIME = "endDateTime"
+    FAILURE_INFO = "failureInfo"
+    MEDIA = "media"
+    START_DATE_TIME = "startDateTime"
+
+class Enum34(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CALLBACK_URI = "callbackUri"
+    CALLBACK_URI_DESC = "callbackUri desc"
+    CALL_CHAIN_ID = "callChainId"
+    CALL_CHAIN_ID_DESC = "callChainId desc"
+    CALL_OPTIONS = "callOptions"
+    CALL_OPTIONS_DESC = "callOptions desc"
+    CALL_ROUTES = "callRoutes"
+    CALL_ROUTES_DESC = "callRoutes desc"
+    CHAT_INFO = "chatInfo"
+    CHAT_INFO_DESC = "chatInfo desc"
+    DIRECTION = "direction"
+    DIRECTION_DESC = "direction desc"
+    INCOMING_CONTEXT = "incomingContext"
+    INCOMING_CONTEXT_DESC = "incomingContext desc"
+    MEDIA_CONFIG = "mediaConfig"
+    MEDIA_CONFIG_DESC = "mediaConfig desc"
+    MEDIA_STATE = "mediaState"
+    MEDIA_STATE_DESC = "mediaState desc"
+    MEETING_INFO = "meetingInfo"
+    MEETING_INFO_DESC = "meetingInfo desc"
+    MY_PARTICIPANT_ID = "myParticipantId"
+    MY_PARTICIPANT_ID_DESC = "myParticipantId desc"
+    REQUESTED_MODALITIES = "requestedModalities"
+    REQUESTED_MODALITIES_DESC = "requestedModalities desc"
+    RESULT_INFO = "resultInfo"
+    RESULT_INFO_DESC = "resultInfo desc"
+    SOURCE = "source"
+    SOURCE_DESC = "source desc"
+    STATE = "state"
+    STATE_DESC = "state desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    TARGETS = "targets"
+    TARGETS_DESC = "targets desc"
+    TENANT_ID = "tenantId"
+    TENANT_ID_DESC = "tenantId desc"
+    TONE_INFO = "toneInfo"
+    TONE_INFO_DESC = "toneInfo desc"
+    TRANSCRIPTION = "transcription"
+    TRANSCRIPTION_DESC = "transcription desc"
+
+class Enum35(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CALLBACK_URI = "callbackUri"
+    CALL_CHAIN_ID = "callChainId"
+    CALL_OPTIONS = "callOptions"
+    CALL_ROUTES = "callRoutes"
+    CHAT_INFO = "chatInfo"
+    DIRECTION = "direction"
+    INCOMING_CONTEXT = "incomingContext"
+    MEDIA_CONFIG = "mediaConfig"
+    MEDIA_STATE = "mediaState"
+    MEETING_INFO = "meetingInfo"
+    MY_PARTICIPANT_ID = "myParticipantId"
+    REQUESTED_MODALITIES = "requestedModalities"
+    RESULT_INFO = "resultInfo"
+    SOURCE = "source"
+    STATE = "state"
+    SUBJECT = "subject"
+    TARGETS = "targets"
+    TENANT_ID = "tenantId"
+    TONE_INFO = "toneInfo"
+    TRANSCRIPTION = "transcription"
+    OPERATIONS = "operations"
+    PARTICIPANTS = "participants"
+
+class Enum36(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    OPERATIONS = "operations"
+    PARTICIPANTS = "participants"
+
+class Enum37(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CALLBACK_URI = "callbackUri"
+    CALL_CHAIN_ID = "callChainId"
+    CALL_OPTIONS = "callOptions"
+    CALL_ROUTES = "callRoutes"
+    CHAT_INFO = "chatInfo"
+    DIRECTION = "direction"
+    INCOMING_CONTEXT = "incomingContext"
+    MEDIA_CONFIG = "mediaConfig"
+    MEDIA_STATE = "mediaState"
+    MEETING_INFO = "meetingInfo"
+    MY_PARTICIPANT_ID = "myParticipantId"
+    REQUESTED_MODALITIES = "requestedModalities"
+    RESULT_INFO = "resultInfo"
+    SOURCE = "source"
+    STATE = "state"
+    SUBJECT = "subject"
+    TARGETS = "targets"
+    TENANT_ID = "tenantId"
+    TONE_INFO = "toneInfo"
+    TRANSCRIPTION = "transcription"
+    OPERATIONS = "operations"
+    PARTICIPANTS = "participants"
+
+class Enum38(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    OPERATIONS = "operations"
+    PARTICIPANTS = "participants"
+
+class Enum41(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLIENT_CONTEXT = "clientContext"
+    CLIENT_CONTEXT_DESC = "clientContext desc"
+    RESULT_INFO = "resultInfo"
+    RESULT_INFO_DESC = "resultInfo desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+
+class Enum42(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLIENT_CONTEXT = "clientContext"
+    RESULT_INFO = "resultInfo"
+    STATUS = "status"
+
+class Enum43(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLIENT_CONTEXT = "clientContext"
+    RESULT_INFO = "resultInfo"
+    STATUS = "status"
+
+class Enum44(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    INFO = "info"
+    INFO_DESC = "info desc"
+    IS_IN_LOBBY = "isInLobby"
+    IS_IN_LOBBY_DESC = "isInLobby desc"
+    IS_MUTED = "isMuted"
+    IS_MUTED_DESC = "isMuted desc"
+    MEDIA_STREAMS = "mediaStreams"
+    MEDIA_STREAMS_DESC = "mediaStreams desc"
+    RECORDING_INFO = "recordingInfo"
+    RECORDING_INFO_DESC = "recordingInfo desc"
+
+class Enum45(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    INFO = "info"
+    IS_IN_LOBBY = "isInLobby"
+    IS_MUTED = "isMuted"
+    MEDIA_STREAMS = "mediaStreams"
+    RECORDING_INFO = "recordingInfo"
+
+class Enum46(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    INFO = "info"
+    IS_IN_LOBBY = "isInLobby"
+    IS_MUTED = "isMuted"
+    MEDIA_STREAMS = "mediaStreams"
+    RECORDING_INFO = "recordingInfo"
+
+class Enum47(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -68,7 +310,7 @@ class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
     VIDEO_TELECONFERENCE_ID_DESC = "videoTeleconferenceId desc"
 
-class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum48(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     AUDIO_CONFERENCING = "audioConferencing"
@@ -83,7 +325,314 @@ class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SUBJECT = "subject"
     VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
 
+class Enum49(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    AUDIO_CONFERENCING = "audioConferencing"
+    CHAT_INFO = "chatInfo"
+    CREATION_DATE_TIME = "creationDateTime"
+    END_DATE_TIME = "endDateTime"
+    EXTERNAL_ID = "externalId"
+    JOIN_INFORMATION = "joinInformation"
+    JOIN_WEB_URL = "joinWebUrl"
+    PARTICIPANTS = "participants"
+    START_DATE_TIME = "startDateTime"
+    SUBJECT = "subject"
+    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+
+class Enum50(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    AUDIO_CONFERENCING = "audioConferencing"
+    AUDIO_CONFERENCING_DESC = "audioConferencing desc"
+    CHAT_INFO = "chatInfo"
+    CHAT_INFO_DESC = "chatInfo desc"
+    CREATION_DATE_TIME = "creationDateTime"
+    CREATION_DATE_TIME_DESC = "creationDateTime desc"
+    END_DATE_TIME = "endDateTime"
+    END_DATE_TIME_DESC = "endDateTime desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    JOIN_INFORMATION = "joinInformation"
+    JOIN_INFORMATION_DESC = "joinInformation desc"
+    JOIN_WEB_URL = "joinWebUrl"
+    JOIN_WEB_URL_DESC = "joinWebUrl desc"
+    PARTICIPANTS = "participants"
+    PARTICIPANTS_DESC = "participants desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+    VIDEO_TELECONFERENCE_ID_DESC = "videoTeleconferenceId desc"
+
+class Enum51(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    AUDIO_CONFERENCING = "audioConferencing"
+    CHAT_INFO = "chatInfo"
+    CREATION_DATE_TIME = "creationDateTime"
+    END_DATE_TIME = "endDateTime"
+    EXTERNAL_ID = "externalId"
+    JOIN_INFORMATION = "joinInformation"
+    JOIN_WEB_URL = "joinWebUrl"
+    PARTICIPANTS = "participants"
+    START_DATE_TIME = "startDateTime"
+    SUBJECT = "subject"
+    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+
+class Enum52(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    AUDIO_CONFERENCING = "audioConferencing"
+    CHAT_INFO = "chatInfo"
+    CREATION_DATE_TIME = "creationDateTime"
+    END_DATE_TIME = "endDateTime"
+    EXTERNAL_ID = "externalId"
+    JOIN_INFORMATION = "joinInformation"
+    JOIN_WEB_URL = "joinWebUrl"
+    PARTICIPANTS = "participants"
+    START_DATE_TIME = "startDateTime"
+    SUBJECT = "subject"
+    VIDEO_TELECONFERENCE_ID = "videoTeleconferenceId"
+
+class Get0ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CALLS = "calls"
+    CALL_RECORDS = "callRecords"
+    ONLINE_MEETINGS = "onlineMeetings"
+
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CALLS = "calls"
+    CALL_RECORDS = "callRecords"
+    ONLINE_MEETINGS = "onlineMeetings"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SESSIONS = "sessions"
+
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SEGMENTS = "segments"
+
+class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    END_DATE_TIME = "endDateTime"
+    END_DATE_TIME_DESC = "endDateTime desc"
+    JOIN_WEB_URL = "joinWebUrl"
+    JOIN_WEB_URL_DESC = "joinWebUrl desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    MODALITIES = "modalities"
+    MODALITIES_DESC = "modalities desc"
+    ORGANIZER = "organizer"
+    ORGANIZER_DESC = "organizer desc"
+    PARTICIPANTS = "participants"
+    PARTICIPANTS_DESC = "participants desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+    TYPE = "type"
+    TYPE_DESC = "type desc"
+    VERSION = "version"
+    VERSION_DESC = "version desc"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    END_DATE_TIME = "endDateTime"
+    JOIN_WEB_URL = "joinWebUrl"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    MODALITIES = "modalities"
+    ORGANIZER = "organizer"
+    PARTICIPANTS = "participants"
+    START_DATE_TIME = "startDateTime"
+    TYPE = "type"
+    VERSION = "version"
+    SESSIONS = "sessions"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SESSIONS = "sessions"
+
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SEGMENTS = "segments"
+
 class MicrosoftGraphBodyType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     TEXT = "text"
     HTML = "html"
+
+class MicrosoftGraphCallDirection(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INCOMING = "incoming"
+    OUTGOING = "outgoing"
+
+class MicrosoftGraphCallRecordsCallType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    GROUP_CALL = "groupCall"
+    PEER_TO_PEER = "peerToPeer"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphCallRecordsFailureStage(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    CALL_SETUP = "callSetup"
+    MIDCALL = "midcall"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphCallRecordsMediaStreamDirection(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    CALLER_TO_CALLEE = "callerToCallee"
+    CALLEE_TO_CALLER = "calleeToCaller"
+
+class MicrosoftGraphCallRecordsModality(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AUDIO = "audio"
+    VIDEO = "video"
+    VIDEO_BASED_SCREEN_SHARING = "videoBasedScreenSharing"
+    DATA = "data"
+    SCREEN_SHARING = "screenSharing"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphCallRecordsNetworkConnectionType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    WIRED = "wired"
+    WIFI = "wifi"
+    MOBILE = "mobile"
+    TUNNEL = "tunnel"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphCallRecordsWifiBand(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    FREQUENCY24_G_HZ = "frequency24GHz"
+    FREQUENCY50_G_HZ = "frequency50GHz"
+    FREQUENCY60_G_HZ = "frequency60GHz"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphCallRecordsWifiRadioType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    WIFI80211_A = "wifi80211a"
+    WIFI80211_B = "wifi80211b"
+    WIFI80211_G = "wifi80211g"
+    WIFI80211_N = "wifi80211n"
+    WIFI80211_AC = "wifi80211ac"
+    WIFI80211_AX = "wifi80211ax"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphCallState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INCOMING = "incoming"
+    ESTABLISHING = "establishing"
+    ESTABLISHED = "established"
+    HOLD = "hold"
+    TRANSFERRING = "transferring"
+    TRANSFER_ACCEPTED = "transferAccepted"
+    REDIRECTING = "redirecting"
+    TERMINATING = "terminating"
+    TERMINATED = "terminated"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphCallTranscriptionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphEndpointType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    DEFAULT = "default"
+    VOICEMAIL = "voicemail"
+    SKYPE_FOR_BUSINESS = "skypeForBusiness"
+    SKYPE_FOR_BUSINESS_VOIP_PHONE = "skypeForBusinessVoipPhone"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphMediaDirection(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    INACTIVE = "inactive"
+    SEND_ONLY = "sendOnly"
+    RECEIVE_ONLY = "receiveOnly"
+    SEND_RECEIVE = "sendReceive"
+
+class MicrosoftGraphMediaState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphModality(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    AUDIO = "audio"
+    VIDEO = "video"
+    VIDEO_BASED_SCREEN_SHARING = "videoBasedScreenSharing"
+    DATA = "data"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "NotStarted"
+    RUNNING = "Running"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+
+class MicrosoftGraphRecordingStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    UNKNOWN = "unknown"
+    NOT_RECORDING = "notRecording"
+    RECORDING = "recording"
+    FAILED = "failed"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphRejectReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    BUSY = "busy"
+    FORBIDDEN = "forbidden"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphRoutingType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    FORWARDED = "forwarded"
+    LOOKUP = "lookup"
+    SELF_FORK = "selfFork"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+
+class MicrosoftGraphScreenSharingRole(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    VIEWER = "viewer"
+    SHARER = "sharer"
+
+class MicrosoftGraphTone(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    TONE0 = "tone0"
+    TONE1 = "tone1"
+    TONE2 = "tone2"
+    TONE3 = "tone3"
+    TONE4 = "tone4"
+    TONE5 = "tone5"
+    TONE6 = "tone6"
+    TONE7 = "tone7"
+    TONE8 = "tone8"
+    TONE9 = "tone9"
+    STAR = "star"
+    POUND = "pound"
+    A = "a"
+    B = "b"
+    C = "c"
+    D = "d"
+    FLASH = "flash"

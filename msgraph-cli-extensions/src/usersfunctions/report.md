@@ -28,7 +28,7 @@ delta a usersfunctions.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|usersfunctions|users|
+|usersfunctions|users.todo.lists|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -38,6 +38,7 @@ delta a usersfunctions.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 
 ### usersfunctions get-managed-app-diagnostic-statuses
 

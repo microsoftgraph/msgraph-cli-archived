@@ -491,3 +491,20 @@ def load_command_table(self, _):
         g.custom_command('supported-language', 'usersfunctions_supported_language')
         g.custom_command('supported-time-zone-ee48', 'usersfunctions_supported_time_zone_ee48')
         g.custom_command('supported-time-zones51-c6', 'usersfunctions_supported_time_zones51_c6')
+
+    from azext_usersfunctions.generated._client_factory import cf_user_todo_list_task
+    usersfunctions_user_todo_list_task = CliCommandType(
+        operations_tmpl='azext_usersfunctions.vendored_sdks.usersfunctions.operations._user_todo_list_task_operations#U'
+        'serTodoListTaskOperations.{}',
+        client_factory=cf_user_todo_list_task)
+    with self.command_group('usersfunctions', usersfunctions_user_todo_list_task,
+                            client_factory=cf_user_todo_list_task) as g:
+        g.custom_command('delta', 'usersfunctions_delta')
+
+    from azext_usersfunctions.generated._client_factory import cf_user_todo_list
+    usersfunctions_user_todo_list = CliCommandType(
+        operations_tmpl='azext_usersfunctions.vendored_sdks.usersfunctions.operations._user_todo_list_operations#UserTo'
+        'doListOperations.{}',
+        client_factory=cf_user_todo_list)
+    with self.command_group('usersfunctions', usersfunctions_user_todo_list, client_factory=cf_user_todo_list) as g:
+        g.custom_command('delta', 'usersfunctions_delta')

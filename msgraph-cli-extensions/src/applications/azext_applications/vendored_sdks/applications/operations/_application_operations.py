@@ -49,7 +49,7 @@ class ApplicationOperations(object):
     def get_created_on_behalf_of(
         self,
         application_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum5"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get1ItemsItem"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -61,7 +61,7 @@ class ApplicationOperations(object):
         :param application_id: key: id of application.
         :type application_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum5]
+        :type select: list[str or ~applications.models.Get1ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

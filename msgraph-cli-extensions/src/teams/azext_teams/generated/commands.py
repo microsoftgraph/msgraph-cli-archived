@@ -15,6 +15,29 @@ from msgraph.cli.core.commands import CliCommandType
 
 def load_command_table(self, _):
 
+    from azext_teams.generated._client_factory import cf_app_catalog
+    teams_app_catalog = CliCommandType(
+        operations_tmpl='azext_teams.vendored_sdks.teams.operations._app_catalog_operations#AppCatalogOperations.{}',
+        client_factory=cf_app_catalog)
+    with self.command_group('teams', teams_app_catalog, client_factory=cf_app_catalog) as g:
+        g.custom_command('delete', 'teams_delete', confirmation=True)
+        g.custom_command('create-team-app', 'teams_create_team_app')
+        g.custom_command('get-team-app', 'teams_get_team_app')
+        g.custom_command('list-team-app', 'teams_list_team_app')
+        g.custom_command('update-team-app', 'teams_update_team_app')
+
+    from azext_teams.generated._client_factory import cf_app_catalog_team_app
+    teams_app_catalog_team_app = CliCommandType(
+        operations_tmpl='azext_teams.vendored_sdks.teams.operations._app_catalog_team_app_operations#AppCatalogTeamAppO'
+        'perations.{}',
+        client_factory=cf_app_catalog_team_app)
+    with self.command_group('teams', teams_app_catalog_team_app, client_factory=cf_app_catalog_team_app) as g:
+        g.custom_command('delete', 'teams_delete', confirmation=True)
+        g.custom_command('create-app-definition', 'teams_create_app_definition')
+        g.custom_command('get-app-definition', 'teams_get_app_definition')
+        g.custom_command('list-app-definition', 'teams_list_app_definition')
+        g.custom_command('update-app-definition', 'teams_update_app_definition')
+
     from azext_teams.generated._client_factory import cf_chat_chat
     teams_chat_chat = CliCommandType(
         operations_tmpl='azext_teams.vendored_sdks.teams.operations._chat_chat_operations#ChatChatOperations.{}',
@@ -100,12 +123,14 @@ def load_command_table(self, _):
         g.custom_command('create-message', 'teams_create_message')
         g.custom_command('create-tab', 'teams_create_tab')
         g.custom_command('get-file-folder', 'teams_get_file_folder')
+        g.custom_command('get-file-folder-content', 'teams_get_file_folder_content')
         g.custom_command('get-member', 'teams_get_member')
         g.custom_command('get-message', 'teams_get_message')
         g.custom_command('get-tab', 'teams_get_tab')
         g.custom_command('list-member', 'teams_list_member')
         g.custom_command('list-message', 'teams_list_message')
         g.custom_command('list-tab', 'teams_list_tab')
+        g.custom_command('set-file-folder-content', 'teams_set_file_folder_content')
         g.custom_command('update-file-folder', 'teams_update_file_folder')
         g.custom_command('update-member', 'teams_update_member')
         g.custom_command('update-message', 'teams_update_message')
@@ -121,9 +146,11 @@ def load_command_table(self, _):
         g.custom_command('create-hosted-content', 'teams_create_hosted_content')
         g.custom_command('create-reply', 'teams_create_reply')
         g.custom_command('get-hosted-content', 'teams_get_hosted_content')
+        g.custom_command('get-hosted-content-content', 'teams_get_hosted_content_content')
         g.custom_command('get-reply', 'teams_get_reply')
         g.custom_command('list-hosted-content', 'teams_list_hosted_content')
         g.custom_command('list-reply', 'teams_list_reply')
+        g.custom_command('set-hosted-content-content', 'teams_set_hosted_content_content')
         g.custom_command('update-hosted-content', 'teams_update_hosted_content')
         g.custom_command('update-reply', 'teams_update_reply')
 
@@ -164,12 +191,14 @@ def load_command_table(self, _):
         g.custom_command('create-message', 'teams_create_message')
         g.custom_command('create-tab', 'teams_create_tab')
         g.custom_command('get-file-folder', 'teams_get_file_folder')
+        g.custom_command('get-file-folder-content', 'teams_get_file_folder_content')
         g.custom_command('get-member', 'teams_get_member')
         g.custom_command('get-message', 'teams_get_message')
         g.custom_command('get-tab', 'teams_get_tab')
         g.custom_command('list-member', 'teams_list_member')
         g.custom_command('list-message', 'teams_list_message')
         g.custom_command('list-tab', 'teams_list_tab')
+        g.custom_command('set-file-folder-content', 'teams_set_file_folder_content')
         g.custom_command('update-file-folder', 'teams_update_file_folder')
         g.custom_command('update-member', 'teams_update_member')
         g.custom_command('update-message', 'teams_update_message')
@@ -186,9 +215,11 @@ def load_command_table(self, _):
         g.custom_command('create-hosted-content', 'teams_create_hosted_content')
         g.custom_command('create-reply', 'teams_create_reply')
         g.custom_command('get-hosted-content', 'teams_get_hosted_content')
+        g.custom_command('get-hosted-content-content', 'teams_get_hosted_content_content')
         g.custom_command('get-reply', 'teams_get_reply')
         g.custom_command('list-hosted-content', 'teams_list_hosted_content')
         g.custom_command('list-reply', 'teams_list_reply')
+        g.custom_command('set-hosted-content-content', 'teams_set_hosted_content_content')
         g.custom_command('update-hosted-content', 'teams_update_hosted_content')
         g.custom_command('update-reply', 'teams_update_reply')
 
@@ -276,5 +307,31 @@ def load_command_table(self, _):
         g.custom_command('delete', 'teams_delete', confirmation=True)
         g.custom_command('create-joined-team', 'teams_create_joined_team')
         g.custom_command('get-joined-team', 'teams_get_joined_team')
+        g.custom_command('get-teamwork', 'teams_get_teamwork')
         g.custom_command('list-joined-team', 'teams_list_joined_team')
         g.custom_command('update-joined-team', 'teams_update_joined_team')
+        g.custom_command('update-teamwork', 'teams_update_teamwork')
+
+    from azext_teams.generated._client_factory import cf_user_teamwork
+    teams_user_teamwork = CliCommandType(
+        operations_tmpl='azext_teams.vendored_sdks.teams.operations._user_teamwork_operations#UserTeamworkOperations.{}'
+        '',
+        client_factory=cf_user_teamwork)
+    with self.command_group('teams', teams_user_teamwork, client_factory=cf_user_teamwork) as g:
+        g.custom_command('delete', 'teams_delete', confirmation=True)
+        g.custom_command('create-installed-app', 'teams_create_installed_app')
+        g.custom_command('get-installed-app', 'teams_get_installed_app')
+        g.custom_command('list-installed-app', 'teams_list_installed_app')
+        g.custom_command('update-installed-app', 'teams_update_installed_app')
+
+    from azext_teams.generated._client_factory import cf_user_teamwork_installed_app
+    teams_user_teamwork_installed_app = CliCommandType(
+        operations_tmpl='azext_teams.vendored_sdks.teams.operations._user_teamwork_installed_app_operations#UserTeamwor'
+        'kInstalledAppOperations.{}',
+        client_factory=cf_user_teamwork_installed_app)
+    with self.command_group('teams', teams_user_teamwork_installed_app,
+                            client_factory=cf_user_teamwork_installed_app) as g:
+        g.custom_command('delete', 'teams_delete', confirmation=True)
+        g.custom_command('get-chat', 'teams_get_chat')
+        g.custom_command('get-ref-chat', 'teams_get_ref_chat')
+        g.custom_command('set-ref-chat', 'teams_set_ref_chat')

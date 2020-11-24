@@ -159,7 +159,7 @@ class DirectoryOperations(object):
         :type description: str
         :param display_name: Display name for the administrative unit.
         :type display_name: str
-        :param visibility: Controls whether the adminstrative unit and its members are hidden or
+        :param visibility: Controls whether the administrative unit and its members are hidden or
          public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When
          set to HiddenMembership, only members of the administrative unit can list other members of the
          adminstrative unit.
@@ -311,7 +311,7 @@ class DirectoryOperations(object):
         :type description: str
         :param display_name: Display name for the administrative unit.
         :type display_name: str
-        :param visibility: Controls whether the adminstrative unit and its members are hidden or
+        :param visibility: Controls whether the administrative unit and its members are hidden or
          public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When
          set to HiddenMembership, only members of the administrative unit can list other members of the
          adminstrative unit.

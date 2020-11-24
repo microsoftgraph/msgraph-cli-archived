@@ -188,7 +188,41 @@ create-user a education.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--account-enabled**|boolean|True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter.|account_enabled|accountEnabled|
+|**--assigned-licenses**|array|The licenses that are assigned to the user. Not nullable.|assigned_licenses|assignedLicenses|
+|**--assigned-plans**|array|The plans that are assigned to the user. Read-only. Not nullable.|assigned_plans|assignedPlans|
+|**--business-phones**|array|The telephone numbers for the user. Note: Although this is a string collection, only one number can be set for this property.|business_phones|businessPhones|
+|**--department**|string|The name for the department in which the user works. Supports $filter.|department|department|
+|**--display-name**|string|The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.|display_name|displayName|
+|**--external-source**|choice||external_source|externalSource|
+|**--given-name**|string|The given name (first name) of the user. Supports $filter.|given_name|givenName|
+|**--mail**|string|The SMTP address for the user; for example, 'jeff@contoso.onmicrosoft.com'. Read-Only. Supports $filter.|mail|mail|
+|**--mailing-address**|object|physicalAddress|mailing_address|mailingAddress|
+|**--mail-nickname**|string|The mail alias for the user. This property must be specified when a user is created. Supports $filter.|mail_nickname|mailNickname|
+|**--middle-name**|string|The middle name of user.|middle_name|middleName|
+|**--mobile-phone**|string|The primary cellular telephone number for the user.|mobile_phone|mobilePhone|
+|**--office-location**|string||office_location|officeLocation|
+|**--password-policies**|string|Specifies password policies for the user. This value is an enumeration with one possible value being 'DisableStrongPassword', which allows weaker passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be specified. The two can be specified together; for example: 'DisablePasswordExpiration, DisableStrongPassword'.|password_policies|passwordPolicies|
+|**--password-profile**|object|passwordProfile|password_profile|passwordProfile|
+|**--preferred-language**|string|The preferred language for the user. Should follow ISO 639-1 Code; for example, 'en-US'.|preferred_language|preferredLanguage|
+|**--primary-role**|choice||primary_role|primaryRole|
+|**--provisioned-plans**|array|The plans that are provisioned for the user. Read-only. Not nullable.|provisioned_plans|provisionedPlans|
+|**--refresh-tokens-valid-from-date-time**|date-time||refresh_tokens_valid_from_date_time|refreshTokensValidFromDateTime|
+|**--residence-address**|object|physicalAddress|residence_address|residenceAddress|
+|**--show-in-address-list**|boolean||show_in_address_list|showInAddressList|
+|**--student**|object|educationStudent|student|student|
+|**--surname**|string|The user's surname (family name or last name). Supports $filter.|surname|surname|
+|**--teacher**|object|educationTeacher|teacher|teacher|
+|**--usage-location**|string|A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: 'US', 'JP', and 'GB'. Not nullable. Supports $filter.|usage_location|usageLocation|
+|**--user-principal-name**|string|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization. Supports $filter and $orderby.|user_principal_name|userPrincipalName|
+|**--user-type**|string|A string value that can be used to classify user types in your directory, such as 'Member' and 'Guest'. Supports $filter.|user_type|userType|
+|**--classes**|array|Classes to which the user belongs. Nullable.|classes|classes|
+|**--schools**|array|Schools to which the user belongs. Nullable.|schools|schools|
+|**--user**|object|Represents an Azure Active Directory user object.|user|user|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### education delete
 
@@ -697,7 +731,41 @@ update-me a education.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--account-enabled**|boolean|True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter.|account_enabled|accountEnabled|
+|**--assigned-licenses**|array|The licenses that are assigned to the user. Not nullable.|assigned_licenses|assignedLicenses|
+|**--assigned-plans**|array|The plans that are assigned to the user. Read-only. Not nullable.|assigned_plans|assignedPlans|
+|**--business-phones**|array|The telephone numbers for the user. Note: Although this is a string collection, only one number can be set for this property.|business_phones|businessPhones|
+|**--department**|string|The name for the department in which the user works. Supports $filter.|department|department|
+|**--display-name**|string|The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.|display_name|displayName|
+|**--external-source**|choice||external_source|externalSource|
+|**--given-name**|string|The given name (first name) of the user. Supports $filter.|given_name|givenName|
+|**--mail**|string|The SMTP address for the user; for example, 'jeff@contoso.onmicrosoft.com'. Read-Only. Supports $filter.|mail|mail|
+|**--mailing-address**|object|physicalAddress|mailing_address|mailingAddress|
+|**--mail-nickname**|string|The mail alias for the user. This property must be specified when a user is created. Supports $filter.|mail_nickname|mailNickname|
+|**--middle-name**|string|The middle name of user.|middle_name|middleName|
+|**--mobile-phone**|string|The primary cellular telephone number for the user.|mobile_phone|mobilePhone|
+|**--office-location**|string||office_location|officeLocation|
+|**--password-policies**|string|Specifies password policies for the user. This value is an enumeration with one possible value being 'DisableStrongPassword', which allows weaker passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be specified. The two can be specified together; for example: 'DisablePasswordExpiration, DisableStrongPassword'.|password_policies|passwordPolicies|
+|**--password-profile**|object|passwordProfile|password_profile|passwordProfile|
+|**--preferred-language**|string|The preferred language for the user. Should follow ISO 639-1 Code; for example, 'en-US'.|preferred_language|preferredLanguage|
+|**--primary-role**|choice||primary_role|primaryRole|
+|**--provisioned-plans**|array|The plans that are provisioned for the user. Read-only. Not nullable.|provisioned_plans|provisionedPlans|
+|**--refresh-tokens-valid-from-date-time**|date-time||refresh_tokens_valid_from_date_time|refreshTokensValidFromDateTime|
+|**--residence-address**|object|physicalAddress|residence_address|residenceAddress|
+|**--show-in-address-list**|boolean||show_in_address_list|showInAddressList|
+|**--student**|object|educationStudent|student|student|
+|**--surname**|string|The user's surname (family name or last name). Supports $filter.|surname|surname|
+|**--teacher**|object|educationTeacher|teacher|teacher|
+|**--usage-location**|string|A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: 'US', 'JP', and 'GB'. Not nullable. Supports $filter.|usage_location|usageLocation|
+|**--user-principal-name**|string|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization. Supports $filter and $orderby.|user_principal_name|userPrincipalName|
+|**--user-type**|string|A string value that can be used to classify user types in your directory, such as 'Member' and 'Guest'. Supports $filter.|user_type|userType|
+|**--classes**|array|Classes to which the user belongs. Nullable.|classes|classes|
+|**--schools**|array|Schools to which the user belongs. Nullable.|schools|schools|
+|**--user**|object|Represents an Azure Active Directory user object.|user|user|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### education update-school
 
@@ -755,4 +823,38 @@ update-user a education.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--account-enabled**|boolean|True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter.|account_enabled|accountEnabled|
+|**--assigned-licenses**|array|The licenses that are assigned to the user. Not nullable.|assigned_licenses|assignedLicenses|
+|**--assigned-plans**|array|The plans that are assigned to the user. Read-only. Not nullable.|assigned_plans|assignedPlans|
+|**--business-phones**|array|The telephone numbers for the user. Note: Although this is a string collection, only one number can be set for this property.|business_phones|businessPhones|
+|**--department**|string|The name for the department in which the user works. Supports $filter.|department|department|
+|**--display-name**|string|The name displayed in the address book for the user. This is usually the combination of the user's first name, middle initial, and last name. This property is required when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.|display_name|displayName|
+|**--external-source**|choice||external_source|externalSource|
+|**--given-name**|string|The given name (first name) of the user. Supports $filter.|given_name|givenName|
+|**--mail**|string|The SMTP address for the user; for example, 'jeff@contoso.onmicrosoft.com'. Read-Only. Supports $filter.|mail|mail|
+|**--mailing-address**|object|physicalAddress|mailing_address|mailingAddress|
+|**--mail-nickname**|string|The mail alias for the user. This property must be specified when a user is created. Supports $filter.|mail_nickname|mailNickname|
+|**--middle-name**|string|The middle name of user.|middle_name|middleName|
+|**--mobile-phone**|string|The primary cellular telephone number for the user.|mobile_phone|mobilePhone|
+|**--office-location**|string||office_location|officeLocation|
+|**--password-policies**|string|Specifies password policies for the user. This value is an enumeration with one possible value being 'DisableStrongPassword', which allows weaker passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be specified. The two can be specified together; for example: 'DisablePasswordExpiration, DisableStrongPassword'.|password_policies|passwordPolicies|
+|**--password-profile**|object|passwordProfile|password_profile|passwordProfile|
+|**--preferred-language**|string|The preferred language for the user. Should follow ISO 639-1 Code; for example, 'en-US'.|preferred_language|preferredLanguage|
+|**--primary-role**|choice||primary_role|primaryRole|
+|**--provisioned-plans**|array|The plans that are provisioned for the user. Read-only. Not nullable.|provisioned_plans|provisionedPlans|
+|**--refresh-tokens-valid-from-date-time**|date-time||refresh_tokens_valid_from_date_time|refreshTokensValidFromDateTime|
+|**--residence-address**|object|physicalAddress|residence_address|residenceAddress|
+|**--show-in-address-list**|boolean||show_in_address_list|showInAddressList|
+|**--student**|object|educationStudent|student|student|
+|**--surname**|string|The user's surname (family name or last name). Supports $filter.|surname|surname|
+|**--teacher**|object|educationTeacher|teacher|teacher|
+|**--usage-location**|string|A two-letter country code (ISO standard 3166). Required for users who will be assigned licenses due to a legal requirement to check for availability of services in countries or regions. Examples include: 'US', 'JP', and 'GB'. Not nullable. Supports $filter.|usage_location|usageLocation|
+|**--user-principal-name**|string|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant's collection of verified domains. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization. Supports $filter and $orderby.|user_principal_name|userPrincipalName|
+|**--user-type**|string|A string value that can be used to classify user types in your directory, such as 'Member' and 'Guest'. Supports $filter.|user_type|userType|
+|**--classes**|array|Classes to which the user belongs. Nullable.|classes|classes|
+|**--schools**|array|Schools to which the user belongs. Nullable.|schools|schools|
+|**--user**|object|Represents an Azure Active Directory user object.|user|user|
+|**--created-by-application**|object|identity|application|application|
+|**--created-by-device**|object|identity|device|device|
+|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|

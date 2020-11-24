@@ -45,8 +45,8 @@ class DriveListContentTypeOperations:
         self,
         drive_id: str,
         content_type_id: str,
-        orderby: Optional[List[Union[str, "models.Enum84"]]] = None,
-        select: Optional[List[Union[str, "models.Enum85"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum86"]]] = None,
+        select: Optional[List[Union[str, "models.Enum87"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfColumnLink"]:
@@ -59,9 +59,9 @@ class DriveListContentTypeOperations:
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum84]
+        :type orderby: list[str or ~files.models.Enum86]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum85]
+        :type select: list[str or ~files.models.Enum87]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -215,7 +215,7 @@ class DriveListContentTypeOperations:
         drive_id: str,
         content_type_id: str,
         column_link_id: str,
-        select: Optional[List[Union[str, "models.Enum86"]]] = None,
+        select: Optional[List[Union[str, "models.Enum88"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphColumnLink":
@@ -230,7 +230,7 @@ class DriveListContentTypeOperations:
         :param column_link_id: key: id of columnLink.
         :type column_link_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum86]
+        :type select: list[str or ~files.models.Enum88]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

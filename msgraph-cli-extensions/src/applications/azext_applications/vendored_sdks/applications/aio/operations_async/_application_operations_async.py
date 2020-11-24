@@ -45,7 +45,7 @@ class ApplicationOperations:
     async def get_created_on_behalf_of(
         self,
         application_id: str,
-        select: Optional[List[Union[str, "models.Enum5"]]] = None,
+        select: Optional[List[Union[str, "models.Get1ItemsItem"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphDirectoryObject":
@@ -56,7 +56,7 @@ class ApplicationOperations:
         :param application_id: key: id of application.
         :type application_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum5]
+        :type select: list[str or ~applications.models.Get1ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

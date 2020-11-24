@@ -48,8 +48,10 @@ def load_command_table(self, _):
         g.custom_command('get-manager', 'users_get_manager')
         g.custom_command('get-outlook', 'users_get_outlook')
         g.custom_command('get-photo', 'users_get_photo')
+        g.custom_command('get-photo-content', 'users_get_photo_content')
         g.custom_command('get-ref-manager', 'users_get_ref_manager')
         g.custom_command('get-setting', 'users_get_setting')
+        g.custom_command('get-todo', 'users_get_todo')
         g.custom_command('list-created-object', 'users_list_created_object')
         g.custom_command('list-direct-report', 'users_list_direct_report')
         g.custom_command('list-extension', 'users_list_extension')
@@ -69,12 +71,14 @@ def load_command_table(self, _):
         g.custom_command('list-ref-transitive-member-of', 'users_list_ref_transitive_member_of')
         g.custom_command('list-registered-device', 'users_list_registered_device')
         g.custom_command('list-transitive-member-of', 'users_list_transitive_member_of')
+        g.custom_command('set-photo-content', 'users_set_photo_content')
         g.custom_command('set-ref-manager', 'users_set_ref_manager')
         g.custom_command('update-extension', 'users_update_extension')
         g.custom_command('update-license-detail', 'users_update_license_detail')
         g.custom_command('update-outlook', 'users_update_outlook')
         g.custom_command('update-photo', 'users_update_photo')
         g.custom_command('update-setting', 'users_update_setting')
+        g.custom_command('update-todo', 'users_update_todo')
 
     from azext_users.generated._client_factory import cf_user_outlook
     users_user_outlook = CliCommandType(
@@ -95,3 +99,46 @@ def load_command_table(self, _):
         g.custom_command('delete', 'users_delete', confirmation=True)
         g.custom_command('get-shift-preference', 'users_get_shift_preference')
         g.custom_command('update-shift-preference', 'users_update_shift_preference')
+
+    from azext_users.generated._client_factory import cf_user_todo
+    users_user_todo = CliCommandType(
+        operations_tmpl='azext_users.vendored_sdks.users.operations._user_todo_operations#UserTodoOperations.{}',
+        client_factory=cf_user_todo)
+    with self.command_group('users', users_user_todo, client_factory=cf_user_todo) as g:
+        g.custom_command('delete', 'users_delete', confirmation=True)
+        g.custom_command('create-list', 'users_create_list')
+        g.custom_command('get-list', 'users_get_list')
+        g.custom_command('list-list', 'users_list_list')
+        g.custom_command('update-list', 'users_update_list')
+
+    from azext_users.generated._client_factory import cf_user_todo_list
+    users_user_todo_list = CliCommandType(
+        operations_tmpl='azext_users.vendored_sdks.users.operations._user_todo_list_operations#UserTodoListOperations.{'
+        '}',
+        client_factory=cf_user_todo_list)
+    with self.command_group('users', users_user_todo_list, client_factory=cf_user_todo_list) as g:
+        g.custom_command('delete', 'users_delete', confirmation=True)
+        g.custom_command('create-extension', 'users_create_extension')
+        g.custom_command('create-task', 'users_create_task')
+        g.custom_command('get-extension', 'users_get_extension')
+        g.custom_command('get-task', 'users_get_task')
+        g.custom_command('list-extension', 'users_list_extension')
+        g.custom_command('list-task', 'users_list_task')
+        g.custom_command('update-extension', 'users_update_extension')
+        g.custom_command('update-task', 'users_update_task')
+
+    from azext_users.generated._client_factory import cf_user_todo_list_task
+    users_user_todo_list_task = CliCommandType(
+        operations_tmpl='azext_users.vendored_sdks.users.operations._user_todo_list_task_operations#UserTodoListTaskOpe'
+        'rations.{}',
+        client_factory=cf_user_todo_list_task)
+    with self.command_group('users', users_user_todo_list_task, client_factory=cf_user_todo_list_task) as g:
+        g.custom_command('delete', 'users_delete', confirmation=True)
+        g.custom_command('create-extension', 'users_create_extension')
+        g.custom_command('create-linked-resource', 'users_create_linked_resource')
+        g.custom_command('get-extension', 'users_get_extension')
+        g.custom_command('get-linked-resource', 'users_get_linked_resource')
+        g.custom_command('list-extension', 'users_list_extension')
+        g.custom_command('list-linked-resource', 'users_list_linked_resource')
+        g.custom_command('update-extension', 'users_update_extension')
+        g.custom_command('update-linked-resource', 'users_update_linked_resource')

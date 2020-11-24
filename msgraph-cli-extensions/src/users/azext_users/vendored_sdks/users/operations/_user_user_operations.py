@@ -47,9 +47,10 @@ class UserUserOperations(object):
 
     def list_user(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
+        consistency_level=None,  # type: Optional[str]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get8ItemsItem"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfUser"]
@@ -57,12 +58,14 @@ class UserUserOperations(object):
 
         Get entities from users.
 
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Get5ItemsItem]
+        :type orderby: list[str or ~users.models.Get6ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Get6ItemsItem]
+        :type select: list[str or ~users.models.Get7ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~users.models.Get7ItemsItem]
+        :type expand: list[str or ~users.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfUser or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfUser]
@@ -76,6 +79,8 @@ class UserUserOperations(object):
         def prepare_request(next_link=None):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
+            if consistency_level is not None:
+                header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
             header_parameters['Accept'] = 'application/json'
 
@@ -192,8 +197,9 @@ class UserUserOperations(object):
     def get_user(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Get1ItemsItem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
+        consistency_level=None,  # type: Optional[str]
+        select=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get3ItemsItem"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphUser"
@@ -203,10 +209,12 @@ class UserUserOperations(object):
 
         :param user_id: key: id of user.
         :type user_id: str
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Get1ItemsItem]
+        :type select: list[str or ~users.models.Get2ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~users.models.Get2ItemsItem]
+        :type expand: list[str or ~users.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphUser, or the result of cls(response)
         :rtype: ~users.models.MicrosoftGraphUser
@@ -233,6 +241,8 @@ class UserUserOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        if consistency_level is not None:
+            header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 

@@ -69,6 +69,8 @@ from .operations_async import UserOnenoteSectionGroupParentNotebookSectionPageOp
 from .operations_async import UserOnenoteSectionGroupSectionPageOperations
 from .operations_async import UserOnenoteSectionPageOperations
 from .operations_async import UserOutlookOperations
+from .operations_async import UserTodoListTaskOperations
+from .operations_async import UserTodoListOperations
 from .. import models
 
 
@@ -181,6 +183,10 @@ class UsersFunctions(object):
     :vartype user_onenote_section_page: users_functions.aio.operations_async.UserOnenoteSectionPageOperations
     :ivar user_outlook: UserOutlookOperations operations
     :vartype user_outlook: users_functions.aio.operations_async.UserOutlookOperations
+    :ivar user_todo_list_task: UserTodoListTaskOperations operations
+    :vartype user_todo_list_task: users_functions.aio.operations_async.UserTodoListTaskOperations
+    :ivar user_todo_list: UserTodoListOperations operations
+    :vartype user_todo_list: users_functions.aio.operations_async.UserTodoListOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param str base_url: Service URL
@@ -307,6 +313,10 @@ class UsersFunctions(object):
         self.user_onenote_section_page = UserOnenoteSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.user_outlook = UserOutlookOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_todo_list_task = UserTodoListTaskOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_todo_list = UserTodoListOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

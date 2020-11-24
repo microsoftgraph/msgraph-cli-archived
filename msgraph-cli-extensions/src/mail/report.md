@@ -127,7 +127,46 @@ create-message a mail.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
+|**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
+|**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
+|**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--importance**|choice||importance|importance|
+|**--inference-classification**|choice||inference_classification|inferenceClassification|
+|**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
+|**--internet-message-id**|string|The message ID in the format specified by RFC2822.|internet_message_id|internetMessageId|
+|**--is-delivery-receipt-requested**|boolean|Indicates whether a read receipt is requested for the message.|is_delivery_receipt_requested|isDeliveryReceiptRequested|
+|**--is-draft**|boolean|Indicates whether the message is a draft. A message is a draft if it hasn't been sent yet.|is_draft|isDraft|
+|**--is-read**|boolean|Indicates whether the message has been read.|is_read|isRead|
+|**--is-read-receipt-requested**|boolean|Indicates whether a read receipt is requested for the message.|is_read_receipt_requested|isReadReceiptRequested|
+|**--parent-folder-id**|string|The unique identifier for the message's parent mailFolder.|parent_folder_id|parentFolderId|
+|**--received-date-time**|date-time|The date and time the message was received.|received_date_time|receivedDateTime|
+|**--reply-to**|array|The email addresses to use when replying.|reply_to|replyTo|
+|**--sent-date-time**|date-time|The date and time the message was sent.|sent_date_time|sentDateTime|
+|**--subject**|string|The subject of the message.|subject|subject|
+|**--to-recipients**|array|The To: recipients for the message.|to_recipients|toRecipients|
+|**--unique-body**|object|itemBody|unique_body|uniqueBody|
+|**--web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
+|**--extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the message. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--sender-email-address-address**|string|The email address of the person or entity.|address|address|
+|**--sender-email-address-name**|string|The display name of the person or entity.|name|name|
+|**--from-email-address-address**|string|The email address of the person or entity.|microsoft_graph_email_address|address|
+|**--from-email-address-name**|string|The display name of the person or entity.|microsoft_graph_email_address_name|name|
+|**--flag-completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
+|**--flag-due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
+|**--flag-flag-status**|choice||flag_status|flagStatus|
+|**--flag-start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
 
 ### mail create-message-rule
 
@@ -379,6 +418,27 @@ get-message a mail.
 |**--message-id**|string|key: id of message|message_id|message-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### mail get-message-content
+
+get-message-content a mail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|mail|users.mailFolders|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-message-content|GetMessagesContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
 
 ### mail get-message-rule
 
@@ -676,6 +736,28 @@ list-single-value-extended-property a mail.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### mail set-message-content
+
+set-message-content a mail.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|mail|users.mailFolders|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-message-content|SetMessagesContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--data**|binary|New media content.|data|data|
+
 ### mail update-attachment
 
 update-attachment a mail.
@@ -829,7 +911,46 @@ update-message a mail.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
 |**--message-id**|string|key: id of message|message_id|message-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
+|**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
+|**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
+|**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--importance**|choice||importance|importance|
+|**--inference-classification**|choice||inference_classification|inferenceClassification|
+|**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
+|**--internet-message-id**|string|The message ID in the format specified by RFC2822.|internet_message_id|internetMessageId|
+|**--is-delivery-receipt-requested**|boolean|Indicates whether a read receipt is requested for the message.|is_delivery_receipt_requested|isDeliveryReceiptRequested|
+|**--is-draft**|boolean|Indicates whether the message is a draft. A message is a draft if it hasn't been sent yet.|is_draft|isDraft|
+|**--is-read**|boolean|Indicates whether the message has been read.|is_read|isRead|
+|**--is-read-receipt-requested**|boolean|Indicates whether a read receipt is requested for the message.|is_read_receipt_requested|isReadReceiptRequested|
+|**--parent-folder-id**|string|The unique identifier for the message's parent mailFolder.|parent_folder_id|parentFolderId|
+|**--received-date-time**|date-time|The date and time the message was received.|received_date_time|receivedDateTime|
+|**--reply-to**|array|The email addresses to use when replying.|reply_to|replyTo|
+|**--sent-date-time**|date-time|The date and time the message was sent.|sent_date_time|sentDateTime|
+|**--subject**|string|The subject of the message.|subject|subject|
+|**--to-recipients**|array|The To: recipients for the message.|to_recipients|toRecipients|
+|**--unique-body**|object|itemBody|unique_body|uniqueBody|
+|**--web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
+|**--extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the message. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--sender-email-address-address**|string|The email address of the person or entity.|address|address|
+|**--sender-email-address-name**|string|The display name of the person or entity.|name|name|
+|**--from-email-address-address**|string|The email address of the person or entity.|microsoft_graph_email_address|address|
+|**--from-email-address-name**|string|The display name of the person or entity.|microsoft_graph_email_address_name|name|
+|**--flag-completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
+|**--flag-due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
+|**--flag-flag-status**|choice||flag_status|flagStatus|
+|**--flag-start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
 
 ### mail update-message-rule
 

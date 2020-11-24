@@ -469,3 +469,15 @@ def usersfunctions_supported_time_zones51_c6(client,
                                              time_zone_standard):
     return client.supported_time_zones51_c6(user_id=user_id,
                                             time_zone_standard=time_zone_standard)
+
+
+def usersfunctions_delta(client,
+                         user_id,
+                         todo_task_list_id):
+    return client.delta(user_id=user_id,
+                        todo_task_list_id=todo_task_list_id)
+
+
+def usersfunctions_delta(client,
+                         user_id):
+    return client.delta(user_id=user_id)

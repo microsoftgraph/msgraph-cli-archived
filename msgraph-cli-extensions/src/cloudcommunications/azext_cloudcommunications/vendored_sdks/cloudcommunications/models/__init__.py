@@ -7,57 +7,326 @@
 # --------------------------------------------------------------------------
 
 try:
+    from ._models_py3 import CollectionOfCall
+    from ._models_py3 import CollectionOfCallRecord
+    from ._models_py3 import CollectionOfCommsOperation
     from ._models_py3 import CollectionOfOnlineMeeting
+    from ._models_py3 import CollectionOfOnlineMeeting0
+    from ._models_py3 import CollectionOfParticipant
+    from ._models_py3 import CollectionOfSegment
+    from ._models_py3 import CollectionOfSession
     from ._models_py3 import MicrosoftGraphAudioConferencing
+    from ._models_py3 import MicrosoftGraphCall
+    from ._models_py3 import MicrosoftGraphCallMediaState
+    from ._models_py3 import MicrosoftGraphCallRecordsCallRecord
+    from ._models_py3 import MicrosoftGraphCallRecordsDeviceInfo
+    from ._models_py3 import MicrosoftGraphCallRecordsEndpoint
+    from ._models_py3 import MicrosoftGraphCallRecordsFailureInfo
+    from ._models_py3 import MicrosoftGraphCallRecordsMedia
+    from ._models_py3 import MicrosoftGraphCallRecordsMediaStream
+    from ._models_py3 import MicrosoftGraphCallRecordsNetworkInfo
+    from ._models_py3 import MicrosoftGraphCallRecordsSegment
+    from ._models_py3 import MicrosoftGraphCallRecordsSession
+    from ._models_py3 import MicrosoftGraphCallRecordsUserAgent
+    from ._models_py3 import MicrosoftGraphCallRoute
+    from ._models_py3 import MicrosoftGraphCallTranscriptionInfo
+    from ._models_py3 import MicrosoftGraphCancelMediaProcessingOperation
     from ._models_py3 import MicrosoftGraphChatInfo
+    from ._models_py3 import MicrosoftGraphCloudCommunications
+    from ._models_py3 import MicrosoftGraphCommsOperation
     from ._models_py3 import MicrosoftGraphEntity
     from ._models_py3 import MicrosoftGraphIdentity
     from ._models_py3 import MicrosoftGraphIdentitySet
+    from ._models_py3 import MicrosoftGraphIncomingContext
+    from ._models_py3 import MicrosoftGraphInvitationParticipantInfo
+    from ._models_py3 import MicrosoftGraphInviteParticipantsOperation
     from ._models_py3 import MicrosoftGraphItemBody
+    from ._models_py3 import MicrosoftGraphMediaStream
     from ._models_py3 import MicrosoftGraphMeetingParticipantInfo
     from ._models_py3 import MicrosoftGraphMeetingParticipants
+    from ._models_py3 import MicrosoftGraphMuteParticipantOperation
     from ._models_py3 import MicrosoftGraphOnlineMeeting
+    from ._models_py3 import MicrosoftGraphParticipant
+    from ._models_py3 import MicrosoftGraphParticipantInfo
+    from ._models_py3 import MicrosoftGraphPlayPromptOperation
+    from ._models_py3 import MicrosoftGraphRecordOperation
+    from ._models_py3 import MicrosoftGraphRecordingInfo
+    from ._models_py3 import MicrosoftGraphResultInfo
+    from ._models_py3 import MicrosoftGraphSubscribeToToneOperation
+    from ._models_py3 import MicrosoftGraphTeleconferenceDeviceMediaQuality
+    from ._models_py3 import MicrosoftGraphTeleconferenceDeviceQuality
+    from ._models_py3 import MicrosoftGraphToneInfo
+    from ._models_py3 import MicrosoftGraphUnmuteParticipantOperation
+    from ._models_py3 import MicrosoftGraphUpdateRecordingStatusOperation
     from ._models_py3 import OdataError
     from ._models_py3 import OdataErrorDetail
     from ._models_py3 import OdataErrorMain
+    from ._models_py3 import Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema
 except (SyntaxError, ImportError):
+    from ._models import CollectionOfCall  # type: ignore
+    from ._models import CollectionOfCallRecord  # type: ignore
+    from ._models import CollectionOfCommsOperation  # type: ignore
     from ._models import CollectionOfOnlineMeeting  # type: ignore
+    from ._models import CollectionOfOnlineMeeting0  # type: ignore
+    from ._models import CollectionOfParticipant  # type: ignore
+    from ._models import CollectionOfSegment  # type: ignore
+    from ._models import CollectionOfSession  # type: ignore
     from ._models import MicrosoftGraphAudioConferencing  # type: ignore
+    from ._models import MicrosoftGraphCall  # type: ignore
+    from ._models import MicrosoftGraphCallMediaState  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsCallRecord  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsDeviceInfo  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsEndpoint  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsFailureInfo  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsMedia  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsMediaStream  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsNetworkInfo  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsSegment  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsSession  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsUserAgent  # type: ignore
+    from ._models import MicrosoftGraphCallRoute  # type: ignore
+    from ._models import MicrosoftGraphCallTranscriptionInfo  # type: ignore
+    from ._models import MicrosoftGraphCancelMediaProcessingOperation  # type: ignore
     from ._models import MicrosoftGraphChatInfo  # type: ignore
+    from ._models import MicrosoftGraphCloudCommunications  # type: ignore
+    from ._models import MicrosoftGraphCommsOperation  # type: ignore
     from ._models import MicrosoftGraphEntity  # type: ignore
     from ._models import MicrosoftGraphIdentity  # type: ignore
     from ._models import MicrosoftGraphIdentitySet  # type: ignore
+    from ._models import MicrosoftGraphIncomingContext  # type: ignore
+    from ._models import MicrosoftGraphInvitationParticipantInfo  # type: ignore
+    from ._models import MicrosoftGraphInviteParticipantsOperation  # type: ignore
     from ._models import MicrosoftGraphItemBody  # type: ignore
+    from ._models import MicrosoftGraphMediaStream  # type: ignore
     from ._models import MicrosoftGraphMeetingParticipantInfo  # type: ignore
     from ._models import MicrosoftGraphMeetingParticipants  # type: ignore
+    from ._models import MicrosoftGraphMuteParticipantOperation  # type: ignore
     from ._models import MicrosoftGraphOnlineMeeting  # type: ignore
+    from ._models import MicrosoftGraphParticipant  # type: ignore
+    from ._models import MicrosoftGraphParticipantInfo  # type: ignore
+    from ._models import MicrosoftGraphPlayPromptOperation  # type: ignore
+    from ._models import MicrosoftGraphRecordOperation  # type: ignore
+    from ._models import MicrosoftGraphRecordingInfo  # type: ignore
+    from ._models import MicrosoftGraphResultInfo  # type: ignore
+    from ._models import MicrosoftGraphSubscribeToToneOperation  # type: ignore
+    from ._models import MicrosoftGraphTeleconferenceDeviceMediaQuality  # type: ignore
+    from ._models import MicrosoftGraphTeleconferenceDeviceQuality  # type: ignore
+    from ._models import MicrosoftGraphToneInfo  # type: ignore
+    from ._models import MicrosoftGraphUnmuteParticipantOperation  # type: ignore
+    from ._models import MicrosoftGraphUpdateRecordingStatusOperation  # type: ignore
     from ._models import OdataError  # type: ignore
     from ._models import OdataErrorDetail  # type: ignore
     from ._models import OdataErrorMain  # type: ignore
+    from ._models import Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema  # type: ignore
 
 from ._cloud_communications_enums import (
+    Enum24,
+    Enum26,
+    Enum27,
+    Enum29,
+    Enum31,
+    Enum32,
+    Enum33,
+    Enum34,
+    Enum35,
+    Enum36,
+    Enum37,
+    Enum38,
+    Enum41,
+    Enum42,
+    Enum43,
+    Enum44,
+    Enum45,
+    Enum46,
+    Enum47,
+    Enum48,
+    Enum49,
+    Enum50,
+    Enum51,
+    Enum52,
+    Get0ItemsItem,
+    Get1ItemsItem,
     Get2ItemsItem,
+    Get3ItemsItem,
+    Get5ItemsItem,
     Get6ItemsItem,
     Get7ItemsItem,
+    Get8ItemsItem,
     MicrosoftGraphBodyType,
+    MicrosoftGraphCallDirection,
+    MicrosoftGraphCallRecordsCallType,
+    MicrosoftGraphCallRecordsFailureStage,
+    MicrosoftGraphCallRecordsMediaStreamDirection,
+    MicrosoftGraphCallRecordsModality,
+    MicrosoftGraphCallRecordsNetworkConnectionType,
+    MicrosoftGraphCallRecordsWifiBand,
+    MicrosoftGraphCallRecordsWifiRadioType,
+    MicrosoftGraphCallState,
+    MicrosoftGraphCallTranscriptionState,
+    MicrosoftGraphEndpointType,
+    MicrosoftGraphMediaDirection,
+    MicrosoftGraphMediaState,
+    MicrosoftGraphModality,
+    MicrosoftGraphOperationStatus,
+    MicrosoftGraphRecordingStatus,
+    MicrosoftGraphRejectReason,
+    MicrosoftGraphRoutingType,
+    MicrosoftGraphScreenSharingRole,
+    MicrosoftGraphTone,
 )
 
 __all__ = [
+    'CollectionOfCall',
+    'CollectionOfCallRecord',
+    'CollectionOfCommsOperation',
     'CollectionOfOnlineMeeting',
+    'CollectionOfOnlineMeeting0',
+    'CollectionOfParticipant',
+    'CollectionOfSegment',
+    'CollectionOfSession',
     'MicrosoftGraphAudioConferencing',
+    'MicrosoftGraphCall',
+    'MicrosoftGraphCallMediaState',
+    'MicrosoftGraphCallRecordsCallRecord',
+    'MicrosoftGraphCallRecordsDeviceInfo',
+    'MicrosoftGraphCallRecordsEndpoint',
+    'MicrosoftGraphCallRecordsFailureInfo',
+    'MicrosoftGraphCallRecordsMedia',
+    'MicrosoftGraphCallRecordsMediaStream',
+    'MicrosoftGraphCallRecordsNetworkInfo',
+    'MicrosoftGraphCallRecordsSegment',
+    'MicrosoftGraphCallRecordsSession',
+    'MicrosoftGraphCallRecordsUserAgent',
+    'MicrosoftGraphCallRoute',
+    'MicrosoftGraphCallTranscriptionInfo',
+    'MicrosoftGraphCancelMediaProcessingOperation',
     'MicrosoftGraphChatInfo',
+    'MicrosoftGraphCloudCommunications',
+    'MicrosoftGraphCommsOperation',
     'MicrosoftGraphEntity',
     'MicrosoftGraphIdentity',
     'MicrosoftGraphIdentitySet',
+    'MicrosoftGraphIncomingContext',
+    'MicrosoftGraphInvitationParticipantInfo',
+    'MicrosoftGraphInviteParticipantsOperation',
     'MicrosoftGraphItemBody',
+    'MicrosoftGraphMediaStream',
     'MicrosoftGraphMeetingParticipantInfo',
     'MicrosoftGraphMeetingParticipants',
+    'MicrosoftGraphMuteParticipantOperation',
     'MicrosoftGraphOnlineMeeting',
+    'MicrosoftGraphParticipant',
+    'MicrosoftGraphParticipantInfo',
+    'MicrosoftGraphPlayPromptOperation',
+    'MicrosoftGraphRecordOperation',
+    'MicrosoftGraphRecordingInfo',
+    'MicrosoftGraphResultInfo',
+    'MicrosoftGraphSubscribeToToneOperation',
+    'MicrosoftGraphTeleconferenceDeviceMediaQuality',
+    'MicrosoftGraphTeleconferenceDeviceQuality',
+    'MicrosoftGraphToneInfo',
+    'MicrosoftGraphUnmuteParticipantOperation',
+    'MicrosoftGraphUpdateRecordingStatusOperation',
     'OdataError',
     'OdataErrorDetail',
     'OdataErrorMain',
+    'Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema',
+    'Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema',
+    'Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema',
+    'Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema',
+    'Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema',
+    'Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema',
+    'Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema',
+    'PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema',
+    'PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema',
+    'PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema',
+    'PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema',
+    'PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema',
+    'PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema',
+    'Enum24',
+    'Enum26',
+    'Enum27',
+    'Enum29',
+    'Enum31',
+    'Enum32',
+    'Enum33',
+    'Enum34',
+    'Enum35',
+    'Enum36',
+    'Enum37',
+    'Enum38',
+    'Enum41',
+    'Enum42',
+    'Enum43',
+    'Enum44',
+    'Enum45',
+    'Enum46',
+    'Enum47',
+    'Enum48',
+    'Enum49',
+    'Enum50',
+    'Enum51',
+    'Enum52',
+    'Get0ItemsItem',
+    'Get1ItemsItem',
     'Get2ItemsItem',
+    'Get3ItemsItem',
+    'Get5ItemsItem',
     'Get6ItemsItem',
     'Get7ItemsItem',
+    'Get8ItemsItem',
     'MicrosoftGraphBodyType',
+    'MicrosoftGraphCallDirection',
+    'MicrosoftGraphCallRecordsCallType',
+    'MicrosoftGraphCallRecordsFailureStage',
+    'MicrosoftGraphCallRecordsMediaStreamDirection',
+    'MicrosoftGraphCallRecordsModality',
+    'MicrosoftGraphCallRecordsNetworkConnectionType',
+    'MicrosoftGraphCallRecordsWifiBand',
+    'MicrosoftGraphCallRecordsWifiRadioType',
+    'MicrosoftGraphCallState',
+    'MicrosoftGraphCallTranscriptionState',
+    'MicrosoftGraphEndpointType',
+    'MicrosoftGraphMediaDirection',
+    'MicrosoftGraphMediaState',
+    'MicrosoftGraphModality',
+    'MicrosoftGraphOperationStatus',
+    'MicrosoftGraphRecordingStatus',
+    'MicrosoftGraphRejectReason',
+    'MicrosoftGraphRoutingType',
+    'MicrosoftGraphScreenSharingRole',
+    'MicrosoftGraphTone',
 ]

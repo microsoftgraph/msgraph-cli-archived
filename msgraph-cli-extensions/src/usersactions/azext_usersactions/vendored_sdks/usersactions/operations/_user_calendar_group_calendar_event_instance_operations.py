@@ -17,7 +17,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, Optional, TypeVar
+    from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -123,6 +123,83 @@ class UserCalendarGroupCalendarEventInstanceOperations(object):
             return cls(pipeline_response, None, {})
 
     accept.metadata = {'url': '/users/{user-id}/calendarGroups/{calendarGroup-id}/calendars/{calendar-id}/events/{event-id}/instances/{event-id1}/microsoft.graph.accept'}  # type: ignore
+
+    def cancel(
+        self,
+        user_id,  # type: str
+        calendar_group_id,  # type: str
+        calendar_id,  # type: str
+        event_id,  # type: str
+        event_id1,  # type: str
+        comment=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Invoke action cancel.
+
+        Invoke action cancel.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param calendar_group_id: key: id of calendarGroup.
+        :type calendar_group_id: str
+        :param calendar_id: key: id of calendar.
+        :type calendar_id: str
+        :param event_id: key: id of event.
+        :type event_id: str
+        :param event_id1: key: id of event.
+        :type event_id1: str
+        :param comment:
+        :type comment: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.Paths1V3Kf7YUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema(comment=comment)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.cancel.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'calendarGroup-id': self._serialize.url("calendar_group_id", calendar_group_id, 'str'),
+            'calendar-id': self._serialize.url("calendar_id", calendar_id, 'str'),
+            'event-id': self._serialize.url("event_id", event_id, 'str'),
+            'event-id1': self._serialize.url("event_id1", event_id1, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'Paths1V3Kf7YUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema')
+        body_content_kwargs['content'] = body_content
+        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    cancel.metadata = {'url': '/users/{user-id}/calendarGroups/{calendarGroup-id}/calendars/{calendar-id}/events/{event-id}/instances/{event-id1}/microsoft.graph.cancel'}  # type: ignore
 
     def decline(
         self,
@@ -269,6 +346,86 @@ class UserCalendarGroupCalendarEventInstanceOperations(object):
             return cls(pipeline_response, None, {})
 
     dismiss_reminder.metadata = {'url': '/users/{user-id}/calendarGroups/{calendarGroup-id}/calendars/{calendar-id}/events/{event-id}/instances/{event-id1}/microsoft.graph.dismissReminder'}  # type: ignore
+
+    def forward(
+        self,
+        user_id,  # type: str
+        calendar_group_id,  # type: str
+        calendar_id,  # type: str
+        event_id,  # type: str
+        event_id1,  # type: str
+        to_recipients=None,  # type: Optional[List["models.MicrosoftGraphRecipient"]]
+        comment=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Invoke action forward.
+
+        Invoke action forward.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param calendar_group_id: key: id of calendarGroup.
+        :type calendar_group_id: str
+        :param calendar_id: key: id of calendar.
+        :type calendar_id: str
+        :param event_id: key: id of event.
+        :type event_id: str
+        :param event_id1: key: id of event.
+        :type event_id1: str
+        :param to_recipients:
+        :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
+        :param comment:
+        :type comment: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.Paths162WyqaUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema(to_recipients=to_recipients, comment=comment)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.forward.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'calendarGroup-id': self._serialize.url("calendar_group_id", calendar_group_id, 'str'),
+            'calendar-id': self._serialize.url("calendar_id", calendar_id, 'str'),
+            'event-id': self._serialize.url("event_id", event_id, 'str'),
+            'event-id1': self._serialize.url("event_id1", event_id1, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'Paths162WyqaUsersUserIdCalendargroupsCalendargroupIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema')
+        body_content_kwargs['content'] = body_content
+        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    forward.metadata = {'url': '/users/{user-id}/calendarGroups/{calendarGroup-id}/calendars/{calendar-id}/events/{event-id}/instances/{event-id1}/microsoft.graph.forward'}  # type: ignore
 
     def snooze_reminder(
         self,

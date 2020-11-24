@@ -13,6 +13,7 @@ try:
     from ._models_py3 import CollectionOfAppRoleAssignment2
     from ._models_py3 import CollectionOfApplication
     from ._models_py3 import CollectionOfClaimsMappingPolicy
+    from ._models_py3 import CollectionOfDelegatedPermissionClassification
     from ._models_py3 import CollectionOfDirectoryObject
     from ._models_py3 import CollectionOfDirectoryObject0
     from ._models_py3 import CollectionOfDirectoryObject1
@@ -49,6 +50,7 @@ try:
     from ._models_py3 import MicrosoftGraphAppRoleAssignment
     from ._models_py3 import MicrosoftGraphApplication
     from ._models_py3 import MicrosoftGraphClaimsMappingPolicy
+    from ._models_py3 import MicrosoftGraphDelegatedPermissionClassification
     from ._models_py3 import MicrosoftGraphDirectoryObject
     from ._models_py3 import MicrosoftGraphEndpoint
     from ._models_py3 import MicrosoftGraphEntity
@@ -107,6 +109,7 @@ except (SyntaxError, ImportError):
     from ._models import CollectionOfAppRoleAssignment2  # type: ignore
     from ._models import CollectionOfApplication  # type: ignore
     from ._models import CollectionOfClaimsMappingPolicy  # type: ignore
+    from ._models import CollectionOfDelegatedPermissionClassification  # type: ignore
     from ._models import CollectionOfDirectoryObject  # type: ignore
     from ._models import CollectionOfDirectoryObject0  # type: ignore
     from ._models import CollectionOfDirectoryObject1  # type: ignore
@@ -143,6 +146,7 @@ except (SyntaxError, ImportError):
     from ._models import MicrosoftGraphAppRoleAssignment  # type: ignore
     from ._models import MicrosoftGraphApplication  # type: ignore
     from ._models import MicrosoftGraphClaimsMappingPolicy  # type: ignore
+    from ._models import MicrosoftGraphDelegatedPermissionClassification  # type: ignore
     from ._models import MicrosoftGraphDirectoryObject  # type: ignore
     from ._models import MicrosoftGraphEndpoint  # type: ignore
     from ._models import MicrosoftGraphEntity  # type: ignore
@@ -216,7 +220,6 @@ from ._applications_enums import (
     Enum27,
     Enum28,
     Enum29,
-    Enum30,
     Enum31,
     Enum32,
     Enum33,
@@ -236,7 +239,6 @@ from ._applications_enums import (
     Enum47,
     Enum48,
     Enum49,
-    Enum5,
     Enum50,
     Enum51,
     Enum52,
@@ -267,13 +269,19 @@ from ._applications_enums import (
     Enum75,
     Enum76,
     Enum77,
+    Enum78,
+    Enum79,
     Enum8,
+    Enum80,
+    Enum81,
     Enum9,
     Get1ItemsItem,
     Get2ItemsItem,
-    Get5ItemsItem,
+    Get3ItemsItem,
     Get6ItemsItem,
     Get7ItemsItem,
+    Get8ItemsItem,
+    MicrosoftGraphPermissionClassificationType,
 )
 
 __all__ = [
@@ -283,6 +291,7 @@ __all__ = [
     'CollectionOfAppRoleAssignment2',
     'CollectionOfApplication',
     'CollectionOfClaimsMappingPolicy',
+    'CollectionOfDelegatedPermissionClassification',
     'CollectionOfDirectoryObject',
     'CollectionOfDirectoryObject0',
     'CollectionOfDirectoryObject1',
@@ -319,6 +328,7 @@ __all__ = [
     'MicrosoftGraphAppRoleAssignment',
     'MicrosoftGraphApplication',
     'MicrosoftGraphClaimsMappingPolicy',
+    'MicrosoftGraphDelegatedPermissionClassification',
     'MicrosoftGraphDirectoryObject',
     'MicrosoftGraphEndpoint',
     'MicrosoftGraphEntity',
@@ -390,7 +400,6 @@ __all__ = [
     'Enum27',
     'Enum28',
     'Enum29',
-    'Enum30',
     'Enum31',
     'Enum32',
     'Enum33',
@@ -410,7 +419,6 @@ __all__ = [
     'Enum47',
     'Enum48',
     'Enum49',
-    'Enum5',
     'Enum50',
     'Enum51',
     'Enum52',
@@ -441,11 +449,17 @@ __all__ = [
     'Enum75',
     'Enum76',
     'Enum77',
+    'Enum78',
+    'Enum79',
     'Enum8',
+    'Enum80',
+    'Enum81',
     'Enum9',
     'Get1ItemsItem',
     'Get2ItemsItem',
-    'Get5ItemsItem',
+    'Get3ItemsItem',
     'Get6ItemsItem',
     'Get7ItemsItem',
+    'Get8ItemsItem',
+    'MicrosoftGraphPermissionClassificationType',
 ]

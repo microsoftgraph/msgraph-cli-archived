@@ -12,10 +12,12 @@
 
 from msgraph.cli.core.commands.parameters import (
     get_three_state_flag,
-    get_enum_type
+    get_enum_type,
+    get_location_type
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_teams.action import (
+    AddAppDefinitions,
     AddFunSettings,
     AddGuestSettings,
     AddMemberSettings,
@@ -48,7 +50,6 @@ from azext_teams.action import (
     AddScheduleTimeOffRequests,
     AddTeamsMembers,
     AddTeamsAppDefinition,
-    AddTeamsAppAppDefinitions,
     AddError,
     AddAttachments,
     AddBody,
@@ -57,13 +58,104 @@ from azext_teams.action import (
     AddHostedContents,
     AddPolicyViolationPolicyTip,
     AddConfiguration,
+    AddParentReferenceSharepointIds,
+    AddAudio,
+    AddFileSystemInfo,
+    AddImage,
+    AddPhoto,
+    AddPublication,
+    AddVideo,
+    AddSubscriptions,
+    AddVersions,
+    AddListItemContentType,
+    AddListItemFields,
+    AddWorkbookApplication,
+    AddWorkbookComments,
+    AddWorkbookFunctions,
+    AddSharedOwner,
+    AddRemoteItemPackage,
+    AddRemoteItemSpecialFolder,
+    AddFolderView,
+    AddFileHashes,
     AddDraftOpenShift,
     AddDraftTimeOff,
-    AddEncryption
+    AddEncryption,
+    AddInstalledApps
 )
 
 
 def load_arguments(self, _):
+
+    with self.argument_context('teams delete') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams create-team-app') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The name of the catalog app provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                  'unknownFutureValue']), help='')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.')
+        c.argument('app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each version of the '
+                   'app.')
+
+    with self.argument_context('teams get-team-app') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams list-team-app') as c:
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams update-team-app') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The name of the catalog app provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                  'unknownFutureValue']), help='')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.')
+        c.argument('app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each version of the '
+                   'app.')
+
+    with self.argument_context('teams delete') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams create-app-definition') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.')
+        c.argument('microsoft_graph_teams_app_definition_teams_app_id_teams_app_id', type=str, help='The ID from the '
+                   'Teams app manifest.')
+        c.argument('version', type=str, help='The version number of the application.')
+
+    with self.argument_context('teams get-app-definition') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams list-app-definition') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams update-app-definition') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.')
+        c.argument('microsoft_graph_teams_app_definition_teams_app_id_teams_app_id', type=str, help='The ID from the '
+                   'Teams app manifest.')
+        c.argument('version', type=str, help='The version number of the application.')
 
     with self.argument_context('teams delete') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
@@ -168,27 +260,17 @@ def load_arguments(self, _):
                    '\'serviceadmins@contoso.onmicrosoft.com\'. Returned by default. Read-only. Supports $filter.')
         c.argument('group_mail_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is '
                    'mail-enabled. Returned by default.')
-        c.argument('group_mail_nickname', type=str, help='The mail alias for the group, unique in the organization. '
-                   'This property must be specified when a group is created. Returned by default. Supports $filter.')
+        c.argument('group_mail_nickname', type=str, help='')
         c.argument('group_membership_rule', type=str, help='The rule that determines members for this group if the '
                    'group is a dynamic group (groupTypes contains DynamicMembership). For more information about the '
                    'syntax of the membership rule, see Membership Rules syntax. Returned by default.')
         c.argument('group_membership_rule_processing_state', type=str, help='Indicates whether the dynamic membership '
                    'processing is on or paused. Possible values are \'On\' or \'Paused\'. Returned by default.')
-        c.argument('group_on_premises_domain_name', type=str, help='Contains the on-premises domain FQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect.Returned by default. Read-only.')
-        c.argument('group_on_premises_last_sync_date_time', help='Indicates the last time at which the group was '
-                   'synced with the on-premises directory.The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only. Supports $filter.')
-        c.argument('group_on_premises_net_bios_name', type=str, help='Contains the on-premises netBios name '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
-                   'by default. Read-only.')
+        c.argument('group_on_premises_domain_name', type=str, help='')
+        c.argument('group_on_premises_last_sync_date_time', help='')
+        c.argument('group_on_premises_net_bios_name', type=str, help='')
         c.argument('group_on_premises_provisioning_errors', action=AddGroupOnPremisesProvisioningErrors, nargs='*',
-                   help='Errors when using Microsoft synchronization product during provisioning. Returned by default.')
+                   help='')
         c.argument('group_on_premises_sam_account_name', type=str, help='Contains the on-premises SAM account name '
                    'synchronized from the on-premises directory. The property is only populated for customers who are '
                    'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
@@ -408,27 +490,17 @@ def load_arguments(self, _):
                    '\'serviceadmins@contoso.onmicrosoft.com\'. Returned by default. Read-only. Supports $filter.')
         c.argument('group_mail_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is '
                    'mail-enabled. Returned by default.')
-        c.argument('group_mail_nickname', type=str, help='The mail alias for the group, unique in the organization. '
-                   'This property must be specified when a group is created. Returned by default. Supports $filter.')
+        c.argument('group_mail_nickname', type=str, help='')
         c.argument('group_membership_rule', type=str, help='The rule that determines members for this group if the '
                    'group is a dynamic group (groupTypes contains DynamicMembership). For more information about the '
                    'syntax of the membership rule, see Membership Rules syntax. Returned by default.')
         c.argument('group_membership_rule_processing_state', type=str, help='Indicates whether the dynamic membership '
                    'processing is on or paused. Possible values are \'On\' or \'Paused\'. Returned by default.')
-        c.argument('group_on_premises_domain_name', type=str, help='Contains the on-premises domain FQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect.Returned by default. Read-only.')
-        c.argument('group_on_premises_last_sync_date_time', help='Indicates the last time at which the group was '
-                   'synced with the on-premises directory.The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only. Supports $filter.')
-        c.argument('group_on_premises_net_bios_name', type=str, help='Contains the on-premises netBios name '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
-                   'by default. Read-only.')
+        c.argument('group_on_premises_domain_name', type=str, help='')
+        c.argument('group_on_premises_last_sync_date_time', help='')
+        c.argument('group_on_premises_net_bios_name', type=str, help='')
         c.argument('group_on_premises_provisioning_errors', action=AddGroupOnPremisesProvisioningErrors, nargs='*',
-                   help='Errors when using Microsoft synchronization product during provisioning. Returned by default.')
+                   help='')
         c.argument('group_on_premises_sam_account_name', type=str, help='Contains the on-premises SAM account name '
                    'synchronized from the on-premises directory. The property is only populated for customers who are '
                    'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
@@ -655,27 +727,17 @@ def load_arguments(self, _):
                    '\'serviceadmins@contoso.onmicrosoft.com\'. Returned by default. Read-only. Supports $filter.')
         c.argument('group_mail_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is '
                    'mail-enabled. Returned by default.')
-        c.argument('group_mail_nickname', type=str, help='The mail alias for the group, unique in the organization. '
-                   'This property must be specified when a group is created. Returned by default. Supports $filter.')
+        c.argument('group_mail_nickname', type=str, help='')
         c.argument('group_membership_rule', type=str, help='The rule that determines members for this group if the '
                    'group is a dynamic group (groupTypes contains DynamicMembership). For more information about the '
                    'syntax of the membership rule, see Membership Rules syntax. Returned by default.')
         c.argument('group_membership_rule_processing_state', type=str, help='Indicates whether the dynamic membership '
                    'processing is on or paused. Possible values are \'On\' or \'Paused\'. Returned by default.')
-        c.argument('group_on_premises_domain_name', type=str, help='Contains the on-premises domain FQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect.Returned by default. Read-only.')
-        c.argument('group_on_premises_last_sync_date_time', help='Indicates the last time at which the group was '
-                   'synced with the on-premises directory.The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only. Supports $filter.')
-        c.argument('group_on_premises_net_bios_name', type=str, help='Contains the on-premises netBios name '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
-                   'by default. Read-only.')
+        c.argument('group_on_premises_domain_name', type=str, help='')
+        c.argument('group_on_premises_last_sync_date_time', help='')
+        c.argument('group_on_premises_net_bios_name', type=str, help='')
         c.argument('group_on_premises_provisioning_errors', action=AddGroupOnPremisesProvisioningErrors, nargs='*',
-                   help='Errors when using Microsoft synchronization product during provisioning. Returned by default.')
+                   help='')
         c.argument('group_on_premises_sam_account_name', type=str, help='Contains the on-premises SAM account name '
                    'synchronized from the on-premises directory. The property is only populated for customers who are '
                    'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
@@ -849,9 +911,9 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='Channel name as it will appear to the user in Microsoft Teams.')
         c.argument('email', type=str, help='The email address for sending messages to the channel. Read-only.')
         c.argument('membership_type', arg_type=get_enum_type(['standard', 'private', 'unknownFutureValue']), help='')
-        c.argument('web_url', type=str, help='A hyperlink that will navigate to the channel in Microsoft Teams. This '
-                   'is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to '
-                   'channel. This URL should be treated as an opaque blob, and not parsed. Read-only.')
+        c.argument('web_url', type=str, help='A hyperlink that will go to the channel in Microsoft Teams. This is the '
+                   'URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. '
+                   'This URL should be treated as an opaque blob, and not parsed. Read-only.')
         c.argument('files_folder', type=validate_file_or_dict,
                    help='driveItem Expected value: json-string/@json-file.')
         c.argument('members', action=AddTeamsMembers, nargs='*', help='')
@@ -871,8 +933,8 @@ def load_arguments(self, _):
                                                                             'unknownFutureValue']), help='')
         c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
 
     with self.argument_context('teams create-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -993,9 +1055,9 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='Channel name as it will appear to the user in Microsoft Teams.')
         c.argument('email', type=str, help='The email address for sending messages to the channel. Read-only.')
         c.argument('membership_type', arg_type=get_enum_type(['standard', 'private', 'unknownFutureValue']), help='')
-        c.argument('web_url', type=str, help='A hyperlink that will navigate to the channel in Microsoft Teams. This '
-                   'is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to '
-                   'channel. This URL should be treated as an opaque blob, and not parsed. Read-only.')
+        c.argument('web_url', type=str, help='A hyperlink that will go to the channel in Microsoft Teams. This is the '
+                   'URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. '
+                   'This URL should be treated as an opaque blob, and not parsed. Read-only.')
         c.argument('files_folder', type=validate_file_or_dict,
                    help='driveItem Expected value: json-string/@json-file.')
         c.argument('members', action=AddTeamsMembers, nargs='*', help='')
@@ -1016,8 +1078,8 @@ def load_arguments(self, _):
                                                                             'unknownFutureValue']), help='')
         c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
 
     with self.argument_context('teams update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1052,9 +1114,9 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='Channel name as it will appear to the user in Microsoft Teams.')
         c.argument('email', type=str, help='The email address for sending messages to the channel. Read-only.')
         c.argument('membership_type', arg_type=get_enum_type(['standard', 'private', 'unknownFutureValue']), help='')
-        c.argument('web_url', type=str, help='A hyperlink that will navigate to the channel in Microsoft Teams. This '
-                   'is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to '
-                   'channel. This URL should be treated as an opaque blob, and not parsed. Read-only.')
+        c.argument('web_url', type=str, help='A hyperlink that will go to the channel in Microsoft Teams. This is the '
+                   'URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. '
+                   'This URL should be treated as an opaque blob, and not parsed. Read-only.')
         c.argument('files_folder', type=validate_file_or_dict,
                    help='driveItem Expected value: json-string/@json-file.')
         c.argument('members', action=AddTeamsMembers, nargs='*', help='')
@@ -1147,7 +1209,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -1186,14 +1249,18 @@ def load_arguments(self, _):
                                                                             'unknownFutureValue']), help='')
         c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
 
     with self.argument_context('teams get-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams get-file-folder-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
 
     with self.argument_context('teams get-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1237,11 +1304,230 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('teams set-file-folder-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('data', help='New media content.')
+
     with self.argument_context('teams update-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
+                   'the item. Read-only.')
+        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
+                   'for values.')
+        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('parent_reference_path', type=str,
+                   help='Path that can be used to navigate to the item. Read-only.')
+        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
+                   'accessed via the [Shares][] API.')
+        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('parent_reference_site_id', type=str, help='')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('audio', action=AddAudio, nargs='*', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='*', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='*', help='photo')
+        c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='*', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddSubscriptions, nargs='*', help='The set of subscriptions on the item. '
+                   'Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddVersions, nargs='*', help='The list of previous versions of the item. For '
+                   'more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('list_item_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_item_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_last_modified_by_device_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_item_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_last_modified_by_application_display_name', type=str, help='The identity\'s display '
+                   'name. Note that this may not always be available or up to date. For example, if a user changes '
+                   'their display name, the API may show the new value in a future response, but the items associated '
+                   'with the user won\'t show up as having changed when using delta.')
+        c.argument('list_item_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_item_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_item_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_item_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_content_type', action=AddListItemContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_fields', action=AddListItemFields, nargs='*', help='fieldValueSet')
+        c.argument('list_item_versions', type=validate_file_or_dict, help='The list of previous versions of the list '
+                   'item. Expected value: json-string/@json-file.')
+        c.argument('analytics_id', type=str, help='Read-only.')
+        c.argument('analytics_all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.')
+        c.argument('analytics_item_activity_stats', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
+        c.argument('analytics_last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_id', type=str, help='Read-only.')
+        c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
+        c.argument('workbook_comments', action=AddWorkbookComments, nargs='*', help='')
+        c.argument('workbook_functions', action=AddWorkbookFunctions, nargs='*', help='workbookFunctions')
+        c.argument('workbook_names', type=validate_file_or_dict, help='Represents a collection of workbook scoped '
+                   'named items (named ranges and constants). Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_operations', type=validate_file_or_dict, help='The status of workbook operations. Getting '
+                   'an operation collection is not supported, but you can get the status of a long-running operation '
+                   'if the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_tables', type=validate_file_or_dict, help='Represents a collection of tables associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets '
+                   'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
+                   'collection')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
+                   'organization, or users. Read-only.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
+        c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
+                   'telemetry information. The application should issue a GET on this URL if the user interacts with '
+                   'this item to improve the quality of results.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('remote_item_file', type=validate_file_or_dict,
+                   help='file Expected value: json-string/@json-file.')
+        c.argument('remote_item_file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('remote_item_folder', type=validate_file_or_dict, help='folder Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
+        c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
+        c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
+        c.argument('remote_item_parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_shared', type=validate_file_or_dict, help='shared Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('remote_item_size', type=int, help='Size of the remote item. Read-only.')
+        c.argument('remote_item_special_folder', action=AddRemoteItemSpecialFolder, nargs='*', help='specialFolder')
+        c.argument('remote_item_video', action=AddVideo, nargs='*', help='video')
+        c.argument('remote_item_web_dav_url', type=str, help='DAV compatible URL for the item.')
+        c.argument('remote_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('pending_operations_pending_content_update_queued_date_time', help='Date and time the pending '
+                   'binary operation was queued in UTC time. Read-only.')
+        c.argument('package_type', type=str, help='A string indicating the type of package. While oneNote is the only '
+                   'currently defined value, you should expect other package types to be returned and handle them '
+                   'accordingly.')
+        c.argument('folder_child_count', type=int, help='Number of children contained immediately within this '
+                   'container.')
+        c.argument('folder_view', action=AddFolderView, nargs='*', help='folderView')
+        c.argument('file_hashes', action=AddFileHashes, nargs='*', help='hashes')
+        c.argument('file_mime_type', type=str, help='The MIME type for the file. This is determined by logic on the '
+                   'server and might not be the value provided when the file was uploaded. Read-only.')
+        c.argument('file_processing_metadata', arg_type=get_three_state_flag(), help='')
+        c.argument('deleted_state', type=str, help='Represents the state of the deleted item.')
 
     with self.argument_context('teams update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1285,7 +1571,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -1325,8 +1612,8 @@ def load_arguments(self, _):
                                                                             'unknownFutureValue']), help='')
         c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
 
     with self.argument_context('teams delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1376,7 +1663,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -1409,6 +1697,12 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('teams get-hosted-content-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+
     with self.argument_context('teams get-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
@@ -1432,6 +1726,13 @@ def load_arguments(self, _):
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams set-hosted-content-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('data', help='New media content.')
 
     with self.argument_context('teams update-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1475,7 +1776,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -1611,7 +1913,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -1649,13 +1952,16 @@ def load_arguments(self, _):
                                                                             'unknownFutureValue']), help='')
         c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
 
     with self.argument_context('teams get-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams get-file-folder-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
 
     with self.argument_context('teams get-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1693,10 +1999,228 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('teams set-file-folder-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('data', help='New media content.')
+
     with self.argument_context('teams update-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
+                   'the item. Read-only.')
+        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
+                   'for values.')
+        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
+        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
+        c.argument('parent_reference_path', type=str,
+                   help='Path that can be used to navigate to the item. Read-only.')
+        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
+                   'accessed via the [Shares][] API.')
+        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('parent_reference_site_id', type=str, help='')
+        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
+                   'not always be available or up to date. For example, if a user changes their display name, the API '
+                   'may show the new value in a future response, but the items associated with the user won\'t show up '
+                   'as having changed when using delta.')
+        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
+                   'may not always be available or up to date. For example, if a user changes their display name, the '
+                   'API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('audio', action=AddAudio, nargs='*', help='audio')
+        c.argument('content', help='The content stream, if the item represents a file.')
+        c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
+                   'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='*', help='image')
+        c.argument('location', arg_type=get_location_type(self.cli_ctx))
+        c.argument('photo', action=AddPhoto, nargs='*', help='photo')
+        c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
+        c.argument('video', action=AddVideo, nargs='*', help='video')
+        c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
+        c.argument('children', type=validate_file_or_dict, help='Collection containing Item objects for the immediate '
+                   'children of Item. Only items representing folders have children. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('subscriptions', action=AddSubscriptions, nargs='*', help='The set of subscriptions on the item. '
+                   'Only supported on the root of a drive.')
+        c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
+                   'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('versions', action=AddVersions, nargs='*', help='The list of previous versions of the item. For '
+                   'more info, see [getting previous versions][]. Read-only. Nullable.')
+        c.argument('list_item_id', type=str, help='Read-only.')
+        c.argument('list_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('list_item_description', type=str,
+                   help='Provides a user-visible description of the item. Optional.')
+        c.argument('list_item_e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('list_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('list_item_name', type=str, help='The name of the item. Read-write.')
+        c.argument('list_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('list_item_created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active '
+                   'Directory user object. Expected value: json-string/@json-file.')
+        c.argument('list_item_parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that '
+                   'contains the item. Read-only.')
+        c.argument('list_item_parent_reference_drive_type', type=str, help='Identifies the type of drive. See '
+                   '[drive][] resource for values.')
+        c.argument('list_item_parent_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_path', type=str, help='Path that can be used to navigate to the item. '
+                   'Read-only.')
+        c.argument('list_item_parent_reference_share_id', type=str, help='A unique identifier for a shared resource '
+                   'that can be accessed via the [Shares][] API.')
+        c.argument('list_item_parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_parent_reference_site_id', type=str, help='')
+        c.argument('list_item_last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_item_last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_last_modified_by_device_display_name', type=str, help='The identity\'s display name. '
+                   'Note that this may not always be available or up to date. For example, if a user changes their '
+                   'display name, the API may show the new value in a future response, but the items associated with '
+                   'the user won\'t show up as having changed when using delta.')
+        c.argument('list_item_last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_last_modified_by_application_display_name', type=str, help='The identity\'s display '
+                   'name. Note that this may not always be available or up to date. For example, if a user changes '
+                   'their display name, the API may show the new value in a future response, but the items associated '
+                   'with the user won\'t show up as having changed when using delta.')
+        c.argument('list_item_last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_created_by_user_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_item_created_by_user_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_created_by_device_display_name', type=str, help='The identity\'s display name. Note that '
+                   'this may not always be available or up to date. For example, if a user changes their display name, '
+                   'the API may show the new value in a future response, but the items associated with the user won\'t '
+                   'show up as having changed when using delta.')
+        c.argument('list_item_created_by_device_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_created_by_application_display_name', type=str, help='The identity\'s display name. Note '
+                   'that this may not always be available or up to date. For example, if a user changes their display '
+                   'name, the API may show the new value in a future response, but the items associated with the user '
+                   'won\'t show up as having changed when using delta.')
+        c.argument('list_item_created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('list_item_content_type', action=AddListItemContentType, nargs='*', help='contentTypeInfo')
+        c.argument('list_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*',
+                   help='sharepointIds')
+        c.argument('list_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.')
+        c.argument('list_item_drive_item', type=validate_file_or_dict, help='driveItem Expected value: '
+                   'json-string/@json-file.')
+        c.argument('list_item_fields', action=AddListItemFields, nargs='*', help='fieldValueSet')
+        c.argument('list_item_versions', type=validate_file_or_dict, help='The list of previous versions of the list '
+                   'item. Expected value: json-string/@json-file.')
+        c.argument('analytics_id', type=str, help='Read-only.')
+        c.argument('analytics_all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.')
+        c.argument('analytics_item_activity_stats', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
+        c.argument('analytics_last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_id', type=str, help='Read-only.')
+        c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
+        c.argument('workbook_comments', action=AddWorkbookComments, nargs='*', help='')
+        c.argument('workbook_functions', action=AddWorkbookFunctions, nargs='*', help='workbookFunctions')
+        c.argument('workbook_names', type=validate_file_or_dict, help='Represents a collection of workbook scoped '
+                   'named items (named ranges and constants). Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_operations', type=validate_file_or_dict, help='The status of workbook operations. Getting '
+                   'an operation collection is not supported, but you can get the status of a long-running operation '
+                   'if the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('workbook_tables', type=validate_file_or_dict, help='Represents a collection of tables associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('workbook_worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets '
+                   'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
+        c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
+                   'collection')
+        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
+                   'organization, or users. Read-only.')
+        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
+        c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
+                   'telemetry information. The application should issue a GET on this URL if the user interacts with '
+                   'this item to improve the quality of results.')
+        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('remote_item_file', type=validate_file_or_dict,
+                   help='file Expected value: json-string/@json-file.')
+        c.argument('remote_item_file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
+        c.argument('remote_item_folder', type=validate_file_or_dict, help='folder Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
+        c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
+        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
+        c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
+        c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
+        c.argument('remote_item_parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_shared', type=validate_file_or_dict, help='shared Expected value: '
+                   'json-string/@json-file.')
+        c.argument('remote_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
+                   'sharepointIds')
+        c.argument('remote_item_size', type=int, help='Size of the remote item. Read-only.')
+        c.argument('remote_item_special_folder', action=AddRemoteItemSpecialFolder, nargs='*', help='specialFolder')
+        c.argument('remote_item_video', action=AddVideo, nargs='*', help='video')
+        c.argument('remote_item_web_dav_url', type=str, help='DAV compatible URL for the item.')
+        c.argument('remote_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('pending_operations_pending_content_update_queued_date_time', help='Date and time the pending '
+                   'binary operation was queued in UTC time. Read-only.')
+        c.argument('package_type', type=str, help='A string indicating the type of package. While oneNote is the only '
+                   'currently defined value, you should expect other package types to be returned and handle them '
+                   'accordingly.')
+        c.argument('folder_child_count', type=int, help='Number of children contained immediately within this '
+                   'container.')
+        c.argument('folder_view', action=AddFolderView, nargs='*', help='folderView')
+        c.argument('file_hashes', action=AddFileHashes, nargs='*', help='hashes')
+        c.argument('file_mime_type', type=str, help='The MIME type for the file. This is determined by logic on the '
+                   'server and might not be the value provided when the file was uploaded. Read-only.')
+        c.argument('file_processing_metadata', arg_type=get_three_state_flag(), help='')
+        c.argument('deleted_state', type=str, help='Represents the state of the deleted item.')
 
     with self.argument_context('teams update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1738,7 +2262,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -1777,8 +2302,8 @@ def load_arguments(self, _):
                                                                             'unknownFutureValue']), help='')
         c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddTeamsAppAppDefinitions, nargs='*', help='The details for '
-                   'each version of the app.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
 
     with self.argument_context('teams delete') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1825,7 +2350,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -1857,6 +2383,11 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('teams get-hosted-content-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+
     with self.argument_context('teams get-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
@@ -1877,6 +2408,12 @@ def load_arguments(self, _):
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams set-hosted-content-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('data', help='New media content.')
 
     with self.argument_context('teams update-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1918,7 +2455,8 @@ def load_arguments(self, _):
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
                                                                           'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='')
+        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
+                   'the message when overriding a policy violation.')
         c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
                    'chatMessagePolicyViolationPolicyTip')
         c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
@@ -2854,27 +3392,17 @@ def load_arguments(self, _):
                    '\'serviceadmins@contoso.onmicrosoft.com\'. Returned by default. Read-only. Supports $filter.')
         c.argument('group_mail_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is '
                    'mail-enabled. Returned by default.')
-        c.argument('group_mail_nickname', type=str, help='The mail alias for the group, unique in the organization. '
-                   'This property must be specified when a group is created. Returned by default. Supports $filter.')
+        c.argument('group_mail_nickname', type=str, help='')
         c.argument('group_membership_rule', type=str, help='The rule that determines members for this group if the '
                    'group is a dynamic group (groupTypes contains DynamicMembership). For more information about the '
                    'syntax of the membership rule, see Membership Rules syntax. Returned by default.')
         c.argument('group_membership_rule_processing_state', type=str, help='Indicates whether the dynamic membership '
                    'processing is on or paused. Possible values are \'On\' or \'Paused\'. Returned by default.')
-        c.argument('group_on_premises_domain_name', type=str, help='Contains the on-premises domain FQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect.Returned by default. Read-only.')
-        c.argument('group_on_premises_last_sync_date_time', help='Indicates the last time at which the group was '
-                   'synced with the on-premises directory.The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only. Supports $filter.')
-        c.argument('group_on_premises_net_bios_name', type=str, help='Contains the on-premises netBios name '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
-                   'by default. Read-only.')
+        c.argument('group_on_premises_domain_name', type=str, help='')
+        c.argument('group_on_premises_last_sync_date_time', help='')
+        c.argument('group_on_premises_net_bios_name', type=str, help='')
         c.argument('group_on_premises_provisioning_errors', action=AddGroupOnPremisesProvisioningErrors, nargs='*',
-                   help='Errors when using Microsoft synchronization product during provisioning. Returned by default.')
+                   help='')
         c.argument('group_on_premises_sam_account_name', type=str, help='Contains the on-premises SAM account name '
                    'synchronized from the on-premises directory. The property is only populated for customers who are '
                    'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
@@ -3024,6 +3552,11 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('teams get-teamwork') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
     with self.argument_context('teams list-joined-team') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
@@ -3104,27 +3637,17 @@ def load_arguments(self, _):
                    '\'serviceadmins@contoso.onmicrosoft.com\'. Returned by default. Read-only. Supports $filter.')
         c.argument('group_mail_enabled', arg_type=get_three_state_flag(), help='Specifies whether the group is '
                    'mail-enabled. Returned by default.')
-        c.argument('group_mail_nickname', type=str, help='The mail alias for the group, unique in the organization. '
-                   'This property must be specified when a group is created. Returned by default. Supports $filter.')
+        c.argument('group_mail_nickname', type=str, help='')
         c.argument('group_membership_rule', type=str, help='The rule that determines members for this group if the '
                    'group is a dynamic group (groupTypes contains DynamicMembership). For more information about the '
                    'syntax of the membership rule, see Membership Rules syntax. Returned by default.')
         c.argument('group_membership_rule_processing_state', type=str, help='Indicates whether the dynamic membership '
                    'processing is on or paused. Possible values are \'On\' or \'Paused\'. Returned by default.')
-        c.argument('group_on_premises_domain_name', type=str, help='Contains the on-premises domain FQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect.Returned by default. Read-only.')
-        c.argument('group_on_premises_last_sync_date_time', help='Indicates the last time at which the group was '
-                   'synced with the on-premises directory.The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'. Returned by default. Read-only. Supports $filter.')
-        c.argument('group_on_premises_net_bios_name', type=str, help='Contains the on-premises netBios name '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
-                   'by default. Read-only.')
+        c.argument('group_on_premises_domain_name', type=str, help='')
+        c.argument('group_on_premises_last_sync_date_time', help='')
+        c.argument('group_on_premises_net_bios_name', type=str, help='')
         c.argument('group_on_premises_provisioning_errors', action=AddGroupOnPremisesProvisioningErrors, nargs='*',
-                   help='Errors when using Microsoft synchronization product during provisioning. Returned by default.')
+                   help='')
         c.argument('group_on_premises_sam_account_name', type=str, help='Contains the on-premises SAM account name '
                    'synchronized from the on-premises directory. The property is only populated for customers who are '
                    'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned '
@@ -3267,3 +3790,78 @@ def load_arguments(self, _):
         c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
         c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
                    'Expected value: json-string/@json-file.')
+
+    with self.argument_context('teams update-teamwork') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('installed_apps', action=AddInstalledApps, nargs='*', help='The apps installed in the personal '
+                   'scope of this user.')
+
+    with self.argument_context('teams delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams create-installed-app') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
+        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                            'unknownFutureValue']), help='')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
+        c.argument('chat_id', type=str, help='Read-only.')
+
+    with self.argument_context('teams get-installed-app') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams list-installed-app') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams update-installed-app') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('teams_app_definition', action=AddTeamsAppDefinition, nargs='*', help='teamsAppDefinition')
+        c.argument('teams_app_id', type=str, help='Read-only.')
+        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
+                   'in the Microsoft Teams zip app package.')
+        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+                                                                            'unknownFutureValue']), help='')
+        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
+                   'Microsoft Teams zip app package.')
+        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
+                   'version of the app.')
+        c.argument('chat_id', type=str, help='Read-only.')
+
+    with self.argument_context('teams delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams get-chat') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('teams get-ref-chat') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+
+    with self.argument_context('teams set-ref-chat') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
+                   'json-string/@json-file.')

@@ -43,9 +43,9 @@ class EducationMeOperations:
 
     def list_class(
         self,
-        orderby: Optional[List[Union[str, "models.Enum85"]]] = None,
-        select: Optional[List[Union[str, "models.Enum86"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum87"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum87"]]] = None,
+        select: Optional[List[Union[str, "models.Enum88"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum89"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationClass0"]:
         """Get classes from education.
@@ -53,11 +53,11 @@ class EducationMeOperations:
         Get classes from education.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum85]
+        :type orderby: list[str or ~education.models.Enum87]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum86]
+        :type select: list[str or ~education.models.Enum88]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum87]
+        :type expand: list[str or ~education.models.Enum89]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfEducationClass0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationClass0]
@@ -130,7 +130,7 @@ class EducationMeOperations:
 
     def list_ref_class(
         self,
-        orderby: Optional[List[Union[str, "models.Enum88"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum90"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfEducationClass"]:
         """Get ref of classes from education.
@@ -138,7 +138,7 @@ class EducationMeOperations:
         Get ref of classes from education.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum88]
+        :type orderby: list[str or ~education.models.Enum90]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfEducationClass or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationClass]
@@ -262,9 +262,9 @@ class EducationMeOperations:
 
     def list_school(
         self,
-        orderby: Optional[List[Union[str, "models.Enum89"]]] = None,
-        select: Optional[List[Union[str, "models.Enum90"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum91"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum91"]]] = None,
+        select: Optional[List[Union[str, "models.Enum92"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum93"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationSchool0"]:
         """Get schools from education.
@@ -272,11 +272,11 @@ class EducationMeOperations:
         Get schools from education.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum89]
+        :type orderby: list[str or ~education.models.Enum91]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum90]
+        :type select: list[str or ~education.models.Enum92]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum91]
+        :type expand: list[str or ~education.models.Enum93]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfEducationSchool0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationSchool0]
@@ -349,7 +349,7 @@ class EducationMeOperations:
 
     def list_ref_school(
         self,
-        orderby: Optional[List[Union[str, "models.Enum92"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum94"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfEducationSchool0"]:
         """Get ref of schools from education.
@@ -357,7 +357,7 @@ class EducationMeOperations:
         Get ref of schools from education.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum92]
+        :type orderby: list[str or ~education.models.Enum94]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfEducationSchool0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationSchool0]
@@ -481,8 +481,8 @@ class EducationMeOperations:
 
     async def get_user(
         self,
-        select: Optional[List[Union[str, "models.Enum93"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum94"]]] = None,
+        select: Optional[List[Union[str, "models.Enum95"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum96"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphUser":
         """Get user from education.
@@ -490,9 +490,9 @@ class EducationMeOperations:
         Get user from education.
 
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum93]
+        :type select: list[str or ~education.models.Enum95]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum94]
+        :type expand: list[str or ~education.models.Enum96]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphUser, or the result of cls(response)
         :rtype: ~education.models.MicrosoftGraphUser

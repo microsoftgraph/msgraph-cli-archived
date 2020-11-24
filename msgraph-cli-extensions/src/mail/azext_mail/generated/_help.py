@@ -51,6 +51,133 @@ Nullable."
 helps['mail create-message'] = """
     type: command
     short-summary: "Create new navigation property to messages for users"
+    parameters:
+      - name: --bcc-recipients
+        short-summary: "The Bcc: recipients for the message."
+        long-summary: |
+            Usage: --bcc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --bcc-recipients argument.
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --cc-recipients
+        short-summary: "The Cc: recipients for the message."
+        long-summary: |
+            Usage: --cc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --cc-recipients argument.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --reply-to
+        short-summary: "The email addresses to use when replying."
+        long-summary: |
+            Usage: --reply-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --reply-to argument.
+      - name: --to-recipients
+        short-summary: "The To: recipients for the message."
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
 helps['mail get-inference-classification'] = """
@@ -68,6 +195,11 @@ helps['mail get-message'] = """
     short-summary: "Get messages from users"
 """
 
+helps['mail get-message-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property messages from users"
+"""
+
 helps['mail list-mail-folder'] = """
     type: command
     short-summary: "Get mailFolders from users"
@@ -76,6 +208,11 @@ helps['mail list-mail-folder'] = """
 helps['mail list-message'] = """
     type: command
     short-summary: "Get messages from users"
+"""
+
+helps['mail set-message-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property messages in users"
 """
 
 helps['mail update-inference-classification'] = """
@@ -124,6 +261,133 @@ Nullable."
 helps['mail update-message'] = """
     type: command
     short-summary: "Update the navigation property messages in users"
+    parameters:
+      - name: --bcc-recipients
+        short-summary: "The Bcc: recipients for the message."
+        long-summary: |
+            Usage: --bcc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --bcc-recipients argument.
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --cc-recipients
+        short-summary: "The Cc: recipients for the message."
+        long-summary: |
+            Usage: --cc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --cc-recipients argument.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --reply-to
+        short-summary: "The email addresses to use when replying."
+        long-summary: |
+            Usage: --reply-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --reply-to argument.
+      - name: --to-recipients
+        short-summary: "The To: recipients for the message."
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
 helps['mail'] = """
@@ -195,6 +459,133 @@ Nullable."
 helps['mail create-message'] = """
     type: command
     short-summary: "Create new navigation property to messages for users"
+    parameters:
+      - name: --bcc-recipients
+        short-summary: "The Bcc: recipients for the message."
+        long-summary: |
+            Usage: --bcc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --bcc-recipients argument.
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --cc-recipients
+        short-summary: "The Cc: recipients for the message."
+        long-summary: |
+            Usage: --cc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --cc-recipients argument.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --reply-to
+        short-summary: "The email addresses to use when replying."
+        long-summary: |
+            Usage: --reply-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --reply-to argument.
+      - name: --to-recipients
+        short-summary: "The To: recipients for the message."
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
 helps['mail create-message-rule'] = """
@@ -220,6 +611,11 @@ helps['mail get-child-folder'] = """
 helps['mail get-message'] = """
     type: command
     short-summary: "Get messages from users"
+"""
+
+helps['mail get-message-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property messages from users"
 """
 
 helps['mail get-message-rule'] = """
@@ -262,6 +658,11 @@ helps['mail list-single-value-extended-property'] = """
     short-summary: "Get singleValueExtendedProperties from users"
 """
 
+helps['mail set-message-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property messages in users"
+"""
+
 helps['mail update-child-folder'] = """
     type: command
     short-summary: "Update the navigation property childFolders in users"
@@ -291,6 +692,133 @@ Nullable."
 helps['mail update-message'] = """
     type: command
     short-summary: "Update the navigation property messages in users"
+    parameters:
+      - name: --bcc-recipients
+        short-summary: "The Bcc: recipients for the message."
+        long-summary: |
+            Usage: --bcc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --bcc-recipients argument.
+      - name: --body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --cc-recipients
+        short-summary: "The Cc: recipients for the message."
+        long-summary: |
+            Usage: --cc-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --cc-recipients argument.
+      - name: --internet-message-headers
+        short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
+indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
+headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
+        long-summary: |
+            Usage: --internet-message-headers name=XX value=XX
+
+            name: Represents the key in a key-value pair.
+            value: The value in a key-value pair.
+
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --reply-to
+        short-summary: "The email addresses to use when replying."
+        long-summary: |
+            Usage: --reply-to address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --reply-to argument.
+      - name: --to-recipients
+        short-summary: "The To: recipients for the message."
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+      - name: --unique-body
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --unique-body content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --attachments
+        short-summary: "The fileAttachment and itemAttachment attachments for the message."
+        long-summary: |
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+
+            content-type: The MIME type.
+            is-inline: true if the attachment is an inline attachment; otherwise, false.
+            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
+is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+            name: The attachment's file name.
+            size: The length of the attachment in bytes.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the message. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the message. Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+      - name: --flag-completed-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-due-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-due-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --flag-start-date-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --flag-start-date-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
 """
 
 helps['mail update-message-rule'] = """

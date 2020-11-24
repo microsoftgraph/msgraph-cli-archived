@@ -1489,6 +1489,10 @@ class MicrosoftGraphCalendar(MicrosoftGraphEntity):
      "skypeForBusiness", "skypeForConsumer", "teamsForBusiness".
     :type default_online_meeting_provider: str or
      ~sites.models.MicrosoftGraphOnlineMeetingProviderType
+    :param hex_color:
+    :type hex_color: str
+    :param is_default_calendar:
+    :type is_default_calendar: bool
     :param is_removable: Indicates whether this user calendar can be deleted from the user mailbox.
     :type is_removable: bool
     :param is_tallying_responses: Indicates whether this user calendar supports tracking of meeting
@@ -1525,6 +1529,8 @@ class MicrosoftGraphCalendar(MicrosoftGraphEntity):
         'change_key': {'key': 'changeKey', 'type': 'str'},
         'color': {'key': 'color', 'type': 'str'},
         'default_online_meeting_provider': {'key': 'defaultOnlineMeetingProvider', 'type': 'str'},
+        'hex_color': {'key': 'hexColor', 'type': 'str'},
+        'is_default_calendar': {'key': 'isDefaultCalendar', 'type': 'bool'},
         'is_removable': {'key': 'isRemovable', 'type': 'bool'},
         'is_tallying_responses': {'key': 'isTallyingResponses', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
@@ -1548,6 +1554,8 @@ class MicrosoftGraphCalendar(MicrosoftGraphEntity):
         change_key: Optional[str] = None,
         color: Optional[Union[str, "MicrosoftGraphCalendarColor"]] = None,
         default_online_meeting_provider: Optional[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]] = None,
+        hex_color: Optional[str] = None,
+        is_default_calendar: Optional[bool] = None,
         is_removable: Optional[bool] = None,
         is_tallying_responses: Optional[bool] = None,
         name: Optional[str] = None,
@@ -1568,6 +1576,8 @@ class MicrosoftGraphCalendar(MicrosoftGraphEntity):
         self.change_key = change_key
         self.color = color
         self.default_online_meeting_provider = default_online_meeting_provider
+        self.hex_color = hex_color
+        self.is_default_calendar = is_default_calendar
         self.is_removable = is_removable
         self.is_tallying_responses = is_tallying_responses
         self.name = name
@@ -1747,9 +1757,9 @@ class MicrosoftGraphChannel(MicrosoftGraphEntity):
     :type email: str
     :param membership_type:  Possible values include: "standard", "private", "unknownFutureValue".
     :type membership_type: str or ~sites.models.MicrosoftGraphChannelMembershipType
-    :param web_url: A hyperlink that will navigate to the channel in Microsoft Teams. This is the
-     URL that you get when you right-click a channel in Microsoft Teams and select Get link to
-     channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
+    :param web_url: A hyperlink that will go to the channel in Microsoft Teams. This is the URL
+     that you get when you right-click a channel in Microsoft Teams and select Get link to channel.
+     This URL should be treated as an opaque blob, and not parsed. Read-only.
     :type web_url: str
     :param files_folder: driveItem.
     :type files_folder: ~sites.models.MicrosoftGraphDriveItem
@@ -1805,6 +1815,32 @@ class MicrosoftGraphChannel(MicrosoftGraphEntity):
         self.tabs = tabs
 
 
+class MicrosoftGraphChat(MicrosoftGraphEntity):
+    """chat.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphChat, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+
+
 class MicrosoftGraphChatInfo(msrest.serialization.Model):
     """chatInfo.
 
@@ -1850,8 +1886,8 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param attachments: Attached files. Attachments are currently read-only – sending attachments
-     is not supported.
+    :param attachments: Attached files. Attachments are currently read-only –\\   sending
+     attachments is not supported.
     :type attachments: list[~sites.models.MicrosoftGraphChatMessageAttachment]
     :param body: itemBody.
     :type body: ~sites.models.MicrosoftGraphItemBody
@@ -2134,7 +2170,8 @@ class MicrosoftGraphChatMessagePolicyViolation(msrest.serialization.Model):
     :param dlp_action:  Possible values include: "none", "notifySender", "blockAccess",
      "blockAccessExternal".
     :type dlp_action: str or ~sites.models.MicrosoftGraphChatMessagePolicyViolationDlpActionTypes
-    :param justification_text:
+    :param justification_text: Justification text provided by the sender of the message when
+     overriding a policy violation.
     :type justification_text: str
     :param policy_tip: chatMessagePolicyViolationPolicyTip.
     :type policy_tip: ~sites.models.MicrosoftGraphChatMessagePolicyViolationPolicyTip
@@ -2181,11 +2218,14 @@ class MicrosoftGraphChatMessagePolicyViolationPolicyTip(msrest.serialization.Mod
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param compliance_url:
+    :param compliance_url: The URL a user can visit to read about the data loss prevention policies
+     for the organization. (ie, policies about what users shouldn't say in chats).
     :type compliance_url: str
-    :param general_text:
+    :param general_text: Explanatory text shown to the sender of the message.
     :type general_text: str
-    :param matched_condition_descriptions:
+    :param matched_condition_descriptions: The list of improper data in the message that was
+     detected by the data loss prevention app. Each DLP app defines its own conditions, examples
+     include 'Credit Card Number' and 'Social Security Number'.
     :type matched_condition_descriptions: list[str]
     """
 
@@ -4339,53 +4379,31 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param c_tag: An eTag for the content of the item. This eTag is not changed if only the
      metadata is changed. Note This property is not returned if the item is a folder. Read-only.
     :type c_tag: str
-    :param deleted: deleted.
-    :type deleted: ~sites.models.MicrosoftGraphDeleted
-    :param file: file.
-    :type file: ~sites.models.MicrosoftGraphFile
     :param file_system_info: fileSystemInfo.
     :type file_system_info: ~sites.models.MicrosoftGraphFileSystemInfo
-    :param folder: folder.
-    :type folder: ~sites.models.MicrosoftGraphFolder
     :param image: image.
     :type image: ~sites.models.MicrosoftGraphImage
     :param location: geoCoordinates.
     :type location: ~sites.models.MicrosoftGraphGeoCoordinates
-    :param package: package.
-    :type package: ~sites.models.MicrosoftGraphPackage
-    :param pending_operations: pendingOperations.
-    :type pending_operations: ~sites.models.MicrosoftGraphPendingOperations
     :param photo: photo.
     :type photo: ~sites.models.MicrosoftGraphPhoto
     :param publication: publicationFacet.
     :type publication: ~sites.models.MicrosoftGraphPublicationFacet
-    :param remote_item: remoteItem.
-    :type remote_item: ~sites.models.MicrosoftGraphRemoteItem
     :param root: root.
     :type root: dict[str, object]
-    :param search_result: searchResult.
-    :type search_result: ~sites.models.MicrosoftGraphSearchResult
-    :param shared: shared.
-    :type shared: ~sites.models.MicrosoftGraphShared
     :param sharepoint_ids: sharepointIds.
     :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
     :param size: Size of the item in bytes. Read-only.
     :type size: long
-    :param special_folder: specialFolder.
-    :type special_folder: ~sites.models.MicrosoftGraphSpecialFolder
     :param video: video.
     :type video: ~sites.models.MicrosoftGraphVideo
     :param web_dav_url: WebDAV compatible URL for the item.
     :type web_dav_url: str
-    :param workbook: workbook.
-    :type workbook: ~sites.models.MicrosoftGraphWorkbook
     :param analytics: itemAnalytics.
     :type analytics: ~sites.models.MicrosoftGraphItemAnalytics
     :param children: Collection containing Item objects for the immediate children of Item. Only
      items representing folders have children. Read-only. Nullable.
     :type children: list[~sites.models.MicrosoftGraphDriveItem]
-    :param list_item: listItem.
-    :type list_item: ~sites.models.MicrosoftGraphListItem
     :param permissions: The set of permissions for the item. Read-only. Nullable.
     :type permissions: list[~sites.models.MicrosoftGraphPermission]
     :param subscriptions: The set of subscriptions on the item. Only supported on the root of a
@@ -4397,7 +4415,175 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param versions: The list of previous versions of the item. For more info, see [getting
      previous versions][]. Read-only. Nullable.
     :type versions: list[~sites.models.MicrosoftGraphDriveItemVersion]
+    :param id_list_item_id: Read-only.
+    :type id_list_item_id: str
+    :param created_date_time_list_item_created_date_time: Date and time of item creation. Read-
+     only.
+    :type created_date_time_list_item_created_date_time: ~datetime.datetime
+    :param description_list_item_description: Provides a user-visible description of the item.
+     Optional.
+    :type description_list_item_description: str
+    :param e_tag_list_item_e_tag: ETag for the item. Read-only.
+    :type e_tag_list_item_e_tag: str
+    :param last_modified_date_time_list_item_last_modified_date_time: Date and time the item was
+     last modified. Read-only.
+    :type last_modified_date_time_list_item_last_modified_date_time: ~datetime.datetime
+    :param name_list_item_name: The name of the item. Read-write.
+    :type name_list_item_name: str
+    :param web_url_list_item_web_url: URL that displays the resource in the browser. Read-only.
+    :type web_url_list_item_web_url: str
+    :param created_by_user_list_item_created_by_user: Represents an Azure Active Directory user
+     object.
+    :type created_by_user_list_item_created_by_user: ~sites.models.MicrosoftGraphUser
+    :param last_modified_by_user_list_item_last_modified_by_user: Represents an Azure Active
+     Directory user object.
+    :type last_modified_by_user_list_item_last_modified_by_user: ~sites.models.MicrosoftGraphUser
+    :param drive_id_list_item_parent_reference_drive_id: Unique identifier of the drive instance
+     that contains the item. Read-only.
+    :type drive_id_list_item_parent_reference_drive_id: str
+    :param drive_type_list_item_parent_reference_drive_type: Identifies the type of drive. See
+     [drive][] resource for values.
+    :type drive_type_list_item_parent_reference_drive_type: str
+    :param id_list_item_parent_reference_id: Unique identifier of the item in the drive. Read-only.
+    :type id_list_item_parent_reference_id: str
+    :param name_list_item_parent_reference_name: The name of the item being referenced. Read-only.
+    :type name_list_item_parent_reference_name: str
+    :param path_list_item_parent_reference_path: Path that can be used to navigate to the item.
+     Read-only.
+    :type path_list_item_parent_reference_path: str
+    :param share_id_list_item_parent_reference_share_id: A unique identifier for a shared resource
+     that can be accessed via the [Shares][] API.
+    :type share_id_list_item_parent_reference_share_id: str
+    :param sharepoint_ids_list_item_parent_reference_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_list_item_parent_reference_sharepoint_ids:
+     ~sites.models.MicrosoftGraphSharepointIds
+    :param site_id_list_item_parent_reference_site_id:
+    :type site_id_list_item_parent_reference_site_id: str
+    :param application_list_item_last_modified_by_application: identity.
+    :type application_list_item_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
+    :param device_list_item_last_modified_by_device: identity.
+    :type device_list_item_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
+    :param user_list_item_last_modified_by_user: identity.
+    :type user_list_item_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
+    :param application_list_item_created_by_application: identity.
+    :type application_list_item_created_by_application: ~sites.models.MicrosoftGraphIdentity
+    :param device_list_item_created_by_device: identity.
+    :type device_list_item_created_by_device: ~sites.models.MicrosoftGraphIdentity
+    :param user_list_item_created_by_user: identity.
+    :type user_list_item_created_by_user: ~sites.models.MicrosoftGraphIdentity
+    :param content_type: contentTypeInfo.
+    :type content_type: ~sites.models.MicrosoftGraphContentTypeInfo
+    :param sharepoint_ids_list_item_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_list_item_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+    :param analytics_list_item_analytics: itemAnalytics.
+    :type analytics_list_item_analytics: ~sites.models.MicrosoftGraphItemAnalytics
+    :param drive_item: driveItem.
+    :type drive_item: ~sites.models.MicrosoftGraphDriveItem
+    :param versions_list_item_versions: The list of previous versions of the list item.
+    :type versions_list_item_versions: list[~sites.models.MicrosoftGraphListItemVersion]
+    :param id_list_item_fields_id: Read-only.
+    :type id_list_item_fields_id: str
+    :param id_workbook_id: Read-only.
+    :type id_workbook_id: str
+    :param application_workbook_application: workbookApplication.
+    :type application_workbook_application: ~sites.models.MicrosoftGraphWorkbookApplication
+    :param comments:
+    :type comments: list[~sites.models.MicrosoftGraphWorkbookComment]
+    :param functions: workbookFunctions.
+    :type functions: ~sites.models.MicrosoftGraphWorkbookFunctions
+    :param names: Represents a collection of workbook scoped named items (named ranges and
+     constants). Read-only.
+    :type names: list[~sites.models.MicrosoftGraphWorkbookNamedItem]
+    :param operations: The status of workbook operations. Getting an operation collection is not
+     supported, but you can get the status of a long-running operation if the Location header is
+     returned in the response. Read-only.
+    :type operations: list[~sites.models.MicrosoftGraphWorkbookOperation]
+    :param tables: Represents a collection of tables associated with the workbook. Read-only.
+    :type tables: list[~sites.models.MicrosoftGraphWorkbookTable]
+    :param worksheets: Represents a collection of worksheets associated with the workbook. Read-
+     only.
+    :type worksheets: list[~sites.models.MicrosoftGraphWorkbookWorksheet]
+    :param name_special_folder_name: The unique identifier for this item in the /drive/special
+     collection.
+    :type name_special_folder_name: str
+    :param owner: identitySet.
+    :type owner: ~sites.models.MicrosoftGraphIdentitySet
+    :param scope: Indicates the scope of how the item is shared: anonymous, organization, or users.
+     Read-only.
+    :type scope: str
+    :param shared_by: identitySet.
+    :type shared_by: ~sites.models.MicrosoftGraphIdentitySet
+    :param shared_date_time: The UTC date and time when the item was shared. Read-only.
+    :type shared_date_time: ~datetime.datetime
+    :param on_click_telemetry_url: A callback URL that can be used to record telemetry information.
+     The application should issue a GET on this URL if the user interacts with this item to improve
+     the quality of results.
+    :type on_click_telemetry_url: str
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
+    :param created_date_time_remote_item_created_date_time: Date and time of item creation. Read-
+     only.
+    :type created_date_time_remote_item_created_date_time: ~datetime.datetime
+    :param file: file.
+    :type file: ~sites.models.MicrosoftGraphFile
+    :param file_system_info_remote_item_file_system_info: fileSystemInfo.
+    :type file_system_info_remote_item_file_system_info: ~sites.models.MicrosoftGraphFileSystemInfo
+    :param folder: folder.
+    :type folder: ~sites.models.MicrosoftGraphFolder
+    :param id_remote_item_id: Unique identifier for the remote item in its drive. Read-only.
+    :type id_remote_item_id: str
+    :param image_remote_item_image: image.
+    :type image_remote_item_image: ~sites.models.MicrosoftGraphImage
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
+    :param last_modified_date_time_remote_item_last_modified_date_time: Date and time the item was
+     last modified. Read-only.
+    :type last_modified_date_time_remote_item_last_modified_date_time: ~datetime.datetime
+    :param name_remote_item_name: Optional. Filename of the remote item. Read-only.
+    :type name_remote_item_name: str
+    :param package: package.
+    :type package: ~sites.models.MicrosoftGraphPackage
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
+    :param shared: shared.
+    :type shared: ~sites.models.MicrosoftGraphShared
+    :param sharepoint_ids_remote_item_sharepoint_ids: sharepointIds.
+    :type sharepoint_ids_remote_item_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+    :param size_remote_item_size: Size of the remote item. Read-only.
+    :type size_remote_item_size: long
+    :param special_folder: specialFolder.
+    :type special_folder: ~sites.models.MicrosoftGraphSpecialFolder
+    :param video_remote_item_video: video.
+    :type video_remote_item_video: ~sites.models.MicrosoftGraphVideo
+    :param web_dav_url_remote_item_web_dav_url: DAV compatible URL for the item.
+    :type web_dav_url_remote_item_web_dav_url: str
+    :param web_url_remote_item_web_url: URL that displays the resource in the browser. Read-only.
+    :type web_url_remote_item_web_url: str
+    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
+     Read-only.
+    :type queued_date_time: ~datetime.datetime
+    :param type: A string indicating the type of package. While oneNote is the only currently
+     defined value, you should expect other package types to be returned and handle them
+     accordingly.
+    :type type: str
+    :param child_count: Number of children contained immediately within this container.
+    :type child_count: int
+    :param view: folderView.
+    :type view: ~sites.models.MicrosoftGraphFolderView
+    :param hashes: hashes.
+    :type hashes: ~sites.models.MicrosoftGraphHashes
+    :param mime_type: The MIME type for the file. This is determined by logic on the server and
+     might not be the value provided when the file was uploaded. Read-only.
+    :type mime_type: str
+    :param processing_metadata:
+    :type processing_metadata: bool
+    :param state: Represents the state of the deleted item.
+    :type state: str
     """
+
+    _validation = {
+        'child_count': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -4427,33 +4613,92 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         'audio': {'key': 'audio', 'type': 'MicrosoftGraphAudio'},
         'content': {'key': 'content', 'type': 'base64'},
         'c_tag': {'key': 'cTag', 'type': 'str'},
-        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
-        'file': {'key': 'file', 'type': 'MicrosoftGraphFile'},
         'file_system_info': {'key': 'fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
-        'folder': {'key': 'folder', 'type': 'MicrosoftGraphFolder'},
         'image': {'key': 'image', 'type': 'MicrosoftGraphImage'},
         'location': {'key': 'location', 'type': 'MicrosoftGraphGeoCoordinates'},
-        'package': {'key': 'package', 'type': 'MicrosoftGraphPackage'},
-        'pending_operations': {'key': 'pendingOperations', 'type': 'MicrosoftGraphPendingOperations'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphPhoto'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'remote_item': {'key': 'remoteItem', 'type': 'MicrosoftGraphRemoteItem'},
         'root': {'key': 'root', 'type': '{object}'},
-        'search_result': {'key': 'searchResult', 'type': 'MicrosoftGraphSearchResult'},
-        'shared': {'key': 'shared', 'type': 'MicrosoftGraphShared'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'size': {'key': 'size', 'type': 'long'},
-        'special_folder': {'key': 'specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
         'video': {'key': 'video', 'type': 'MicrosoftGraphVideo'},
         'web_dav_url': {'key': 'webDavUrl', 'type': 'str'},
-        'workbook': {'key': 'workbook', 'type': 'MicrosoftGraphWorkbook'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'children': {'key': 'children', 'type': '[MicrosoftGraphDriveItem]'},
-        'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
         'permissions': {'key': 'permissions', 'type': '[MicrosoftGraphPermission]'},
         'subscriptions': {'key': 'subscriptions', 'type': '[MicrosoftGraphSubscription]'},
         'thumbnails': {'key': 'thumbnails', 'type': '[MicrosoftGraphThumbnailSet]'},
         'versions': {'key': 'versions', 'type': '[MicrosoftGraphDriveItemVersion]'},
+        'id_list_item_id': {'key': 'listItem.id', 'type': 'str'},
+        'created_date_time_list_item_created_date_time': {'key': 'listItem.createdDateTime', 'type': 'iso-8601'},
+        'description_list_item_description': {'key': 'listItem.description', 'type': 'str'},
+        'e_tag_list_item_e_tag': {'key': 'listItem.eTag', 'type': 'str'},
+        'last_modified_date_time_list_item_last_modified_date_time': {'key': 'listItem.lastModifiedDateTime', 'type': 'iso-8601'},
+        'name_list_item_name': {'key': 'listItem.name', 'type': 'str'},
+        'web_url_list_item_web_url': {'key': 'listItem.webUrl', 'type': 'str'},
+        'created_by_user_list_item_created_by_user': {'key': 'listItem.createdByUser', 'type': 'MicrosoftGraphUser'},
+        'last_modified_by_user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
+        'drive_id_list_item_parent_reference_drive_id': {'key': 'listItem.parentReference.driveId', 'type': 'str'},
+        'drive_type_list_item_parent_reference_drive_type': {'key': 'listItem.parentReference.driveType', 'type': 'str'},
+        'id_list_item_parent_reference_id': {'key': 'listItem.parentReference.id', 'type': 'str'},
+        'name_list_item_parent_reference_name': {'key': 'listItem.parentReference.name', 'type': 'str'},
+        'path_list_item_parent_reference_path': {'key': 'listItem.parentReference.path', 'type': 'str'},
+        'share_id_list_item_parent_reference_share_id': {'key': 'listItem.parentReference.shareId', 'type': 'str'},
+        'sharepoint_ids_list_item_parent_reference_sharepoint_ids': {'key': 'listItem.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_id_list_item_parent_reference_site_id': {'key': 'listItem.parentReference.siteId', 'type': 'str'},
+        'application_list_item_last_modified_by_application': {'key': 'listItem.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_list_item_last_modified_by_device': {'key': 'listItem.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'application_list_item_created_by_application': {'key': 'listItem.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device_list_item_created_by_device': {'key': 'listItem.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user_list_item_created_by_user': {'key': 'listItem.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'content_type': {'key': 'listItem.contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
+        'sharepoint_ids_list_item_sharepoint_ids': {'key': 'listItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'analytics_list_item_analytics': {'key': 'listItem.analytics', 'type': 'MicrosoftGraphItemAnalytics'},
+        'drive_item': {'key': 'listItem.driveItem', 'type': 'MicrosoftGraphDriveItem'},
+        'versions_list_item_versions': {'key': 'listItem.versions', 'type': '[MicrosoftGraphListItemVersion]'},
+        'id_list_item_fields_id': {'key': 'listItem.fields.id', 'type': 'str'},
+        'id_workbook_id': {'key': 'workbook.id', 'type': 'str'},
+        'application_workbook_application': {'key': 'workbook.application', 'type': 'MicrosoftGraphWorkbookApplication'},
+        'comments': {'key': 'workbook.comments', 'type': '[MicrosoftGraphWorkbookComment]'},
+        'functions': {'key': 'workbook.functions', 'type': 'MicrosoftGraphWorkbookFunctions'},
+        'names': {'key': 'workbook.names', 'type': '[MicrosoftGraphWorkbookNamedItem]'},
+        'operations': {'key': 'workbook.operations', 'type': '[MicrosoftGraphWorkbookOperation]'},
+        'tables': {'key': 'workbook.tables', 'type': '[MicrosoftGraphWorkbookTable]'},
+        'worksheets': {'key': 'workbook.worksheets', 'type': '[MicrosoftGraphWorkbookWorksheet]'},
+        'name_special_folder_name': {'key': 'specialFolder.name', 'type': 'str'},
+        'owner': {'key': 'shared.owner', 'type': 'MicrosoftGraphIdentitySet'},
+        'scope': {'key': 'shared.scope', 'type': 'str'},
+        'shared_by': {'key': 'shared.sharedBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'shared_date_time': {'key': 'shared.sharedDateTime', 'type': 'iso-8601'},
+        'on_click_telemetry_url': {'key': 'searchResult.onClickTelemetryUrl', 'type': 'str'},
+        'created_by': {'key': 'remoteItem.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'created_date_time_remote_item_created_date_time': {'key': 'remoteItem.createdDateTime', 'type': 'iso-8601'},
+        'file': {'key': 'remoteItem.file', 'type': 'MicrosoftGraphFile'},
+        'file_system_info_remote_item_file_system_info': {'key': 'remoteItem.fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
+        'folder': {'key': 'remoteItem.folder', 'type': 'MicrosoftGraphFolder'},
+        'id_remote_item_id': {'key': 'remoteItem.id', 'type': 'str'},
+        'image_remote_item_image': {'key': 'remoteItem.image', 'type': 'MicrosoftGraphImage'},
+        'last_modified_by': {'key': 'remoteItem.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
+        'last_modified_date_time_remote_item_last_modified_date_time': {'key': 'remoteItem.lastModifiedDateTime', 'type': 'iso-8601'},
+        'name_remote_item_name': {'key': 'remoteItem.name', 'type': 'str'},
+        'package': {'key': 'remoteItem.package', 'type': 'MicrosoftGraphPackage'},
+        'parent_reference': {'key': 'remoteItem.parentReference', 'type': 'MicrosoftGraphItemReference'},
+        'shared': {'key': 'remoteItem.shared', 'type': 'MicrosoftGraphShared'},
+        'sharepoint_ids_remote_item_sharepoint_ids': {'key': 'remoteItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'size_remote_item_size': {'key': 'remoteItem.size', 'type': 'long'},
+        'special_folder': {'key': 'remoteItem.specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
+        'video_remote_item_video': {'key': 'remoteItem.video', 'type': 'MicrosoftGraphVideo'},
+        'web_dav_url_remote_item_web_dav_url': {'key': 'remoteItem.webDavUrl', 'type': 'str'},
+        'web_url_remote_item_web_url': {'key': 'remoteItem.webUrl', 'type': 'str'},
+        'queued_date_time': {'key': 'pendingOperations.pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
+        'type': {'key': 'package.type', 'type': 'str'},
+        'child_count': {'key': 'folder.childCount', 'type': 'int'},
+        'view': {'key': 'folder.view', 'type': 'MicrosoftGraphFolderView'},
+        'hashes': {'key': 'file.hashes', 'type': 'MicrosoftGraphHashes'},
+        'mime_type': {'key': 'file.mimeType', 'type': 'str'},
+        'processing_metadata': {'key': 'file.processingMetadata', 'type': 'bool'},
+        'state': {'key': 'deleted.state', 'type': 'str'},
     }
 
     def __init__(
@@ -4486,33 +4731,92 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         audio: Optional["MicrosoftGraphAudio"] = None,
         content: Optional[bytes] = None,
         c_tag: Optional[str] = None,
-        deleted: Optional["MicrosoftGraphDeleted"] = None,
-        file: Optional["MicrosoftGraphFile"] = None,
         file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
-        folder: Optional["MicrosoftGraphFolder"] = None,
         image: Optional["MicrosoftGraphImage"] = None,
         location: Optional["MicrosoftGraphGeoCoordinates"] = None,
-        package: Optional["MicrosoftGraphPackage"] = None,
-        pending_operations: Optional["MicrosoftGraphPendingOperations"] = None,
         photo: Optional["MicrosoftGraphPhoto"] = None,
         publication: Optional["MicrosoftGraphPublicationFacet"] = None,
-        remote_item: Optional["MicrosoftGraphRemoteItem"] = None,
         root: Optional[Dict[str, object]] = None,
-        search_result: Optional["MicrosoftGraphSearchResult"] = None,
-        shared: Optional["MicrosoftGraphShared"] = None,
         sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         size: Optional[int] = None,
-        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
         video: Optional["MicrosoftGraphVideo"] = None,
         web_dav_url: Optional[str] = None,
-        workbook: Optional["MicrosoftGraphWorkbook"] = None,
         analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
         children: Optional[List["MicrosoftGraphDriveItem"]] = None,
-        list_item: Optional["MicrosoftGraphListItem"] = None,
         permissions: Optional[List["MicrosoftGraphPermission"]] = None,
         subscriptions: Optional[List["MicrosoftGraphSubscription"]] = None,
         thumbnails: Optional[List["MicrosoftGraphThumbnailSet"]] = None,
         versions: Optional[List["MicrosoftGraphDriveItemVersion"]] = None,
+        id_list_item_id: Optional[str] = None,
+        created_date_time_list_item_created_date_time: Optional[datetime.datetime] = None,
+        description_list_item_description: Optional[str] = None,
+        e_tag_list_item_e_tag: Optional[str] = None,
+        last_modified_date_time_list_item_last_modified_date_time: Optional[datetime.datetime] = None,
+        name_list_item_name: Optional[str] = None,
+        web_url_list_item_web_url: Optional[str] = None,
+        created_by_user_list_item_created_by_user: Optional["MicrosoftGraphUser"] = None,
+        last_modified_by_user_list_item_last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
+        drive_id_list_item_parent_reference_drive_id: Optional[str] = None,
+        drive_type_list_item_parent_reference_drive_type: Optional[str] = None,
+        id_list_item_parent_reference_id: Optional[str] = None,
+        name_list_item_parent_reference_name: Optional[str] = None,
+        path_list_item_parent_reference_path: Optional[str] = None,
+        share_id_list_item_parent_reference_share_id: Optional[str] = None,
+        sharepoint_ids_list_item_parent_reference_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        site_id_list_item_parent_reference_site_id: Optional[str] = None,
+        application_list_item_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
+        device_list_item_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
+        user_list_item_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
+        application_list_item_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
+        device_list_item_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
+        user_list_item_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
+        content_type: Optional["MicrosoftGraphContentTypeInfo"] = None,
+        sharepoint_ids_list_item_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        analytics_list_item_analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
+        drive_item: Optional["MicrosoftGraphDriveItem"] = None,
+        versions_list_item_versions: Optional[List["MicrosoftGraphListItemVersion"]] = None,
+        id_list_item_fields_id: Optional[str] = None,
+        id_workbook_id: Optional[str] = None,
+        application_workbook_application: Optional["MicrosoftGraphWorkbookApplication"] = None,
+        comments: Optional[List["MicrosoftGraphWorkbookComment"]] = None,
+        functions: Optional["MicrosoftGraphWorkbookFunctions"] = None,
+        names: Optional[List["MicrosoftGraphWorkbookNamedItem"]] = None,
+        operations: Optional[List["MicrosoftGraphWorkbookOperation"]] = None,
+        tables: Optional[List["MicrosoftGraphWorkbookTable"]] = None,
+        worksheets: Optional[List["MicrosoftGraphWorkbookWorksheet"]] = None,
+        name_special_folder_name: Optional[str] = None,
+        owner: Optional["MicrosoftGraphIdentitySet"] = None,
+        scope: Optional[str] = None,
+        shared_by: Optional["MicrosoftGraphIdentitySet"] = None,
+        shared_date_time: Optional[datetime.datetime] = None,
+        on_click_telemetry_url: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
+        created_date_time_remote_item_created_date_time: Optional[datetime.datetime] = None,
+        file: Optional["MicrosoftGraphFile"] = None,
+        file_system_info_remote_item_file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
+        folder: Optional["MicrosoftGraphFolder"] = None,
+        id_remote_item_id: Optional[str] = None,
+        image_remote_item_image: Optional["MicrosoftGraphImage"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
+        last_modified_date_time_remote_item_last_modified_date_time: Optional[datetime.datetime] = None,
+        name_remote_item_name: Optional[str] = None,
+        package: Optional["MicrosoftGraphPackage"] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
+        shared: Optional["MicrosoftGraphShared"] = None,
+        sharepoint_ids_remote_item_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        size_remote_item_size: Optional[int] = None,
+        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
+        video_remote_item_video: Optional["MicrosoftGraphVideo"] = None,
+        web_dav_url_remote_item_web_dav_url: Optional[str] = None,
+        web_url_remote_item_web_url: Optional[str] = None,
+        queued_date_time: Optional[datetime.datetime] = None,
+        type: Optional[str] = None,
+        child_count: Optional[int] = None,
+        view: Optional["MicrosoftGraphFolderView"] = None,
+        hashes: Optional["MicrosoftGraphHashes"] = None,
+        mime_type: Optional[str] = None,
+        processing_metadata: Optional[bool] = None,
+        state: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphDriveItem, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
@@ -4521,33 +4825,92 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         self.audio = audio
         self.content = content
         self.c_tag = c_tag
-        self.deleted = deleted
-        self.file = file
         self.file_system_info = file_system_info
-        self.folder = folder
         self.image = image
         self.location = location
-        self.package = package
-        self.pending_operations = pending_operations
         self.photo = photo
         self.publication = publication
-        self.remote_item = remote_item
         self.root = root
-        self.search_result = search_result
-        self.shared = shared
         self.sharepoint_ids = sharepoint_ids
         self.size = size
-        self.special_folder = special_folder
         self.video = video
         self.web_dav_url = web_dav_url
-        self.workbook = workbook
         self.analytics = analytics
         self.children = children
-        self.list_item = list_item
         self.permissions = permissions
         self.subscriptions = subscriptions
         self.thumbnails = thumbnails
         self.versions = versions
+        self.id_list_item_id = id_list_item_id
+        self.created_date_time_list_item_created_date_time = created_date_time_list_item_created_date_time
+        self.description_list_item_description = description_list_item_description
+        self.e_tag_list_item_e_tag = e_tag_list_item_e_tag
+        self.last_modified_date_time_list_item_last_modified_date_time = last_modified_date_time_list_item_last_modified_date_time
+        self.name_list_item_name = name_list_item_name
+        self.web_url_list_item_web_url = web_url_list_item_web_url
+        self.created_by_user_list_item_created_by_user = created_by_user_list_item_created_by_user
+        self.last_modified_by_user_list_item_last_modified_by_user = last_modified_by_user_list_item_last_modified_by_user
+        self.drive_id_list_item_parent_reference_drive_id = drive_id_list_item_parent_reference_drive_id
+        self.drive_type_list_item_parent_reference_drive_type = drive_type_list_item_parent_reference_drive_type
+        self.id_list_item_parent_reference_id = id_list_item_parent_reference_id
+        self.name_list_item_parent_reference_name = name_list_item_parent_reference_name
+        self.path_list_item_parent_reference_path = path_list_item_parent_reference_path
+        self.share_id_list_item_parent_reference_share_id = share_id_list_item_parent_reference_share_id
+        self.sharepoint_ids_list_item_parent_reference_sharepoint_ids = sharepoint_ids_list_item_parent_reference_sharepoint_ids
+        self.site_id_list_item_parent_reference_site_id = site_id_list_item_parent_reference_site_id
+        self.application_list_item_last_modified_by_application = application_list_item_last_modified_by_application
+        self.device_list_item_last_modified_by_device = device_list_item_last_modified_by_device
+        self.user_list_item_last_modified_by_user = user_list_item_last_modified_by_user
+        self.application_list_item_created_by_application = application_list_item_created_by_application
+        self.device_list_item_created_by_device = device_list_item_created_by_device
+        self.user_list_item_created_by_user = user_list_item_created_by_user
+        self.content_type = content_type
+        self.sharepoint_ids_list_item_sharepoint_ids = sharepoint_ids_list_item_sharepoint_ids
+        self.analytics_list_item_analytics = analytics_list_item_analytics
+        self.drive_item = drive_item
+        self.versions_list_item_versions = versions_list_item_versions
+        self.id_list_item_fields_id = id_list_item_fields_id
+        self.id_workbook_id = id_workbook_id
+        self.application_workbook_application = application_workbook_application
+        self.comments = comments
+        self.functions = functions
+        self.names = names
+        self.operations = operations
+        self.tables = tables
+        self.worksheets = worksheets
+        self.name_special_folder_name = name_special_folder_name
+        self.owner = owner
+        self.scope = scope
+        self.shared_by = shared_by
+        self.shared_date_time = shared_date_time
+        self.on_click_telemetry_url = on_click_telemetry_url
+        self.created_by = created_by
+        self.created_date_time_remote_item_created_date_time = created_date_time_remote_item_created_date_time
+        self.file = file
+        self.file_system_info_remote_item_file_system_info = file_system_info_remote_item_file_system_info
+        self.folder = folder
+        self.id_remote_item_id = id_remote_item_id
+        self.image_remote_item_image = image_remote_item_image
+        self.last_modified_by = last_modified_by
+        self.last_modified_date_time_remote_item_last_modified_date_time = last_modified_date_time_remote_item_last_modified_date_time
+        self.name_remote_item_name = name_remote_item_name
+        self.package = package
+        self.parent_reference = parent_reference
+        self.shared = shared
+        self.sharepoint_ids_remote_item_sharepoint_ids = sharepoint_ids_remote_item_sharepoint_ids
+        self.size_remote_item_size = size_remote_item_size
+        self.special_folder = special_folder
+        self.video_remote_item_video = video_remote_item_video
+        self.web_dav_url_remote_item_web_dav_url = web_dav_url_remote_item_web_dav_url
+        self.web_url_remote_item_web_url = web_url_remote_item_web_url
+        self.queued_date_time = queued_date_time
+        self.type = type
+        self.child_count = child_count
+        self.view = view
+        self.hashes = hashes
+        self.mime_type = mime_type
+        self.processing_metadata = processing_metadata
+        self.state = state
 
 
 class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
@@ -4683,8 +5046,8 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     :type end: ~sites.models.MicrosoftGraphDateTimeZone
     :param has_attachments: Set to true if the event has attachments.
     :type has_attachments: bool
-    :param i_cal_u_id: A unique identifier that is shared by all instances of an event across
-     different calendars. Read-only.
+    :param i_cal_u_id: A unique identifier for an event across calendars. This ID is different for
+     each occurrence in a recurring series. Read-only.
     :type i_cal_u_id: str
     :param importance:  Possible values include: "low", "normal", "high".
     :type importance: str or ~sites.models.MicrosoftGraphImportance
@@ -4692,6 +5055,8 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     :type is_all_day: bool
     :param is_cancelled: Set to true if the event has been canceled.
     :type is_cancelled: bool
+    :param is_draft:
+    :type is_draft: bool
     :param is_online_meeting: True if this event has online meeting information, false otherwise.
      Default is false. Optional.
     :type is_online_meeting: bool
@@ -4808,6 +5173,7 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         'importance': {'key': 'importance', 'type': 'str'},
         'is_all_day': {'key': 'isAllDay', 'type': 'bool'},
         'is_cancelled': {'key': 'isCancelled', 'type': 'bool'},
+        'is_draft': {'key': 'isDraft', 'type': 'bool'},
         'is_online_meeting': {'key': 'isOnlineMeeting', 'type': 'bool'},
         'is_organizer': {'key': 'isOrganizer', 'type': 'bool'},
         'is_reminder_on': {'key': 'isReminderOn', 'type': 'bool'},
@@ -4860,6 +5226,7 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
         is_all_day: Optional[bool] = None,
         is_cancelled: Optional[bool] = None,
+        is_draft: Optional[bool] = None,
         is_online_meeting: Optional[bool] = None,
         is_organizer: Optional[bool] = None,
         is_reminder_on: Optional[bool] = None,
@@ -4905,6 +5272,7 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         self.importance = importance
         self.is_all_day = is_all_day
         self.is_cancelled = is_cancelled
+        self.is_draft = is_draft
         self.is_online_meeting = is_online_meeting
         self.is_organizer = is_organizer
         self.is_reminder_on = is_reminder_on
@@ -5304,8 +5672,7 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     :type mail: str
     :param mail_enabled: Specifies whether the group is mail-enabled. Returned by default.
     :type mail_enabled: bool
-    :param mail_nickname: The mail alias for the group, unique in the organization. This property
-     must be specified when a group is created. Returned by default. Supports $filter.
+    :param mail_nickname:
     :type mail_nickname: str
     :param membership_rule: The rule that determines members for this group if the group is a
      dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of
@@ -5314,23 +5681,13 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     :param membership_rule_processing_state: Indicates whether the dynamic membership processing is
      on or paused. Possible values are 'On' or 'Paused'. Returned by default.
     :type membership_rule_processing_state: str
-    :param on_premises_domain_name: Contains the on-premises domain FQDN, also called dnsDomainName
-     synchronized from the on-premises directory. The property is only populated for customers who
-     are synchronizing their on-premises directory to Azure Active Directory via Azure AD
-     Connect.Returned by default. Read-only.
+    :param on_premises_domain_name:
     :type on_premises_domain_name: str
-    :param on_premises_last_sync_date_time: Indicates the last time at which the group was synced
-     with the on-premises directory.The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.
+    :param on_premises_last_sync_date_time:
     :type on_premises_last_sync_date_time: ~datetime.datetime
-    :param on_premises_net_bios_name: Contains the on-premises netBios name synchronized from the
-     on-premises directory. The property is only populated for customers who are synchronizing their
-     on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-
-     only.
+    :param on_premises_net_bios_name:
     :type on_premises_net_bios_name: str
-    :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
-     during provisioning. Returned by default.
+    :param on_premises_provisioning_errors:
     :type on_premises_provisioning_errors:
      list[~sites.models.MicrosoftGraphOnPremisesProvisioningError]
     :param on_premises_sam_account_name: Contains the on-premises SAM account name synchronized
@@ -6554,6 +6911,52 @@ class MicrosoftGraphLicenseProcessingState(msrest.serialization.Model):
         super(MicrosoftGraphLicenseProcessingState, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.state = state
+
+
+class MicrosoftGraphLinkedResource(MicrosoftGraphEntity):
+    """linkedResource.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param application_name:
+    :type application_name: str
+    :param display_name:
+    :type display_name: str
+    :param external_id:
+    :type external_id: str
+    :param web_url:
+    :type web_url: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'application_name': {'key': 'applicationName', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'external_id': {'key': 'externalId', 'type': 'str'},
+        'web_url': {'key': 'webUrl', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        application_name: Optional[str] = None,
+        display_name: Optional[str] = None,
+        external_id: Optional[str] = None,
+        web_url: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphLinkedResource, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.application_name = application_name
+        self.display_name = display_name
+        self.external_id = external_id
+        self.web_url = web_url
 
 
 class MicrosoftGraphList(MicrosoftGraphBaseItem):
@@ -7916,13 +8319,13 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     :type to_recipients: list[~sites.models.MicrosoftGraphRecipient]
     :param unique_body: itemBody.
     :type unique_body: ~sites.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+    :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
      argument to the end of the URL to change how the message is displayed. If ispopout is not
      present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
+     to 0, then the browser will show the message in the Outlook on the web review pane.The message
+     will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+     be prompted to login if you are not already logged in with the browser.This URL cannot be
+     accessed from within an iFrame.
     :type web_link: str
     :param attachments: The fileAttachment and itemAttachment attachments for the message.
     :type attachments: list[~sites.models.MicrosoftGraphAttachment]
@@ -10586,25 +10989,26 @@ class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param pending_content_update: pendingContentUpdate.
-    :type pending_content_update: ~sites.models.MicrosoftGraphPendingContentUpdate
+    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
+     Read-only.
+    :type queued_date_time: ~datetime.datetime
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'pending_content_update': {'key': 'pendingContentUpdate', 'type': 'MicrosoftGraphPendingContentUpdate'},
+        'queued_date_time': {'key': 'pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        pending_content_update: Optional["MicrosoftGraphPendingContentUpdate"] = None,
+        queued_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
         super(MicrosoftGraphPendingOperations, self).__init__(**kwargs)
         self.additional_properties = additional_properties
-        self.pending_content_update = pending_content_update
+        self.queued_date_time = queued_date_time
 
 
 class MicrosoftGraphPermission(MicrosoftGraphEntity):
@@ -14050,9 +14454,20 @@ class MicrosoftGraphSubscription(MicrosoftGraphEntity):
     :param include_resource_data: When set to true, change notifications include resource data
      (such as content of a chat message). Optional.
     :type include_resource_data: bool
-    :param latest_supported_tls_version:
+    :param latest_supported_tls_version: Specifies the latest version of Transport Layer Security
+     (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible
+     values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a
+     version lower than the currently recommended version (TLS 1.2), specifying this property by a
+     set timeline allows them to temporarily use their deprecated version of TLS before completing
+     their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline
+     would result in subscription operations failing. For subscribers whose notification endpoint
+     already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph
+     defaults the property to v1_2.
     :type latest_supported_tls_version: str
-    :param lifecycle_notification_url:
+    :param lifecycle_notification_url: The URL of the endpoint that receives lifecycle
+     notifications, including subscriptionRemoved and missed notifications. This URL must make use
+     of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle
+     notifications.
     :type lifecycle_notification_url: str
     :param notification_url: Required. The URL of the endpoint that will receive the change
      notifications. This URL must make use of the HTTPS protocol.
@@ -15387,6 +15802,191 @@ class MicrosoftGraphTimeZoneBase(msrest.serialization.Model):
         self.name = name
 
 
+class MicrosoftGraphTodo(MicrosoftGraphEntity):
+    """todo.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param lists:
+    :type lists: list[~sites.models.MicrosoftGraphTodoTaskList]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'lists': {'key': 'lists', 'type': '[MicrosoftGraphTodoTaskList]'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        lists: Optional[List["MicrosoftGraphTodoTaskList"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphTodo, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.lists = lists
+
+
+class MicrosoftGraphTodoTask(MicrosoftGraphEntity):
+    """todoTask.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param body: itemBody.
+    :type body: ~sites.models.MicrosoftGraphItemBody
+    :param body_last_modified_date_time:
+    :type body_last_modified_date_time: ~datetime.datetime
+    :param completed_date_time: dateTimeTimeZone.
+    :type completed_date_time: ~sites.models.MicrosoftGraphDateTimeZone
+    :param created_date_time:
+    :type created_date_time: ~datetime.datetime
+    :param due_date_time: dateTimeTimeZone.
+    :type due_date_time: ~sites.models.MicrosoftGraphDateTimeZone
+    :param importance:  Possible values include: "low", "normal", "high".
+    :type importance: str or ~sites.models.MicrosoftGraphImportance
+    :param is_reminder_on:
+    :type is_reminder_on: bool
+    :param last_modified_date_time:
+    :type last_modified_date_time: ~datetime.datetime
+    :param recurrence: patternedRecurrence.
+    :type recurrence: ~sites.models.MicrosoftGraphPatternedRecurrence
+    :param reminder_date_time: dateTimeTimeZone.
+    :type reminder_date_time: ~sites.models.MicrosoftGraphDateTimeZone
+    :param status:  Possible values include: "notStarted", "inProgress", "completed",
+     "waitingOnOthers", "deferred".
+    :type status: str or ~sites.models.MicrosoftGraphTaskStatus
+    :param title:
+    :type title: str
+    :param extensions:
+    :type extensions: list[~sites.models.MicrosoftGraphExtension]
+    :param linked_resources:
+    :type linked_resources: list[~sites.models.MicrosoftGraphLinkedResource]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
+        'body_last_modified_date_time': {'key': 'bodyLastModifiedDateTime', 'type': 'iso-8601'},
+        'completed_date_time': {'key': 'completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'due_date_time': {'key': 'dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'importance': {'key': 'importance', 'type': 'str'},
+        'is_reminder_on': {'key': 'isReminderOn', 'type': 'bool'},
+        'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'recurrence': {'key': 'recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
+        'reminder_date_time': {'key': 'reminderDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'status': {'key': 'status', 'type': 'str'},
+        'title': {'key': 'title', 'type': 'str'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'linked_resources': {'key': 'linkedResources', 'type': '[MicrosoftGraphLinkedResource]'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        body: Optional["MicrosoftGraphItemBody"] = None,
+        body_last_modified_date_time: Optional[datetime.datetime] = None,
+        completed_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        due_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        importance: Optional[Union[str, "MicrosoftGraphImportance"]] = None,
+        is_reminder_on: Optional[bool] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
+        reminder_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
+        status: Optional[Union[str, "MicrosoftGraphTaskStatus"]] = None,
+        title: Optional[str] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        linked_resources: Optional[List["MicrosoftGraphLinkedResource"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphTodoTask, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.body = body
+        self.body_last_modified_date_time = body_last_modified_date_time
+        self.completed_date_time = completed_date_time
+        self.created_date_time = created_date_time
+        self.due_date_time = due_date_time
+        self.importance = importance
+        self.is_reminder_on = is_reminder_on
+        self.last_modified_date_time = last_modified_date_time
+        self.recurrence = recurrence
+        self.reminder_date_time = reminder_date_time
+        self.status = status
+        self.title = title
+        self.extensions = extensions
+        self.linked_resources = linked_resources
+
+
+class MicrosoftGraphTodoTaskList(MicrosoftGraphEntity):
+    """todoTaskList.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param display_name:
+    :type display_name: str
+    :param is_owner:
+    :type is_owner: bool
+    :param is_shared:
+    :type is_shared: bool
+    :param wellknown_list_name:  Possible values include: "none", "defaultList", "flaggedEmails",
+     "unknownFutureValue".
+    :type wellknown_list_name: str or ~sites.models.MicrosoftGraphWellknownListName
+    :param extensions:
+    :type extensions: list[~sites.models.MicrosoftGraphExtension]
+    :param tasks:
+    :type tasks: list[~sites.models.MicrosoftGraphTodoTask]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'is_owner': {'key': 'isOwner', 'type': 'bool'},
+        'is_shared': {'key': 'isShared', 'type': 'bool'},
+        'wellknown_list_name': {'key': 'wellknownListName', 'type': 'str'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphTodoTask]'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        display_name: Optional[str] = None,
+        is_owner: Optional[bool] = None,
+        is_shared: Optional[bool] = None,
+        wellknown_list_name: Optional[Union[str, "MicrosoftGraphWellknownListName"]] = None,
+        extensions: Optional[List["MicrosoftGraphExtension"]] = None,
+        tasks: Optional[List["MicrosoftGraphTodoTask"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphTodoTaskList, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.display_name = display_name
+        self.is_owner = is_owner
+        self.is_shared = is_shared
+        self.wellknown_list_name = wellknown_list_name
+        self.extensions = extensions
+        self.tasks = tasks
+
+
 class MicrosoftGraphTrending(MicrosoftGraphEntity):
     """trending.
 
@@ -15576,8 +16176,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
      combination of the user's first name, middle initial and last name. This property is required
      when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.
     :type display_name: str
-    :param employee_id: The employee identifier assigned to the user by the organization. Supports
-     $filter.
+    :param employee_id: The employee identifier assigned to the user by the organization. Returned
+     only on $select. Supports $filter.
     :type employee_id: str
     :param external_user_state: For an external user invited to the tenant using the invitation
      API, this property represents the invited user's invitation status. For invited users, the
@@ -15602,7 +16202,7 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type im_addresses: list[str]
     :param is_resource_account: Do not use – reserved for future use.
     :type is_resource_account: bool
-    :param job_title: The user’s job title. Supports $filter.
+    :param job_title: The user's job title. Supports $filter.
     :type job_title: str
     :param last_password_change_date_time: The time when this Azure AD user last changed their
      password. The date and time information uses ISO 8601 format and is always in UTC time. For
@@ -15640,7 +16240,7 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
      ~sites.models.MicrosoftGraphOnPremisesExtensionAttributes
     :param on_premises_immutable_id: This property is used to associate an on-premises Active
      Directory user account to their Azure AD user object. This property must be specified when
-     creating a new user account in the Graph if you are using a federated domain for the user’s
+     creating a new user account in the Graph if you are using a federated domain for the user's
      userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when
      specifying this property. Supports $filter.
     :type on_premises_immutable_id: str
@@ -15717,7 +16317,7 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :param user_principal_name: The user principal name (UPN) of the user. The UPN is an Internet-
      style login name for the user based on the Internet standard RFC 822. By convention, this
      should map to the user's email name. The general format is alias@domain, where domain must be
-     present in the tenant’s collection of verified domains. This property is required when a user
+     present in the tenant's collection of verified domains. This property is required when a user
      is created. The verified domains for the tenant can be accessed from the verifiedDomains
      property of organization. Supports $filter and $orderby.
     :type user_principal_name: str
@@ -15737,7 +16337,9 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type birthday: ~datetime.datetime
     :param hire_date: The hire date of the user. The Timestamp type represents date and time
      information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan
-     1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+     1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned only on $select.  Note: This
+     property is specific to SharePoint Online. We recommend using the native employeeHireDate
+     property to set and update hire date values using Microsoft Graph APIs.
     :type hire_date: ~datetime.datetime
     :param interests: A list for the user to describe their interests.
     :type interests: list[str]
@@ -15840,6 +16442,10 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type online_meetings: list[~sites.models.MicrosoftGraphOnlineMeeting]
     :param joined_teams:
     :type joined_teams: list[~sites.models.MicrosoftGraphTeam]
+    :param teamwork: userTeamwork.
+    :type teamwork: ~sites.models.MicrosoftGraphUserTeamwork
+    :param todo: todo.
+    :type todo: ~sites.models.MicrosoftGraphTodo
     """
 
     _validation = {
@@ -15957,6 +16563,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphUserActivity]'},
         'online_meetings': {'key': 'onlineMeetings', 'type': '[MicrosoftGraphOnlineMeeting]'},
         'joined_teams': {'key': 'joinedTeams', 'type': '[MicrosoftGraphTeam]'},
+        'teamwork': {'key': 'teamwork', 'type': 'MicrosoftGraphUserTeamwork'},
+        'todo': {'key': 'todo', 'type': 'MicrosoftGraphTodo'},
     }
 
     def __init__(
@@ -16072,6 +16680,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         activities: Optional[List["MicrosoftGraphUserActivity"]] = None,
         online_meetings: Optional[List["MicrosoftGraphOnlineMeeting"]] = None,
         joined_teams: Optional[List["MicrosoftGraphTeam"]] = None,
+        teamwork: Optional["MicrosoftGraphUserTeamwork"] = None,
+        todo: Optional["MicrosoftGraphTodo"] = None,
         **kwargs
     ):
         super(MicrosoftGraphUser, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
@@ -16183,6 +16793,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.activities = activities
         self.online_meetings = online_meetings
         self.joined_teams = joined_teams
+        self.teamwork = teamwork
+        self.todo = todo
 
 
 class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
@@ -16300,6 +16912,51 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         self.history_items = history_items
 
 
+class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstallation):
+    """userScopeTeamsAppInstallation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param teams_app: teamsApp.
+    :type teams_app: ~sites.models.MicrosoftGraphTeamsApp
+    :param teams_app_definition: teamsAppDefinition.
+    :type teams_app_definition: ~sites.models.MicrosoftGraphTeamsAppDefinition
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param chat: chat.
+    :type chat: ~sites.models.MicrosoftGraphChat
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
+        'teams_app_definition': {'key': 'teamsAppDefinition', 'type': 'MicrosoftGraphTeamsAppDefinition'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'chat': {'key': 'chat', 'type': 'MicrosoftGraphChat'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        teams_app: Optional["MicrosoftGraphTeamsApp"] = None,
+        teams_app_definition: Optional["MicrosoftGraphTeamsAppDefinition"] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        chat: Optional["MicrosoftGraphChat"] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphUserScopeTeamsAppInstallation, self).__init__(id=id, teams_app=teams_app, teams_app_definition=teams_app_definition, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
+        self.chat = chat
+
+
 class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
     """userSettings.
 
@@ -16339,6 +16996,37 @@ class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
         self.contribution_to_content_discovery_as_organization_disabled = contribution_to_content_discovery_as_organization_disabled
         self.contribution_to_content_discovery_disabled = contribution_to_content_discovery_disabled
         self.shift_preferences = shift_preferences
+
+
+class MicrosoftGraphUserTeamwork(MicrosoftGraphEntity):
+    """userTeamwork.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param installed_apps: The apps installed in the personal scope of this user.
+    :type installed_apps: list[~sites.models.MicrosoftGraphUserScopeTeamsAppInstallation]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'installed_apps': {'key': 'installedApps', 'type': '[MicrosoftGraphUserScopeTeamsAppInstallation]'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        installed_apps: Optional[List["MicrosoftGraphUserScopeTeamsAppInstallation"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphUserTeamwork, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.installed_apps = installed_apps
 
 
 class MicrosoftGraphVideo(msrest.serialization.Model):

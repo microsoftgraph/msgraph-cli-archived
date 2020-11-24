@@ -291,7 +291,7 @@ class ContactOperations(object):
     def get_manager(
         self,
         org_contact_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum9"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get1ItemsItem"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -303,7 +303,7 @@ class ContactOperations(object):
         :param org_contact_id: key: id of orgContact.
         :type org_contact_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_directory_management.models.Enum9]
+        :type select: list[str or ~identity_directory_management.models.Get1ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

@@ -108,6 +108,8 @@ def load_command_table(self, _):
         g.custom_command('check-member-object', 'applications_check_member_object')
         g.custom_command('create-app-role-assigned-to', 'applications_create_app_role_assigned_to')
         g.custom_command('create-app-role-assignment', 'applications_create_app_role_assignment')
+        g.custom_command('create-delegated-permission-classification', 'applications_create_delegated_permission_classi'
+                         'fication')
         g.custom_command('create-endpoint', 'applications_create_endpoint')
         g.custom_command('create-ref-claim-mapping-policy', 'applications_create_ref_claim_mapping_policy')
         g.custom_command('create-ref-created-object', 'applications_create_ref_created_object')
@@ -125,6 +127,8 @@ def load_command_table(self, _):
         g.custom_command('get-app-role-assignment', 'applications_get_app_role_assignment')
         g.custom_command('get-available-extension-property', 'applications_get_available_extension_property')
         g.custom_command('get-by-id', 'applications_get_by_id')
+        g.custom_command('get-delegated-permission-classification', 'applications_get_delegated_permission_classificati'
+                         'on')
         g.custom_command('get-endpoint', 'applications_get_endpoint')
         g.custom_command('get-member-group', 'applications_get_member_group')
         g.custom_command('get-member-object', 'applications_get_member_object')
@@ -132,6 +136,8 @@ def load_command_table(self, _):
         g.custom_command('list-app-role-assignment', 'applications_list_app_role_assignment')
         g.custom_command('list-claim-mapping-policy', 'applications_list_claim_mapping_policy')
         g.custom_command('list-created-object', 'applications_list_created_object')
+        g.custom_command('list-delegated-permission-classification', 'applications_list_delegated_permission_classifica'
+                         'tion')
         g.custom_command('list-endpoint', 'applications_list_endpoint')
         g.custom_command('list-home-realm-discovery-policy', 'applications_list_home_realm_discovery_policy')
         g.custom_command('list-member-of', 'applications_list_member_of')
@@ -156,6 +162,8 @@ def load_command_table(self, _):
         g.custom_command('restore', 'applications_restore')
         g.custom_command('update-app-role-assigned-to', 'applications_update_app_role_assigned_to')
         g.custom_command('update-app-role-assignment', 'applications_update_app_role_assignment')
+        g.custom_command('update-delegated-permission-classification', 'applications_update_delegated_permission_classi'
+                         'fication')
         g.custom_command('update-endpoint', 'applications_update_endpoint')
         g.custom_command('validate-property', 'applications_validate_property')
 

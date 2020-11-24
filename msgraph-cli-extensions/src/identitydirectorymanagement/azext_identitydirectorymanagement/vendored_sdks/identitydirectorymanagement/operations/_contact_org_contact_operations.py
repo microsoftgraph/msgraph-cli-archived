@@ -48,9 +48,10 @@ class ContactOrgContactOperations(object):
 
     def list_org_contact(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Get5ItemsItem"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
+        consistency_level=None,  # type: Optional[str]
+        orderby=None,  # type: Optional[List[Union[str, "models.Get6ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get8ItemsItem"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfOrgContact"]
@@ -58,12 +59,14 @@ class ContactOrgContactOperations(object):
 
         Get entities from contacts.
 
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_directory_management.models.Get5ItemsItem]
+        :type orderby: list[str or ~identity_directory_management.models.Get6ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_directory_management.models.Get6ItemsItem]
+        :type select: list[str or ~identity_directory_management.models.Get7ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_directory_management.models.Get7ItemsItem]
+        :type expand: list[str or ~identity_directory_management.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfOrgContact or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~identity_directory_management.models.CollectionOfOrgContact]
@@ -77,6 +80,8 @@ class ContactOrgContactOperations(object):
         def prepare_request(next_link=None):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
+            if consistency_level is not None:
+                header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
             header_parameters['Accept'] = 'application/json'
 
@@ -253,8 +258,9 @@ class ContactOrgContactOperations(object):
     def get_org_contact(
         self,
         org_contact_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Get1ItemsItem"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
+        consistency_level=None,  # type: Optional[str]
+        select=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Get3ItemsItem"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphOrgContact"
@@ -264,10 +270,12 @@ class ContactOrgContactOperations(object):
 
         :param org_contact_id: key: id of orgContact.
         :type org_contact_id: str
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_directory_management.models.Get1ItemsItem]
+        :type select: list[str or ~identity_directory_management.models.Get2ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_directory_management.models.Get2ItemsItem]
+        :type expand: list[str or ~identity_directory_management.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphOrgContact, or the result of cls(response)
         :rtype: ~identity_directory_management.models.MicrosoftGraphOrgContact
@@ -294,6 +302,8 @@ class ContactOrgContactOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        if consistency_level is not None:
+            header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 

@@ -234,6 +234,62 @@ class CollectionOfExtension(msrest.serialization.Model):
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
+class CollectionOfExtension0(msrest.serialization.Model):
+    """Collection of extension.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~users.models.MicrosoftGraphExtension]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(CollectionOfExtension0, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.value = kwargs.get('value', None)
+        self.odata_next_link = kwargs.get('odata_next_link', None)
+
+
+class CollectionOfExtension1(msrest.serialization.Model):
+    """Collection of extension.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~users.models.MicrosoftGraphExtension]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(CollectionOfExtension1, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.value = kwargs.get('value', None)
+        self.odata_next_link = kwargs.get('odata_next_link', None)
+
+
 class CollectionOfLicenseDetails(msrest.serialization.Model):
     """Collection of licenseDetails.
 
@@ -257,6 +313,34 @@ class CollectionOfLicenseDetails(msrest.serialization.Model):
         **kwargs
     ):
         super(CollectionOfLicenseDetails, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.value = kwargs.get('value', None)
+        self.odata_next_link = kwargs.get('odata_next_link', None)
+
+
+class CollectionOfLinkedResource(msrest.serialization.Model):
+    """Collection of linkedResource.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~users.models.MicrosoftGraphLinkedResource]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphLinkedResource]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(CollectionOfLinkedResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
@@ -565,6 +649,62 @@ class CollectionOfProfilePhoto(msrest.serialization.Model):
         **kwargs
     ):
         super(CollectionOfProfilePhoto, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.value = kwargs.get('value', None)
+        self.odata_next_link = kwargs.get('odata_next_link', None)
+
+
+class CollectionOfTodoTask(msrest.serialization.Model):
+    """Collection of todoTask.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~users.models.MicrosoftGraphTodoTask]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTodoTask]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(CollectionOfTodoTask, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.value = kwargs.get('value', None)
+        self.odata_next_link = kwargs.get('odata_next_link', None)
+
+
+class CollectionOfTodoTaskList(msrest.serialization.Model):
+    """Collection of todoTaskList.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~users.models.MicrosoftGraphTodoTaskList]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTodoTaskList]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(CollectionOfTodoTaskList, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
@@ -1370,6 +1510,10 @@ class MicrosoftGraphCalendar(MicrosoftGraphEntity):
      "skypeForBusiness", "skypeForConsumer", "teamsForBusiness".
     :type default_online_meeting_provider: str or
      ~users.models.MicrosoftGraphOnlineMeetingProviderType
+    :param hex_color:
+    :type hex_color: str
+    :param is_default_calendar:
+    :type is_default_calendar: bool
     :param is_removable: Indicates whether this user calendar can be deleted from the user mailbox.
     :type is_removable: bool
     :param is_tallying_responses: Indicates whether this user calendar supports tracking of meeting
@@ -1406,6 +1550,8 @@ class MicrosoftGraphCalendar(MicrosoftGraphEntity):
         'change_key': {'key': 'changeKey', 'type': 'str'},
         'color': {'key': 'color', 'type': 'str'},
         'default_online_meeting_provider': {'key': 'defaultOnlineMeetingProvider', 'type': 'str'},
+        'hex_color': {'key': 'hexColor', 'type': 'str'},
+        'is_default_calendar': {'key': 'isDefaultCalendar', 'type': 'bool'},
         'is_removable': {'key': 'isRemovable', 'type': 'bool'},
         'is_tallying_responses': {'key': 'isTallyingResponses', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
@@ -1430,6 +1576,8 @@ class MicrosoftGraphCalendar(MicrosoftGraphEntity):
         self.change_key = kwargs.get('change_key', None)
         self.color = kwargs.get('color', None)
         self.default_online_meeting_provider = kwargs.get('default_online_meeting_provider', None)
+        self.hex_color = kwargs.get('hex_color', None)
+        self.is_default_calendar = kwargs.get('is_default_calendar', None)
         self.is_removable = kwargs.get('is_removable', None)
         self.is_tallying_responses = kwargs.get('is_tallying_responses', None)
         self.name = kwargs.get('name', None)
@@ -1596,9 +1744,9 @@ class MicrosoftGraphChannel(MicrosoftGraphEntity):
     :type email: str
     :param membership_type:  Possible values include: "standard", "private", "unknownFutureValue".
     :type membership_type: str or ~users.models.MicrosoftGraphChannelMembershipType
-    :param web_url: A hyperlink that will navigate to the channel in Microsoft Teams. This is the
-     URL that you get when you right-click a channel in Microsoft Teams and select Get link to
-     channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
+    :param web_url: A hyperlink that will go to the channel in Microsoft Teams. This is the URL
+     that you get when you right-click a channel in Microsoft Teams and select Get link to channel.
+     This URL should be treated as an opaque blob, and not parsed. Read-only.
     :type web_url: str
     :param files_folder: driveItem.
     :type files_folder: ~users.models.MicrosoftGraphDriveItem
@@ -1640,6 +1788,29 @@ class MicrosoftGraphChannel(MicrosoftGraphEntity):
         self.members = kwargs.get('members', None)
         self.messages = kwargs.get('messages', None)
         self.tabs = kwargs.get('tabs', None)
+
+
+class MicrosoftGraphChat(MicrosoftGraphEntity):
+    """chat.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphChat, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
 
 
 class MicrosoftGraphChatInfo(msrest.serialization.Model):
@@ -1927,7 +2098,8 @@ class MicrosoftGraphChatMessagePolicyViolation(msrest.serialization.Model):
     :param dlp_action:  Possible values include: "none", "notifySender", "blockAccess",
      "blockAccessExternal".
     :type dlp_action: str or ~users.models.MicrosoftGraphChatMessagePolicyViolationDlpActionTypes
-    :param justification_text:
+    :param justification_text: Justification text provided by the sender of the message when
+     overriding a policy violation.
     :type justification_text: str
     :param policy_tip: chatMessagePolicyViolationPolicyTip.
     :type policy_tip: ~users.models.MicrosoftGraphChatMessagePolicyViolationPolicyTip
@@ -1967,11 +2139,14 @@ class MicrosoftGraphChatMessagePolicyViolationPolicyTip(msrest.serialization.Mod
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param compliance_url:
+    :param compliance_url: The URL a user can visit to read about the data loss prevention policies
+     for the organization. (ie, policies about what users shouldn't say in chats).
     :type compliance_url: str
-    :param general_text:
+    :param general_text: Explanatory text shown to the sender of the message.
     :type general_text: str
-    :param matched_condition_descriptions:
+    :param matched_condition_descriptions: The list of improper data in the message that was
+     detected by the data loss prevention app. Each DLP app defines its own conditions, examples
+     include 'Credit Card Number' and 'Social Security Number'.
     :type matched_condition_descriptions: list[str]
     """
 
@@ -3856,8 +4031,8 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     :type end: ~users.models.MicrosoftGraphDateTimeZone
     :param has_attachments: Set to true if the event has attachments.
     :type has_attachments: bool
-    :param i_cal_u_id: A unique identifier that is shared by all instances of an event across
-     different calendars. Read-only.
+    :param i_cal_u_id: A unique identifier for an event across calendars. This ID is different for
+     each occurrence in a recurring series. Read-only.
     :type i_cal_u_id: str
     :param importance:  Possible values include: "low", "normal", "high".
     :type importance: str or ~users.models.MicrosoftGraphImportance
@@ -3865,6 +4040,8 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     :type is_all_day: bool
     :param is_cancelled: Set to true if the event has been canceled.
     :type is_cancelled: bool
+    :param is_draft:
+    :type is_draft: bool
     :param is_online_meeting: True if this event has online meeting information, false otherwise.
      Default is false. Optional.
     :type is_online_meeting: bool
@@ -3981,6 +4158,7 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         'importance': {'key': 'importance', 'type': 'str'},
         'is_all_day': {'key': 'isAllDay', 'type': 'bool'},
         'is_cancelled': {'key': 'isCancelled', 'type': 'bool'},
+        'is_draft': {'key': 'isDraft', 'type': 'bool'},
         'is_online_meeting': {'key': 'isOnlineMeeting', 'type': 'bool'},
         'is_organizer': {'key': 'isOrganizer', 'type': 'bool'},
         'is_reminder_on': {'key': 'isReminderOn', 'type': 'bool'},
@@ -4030,6 +4208,7 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         self.importance = kwargs.get('importance', None)
         self.is_all_day = kwargs.get('is_all_day', None)
         self.is_cancelled = kwargs.get('is_cancelled', None)
+        self.is_draft = kwargs.get('is_draft', None)
         self.is_online_meeting = kwargs.get('is_online_meeting', None)
         self.is_organizer = kwargs.get('is_organizer', None)
         self.is_reminder_on = kwargs.get('is_reminder_on', None)
@@ -4390,8 +4569,7 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     :type mail: str
     :param mail_enabled: Specifies whether the group is mail-enabled. Returned by default.
     :type mail_enabled: bool
-    :param mail_nickname: The mail alias for the group, unique in the organization. This property
-     must be specified when a group is created. Returned by default. Supports $filter.
+    :param mail_nickname:
     :type mail_nickname: str
     :param membership_rule: The rule that determines members for this group if the group is a
      dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of
@@ -4400,23 +4578,13 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     :param membership_rule_processing_state: Indicates whether the dynamic membership processing is
      on or paused. Possible values are 'On' or 'Paused'. Returned by default.
     :type membership_rule_processing_state: str
-    :param on_premises_domain_name: Contains the on-premises domain FQDN, also called dnsDomainName
-     synchronized from the on-premises directory. The property is only populated for customers who
-     are synchronizing their on-premises directory to Azure Active Directory via Azure AD
-     Connect.Returned by default. Read-only.
+    :param on_premises_domain_name:
     :type on_premises_domain_name: str
-    :param on_premises_last_sync_date_time: Indicates the last time at which the group was synced
-     with the on-premises directory.The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.
+    :param on_premises_last_sync_date_time:
     :type on_premises_last_sync_date_time: ~datetime.datetime
-    :param on_premises_net_bios_name: Contains the on-premises netBios name synchronized from the
-     on-premises directory. The property is only populated for customers who are synchronizing their
-     on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-
-     only.
+    :param on_premises_net_bios_name:
     :type on_premises_net_bios_name: str
-    :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
-     during provisioning. Returned by default.
+    :param on_premises_provisioning_errors:
     :type on_premises_provisioning_errors:
      list[~users.models.MicrosoftGraphOnPremisesProvisioningError]
     :param on_premises_sam_account_name: Contains the on-premises SAM account name synchronized
@@ -5453,6 +5621,45 @@ class MicrosoftGraphLicenseProcessingState(msrest.serialization.Model):
         super(MicrosoftGraphLicenseProcessingState, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.state = kwargs.get('state', None)
+
+
+class MicrosoftGraphLinkedResource(MicrosoftGraphEntity):
+    """linkedResource.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param application_name:
+    :type application_name: str
+    :param display_name:
+    :type display_name: str
+    :param external_id:
+    :type external_id: str
+    :param web_url:
+    :type web_url: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'application_name': {'key': 'applicationName', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'external_id': {'key': 'externalId', 'type': 'str'},
+        'web_url': {'key': 'webUrl', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphLinkedResource, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.application_name = kwargs.get('application_name', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.external_id = kwargs.get('external_id', None)
+        self.web_url = kwargs.get('web_url', None)
 
 
 class MicrosoftGraphList(MicrosoftGraphBaseItem):
@@ -6530,13 +6737,13 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     :type to_recipients: list[~users.models.MicrosoftGraphRecipient]
     :param unique_body: itemBody.
     :type unique_body: ~users.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+    :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
      argument to the end of the URL to change how the message is displayed. If ispopout is not
      present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
+     to 0, then the browser will show the message in the Outlook on the web review pane.The message
+     will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+     be prompted to login if you are not already logged in with the browser.This URL cannot be
+     accessed from within an iFrame.
     :type web_link: str
     :param attachments: The fileAttachment and itemAttachment attachments for the message.
     :type attachments: list[~users.models.MicrosoftGraphAttachment]
@@ -11530,9 +11737,20 @@ class MicrosoftGraphSubscription(MicrosoftGraphEntity):
     :param include_resource_data: When set to true, change notifications include resource data
      (such as content of a chat message). Optional.
     :type include_resource_data: bool
-    :param latest_supported_tls_version:
+    :param latest_supported_tls_version: Specifies the latest version of Transport Layer Security
+     (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible
+     values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a
+     version lower than the currently recommended version (TLS 1.2), specifying this property by a
+     set timeline allows them to temporarily use their deprecated version of TLS before completing
+     their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline
+     would result in subscription operations failing. For subscribers whose notification endpoint
+     already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph
+     defaults the property to v1_2.
     :type latest_supported_tls_version: str
-    :param lifecycle_notification_url:
+    :param lifecycle_notification_url: The URL of the endpoint that receives lifecycle
+     notifications, including subscriptionRemoved and missed notifications. This URL must make use
+     of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle
+     notifications.
     :type lifecycle_notification_url: str
     :param notification_url: Required. The URL of the endpoint that will receive the change
      notifications. This URL must make use of the HTTPS protocol.
@@ -12688,6 +12906,165 @@ class MicrosoftGraphTimeZoneBase(msrest.serialization.Model):
         self.name = kwargs.get('name', None)
 
 
+class MicrosoftGraphTodo(MicrosoftGraphEntity):
+    """todo.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param lists:
+    :type lists: list[~users.models.MicrosoftGraphTodoTaskList]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'lists': {'key': 'lists', 'type': '[MicrosoftGraphTodoTaskList]'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphTodo, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.lists = kwargs.get('lists', None)
+
+
+class MicrosoftGraphTodoTask(MicrosoftGraphEntity):
+    """todoTask.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param body: itemBody.
+    :type body: ~users.models.MicrosoftGraphItemBody
+    :param body_last_modified_date_time:
+    :type body_last_modified_date_time: ~datetime.datetime
+    :param completed_date_time: dateTimeTimeZone.
+    :type completed_date_time: ~users.models.MicrosoftGraphDateTimeZone
+    :param created_date_time:
+    :type created_date_time: ~datetime.datetime
+    :param due_date_time: dateTimeTimeZone.
+    :type due_date_time: ~users.models.MicrosoftGraphDateTimeZone
+    :param importance:  Possible values include: "low", "normal", "high".
+    :type importance: str or ~users.models.MicrosoftGraphImportance
+    :param is_reminder_on:
+    :type is_reminder_on: bool
+    :param last_modified_date_time:
+    :type last_modified_date_time: ~datetime.datetime
+    :param reminder_date_time: dateTimeTimeZone.
+    :type reminder_date_time: ~users.models.MicrosoftGraphDateTimeZone
+    :param status:  Possible values include: "notStarted", "inProgress", "completed",
+     "waitingOnOthers", "deferred".
+    :type status: str or ~users.models.MicrosoftGraphTaskStatus
+    :param title:
+    :type title: str
+    :param extensions:
+    :type extensions: list[~users.models.MicrosoftGraphExtension]
+    :param linked_resources:
+    :type linked_resources: list[~users.models.MicrosoftGraphLinkedResource]
+    :param pattern: recurrencePattern.
+    :type pattern: ~users.models.MicrosoftGraphRecurrencePattern
+    :param range: recurrenceRange.
+    :type range: ~users.models.MicrosoftGraphRecurrenceRange
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
+        'body_last_modified_date_time': {'key': 'bodyLastModifiedDateTime', 'type': 'iso-8601'},
+        'completed_date_time': {'key': 'completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'due_date_time': {'key': 'dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'importance': {'key': 'importance', 'type': 'str'},
+        'is_reminder_on': {'key': 'isReminderOn', 'type': 'bool'},
+        'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'reminder_date_time': {'key': 'reminderDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'status': {'key': 'status', 'type': 'str'},
+        'title': {'key': 'title', 'type': 'str'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'linked_resources': {'key': 'linkedResources', 'type': '[MicrosoftGraphLinkedResource]'},
+        'pattern': {'key': 'recurrence.pattern', 'type': 'MicrosoftGraphRecurrencePattern'},
+        'range': {'key': 'recurrence.range', 'type': 'MicrosoftGraphRecurrenceRange'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphTodoTask, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.body = kwargs.get('body', None)
+        self.body_last_modified_date_time = kwargs.get('body_last_modified_date_time', None)
+        self.completed_date_time = kwargs.get('completed_date_time', None)
+        self.created_date_time = kwargs.get('created_date_time', None)
+        self.due_date_time = kwargs.get('due_date_time', None)
+        self.importance = kwargs.get('importance', None)
+        self.is_reminder_on = kwargs.get('is_reminder_on', None)
+        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
+        self.reminder_date_time = kwargs.get('reminder_date_time', None)
+        self.status = kwargs.get('status', None)
+        self.title = kwargs.get('title', None)
+        self.extensions = kwargs.get('extensions', None)
+        self.linked_resources = kwargs.get('linked_resources', None)
+        self.pattern = kwargs.get('pattern', None)
+        self.range = kwargs.get('range', None)
+
+
+class MicrosoftGraphTodoTaskList(MicrosoftGraphEntity):
+    """todoTaskList.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param display_name:
+    :type display_name: str
+    :param is_owner:
+    :type is_owner: bool
+    :param is_shared:
+    :type is_shared: bool
+    :param wellknown_list_name:  Possible values include: "none", "defaultList", "flaggedEmails",
+     "unknownFutureValue".
+    :type wellknown_list_name: str or ~users.models.MicrosoftGraphWellknownListName
+    :param extensions:
+    :type extensions: list[~users.models.MicrosoftGraphExtension]
+    :param tasks:
+    :type tasks: list[~users.models.MicrosoftGraphTodoTask]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'is_owner': {'key': 'isOwner', 'type': 'bool'},
+        'is_shared': {'key': 'isShared', 'type': 'bool'},
+        'wellknown_list_name': {'key': 'wellknownListName', 'type': 'str'},
+        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
+        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphTodoTask]'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphTodoTaskList, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.display_name = kwargs.get('display_name', None)
+        self.is_owner = kwargs.get('is_owner', None)
+        self.is_shared = kwargs.get('is_shared', None)
+        self.wellknown_list_name = kwargs.get('wellknown_list_name', None)
+        self.extensions = kwargs.get('extensions', None)
+        self.tasks = kwargs.get('tasks', None)
+
+
 class MicrosoftGraphTrending(MicrosoftGraphEntity):
     """trending.
 
@@ -12858,8 +13235,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
      combination of the user's first name, middle initial and last name. This property is required
      when a user is created and it cannot be cleared during updates. Supports $filter and $orderby.
     :type display_name: str
-    :param employee_id: The employee identifier assigned to the user by the organization. Supports
-     $filter.
+    :param employee_id: The employee identifier assigned to the user by the organization. Returned
+     only on $select. Supports $filter.
     :type employee_id: str
     :param external_user_state: For an external user invited to the tenant using the invitation
      API, this property represents the invited user's invitation status. For invited users, the
@@ -12884,7 +13261,7 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type im_addresses: list[str]
     :param is_resource_account: Do not use – reserved for future use.
     :type is_resource_account: bool
-    :param job_title: The user’s job title. Supports $filter.
+    :param job_title: The user's job title. Supports $filter.
     :type job_title: str
     :param last_password_change_date_time: The time when this Azure AD user last changed their
      password. The date and time information uses ISO 8601 format and is always in UTC time. For
@@ -12922,7 +13299,7 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
      ~users.models.MicrosoftGraphOnPremisesExtensionAttributes
     :param on_premises_immutable_id: This property is used to associate an on-premises Active
      Directory user account to their Azure AD user object. This property must be specified when
-     creating a new user account in the Graph if you are using a federated domain for the user’s
+     creating a new user account in the Graph if you are using a federated domain for the user's
      userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when
      specifying this property. Supports $filter.
     :type on_premises_immutable_id: str
@@ -12999,7 +13376,7 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :param user_principal_name: The user principal name (UPN) of the user. The UPN is an Internet-
      style login name for the user based on the Internet standard RFC 822. By convention, this
      should map to the user's email name. The general format is alias@domain, where domain must be
-     present in the tenant’s collection of verified domains. This property is required when a user
+     present in the tenant's collection of verified domains. This property is required when a user
      is created. The verified domains for the tenant can be accessed from the verifiedDomains
      property of organization. Supports $filter and $orderby.
     :type user_principal_name: str
@@ -13019,7 +13396,9 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type birthday: ~datetime.datetime
     :param hire_date: The hire date of the user. The Timestamp type represents date and time
      information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan
-     1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+     1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned only on $select.  Note: This
+     property is specific to SharePoint Online. We recommend using the native employeeHireDate
+     property to set and update hire date values using Microsoft Graph APIs.
     :type hire_date: ~datetime.datetime
     :param interests: A list for the user to describe their interests.
     :type interests: list[str]
@@ -13122,6 +13501,10 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :type online_meetings: list[~users.models.MicrosoftGraphOnlineMeeting]
     :param joined_teams:
     :type joined_teams: list[~users.models.MicrosoftGraphTeam]
+    :param teamwork: userTeamwork.
+    :type teamwork: ~users.models.MicrosoftGraphUserTeamwork
+    :param todo: todo.
+    :type todo: ~users.models.MicrosoftGraphTodo
     """
 
     _validation = {
@@ -13239,6 +13622,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphUserActivity]'},
         'online_meetings': {'key': 'onlineMeetings', 'type': '[MicrosoftGraphOnlineMeeting]'},
         'joined_teams': {'key': 'joinedTeams', 'type': '[MicrosoftGraphTeam]'},
+        'teamwork': {'key': 'teamwork', 'type': 'MicrosoftGraphUserTeamwork'},
+        'todo': {'key': 'todo', 'type': 'MicrosoftGraphTodo'},
     }
 
     def __init__(
@@ -13354,6 +13739,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.activities = kwargs.get('activities', None)
         self.online_meetings = kwargs.get('online_meetings', None)
         self.joined_teams = kwargs.get('joined_teams', None)
+        self.teamwork = kwargs.get('teamwork', None)
+        self.todo = kwargs.get('todo', None)
 
 
 class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
@@ -13454,6 +13841,44 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         self.history_items = kwargs.get('history_items', None)
 
 
+class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstallation):
+    """userScopeTeamsAppInstallation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param teams_app: teamsApp.
+    :type teams_app: ~users.models.MicrosoftGraphTeamsApp
+    :param teams_app_definition: teamsAppDefinition.
+    :type teams_app_definition: ~users.models.MicrosoftGraphTeamsAppDefinition
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param chat: chat.
+    :type chat: ~users.models.MicrosoftGraphChat
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
+        'teams_app_definition': {'key': 'teamsAppDefinition', 'type': 'MicrosoftGraphTeamsAppDefinition'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'chat': {'key': 'chat', 'type': 'MicrosoftGraphChat'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphUserScopeTeamsAppInstallation, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.chat = kwargs.get('chat', None)
+
+
 class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
     """userSettings.
 
@@ -13516,6 +13941,33 @@ class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
         self.device = kwargs.get('device', None)
         self.user = kwargs.get('user', None)
         self.availability = kwargs.get('availability', None)
+
+
+class MicrosoftGraphUserTeamwork(MicrosoftGraphEntity):
+    """userTeamwork.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param installed_apps: The apps installed in the personal scope of this user.
+    :type installed_apps: list[~users.models.MicrosoftGraphUserScopeTeamsAppInstallation]
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'installed_apps': {'key': 'installedApps', 'type': '[MicrosoftGraphUserScopeTeamsAppInstallation]'},
+    }
+
+    def __init__(
+        self,
+        **kwargs
+    ):
+        super(MicrosoftGraphUserTeamwork, self).__init__(**kwargs)
+        self.additional_properties = kwargs.get('additional_properties', None)
+        self.installed_apps = kwargs.get('installed_apps', None)
 
 
 class MicrosoftGraphVideo(msrest.serialization.Model):

@@ -71,6 +71,8 @@ from .operations import UserOnenoteSectionGroupParentNotebookSectionPageOperatio
 from .operations import UserOnenoteSectionGroupSectionPageOperations
 from .operations import UserOnenoteSectionPageOperations
 from .operations import UserOutlookOperations
+from .operations import UserTodoListTaskOperations
+from .operations import UserTodoListOperations
 from . import models
 
 
@@ -183,6 +185,10 @@ class UsersFunctions(object):
     :vartype user_onenote_section_page: users_functions.operations.UserOnenoteSectionPageOperations
     :ivar user_outlook: UserOutlookOperations operations
     :vartype user_outlook: users_functions.operations.UserOutlookOperations
+    :ivar user_todo_list_task: UserTodoListTaskOperations operations
+    :vartype user_todo_list_task: users_functions.operations.UserTodoListTaskOperations
+    :ivar user_todo_list: UserTodoListOperations operations
+    :vartype user_todo_list: users_functions.operations.UserTodoListOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param str base_url: Service URL
@@ -310,6 +316,10 @@ class UsersFunctions(object):
         self.user_onenote_section_page = UserOnenoteSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.user_outlook = UserOutlookOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_todo_list_task = UserTodoListTaskOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_todo_list = UserTodoListOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

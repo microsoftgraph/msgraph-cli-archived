@@ -49,8 +49,8 @@ class SiteContentTypeOperations(object):
         self,
         site_id,  # type: str
         content_type_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum80"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum82"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -64,9 +64,9 @@ class SiteContentTypeOperations(object):
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum79]
+        :type orderby: list[str or ~sites.models.Enum81]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum80]
+        :type select: list[str or ~sites.models.Enum82]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -221,7 +221,7 @@ class SiteContentTypeOperations(object):
         site_id,  # type: str
         content_type_id,  # type: str
         column_link_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum83"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -237,7 +237,7 @@ class SiteContentTypeOperations(object):
         :param column_link_id: key: id of columnLink.
         :type column_link_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum81]
+        :type select: list[str or ~sites.models.Enum83]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

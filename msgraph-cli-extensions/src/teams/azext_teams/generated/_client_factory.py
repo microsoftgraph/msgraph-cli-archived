@@ -18,6 +18,14 @@ def cf_teams_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
+def cf_app_catalog(cli_ctx, *_):
+    return cf_teams_cl(cli_ctx).app_catalog
+
+
+def cf_app_catalog_team_app(cli_ctx, *_):
+    return cf_teams_cl(cli_ctx).app_catalog_team_app
+
+
 def cf_chat_chat(cli_ctx, *_):
     return cf_teams_cl(cli_ctx).chat_chat
 
@@ -80,3 +88,11 @@ def cf_teamwork(cli_ctx, *_):
 
 def cf_user(cli_ctx, *_):
     return cf_teams_cl(cli_ctx).user
+
+
+def cf_user_teamwork(cli_ctx, *_):
+    return cf_teams_cl(cli_ctx).user_teamwork
+
+
+def cf_user_teamwork_installed_app(cli_ctx, *_):
+    return cf_teams_cl(cli_ctx).user_teamwork_installed_app

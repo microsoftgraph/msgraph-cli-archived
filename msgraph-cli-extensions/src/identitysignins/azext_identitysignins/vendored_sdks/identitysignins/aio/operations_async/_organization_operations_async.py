@@ -44,8 +44,8 @@ class OrganizationOperations:
     def list_certificate_based_auth_configuration(
         self,
         organization_id: str,
-        orderby: Optional[List[Union[str, "models.Enum108"]]] = None,
-        select: Optional[List[Union[str, "models.Enum109"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum110"]]] = None,
+        select: Optional[List[Union[str, "models.Enum111"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfCertificateBasedAuthConfiguration"]:
@@ -56,9 +56,9 @@ class OrganizationOperations:
         :param organization_id: key: id of organization.
         :type organization_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum108]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum110]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum109]
+        :type select: list[str or ~identity_sign_ins.models.Enum111]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -138,7 +138,7 @@ class OrganizationOperations:
     def list_ref_certificate_based_auth_configuration(
         self,
         organization_id: str,
-        orderby: Optional[List[Union[str, "models.Enum110"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum112"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfCertificateBasedAuthConfiguration"]:
         """Get ref of certificateBasedAuthConfiguration from organization.
@@ -148,7 +148,7 @@ class OrganizationOperations:
         :param organization_id: key: id of organization.
         :type organization_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum110]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum112]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfCertificateBasedAuthConfiguration or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_sign_ins.models.CollectionOfLinksOfCertificateBasedAuthConfiguration]

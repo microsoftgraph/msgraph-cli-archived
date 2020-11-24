@@ -53,6 +53,8 @@ create-calendar a calendar.
 |**--change-key**|string|Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
 |**--color**|choice||color|color|
 |**--default-online-meeting-provider**|choice||default_online_meeting_provider|defaultOnlineMeetingProvider|
+|**--hex-color**|string||hex_color|hexColor|
+|**--is-default-calendar**|boolean||is_default_calendar|isDefaultCalendar|
 |**--is-removable**|boolean|Indicates whether this user calendar can be deleted from the user mailbox.|is_removable|isRemovable|
 |**--is-tallying-responses**|boolean|Indicates whether this user calendar supports tracking of meeting responses. Only meeting invites sent from users' primary calendars support tracking of meeting responses.|is_tallying_responses|isTallyingResponses|
 |**--name**|string|The calendar name.|name|name|
@@ -132,7 +134,65 @@ create-calendar-view a calendar.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--event-id**|string|key: id of event|event_id|event-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--allow-new-time-proposals**|boolean|True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.|allow_new_time_proposals|allowNewTimeProposals|
+|**--attendees**|array|The collection of attendees for the event.|attendees|attendees|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The preview of the message associated with the event. It is in text format.|body_preview|bodyPreview|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--has-attachments**|boolean|Set to true if the event has attachments.|has_attachments|hasAttachments|
+|**--i-cal-u-id**|string|A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.|i_cal_u_id|iCalUId|
+|**--importance**|choice||importance|importance|
+|**--is-all-day**|boolean|Set to true if the event lasts all day.|is_all_day|isAllDay|
+|**--is-cancelled**|boolean|Set to true if the event has been canceled.|is_cancelled|isCancelled|
+|**--is-draft**|boolean||is_draft|isDraft|
+|**--is-online-meeting**|boolean|True if this event has online meeting information, false otherwise. Default is false. Optional.|is_online_meeting|isOnlineMeeting|
+|**--is-organizer**|boolean|Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.|is_organizer|isOrganizer|
+|**--is-reminder-on**|boolean|Set to true if an alert is set to remind the user of the event.|is_reminder_on|isReminderOn|
+|**--locations**|array|The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.|locations|locations|
+|**--online-meeting-provider**|choice||online_meeting_provider|onlineMeetingProvider|
+|**--online-meeting-url**|string|A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.|online_meeting_url|onlineMeetingUrl|
+|**--original-end-time-zone**|string|The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_end_time_zone|originalEndTimeZone|
+|**--original-start**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|original_start|originalStart|
+|**--original-start-time-zone**|string|The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_start_time_zone|originalStartTimeZone|
+|**--reminder-minutes-before-start**|integer|The number of minutes before the event start time that the reminder alert occurs.|reminder_minutes_before_start|reminderMinutesBeforeStart|
+|**--response-requested**|boolean|Default is true, which represents the organizer would like an invitee to send a response to the event.|response_requested|responseRequested|
+|**--response-status**|object|responseStatus|response_status|responseStatus|
+|**--sensitivity**|choice||sensitivity|sensitivity|
+|**--series-master-id**|string|The ID for the recurring series master item, if this event is part of a recurring series.|series_master_id|seriesMasterId|
+|**--show-as**|choice||show_as|showAs|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--subject**|string|The text of the event's subject line.|subject|subject|
+|**--transaction-id**|string|A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.|transaction_id|transactionId|
+|**--type**|choice||type|type|
+|**--web-link**|string|The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.|attachments|attachments|
+|**--calendar**|object|calendar|calendar|calendar|
+|**--extensions**|array|The collection of open extensions defined for the event. Read-only. Nullable.|extensions|extensions|
+|**--instances**|array|The instances of the event. Navigation property. Read-only. Nullable.|instances|instances|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the event. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the event. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--recurrence-pattern**|object|recurrencePattern|pattern|pattern|
+|**--recurrence-range**|object|recurrenceRange|range|range|
+|**--organizer-email-address**|object|emailAddress|email_address|emailAddress|
+|**--online-meeting-conference-id**|string|The ID of the conference.|conference_id|conferenceId|
+|**--online-meeting-join-url**|string|The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.|join_url|joinUrl|
+|**--online-meeting-phones**|array|All of the phone numbers associated with this conference.|phones|phones|
+|**--online-meeting-quick-dial**|string|The pre-formatted quickdial for this call.|quick_dial|quickDial|
+|**--online-meeting-toll-free-numbers**|array|The toll free numbers that can be used to join the conference.|toll_free_numbers|tollFreeNumbers|
+|**--online-meeting-toll-number**|string|The toll number that can be used to join the conference.|toll_number|tollNumber|
+|**--location-address**|object|physicalAddress|address|address|
+|**--location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-location-type**|choice||location_type|locationType|
+|**--location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--location-unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### calendar create-event
 
@@ -153,7 +213,65 @@ create-event a calendar.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--event-id**|string|key: id of event|event_id|event-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--allow-new-time-proposals**|boolean|True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.|allow_new_time_proposals|allowNewTimeProposals|
+|**--attendees**|array|The collection of attendees for the event.|attendees|attendees|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The preview of the message associated with the event. It is in text format.|body_preview|bodyPreview|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--has-attachments**|boolean|Set to true if the event has attachments.|has_attachments|hasAttachments|
+|**--i-cal-u-id**|string|A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.|i_cal_u_id|iCalUId|
+|**--importance**|choice||importance|importance|
+|**--is-all-day**|boolean|Set to true if the event lasts all day.|is_all_day|isAllDay|
+|**--is-cancelled**|boolean|Set to true if the event has been canceled.|is_cancelled|isCancelled|
+|**--is-draft**|boolean||is_draft|isDraft|
+|**--is-online-meeting**|boolean|True if this event has online meeting information, false otherwise. Default is false. Optional.|is_online_meeting|isOnlineMeeting|
+|**--is-organizer**|boolean|Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.|is_organizer|isOrganizer|
+|**--is-reminder-on**|boolean|Set to true if an alert is set to remind the user of the event.|is_reminder_on|isReminderOn|
+|**--locations**|array|The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.|locations|locations|
+|**--online-meeting-provider**|choice||online_meeting_provider|onlineMeetingProvider|
+|**--online-meeting-url**|string|A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.|online_meeting_url|onlineMeetingUrl|
+|**--original-end-time-zone**|string|The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_end_time_zone|originalEndTimeZone|
+|**--original-start**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|original_start|originalStart|
+|**--original-start-time-zone**|string|The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_start_time_zone|originalStartTimeZone|
+|**--reminder-minutes-before-start**|integer|The number of minutes before the event start time that the reminder alert occurs.|reminder_minutes_before_start|reminderMinutesBeforeStart|
+|**--response-requested**|boolean|Default is true, which represents the organizer would like an invitee to send a response to the event.|response_requested|responseRequested|
+|**--response-status**|object|responseStatus|response_status|responseStatus|
+|**--sensitivity**|choice||sensitivity|sensitivity|
+|**--series-master-id**|string|The ID for the recurring series master item, if this event is part of a recurring series.|series_master_id|seriesMasterId|
+|**--show-as**|choice||show_as|showAs|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--subject**|string|The text of the event's subject line.|subject|subject|
+|**--transaction-id**|string|A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.|transaction_id|transactionId|
+|**--type**|choice||type|type|
+|**--web-link**|string|The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.|attachments|attachments|
+|**--calendar**|object|calendar|calendar|calendar|
+|**--extensions**|array|The collection of open extensions defined for the event. Read-only. Nullable.|extensions|extensions|
+|**--instances**|array|The instances of the event. Navigation property. Read-only. Nullable.|instances|instances|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the event. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the event. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--recurrence-pattern**|object|recurrencePattern|pattern|pattern|
+|**--recurrence-range**|object|recurrenceRange|range|range|
+|**--organizer-email-address**|object|emailAddress|email_address|emailAddress|
+|**--online-meeting-conference-id**|string|The ID of the conference.|conference_id|conferenceId|
+|**--online-meeting-join-url**|string|The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.|join_url|joinUrl|
+|**--online-meeting-phones**|array|All of the phone numbers associated with this conference.|phones|phones|
+|**--online-meeting-quick-dial**|string|The pre-formatted quickdial for this call.|quick_dial|quickDial|
+|**--online-meeting-toll-free-numbers**|array|The toll free numbers that can be used to join the conference.|toll_free_numbers|tollFreeNumbers|
+|**--online-meeting-toll-number**|string|The toll number that can be used to join the conference.|toll_number|tollNumber|
+|**--location-address**|object|physicalAddress|address|address|
+|**--location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-location-type**|choice||location_type|locationType|
+|**--location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--location-unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### calendar create-extension
 
@@ -195,7 +313,65 @@ create-instance a calendar.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--event-id**|string|key: id of event|event_id|event-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--allow-new-time-proposals**|boolean|True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.|allow_new_time_proposals|allowNewTimeProposals|
+|**--attendees**|array|The collection of attendees for the event.|attendees|attendees|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The preview of the message associated with the event. It is in text format.|body_preview|bodyPreview|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--has-attachments**|boolean|Set to true if the event has attachments.|has_attachments|hasAttachments|
+|**--i-cal-u-id**|string|A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.|i_cal_u_id|iCalUId|
+|**--importance**|choice||importance|importance|
+|**--is-all-day**|boolean|Set to true if the event lasts all day.|is_all_day|isAllDay|
+|**--is-cancelled**|boolean|Set to true if the event has been canceled.|is_cancelled|isCancelled|
+|**--is-draft**|boolean||is_draft|isDraft|
+|**--is-online-meeting**|boolean|True if this event has online meeting information, false otherwise. Default is false. Optional.|is_online_meeting|isOnlineMeeting|
+|**--is-organizer**|boolean|Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.|is_organizer|isOrganizer|
+|**--is-reminder-on**|boolean|Set to true if an alert is set to remind the user of the event.|is_reminder_on|isReminderOn|
+|**--locations**|array|The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.|locations|locations|
+|**--online-meeting-provider**|choice||online_meeting_provider|onlineMeetingProvider|
+|**--online-meeting-url**|string|A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.|online_meeting_url|onlineMeetingUrl|
+|**--original-end-time-zone**|string|The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_end_time_zone|originalEndTimeZone|
+|**--original-start**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|original_start|originalStart|
+|**--original-start-time-zone**|string|The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_start_time_zone|originalStartTimeZone|
+|**--reminder-minutes-before-start**|integer|The number of minutes before the event start time that the reminder alert occurs.|reminder_minutes_before_start|reminderMinutesBeforeStart|
+|**--response-requested**|boolean|Default is true, which represents the organizer would like an invitee to send a response to the event.|response_requested|responseRequested|
+|**--response-status**|object|responseStatus|response_status|responseStatus|
+|**--sensitivity**|choice||sensitivity|sensitivity|
+|**--series-master-id**|string|The ID for the recurring series master item, if this event is part of a recurring series.|series_master_id|seriesMasterId|
+|**--show-as**|choice||show_as|showAs|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--subject**|string|The text of the event's subject line.|subject|subject|
+|**--transaction-id**|string|A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.|transaction_id|transactionId|
+|**--type**|choice||type|type|
+|**--web-link**|string|The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.|attachments|attachments|
+|**--calendar**|object|calendar|calendar|calendar|
+|**--extensions**|array|The collection of open extensions defined for the event. Read-only. Nullable.|extensions|extensions|
+|**--instances**|array|The instances of the event. Navigation property. Read-only. Nullable.|instances|instances|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the event. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the event. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--recurrence-pattern**|object|recurrencePattern|pattern|pattern|
+|**--recurrence-range**|object|recurrenceRange|range|range|
+|**--organizer-email-address**|object|emailAddress|email_address|emailAddress|
+|**--online-meeting-conference-id**|string|The ID of the conference.|conference_id|conferenceId|
+|**--online-meeting-join-url**|string|The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.|join_url|joinUrl|
+|**--online-meeting-phones**|array|All of the phone numbers associated with this conference.|phones|phones|
+|**--online-meeting-quick-dial**|string|The pre-formatted quickdial for this call.|quick_dial|quickDial|
+|**--online-meeting-toll-free-numbers**|array|The toll free numbers that can be used to join the conference.|toll_free_numbers|tollFreeNumbers|
+|**--online-meeting-toll-number**|string|The toll number that can be used to join the conference.|toll_number|tollNumber|
+|**--location-address**|object|physicalAddress|address|address|
+|**--location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-location-type**|choice||location_type|locationType|
+|**--location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--location-unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### calendar create-multi-value-extended-property
 
@@ -846,6 +1022,8 @@ update-calendar a calendar.
 |**--change-key**|string|Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
 |**--color**|choice||color|color|
 |**--default-online-meeting-provider**|choice||default_online_meeting_provider|defaultOnlineMeetingProvider|
+|**--hex-color**|string||hex_color|hexColor|
+|**--is-default-calendar**|boolean||is_default_calendar|isDefaultCalendar|
 |**--is-removable**|boolean|Indicates whether this user calendar can be deleted from the user mailbox.|is_removable|isRemovable|
 |**--is-tallying-responses**|boolean|Indicates whether this user calendar supports tracking of meeting responses. Only meeting invites sent from users' primary calendars support tracking of meeting responses.|is_tallying_responses|isTallyingResponses|
 |**--name**|string|The calendar name.|name|name|
@@ -928,7 +1106,65 @@ update-calendar-view a calendar.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--event-id1**|string|key: id of event|event_id1|event-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--allow-new-time-proposals**|boolean|True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.|allow_new_time_proposals|allowNewTimeProposals|
+|**--attendees**|array|The collection of attendees for the event.|attendees|attendees|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The preview of the message associated with the event. It is in text format.|body_preview|bodyPreview|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--has-attachments**|boolean|Set to true if the event has attachments.|has_attachments|hasAttachments|
+|**--i-cal-u-id**|string|A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.|i_cal_u_id|iCalUId|
+|**--importance**|choice||importance|importance|
+|**--is-all-day**|boolean|Set to true if the event lasts all day.|is_all_day|isAllDay|
+|**--is-cancelled**|boolean|Set to true if the event has been canceled.|is_cancelled|isCancelled|
+|**--is-draft**|boolean||is_draft|isDraft|
+|**--is-online-meeting**|boolean|True if this event has online meeting information, false otherwise. Default is false. Optional.|is_online_meeting|isOnlineMeeting|
+|**--is-organizer**|boolean|Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.|is_organizer|isOrganizer|
+|**--is-reminder-on**|boolean|Set to true if an alert is set to remind the user of the event.|is_reminder_on|isReminderOn|
+|**--locations**|array|The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.|locations|locations|
+|**--online-meeting-provider**|choice||online_meeting_provider|onlineMeetingProvider|
+|**--online-meeting-url**|string|A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.|online_meeting_url|onlineMeetingUrl|
+|**--original-end-time-zone**|string|The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_end_time_zone|originalEndTimeZone|
+|**--original-start**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|original_start|originalStart|
+|**--original-start-time-zone**|string|The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_start_time_zone|originalStartTimeZone|
+|**--reminder-minutes-before-start**|integer|The number of minutes before the event start time that the reminder alert occurs.|reminder_minutes_before_start|reminderMinutesBeforeStart|
+|**--response-requested**|boolean|Default is true, which represents the organizer would like an invitee to send a response to the event.|response_requested|responseRequested|
+|**--response-status**|object|responseStatus|response_status|responseStatus|
+|**--sensitivity**|choice||sensitivity|sensitivity|
+|**--series-master-id**|string|The ID for the recurring series master item, if this event is part of a recurring series.|series_master_id|seriesMasterId|
+|**--show-as**|choice||show_as|showAs|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--subject**|string|The text of the event's subject line.|subject|subject|
+|**--transaction-id**|string|A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.|transaction_id|transactionId|
+|**--type**|choice||type|type|
+|**--web-link**|string|The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.|attachments|attachments|
+|**--calendar**|object|calendar|calendar|calendar|
+|**--extensions**|array|The collection of open extensions defined for the event. Read-only. Nullable.|extensions|extensions|
+|**--instances**|array|The instances of the event. Navigation property. Read-only. Nullable.|instances|instances|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the event. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the event. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--recurrence-pattern**|object|recurrencePattern|pattern|pattern|
+|**--recurrence-range**|object|recurrenceRange|range|range|
+|**--organizer-email-address**|object|emailAddress|email_address|emailAddress|
+|**--online-meeting-conference-id**|string|The ID of the conference.|conference_id|conferenceId|
+|**--online-meeting-join-url**|string|The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.|join_url|joinUrl|
+|**--online-meeting-phones**|array|All of the phone numbers associated with this conference.|phones|phones|
+|**--online-meeting-quick-dial**|string|The pre-formatted quickdial for this call.|quick_dial|quickDial|
+|**--online-meeting-toll-free-numbers**|array|The toll free numbers that can be used to join the conference.|toll_free_numbers|tollFreeNumbers|
+|**--online-meeting-toll-number**|string|The toll number that can be used to join the conference.|toll_number|tollNumber|
+|**--location-address**|object|physicalAddress|address|address|
+|**--location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-location-type**|choice||location_type|locationType|
+|**--location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--location-unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### calendar update-event
 
@@ -950,7 +1186,65 @@ update-event a calendar.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--event-id1**|string|key: id of event|event_id1|event-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--allow-new-time-proposals**|boolean|True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.|allow_new_time_proposals|allowNewTimeProposals|
+|**--attendees**|array|The collection of attendees for the event.|attendees|attendees|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The preview of the message associated with the event. It is in text format.|body_preview|bodyPreview|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--has-attachments**|boolean|Set to true if the event has attachments.|has_attachments|hasAttachments|
+|**--i-cal-u-id**|string|A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.|i_cal_u_id|iCalUId|
+|**--importance**|choice||importance|importance|
+|**--is-all-day**|boolean|Set to true if the event lasts all day.|is_all_day|isAllDay|
+|**--is-cancelled**|boolean|Set to true if the event has been canceled.|is_cancelled|isCancelled|
+|**--is-draft**|boolean||is_draft|isDraft|
+|**--is-online-meeting**|boolean|True if this event has online meeting information, false otherwise. Default is false. Optional.|is_online_meeting|isOnlineMeeting|
+|**--is-organizer**|boolean|Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.|is_organizer|isOrganizer|
+|**--is-reminder-on**|boolean|Set to true if an alert is set to remind the user of the event.|is_reminder_on|isReminderOn|
+|**--locations**|array|The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.|locations|locations|
+|**--online-meeting-provider**|choice||online_meeting_provider|onlineMeetingProvider|
+|**--online-meeting-url**|string|A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.|online_meeting_url|onlineMeetingUrl|
+|**--original-end-time-zone**|string|The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_end_time_zone|originalEndTimeZone|
+|**--original-start**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|original_start|originalStart|
+|**--original-start-time-zone**|string|The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_start_time_zone|originalStartTimeZone|
+|**--reminder-minutes-before-start**|integer|The number of minutes before the event start time that the reminder alert occurs.|reminder_minutes_before_start|reminderMinutesBeforeStart|
+|**--response-requested**|boolean|Default is true, which represents the organizer would like an invitee to send a response to the event.|response_requested|responseRequested|
+|**--response-status**|object|responseStatus|response_status|responseStatus|
+|**--sensitivity**|choice||sensitivity|sensitivity|
+|**--series-master-id**|string|The ID for the recurring series master item, if this event is part of a recurring series.|series_master_id|seriesMasterId|
+|**--show-as**|choice||show_as|showAs|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--subject**|string|The text of the event's subject line.|subject|subject|
+|**--transaction-id**|string|A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.|transaction_id|transactionId|
+|**--type**|choice||type|type|
+|**--web-link**|string|The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.|attachments|attachments|
+|**--calendar**|object|calendar|calendar|calendar|
+|**--extensions**|array|The collection of open extensions defined for the event. Read-only. Nullable.|extensions|extensions|
+|**--instances**|array|The instances of the event. Navigation property. Read-only. Nullable.|instances|instances|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the event. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the event. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--recurrence-pattern**|object|recurrencePattern|pattern|pattern|
+|**--recurrence-range**|object|recurrenceRange|range|range|
+|**--organizer-email-address**|object|emailAddress|email_address|emailAddress|
+|**--online-meeting-conference-id**|string|The ID of the conference.|conference_id|conferenceId|
+|**--online-meeting-join-url**|string|The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.|join_url|joinUrl|
+|**--online-meeting-phones**|array|All of the phone numbers associated with this conference.|phones|phones|
+|**--online-meeting-quick-dial**|string|The pre-formatted quickdial for this call.|quick_dial|quickDial|
+|**--online-meeting-toll-free-numbers**|array|The toll free numbers that can be used to join the conference.|toll_free_numbers|tollFreeNumbers|
+|**--online-meeting-toll-number**|string|The toll number that can be used to join the conference.|toll_number|tollNumber|
+|**--location-address**|object|physicalAddress|address|address|
+|**--location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-location-type**|choice||location_type|locationType|
+|**--location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--location-unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### calendar update-extension
 
@@ -994,7 +1288,65 @@ update-instance a calendar.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--event-id1**|string|key: id of event|event_id1|event-id1|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--allow-new-time-proposals**|boolean|True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.|allow_new_time_proposals|allowNewTimeProposals|
+|**--attendees**|array|The collection of attendees for the event.|attendees|attendees|
+|**--body**|object|itemBody|body|body|
+|**--body-preview**|string|The preview of the message associated with the event. It is in text format.|body_preview|bodyPreview|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--has-attachments**|boolean|Set to true if the event has attachments.|has_attachments|hasAttachments|
+|**--i-cal-u-id**|string|A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.|i_cal_u_id|iCalUId|
+|**--importance**|choice||importance|importance|
+|**--is-all-day**|boolean|Set to true if the event lasts all day.|is_all_day|isAllDay|
+|**--is-cancelled**|boolean|Set to true if the event has been canceled.|is_cancelled|isCancelled|
+|**--is-draft**|boolean||is_draft|isDraft|
+|**--is-online-meeting**|boolean|True if this event has online meeting information, false otherwise. Default is false. Optional.|is_online_meeting|isOnlineMeeting|
+|**--is-organizer**|boolean|Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.|is_organizer|isOrganizer|
+|**--is-reminder-on**|boolean|Set to true if an alert is set to remind the user of the event.|is_reminder_on|isReminderOn|
+|**--locations**|array|The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.|locations|locations|
+|**--online-meeting-provider**|choice||online_meeting_provider|onlineMeetingProvider|
+|**--online-meeting-url**|string|A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.|online_meeting_url|onlineMeetingUrl|
+|**--original-end-time-zone**|string|The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_end_time_zone|originalEndTimeZone|
+|**--original-start**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|original_start|originalStart|
+|**--original-start-time-zone**|string|The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.|original_start_time_zone|originalStartTimeZone|
+|**--reminder-minutes-before-start**|integer|The number of minutes before the event start time that the reminder alert occurs.|reminder_minutes_before_start|reminderMinutesBeforeStart|
+|**--response-requested**|boolean|Default is true, which represents the organizer would like an invitee to send a response to the event.|response_requested|responseRequested|
+|**--response-status**|object|responseStatus|response_status|responseStatus|
+|**--sensitivity**|choice||sensitivity|sensitivity|
+|**--series-master-id**|string|The ID for the recurring series master item, if this event is part of a recurring series.|series_master_id|seriesMasterId|
+|**--show-as**|choice||show_as|showAs|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--subject**|string|The text of the event's subject line.|subject|subject|
+|**--transaction-id**|string|A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.|transaction_id|transactionId|
+|**--type**|choice||type|type|
+|**--web-link**|string|The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--attachments**|array|The collection of fileAttachment and itemAttachment attachments for the event. Navigation property. Read-only. Nullable.|attachments|attachments|
+|**--calendar**|object|calendar|calendar|calendar|
+|**--extensions**|array|The collection of open extensions defined for the event. Read-only. Nullable.|extensions|extensions|
+|**--instances**|array|The instances of the event. Navigation property. Read-only. Nullable.|instances|instances|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the event. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the event. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+|**--recurrence-pattern**|object|recurrencePattern|pattern|pattern|
+|**--recurrence-range**|object|recurrenceRange|range|range|
+|**--organizer-email-address**|object|emailAddress|email_address|emailAddress|
+|**--online-meeting-conference-id**|string|The ID of the conference.|conference_id|conferenceId|
+|**--online-meeting-join-url**|string|The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.|join_url|joinUrl|
+|**--online-meeting-phones**|array|All of the phone numbers associated with this conference.|phones|phones|
+|**--online-meeting-quick-dial**|string|The pre-formatted quickdial for this call.|quick_dial|quickDial|
+|**--online-meeting-toll-free-numbers**|array|The toll free numbers that can be used to join the conference.|toll_free_numbers|tollFreeNumbers|
+|**--online-meeting-toll-number**|string|The toll number that can be used to join the conference.|toll_number|tollNumber|
+|**--location-address**|object|physicalAddress|address|address|
+|**--location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-location-type**|choice||location_type|locationType|
+|**--location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--location-unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### calendar update-multi-value-extended-property
 

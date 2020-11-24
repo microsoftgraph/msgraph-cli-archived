@@ -48,7 +48,7 @@ class UserSettingOperations(object):
     def get_shift_preference(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum101"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum103"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -60,7 +60,7 @@ class UserSettingOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum101]
+        :type select: list[str or ~users.models.Enum103]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

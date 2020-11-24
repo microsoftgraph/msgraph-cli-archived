@@ -61,7 +61,7 @@ create-administrative-unit a identitydirectorymanagement.
 |**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
 |**--description**|string|An optional description for the administrative unit.|description|description|
 |**--display-name**|string|Display name for the administrative unit.|display_name|displayName|
-|**--visibility**|string|Controls whether the adminstrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
+|**--visibility**|string|Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
 |**--members**|array|Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).|members|members|
 |**--scoped-role-members**|array|Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).|scoped_role_members|scopedRoleMembers|
 |**--extensions**|array||extensions|extensions|
@@ -134,17 +134,17 @@ create-device a identitydirectorymanagement.
 |**--approximate-last-sign-in-date-time**|date-time|The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|approximate_last_sign_in_date_time|approximateLastSignInDateTime|
 |**--compliance-expiration-date-time**|date-time|The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|compliance_expiration_date_time|complianceExpirationDateTime|
 |**--device-id**|string|Unique identifier set by Azure Device Registration Service at the time of registration.|device_id|deviceId|
-|**--device-metadata**|string|For interal use only. Set to null.|device_metadata|deviceMetadata|
-|**--device-version**|integer|For interal use only.|device_version|deviceVersion|
+|**--device-metadata**|string|For internal use only. Set to null.|device_metadata|deviceMetadata|
+|**--device-version**|integer|For internal use only.|device_version|deviceVersion|
 |**--display-name**|string|The display name for the device. Required.|display_name|displayName|
 |**--is-compliant**|boolean|true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.|is_compliant|isCompliant|
 |**--is-managed**|boolean|true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.|is_managed|isManaged|
 |**--mdm-app-id**|string|Application identifier used to register device into MDM. Read-only. Supports $filter.|mdm_app_id|mdmAppId|
-|**--on-premises-last-sync-date-time**|date-time|The last time at which the object was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' Read-only.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--on-premises-last-sync-date-time**|date-time|The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' Read-only.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
 |**--on-premises-sync-enabled**|boolean|true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only.|on_premises_sync_enabled|onPremisesSyncEnabled|
 |**--operating-system**|string|The type of operating system on the device. Required.|operating_system|operatingSystem|
 |**--operating-system-version**|string|The version of the operating system on the device. Required.|operating_system_version|operatingSystemVersion|
-|**--physical-ids**|array|For interal use only. Not nullable.|physical_ids|physicalIds|
+|**--physical-ids**|array|For internal use only. Not nullable.|physical_ids|physicalIds|
 |**--profile-type**|string|The profile type of the device. Possible values:RegisteredDevice (default)SecureVMPrinterSharedIoT|profile_type|profileType|
 |**--system-labels**|array|List of labels applied to the device by the system.|system_labels|systemLabels|
 |**--trust-type**|string|Type of trust for the joined device. Read-only. Possible values: Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device management in Azure Active Directory|trust_type|trustType|
@@ -805,6 +805,7 @@ get-device a identitydirectorymanagement.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--device-id**|string|key: id of device|device_id|device-id|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -992,6 +993,7 @@ get-org-contact a identitydirectorymanagement.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--org-contact-id**|string|key: id of orgContact|org_contact_id|orgContact-id|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -1246,6 +1248,7 @@ list-device a identitydirectorymanagement.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -1440,6 +1443,7 @@ list-org-contact a identitydirectorymanagement.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -1882,7 +1886,7 @@ update-administrative-unit a identitydirectorymanagement.
 |**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
 |**--description**|string|An optional description for the administrative unit.|description|description|
 |**--display-name**|string|Display name for the administrative unit.|display_name|displayName|
-|**--visibility**|string|Controls whether the adminstrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
+|**--visibility**|string|Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the adminstrative unit.|visibility|visibility|
 |**--members**|array|Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).|members|members|
 |**--scoped-role-members**|array|Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).|scoped_role_members|scopedRoleMembers|
 |**--extensions**|array||extensions|extensions|
@@ -1958,17 +1962,17 @@ update-device a identitydirectorymanagement.
 |**--approximate-last-sign-in-date-time**|date-time|The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|approximate_last_sign_in_date_time|approximateLastSignInDateTime|
 |**--compliance-expiration-date-time**|date-time|The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.|compliance_expiration_date_time|complianceExpirationDateTime|
 |**--microsoft-graph-device-id**|string|Unique identifier set by Azure Device Registration Service at the time of registration.|microsoft_graph_device_id|deviceId|
-|**--device-metadata**|string|For interal use only. Set to null.|device_metadata|deviceMetadata|
-|**--device-version**|integer|For interal use only.|device_version|deviceVersion|
+|**--device-metadata**|string|For internal use only. Set to null.|device_metadata|deviceMetadata|
+|**--device-version**|integer|For internal use only.|device_version|deviceVersion|
 |**--display-name**|string|The display name for the device. Required.|display_name|displayName|
 |**--is-compliant**|boolean|true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.|is_compliant|isCompliant|
 |**--is-managed**|boolean|true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices.|is_managed|isManaged|
 |**--mdm-app-id**|string|Application identifier used to register device into MDM. Read-only. Supports $filter.|mdm_app_id|mdmAppId|
-|**--on-premises-last-sync-date-time**|date-time|The last time at which the object was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' Read-only.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--on-premises-last-sync-date-time**|date-time|The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' Read-only.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
 |**--on-premises-sync-enabled**|boolean|true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only.|on_premises_sync_enabled|onPremisesSyncEnabled|
 |**--operating-system**|string|The type of operating system on the device. Required.|operating_system|operatingSystem|
 |**--operating-system-version**|string|The version of the operating system on the device. Required.|operating_system_version|operatingSystemVersion|
-|**--physical-ids**|array|For interal use only. Not nullable.|physical_ids|physicalIds|
+|**--physical-ids**|array|For internal use only. Not nullable.|physical_ids|physicalIds|
 |**--profile-type**|string|The profile type of the device. Possible values:RegisteredDevice (default)SecureVMPrinterSharedIoT|profile_type|profileType|
 |**--system-labels**|array|List of labels applied to the device by the system.|system_labels|systemLabels|
 |**--trust-type**|string|Type of trust for the joined device. Read-only. Possible values: Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device management in Azure Active Directory|trust_type|trustType|

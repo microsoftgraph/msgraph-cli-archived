@@ -43,21 +43,24 @@ class UserUserOperations:
 
     def list_user(
         self,
-        orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
-        select: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get7ItemsItem"]]] = None,
+        consistency_level: Optional[str] = None,
+        orderby: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
+        select: Optional[List[Union[str, "models.Get7ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get8ItemsItem"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfUser"]:
         """Get entities from users.
 
         Get entities from users.
 
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Get5ItemsItem]
+        :type orderby: list[str or ~users.models.Get6ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Get6ItemsItem]
+        :type select: list[str or ~users.models.Get7ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~users.models.Get7ItemsItem]
+        :type expand: list[str or ~users.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfUser or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~users.models.CollectionOfUser]
@@ -71,6 +74,8 @@ class UserUserOperations:
         def prepare_request(next_link=None):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
+            if consistency_level is not None:
+                header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
             header_parameters['Accept'] = 'application/json'
 
@@ -186,8 +191,9 @@ class UserUserOperations:
     async def get_user(
         self,
         user_id: str,
-        select: Optional[List[Union[str, "models.Get1ItemsItem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
+        consistency_level: Optional[str] = None,
+        select: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get3ItemsItem"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphUser":
         """Get entity from users by key.
@@ -196,10 +202,12 @@ class UserUserOperations:
 
         :param user_id: key: id of user.
         :type user_id: str
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Get1ItemsItem]
+        :type select: list[str or ~users.models.Get2ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~users.models.Get2ItemsItem]
+        :type expand: list[str or ~users.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphUser, or the result of cls(response)
         :rtype: ~users.models.MicrosoftGraphUser
@@ -226,6 +234,8 @@ class UserUserOperations:
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        if consistency_level is not None:
+            header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 

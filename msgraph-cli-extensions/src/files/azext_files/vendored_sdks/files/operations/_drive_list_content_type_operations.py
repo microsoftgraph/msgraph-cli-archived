@@ -49,8 +49,8 @@ class DriveListContentTypeOperations(object):
         self,
         drive_id,  # type: str
         content_type_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum84"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum85"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum87"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -64,9 +64,9 @@ class DriveListContentTypeOperations(object):
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum84]
+        :type orderby: list[str or ~files.models.Enum86]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum85]
+        :type select: list[str or ~files.models.Enum87]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -221,7 +221,7 @@ class DriveListContentTypeOperations(object):
         drive_id,  # type: str
         content_type_id,  # type: str
         column_link_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum88"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -237,7 +237,7 @@ class DriveListContentTypeOperations(object):
         :param column_link_id: key: id of columnLink.
         :type column_link_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum86]
+        :type select: list[str or ~files.models.Enum88]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

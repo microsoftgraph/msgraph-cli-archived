@@ -207,7 +207,118 @@ create-following a files.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--audio**|object|audio|audio|audio|
+|**--content**|byte-array|The content stream, if the item represents a file.|content|content|
+|**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
+|**--file-system-info**|object|fileSystemInfo|file_system_info|fileSystemInfo|
+|**--image**|object|image|image|image|
+|**--location**|object|geoCoordinates|location|location|
+|**--photo**|object|photo|photo|photo|
+|**--publication**|object|publicationFacet|publication|publication|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--size**|integer|Size of the item in bytes. Read-only.|size|size|
+|**--video**|object|video|video|video|
+|**--web-dav-url**|string|WebDAV compatible URL for the item.|web_dav_url|webDavUrl|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--children**|array|Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.|children|children|
+|**--permissions**|array|The set of permissions for the item. Read-only. Nullable.|permissions|permissions|
+|**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
+|**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
+|**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application1|application|
+|**--list-item-last-modified-by-device**|object|identity|device1|device|
+|**--user1**|object|identity|user1|user|
+|**--list-item-created-by-application**|object|identity|application2|application|
+|**--list-item-created-by-device**|object|identity|device2|device|
+|**--user2**|object|identity|user2|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|microsoft_graph_list_item_versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id2|id|
+|**--workbook-id**|string|Read-only.|id3|id|
+|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-comments**|array||comments|comments|
+|**--workbook-functions**|object|workbookFunctions|functions|functions|
+|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--shared-owner**|object|identitySet|owner|owner|
+|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
+|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--remote-item-file**|object|file|file|file|
+|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--remote-item-folder**|object|folder|folder|folder|
+|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--remote-item-image**|object|image|microsoft_graph_image|image|
+|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--remote-item-package**|object|package|package|package|
+|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--remote-item-shared**|object|shared|shared|shared|
+|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids3|sharepointIds|
+|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--remote-item-video**|object|video|microsoft_graph_video|video|
+|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--folder-view**|object|folderView|view|view|
+|**--file-hashes**|object|hashes|hashes|hashes|
+|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
 
 ### files create-item
 
@@ -294,7 +405,118 @@ create-special a files.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--audio**|object|audio|audio|audio|
+|**--content**|byte-array|The content stream, if the item represents a file.|content|content|
+|**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
+|**--file-system-info**|object|fileSystemInfo|file_system_info|fileSystemInfo|
+|**--image**|object|image|image|image|
+|**--location**|object|geoCoordinates|location|location|
+|**--photo**|object|photo|photo|photo|
+|**--publication**|object|publicationFacet|publication|publication|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--size**|integer|Size of the item in bytes. Read-only.|size|size|
+|**--video**|object|video|video|video|
+|**--web-dav-url**|string|WebDAV compatible URL for the item.|web_dav_url|webDavUrl|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--children**|array|Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.|children|children|
+|**--permissions**|array|The set of permissions for the item. Read-only. Nullable.|permissions|permissions|
+|**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
+|**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
+|**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application1|application|
+|**--list-item-last-modified-by-device**|object|identity|device1|device|
+|**--user1**|object|identity|user1|user|
+|**--list-item-created-by-application**|object|identity|application2|application|
+|**--list-item-created-by-device**|object|identity|device2|device|
+|**--user2**|object|identity|user2|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|microsoft_graph_list_item_versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id2|id|
+|**--workbook-id**|string|Read-only.|id3|id|
+|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-comments**|array||comments|comments|
+|**--workbook-functions**|object|workbookFunctions|functions|functions|
+|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--shared-owner**|object|identitySet|owner|owner|
+|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
+|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--remote-item-file**|object|file|file|file|
+|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--remote-item-folder**|object|folder|folder|folder|
+|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--remote-item-image**|object|image|microsoft_graph_image|image|
+|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--remote-item-package**|object|package|package|package|
+|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--remote-item-shared**|object|shared|shared|shared|
+|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids3|sharepointIds|
+|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--remote-item-video**|object|video|microsoft_graph_video|video|
+|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--folder-view**|object|folderView|view|view|
+|**--file-hashes**|object|hashes|hashes|hashes|
+|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
 
 ### files create-subscription
 
@@ -323,8 +545,8 @@ create-subscription a files.
 |**--encryption-certificate-id**|string|A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.|encryption_certificate_id|encryptionCertificateId|
 |**--expiration-date-time**|date-time|Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.|expiration_date_time|expirationDateTime|
 |**--include-resource-data**|boolean|When set to true, change notifications include resource data (such as content of a chat message). Optional.|include_resource_data|includeResourceData|
-|**--latest-supported-tls-version**|string||latest_supported_tls_version|latestSupportedTlsVersion|
-|**--lifecycle-notification-url**|string||lifecycle_notification_url|lifecycleNotificationUrl|
+|**--latest-supported-tls-version**|string|Specifies the latest version of Transport Layer Security (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph defaults the property to v1_2.|latest_supported_tls_version|latestSupportedTlsVersion|
+|**--lifecycle-notification-url**|string|The URL of the endpoint that receives lifecycle notifications, including subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle notifications.|lifecycle_notification_url|lifecycleNotificationUrl|
 |**--notification-url**|string|Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.|notification_url|notificationUrl|
 |**--resource**|string|Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.|resource|resource|
 
@@ -549,6 +771,25 @@ get-drive-item a files.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### files get-drive-item-content
+
+get-drive-item-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|shares.listItem|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-drive-item-content|GetDriveItemContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
+
 ### files get-field
 
 get-field a files.
@@ -593,6 +834,26 @@ get-following a files.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### files get-following-content
+
+get-following-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|drives|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-following-content|GetFollowingContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--drive-id**|string|key: id of drive|drive_id|drive-id|
+|**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
+
 ### files get-item
 
 get-item a files.
@@ -614,6 +875,26 @@ get-item a files.
 |**--list-item-id**|string|key: id of listItem|list_item_id|listItem-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### files get-item-content
+
+get-item-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|shares|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-item-content|GetItemsContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
+|**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
 
 ### files get-list
 
@@ -718,6 +999,25 @@ get-root a files.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### files get-root-content
+
+get-root-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|shares|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-root-content|GetRootContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
+
 ### files get-shared-drive-item
 
 get-shared-drive-item a files.
@@ -781,6 +1081,26 @@ get-special a files.
 |**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### files get-special-content
+
+get-special-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|drives|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-special-content|GetSpecialContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--drive-id**|string|key: id of drive|drive_id|drive-id|
+|**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
 
 ### files get-subscription
 
@@ -1126,6 +1446,68 @@ search a files.
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--q**|string||q|q|
 
+### files set-drive-item-content
+
+set-drive-item-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|shares.listItem|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-drive-item-content|SetDriveItemContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
+|**--data**|binary|New media content.|data|data|
+
+### files set-following-content
+
+set-following-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|drives|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-following-content|SetFollowingContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--drive-id**|string|key: id of drive|drive_id|drive-id|
+|**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
+|**--data**|binary|New media content.|data|data|
+
+### files set-item-content
+
+set-item-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|shares|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-item-content|SetItemsContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
+|**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
+|**--data**|binary|New media content.|data|data|
+
 ### files set-ref-analytic
 
 set-ref-analytic a files.
@@ -1145,6 +1527,47 @@ set-ref-analytic a files.
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
+
+### files set-root-content
+
+set-root-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|shares|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-root-content|SetRootContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
+|**--data**|binary|New media content.|data|data|
+
+### files set-special-content
+
+set-special-content a files.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|files|drives|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-special-content|SetSpecialContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--drive-id**|string|key: id of drive|drive_id|drive-id|
+|**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
+|**--data**|binary|New media content.|data|data|
 
 ### files shared-with-me
 
@@ -1377,7 +1800,118 @@ update-drive-item a files.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--audio**|object|audio|audio|audio|
+|**--content**|byte-array|The content stream, if the item represents a file.|content|content|
+|**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
+|**--file-system-info**|object|fileSystemInfo|file_system_info|fileSystemInfo|
+|**--image**|object|image|image|image|
+|**--location**|object|geoCoordinates|location|location|
+|**--photo**|object|photo|photo|photo|
+|**--publication**|object|publicationFacet|publication|publication|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--size**|integer|Size of the item in bytes. Read-only.|size|size|
+|**--video**|object|video|video|video|
+|**--web-dav-url**|string|WebDAV compatible URL for the item.|web_dav_url|webDavUrl|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--children**|array|Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.|children|children|
+|**--permissions**|array|The set of permissions for the item. Read-only. Nullable.|permissions|permissions|
+|**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
+|**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
+|**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application1|application|
+|**--list-item-last-modified-by-device**|object|identity|device1|device|
+|**--user1**|object|identity|user1|user|
+|**--list-item-created-by-application**|object|identity|application2|application|
+|**--list-item-created-by-device**|object|identity|device2|device|
+|**--user2**|object|identity|user2|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|microsoft_graph_list_item_versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id2|id|
+|**--workbook-id**|string|Read-only.|id3|id|
+|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-comments**|array||comments|comments|
+|**--workbook-functions**|object|workbookFunctions|functions|functions|
+|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--shared-owner**|object|identitySet|owner|owner|
+|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
+|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--remote-item-file**|object|file|file|file|
+|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--remote-item-folder**|object|folder|folder|folder|
+|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--remote-item-image**|object|image|microsoft_graph_image|image|
+|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--remote-item-package**|object|package|package|package|
+|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--remote-item-shared**|object|shared|shared|shared|
+|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids3|sharepointIds|
+|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--remote-item-video**|object|video|microsoft_graph_video|video|
+|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--folder-view**|object|folderView|view|view|
+|**--file-hashes**|object|hashes|hashes|hashes|
+|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
 
 ### files update-field
 
@@ -1419,7 +1953,118 @@ update-following a files.
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--audio**|object|audio|audio|audio|
+|**--content**|byte-array|The content stream, if the item represents a file.|content|content|
+|**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
+|**--file-system-info**|object|fileSystemInfo|file_system_info|fileSystemInfo|
+|**--image**|object|image|image|image|
+|**--location**|object|geoCoordinates|location|location|
+|**--photo**|object|photo|photo|photo|
+|**--publication**|object|publicationFacet|publication|publication|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--size**|integer|Size of the item in bytes. Read-only.|size|size|
+|**--video**|object|video|video|video|
+|**--web-dav-url**|string|WebDAV compatible URL for the item.|web_dav_url|webDavUrl|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--children**|array|Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.|children|children|
+|**--permissions**|array|The set of permissions for the item. Read-only. Nullable.|permissions|permissions|
+|**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
+|**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
+|**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application1|application|
+|**--list-item-last-modified-by-device**|object|identity|device1|device|
+|**--user1**|object|identity|user1|user|
+|**--list-item-created-by-application**|object|identity|application2|application|
+|**--list-item-created-by-device**|object|identity|device2|device|
+|**--user2**|object|identity|user2|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|microsoft_graph_list_item_versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id2|id|
+|**--workbook-id**|string|Read-only.|id3|id|
+|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-comments**|array||comments|comments|
+|**--workbook-functions**|object|workbookFunctions|functions|functions|
+|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--shared-owner**|object|identitySet|owner|owner|
+|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
+|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--remote-item-file**|object|file|file|file|
+|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--remote-item-folder**|object|folder|folder|folder|
+|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--remote-item-image**|object|image|microsoft_graph_image|image|
+|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--remote-item-package**|object|package|package|package|
+|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--remote-item-shared**|object|shared|shared|shared|
+|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids3|sharepointIds|
+|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--remote-item-video**|object|video|microsoft_graph_video|video|
+|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--folder-view**|object|folderView|view|view|
+|**--file-hashes**|object|hashes|hashes|hashes|
+|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
 
 ### files update-item
 
@@ -1607,7 +2252,118 @@ update-root a files.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--shared-drive-item-id**|string|key: id of sharedDriveItem|shared_drive_item_id|sharedDriveItem-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--audio**|object|audio|audio|audio|
+|**--content**|byte-array|The content stream, if the item represents a file.|content|content|
+|**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
+|**--file-system-info**|object|fileSystemInfo|file_system_info|fileSystemInfo|
+|**--image**|object|image|image|image|
+|**--location**|object|geoCoordinates|location|location|
+|**--photo**|object|photo|photo|photo|
+|**--publication**|object|publicationFacet|publication|publication|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--size**|integer|Size of the item in bytes. Read-only.|size|size|
+|**--video**|object|video|video|video|
+|**--web-dav-url**|string|WebDAV compatible URL for the item.|web_dav_url|webDavUrl|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--children**|array|Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.|children|children|
+|**--permissions**|array|The set of permissions for the item. Read-only. Nullable.|permissions|permissions|
+|**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
+|**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
+|**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application1|application|
+|**--list-item-last-modified-by-device**|object|identity|device1|device|
+|**--user1**|object|identity|user1|user|
+|**--list-item-created-by-application**|object|identity|application2|application|
+|**--list-item-created-by-device**|object|identity|device2|device|
+|**--user2**|object|identity|user2|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|microsoft_graph_list_item_versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id2|id|
+|**--workbook-id**|string|Read-only.|id3|id|
+|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-comments**|array||comments|comments|
+|**--workbook-functions**|object|workbookFunctions|functions|functions|
+|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--shared-owner**|object|identitySet|owner|owner|
+|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
+|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--remote-item-file**|object|file|file|file|
+|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--remote-item-folder**|object|folder|folder|folder|
+|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--remote-item-image**|object|image|microsoft_graph_image|image|
+|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--remote-item-package**|object|package|package|package|
+|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--remote-item-shared**|object|shared|shared|shared|
+|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids3|sharepointIds|
+|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--remote-item-video**|object|video|microsoft_graph_video|video|
+|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--folder-view**|object|folderView|view|view|
+|**--file-hashes**|object|hashes|hashes|hashes|
+|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
 
 ### files update-shared-drive-item
 
@@ -1716,7 +2472,118 @@ update-special a files.
 |------|----|-----------|----------|------------|
 |**--drive-id**|string|key: id of drive|drive_id|drive-id|
 |**--drive-item-id**|string|key: id of driveItem|drive_item_id|driveItem-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-application**|object|identity|application|application|
+|**--last-modified-by-device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
+|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--audio**|object|audio|audio|audio|
+|**--content**|byte-array|The content stream, if the item represents a file.|content|content|
+|**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
+|**--file-system-info**|object|fileSystemInfo|file_system_info|fileSystemInfo|
+|**--image**|object|image|image|image|
+|**--location**|object|geoCoordinates|location|location|
+|**--photo**|object|photo|photo|photo|
+|**--publication**|object|publicationFacet|publication|publication|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--size**|integer|Size of the item in bytes. Read-only.|size|size|
+|**--video**|object|video|video|video|
+|**--web-dav-url**|string|WebDAV compatible URL for the item.|web_dav_url|webDavUrl|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--children**|array|Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.|children|children|
+|**--permissions**|array|The set of permissions for the item. Read-only. Nullable.|permissions|permissions|
+|**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
+|**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
+|**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id1|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id1|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-application**|object|identity|application1|application|
+|**--list-item-last-modified-by-device**|object|identity|device1|device|
+|**--user1**|object|identity|user1|user|
+|**--list-item-created-by-application**|object|identity|application2|application|
+|**--list-item-created-by-device**|object|identity|device2|device|
+|**--user2**|object|identity|user2|user|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-versions**|array|The list of previous versions of the list item.|microsoft_graph_list_item_versions|versions|
+|**--list-item-fields-id**|string|Read-only.|id2|id|
+|**--workbook-id**|string|Read-only.|id3|id|
+|**--workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--workbook-comments**|array||comments|comments|
+|**--workbook-functions**|object|workbookFunctions|functions|functions|
+|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--shared-owner**|object|identitySet|owner|owner|
+|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
+|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--remote-item-file**|object|file|file|file|
+|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--remote-item-folder**|object|folder|folder|folder|
+|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--remote-item-image**|object|image|microsoft_graph_image|image|
+|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--remote-item-package**|object|package|package|package|
+|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--remote-item-shared**|object|shared|shared|shared|
+|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids3|sharepointIds|
+|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--remote-item-video**|object|video|microsoft_graph_video|video|
+|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--folder-view**|object|folderView|view|view|
+|**--file-hashes**|object|hashes|hashes|hashes|
+|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
 
 ### files update-subscription
 
@@ -1746,8 +2613,8 @@ update-subscription a files.
 |**--encryption-certificate-id**|string|A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.|encryption_certificate_id|encryptionCertificateId|
 |**--expiration-date-time**|date-time|Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.|expiration_date_time|expirationDateTime|
 |**--include-resource-data**|boolean|When set to true, change notifications include resource data (such as content of a chat message). Optional.|include_resource_data|includeResourceData|
-|**--latest-supported-tls-version**|string||latest_supported_tls_version|latestSupportedTlsVersion|
-|**--lifecycle-notification-url**|string||lifecycle_notification_url|lifecycleNotificationUrl|
+|**--latest-supported-tls-version**|string|Specifies the latest version of Transport Layer Security (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a version lower than the currently recommended version (TLS 1.2), specifying this property by a set timeline allows them to temporarily use their deprecated version of TLS before completing their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline would result in subscription operations failing. For subscribers whose notification endpoint already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph defaults the property to v1_2.|latest_supported_tls_version|latestSupportedTlsVersion|
+|**--lifecycle-notification-url**|string|The URL of the endpoint that receives lifecycle notifications, including subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle notifications.|lifecycle_notification_url|lifecycleNotificationUrl|
 |**--notification-url**|string|Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.|notification_url|notificationUrl|
 |**--resource**|string|Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.|resource|resource|
 

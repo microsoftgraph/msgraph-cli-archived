@@ -43,9 +43,9 @@ class ShareSharedDriveItemOperations:
 
     def list_shared_drive_item(
         self,
-        orderby: Optional[List[Union[str, "models.Enum120"]]] = None,
-        select: Optional[List[Union[str, "models.Enum121"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum122"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum122"]]] = None,
+        select: Optional[List[Union[str, "models.Enum123"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum124"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfSharedDriveItem"]:
         """Get entities from shares.
@@ -53,11 +53,11 @@ class ShareSharedDriveItemOperations:
         Get entities from shares.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum120]
+        :type orderby: list[str or ~files.models.Enum122]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum121]
+        :type select: list[str or ~files.models.Enum123]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum122]
+        :type expand: list[str or ~files.models.Enum124]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfSharedDriveItem or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~files.models.CollectionOfSharedDriveItem]
@@ -186,8 +186,8 @@ class ShareSharedDriveItemOperations:
     async def get_shared_drive_item(
         self,
         shared_drive_item_id: str,
-        select: Optional[List[Union[str, "models.Enum123"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum124"]]] = None,
+        select: Optional[List[Union[str, "models.Enum125"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum126"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphSharedDriveItem":
         """Get entity from shares by key.
@@ -197,9 +197,9 @@ class ShareSharedDriveItemOperations:
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum123]
+        :type select: list[str or ~files.models.Enum125]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum124]
+        :type expand: list[str or ~files.models.Enum126]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSharedDriveItem, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphSharedDriveItem

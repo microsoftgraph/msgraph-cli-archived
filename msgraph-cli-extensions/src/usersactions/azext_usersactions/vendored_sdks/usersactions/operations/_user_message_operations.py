@@ -245,13 +245,13 @@ class UserMessageOperations(object):
         :type microsoft_graph_message_to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
         :param unique_body: itemBody.
         :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-        :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+        :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
          argument to the end of the URL to change how the message is displayed. If ispopout is not
          present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-         to 0, then the browser will show the message in the Outlook Web App review pane.The message
-         will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-         prompted to login if you are not already logged in with the browser.This URL can be accessed
-         from within an iFrame.
+         to 0, then the browser will show the message in the Outlook on the web review pane.The message
+         will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+         be prompted to login if you are not already logged in with the browser.This URL cannot be
+         accessed from within an iFrame.
         :type web_link: str
         :param attachments: The fileAttachment and itemAttachment attachments for the message.
         :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
@@ -442,13 +442,13 @@ class UserMessageOperations(object):
         :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
         :param unique_body: itemBody.
         :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-        :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+        :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
          argument to the end of the URL to change how the message is displayed. If ispopout is not
          present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-         to 0, then the browser will show the message in the Outlook Web App review pane.The message
-         will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-         prompted to login if you are not already logged in with the browser.This URL can be accessed
-         from within an iFrame.
+         to 0, then the browser will show the message in the Outlook on the web review pane.The message
+         will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+         be prompted to login if you are not already logged in with the browser.This URL cannot be
+         accessed from within an iFrame.
         :type web_link: str
         :param attachments: The fileAttachment and itemAttachment attachments for the message.
         :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
@@ -639,13 +639,13 @@ class UserMessageOperations(object):
         :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
         :param unique_body: itemBody.
         :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-        :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+        :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
          argument to the end of the URL to change how the message is displayed. If ispopout is not
          present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-         to 0, then the browser will show the message in the Outlook Web App review pane.The message
-         will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-         prompted to login if you are not already logged in with the browser.This URL can be accessed
-         from within an iFrame.
+         to 0, then the browser will show the message in the Outlook on the web review pane.The message
+         will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+         be prompted to login if you are not already logged in with the browser.This URL cannot be
+         accessed from within an iFrame.
         :type web_link: str
         :param attachments: The fileAttachment and itemAttachment attachments for the message.
         :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
@@ -839,13 +839,13 @@ class UserMessageOperations(object):
         :type microsoft_graph_message_to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
         :param unique_body: itemBody.
         :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-        :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+        :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
          argument to the end of the URL to change how the message is displayed. If ispopout is not
          present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-         to 0, then the browser will show the message in the Outlook Web App review pane.The message
-         will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-         prompted to login if you are not already logged in with the browser.This URL can be accessed
-         from within an iFrame.
+         to 0, then the browser will show the message in the Outlook on the web review pane.The message
+         will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+         be prompted to login if you are not already logged in with the browser.This URL cannot be
+         accessed from within an iFrame.
         :type web_link: str
         :param attachments: The fileAttachment and itemAttachment attachments for the message.
         :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
@@ -1101,13 +1101,13 @@ class UserMessageOperations(object):
         :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
         :param unique_body: itemBody.
         :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-        :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+        :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
          argument to the end of the URL to change how the message is displayed. If ispopout is not
          present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-         to 0, then the browser will show the message in the Outlook Web App review pane.The message
-         will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-         prompted to login if you are not already logged in with the browser.This URL can be accessed
-         from within an iFrame.
+         to 0, then the browser will show the message in the Outlook on the web review pane.The message
+         will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+         be prompted to login if you are not already logged in with the browser.This URL cannot be
+         accessed from within an iFrame.
         :type web_link: str
         :param attachments: The fileAttachment and itemAttachment attachments for the message.
         :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
@@ -1294,13 +1294,13 @@ class UserMessageOperations(object):
         :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
         :param unique_body: itemBody.
         :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-        :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
+        :param web_link: The URL to open the message in Outlook on the web.You can append an ispopout
          argument to the end of the URL to change how the message is displayed. If ispopout is not
          present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-         to 0, then the browser will show the message in the Outlook Web App review pane.The message
-         will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-         prompted to login if you are not already logged in with the browser.This URL can be accessed
-         from within an iFrame.
+         to 0, then the browser will show the message in the Outlook on the web review pane.The message
+         will open in the browser if you are logged in to your mailbox via Outlook on the web. You will
+         be prompted to login if you are not already logged in with the browser.This URL cannot be
+         accessed from within an iFrame.
         :type web_link: str
         :param attachments: The fileAttachment and itemAttachment attachments for the message.
         :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]

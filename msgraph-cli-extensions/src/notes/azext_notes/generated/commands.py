@@ -42,7 +42,9 @@ def load_command_table(self, _):
         g.custom_command('get-notebook', 'notes_get_notebook')
         g.custom_command('get-operation', 'notes_get_operation')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-resource', 'notes_get_resource')
+        g.custom_command('get-resource-content', 'notes_get_resource_content')
         g.custom_command('get-section', 'notes_get_section')
         g.custom_command('get-section-group', 'notes_get_section_group')
         g.custom_command('list-notebook', 'notes_list_notebook')
@@ -51,6 +53,8 @@ def load_command_table(self, _):
         g.custom_command('list-resource', 'notes_list_resource')
         g.custom_command('list-section', 'notes_list_section')
         g.custom_command('list-section-group', 'notes_list_section_group')
+        g.custom_command('set-page-content', 'notes_set_page_content')
+        g.custom_command('set-resource-content', 'notes_set_resource_content')
         g.custom_command('update-notebook', 'notes_update_notebook')
         g.custom_command('update-operation', 'notes_update_operation')
         g.custom_command('update-page', 'notes_update_page')
@@ -105,9 +109,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -135,9 +141,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -243,6 +251,16 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
 
+    from azext_notes.generated._client_factory import cf_group_onenote_parent_notebook_section_group_section_page
+    notes_group_onenote_parent_notebook_section_group_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._group_onenote_parent_notebook_section_group_sectio'
+        'n_page_operations#GroupOnenoteParentNotebookSectionGroupSectionPageOperations.{}',
+        client_factory=cf_group_onenote_parent_notebook_section_group_section_page)
+    with self.command_group('notes', notes_group_onenote_parent_notebook_section_group_section_page,
+                            client_factory=cf_group_onenote_parent_notebook_section_group_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
+
     from azext_notes.generated._client_factory import cf_group_onenote_page_parent_notebook_section
     notes_group_onenote_page_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_notes.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_operati'
@@ -259,6 +277,16 @@ def load_command_table(self, _):
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
+
+    from azext_notes.generated._client_factory import cf_group_onenote_parent_notebook_section_page
+    notes_group_onenote_parent_notebook_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._group_onenote_parent_notebook_section_page_operati'
+        'ons#GroupOnenoteParentNotebookSectionPageOperations.{}',
+        client_factory=cf_group_onenote_parent_notebook_section_page)
+    with self.command_group('notes', notes_group_onenote_parent_notebook_section_page,
+                            client_factory=cf_group_onenote_parent_notebook_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
 
     from azext_notes.generated._client_factory import cf_group_onenote_page_parent_notebook_section_parent_section_group
     notes_group_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
@@ -297,6 +325,16 @@ def load_command_table(self, _):
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
+
+    from azext_notes.generated._client_factory import cf_group_onenote_parent_section_page
+    notes_group_onenote_parent_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._group_onenote_parent_section_page_operations#Group'
+        'OnenoteParentSectionPageOperations.{}',
+        client_factory=cf_group_onenote_parent_section_page)
+    with self.command_group('notes', notes_group_onenote_parent_section_page,
+                            client_factory=cf_group_onenote_parent_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
 
     from azext_notes.generated._client_factory import cf_group_onenote_page_parent_section_parent_notebook
     notes_group_onenote_page_parent_section_parent_notebook = CliCommandType(
@@ -423,9 +461,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -453,9 +493,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -516,9 +558,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -674,7 +718,9 @@ def load_command_table(self, _):
         g.custom_command('get-notebook', 'notes_get_notebook')
         g.custom_command('get-operation', 'notes_get_operation')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-resource', 'notes_get_resource')
+        g.custom_command('get-resource-content', 'notes_get_resource_content')
         g.custom_command('get-section', 'notes_get_section')
         g.custom_command('get-section-group', 'notes_get_section_group')
         g.custom_command('list-notebook', 'notes_list_notebook')
@@ -683,6 +729,8 @@ def load_command_table(self, _):
         g.custom_command('list-resource', 'notes_list_resource')
         g.custom_command('list-section', 'notes_list_section')
         g.custom_command('list-section-group', 'notes_list_section_group')
+        g.custom_command('set-page-content', 'notes_set_page_content')
+        g.custom_command('set-resource-content', 'notes_set_resource_content')
         g.custom_command('update-notebook', 'notes_update_notebook')
         g.custom_command('update-operation', 'notes_update_operation')
         g.custom_command('update-page', 'notes_update_page')
@@ -737,9 +785,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -767,9 +817,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -875,6 +927,16 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
 
+    from azext_notes.generated._client_factory import cf_site_onenote_parent_notebook_section_group_section_page
+    notes_site_onenote_parent_notebook_section_group_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._site_onenote_parent_notebook_section_group_section'
+        '_page_operations#SiteOnenoteParentNotebookSectionGroupSectionPageOperations.{}',
+        client_factory=cf_site_onenote_parent_notebook_section_group_section_page)
+    with self.command_group('notes', notes_site_onenote_parent_notebook_section_group_section_page,
+                            client_factory=cf_site_onenote_parent_notebook_section_group_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
+
     from azext_notes.generated._client_factory import cf_site_onenote_page_parent_notebook_section
     notes_site_onenote_page_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_notes.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_operatio'
@@ -891,6 +953,16 @@ def load_command_table(self, _):
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
+
+    from azext_notes.generated._client_factory import cf_site_onenote_parent_notebook_section_page
+    notes_site_onenote_parent_notebook_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._site_onenote_parent_notebook_section_page_operatio'
+        'ns#SiteOnenoteParentNotebookSectionPageOperations.{}',
+        client_factory=cf_site_onenote_parent_notebook_section_page)
+    with self.command_group('notes', notes_site_onenote_parent_notebook_section_page,
+                            client_factory=cf_site_onenote_parent_notebook_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
 
     from azext_notes.generated._client_factory import cf_site_onenote_page_parent_notebook_section_parent_section_group
     notes_site_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
@@ -929,6 +1001,16 @@ def load_command_table(self, _):
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
+
+    from azext_notes.generated._client_factory import cf_site_onenote_parent_section_page
+    notes_site_onenote_parent_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._site_onenote_parent_section_page_operations#SiteOn'
+        'enoteParentSectionPageOperations.{}',
+        client_factory=cf_site_onenote_parent_section_page)
+    with self.command_group('notes', notes_site_onenote_parent_section_page,
+                            client_factory=cf_site_onenote_parent_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
 
     from azext_notes.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook
     notes_site_onenote_page_parent_section_parent_notebook = CliCommandType(
@@ -1055,9 +1137,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -1085,9 +1169,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -1148,9 +1234,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -1306,7 +1394,9 @@ def load_command_table(self, _):
         g.custom_command('get-notebook', 'notes_get_notebook')
         g.custom_command('get-operation', 'notes_get_operation')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-resource', 'notes_get_resource')
+        g.custom_command('get-resource-content', 'notes_get_resource_content')
         g.custom_command('get-section', 'notes_get_section')
         g.custom_command('get-section-group', 'notes_get_section_group')
         g.custom_command('list-notebook', 'notes_list_notebook')
@@ -1315,6 +1405,8 @@ def load_command_table(self, _):
         g.custom_command('list-resource', 'notes_list_resource')
         g.custom_command('list-section', 'notes_list_section')
         g.custom_command('list-section-group', 'notes_list_section_group')
+        g.custom_command('set-page-content', 'notes_set_page_content')
+        g.custom_command('set-resource-content', 'notes_set_resource_content')
         g.custom_command('update-notebook', 'notes_update_notebook')
         g.custom_command('update-operation', 'notes_update_operation')
         g.custom_command('update-page', 'notes_update_page')
@@ -1369,9 +1461,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -1399,9 +1493,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -1507,6 +1603,16 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
 
+    from azext_notes.generated._client_factory import cf_user_onenote_parent_notebook_section_group_section_page
+    notes_user_onenote_parent_notebook_section_group_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._user_onenote_parent_notebook_section_group_section'
+        '_page_operations#UserOnenoteParentNotebookSectionGroupSectionPageOperations.{}',
+        client_factory=cf_user_onenote_parent_notebook_section_group_section_page)
+    with self.command_group('notes', notes_user_onenote_parent_notebook_section_group_section_page,
+                            client_factory=cf_user_onenote_parent_notebook_section_group_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
+
     from azext_notes.generated._client_factory import cf_user_onenote_page_parent_notebook_section
     notes_user_onenote_page_parent_notebook_section = CliCommandType(
         operations_tmpl='azext_notes.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_operatio'
@@ -1523,6 +1629,16 @@ def load_command_table(self, _):
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
+
+    from azext_notes.generated._client_factory import cf_user_onenote_parent_notebook_section_page
+    notes_user_onenote_parent_notebook_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._user_onenote_parent_notebook_section_page_operatio'
+        'ns#UserOnenoteParentNotebookSectionPageOperations.{}',
+        client_factory=cf_user_onenote_parent_notebook_section_page)
+    with self.command_group('notes', notes_user_onenote_parent_notebook_section_page,
+                            client_factory=cf_user_onenote_parent_notebook_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
 
     from azext_notes.generated._client_factory import cf_user_onenote_page_parent_notebook_section_parent_section_group
     notes_user_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
@@ -1561,6 +1677,16 @@ def load_command_table(self, _):
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
+
+    from azext_notes.generated._client_factory import cf_user_onenote_parent_section_page
+    notes_user_onenote_parent_section_page = CliCommandType(
+        operations_tmpl='azext_notes.vendored_sdks.notes.operations._user_onenote_parent_section_page_operations#UserOn'
+        'enoteParentSectionPageOperations.{}',
+        client_factory=cf_user_onenote_parent_section_page)
+    with self.command_group('notes', notes_user_onenote_parent_section_page,
+                            client_factory=cf_user_onenote_parent_section_page) as g:
+        g.custom_command('get-page-content', 'notes_get_page_content')
+        g.custom_command('set-page-content', 'notes_set_page_content')
 
     from azext_notes.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook
     notes_user_onenote_page_parent_section_parent_notebook = CliCommandType(
@@ -1687,9 +1813,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -1717,9 +1845,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')
@@ -1780,9 +1910,11 @@ def load_command_table(self, _):
         g.custom_command('delete', 'notes_delete', confirmation=True)
         g.custom_command('create-page', 'notes_create_page')
         g.custom_command('get-page', 'notes_get_page')
+        g.custom_command('get-page-content', 'notes_get_page_content')
         g.custom_command('get-parent-notebook', 'notes_get_parent_notebook')
         g.custom_command('get-parent-section-group', 'notes_get_parent_section_group')
         g.custom_command('list-page', 'notes_list_page')
+        g.custom_command('set-page-content', 'notes_set_page_content')
         g.custom_command('update-page', 'notes_update_page')
         g.custom_command('update-parent-notebook', 'notes_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_update_parent_section_group')

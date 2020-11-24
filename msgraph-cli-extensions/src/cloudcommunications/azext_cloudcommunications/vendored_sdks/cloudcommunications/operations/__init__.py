@@ -6,8 +6,22 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
+from ._communication_cloud_communication_operations import CommunicationCloudCommunicationOperations
+from ._communication_operations import CommunicationOperations
+from ._communication_call_record_operations import CommunicationCallRecordOperations
+from ._communication_call_record_session_operations import CommunicationCallRecordSessionOperations
+from ._communication_call_operations import CommunicationCallOperations
+from ._communication_call_participant_operations import CommunicationCallParticipantOperations
+from ._communication_online_meeting_operations import CommunicationOnlineMeetingOperations
 from ._user_operations import UserOperations
 
 __all__ = [
+    'CommunicationCloudCommunicationOperations',
+    'CommunicationOperations',
+    'CommunicationCallRecordOperations',
+    'CommunicationCallRecordSessionOperations',
+    'CommunicationCallOperations',
+    'CommunicationCallParticipantOperations',
+    'CommunicationOnlineMeetingOperations',
     'UserOperations',
 ]

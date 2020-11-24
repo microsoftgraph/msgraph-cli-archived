@@ -45,6 +45,29 @@ clone a teams.
 |**--visibility**|choice||visibility|visibility|
 |**--parts-to-clone**|choice||parts_to_clone|partsToClone|
 
+### teams create-app-definition
+
+create-app-definition a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|appCatalogs.teamsApps|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create-app-definition|CreateAppDefinitions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--microsoft-graph-teams-app-definition-teams-app-id-teams-app-id**|string|The ID from the Teams app manifest.|microsoft_graph_teams_app_definition_teams_app_id_teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+
 ### teams create-channel
 
 create-channel a teams.
@@ -68,7 +91,7 @@ create-channel a teams.
 |**--display-name**|string|Channel name as it will appear to the user in Microsoft Teams.|display_name|displayName|
 |**--email**|string|The email address for sending messages to the channel. Read-only.|email|email|
 |**--membership-type**|choice||membership_type|membershipType|
-|**--web-url**|string|A hyperlink that will navigate to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.|web_url|webUrl|
+|**--web-url**|string|A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.|web_url|webUrl|
 |**--files-folder**|object|driveItem|files_folder|filesFolder|
 |**--members**|array||members|members|
 |**--messages**|array|A collection of all the messages in the channel. A navigation property. Nullable.|messages|messages|
@@ -121,7 +144,7 @@ create-installed-app a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|teams|
+|teams|users.teamwork|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -131,7 +154,7 @@ create-installed-app a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 |**--teams-app-definition**|object|teamsAppDefinition|teams_app_definition|teamsAppDefinition|
 |**--teams-app-id**|string|Read-only.|microsoft_graph_entity_id|id|
@@ -139,6 +162,7 @@ create-installed-app a teams.
 |**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
 |**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
 |**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--chat-id**|string|Read-only.|id1|id|
 
 ### teams create-joined-team
 
@@ -191,13 +215,13 @@ create-joined-team a teams.
 |**--group-license-processing-state**|object|licenseProcessingState|license_processing_state|licenseProcessingState|
 |**--group-mail**|string|The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter.|mail|mail|
 |**--group-mail-enabled**|boolean|Specifies whether the group is mail-enabled. Returned by default.|mail_enabled|mailEnabled|
-|**--group-mail-nickname**|string|The mail alias for the group, unique in the organization. This property must be specified when a group is created. Returned by default. Supports $filter.|mail_nickname|mailNickname|
+|**--group-mail-nickname**|string||mail_nickname|mailNickname|
 |**--group-membership-rule**|string|The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default.|membership_rule|membershipRule|
 |**--group-membership-rule-processing-state**|string|Indicates whether the dynamic membership processing is on or paused. Possible values are 'On' or 'Paused'. Returned by default.|membership_rule_processing_state|membershipRuleProcessingState|
-|**--group-on-premises-domain-name**|string|Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_domain_name|onPremisesDomainName|
-|**--group-on-premises-last-sync-date-time**|date-time|Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
-|**--group-on-premises-net-bios-name**|string|Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_net_bios_name|onPremisesNetBiosName|
-|**--group-on-premises-provisioning-errors**|array|Errors when using Microsoft synchronization product during provisioning. Returned by default.|on_premises_provisioning_errors|onPremisesProvisioningErrors|
+|**--group-on-premises-domain-name**|string||on_premises_domain_name|onPremisesDomainName|
+|**--group-on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--group-on-premises-net-bios-name**|string||on_premises_net_bios_name|onPremisesNetBiosName|
+|**--group-on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
 |**--group-on-premises-sam-account-name**|string|Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_sam_account_name|onPremisesSamAccountName|
 |**--group-on-premises-security-identifier**|string|Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Read-only.|on_premises_security_identifier|onPremisesSecurityIdentifier|
 |**--group-on-premises-sync-enabled**|boolean|true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter.|on_premises_sync_enabled|onPremisesSyncEnabled|
@@ -323,7 +347,7 @@ create-message a teams.
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
 |**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string||justification_text|justificationText|
+|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
 |**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
 |**--policy-violation-user-action**|choice||user_action|userAction|
 |**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
@@ -509,7 +533,7 @@ create-reply a teams.
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
 |**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string||justification_text|justificationText|
+|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
 |**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
 |**--policy-violation-user-action**|choice||user_action|userAction|
 |**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
@@ -690,13 +714,13 @@ create-team a teams.
 |**--group-license-processing-state**|object|licenseProcessingState|license_processing_state|licenseProcessingState|
 |**--group-mail**|string|The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter.|mail|mail|
 |**--group-mail-enabled**|boolean|Specifies whether the group is mail-enabled. Returned by default.|mail_enabled|mailEnabled|
-|**--group-mail-nickname**|string|The mail alias for the group, unique in the organization. This property must be specified when a group is created. Returned by default. Supports $filter.|mail_nickname|mailNickname|
+|**--group-mail-nickname**|string||mail_nickname|mailNickname|
 |**--group-membership-rule**|string|The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default.|membership_rule|membershipRule|
 |**--group-membership-rule-processing-state**|string|Indicates whether the dynamic membership processing is on or paused. Possible values are 'On' or 'Paused'. Returned by default.|membership_rule_processing_state|membershipRuleProcessingState|
-|**--group-on-premises-domain-name**|string|Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_domain_name|onPremisesDomainName|
-|**--group-on-premises-last-sync-date-time**|date-time|Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
-|**--group-on-premises-net-bios-name**|string|Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_net_bios_name|onPremisesNetBiosName|
-|**--group-on-premises-provisioning-errors**|array|Errors when using Microsoft synchronization product during provisioning. Returned by default.|on_premises_provisioning_errors|onPremisesProvisioningErrors|
+|**--group-on-premises-domain-name**|string||on_premises_domain_name|onPremisesDomainName|
+|**--group-on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--group-on-premises-net-bios-name**|string||on_premises_net_bios_name|onPremisesNetBiosName|
+|**--group-on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
 |**--group-on-premises-sam-account-name**|string|Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_sam_account_name|onPremisesSamAccountName|
 |**--group-on-premises-security-identifier**|string|Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Read-only.|on_premises_security_identifier|onPremisesSecurityIdentifier|
 |**--group-on-premises-sync-enabled**|boolean|true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter.|on_premises_sync_enabled|onPremisesSyncEnabled|
@@ -761,6 +785,29 @@ create-team a teams.
 |**--schedule-time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
 |**--schedule-time-off-requests**|array||time_off_requests|timeOffRequests|
 |**--schedule-times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
+
+### teams create-team-app
+
+create-team-app a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|appCatalogs|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create-team-app|CreateTeamsApps|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
 ### teams create-time-off
 
@@ -903,18 +950,18 @@ delete a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|users|
+|teams|users.teamwork.installedApps|
 
 #### Methods
 |Name (az)|Swagger name|
 |---------|------------|
-|delete|DeleteJoinedTeams|
+|delete|DeleteRefChat|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--team-id**|string|key: id of team|team_id|team-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
 ### teams get-all-message
@@ -934,6 +981,28 @@ get-all-message a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+
+### teams get-app-definition
+
+get-app-definition a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|appCatalogs.teamsApps|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-app-definition|GetAppDefinitions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
+|**--teams-app-definition-id**|string|key: id of teamsAppDefinition|teams_app_definition_id|teamsAppDefinition-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
 ### teams get-channel
 
@@ -964,7 +1033,7 @@ get-chat a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|chats.chat|
+|teams|users.teamwork.installedApps|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -974,7 +1043,8 @@ get-chat a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -998,6 +1068,25 @@ get-file-folder a teams.
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### teams get-file-folder-content
+
+get-file-folder-content a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|teams.primaryChannel|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-file-folder-content|GetFilesFolderContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 
 ### teams get-group
 
@@ -1043,6 +1132,27 @@ get-hosted-content a teams.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### teams get-hosted-content-content
+
+get-hosted-content-content a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|teams.primaryChannel.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-hosted-content-content|GetHostedContentsContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+
 ### teams get-installed-app
 
 get-installed-app a teams.
@@ -1050,7 +1160,7 @@ get-installed-app a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|teams|
+|teams|users.teamwork|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1060,8 +1170,8 @@ get-installed-app a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -1239,6 +1349,26 @@ get-primary-channel a teams.
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### teams get-ref-chat
+
+get-ref-chat a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|users.teamwork.installedApps|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-ref-chat|GetRefChat|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
 
 ### teams get-ref-group
 
@@ -1522,7 +1652,7 @@ get-teamwork a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|teamwork.teamwork|
+|teams|users|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1532,6 +1662,7 @@ get-teamwork a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -1643,6 +1774,28 @@ get-workforce-integration a teams.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### teams list-app-definition
+
+list-app-definition a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|appCatalogs.teamsApps|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|list-app-definition|ListAppDefinitions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
 ### teams list-channel
 
 list-channel a teams.
@@ -1716,7 +1869,7 @@ list-installed-app a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|teams|
+|teams|users.teamwork|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -1726,7 +1879,7 @@ list-installed-app a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -2017,6 +2170,27 @@ list-team a teams.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### teams list-team-app
+
+list-team-app a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|appCatalogs|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|list-team-app|ListTeamsApps|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
 ### teams list-time-off
 
 list-time-off a teams.
@@ -2103,6 +2277,69 @@ list-workforce-integration a teams.
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
+
+### teams set-file-folder-content
+
+set-file-folder-content a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|teams.primaryChannel|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-file-folder-content|SetFilesFolderContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--data**|binary|New media content.|data|data|
+
+### teams set-hosted-content-content
+
+set-hosted-content-content a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|teams.primaryChannel.messages|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-hosted-content-content|SetHostedContentsContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--data**|binary|New media content.|data|data|
+
+### teams set-ref-chat
+
+set-ref-chat a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|users.teamwork.installedApps|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-ref-chat|SetRefChat|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
 ### teams set-ref-group
 
@@ -2227,6 +2464,30 @@ unarchive a teams.
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 
+### teams update-app-definition
+
+update-app-definition a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|appCatalogs.teamsApps|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-app-definition|UpdateAppDefinitions|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
+|**--teams-app-definition-id**|string|key: id of teamsAppDefinition|teams_app_definition_id|teamsAppDefinition-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--microsoft-graph-teams-app-definition-teams-app-id-teams-app-id**|string|The ID from the Teams app manifest.|microsoft_graph_teams_app_definition_teams_app_id_teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+
 ### teams update-channel
 
 update-channel a teams.
@@ -2251,7 +2512,7 @@ update-channel a teams.
 |**--display-name**|string|Channel name as it will appear to the user in Microsoft Teams.|display_name|displayName|
 |**--email**|string|The email address for sending messages to the channel. Read-only.|email|email|
 |**--membership-type**|choice||membership_type|membershipType|
-|**--web-url**|string|A hyperlink that will navigate to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.|web_url|webUrl|
+|**--web-url**|string|A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.|web_url|webUrl|
 |**--files-folder**|object|driveItem|files_folder|filesFolder|
 |**--members**|array||members|members|
 |**--messages**|array|A collection of all the messages in the channel. A navigation property. Nullable.|messages|messages|
@@ -2295,7 +2556,133 @@ update-file-folder a teams.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--parent-reference-site-id**|string||site_id|siteId|
+|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
+|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
+|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
+|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
+|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
+|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
+|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
+|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
+|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
+|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
+|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--audio**|object|audio|audio|audio|
+|**--content**|byte-array|The content stream, if the item represents a file.|content|content|
+|**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
+|**--file-system-info**|object|fileSystemInfo|file_system_info|fileSystemInfo|
+|**--image**|object|image|image|image|
+|**--location**|object|geoCoordinates|location|location|
+|**--photo**|object|photo|photo|photo|
+|**--publication**|object|publicationFacet|publication|publication|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--size**|integer|Size of the item in bytes. Read-only.|size|size|
+|**--video**|object|video|video|video|
+|**--web-dav-url**|string|WebDAV compatible URL for the item.|web_dav_url|webDavUrl|
+|**--children**|array|Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.|children|children|
+|**--permissions**|array|The set of permissions for the item. Read-only. Nullable.|permissions|permissions|
+|**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
+|**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
+|**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
+|**--list-item-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--list-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_base_item_created_date_time_created_date_time|createdDateTime|
+|**--list-item-description**|string|Provides a user-visible description of the item. Optional.|microsoft_graph_base_item_description|description|
+|**--list-item-e-tag**|string|ETag for the item. Read-only.|microsoft_graph_base_item_e_tag|eTag|
+|**--list-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_base_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--list-item-name**|string|The name of the item. Read-write.|microsoft_graph_base_item_name|name|
+|**--list-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_base_item_web_url|webUrl|
+|**--list-item-created-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_created_by_user|createdByUser|
+|**--list-item-last-modified-by-user**|object|Represents an Azure Active Directory user object.|microsoft_graph_user_last_modified_by_user|lastModifiedByUser|
+|**--list-item-parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|microsoft_graph_item_reference_drive_id|driveId|
+|**--list-item-parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|microsoft_graph_item_reference_drive_type|driveType|
+|**--list-item-parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|id6|id|
+|**--list-item-parent-reference-name**|string|The name of the item being referenced. Read-only.|name1|name|
+|**--list-item-parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|microsoft_graph_item_reference_path|path|
+|**--list-item-parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|microsoft_graph_item_reference_share_id|shareId|
+|**--list-item-parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--list-item-parent-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--list-item-last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name5|displayName|
+|**--list-item-last-modified-by-user-id**|string|Unique identifier for the identity.|id7|id|
+|**--list-item-last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name6|displayName|
+|**--list-item-last-modified-by-device-id**|string|Unique identifier for the identity.|id8|id|
+|**--list-item-last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name7|displayName|
+|**--list-item-last-modified-by-application-id**|string|Unique identifier for the identity.|id9|id|
+|**--list-item-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name8|displayName|
+|**--list-item-created-by-user-id**|string|Unique identifier for the identity.|id10|id|
+|**--list-item-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name9|displayName|
+|**--list-item-created-by-device-id**|string|Unique identifier for the identity.|id11|id|
+|**--list-item-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name10|displayName|
+|**--list-item-created-by-application-id**|string|Unique identifier for the identity.|id12|id|
+|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--list-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids2|sharepointIds|
+|**--list-item-analytics**|object|itemAnalytics|analytics|analytics|
+|**--list-item-drive-item**|object|driveItem|drive_item|driveItem|
+|**--list-item-fields**|object|fieldValueSet|fields|fields|
+|**--list-item-versions**|array|The list of previous versions of the list item.|microsoft_graph_list_item_versions|versions|
+|**--analytics-id**|string|Read-only.|id13|id|
+|**--analytics-all-time**|object|itemActivityStat|all_time|allTime|
+|**--analytics-item-activity-stats**|array||item_activity_stats|itemActivityStats|
+|**--analytics-last-seven-days**|object|itemActivityStat|last_seven_days|lastSevenDays|
+|**--workbook-id**|string|Read-only.|id14|id|
+|**--workbook-application**|object|workbookApplication|application|application|
+|**--workbook-comments**|array||comments|comments|
+|**--workbook-functions**|object|workbookFunctions|functions|functions|
+|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--shared-owner**|object|identitySet|owner|owner|
+|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
+|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--remote-item-file**|object|file|file|file|
+|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--remote-item-folder**|object|folder|folder|folder|
+|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--remote-item-image**|object|image|microsoft_graph_image|image|
+|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--remote-item-package**|object|package|package|package|
+|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--remote-item-shared**|object|shared|shared|shared|
+|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids3|sharepointIds|
+|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--remote-item-video**|object|video|microsoft_graph_video|video|
+|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--folder-view**|object|folderView|view|view|
+|**--file-hashes**|object|hashes|hashes|hashes|
+|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
 
 ### teams update-hosted-content
 
@@ -2326,7 +2713,7 @@ update-installed-app a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|teams|
+|teams|users.teamwork|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -2336,8 +2723,8 @@ update-installed-app a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
 |**--id**|string|Read-only.|id|id|
 |**--teams-app-definition**|object|teamsAppDefinition|teams_app_definition|teamsAppDefinition|
 |**--teams-app-id**|string|Read-only.|microsoft_graph_entity_id|id|
@@ -2345,6 +2732,7 @@ update-installed-app a teams.
 |**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
 |**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
 |**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--chat-id**|string|Read-only.|id1|id|
 
 ### teams update-joined-team
 
@@ -2398,13 +2786,13 @@ update-joined-team a teams.
 |**--group-license-processing-state**|object|licenseProcessingState|license_processing_state|licenseProcessingState|
 |**--group-mail**|string|The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter.|mail|mail|
 |**--group-mail-enabled**|boolean|Specifies whether the group is mail-enabled. Returned by default.|mail_enabled|mailEnabled|
-|**--group-mail-nickname**|string|The mail alias for the group, unique in the organization. This property must be specified when a group is created. Returned by default. Supports $filter.|mail_nickname|mailNickname|
+|**--group-mail-nickname**|string||mail_nickname|mailNickname|
 |**--group-membership-rule**|string|The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default.|membership_rule|membershipRule|
 |**--group-membership-rule-processing-state**|string|Indicates whether the dynamic membership processing is on or paused. Possible values are 'On' or 'Paused'. Returned by default.|membership_rule_processing_state|membershipRuleProcessingState|
-|**--group-on-premises-domain-name**|string|Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_domain_name|onPremisesDomainName|
-|**--group-on-premises-last-sync-date-time**|date-time|Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
-|**--group-on-premises-net-bios-name**|string|Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_net_bios_name|onPremisesNetBiosName|
-|**--group-on-premises-provisioning-errors**|array|Errors when using Microsoft synchronization product during provisioning. Returned by default.|on_premises_provisioning_errors|onPremisesProvisioningErrors|
+|**--group-on-premises-domain-name**|string||on_premises_domain_name|onPremisesDomainName|
+|**--group-on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--group-on-premises-net-bios-name**|string||on_premises_net_bios_name|onPremisesNetBiosName|
+|**--group-on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
 |**--group-on-premises-sam-account-name**|string|Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_sam_account_name|onPremisesSamAccountName|
 |**--group-on-premises-security-identifier**|string|Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Read-only.|on_premises_security_identifier|onPremisesSecurityIdentifier|
 |**--group-on-premises-sync-enabled**|boolean|true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter.|on_premises_sync_enabled|onPremisesSyncEnabled|
@@ -2532,7 +2920,7 @@ update-message a teams.
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
 |**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string||justification_text|justificationText|
+|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
 |**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
 |**--policy-violation-user-action**|choice||user_action|userAction|
 |**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
@@ -2706,7 +3094,7 @@ update-primary-channel a teams.
 |**--display-name**|string|Channel name as it will appear to the user in Microsoft Teams.|display_name|displayName|
 |**--email**|string|The email address for sending messages to the channel. Read-only.|email|email|
 |**--membership-type**|choice||membership_type|membershipType|
-|**--web-url**|string|A hyperlink that will navigate to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.|web_url|webUrl|
+|**--web-url**|string|A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.|web_url|webUrl|
 |**--files-folder**|object|driveItem|files_folder|filesFolder|
 |**--members**|array||members|members|
 |**--messages**|array|A collection of all the messages in the channel. A navigation property. Nullable.|messages|messages|
@@ -2752,7 +3140,7 @@ update-reply a teams.
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
 |**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string||justification_text|justificationText|
+|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
 |**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
 |**--policy-violation-user-action**|choice||user_action|userAction|
 |**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
@@ -2977,13 +3365,13 @@ update-team a teams.
 |**--group-license-processing-state**|object|licenseProcessingState|license_processing_state|licenseProcessingState|
 |**--group-mail**|string|The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter.|mail|mail|
 |**--group-mail-enabled**|boolean|Specifies whether the group is mail-enabled. Returned by default.|mail_enabled|mailEnabled|
-|**--group-mail-nickname**|string|The mail alias for the group, unique in the organization. This property must be specified when a group is created. Returned by default. Supports $filter.|mail_nickname|mailNickname|
+|**--group-mail-nickname**|string||mail_nickname|mailNickname|
 |**--group-membership-rule**|string|The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default.|membership_rule|membershipRule|
 |**--group-membership-rule-processing-state**|string|Indicates whether the dynamic membership processing is on or paused. Possible values are 'On' or 'Paused'. Returned by default.|membership_rule_processing_state|membershipRuleProcessingState|
-|**--group-on-premises-domain-name**|string|Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_domain_name|onPremisesDomainName|
-|**--group-on-premises-last-sync-date-time**|date-time|Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
-|**--group-on-premises-net-bios-name**|string|Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_net_bios_name|onPremisesNetBiosName|
-|**--group-on-premises-provisioning-errors**|array|Errors when using Microsoft synchronization product during provisioning. Returned by default.|on_premises_provisioning_errors|onPremisesProvisioningErrors|
+|**--group-on-premises-domain-name**|string||on_premises_domain_name|onPremisesDomainName|
+|**--group-on-premises-last-sync-date-time**|date-time||on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--group-on-premises-net-bios-name**|string||on_premises_net_bios_name|onPremisesNetBiosName|
+|**--group-on-premises-provisioning-errors**|array||on_premises_provisioning_errors|onPremisesProvisioningErrors|
 |**--group-on-premises-sam-account-name**|string|Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_sam_account_name|onPremisesSamAccountName|
 |**--group-on-premises-security-identifier**|string|Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Read-only.|on_premises_security_identifier|onPremisesSecurityIdentifier|
 |**--group-on-premises-sync-enabled**|boolean|true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter.|on_premises_sync_enabled|onPremisesSyncEnabled|
@@ -3049,6 +3437,30 @@ update-team a teams.
 |**--schedule-time-off-requests**|array||time_off_requests|timeOffRequests|
 |**--schedule-times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
 
+### teams update-team-app
+
+update-team-app a teams.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|teams|appCatalogs|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-team-app|UpdateTeamsApps|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+
 ### teams update-teamwork
 
 update-teamwork a teams.
@@ -3056,7 +3468,7 @@ update-teamwork a teams.
 #### Command group
 |Name (az)|Swagger name|
 |---------|------------|
-|teams|teamwork.teamwork|
+|teams|users|
 
 #### Methods
 |Name (az)|Swagger name|
@@ -3066,8 +3478,9 @@ update-teamwork a teams.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
-|**--workforce-integrations**|array||workforce_integrations|workforceIntegrations|
+|**--installed-apps**|array|The apps installed in the personal scope of this user.|installed_apps|installedApps|
 
 ### teams update-time-off
 

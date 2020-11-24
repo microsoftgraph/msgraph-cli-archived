@@ -59,6 +59,8 @@ from ._user_onenote_section_group_parent_notebook_section_page_operations import
 from ._user_onenote_section_group_section_page_operations import UserOnenoteSectionGroupSectionPageOperations
 from ._user_onenote_section_page_operations import UserOnenoteSectionPageOperations
 from ._user_outlook_operations import UserOutlookOperations
+from ._user_todo_list_task_operations import UserTodoListTaskOperations
+from ._user_todo_list_operations import UserTodoListOperations
 
 __all__ = [
     'UserActivityOperations',
@@ -114,4 +116,6 @@ __all__ = [
     'UserOnenoteSectionGroupSectionPageOperations',
     'UserOnenoteSectionPageOperations',
     'UserOutlookOperations',
+    'UserTodoListTaskOperations',
+    'UserTodoListOperations',
 ]

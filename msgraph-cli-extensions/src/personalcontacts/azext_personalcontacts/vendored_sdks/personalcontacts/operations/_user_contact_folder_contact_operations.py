@@ -18,7 +18,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, IO, Iterable, List, Optional, TypeVar, Union
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -1044,6 +1044,134 @@ class UserContactFolderContactOperations(object):
             return cls(pipeline_response, None, {})
 
     delete_photo.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/photo'}  # type: ignore
+
+    def get_photo_content(
+        self,
+        user_id,  # type: str
+        contact_folder_id,  # type: str
+        contact_id,  # type: str
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> IO
+        """Get media content for the navigation property photo from users.
+
+        Get media content for the navigation property photo from users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param contact_folder_id: key: id of contactFolder.
+        :type contact_folder_id: str
+        :param contact_id: key: id of contact.
+        :type contact_id: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: IO, or the result of cls(response)
+        :rtype: IO
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[IO]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/octet-stream, application/json"
+
+        # Construct URL
+        url = self.get_photo_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
+            'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/octet-stream, application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = response.stream_download(self._client._pipeline)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_photo_content.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/photo/$value'}  # type: ignore
+
+    def set_photo_content(
+        self,
+        user_id,  # type: str
+        contact_folder_id,  # type: str
+        contact_id,  # type: str
+        data,  # type: IO
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Update media content for the navigation property photo in users.
+
+        Update media content for the navigation property photo in users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param contact_folder_id: key: id of contactFolder.
+        :type contact_folder_id: str
+        :param contact_id: key: id of contact.
+        :type contact_id: str
+        :param data: New media content.
+        :type data: IO
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        content_type = kwargs.pop("content_type", "application/octet-stream")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.set_photo_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'contactFolder-id': self._serialize.url("contact_folder_id", contact_folder_id, 'str'),
+            'contact-id': self._serialize.url("contact_id", contact_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content_kwargs['stream_content'] = data
+        request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    set_photo_content.metadata = {'url': '/users/{user-id}/contactFolders/{contactFolder-id}/contacts/{contact-id}/photo/$value'}  # type: ignore
 
     def list_single_value_extended_property(
         self,

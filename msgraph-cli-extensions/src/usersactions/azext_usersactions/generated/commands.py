@@ -43,8 +43,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_calendar_view_instance,
                             client_factory=cf_user_calendar_calendar_view_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -56,8 +58,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_calendar_view,
                             client_factory=cf_user_calendar_calendar_view) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -87,8 +91,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_event_instance,
                             client_factory=cf_user_calendar_event_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -100,8 +106,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_event,
                             client_factory=cf_user_calendar_event) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -139,8 +147,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_group_calendar_calendar_view_instance,
                             client_factory=cf_user_calendar_group_calendar_calendar_view_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -152,8 +162,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_group_calendar_calendar_view,
                             client_factory=cf_user_calendar_group_calendar_calendar_view) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -183,8 +195,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_group_calendar_event_instance,
                             client_factory=cf_user_calendar_group_calendar_event_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -196,8 +210,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_group_calendar_event,
                             client_factory=cf_user_calendar_group_calendar_event) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -236,8 +252,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_calendar_view_instance,
                             client_factory=cf_user_calendar_calendar_view_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -249,8 +267,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_calendar_view,
                             client_factory=cf_user_calendar_calendar_view) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -280,8 +300,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_event_instance,
                             client_factory=cf_user_calendar_event_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -293,8 +315,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_event,
                             client_factory=cf_user_calendar_event) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -323,8 +347,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_view_calendar_calendar_view,
                             client_factory=cf_user_calendar_view_calendar_calendar_view) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -336,8 +362,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_view_calendar_event,
                             client_factory=cf_user_calendar_view_calendar_event) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -358,8 +386,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_view_instance,
                             client_factory=cf_user_calendar_view_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -371,8 +401,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_calendar_view,
                             client_factory=cf_user_calendar_view) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -393,8 +425,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_event_calendar_calendar_view,
                             client_factory=cf_user_event_calendar_calendar_view) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -406,8 +440,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_event_calendar_event,
                             client_factory=cf_user_event_calendar_event) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -428,8 +464,10 @@ def load_command_table(self, _):
     with self.command_group('usersactions', usersactions_user_event_instance,
                             client_factory=cf_user_event_instance) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 
@@ -440,8 +478,10 @@ def load_command_table(self, _):
         client_factory=cf_user_event)
     with self.command_group('usersactions', usersactions_user_event, client_factory=cf_user_event) as g:
         g.custom_command('accept', 'usersactions_accept')
+        g.custom_command('cancel', 'usersactions_cancel')
         g.custom_command('decline', 'usersactions_decline')
         g.custom_command('dismiss-reminder', 'usersactions_dismiss_reminder')
+        g.custom_command('forward', 'usersactions_forward')
         g.custom_command('snooze-reminder', 'usersactions_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_tentatively_accept')
 

@@ -22,6 +22,9 @@ from .operations import UserUserOperations
 from .operations import UserOperations
 from .operations import UserOutlookOperations
 from .operations import UserSettingOperations
+from .operations import UserTodoOperations
+from .operations import UserTodoListOperations
+from .operations import UserTodoListTaskOperations
 from . import models
 
 
@@ -36,6 +39,12 @@ class Users(object):
     :vartype user_outlook: users.operations.UserOutlookOperations
     :ivar user_setting: UserSettingOperations operations
     :vartype user_setting: users.operations.UserSettingOperations
+    :ivar user_todo: UserTodoOperations operations
+    :vartype user_todo: users.operations.UserTodoOperations
+    :ivar user_todo_list: UserTodoListOperations operations
+    :vartype user_todo_list: users.operations.UserTodoListOperations
+    :ivar user_todo_list_task: UserTodoListTaskOperations operations
+    :vartype user_todo_list_task: users.operations.UserTodoListTaskOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -80,6 +89,12 @@ class Users(object):
         self.user_outlook = UserOutlookOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.user_setting = UserSettingOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_todo = UserTodoOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_todo_list = UserTodoListOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_todo_list_task = UserTodoListTaskOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

@@ -46,8 +46,8 @@ class PolicyPolicyRootOperations(object):
 
     def get_policy_root(
         self,
-        select=None,  # type: Optional[List[Union[str, "models.Enum111"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum112"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum113"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum114"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphPolicyRoot"
@@ -56,9 +56,9 @@ class PolicyPolicyRootOperations(object):
         Get policies.
 
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum111]
+        :type select: list[str or ~identity_sign_ins.models.Enum113]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum112]
+        :type expand: list[str or ~identity_sign_ins.models.Enum114]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphPolicyRoot, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphPolicyRoot

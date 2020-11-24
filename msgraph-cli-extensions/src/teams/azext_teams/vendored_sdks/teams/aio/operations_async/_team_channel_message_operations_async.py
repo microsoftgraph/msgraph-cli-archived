@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 import datetime
-from typing import Any, AsyncIterable, Callable, Dict, Generic, List, Optional, TypeVar, Union
+from typing import Any, AsyncIterable, Callable, Dict, Generic, IO, List, Optional, TypeVar, Union
 import warnings
 
 from azure.core.async_paging import AsyncItemPaged, AsyncList
@@ -47,7 +47,7 @@ class TeamChannelMessageOperations:
         team_id: str,
         channel_id: str,
         chat_message_id: str,
-        orderby: Optional[List[Union[str, "models.Enum82"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum92"]]] = None,
         select: Optional[List[str]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
@@ -63,7 +63,7 @@ class TeamChannelMessageOperations:
         :param chat_message_id: key: id of chatMessage.
         :type chat_message_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum82]
+        :type orderby: list[str or ~teams.models.Enum92]
         :param select: Select properties to be returned.
         :type select: list[str]
         :param expand: Expand related entities.
@@ -429,14 +429,148 @@ class TeamChannelMessageOperations:
 
     delete_hosted_content.metadata = {'url': '/teams/{team-id}/channels/{channel-id}/messages/{chatMessage-id}/hostedContents/{chatMessageHostedContent-id}'}  # type: ignore
 
+    async def get_hosted_content_content(
+        self,
+        team_id: str,
+        channel_id: str,
+        chat_message_id: str,
+        chat_message_hosted_content_id: str,
+        **kwargs
+    ) -> IO:
+        """Get media content for the navigation property hostedContents from teams.
+
+        Get media content for the navigation property hostedContents from teams.
+
+        :param team_id: key: id of team.
+        :type team_id: str
+        :param channel_id: key: id of channel.
+        :type channel_id: str
+        :param chat_message_id: key: id of chatMessage.
+        :type chat_message_id: str
+        :param chat_message_hosted_content_id: key: id of chatMessageHostedContent.
+        :type chat_message_hosted_content_id: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: IO, or the result of cls(response)
+        :rtype: IO
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[IO]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/octet-stream, application/json"
+
+        # Construct URL
+        url = self.get_hosted_content_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'team-id': self._serialize.url("team_id", team_id, 'str'),
+            'channel-id': self._serialize.url("channel_id", channel_id, 'str'),
+            'chatMessage-id': self._serialize.url("chat_message_id", chat_message_id, 'str'),
+            'chatMessageHostedContent-id': self._serialize.url("chat_message_hosted_content_id", chat_message_hosted_content_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/octet-stream, application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=True, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = response.stream_download(self._client._pipeline)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_hosted_content_content.metadata = {'url': '/teams/{team-id}/channels/{channel-id}/messages/{chatMessage-id}/hostedContents/{chatMessageHostedContent-id}/$value'}  # type: ignore
+
+    async def set_hosted_content_content(
+        self,
+        team_id: str,
+        channel_id: str,
+        chat_message_id: str,
+        chat_message_hosted_content_id: str,
+        data: IO,
+        **kwargs
+    ) -> None:
+        """Update media content for the navigation property hostedContents in teams.
+
+        Update media content for the navigation property hostedContents in teams.
+
+        :param team_id: key: id of team.
+        :type team_id: str
+        :param channel_id: key: id of channel.
+        :type channel_id: str
+        :param chat_message_id: key: id of chatMessage.
+        :type chat_message_id: str
+        :param chat_message_hosted_content_id: key: id of chatMessageHostedContent.
+        :type chat_message_hosted_content_id: str
+        :param data: New media content.
+        :type data: IO
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        content_type = kwargs.pop("content_type", "application/octet-stream")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.set_hosted_content_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'team-id': self._serialize.url("team_id", team_id, 'str'),
+            'channel-id': self._serialize.url("channel_id", channel_id, 'str'),
+            'chatMessage-id': self._serialize.url("chat_message_id", chat_message_id, 'str'),
+            'chatMessageHostedContent-id': self._serialize.url("chat_message_hosted_content_id", chat_message_hosted_content_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content_kwargs['stream_content'] = data
+        request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    set_hosted_content_content.metadata = {'url': '/teams/{team-id}/channels/{channel-id}/messages/{chatMessage-id}/hostedContents/{chatMessageHostedContent-id}/$value'}  # type: ignore
+
     def list_reply(
         self,
         team_id: str,
         channel_id: str,
         chat_message_id: str,
-        orderby: Optional[List[Union[str, "models.Enum83"]]] = None,
-        select: Optional[List[Union[str, "models.Enum84"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum85"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum93"]]] = None,
+        select: Optional[List[Union[str, "models.Enum94"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum95"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfChatMessage0"]:
         """Get replies from teams.
@@ -450,11 +584,11 @@ class TeamChannelMessageOperations:
         :param chat_message_id: key: id of chatMessage.
         :type chat_message_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum83]
+        :type orderby: list[str or ~teams.models.Enum93]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum84]
+        :type select: list[str or ~teams.models.Enum94]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum85]
+        :type expand: list[str or ~teams.models.Enum95]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfChatMessage0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~teams.models.CollectionOfChatMessage0]
@@ -626,7 +760,8 @@ class TeamChannelMessageOperations:
         :type replies: list[~teams.models.MicrosoftGraphChatMessage]
         :param dlp_action:
         :type dlp_action: str or ~teams.models.MicrosoftGraphChatMessagePolicyViolationDlpActionTypes
-        :param justification_text:
+        :param justification_text: Justification text provided by the sender of the message when
+         overriding a policy violation.
         :type justification_text: str
         :param policy_tip: chatMessagePolicyViolationPolicyTip.
         :type policy_tip: ~teams.models.MicrosoftGraphChatMessagePolicyViolationPolicyTip
@@ -713,8 +848,8 @@ class TeamChannelMessageOperations:
         channel_id: str,
         chat_message_id: str,
         chat_message_id1: str,
-        select: Optional[List[Union[str, "models.Enum86"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum87"]]] = None,
+        select: Optional[List[Union[str, "models.Enum96"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum97"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphChatMessage":
         """Get replies from teams.
@@ -730,9 +865,9 @@ class TeamChannelMessageOperations:
         :param chat_message_id1: key: id of chatMessage.
         :type chat_message_id1: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum86]
+        :type select: list[str or ~teams.models.Enum96]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum87]
+        :type expand: list[str or ~teams.models.Enum97]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphChatMessage, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphChatMessage
@@ -880,7 +1015,8 @@ class TeamChannelMessageOperations:
         :type replies: list[~teams.models.MicrosoftGraphChatMessage]
         :param dlp_action:
         :type dlp_action: str or ~teams.models.MicrosoftGraphChatMessagePolicyViolationDlpActionTypes
-        :param justification_text:
+        :param justification_text: Justification text provided by the sender of the message when
+         overriding a policy violation.
         :type justification_text: str
         :param policy_tip: chatMessagePolicyViolationPolicyTip.
         :type policy_tip: ~teams.models.MicrosoftGraphChatMessagePolicyViolationPolicyTip

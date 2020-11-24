@@ -50,8 +50,8 @@ class SiteListOperations(object):
         self,
         site_id,  # type: str
         list_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum94"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum95"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum96"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum97"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -65,9 +65,9 @@ class SiteListOperations(object):
         :param list_id: key: id of list.
         :type list_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum94]
+        :type orderby: list[str or ~sites.models.Enum96]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum95]
+        :type select: list[str or ~sites.models.Enum97]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -282,7 +282,7 @@ class SiteListOperations(object):
         site_id,  # type: str
         list_id,  # type: str
         column_definition_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum96"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum98"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -298,7 +298,7 @@ class SiteListOperations(object):
         :param column_definition_id: key: id of columnDefinition.
         :type column_definition_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum96]
+        :type select: list[str or ~sites.models.Enum98]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -548,9 +548,9 @@ class SiteListOperations(object):
         self,
         site_id,  # type: str
         list_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum97"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum98"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum99"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum99"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum100"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum101"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfContentType0"]
@@ -563,11 +563,11 @@ class SiteListOperations(object):
         :param list_id: key: id of list.
         :type list_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum97]
+        :type orderby: list[str or ~sites.models.Enum99]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum98]
+        :type select: list[str or ~sites.models.Enum100]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum99]
+        :type expand: list[str or ~sites.models.Enum101]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfContentType0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfContentType0]
@@ -773,8 +773,8 @@ class SiteListOperations(object):
         site_id,  # type: str
         list_id,  # type: str
         content_type_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum100"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum101"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum102"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum103"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphContentType"
@@ -789,9 +789,9 @@ class SiteListOperations(object):
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum100]
+        :type select: list[str or ~sites.models.Enum102]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum101]
+        :type expand: list[str or ~sites.models.Enum103]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphContentType, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphContentType
@@ -1032,8 +1032,8 @@ class SiteListOperations(object):
         self,
         site_id,  # type: str
         list_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum105"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum106"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum107"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum108"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDrive"
@@ -1046,9 +1046,9 @@ class SiteListOperations(object):
         :param list_id: key: id of list.
         :type list_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum105]
+        :type select: list[str or ~sites.models.Enum107]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum106]
+        :type expand: list[str or ~sites.models.Enum108]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDrive, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphDrive
@@ -1345,9 +1345,9 @@ class SiteListOperations(object):
         self,
         site_id,  # type: str
         list_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum107"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum108"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum109"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum109"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum111"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfListItem"]
@@ -1360,11 +1360,11 @@ class SiteListOperations(object):
         :param list_id: key: id of list.
         :type list_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum107]
+        :type orderby: list[str or ~sites.models.Enum109]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum108]
+        :type select: list[str or ~sites.models.Enum110]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum109]
+        :type expand: list[str or ~sites.models.Enum111]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfListItem or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfListItem]
@@ -1600,8 +1600,8 @@ class SiteListOperations(object):
         site_id,  # type: str
         list_id,  # type: str
         list_item_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum111"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum112"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum113"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphListItem"
@@ -1616,9 +1616,9 @@ class SiteListOperations(object):
         :param list_item_id: key: id of listItem.
         :type list_item_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum110]
+        :type select: list[str or ~sites.models.Enum112]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum111]
+        :type expand: list[str or ~sites.models.Enum113]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphListItem, or the result of cls(response)
         :rtype: ~sites.models.MicrosoftGraphListItem
@@ -1889,8 +1889,8 @@ class SiteListOperations(object):
         self,
         site_id,  # type: str
         list_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum121"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum122"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum123"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum124"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1904,9 +1904,9 @@ class SiteListOperations(object):
         :param list_id: key: id of list.
         :type list_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum121]
+        :type orderby: list[str or ~sites.models.Enum123]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum122]
+        :type select: list[str or ~sites.models.Enum124]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2049,9 +2049,20 @@ class SiteListOperations(object):
         :param include_resource_data: When set to true, change notifications include resource data
          (such as content of a chat message). Optional.
         :type include_resource_data: bool
-        :param latest_supported_tls_version:
+        :param latest_supported_tls_version: Specifies the latest version of Transport Layer Security
+         (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible
+         values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a
+         version lower than the currently recommended version (TLS 1.2), specifying this property by a
+         set timeline allows them to temporarily use their deprecated version of TLS before completing
+         their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline
+         would result in subscription operations failing. For subscribers whose notification endpoint
+         already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph
+         defaults the property to v1_2.
         :type latest_supported_tls_version: str
-        :param lifecycle_notification_url:
+        :param lifecycle_notification_url: The URL of the endpoint that receives lifecycle
+         notifications, including subscriptionRemoved and missed notifications. This URL must make use
+         of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle
+         notifications.
         :type lifecycle_notification_url: str
         :param notification_url: Required. The URL of the endpoint that will receive the change
          notifications. This URL must make use of the HTTPS protocol.
@@ -2116,7 +2127,7 @@ class SiteListOperations(object):
         site_id,  # type: str
         list_id,  # type: str
         subscription_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum123"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum125"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2132,7 +2143,7 @@ class SiteListOperations(object):
         :param subscription_id: key: id of subscription.
         :type subscription_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum123]
+        :type select: list[str or ~sites.models.Enum125]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2251,9 +2262,20 @@ class SiteListOperations(object):
         :param include_resource_data: When set to true, change notifications include resource data
          (such as content of a chat message). Optional.
         :type include_resource_data: bool
-        :param latest_supported_tls_version:
+        :param latest_supported_tls_version: Specifies the latest version of Transport Layer Security
+         (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible
+         values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a
+         version lower than the currently recommended version (TLS 1.2), specifying this property by a
+         set timeline allows them to temporarily use their deprecated version of TLS before completing
+         their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline
+         would result in subscription operations failing. For subscribers whose notification endpoint
+         already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph
+         defaults the property to v1_2.
         :type latest_supported_tls_version: str
-        :param lifecycle_notification_url:
+        :param lifecycle_notification_url: The URL of the endpoint that receives lifecycle
+         notifications, including subscriptionRemoved and missed notifications. This URL must make use
+         of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle
+         notifications.
         :type lifecycle_notification_url: str
         :param notification_url: Required. The URL of the endpoint that will receive the change
          notifications. This URL must make use of the HTTPS protocol.

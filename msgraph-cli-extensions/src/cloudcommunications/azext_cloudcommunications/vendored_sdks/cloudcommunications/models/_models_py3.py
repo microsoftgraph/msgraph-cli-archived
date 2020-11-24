@@ -15,6 +15,102 @@ import msrest.serialization
 from ._cloud_communications_enums import *
 
 
+class CollectionOfCall(msrest.serialization.Model):
+    """Collection of call.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~cloud_communications.models.MicrosoftGraphCall]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCall]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphCall"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfCall, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
+class CollectionOfCallRecord(msrest.serialization.Model):
+    """Collection of callRecord.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCallRecordsCallRecord]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphCallRecordsCallRecord"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfCallRecord, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
+class CollectionOfCommsOperation(msrest.serialization.Model):
+    """Collection of commsOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~cloud_communications.models.MicrosoftGraphCommsOperation]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCommsOperation]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphCommsOperation"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfCommsOperation, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
 class CollectionOfOnlineMeeting(msrest.serialization.Model):
     """Collection of onlineMeeting.
 
@@ -42,6 +138,134 @@ class CollectionOfOnlineMeeting(msrest.serialization.Model):
         **kwargs
     ):
         super(CollectionOfOnlineMeeting, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
+class CollectionOfOnlineMeeting0(msrest.serialization.Model):
+    """Collection of onlineMeeting.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~cloud_communications.models.MicrosoftGraphOnlineMeeting]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphOnlineMeeting]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphOnlineMeeting"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfOnlineMeeting0, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
+class CollectionOfParticipant(msrest.serialization.Model):
+    """Collection of participant.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~cloud_communications.models.MicrosoftGraphParticipant]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphParticipant]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphParticipant"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfParticipant, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
+class CollectionOfSegment(msrest.serialization.Model):
+    """Collection of segment.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~cloud_communications.models.MicrosoftGraphCallRecordsSegment]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCallRecordsSegment]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphCallRecordsSegment"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfSegment, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
+class CollectionOfSession(msrest.serialization.Model):
+    """Collection of session.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphCallRecordsSession]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphCallRecordsSession"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfSession, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
@@ -90,6 +314,1354 @@ class MicrosoftGraphAudioConferencing(msrest.serialization.Model):
         self.toll_number = toll_number
 
 
+class MicrosoftGraphEntity(msrest.serialization.Model):
+    """entity.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.id = id
+
+
+class MicrosoftGraphCall(MicrosoftGraphEntity):
+    """call.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param callback_uri: The callback URL on which callbacks will be delivered. Must be https.
+    :type callback_uri: str
+    :param call_chain_id: A unique identifier for all the participant calls in a conference or a
+     unique identifier for two participant calls in a P2P call.  This needs to be copied over from
+     Microsoft.Graph.Call.CallChainId.
+    :type call_chain_id: str
+    :param call_options: callOptions.
+    :type call_options: dict[str, object]
+    :param call_routes: The routing information on how the call was retargeted. Read-only.
+    :type call_routes: list[~cloud_communications.models.MicrosoftGraphCallRoute]
+    :param chat_info: chatInfo.
+    :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
+    :param direction:  Possible values include: "incoming", "outgoing".
+    :type direction: str or ~cloud_communications.models.MicrosoftGraphCallDirection
+    :param media_config: mediaConfig.
+    :type media_config: dict[str, object]
+    :param meeting_info: meetingInfo.
+    :type meeting_info: dict[str, object]
+    :param my_participant_id:
+    :type my_participant_id: str
+    :param requested_modalities:
+    :type requested_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
+    :param result_info: resultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
+    :param state:  Possible values include: "incoming", "establishing", "established", "hold",
+     "transferring", "transferAccepted", "redirecting", "terminating", "terminated",
+     "unknownFutureValue".
+    :type state: str or ~cloud_communications.models.MicrosoftGraphCallState
+    :param subject:
+    :type subject: str
+    :param targets:
+    :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
+    :param tenant_id:
+    :type tenant_id: str
+    :param tone_info: toneInfo.
+    :type tone_info: ~cloud_communications.models.MicrosoftGraphToneInfo
+    :param transcription: callTranscriptionInfo.
+    :type transcription: ~cloud_communications.models.MicrosoftGraphCallTranscriptionInfo
+    :param operations: Read-only. Nullable.
+    :type operations: list[~cloud_communications.models.MicrosoftGraphCommsOperation]
+    :param participants: Read-only. Nullable.
+    :type participants: list[~cloud_communications.models.MicrosoftGraphParticipant]
+    :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
+     physical location at the start of the call. Read-only.
+    :type country_code: str
+    :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
+     "skypeForBusinessVoipPhone", "unknownFutureValue".
+    :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+    :param language_id: The language culture string. Read-only.
+    :type language_id: str
+    :param region: The home region of the participant. This can be a country, a continent, or a
+     larger geographic region. This does not change based on the participant's current physical
+     location. Read-only.
+    :type region: str
+    :param display_name_source_identity_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_source_identity_user_display_name: str
+    :param id_source_identity_user_id: Unique identifier for the identity.
+    :type id_source_identity_user_id: str
+    :param display_name_source_identity_device_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_source_identity_device_display_name: str
+    :param id_source_identity_device_id: Unique identifier for the identity.
+    :type id_source_identity_device_id: str
+    :param display_name_source_identity_application_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_source_identity_application_display_name: str
+    :param id_source_identity_application_id: Unique identifier for the identity.
+    :type id_source_identity_application_id: str
+    :param audio:  Possible values include: "active", "inactive", "unknownFutureValue".
+    :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
+    :param observed_participant_id: The ID of the participant that is under observation. Read-only.
+    :type observed_participant_id: str
+    :param on_behalf_of: identitySet.
+    :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
+    :param source_participant_id: The ID of the participant that triggered the incoming call. Read-
+     only.
+    :type source_participant_id: str
+    :param transferor: identitySet.
+    :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'callback_uri': {'key': 'callbackUri', 'type': 'str'},
+        'call_chain_id': {'key': 'callChainId', 'type': 'str'},
+        'call_options': {'key': 'callOptions', 'type': '{object}'},
+        'call_routes': {'key': 'callRoutes', 'type': '[MicrosoftGraphCallRoute]'},
+        'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
+        'direction': {'key': 'direction', 'type': 'str'},
+        'media_config': {'key': 'mediaConfig', 'type': '{object}'},
+        'meeting_info': {'key': 'meetingInfo', 'type': '{object}'},
+        'my_participant_id': {'key': 'myParticipantId', 'type': 'str'},
+        'requested_modalities': {'key': 'requestedModalities', 'type': '[str]'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
+        'state': {'key': 'state', 'type': 'str'},
+        'subject': {'key': 'subject', 'type': 'str'},
+        'targets': {'key': 'targets', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
+        'tenant_id': {'key': 'tenantId', 'type': 'str'},
+        'tone_info': {'key': 'toneInfo', 'type': 'MicrosoftGraphToneInfo'},
+        'transcription': {'key': 'transcription', 'type': 'MicrosoftGraphCallTranscriptionInfo'},
+        'operations': {'key': 'operations', 'type': '[MicrosoftGraphCommsOperation]'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphParticipant]'},
+        'country_code': {'key': 'source.countryCode', 'type': 'str'},
+        'endpoint_type': {'key': 'source.endpointType', 'type': 'str'},
+        'language_id': {'key': 'source.languageId', 'type': 'str'},
+        'region': {'key': 'source.region', 'type': 'str'},
+        'display_name_source_identity_user_display_name': {'key': 'source.identity.user.displayName', 'type': 'str'},
+        'id_source_identity_user_id': {'key': 'source.identity.user.id', 'type': 'str'},
+        'display_name_source_identity_device_display_name': {'key': 'source.identity.device.displayName', 'type': 'str'},
+        'id_source_identity_device_id': {'key': 'source.identity.device.id', 'type': 'str'},
+        'display_name_source_identity_application_display_name': {'key': 'source.identity.application.displayName', 'type': 'str'},
+        'id_source_identity_application_id': {'key': 'source.identity.application.id', 'type': 'str'},
+        'audio': {'key': 'mediaState.audio', 'type': 'str'},
+        'observed_participant_id': {'key': 'incomingContext.observedParticipantId', 'type': 'str'},
+        'on_behalf_of': {'key': 'incomingContext.onBehalfOf', 'type': 'MicrosoftGraphIdentitySet'},
+        'source_participant_id': {'key': 'incomingContext.sourceParticipantId', 'type': 'str'},
+        'transferor': {'key': 'incomingContext.transferor', 'type': 'MicrosoftGraphIdentitySet'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        callback_uri: Optional[str] = None,
+        call_chain_id: Optional[str] = None,
+        call_options: Optional[Dict[str, object]] = None,
+        call_routes: Optional[List["MicrosoftGraphCallRoute"]] = None,
+        chat_info: Optional["MicrosoftGraphChatInfo"] = None,
+        direction: Optional[Union[str, "MicrosoftGraphCallDirection"]] = None,
+        media_config: Optional[Dict[str, object]] = None,
+        meeting_info: Optional[Dict[str, object]] = None,
+        my_participant_id: Optional[str] = None,
+        requested_modalities: Optional[List[Union[str, "MicrosoftGraphModality"]]] = None,
+        result_info: Optional["MicrosoftGraphResultInfo"] = None,
+        state: Optional[Union[str, "MicrosoftGraphCallState"]] = None,
+        subject: Optional[str] = None,
+        targets: Optional[List["MicrosoftGraphInvitationParticipantInfo"]] = None,
+        tenant_id: Optional[str] = None,
+        tone_info: Optional["MicrosoftGraphToneInfo"] = None,
+        transcription: Optional["MicrosoftGraphCallTranscriptionInfo"] = None,
+        operations: Optional[List["MicrosoftGraphCommsOperation"]] = None,
+        participants: Optional[List["MicrosoftGraphParticipant"]] = None,
+        country_code: Optional[str] = None,
+        endpoint_type: Optional[Union[str, "MicrosoftGraphEndpointType"]] = None,
+        language_id: Optional[str] = None,
+        region: Optional[str] = None,
+        display_name_source_identity_user_display_name: Optional[str] = None,
+        id_source_identity_user_id: Optional[str] = None,
+        display_name_source_identity_device_display_name: Optional[str] = None,
+        id_source_identity_device_id: Optional[str] = None,
+        display_name_source_identity_application_display_name: Optional[str] = None,
+        id_source_identity_application_id: Optional[str] = None,
+        audio: Optional[Union[str, "MicrosoftGraphMediaState"]] = None,
+        observed_participant_id: Optional[str] = None,
+        on_behalf_of: Optional["MicrosoftGraphIdentitySet"] = None,
+        source_participant_id: Optional[str] = None,
+        transferor: Optional["MicrosoftGraphIdentitySet"] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCall, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.callback_uri = callback_uri
+        self.call_chain_id = call_chain_id
+        self.call_options = call_options
+        self.call_routes = call_routes
+        self.chat_info = chat_info
+        self.direction = direction
+        self.media_config = media_config
+        self.meeting_info = meeting_info
+        self.my_participant_id = my_participant_id
+        self.requested_modalities = requested_modalities
+        self.result_info = result_info
+        self.state = state
+        self.subject = subject
+        self.targets = targets
+        self.tenant_id = tenant_id
+        self.tone_info = tone_info
+        self.transcription = transcription
+        self.operations = operations
+        self.participants = participants
+        self.country_code = country_code
+        self.endpoint_type = endpoint_type
+        self.language_id = language_id
+        self.region = region
+        self.display_name_source_identity_user_display_name = display_name_source_identity_user_display_name
+        self.id_source_identity_user_id = id_source_identity_user_id
+        self.display_name_source_identity_device_display_name = display_name_source_identity_device_display_name
+        self.id_source_identity_device_id = id_source_identity_device_id
+        self.display_name_source_identity_application_display_name = display_name_source_identity_application_display_name
+        self.id_source_identity_application_id = id_source_identity_application_id
+        self.audio = audio
+        self.observed_participant_id = observed_participant_id
+        self.on_behalf_of = on_behalf_of
+        self.source_participant_id = source_participant_id
+        self.transferor = transferor
+
+
+class MicrosoftGraphCallMediaState(msrest.serialization.Model):
+    """callMediaState.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param audio:  Possible values include: "active", "inactive", "unknownFutureValue".
+    :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'audio': {'key': 'audio', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        audio: Optional[Union[str, "MicrosoftGraphMediaState"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallMediaState, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.audio = audio
+
+
+class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
+    """callRecord.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param end_date_time: UTC time when the last user left the call. The DateTimeOffset type
+     represents date and time information using ISO 8601 format and is always in UTC time. For
+     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type end_date_time: ~datetime.datetime
+    :param join_web_url: Meeting URL associated to the call. May not be available for a peerToPeer
+     call record type.
+    :type join_web_url: str
+    :param last_modified_date_time: UTC time when the call record was created. The DatetimeOffset
+     type represents date and time information using ISO 8601 format and is always in UTC time. For
+     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type last_modified_date_time: ~datetime.datetime
+    :param modalities: List of all the modalities used in the call. Possible values are: unknown,
+     audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
+    :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
+    :param participants: List of distinct identities involved in the call.
+    :type participants: list[~cloud_communications.models.MicrosoftGraphIdentitySet]
+    :param start_date_time: UTC time when the first user joined the call. The DatetimeOffset type
+     represents date and time information using ISO 8601 format and is always in UTC time. For
+     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type start_date_time: ~datetime.datetime
+    :param type:  Possible values include: "unknown", "groupCall", "peerToPeer",
+     "unknownFutureValue".
+    :type type: str or ~cloud_communications.models.MicrosoftGraphCallRecordsCallType
+    :param version: Monotonically increasing version of the call record. Higher version call
+     records with the same id includes additional data compared to the lower version.
+    :type version: long
+    :param sessions: List of sessions involved in the call. Peer-to-peer calls typically only have
+     one session, whereas group calls typically have at least one session per participant. Read-
+     only. Nullable.
+    :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
+    :param display_name_organizer_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_organizer_user_display_name: str
+    :param id_organizer_user_id: Unique identifier for the identity.
+    :type id_organizer_user_id: str
+    :param display_name_organizer_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_organizer_device_display_name: str
+    :param id_organizer_device_id: Unique identifier for the identity.
+    :type id_organizer_device_id: str
+    :param display_name_organizer_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_organizer_application_display_name: str
+    :param id_organizer_application_id: Unique identifier for the identity.
+    :type id_organizer_application_id: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
+        'join_web_url': {'key': 'joinWebUrl', 'type': 'str'},
+        'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'modalities': {'key': 'modalities', 'type': '[str]'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphIdentitySet]'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
+        'type': {'key': 'type', 'type': 'str'},
+        'version': {'key': 'version', 'type': 'long'},
+        'sessions': {'key': 'sessions', 'type': '[MicrosoftGraphCallRecordsSession]'},
+        'display_name_organizer_user_display_name': {'key': 'organizer.user.displayName', 'type': 'str'},
+        'id_organizer_user_id': {'key': 'organizer.user.id', 'type': 'str'},
+        'display_name_organizer_device_display_name': {'key': 'organizer.device.displayName', 'type': 'str'},
+        'id_organizer_device_id': {'key': 'organizer.device.id', 'type': 'str'},
+        'display_name_organizer_application_display_name': {'key': 'organizer.application.displayName', 'type': 'str'},
+        'id_organizer_application_id': {'key': 'organizer.application.id', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        end_date_time: Optional[datetime.datetime] = None,
+        join_web_url: Optional[str] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        modalities: Optional[List[Union[str, "MicrosoftGraphCallRecordsModality"]]] = None,
+        participants: Optional[List["MicrosoftGraphIdentitySet"]] = None,
+        start_date_time: Optional[datetime.datetime] = None,
+        type: Optional[Union[str, "MicrosoftGraphCallRecordsCallType"]] = None,
+        version: Optional[int] = None,
+        sessions: Optional[List["MicrosoftGraphCallRecordsSession"]] = None,
+        display_name_organizer_user_display_name: Optional[str] = None,
+        id_organizer_user_id: Optional[str] = None,
+        display_name_organizer_device_display_name: Optional[str] = None,
+        id_organizer_device_id: Optional[str] = None,
+        display_name_organizer_application_display_name: Optional[str] = None,
+        id_organizer_application_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsCallRecord, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.end_date_time = end_date_time
+        self.join_web_url = join_web_url
+        self.last_modified_date_time = last_modified_date_time
+        self.modalities = modalities
+        self.participants = participants
+        self.start_date_time = start_date_time
+        self.type = type
+        self.version = version
+        self.sessions = sessions
+        self.display_name_organizer_user_display_name = display_name_organizer_user_display_name
+        self.id_organizer_user_id = id_organizer_user_id
+        self.display_name_organizer_device_display_name = display_name_organizer_device_display_name
+        self.id_organizer_device_id = id_organizer_device_id
+        self.display_name_organizer_application_display_name = display_name_organizer_application_display_name
+        self.id_organizer_application_id = id_organizer_application_id
+
+
+class MicrosoftGraphCallRecordsDeviceInfo(msrest.serialization.Model):
+    """deviceInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param capture_device_driver: Name of the capture device driver used by the media endpoint.
+    :type capture_device_driver: str
+    :param capture_device_name: Name of the capture device used by the media endpoint.
+    :type capture_device_name: str
+    :param capture_not_functioning_event_ratio: Fraction of the call that the media endpoint
+     detected the capture device was not working properly.
+    :type capture_not_functioning_event_ratio: float
+    :param cpu_insufficent_event_ratio: Fraction of the call that the media endpoint detected the
+     CPU resources available were insufficient and caused poor quality of the audio sent and
+     received.
+    :type cpu_insufficent_event_ratio: float
+    :param device_clipping_event_ratio: Fraction of the call that the media endpoint detected
+     clipping in the captured audio that caused poor quality of the audio being sent.
+    :type device_clipping_event_ratio: float
+    :param device_glitch_event_ratio: Fraction of the call that the media endpoint detected
+     glitches or gaps in the audio played or captured that caused poor quality of the audio being
+     sent or received.
+    :type device_glitch_event_ratio: float
+    :param howling_event_count: Number of times during the call that the media endpoint detected
+     howling or screeching audio.
+    :type howling_event_count: int
+    :param initial_signal_level_root_mean_square: The root mean square (RMS) of the incoming signal
+     of up to the first 30 seconds of the call.
+    :type initial_signal_level_root_mean_square: float
+    :param low_speech_level_event_ratio: Fraction of the call that the media endpoint detected low
+     speech level that caused poor quality of the audio being sent.
+    :type low_speech_level_event_ratio: float
+    :param low_speech_to_noise_event_ratio: Fraction of the call that the media endpoint detected
+     low speech to noise level that caused poor quality of the audio being sent.
+    :type low_speech_to_noise_event_ratio: float
+    :param mic_glitch_rate: Glitches per 5 minute interval for the media endpoint's microphone.
+    :type mic_glitch_rate: float
+    :param received_noise_level: Average energy level of received audio for audio classified as
+     mono noise or left channel of stereo noise by the media endpoint.
+    :type received_noise_level: int
+    :param received_signal_level: Average energy level of received audio for audio classified as
+     mono speech, or left channel of stereo speech by the media endpoint.
+    :type received_signal_level: int
+    :param render_device_driver: Name of the render device driver used by the media endpoint.
+    :type render_device_driver: str
+    :param render_device_name: Name of the render device used by the media endpoint.
+    :type render_device_name: str
+    :param render_mute_event_ratio: Fraction of the call that media endpoint detected device render
+     is muted.
+    :type render_mute_event_ratio: float
+    :param render_not_functioning_event_ratio: Fraction of the call that the media endpoint
+     detected the render device was not working properly.
+    :type render_not_functioning_event_ratio: float
+    :param render_zero_volume_event_ratio: Fraction of the call that media endpoint detected device
+     render volume is set to 0.
+    :type render_zero_volume_event_ratio: float
+    :param sent_noise_level: Average energy level of sent audio for audio classified as mono noise
+     or left channel of stereo noise by the media endpoint.
+    :type sent_noise_level: int
+    :param sent_signal_level: Average energy level of sent audio for audio classified as mono
+     speech, or left channel of stereo speech by the media endpoint.
+    :type sent_signal_level: int
+    :param speaker_glitch_rate: Glitches per 5 minute internal for the media endpoint's
+     loudspeaker.
+    :type speaker_glitch_rate: float
+    """
+
+    _validation = {
+        'howling_event_count': {'maximum': 2147483647, 'minimum': -2147483648},
+        'received_noise_level': {'maximum': 2147483647, 'minimum': -2147483648},
+        'received_signal_level': {'maximum': 2147483647, 'minimum': -2147483648},
+        'sent_noise_level': {'maximum': 2147483647, 'minimum': -2147483648},
+        'sent_signal_level': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'capture_device_driver': {'key': 'captureDeviceDriver', 'type': 'str'},
+        'capture_device_name': {'key': 'captureDeviceName', 'type': 'str'},
+        'capture_not_functioning_event_ratio': {'key': 'captureNotFunctioningEventRatio', 'type': 'float'},
+        'cpu_insufficent_event_ratio': {'key': 'cpuInsufficentEventRatio', 'type': 'float'},
+        'device_clipping_event_ratio': {'key': 'deviceClippingEventRatio', 'type': 'float'},
+        'device_glitch_event_ratio': {'key': 'deviceGlitchEventRatio', 'type': 'float'},
+        'howling_event_count': {'key': 'howlingEventCount', 'type': 'int'},
+        'initial_signal_level_root_mean_square': {'key': 'initialSignalLevelRootMeanSquare', 'type': 'float'},
+        'low_speech_level_event_ratio': {'key': 'lowSpeechLevelEventRatio', 'type': 'float'},
+        'low_speech_to_noise_event_ratio': {'key': 'lowSpeechToNoiseEventRatio', 'type': 'float'},
+        'mic_glitch_rate': {'key': 'micGlitchRate', 'type': 'float'},
+        'received_noise_level': {'key': 'receivedNoiseLevel', 'type': 'int'},
+        'received_signal_level': {'key': 'receivedSignalLevel', 'type': 'int'},
+        'render_device_driver': {'key': 'renderDeviceDriver', 'type': 'str'},
+        'render_device_name': {'key': 'renderDeviceName', 'type': 'str'},
+        'render_mute_event_ratio': {'key': 'renderMuteEventRatio', 'type': 'float'},
+        'render_not_functioning_event_ratio': {'key': 'renderNotFunctioningEventRatio', 'type': 'float'},
+        'render_zero_volume_event_ratio': {'key': 'renderZeroVolumeEventRatio', 'type': 'float'},
+        'sent_noise_level': {'key': 'sentNoiseLevel', 'type': 'int'},
+        'sent_signal_level': {'key': 'sentSignalLevel', 'type': 'int'},
+        'speaker_glitch_rate': {'key': 'speakerGlitchRate', 'type': 'float'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        capture_device_driver: Optional[str] = None,
+        capture_device_name: Optional[str] = None,
+        capture_not_functioning_event_ratio: Optional[float] = None,
+        cpu_insufficent_event_ratio: Optional[float] = None,
+        device_clipping_event_ratio: Optional[float] = None,
+        device_glitch_event_ratio: Optional[float] = None,
+        howling_event_count: Optional[int] = None,
+        initial_signal_level_root_mean_square: Optional[float] = None,
+        low_speech_level_event_ratio: Optional[float] = None,
+        low_speech_to_noise_event_ratio: Optional[float] = None,
+        mic_glitch_rate: Optional[float] = None,
+        received_noise_level: Optional[int] = None,
+        received_signal_level: Optional[int] = None,
+        render_device_driver: Optional[str] = None,
+        render_device_name: Optional[str] = None,
+        render_mute_event_ratio: Optional[float] = None,
+        render_not_functioning_event_ratio: Optional[float] = None,
+        render_zero_volume_event_ratio: Optional[float] = None,
+        sent_noise_level: Optional[int] = None,
+        sent_signal_level: Optional[int] = None,
+        speaker_glitch_rate: Optional[float] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsDeviceInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.capture_device_driver = capture_device_driver
+        self.capture_device_name = capture_device_name
+        self.capture_not_functioning_event_ratio = capture_not_functioning_event_ratio
+        self.cpu_insufficent_event_ratio = cpu_insufficent_event_ratio
+        self.device_clipping_event_ratio = device_clipping_event_ratio
+        self.device_glitch_event_ratio = device_glitch_event_ratio
+        self.howling_event_count = howling_event_count
+        self.initial_signal_level_root_mean_square = initial_signal_level_root_mean_square
+        self.low_speech_level_event_ratio = low_speech_level_event_ratio
+        self.low_speech_to_noise_event_ratio = low_speech_to_noise_event_ratio
+        self.mic_glitch_rate = mic_glitch_rate
+        self.received_noise_level = received_noise_level
+        self.received_signal_level = received_signal_level
+        self.render_device_driver = render_device_driver
+        self.render_device_name = render_device_name
+        self.render_mute_event_ratio = render_mute_event_ratio
+        self.render_not_functioning_event_ratio = render_not_functioning_event_ratio
+        self.render_zero_volume_event_ratio = render_zero_volume_event_ratio
+        self.sent_noise_level = sent_noise_level
+        self.sent_signal_level = sent_signal_level
+        self.speaker_glitch_rate = speaker_glitch_rate
+
+
+class MicrosoftGraphCallRecordsEndpoint(msrest.serialization.Model):
+    """endpoint.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param user_agent: userAgent.
+    :type user_agent: ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'user_agent': {'key': 'userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        user_agent: Optional["MicrosoftGraphCallRecordsUserAgent"] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsEndpoint, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.user_agent = user_agent
+
+
+class MicrosoftGraphCallRecordsFailureInfo(msrest.serialization.Model):
+    """failureInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param reason: Classification of why a call or portion of a call failed.
+    :type reason: str
+    :param stage:  Possible values include: "unknown", "callSetup", "midcall",
+     "unknownFutureValue".
+    :type stage: str or ~cloud_communications.models.MicrosoftGraphCallRecordsFailureStage
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'reason': {'key': 'reason', 'type': 'str'},
+        'stage': {'key': 'stage', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        reason: Optional[str] = None,
+        stage: Optional[Union[str, "MicrosoftGraphCallRecordsFailureStage"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsFailureInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.reason = reason
+        self.stage = stage
+
+
+class MicrosoftGraphCallRecordsMedia(msrest.serialization.Model):
+    """media.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param callee_device: deviceInfo.
+    :type callee_device: ~cloud_communications.models.MicrosoftGraphCallRecordsDeviceInfo
+    :param callee_network: networkInfo.
+    :type callee_network: ~cloud_communications.models.MicrosoftGraphCallRecordsNetworkInfo
+    :param caller_device: deviceInfo.
+    :type caller_device: ~cloud_communications.models.MicrosoftGraphCallRecordsDeviceInfo
+    :param caller_network: networkInfo.
+    :type caller_network: ~cloud_communications.models.MicrosoftGraphCallRecordsNetworkInfo
+    :param label: How the media was identified during media negotiation stage.
+    :type label: str
+    :param streams: Network streams associated with this media.
+    :type streams: list[~cloud_communications.models.MicrosoftGraphCallRecordsMediaStream]
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'callee_device': {'key': 'calleeDevice', 'type': 'MicrosoftGraphCallRecordsDeviceInfo'},
+        'callee_network': {'key': 'calleeNetwork', 'type': 'MicrosoftGraphCallRecordsNetworkInfo'},
+        'caller_device': {'key': 'callerDevice', 'type': 'MicrosoftGraphCallRecordsDeviceInfo'},
+        'caller_network': {'key': 'callerNetwork', 'type': 'MicrosoftGraphCallRecordsNetworkInfo'},
+        'label': {'key': 'label', 'type': 'str'},
+        'streams': {'key': 'streams', 'type': '[MicrosoftGraphCallRecordsMediaStream]'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        callee_device: Optional["MicrosoftGraphCallRecordsDeviceInfo"] = None,
+        callee_network: Optional["MicrosoftGraphCallRecordsNetworkInfo"] = None,
+        caller_device: Optional["MicrosoftGraphCallRecordsDeviceInfo"] = None,
+        caller_network: Optional["MicrosoftGraphCallRecordsNetworkInfo"] = None,
+        label: Optional[str] = None,
+        streams: Optional[List["MicrosoftGraphCallRecordsMediaStream"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsMedia, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.callee_device = callee_device
+        self.callee_network = callee_network
+        self.caller_device = caller_device
+        self.caller_network = caller_network
+        self.label = label
+        self.streams = streams
+
+
+class MicrosoftGraphCallRecordsMediaStream(msrest.serialization.Model):
+    """mediaStream.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param average_audio_degradation: Average Network Mean Opinion Score degradation for stream.
+     Represents how much the network loss and jitter has impacted the quality of received audio.
+    :type average_audio_degradation: float
+    :param average_audio_network_jitter: Average jitter for the stream computed as specified in
+     [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where
+     'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
+    :type average_audio_network_jitter: ~datetime.timedelta
+    :param average_bandwidth_estimate: Average estimated bandwidth available between two endpoints
+     in bits per second.
+    :type average_bandwidth_estimate: long
+    :param average_jitter: Average jitter for the stream computed as specified in [RFC 3550][],
+     denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the
+     duration designator, 'T' is the time designator, and 'S' is the second designator.
+    :type average_jitter: ~datetime.timedelta
+    :param average_packet_loss_rate: Average packet loss rate for stream.
+    :type average_packet_loss_rate: float
+    :param average_ratio_of_concealed_samples: Ratio of the number of audio frames with samples
+     generated by packet loss concealment to the total number of audio frames.
+    :type average_ratio_of_concealed_samples: float
+    :param average_received_frame_rate: Average frames per second received for all video streams
+     computed over the duration of the session.
+    :type average_received_frame_rate: float
+    :param average_round_trip_time: Average network propagation round-trip time computed as
+     specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as
+     'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second
+     designator.
+    :type average_round_trip_time: ~datetime.timedelta
+    :param average_video_frame_loss_percentage: Average percentage of video frames lost as
+     displayed to the user.
+    :type average_video_frame_loss_percentage: float
+    :param average_video_frame_rate: Average frames per second received for a video stream,
+     computed over the duration of the session.
+    :type average_video_frame_rate: float
+    :param average_video_packet_loss_rate: Average fraction of packets lost, as specified in [RFC
+     3550][], computed over the duration of the session.
+    :type average_video_packet_loss_rate: float
+    :param end_date_time: UTC time when the stream ended. The DateTimeOffset type represents date
+     and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
+     on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type end_date_time: ~datetime.datetime
+    :param low_frame_rate_ratio: Fraction of the call where frame rate is less than 7.5 frames per
+     second.
+    :type low_frame_rate_ratio: float
+    :param low_video_processing_capability_ratio: Fraction of the call that the client is running
+     less than 70% expected video processing capability.
+    :type low_video_processing_capability_ratio: float
+    :param max_audio_network_jitter: Maximum of audio network jitter computed over each of the 20
+     second windows during the session, denoted in [ISO 8601][] format. For example, 1 second is
+     denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is
+     the second designator.
+    :type max_audio_network_jitter: ~datetime.timedelta
+    :param max_jitter: Maximum jitter for the stream computed as specified in RFC 3550, denoted in
+     [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration
+     designator, 'T' is the time designator, and 'S' is the second designator.
+    :type max_jitter: ~datetime.timedelta
+    :param max_packet_loss_rate: Maximum packet loss rate for the stream.
+    :type max_packet_loss_rate: float
+    :param max_ratio_of_concealed_samples: Maximum ratio of packets concealed by the healer.
+    :type max_ratio_of_concealed_samples: float
+    :param max_round_trip_time: Maximum network propagation round-trip time computed as specified
+     in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S',
+     where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second
+     designator.
+    :type max_round_trip_time: ~datetime.timedelta
+    :param packet_utilization: Packet count for the stream.
+    :type packet_utilization: long
+    :param post_forward_error_correction_packet_loss_rate: Packet loss rate after FEC has been
+     applied aggregated across all video streams and codecs.
+    :type post_forward_error_correction_packet_loss_rate: float
+    :param start_date_time: UTC time when the stream started. The DateTimeOffset type represents
+     date and time information using ISO 8601 format and is always in UTC time. For example,
+     midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type start_date_time: ~datetime.datetime
+    :param stream_direction:  Possible values include: "callerToCallee", "calleeToCaller".
+    :type stream_direction: str or
+     ~cloud_communications.models.MicrosoftGraphCallRecordsMediaStreamDirection
+    :param stream_id: Unique identifier for the stream.
+    :type stream_id: str
+    :param was_media_bypassed: True if the media stream bypassed the Mediation Server and went
+     straight between client and PSTN Gateway/PBX, false otherwise.
+    :type was_media_bypassed: bool
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'average_audio_degradation': {'key': 'averageAudioDegradation', 'type': 'float'},
+        'average_audio_network_jitter': {'key': 'averageAudioNetworkJitter', 'type': 'duration'},
+        'average_bandwidth_estimate': {'key': 'averageBandwidthEstimate', 'type': 'long'},
+        'average_jitter': {'key': 'averageJitter', 'type': 'duration'},
+        'average_packet_loss_rate': {'key': 'averagePacketLossRate', 'type': 'float'},
+        'average_ratio_of_concealed_samples': {'key': 'averageRatioOfConcealedSamples', 'type': 'float'},
+        'average_received_frame_rate': {'key': 'averageReceivedFrameRate', 'type': 'float'},
+        'average_round_trip_time': {'key': 'averageRoundTripTime', 'type': 'duration'},
+        'average_video_frame_loss_percentage': {'key': 'averageVideoFrameLossPercentage', 'type': 'float'},
+        'average_video_frame_rate': {'key': 'averageVideoFrameRate', 'type': 'float'},
+        'average_video_packet_loss_rate': {'key': 'averageVideoPacketLossRate', 'type': 'float'},
+        'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
+        'low_frame_rate_ratio': {'key': 'lowFrameRateRatio', 'type': 'float'},
+        'low_video_processing_capability_ratio': {'key': 'lowVideoProcessingCapabilityRatio', 'type': 'float'},
+        'max_audio_network_jitter': {'key': 'maxAudioNetworkJitter', 'type': 'duration'},
+        'max_jitter': {'key': 'maxJitter', 'type': 'duration'},
+        'max_packet_loss_rate': {'key': 'maxPacketLossRate', 'type': 'float'},
+        'max_ratio_of_concealed_samples': {'key': 'maxRatioOfConcealedSamples', 'type': 'float'},
+        'max_round_trip_time': {'key': 'maxRoundTripTime', 'type': 'duration'},
+        'packet_utilization': {'key': 'packetUtilization', 'type': 'long'},
+        'post_forward_error_correction_packet_loss_rate': {'key': 'postForwardErrorCorrectionPacketLossRate', 'type': 'float'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
+        'stream_direction': {'key': 'streamDirection', 'type': 'str'},
+        'stream_id': {'key': 'streamId', 'type': 'str'},
+        'was_media_bypassed': {'key': 'wasMediaBypassed', 'type': 'bool'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        average_audio_degradation: Optional[float] = None,
+        average_audio_network_jitter: Optional[datetime.timedelta] = None,
+        average_bandwidth_estimate: Optional[int] = None,
+        average_jitter: Optional[datetime.timedelta] = None,
+        average_packet_loss_rate: Optional[float] = None,
+        average_ratio_of_concealed_samples: Optional[float] = None,
+        average_received_frame_rate: Optional[float] = None,
+        average_round_trip_time: Optional[datetime.timedelta] = None,
+        average_video_frame_loss_percentage: Optional[float] = None,
+        average_video_frame_rate: Optional[float] = None,
+        average_video_packet_loss_rate: Optional[float] = None,
+        end_date_time: Optional[datetime.datetime] = None,
+        low_frame_rate_ratio: Optional[float] = None,
+        low_video_processing_capability_ratio: Optional[float] = None,
+        max_audio_network_jitter: Optional[datetime.timedelta] = None,
+        max_jitter: Optional[datetime.timedelta] = None,
+        max_packet_loss_rate: Optional[float] = None,
+        max_ratio_of_concealed_samples: Optional[float] = None,
+        max_round_trip_time: Optional[datetime.timedelta] = None,
+        packet_utilization: Optional[int] = None,
+        post_forward_error_correction_packet_loss_rate: Optional[float] = None,
+        start_date_time: Optional[datetime.datetime] = None,
+        stream_direction: Optional[Union[str, "MicrosoftGraphCallRecordsMediaStreamDirection"]] = None,
+        stream_id: Optional[str] = None,
+        was_media_bypassed: Optional[bool] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsMediaStream, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.average_audio_degradation = average_audio_degradation
+        self.average_audio_network_jitter = average_audio_network_jitter
+        self.average_bandwidth_estimate = average_bandwidth_estimate
+        self.average_jitter = average_jitter
+        self.average_packet_loss_rate = average_packet_loss_rate
+        self.average_ratio_of_concealed_samples = average_ratio_of_concealed_samples
+        self.average_received_frame_rate = average_received_frame_rate
+        self.average_round_trip_time = average_round_trip_time
+        self.average_video_frame_loss_percentage = average_video_frame_loss_percentage
+        self.average_video_frame_rate = average_video_frame_rate
+        self.average_video_packet_loss_rate = average_video_packet_loss_rate
+        self.end_date_time = end_date_time
+        self.low_frame_rate_ratio = low_frame_rate_ratio
+        self.low_video_processing_capability_ratio = low_video_processing_capability_ratio
+        self.max_audio_network_jitter = max_audio_network_jitter
+        self.max_jitter = max_jitter
+        self.max_packet_loss_rate = max_packet_loss_rate
+        self.max_ratio_of_concealed_samples = max_ratio_of_concealed_samples
+        self.max_round_trip_time = max_round_trip_time
+        self.packet_utilization = packet_utilization
+        self.post_forward_error_correction_packet_loss_rate = post_forward_error_correction_packet_loss_rate
+        self.start_date_time = start_date_time
+        self.stream_direction = stream_direction
+        self.stream_id = stream_id
+        self.was_media_bypassed = was_media_bypassed
+
+
+class MicrosoftGraphCallRecordsNetworkInfo(msrest.serialization.Model):
+    """networkInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param bandwidth_low_event_ratio: Fraction of the call that the media endpoint detected the
+     available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.
+    :type bandwidth_low_event_ratio: float
+    :param basic_service_set_identifier: The wireless LAN basic service set identifier of the media
+     endpoint used to connect to the network.
+    :type basic_service_set_identifier: str
+    :param connection_type:  Possible values include: "unknown", "wired", "wifi", "mobile",
+     "tunnel", "unknownFutureValue".
+    :type connection_type: str or
+     ~cloud_communications.models.MicrosoftGraphCallRecordsNetworkConnectionType
+    :param delay_event_ratio: Fraction of the call that the media endpoint detected the network
+     delay was significant enough to impact the ability to have real-time two-way communication.
+    :type delay_event_ratio: float
+    :param dns_suffix: DNS suffix associated with the network adapter of the media endpoint.
+    :type dns_suffix: str
+    :param ip_address: IP address of the media endpoint.
+    :type ip_address: str
+    :param link_speed: Link speed in bits per second reported by the network adapter used by the
+     media endpoint.
+    :type link_speed: long
+    :param mac_address: The media access control (MAC) address of the media endpoint's network
+     device.
+    :type mac_address: str
+    :param port: Network port number used by media endpoint.
+    :type port: int
+    :param received_quality_event_ratio: Fraction of the call that the media endpoint detected the
+     network was causing poor quality of the audio received.
+    :type received_quality_event_ratio: float
+    :param reflexive_ip_address: IP address of the media endpoint as seen by the media relay
+     server. This is typically the public internet IP address associated to the endpoint.
+    :type reflexive_ip_address: str
+    :param relay_ip_address: IP address of the media relay server allocated by the media endpoint.
+    :type relay_ip_address: str
+    :param relay_port: Network port number allocated on the media relay server by the media
+     endpoint.
+    :type relay_port: int
+    :param sent_quality_event_ratio: Fraction of the call that the media endpoint detected the
+     network was causing poor quality of the audio sent.
+    :type sent_quality_event_ratio: float
+    :param subnet: Subnet used for media stream by the media endpoint.
+    :type subnet: str
+    :param wifi_band:  Possible values include: "unknown", "frequency24GHz", "frequency50GHz",
+     "frequency60GHz", "unknownFutureValue".
+    :type wifi_band: str or ~cloud_communications.models.MicrosoftGraphCallRecordsWifiBand
+    :param wifi_battery_charge: Estimated remaining battery charge in percentage reported by the
+     media endpoint.
+    :type wifi_battery_charge: int
+    :param wifi_channel: WiFi channel used by the media endpoint.
+    :type wifi_channel: int
+    :param wifi_microsoft_driver: Name of the Microsoft WiFi driver used by the media endpoint.
+     Value may be localized based on the language used by endpoint.
+    :type wifi_microsoft_driver: str
+    :param wifi_microsoft_driver_version: Version of the Microsoft WiFi driver used by the media
+     endpoint.
+    :type wifi_microsoft_driver_version: str
+    :param wifi_radio_type:  Possible values include: "unknown", "wifi80211a", "wifi80211b",
+     "wifi80211g", "wifi80211n", "wifi80211ac", "wifi80211ax", "unknownFutureValue".
+    :type wifi_radio_type: str or
+     ~cloud_communications.models.MicrosoftGraphCallRecordsWifiRadioType
+    :param wifi_signal_strength: WiFi signal strength in percentage reported by the media endpoint.
+    :type wifi_signal_strength: int
+    :param wifi_vendor_driver: Name of the WiFi driver used by the media endpoint. Value may be
+     localized based on the language used by endpoint.
+    :type wifi_vendor_driver: str
+    :param wifi_vendor_driver_version: Version of the WiFi driver used by the media endpoint.
+    :type wifi_vendor_driver_version: str
+    """
+
+    _validation = {
+        'port': {'maximum': 2147483647, 'minimum': -2147483648},
+        'relay_port': {'maximum': 2147483647, 'minimum': -2147483648},
+        'wifi_battery_charge': {'maximum': 2147483647, 'minimum': -2147483648},
+        'wifi_channel': {'maximum': 2147483647, 'minimum': -2147483648},
+        'wifi_signal_strength': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'bandwidth_low_event_ratio': {'key': 'bandwidthLowEventRatio', 'type': 'float'},
+        'basic_service_set_identifier': {'key': 'basicServiceSetIdentifier', 'type': 'str'},
+        'connection_type': {'key': 'connectionType', 'type': 'str'},
+        'delay_event_ratio': {'key': 'delayEventRatio', 'type': 'float'},
+        'dns_suffix': {'key': 'dnsSuffix', 'type': 'str'},
+        'ip_address': {'key': 'ipAddress', 'type': 'str'},
+        'link_speed': {'key': 'linkSpeed', 'type': 'long'},
+        'mac_address': {'key': 'macAddress', 'type': 'str'},
+        'port': {'key': 'port', 'type': 'int'},
+        'received_quality_event_ratio': {'key': 'receivedQualityEventRatio', 'type': 'float'},
+        'reflexive_ip_address': {'key': 'reflexiveIPAddress', 'type': 'str'},
+        'relay_ip_address': {'key': 'relayIPAddress', 'type': 'str'},
+        'relay_port': {'key': 'relayPort', 'type': 'int'},
+        'sent_quality_event_ratio': {'key': 'sentQualityEventRatio', 'type': 'float'},
+        'subnet': {'key': 'subnet', 'type': 'str'},
+        'wifi_band': {'key': 'wifiBand', 'type': 'str'},
+        'wifi_battery_charge': {'key': 'wifiBatteryCharge', 'type': 'int'},
+        'wifi_channel': {'key': 'wifiChannel', 'type': 'int'},
+        'wifi_microsoft_driver': {'key': 'wifiMicrosoftDriver', 'type': 'str'},
+        'wifi_microsoft_driver_version': {'key': 'wifiMicrosoftDriverVersion', 'type': 'str'},
+        'wifi_radio_type': {'key': 'wifiRadioType', 'type': 'str'},
+        'wifi_signal_strength': {'key': 'wifiSignalStrength', 'type': 'int'},
+        'wifi_vendor_driver': {'key': 'wifiVendorDriver', 'type': 'str'},
+        'wifi_vendor_driver_version': {'key': 'wifiVendorDriverVersion', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        bandwidth_low_event_ratio: Optional[float] = None,
+        basic_service_set_identifier: Optional[str] = None,
+        connection_type: Optional[Union[str, "MicrosoftGraphCallRecordsNetworkConnectionType"]] = None,
+        delay_event_ratio: Optional[float] = None,
+        dns_suffix: Optional[str] = None,
+        ip_address: Optional[str] = None,
+        link_speed: Optional[int] = None,
+        mac_address: Optional[str] = None,
+        port: Optional[int] = None,
+        received_quality_event_ratio: Optional[float] = None,
+        reflexive_ip_address: Optional[str] = None,
+        relay_ip_address: Optional[str] = None,
+        relay_port: Optional[int] = None,
+        sent_quality_event_ratio: Optional[float] = None,
+        subnet: Optional[str] = None,
+        wifi_band: Optional[Union[str, "MicrosoftGraphCallRecordsWifiBand"]] = None,
+        wifi_battery_charge: Optional[int] = None,
+        wifi_channel: Optional[int] = None,
+        wifi_microsoft_driver: Optional[str] = None,
+        wifi_microsoft_driver_version: Optional[str] = None,
+        wifi_radio_type: Optional[Union[str, "MicrosoftGraphCallRecordsWifiRadioType"]] = None,
+        wifi_signal_strength: Optional[int] = None,
+        wifi_vendor_driver: Optional[str] = None,
+        wifi_vendor_driver_version: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsNetworkInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.bandwidth_low_event_ratio = bandwidth_low_event_ratio
+        self.basic_service_set_identifier = basic_service_set_identifier
+        self.connection_type = connection_type
+        self.delay_event_ratio = delay_event_ratio
+        self.dns_suffix = dns_suffix
+        self.ip_address = ip_address
+        self.link_speed = link_speed
+        self.mac_address = mac_address
+        self.port = port
+        self.received_quality_event_ratio = received_quality_event_ratio
+        self.reflexive_ip_address = reflexive_ip_address
+        self.relay_ip_address = relay_ip_address
+        self.relay_port = relay_port
+        self.sent_quality_event_ratio = sent_quality_event_ratio
+        self.subnet = subnet
+        self.wifi_band = wifi_band
+        self.wifi_battery_charge = wifi_battery_charge
+        self.wifi_channel = wifi_channel
+        self.wifi_microsoft_driver = wifi_microsoft_driver
+        self.wifi_microsoft_driver_version = wifi_microsoft_driver_version
+        self.wifi_radio_type = wifi_radio_type
+        self.wifi_signal_strength = wifi_signal_strength
+        self.wifi_vendor_driver = wifi_vendor_driver
+        self.wifi_vendor_driver_version = wifi_vendor_driver_version
+
+
+class MicrosoftGraphCallRecordsSegment(MicrosoftGraphEntity):
+    """segment.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param end_date_time: UTC time when the segment ended. The DateTimeOffset type represents date
+     and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
+     on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type end_date_time: ~datetime.datetime
+    :param failure_info: failureInfo.
+    :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
+    :param media: Media associated with this segment.
+    :type media: list[~cloud_communications.models.MicrosoftGraphCallRecordsMedia]
+    :param start_date_time: UTC time when the segment started. The DateTimeOffset type represents
+     date and time information using ISO 8601 format and is always in UTC time. For example,
+     midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type start_date_time: ~datetime.datetime
+    :param user_agent_caller_user_agent: userAgent.
+    :type user_agent_caller_user_agent:
+     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
+    :param user_agent_callee_user_agent: userAgent.
+    :type user_agent_callee_user_agent:
+     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
+        'failure_info': {'key': 'failureInfo', 'type': 'MicrosoftGraphCallRecordsFailureInfo'},
+        'media': {'key': 'media', 'type': '[MicrosoftGraphCallRecordsMedia]'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
+        'user_agent_caller_user_agent': {'key': 'caller.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
+        'user_agent_callee_user_agent': {'key': 'callee.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        end_date_time: Optional[datetime.datetime] = None,
+        failure_info: Optional["MicrosoftGraphCallRecordsFailureInfo"] = None,
+        media: Optional[List["MicrosoftGraphCallRecordsMedia"]] = None,
+        start_date_time: Optional[datetime.datetime] = None,
+        user_agent_caller_user_agent: Optional["MicrosoftGraphCallRecordsUserAgent"] = None,
+        user_agent_callee_user_agent: Optional["MicrosoftGraphCallRecordsUserAgent"] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsSegment, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.end_date_time = end_date_time
+        self.failure_info = failure_info
+        self.media = media
+        self.start_date_time = start_date_time
+        self.user_agent_caller_user_agent = user_agent_caller_user_agent
+        self.user_agent_callee_user_agent = user_agent_callee_user_agent
+
+
+class MicrosoftGraphCallRecordsSession(MicrosoftGraphEntity):
+    """session.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param end_date_time: UTC time when the last user left the session. The DateTimeOffset type
+     represents date and time information using ISO 8601 format and is always in UTC time. For
+     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type end_date_time: ~datetime.datetime
+    :param failure_info: failureInfo.
+    :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
+    :param modalities: List of modalities present in the session. Possible values are: unknown,
+     audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
+    :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
+    :param start_date_time: UTC fime when the first user joined the session. The DateTimeOffset
+     type represents date and time information using ISO 8601 format and is always in UTC time. For
+     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type start_date_time: ~datetime.datetime
+    :param segments: The list of segments involved in the session. Read-only. Nullable.
+    :type segments: list[~cloud_communications.models.MicrosoftGraphCallRecordsSegment]
+    :param user_agent_caller_user_agent: userAgent.
+    :type user_agent_caller_user_agent:
+     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
+    :param user_agent_callee_user_agent: userAgent.
+    :type user_agent_callee_user_agent:
+     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
+        'failure_info': {'key': 'failureInfo', 'type': 'MicrosoftGraphCallRecordsFailureInfo'},
+        'modalities': {'key': 'modalities', 'type': '[str]'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
+        'segments': {'key': 'segments', 'type': '[MicrosoftGraphCallRecordsSegment]'},
+        'user_agent_caller_user_agent': {'key': 'caller.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
+        'user_agent_callee_user_agent': {'key': 'callee.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        end_date_time: Optional[datetime.datetime] = None,
+        failure_info: Optional["MicrosoftGraphCallRecordsFailureInfo"] = None,
+        modalities: Optional[List[Union[str, "MicrosoftGraphCallRecordsModality"]]] = None,
+        start_date_time: Optional[datetime.datetime] = None,
+        segments: Optional[List["MicrosoftGraphCallRecordsSegment"]] = None,
+        user_agent_caller_user_agent: Optional["MicrosoftGraphCallRecordsUserAgent"] = None,
+        user_agent_callee_user_agent: Optional["MicrosoftGraphCallRecordsUserAgent"] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsSession, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.end_date_time = end_date_time
+        self.failure_info = failure_info
+        self.modalities = modalities
+        self.start_date_time = start_date_time
+        self.segments = segments
+        self.user_agent_caller_user_agent = user_agent_caller_user_agent
+        self.user_agent_callee_user_agent = user_agent_callee_user_agent
+
+
+class MicrosoftGraphCallRecordsUserAgent(msrest.serialization.Model):
+    """userAgent.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param application_version: Identifies the version of application software used by this
+     endpoint.
+    :type application_version: str
+    :param header_value: User-agent header value reported by this endpoint.
+    :type header_value: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'application_version': {'key': 'applicationVersion', 'type': 'str'},
+        'header_value': {'key': 'headerValue', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        application_version: Optional[str] = None,
+        header_value: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRecordsUserAgent, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.application_version = application_version
+        self.header_value = header_value
+
+
+class MicrosoftGraphCallRoute(msrest.serialization.Model):
+    """callRoute.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param final: identitySet.
+    :type final: ~cloud_communications.models.MicrosoftGraphIdentitySet
+    :param original: identitySet.
+    :type original: ~cloud_communications.models.MicrosoftGraphIdentitySet
+    :param routing_type:  Possible values include: "forwarded", "lookup", "selfFork",
+     "unknownFutureValue".
+    :type routing_type: str or ~cloud_communications.models.MicrosoftGraphRoutingType
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'final': {'key': 'final', 'type': 'MicrosoftGraphIdentitySet'},
+        'original': {'key': 'original', 'type': 'MicrosoftGraphIdentitySet'},
+        'routing_type': {'key': 'routingType', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        final: Optional["MicrosoftGraphIdentitySet"] = None,
+        original: Optional["MicrosoftGraphIdentitySet"] = None,
+        routing_type: Optional[Union[str, "MicrosoftGraphRoutingType"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallRoute, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.final = final
+        self.original = original
+        self.routing_type = routing_type
+
+
+class MicrosoftGraphCallTranscriptionInfo(msrest.serialization.Model):
+    """callTranscriptionInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param last_modified_date_time: The state modified time in UTC.
+    :type last_modified_date_time: ~datetime.datetime
+    :param state:  Possible values include: "notStarted", "active", "inactive",
+     "unknownFutureValue".
+    :type state: str or ~cloud_communications.models.MicrosoftGraphCallTranscriptionState
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'state': {'key': 'state', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        state: Optional[Union[str, "MicrosoftGraphCallTranscriptionState"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCallTranscriptionInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.last_modified_date_time = last_modified_date_time
+        self.state = state
+
+
+class MicrosoftGraphCommsOperation(MicrosoftGraphEntity):
+    """commsOperation.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCommsOperation, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.client_context = client_context
+        self.status = status
+        self.code = code
+        self.message = message
+        self.subcode = subcode
+
+
+class MicrosoftGraphCancelMediaProcessingOperation(MicrosoftGraphCommsOperation):
+    """cancelMediaProcessingOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphCancelMediaProcessingOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
+
+
 class MicrosoftGraphChatInfo(msrest.serialization.Model):
     """chatInfo.
 
@@ -127,31 +1699,45 @@ class MicrosoftGraphChatInfo(msrest.serialization.Model):
         self.thread_id = thread_id
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
-    """entity.
+class MicrosoftGraphCloudCommunications(MicrosoftGraphEntity):
+    """cloudCommunications.
 
+    :param id: Read-only.
+    :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param id: Read-only.
-    :type id: str
+    :param calls:
+    :type calls: list[~cloud_communications.models.MicrosoftGraphCall]
+    :param call_records:
+    :type call_records: list[~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord]
+    :param online_meetings:
+    :type online_meetings: list[~cloud_communications.models.MicrosoftGraphOnlineMeeting]
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'calls': {'key': 'calls', 'type': '[MicrosoftGraphCall]'},
+        'call_records': {'key': 'callRecords', 'type': '[MicrosoftGraphCallRecordsCallRecord]'},
+        'online_meetings': {'key': 'onlineMeetings', 'type': '[MicrosoftGraphOnlineMeeting]'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        calls: Optional[List["MicrosoftGraphCall"]] = None,
+        call_records: Optional[List["MicrosoftGraphCallRecordsCallRecord"]] = None,
+        online_meetings: Optional[List["MicrosoftGraphOnlineMeeting"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(MicrosoftGraphCloudCommunications, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.id = id
+        self.calls = calls
+        self.call_records = call_records
+        self.online_meetings = online_meetings
 
 
 class MicrosoftGraphIdentity(msrest.serialization.Model):
@@ -195,35 +1781,231 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param application: identity.
-    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param display_name_user_display_name: The identity's display name. Note that this may not
+     always be available or up to date. For example, if a user changes their display name, the API
+     may show the new value in a future response, but the items associated with the user won't show
+     up as having changed when using delta.
+    :type display_name_user_display_name: str
+    :param id_user_id: Unique identifier for the identity.
+    :type id_user_id: str
+    :param display_name_device_display_name: The identity's display name. Note that this may not
+     always be available or up to date. For example, if a user changes their display name, the API
+     may show the new value in a future response, but the items associated with the user won't show
+     up as having changed when using delta.
+    :type display_name_device_display_name: str
+    :param id_device_id: Unique identifier for the identity.
+    :type id_device_id: str
+    :param display_name_application_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_application_display_name: str
+    :param id_application_id: Unique identifier for the identity.
+    :type id_application_id: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
+        'display_name_user_display_name': {'key': 'user.displayName', 'type': 'str'},
+        'id_user_id': {'key': 'user.id', 'type': 'str'},
+        'display_name_device_display_name': {'key': 'device.displayName', 'type': 'str'},
+        'id_device_id': {'key': 'device.id', 'type': 'str'},
+        'display_name_application_display_name': {'key': 'application.displayName', 'type': 'str'},
+        'id_application_id': {'key': 'application.id', 'type': 'str'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
+        display_name_user_display_name: Optional[str] = None,
+        id_user_id: Optional[str] = None,
+        display_name_device_display_name: Optional[str] = None,
+        id_device_id: Optional[str] = None,
+        display_name_application_display_name: Optional[str] = None,
+        id_application_id: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = additional_properties
-        self.application = application
-        self.device = device
-        self.user = user
+        self.display_name_user_display_name = display_name_user_display_name
+        self.id_user_id = id_user_id
+        self.display_name_device_display_name = display_name_device_display_name
+        self.id_device_id = id_device_id
+        self.display_name_application_display_name = display_name_application_display_name
+        self.id_application_id = id_application_id
+
+
+class MicrosoftGraphIncomingContext(msrest.serialization.Model):
+    """incomingContext.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param observed_participant_id: The ID of the participant that is under observation. Read-only.
+    :type observed_participant_id: str
+    :param on_behalf_of: identitySet.
+    :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
+    :param source_participant_id: The ID of the participant that triggered the incoming call. Read-
+     only.
+    :type source_participant_id: str
+    :param transferor: identitySet.
+    :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'observed_participant_id': {'key': 'observedParticipantId', 'type': 'str'},
+        'on_behalf_of': {'key': 'onBehalfOf', 'type': 'MicrosoftGraphIdentitySet'},
+        'source_participant_id': {'key': 'sourceParticipantId', 'type': 'str'},
+        'transferor': {'key': 'transferor', 'type': 'MicrosoftGraphIdentitySet'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        observed_participant_id: Optional[str] = None,
+        on_behalf_of: Optional["MicrosoftGraphIdentitySet"] = None,
+        source_participant_id: Optional[str] = None,
+        transferor: Optional["MicrosoftGraphIdentitySet"] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphIncomingContext, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.observed_participant_id = observed_participant_id
+        self.on_behalf_of = on_behalf_of
+        self.source_participant_id = source_participant_id
+        self.transferor = transferor
+
+
+class MicrosoftGraphInvitationParticipantInfo(msrest.serialization.Model):
+    """invitationParticipantInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param replaces_call_id: Optional. The call which the target identity is currently a part of.
+     This call will be dropped once the participant is added.
+    :type replaces_call_id: str
+    :param display_name_identity_user_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_identity_user_display_name: str
+    :param id_identity_user_id: Unique identifier for the identity.
+    :type id_identity_user_id: str
+    :param display_name_identity_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_identity_device_display_name: str
+    :param id_identity_device_id: Unique identifier for the identity.
+    :type id_identity_device_id: str
+    :param display_name_identity_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_identity_application_display_name: str
+    :param id_identity_application_id: Unique identifier for the identity.
+    :type id_identity_application_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'replaces_call_id': {'key': 'replacesCallId', 'type': 'str'},
+        'display_name_identity_user_display_name': {'key': 'identity.user.displayName', 'type': 'str'},
+        'id_identity_user_id': {'key': 'identity.user.id', 'type': 'str'},
+        'display_name_identity_device_display_name': {'key': 'identity.device.displayName', 'type': 'str'},
+        'id_identity_device_id': {'key': 'identity.device.id', 'type': 'str'},
+        'display_name_identity_application_display_name': {'key': 'identity.application.displayName', 'type': 'str'},
+        'id_identity_application_id': {'key': 'identity.application.id', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        replaces_call_id: Optional[str] = None,
+        display_name_identity_user_display_name: Optional[str] = None,
+        id_identity_user_id: Optional[str] = None,
+        display_name_identity_device_display_name: Optional[str] = None,
+        id_identity_device_id: Optional[str] = None,
+        display_name_identity_application_display_name: Optional[str] = None,
+        id_identity_application_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphInvitationParticipantInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.replaces_call_id = replaces_call_id
+        self.display_name_identity_user_display_name = display_name_identity_user_display_name
+        self.id_identity_user_id = id_identity_user_id
+        self.display_name_identity_device_display_name = display_name_identity_device_display_name
+        self.id_identity_device_id = id_identity_device_id
+        self.display_name_identity_application_display_name = display_name_identity_application_display_name
+        self.id_identity_application_id = id_identity_application_id
+
+
+class MicrosoftGraphInviteParticipantsOperation(MicrosoftGraphCommsOperation):
+    """inviteParticipantsOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param participants: The participants to invite.
+    :type participants: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        participants: Optional[List["MicrosoftGraphInvitationParticipantInfo"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphInviteParticipantsOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
+        self.participants = participants
 
 
 class MicrosoftGraphItemBody(msrest.serialization.Model):
@@ -256,6 +2038,55 @@ class MicrosoftGraphItemBody(msrest.serialization.Model):
         self.additional_properties = additional_properties
         self.content = content
         self.content_type = content_type
+
+
+class MicrosoftGraphMediaStream(msrest.serialization.Model):
+    """mediaStream.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param direction:  Possible values include: "inactive", "sendOnly", "receiveOnly",
+     "sendReceive".
+    :type direction: str or ~cloud_communications.models.MicrosoftGraphMediaDirection
+    :param label: The media stream label.
+    :type label: str
+    :param media_type:  Possible values include: "audio", "video", "videoBasedScreenSharing",
+     "data", "unknownFutureValue".
+    :type media_type: str or ~cloud_communications.models.MicrosoftGraphModality
+    :param server_muted: If the media is muted by the server.
+    :type server_muted: bool
+    :param source_id: The source ID.
+    :type source_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'direction': {'key': 'direction', 'type': 'str'},
+        'label': {'key': 'label', 'type': 'str'},
+        'media_type': {'key': 'mediaType', 'type': 'str'},
+        'server_muted': {'key': 'serverMuted', 'type': 'bool'},
+        'source_id': {'key': 'sourceId', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        direction: Optional[Union[str, "MicrosoftGraphMediaDirection"]] = None,
+        label: Optional[str] = None,
+        media_type: Optional[Union[str, "MicrosoftGraphModality"]] = None,
+        server_muted: Optional[bool] = None,
+        source_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphMediaStream, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.direction = direction
+        self.label = label
+        self.media_type = media_type
+        self.server_muted = server_muted
+        self.source_id = source_id
 
 
 class MicrosoftGraphMeetingParticipantInfo(msrest.serialization.Model):
@@ -320,6 +2151,63 @@ class MicrosoftGraphMeetingParticipants(msrest.serialization.Model):
         self.additional_properties = additional_properties
         self.attendees = attendees
         self.organizer = organizer
+
+
+class MicrosoftGraphMuteParticipantOperation(MicrosoftGraphCommsOperation):
+    """muteParticipantOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphMuteParticipantOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
 
 
 class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
@@ -406,6 +2294,897 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         self.video_teleconference_id = video_teleconference_id
         self.attendees = attendees
         self.organizer = organizer
+
+
+class MicrosoftGraphParticipant(MicrosoftGraphEntity):
+    """participant.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param is_in_lobby: true if the participant is in lobby.
+    :type is_in_lobby: bool
+    :param is_muted: true if the participant is muted (client or server muted).
+    :type is_muted: bool
+    :param media_streams: The list of media streams.
+    :type media_streams: list[~cloud_communications.models.MicrosoftGraphMediaStream]
+    :param recording_status:  Possible values include: "unknown", "notRecording", "recording",
+     "failed", "unknownFutureValue".
+    :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
+    :param display_name_recording_info_initiator_user_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_recording_info_initiator_user_display_name: str
+    :param id_recording_info_initiator_user_id: Unique identifier for the identity.
+    :type id_recording_info_initiator_user_id: str
+    :param display_name_recording_info_initiator_device_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_recording_info_initiator_device_display_name: str
+    :param id_recording_info_initiator_device_id: Unique identifier for the identity.
+    :type id_recording_info_initiator_device_id: str
+    :param display_name_recording_info_initiator_application_display_name: The identity's display
+     name. Note that this may not always be available or up to date. For example, if a user changes
+     their display name, the API may show the new value in a future response, but the items
+     associated with the user won't show up as having changed when using delta.
+    :type display_name_recording_info_initiator_application_display_name: str
+    :param id_recording_info_initiator_application_id: Unique identifier for the identity.
+    :type id_recording_info_initiator_application_id: str
+    :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
+     physical location at the start of the call. Read-only.
+    :type country_code: str
+    :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
+     "skypeForBusinessVoipPhone", "unknownFutureValue".
+    :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+    :param language_id: The language culture string. Read-only.
+    :type language_id: str
+    :param region: The home region of the participant. This can be a country, a continent, or a
+     larger geographic region. This does not change based on the participant's current physical
+     location. Read-only.
+    :type region: str
+    :param display_name_info_identity_user_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_info_identity_user_display_name: str
+    :param id_info_identity_user_id: Unique identifier for the identity.
+    :type id_info_identity_user_id: str
+    :param display_name_info_identity_device_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_info_identity_device_display_name: str
+    :param id_info_identity_device_id: Unique identifier for the identity.
+    :type id_info_identity_device_id: str
+    :param display_name_info_identity_application_display_name: The identity's display name. Note
+     that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_info_identity_application_display_name: str
+    :param id_info_identity_application_id: Unique identifier for the identity.
+    :type id_info_identity_application_id: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'is_in_lobby': {'key': 'isInLobby', 'type': 'bool'},
+        'is_muted': {'key': 'isMuted', 'type': 'bool'},
+        'media_streams': {'key': 'mediaStreams', 'type': '[MicrosoftGraphMediaStream]'},
+        'recording_status': {'key': 'recordingInfo.recordingStatus', 'type': 'str'},
+        'display_name_recording_info_initiator_user_display_name': {'key': 'recordingInfo.initiator.user.displayName', 'type': 'str'},
+        'id_recording_info_initiator_user_id': {'key': 'recordingInfo.initiator.user.id', 'type': 'str'},
+        'display_name_recording_info_initiator_device_display_name': {'key': 'recordingInfo.initiator.device.displayName', 'type': 'str'},
+        'id_recording_info_initiator_device_id': {'key': 'recordingInfo.initiator.device.id', 'type': 'str'},
+        'display_name_recording_info_initiator_application_display_name': {'key': 'recordingInfo.initiator.application.displayName', 'type': 'str'},
+        'id_recording_info_initiator_application_id': {'key': 'recordingInfo.initiator.application.id', 'type': 'str'},
+        'country_code': {'key': 'info.countryCode', 'type': 'str'},
+        'endpoint_type': {'key': 'info.endpointType', 'type': 'str'},
+        'language_id': {'key': 'info.languageId', 'type': 'str'},
+        'region': {'key': 'info.region', 'type': 'str'},
+        'display_name_info_identity_user_display_name': {'key': 'info.identity.user.displayName', 'type': 'str'},
+        'id_info_identity_user_id': {'key': 'info.identity.user.id', 'type': 'str'},
+        'display_name_info_identity_device_display_name': {'key': 'info.identity.device.displayName', 'type': 'str'},
+        'id_info_identity_device_id': {'key': 'info.identity.device.id', 'type': 'str'},
+        'display_name_info_identity_application_display_name': {'key': 'info.identity.application.displayName', 'type': 'str'},
+        'id_info_identity_application_id': {'key': 'info.identity.application.id', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        is_in_lobby: Optional[bool] = None,
+        is_muted: Optional[bool] = None,
+        media_streams: Optional[List["MicrosoftGraphMediaStream"]] = None,
+        recording_status: Optional[Union[str, "MicrosoftGraphRecordingStatus"]] = None,
+        display_name_recording_info_initiator_user_display_name: Optional[str] = None,
+        id_recording_info_initiator_user_id: Optional[str] = None,
+        display_name_recording_info_initiator_device_display_name: Optional[str] = None,
+        id_recording_info_initiator_device_id: Optional[str] = None,
+        display_name_recording_info_initiator_application_display_name: Optional[str] = None,
+        id_recording_info_initiator_application_id: Optional[str] = None,
+        country_code: Optional[str] = None,
+        endpoint_type: Optional[Union[str, "MicrosoftGraphEndpointType"]] = None,
+        language_id: Optional[str] = None,
+        region: Optional[str] = None,
+        display_name_info_identity_user_display_name: Optional[str] = None,
+        id_info_identity_user_id: Optional[str] = None,
+        display_name_info_identity_device_display_name: Optional[str] = None,
+        id_info_identity_device_id: Optional[str] = None,
+        display_name_info_identity_application_display_name: Optional[str] = None,
+        id_info_identity_application_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphParticipant, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.is_in_lobby = is_in_lobby
+        self.is_muted = is_muted
+        self.media_streams = media_streams
+        self.recording_status = recording_status
+        self.display_name_recording_info_initiator_user_display_name = display_name_recording_info_initiator_user_display_name
+        self.id_recording_info_initiator_user_id = id_recording_info_initiator_user_id
+        self.display_name_recording_info_initiator_device_display_name = display_name_recording_info_initiator_device_display_name
+        self.id_recording_info_initiator_device_id = id_recording_info_initiator_device_id
+        self.display_name_recording_info_initiator_application_display_name = display_name_recording_info_initiator_application_display_name
+        self.id_recording_info_initiator_application_id = id_recording_info_initiator_application_id
+        self.country_code = country_code
+        self.endpoint_type = endpoint_type
+        self.language_id = language_id
+        self.region = region
+        self.display_name_info_identity_user_display_name = display_name_info_identity_user_display_name
+        self.id_info_identity_user_id = id_info_identity_user_id
+        self.display_name_info_identity_device_display_name = display_name_info_identity_device_display_name
+        self.id_info_identity_device_id = id_info_identity_device_id
+        self.display_name_info_identity_application_display_name = display_name_info_identity_application_display_name
+        self.id_info_identity_application_id = id_info_identity_application_id
+
+
+class MicrosoftGraphParticipantInfo(msrest.serialization.Model):
+    """participantInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
+     physical location at the start of the call. Read-only.
+    :type country_code: str
+    :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
+     "skypeForBusinessVoipPhone", "unknownFutureValue".
+    :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+    :param language_id: The language culture string. Read-only.
+    :type language_id: str
+    :param region: The home region of the participant. This can be a country, a continent, or a
+     larger geographic region. This does not change based on the participant's current physical
+     location. Read-only.
+    :type region: str
+    :param display_name_identity_user_display_name: The identity's display name. Note that this may
+     not always be available or up to date. For example, if a user changes their display name, the
+     API may show the new value in a future response, but the items associated with the user won't
+     show up as having changed when using delta.
+    :type display_name_identity_user_display_name: str
+    :param id_identity_user_id: Unique identifier for the identity.
+    :type id_identity_user_id: str
+    :param display_name_identity_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_identity_device_display_name: str
+    :param id_identity_device_id: Unique identifier for the identity.
+    :type id_identity_device_id: str
+    :param display_name_identity_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_identity_application_display_name: str
+    :param id_identity_application_id: Unique identifier for the identity.
+    :type id_identity_application_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'country_code': {'key': 'countryCode', 'type': 'str'},
+        'endpoint_type': {'key': 'endpointType', 'type': 'str'},
+        'language_id': {'key': 'languageId', 'type': 'str'},
+        'region': {'key': 'region', 'type': 'str'},
+        'display_name_identity_user_display_name': {'key': 'identity.user.displayName', 'type': 'str'},
+        'id_identity_user_id': {'key': 'identity.user.id', 'type': 'str'},
+        'display_name_identity_device_display_name': {'key': 'identity.device.displayName', 'type': 'str'},
+        'id_identity_device_id': {'key': 'identity.device.id', 'type': 'str'},
+        'display_name_identity_application_display_name': {'key': 'identity.application.displayName', 'type': 'str'},
+        'id_identity_application_id': {'key': 'identity.application.id', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        country_code: Optional[str] = None,
+        endpoint_type: Optional[Union[str, "MicrosoftGraphEndpointType"]] = None,
+        language_id: Optional[str] = None,
+        region: Optional[str] = None,
+        display_name_identity_user_display_name: Optional[str] = None,
+        id_identity_user_id: Optional[str] = None,
+        display_name_identity_device_display_name: Optional[str] = None,
+        id_identity_device_id: Optional[str] = None,
+        display_name_identity_application_display_name: Optional[str] = None,
+        id_identity_application_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphParticipantInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.country_code = country_code
+        self.endpoint_type = endpoint_type
+        self.language_id = language_id
+        self.region = region
+        self.display_name_identity_user_display_name = display_name_identity_user_display_name
+        self.id_identity_user_id = id_identity_user_id
+        self.display_name_identity_device_display_name = display_name_identity_device_display_name
+        self.id_identity_device_id = id_identity_device_id
+        self.display_name_identity_application_display_name = display_name_identity_application_display_name
+        self.id_identity_application_id = id_identity_application_id
+
+
+class MicrosoftGraphPlayPromptOperation(MicrosoftGraphCommsOperation):
+    """playPromptOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphPlayPromptOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
+
+
+class MicrosoftGraphRecordingInfo(msrest.serialization.Model):
+    """recordingInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param recording_status:  Possible values include: "unknown", "notRecording", "recording",
+     "failed", "unknownFutureValue".
+    :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
+    :param display_name_initiator_user_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_initiator_user_display_name: str
+    :param id_initiator_user_id: Unique identifier for the identity.
+    :type id_initiator_user_id: str
+    :param display_name_initiator_device_display_name: The identity's display name. Note that this
+     may not always be available or up to date. For example, if a user changes their display name,
+     the API may show the new value in a future response, but the items associated with the user
+     won't show up as having changed when using delta.
+    :type display_name_initiator_device_display_name: str
+    :param id_initiator_device_id: Unique identifier for the identity.
+    :type id_initiator_device_id: str
+    :param display_name_initiator_application_display_name: The identity's display name. Note that
+     this may not always be available or up to date. For example, if a user changes their display
+     name, the API may show the new value in a future response, but the items associated with the
+     user won't show up as having changed when using delta.
+    :type display_name_initiator_application_display_name: str
+    :param id_initiator_application_id: Unique identifier for the identity.
+    :type id_initiator_application_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'recording_status': {'key': 'recordingStatus', 'type': 'str'},
+        'display_name_initiator_user_display_name': {'key': 'initiator.user.displayName', 'type': 'str'},
+        'id_initiator_user_id': {'key': 'initiator.user.id', 'type': 'str'},
+        'display_name_initiator_device_display_name': {'key': 'initiator.device.displayName', 'type': 'str'},
+        'id_initiator_device_id': {'key': 'initiator.device.id', 'type': 'str'},
+        'display_name_initiator_application_display_name': {'key': 'initiator.application.displayName', 'type': 'str'},
+        'id_initiator_application_id': {'key': 'initiator.application.id', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        recording_status: Optional[Union[str, "MicrosoftGraphRecordingStatus"]] = None,
+        display_name_initiator_user_display_name: Optional[str] = None,
+        id_initiator_user_id: Optional[str] = None,
+        display_name_initiator_device_display_name: Optional[str] = None,
+        id_initiator_device_id: Optional[str] = None,
+        display_name_initiator_application_display_name: Optional[str] = None,
+        id_initiator_application_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphRecordingInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.recording_status = recording_status
+        self.display_name_initiator_user_display_name = display_name_initiator_user_display_name
+        self.id_initiator_user_id = id_initiator_user_id
+        self.display_name_initiator_device_display_name = display_name_initiator_device_display_name
+        self.id_initiator_device_id = id_initiator_device_id
+        self.display_name_initiator_application_display_name = display_name_initiator_application_display_name
+        self.id_initiator_application_id = id_initiator_application_id
+
+
+class MicrosoftGraphRecordOperation(MicrosoftGraphCommsOperation):
+    """recordOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param recording_access_token: The access token required to retrieve the recording.
+    :type recording_access_token: str
+    :param recording_location: The location where the recording is located.
+    :type recording_location: str
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'recording_access_token': {'key': 'recordingAccessToken', 'type': 'str'},
+        'recording_location': {'key': 'recordingLocation', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        recording_access_token: Optional[str] = None,
+        recording_location: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphRecordOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
+        self.recording_access_token = recording_access_token
+        self.recording_location = recording_location
+
+
+class MicrosoftGraphResultInfo(msrest.serialization.Model):
+    """resultInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'code': {'key': 'code', 'type': 'int'},
+        'message': {'key': 'message', 'type': 'str'},
+        'subcode': {'key': 'subcode', 'type': 'int'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphResultInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.code = code
+        self.message = message
+        self.subcode = subcode
+
+
+class MicrosoftGraphSubscribeToToneOperation(MicrosoftGraphCommsOperation):
+    """subscribeToToneOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphSubscribeToToneOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
+
+
+class MicrosoftGraphTeleconferenceDeviceMediaQuality(msrest.serialization.Model):
+    """teleconferenceDeviceMediaQuality.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param average_inbound_jitter: The average inbound stream network jitter.
+    :type average_inbound_jitter: ~datetime.timedelta
+    :param average_inbound_packet_loss_rate_in_percentage: The average inbound stream packet loss
+     rate in percentage (0-100). For example, 0.01 means 0.01%.
+    :type average_inbound_packet_loss_rate_in_percentage: float
+    :param average_inbound_round_trip_delay: The average inbound stream network round trip delay.
+    :type average_inbound_round_trip_delay: ~datetime.timedelta
+    :param average_outbound_jitter: The average outbound stream network jitter.
+    :type average_outbound_jitter: ~datetime.timedelta
+    :param average_outbound_packet_loss_rate_in_percentage: The average outbound stream packet loss
+     rate in percentage (0-100). For example, 0.01 means 0.01%.
+    :type average_outbound_packet_loss_rate_in_percentage: float
+    :param average_outbound_round_trip_delay: The average outbound stream network round trip delay.
+    :type average_outbound_round_trip_delay: ~datetime.timedelta
+    :param channel_index: The channel index of media. Indexing begins with 1.  If a media session
+     contains 3 video modalities, channel indexes will be 1, 2, and 3.
+    :type channel_index: int
+    :param inbound_packets: The total number of the inbound packets.
+    :type inbound_packets: long
+    :param local_ip_address: the local IP address for the media session.
+    :type local_ip_address: str
+    :param local_port: The local media port.
+    :type local_port: int
+    :param maximum_inbound_jitter: The maximum inbound stream network jitter.
+    :type maximum_inbound_jitter: ~datetime.timedelta
+    :param maximum_inbound_packet_loss_rate_in_percentage: The maximum inbound stream packet loss
+     rate in percentage (0-100). For example, 0.01 means 0.01%.
+    :type maximum_inbound_packet_loss_rate_in_percentage: float
+    :param maximum_inbound_round_trip_delay: The maximum inbound stream network round trip delay.
+    :type maximum_inbound_round_trip_delay: ~datetime.timedelta
+    :param maximum_outbound_jitter: The maximum outbound stream network jitter.
+    :type maximum_outbound_jitter: ~datetime.timedelta
+    :param maximum_outbound_packet_loss_rate_in_percentage: The maximum outbound stream packet loss
+     rate in percentage (0-100). For example, 0.01 means 0.01%.
+    :type maximum_outbound_packet_loss_rate_in_percentage: float
+    :param maximum_outbound_round_trip_delay: The maximum outbound stream network round trip delay.
+    :type maximum_outbound_round_trip_delay: ~datetime.timedelta
+    :param media_duration: The total modality duration. If the media enabled and disabled multiple
+     times, MediaDuration will the summation of all of the durations.
+    :type media_duration: ~datetime.timedelta
+    :param network_link_speed_in_bytes: The network link speed in bytes.
+    :type network_link_speed_in_bytes: long
+    :param outbound_packets: The total number of the outbound packets.
+    :type outbound_packets: long
+    :param remote_ip_address: The remote IP address for the media session.
+    :type remote_ip_address: str
+    :param remote_port: The remote media port.
+    :type remote_port: int
+    """
+
+    _validation = {
+        'channel_index': {'maximum': 2147483647, 'minimum': -2147483648},
+        'local_port': {'maximum': 2147483647, 'minimum': -2147483648},
+        'remote_port': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'average_inbound_jitter': {'key': 'averageInboundJitter', 'type': 'duration'},
+        'average_inbound_packet_loss_rate_in_percentage': {'key': 'averageInboundPacketLossRateInPercentage', 'type': 'float'},
+        'average_inbound_round_trip_delay': {'key': 'averageInboundRoundTripDelay', 'type': 'duration'},
+        'average_outbound_jitter': {'key': 'averageOutboundJitter', 'type': 'duration'},
+        'average_outbound_packet_loss_rate_in_percentage': {'key': 'averageOutboundPacketLossRateInPercentage', 'type': 'float'},
+        'average_outbound_round_trip_delay': {'key': 'averageOutboundRoundTripDelay', 'type': 'duration'},
+        'channel_index': {'key': 'channelIndex', 'type': 'int'},
+        'inbound_packets': {'key': 'inboundPackets', 'type': 'long'},
+        'local_ip_address': {'key': 'localIPAddress', 'type': 'str'},
+        'local_port': {'key': 'localPort', 'type': 'int'},
+        'maximum_inbound_jitter': {'key': 'maximumInboundJitter', 'type': 'duration'},
+        'maximum_inbound_packet_loss_rate_in_percentage': {'key': 'maximumInboundPacketLossRateInPercentage', 'type': 'float'},
+        'maximum_inbound_round_trip_delay': {'key': 'maximumInboundRoundTripDelay', 'type': 'duration'},
+        'maximum_outbound_jitter': {'key': 'maximumOutboundJitter', 'type': 'duration'},
+        'maximum_outbound_packet_loss_rate_in_percentage': {'key': 'maximumOutboundPacketLossRateInPercentage', 'type': 'float'},
+        'maximum_outbound_round_trip_delay': {'key': 'maximumOutboundRoundTripDelay', 'type': 'duration'},
+        'media_duration': {'key': 'mediaDuration', 'type': 'duration'},
+        'network_link_speed_in_bytes': {'key': 'networkLinkSpeedInBytes', 'type': 'long'},
+        'outbound_packets': {'key': 'outboundPackets', 'type': 'long'},
+        'remote_ip_address': {'key': 'remoteIPAddress', 'type': 'str'},
+        'remote_port': {'key': 'remotePort', 'type': 'int'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        average_inbound_jitter: Optional[datetime.timedelta] = None,
+        average_inbound_packet_loss_rate_in_percentage: Optional[float] = None,
+        average_inbound_round_trip_delay: Optional[datetime.timedelta] = None,
+        average_outbound_jitter: Optional[datetime.timedelta] = None,
+        average_outbound_packet_loss_rate_in_percentage: Optional[float] = None,
+        average_outbound_round_trip_delay: Optional[datetime.timedelta] = None,
+        channel_index: Optional[int] = None,
+        inbound_packets: Optional[int] = None,
+        local_ip_address: Optional[str] = None,
+        local_port: Optional[int] = None,
+        maximum_inbound_jitter: Optional[datetime.timedelta] = None,
+        maximum_inbound_packet_loss_rate_in_percentage: Optional[float] = None,
+        maximum_inbound_round_trip_delay: Optional[datetime.timedelta] = None,
+        maximum_outbound_jitter: Optional[datetime.timedelta] = None,
+        maximum_outbound_packet_loss_rate_in_percentage: Optional[float] = None,
+        maximum_outbound_round_trip_delay: Optional[datetime.timedelta] = None,
+        media_duration: Optional[datetime.timedelta] = None,
+        network_link_speed_in_bytes: Optional[int] = None,
+        outbound_packets: Optional[int] = None,
+        remote_ip_address: Optional[str] = None,
+        remote_port: Optional[int] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphTeleconferenceDeviceMediaQuality, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.average_inbound_jitter = average_inbound_jitter
+        self.average_inbound_packet_loss_rate_in_percentage = average_inbound_packet_loss_rate_in_percentage
+        self.average_inbound_round_trip_delay = average_inbound_round_trip_delay
+        self.average_outbound_jitter = average_outbound_jitter
+        self.average_outbound_packet_loss_rate_in_percentage = average_outbound_packet_loss_rate_in_percentage
+        self.average_outbound_round_trip_delay = average_outbound_round_trip_delay
+        self.channel_index = channel_index
+        self.inbound_packets = inbound_packets
+        self.local_ip_address = local_ip_address
+        self.local_port = local_port
+        self.maximum_inbound_jitter = maximum_inbound_jitter
+        self.maximum_inbound_packet_loss_rate_in_percentage = maximum_inbound_packet_loss_rate_in_percentage
+        self.maximum_inbound_round_trip_delay = maximum_inbound_round_trip_delay
+        self.maximum_outbound_jitter = maximum_outbound_jitter
+        self.maximum_outbound_packet_loss_rate_in_percentage = maximum_outbound_packet_loss_rate_in_percentage
+        self.maximum_outbound_round_trip_delay = maximum_outbound_round_trip_delay
+        self.media_duration = media_duration
+        self.network_link_speed_in_bytes = network_link_speed_in_bytes
+        self.outbound_packets = outbound_packets
+        self.remote_ip_address = remote_ip_address
+        self.remote_port = remote_port
+
+
+class MicrosoftGraphTeleconferenceDeviceQuality(msrest.serialization.Model):
+    """teleconferenceDeviceQuality.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param call_chain_id: A unique identifier for all  the participant calls in a conference or a
+     unique identifier for two participant calls in P2P call. This needs to be copied over from
+     Microsoft.Graph.Call.CallChainId.
+    :type call_chain_id: str
+    :param cloud_service_deployment_environment: A geo-region where the service is deployed, such
+     as ProdNoam.
+    :type cloud_service_deployment_environment: str
+    :param cloud_service_deployment_id: A unique deployment identifier assigned by Azure.
+    :type cloud_service_deployment_id: str
+    :param cloud_service_instance_name: The Azure deployed cloud service instance name, such as
+     FrontEnd_IN_3.
+    :type cloud_service_instance_name: str
+    :param cloud_service_name: The Azure deployed cloud service name, such as contoso.cloudapp.net.
+    :type cloud_service_name: str
+    :param device_description: Any additional description, such as VTC Bldg 30/21.
+    :type device_description: str
+    :param device_name: The user media agent name, such as Cisco SX80.
+    :type device_name: str
+    :param media_leg_id: A unique identifier for a specific media leg of a participant in a
+     conference.  One participant can have multiple media leg identifiers if retargeting happens.
+     CVI partner assigns this value.
+    :type media_leg_id: str
+    :param media_quality_list: The list of media qualities in a media session (call), such as audio
+     quality, video quality, and/or screen sharing quality.
+    :type media_quality_list:
+     list[~cloud_communications.models.MicrosoftGraphTeleconferenceDeviceMediaQuality]
+    :param participant_id: A unique identifier for a specific participant in a conference. The CVI
+     partner needs to copy over Call.MyParticipantId to this property.
+    :type participant_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'call_chain_id': {'key': 'callChainId', 'type': 'str'},
+        'cloud_service_deployment_environment': {'key': 'cloudServiceDeploymentEnvironment', 'type': 'str'},
+        'cloud_service_deployment_id': {'key': 'cloudServiceDeploymentId', 'type': 'str'},
+        'cloud_service_instance_name': {'key': 'cloudServiceInstanceName', 'type': 'str'},
+        'cloud_service_name': {'key': 'cloudServiceName', 'type': 'str'},
+        'device_description': {'key': 'deviceDescription', 'type': 'str'},
+        'device_name': {'key': 'deviceName', 'type': 'str'},
+        'media_leg_id': {'key': 'mediaLegId', 'type': 'str'},
+        'media_quality_list': {'key': 'mediaQualityList', 'type': '[MicrosoftGraphTeleconferenceDeviceMediaQuality]'},
+        'participant_id': {'key': 'participantId', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        call_chain_id: Optional[str] = None,
+        cloud_service_deployment_environment: Optional[str] = None,
+        cloud_service_deployment_id: Optional[str] = None,
+        cloud_service_instance_name: Optional[str] = None,
+        cloud_service_name: Optional[str] = None,
+        device_description: Optional[str] = None,
+        device_name: Optional[str] = None,
+        media_leg_id: Optional[str] = None,
+        media_quality_list: Optional[List["MicrosoftGraphTeleconferenceDeviceMediaQuality"]] = None,
+        participant_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphTeleconferenceDeviceQuality, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.call_chain_id = call_chain_id
+        self.cloud_service_deployment_environment = cloud_service_deployment_environment
+        self.cloud_service_deployment_id = cloud_service_deployment_id
+        self.cloud_service_instance_name = cloud_service_instance_name
+        self.cloud_service_name = cloud_service_name
+        self.device_description = device_description
+        self.device_name = device_name
+        self.media_leg_id = media_leg_id
+        self.media_quality_list = media_quality_list
+        self.participant_id = participant_id
+
+
+class MicrosoftGraphToneInfo(msrest.serialization.Model):
+    """toneInfo.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param sequence_id: An incremental identifier used for ordering DTMF events.
+    :type sequence_id: long
+    :param tone:  Possible values include: "tone0", "tone1", "tone2", "tone3", "tone4", "tone5",
+     "tone6", "tone7", "tone8", "tone9", "star", "pound", "a", "b", "c", "d", "flash".
+    :type tone: str or ~cloud_communications.models.MicrosoftGraphTone
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'sequence_id': {'key': 'sequenceId', 'type': 'long'},
+        'tone': {'key': 'tone', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        sequence_id: Optional[int] = None,
+        tone: Optional[Union[str, "MicrosoftGraphTone"]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphToneInfo, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.sequence_id = sequence_id
+        self.tone = tone
+
+
+class MicrosoftGraphUnmuteParticipantOperation(MicrosoftGraphCommsOperation):
+    """unmuteParticipantOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphUnmuteParticipantOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
+
+
+class MicrosoftGraphUpdateRecordingStatusOperation(MicrosoftGraphCommsOperation):
+    """updateRecordingStatusOperation.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param id: Read-only.
+    :type id: str
+    :param client_context: Unique Client Context string. Max limit is 256 chars.
+    :type client_context: str
+    :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
+    :param code: The result code.
+    :type code: int
+    :param message: The message.
+    :type message: str
+    :param subcode: The result sub-code.
+    :type subcode: int
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    """
+
+    _validation = {
+        'code': {'maximum': 2147483647, 'minimum': -2147483648},
+        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'str'},
+        'code': {'key': 'resultInfo.code', 'type': 'int'},
+        'message': {'key': 'resultInfo.message', 'type': 'str'},
+        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        id: Optional[str] = None,
+        client_context: Optional[str] = None,
+        status: Optional[Union[str, "MicrosoftGraphOperationStatus"]] = None,
+        code: Optional[int] = None,
+        message: Optional[str] = None,
+        subcode: Optional[int] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphUpdateRecordingStatusOperation, self).__init__(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode, **kwargs)
+        self.additional_properties = additional_properties
+        self.additional_properties = additional_properties
 
 
 class OdataError(msrest.serialization.Model):
@@ -537,3 +3316,645 @@ class OdataErrorMain(msrest.serialization.Model):
         self.target = target
         self.details = details
         self.innererror = innererror
+
+
+class Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths13Zt223CommunicationsCallsCallIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.client_context = client_context
+
+
+class Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param prompts:
+    :type prompts: list[dict[str, object]]
+    :param barge_in_allowed:
+    :type barge_in_allowed: bool
+    :param initial_silence_timeout_in_seconds:
+    :type initial_silence_timeout_in_seconds: int
+    :param max_silence_timeout_in_seconds:
+    :type max_silence_timeout_in_seconds: int
+    :param max_record_duration_in_seconds:
+    :type max_record_duration_in_seconds: int
+    :param play_beep:
+    :type play_beep: bool
+    :param stop_tones:
+    :type stop_tones: list[str]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _validation = {
+        'initial_silence_timeout_in_seconds': {'maximum': 2147483647, 'minimum': -2147483648},
+        'max_silence_timeout_in_seconds': {'maximum': 2147483647, 'minimum': -2147483648},
+        'max_record_duration_in_seconds': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'prompts': {'key': 'prompts', 'type': '[{object}]'},
+        'barge_in_allowed': {'key': 'bargeInAllowed', 'type': 'bool'},
+        'initial_silence_timeout_in_seconds': {'key': 'initialSilenceTimeoutInSeconds', 'type': 'int'},
+        'max_silence_timeout_in_seconds': {'key': 'maxSilenceTimeoutInSeconds', 'type': 'int'},
+        'max_record_duration_in_seconds': {'key': 'maxRecordDurationInSeconds', 'type': 'int'},
+        'play_beep': {'key': 'playBeep', 'type': 'bool'},
+        'stop_tones': {'key': 'stopTones', 'type': '[str]'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        prompts: Optional[List[Dict[str, object]]] = None,
+        barge_in_allowed: Optional[bool] = False,
+        initial_silence_timeout_in_seconds: Optional[int] = None,
+        max_silence_timeout_in_seconds: Optional[int] = None,
+        max_record_duration_in_seconds: Optional[int] = None,
+        play_beep: Optional[bool] = False,
+        stop_tones: Optional[List[str]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths14Wb7KqCommunicationsCallsCallIdMicrosoftGraphRecordresponsePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.prompts = prompts
+        self.barge_in_allowed = barge_in_allowed
+        self.initial_silence_timeout_in_seconds = initial_silence_timeout_in_seconds
+        self.max_silence_timeout_in_seconds = max_silence_timeout_in_seconds
+        self.max_record_duration_in_seconds = max_record_duration_in_seconds
+        self.play_beep = play_beep
+        self.stop_tones = stop_tones
+        self.client_context = client_context
+
+
+class Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param targets:
+    :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
+    :param timeout:
+    :type timeout: int
+    :param callback_uri:
+    :type callback_uri: str
+    """
+
+    _validation = {
+        'timeout': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'targets': {'key': 'targets', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
+        'timeout': {'key': 'timeout', 'type': 'int'},
+        'callback_uri': {'key': 'callbackUri', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        targets: Optional[List["MicrosoftGraphInvitationParticipantInfo"]] = None,
+        timeout: Optional[int] = None,
+        callback_uri: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.targets = targets
+        self.timeout = timeout
+        self.callback_uri = callback_uri
+
+
+class Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param participants:
+    :type participants: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'participants': {'key': 'participants', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        participants: Optional[List["MicrosoftGraphInvitationParticipantInfo"]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.participants = participants
+        self.client_context = client_context
+
+
+class Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param prompts:
+    :type prompts: list[dict[str, object]]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'prompts': {'key': 'prompts', 'type': '[{object}]'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        prompts: Optional[List[Dict[str, object]]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.prompts = prompts
+        self.client_context = client_context
+
+
+class Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param call_chain_id: A unique identifier for all  the participant calls in a conference or a
+     unique identifier for two participant calls in P2P call. This needs to be copied over from
+     Microsoft.Graph.Call.CallChainId.
+    :type call_chain_id: str
+    :param cloud_service_deployment_environment: A geo-region where the service is deployed, such
+     as ProdNoam.
+    :type cloud_service_deployment_environment: str
+    :param cloud_service_deployment_id: A unique deployment identifier assigned by Azure.
+    :type cloud_service_deployment_id: str
+    :param cloud_service_instance_name: The Azure deployed cloud service instance name, such as
+     FrontEnd_IN_3.
+    :type cloud_service_instance_name: str
+    :param cloud_service_name: The Azure deployed cloud service name, such as contoso.cloudapp.net.
+    :type cloud_service_name: str
+    :param device_description: Any additional description, such as VTC Bldg 30/21.
+    :type device_description: str
+    :param device_name: The user media agent name, such as Cisco SX80.
+    :type device_name: str
+    :param media_leg_id: A unique identifier for a specific media leg of a participant in a
+     conference.  One participant can have multiple media leg identifiers if retargeting happens.
+     CVI partner assigns this value.
+    :type media_leg_id: str
+    :param media_quality_list: The list of media qualities in a media session (call), such as audio
+     quality, video quality, and/or screen sharing quality.
+    :type media_quality_list:
+     list[~cloud_communications.models.MicrosoftGraphTeleconferenceDeviceMediaQuality]
+    :param participant_id: A unique identifier for a specific participant in a conference. The CVI
+     partner needs to copy over Call.MyParticipantId to this property.
+    :type participant_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'call_chain_id': {'key': 'quality.callChainId', 'type': 'str'},
+        'cloud_service_deployment_environment': {'key': 'quality.cloudServiceDeploymentEnvironment', 'type': 'str'},
+        'cloud_service_deployment_id': {'key': 'quality.cloudServiceDeploymentId', 'type': 'str'},
+        'cloud_service_instance_name': {'key': 'quality.cloudServiceInstanceName', 'type': 'str'},
+        'cloud_service_name': {'key': 'quality.cloudServiceName', 'type': 'str'},
+        'device_description': {'key': 'quality.deviceDescription', 'type': 'str'},
+        'device_name': {'key': 'quality.deviceName', 'type': 'str'},
+        'media_leg_id': {'key': 'quality.mediaLegId', 'type': 'str'},
+        'media_quality_list': {'key': 'quality.mediaQualityList', 'type': '[MicrosoftGraphTeleconferenceDeviceMediaQuality]'},
+        'participant_id': {'key': 'quality.participantId', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        call_chain_id: Optional[str] = None,
+        cloud_service_deployment_environment: Optional[str] = None,
+        cloud_service_deployment_id: Optional[str] = None,
+        cloud_service_instance_name: Optional[str] = None,
+        cloud_service_name: Optional[str] = None,
+        device_description: Optional[str] = None,
+        device_name: Optional[str] = None,
+        media_leg_id: Optional[str] = None,
+        media_quality_list: Optional[List["MicrosoftGraphTeleconferenceDeviceMediaQuality"]] = None,
+        participant_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.call_chain_id = call_chain_id
+        self.cloud_service_deployment_environment = cloud_service_deployment_environment
+        self.cloud_service_deployment_id = cloud_service_deployment_id
+        self.cloud_service_instance_name = cloud_service_instance_name
+        self.cloud_service_name = cloud_service_name
+        self.device_description = device_description
+        self.device_name = device_name
+        self.media_leg_id = media_leg_id
+        self.media_quality_list = media_quality_list
+        self.participant_id = participant_id
+
+
+class Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param chat_info: chatInfo.
+    :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
+    :param end_date_time:
+    :type end_date_time: ~datetime.datetime
+    :param external_id:
+    :type external_id: str
+    :param start_date_time:
+    :type start_date_time: ~datetime.datetime
+    :param subject:
+    :type subject: str
+    :param attendees:
+    :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
+    :param organizer: meetingParticipantInfo.
+    :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
+        'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
+        'external_id': {'key': 'externalId', 'type': 'str'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
+        'subject': {'key': 'subject', 'type': 'str'},
+        'attendees': {'key': 'participants.attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
+        'organizer': {'key': 'participants.organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        chat_info: Optional["MicrosoftGraphChatInfo"] = None,
+        end_date_time: Optional[datetime.datetime] = None,
+        external_id: Optional[str] = None,
+        start_date_time: Optional[datetime.datetime] = None,
+        subject: Optional[str] = None,
+        attendees: Optional[List["MicrosoftGraphMeetingParticipantInfo"]] = None,
+        organizer: Optional["MicrosoftGraphMeetingParticipantInfo"] = None,
+        **kwargs
+    ):
+        super(Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.chat_info = chat_info
+        self.end_date_time = end_date_time
+        self.external_id = external_id
+        self.start_date_time = start_date_time
+        self.subject = subject
+        self.attendees = attendees
+        self.organizer = organizer
+
+
+class Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.client_context = client_context
+
+
+class Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param reason:  Possible values include: "none", "busy", "forbidden", "unknownFutureValue".
+    :type reason: str or ~cloud_communications.models.MicrosoftGraphRejectReason
+    :param callback_uri:
+    :type callback_uri: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'reason': {'key': 'reason', 'type': 'str'},
+        'callback_uri': {'key': 'callbackUri', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        reason: Optional[Union[str, "MicrosoftGraphRejectReason"]] = None,
+        callback_uri: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.reason = reason
+        self.callback_uri = callback_uri
+
+
+class Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param replaces_call_id: Optional. The call which the target identity is currently a part of.
+     This call will be dropped once the participant is added.
+    :type replaces_call_id: str
+    :param display_name_transfer_target_identity_user_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_transfer_target_identity_user_display_name: str
+    :param id_transfer_target_identity_user_id: Unique identifier for the identity.
+    :type id_transfer_target_identity_user_id: str
+    :param display_name_transfer_target_identity_device_display_name: The identity's display name.
+     Note that this may not always be available or up to date. For example, if a user changes their
+     display name, the API may show the new value in a future response, but the items associated
+     with the user won't show up as having changed when using delta.
+    :type display_name_transfer_target_identity_device_display_name: str
+    :param id_transfer_target_identity_device_id: Unique identifier for the identity.
+    :type id_transfer_target_identity_device_id: str
+    :param display_name_transfer_target_identity_application_display_name: The identity's display
+     name. Note that this may not always be available or up to date. For example, if a user changes
+     their display name, the API may show the new value in a future response, but the items
+     associated with the user won't show up as having changed when using delta.
+    :type display_name_transfer_target_identity_application_display_name: str
+    :param id_transfer_target_identity_application_id: Unique identifier for the identity.
+    :type id_transfer_target_identity_application_id: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'replaces_call_id': {'key': 'transferTarget.replacesCallId', 'type': 'str'},
+        'display_name_transfer_target_identity_user_display_name': {'key': 'transferTarget.identity.user.displayName', 'type': 'str'},
+        'id_transfer_target_identity_user_id': {'key': 'transferTarget.identity.user.id', 'type': 'str'},
+        'display_name_transfer_target_identity_device_display_name': {'key': 'transferTarget.identity.device.displayName', 'type': 'str'},
+        'id_transfer_target_identity_device_id': {'key': 'transferTarget.identity.device.id', 'type': 'str'},
+        'display_name_transfer_target_identity_application_display_name': {'key': 'transferTarget.identity.application.displayName', 'type': 'str'},
+        'id_transfer_target_identity_application_id': {'key': 'transferTarget.identity.application.id', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        replaces_call_id: Optional[str] = None,
+        display_name_transfer_target_identity_user_display_name: Optional[str] = None,
+        id_transfer_target_identity_user_id: Optional[str] = None,
+        display_name_transfer_target_identity_device_display_name: Optional[str] = None,
+        id_transfer_target_identity_device_id: Optional[str] = None,
+        display_name_transfer_target_identity_application_display_name: Optional[str] = None,
+        id_transfer_target_identity_application_id: Optional[str] = None,
+        **kwargs
+    ):
+        super(Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.replaces_call_id = replaces_call_id
+        self.display_name_transfer_target_identity_user_display_name = display_name_transfer_target_identity_user_display_name
+        self.id_transfer_target_identity_user_id = id_transfer_target_identity_user_id
+        self.display_name_transfer_target_identity_device_display_name = display_name_transfer_target_identity_device_display_name
+        self.id_transfer_target_identity_device_id = id_transfer_target_identity_device_id
+        self.display_name_transfer_target_identity_application_display_name = display_name_transfer_target_identity_application_display_name
+        self.id_transfer_target_identity_application_id = id_transfer_target_identity_application_id
+
+
+class PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param status:  Possible values include: "unknown", "notRecording", "recording", "failed",
+     "unknownFutureValue".
+    :type status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'status': {'key': 'status', 'type': 'str'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        status: Optional[Union[str, "MicrosoftGraphRecordingStatus"]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.status = status
+        self.client_context = client_context
+
+
+class PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param role:  Possible values include: "viewer", "sharer".
+    :type role: str or ~cloud_communications.models.MicrosoftGraphScreenSharingRole
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'role': {'key': 'role', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        role: Optional[Union[str, "MicrosoftGraphScreenSharingRole"]] = None,
+        **kwargs
+    ):
+        super(PathsOj95ZpCommunicationsCallsCallIdMicrosoftGraphChangescreensharingrolePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.role = role
+
+
+class PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param callback_uri:
+    :type callback_uri: str
+    :param media_config: mediaConfig.
+    :type media_config: dict[str, object]
+    :param accepted_modalities:
+    :type accepted_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'callback_uri': {'key': 'callbackUri', 'type': 'str'},
+        'media_config': {'key': 'mediaConfig', 'type': '{object}'},
+        'accepted_modalities': {'key': 'acceptedModalities', 'type': '[str]'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        callback_uri: Optional[str] = None,
+        media_config: Optional[Dict[str, object]] = None,
+        accepted_modalities: Optional[List[Union[str, "MicrosoftGraphModality"]]] = None,
+        **kwargs
+    ):
+        super(PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.callback_uri = callback_uri
+        self.media_config = media_config
+        self.accepted_modalities = accepted_modalities
+
+
+class PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.client_context = client_context
+
+
+class PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.client_context = client_context
+
+
+class PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
+    """PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param client_context:
+    :type client_context: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'client_context': {'key': 'clientContext', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        client_context: Optional[str] = None,
+        **kwargs
+    ):
+        super(PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.client_context = client_context

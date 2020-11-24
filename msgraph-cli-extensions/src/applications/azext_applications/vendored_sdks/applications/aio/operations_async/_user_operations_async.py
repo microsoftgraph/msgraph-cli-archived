@@ -45,8 +45,8 @@ class UserOperations:
     def list_app_role_assignment(
         self,
         user_id: str,
-        orderby: Optional[List[Union[str, "models.Enum75"]]] = None,
-        select: Optional[List[Union[str, "models.Enum76"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum79"]]] = None,
+        select: Optional[List[Union[str, "models.Enum80"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfAppRoleAssignment2"]:
@@ -57,9 +57,9 @@ class UserOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum75]
+        :type orderby: list[str or ~applications.models.Enum79]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum76]
+        :type select: list[str or ~applications.models.Enum80]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -238,7 +238,7 @@ class UserOperations:
         self,
         user_id: str,
         app_role_assignment_id: str,
-        select: Optional[List[Union[str, "models.Enum77"]]] = None,
+        select: Optional[List[Union[str, "models.Enum81"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphAppRoleAssignment":
@@ -251,7 +251,7 @@ class UserOperations:
         :param app_role_assignment_id: key: id of appRoleAssignment.
         :type app_role_assignment_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum77]
+        :type select: list[str or ~applications.models.Enum81]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

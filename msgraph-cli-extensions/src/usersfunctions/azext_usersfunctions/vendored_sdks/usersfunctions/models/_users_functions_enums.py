@@ -488,6 +488,14 @@ class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     IGNORED = "ignored"
     UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
+class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    COMPLETED = "completed"
+    WAITING_ON_OTHERS = "waitingOnOthers"
+    DEFERRED = "deferred"
+
 class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STORE = "store"
@@ -576,6 +584,13 @@ class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     THIRD = "third"
     FOURTH = "fourth"
     LAST = "last"
+
+class MicrosoftGraphWellknownListName(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    DEFAULT_LIST = "defaultList"
+    FLAGGED_EMAILS = "flaggedEmails"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
 class MicrosoftGraphWorkbookOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 

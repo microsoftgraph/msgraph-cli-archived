@@ -18,6 +18,13 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import CloudCommunicationsConfiguration
+from .operations import CommunicationCloudCommunicationOperations
+from .operations import CommunicationOperations
+from .operations import CommunicationCallRecordOperations
+from .operations import CommunicationCallRecordSessionOperations
+from .operations import CommunicationCallOperations
+from .operations import CommunicationCallParticipantOperations
+from .operations import CommunicationOnlineMeetingOperations
 from .operations import UserOperations
 from . import models
 
@@ -25,6 +32,20 @@ from . import models
 class CloudCommunications(object):
     """CloudCommunications.
 
+    :ivar communication_cloud_communication: CommunicationCloudCommunicationOperations operations
+    :vartype communication_cloud_communication: cloud_communications.operations.CommunicationCloudCommunicationOperations
+    :ivar communication: CommunicationOperations operations
+    :vartype communication: cloud_communications.operations.CommunicationOperations
+    :ivar communication_call_record: CommunicationCallRecordOperations operations
+    :vartype communication_call_record: cloud_communications.operations.CommunicationCallRecordOperations
+    :ivar communication_call_record_session: CommunicationCallRecordSessionOperations operations
+    :vartype communication_call_record_session: cloud_communications.operations.CommunicationCallRecordSessionOperations
+    :ivar communication_call: CommunicationCallOperations operations
+    :vartype communication_call: cloud_communications.operations.CommunicationCallOperations
+    :ivar communication_call_participant: CommunicationCallParticipantOperations operations
+    :vartype communication_call_participant: cloud_communications.operations.CommunicationCallParticipantOperations
+    :ivar communication_online_meeting: CommunicationOnlineMeetingOperations operations
+    :vartype communication_online_meeting: cloud_communications.operations.CommunicationOnlineMeetingOperations
     :ivar user: UserOperations operations
     :vartype user: cloud_communications.operations.UserOperations
     :param credential: Credential needed for the client to connect to Azure.
@@ -64,6 +85,20 @@ class CloudCommunications(object):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
+        self.communication_cloud_communication = CommunicationCloudCommunicationOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication = CommunicationOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call_record = CommunicationCallRecordOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call_record_session = CommunicationCallRecordSessionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call = CommunicationCallOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call_participant = CommunicationCallParticipantOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_online_meeting = CommunicationOnlineMeetingOperations(
+            self._client, self._config, self._serialize, self._deserialize)
         self.user = UserOperations(
             self._client, self._config, self._serialize, self._deserialize)
 

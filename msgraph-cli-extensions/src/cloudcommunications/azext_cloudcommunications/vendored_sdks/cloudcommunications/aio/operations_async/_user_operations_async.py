@@ -45,11 +45,11 @@ class UserOperations:
     def list_online_meeting(
         self,
         user_id: str,
-        orderby: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
-        select: Optional[List[Union[str, "models.Get7ItemsItem"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum50"]]] = None,
+        select: Optional[List[Union[str, "models.Enum51"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> AsyncIterable["models.CollectionOfOnlineMeeting"]:
+    ) -> AsyncIterable["models.CollectionOfOnlineMeeting0"]:
         """Get onlineMeetings from users.
 
         Get onlineMeetings from users.
@@ -57,17 +57,17 @@ class UserOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Get6ItemsItem]
+        :type orderby: list[str or ~cloud_communications.models.Enum50]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Get7ItemsItem]
+        :type select: list[str or ~cloud_communications.models.Enum51]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: An iterator like instance of either CollectionOfOnlineMeeting or the result of cls(response)
-        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.CollectionOfOnlineMeeting]
+        :return: An iterator like instance of either CollectionOfOnlineMeeting0 or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.CollectionOfOnlineMeeting0]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfOnlineMeeting"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfOnlineMeeting0"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
@@ -112,7 +112,7 @@ class UserOperations:
             return request
 
         async def extract_data(pipeline_response):
-            deserialized = self._deserialize('CollectionOfOnlineMeeting', pipeline_response)
+            deserialized = self._deserialize('CollectionOfOnlineMeeting0', pipeline_response)
             list_of_elem = deserialized.value
             if cls:
                 list_of_elem = cls(list_of_elem)
@@ -240,7 +240,7 @@ class UserOperations:
         self,
         user_id: str,
         online_meeting_id: str,
-        select: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
+        select: Optional[List[Union[str, "models.Enum52"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphOnlineMeeting":
@@ -253,7 +253,7 @@ class UserOperations:
         :param online_meeting_id: key: id of onlineMeeting.
         :type online_meeting_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Get2ItemsItem]
+        :type select: list[str or ~cloud_communications.models.Enum52]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

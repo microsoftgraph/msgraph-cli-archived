@@ -48,8 +48,8 @@ class TeamworkOperations(object):
 
     def list_workforce_integration(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum170"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum171"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum180"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum181"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -59,9 +59,9 @@ class TeamworkOperations(object):
         Get workforceIntegrations from teamwork.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum170]
+        :type orderby: list[str or ~teams.models.Enum180]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum171]
+        :type select: list[str or ~teams.models.Enum181]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -251,7 +251,7 @@ class TeamworkOperations(object):
     def get_workforce_integration(
         self,
         workforce_integration_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum172"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum182"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -263,7 +263,7 @@ class TeamworkOperations(object):
         :param workforce_integration_id: key: id of workforceIntegration.
         :type workforce_integration_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum172]
+        :type select: list[str or ~teams.models.Enum182]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

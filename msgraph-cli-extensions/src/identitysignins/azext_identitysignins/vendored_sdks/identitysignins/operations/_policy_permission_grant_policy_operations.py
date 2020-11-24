@@ -48,8 +48,8 @@ class PolicyPermissionGrantPolicyOperations(object):
     def list_exclude(
         self,
         permission_grant_policy_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum138"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum139"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum140"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum141"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -61,9 +61,9 @@ class PolicyPermissionGrantPolicyOperations(object):
         :param permission_grant_policy_id: key: id of permissionGrantPolicy.
         :type permission_grant_policy_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum138]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum140]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum139]
+        :type select: list[str or ~identity_sign_ins.models.Enum141]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -233,7 +233,7 @@ class PolicyPermissionGrantPolicyOperations(object):
         self,
         permission_grant_policy_id,  # type: str
         permission_grant_condition_set_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum140"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum142"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -247,7 +247,7 @@ class PolicyPermissionGrantPolicyOperations(object):
         :param permission_grant_condition_set_id: key: id of permissionGrantConditionSet.
         :type permission_grant_condition_set_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum140]
+        :type select: list[str or ~identity_sign_ins.models.Enum142]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -448,8 +448,8 @@ class PolicyPermissionGrantPolicyOperations(object):
     def list_include(
         self,
         permission_grant_policy_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum141"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum142"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum143"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum144"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -461,9 +461,9 @@ class PolicyPermissionGrantPolicyOperations(object):
         :param permission_grant_policy_id: key: id of permissionGrantPolicy.
         :type permission_grant_policy_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum141]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum143]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum142]
+        :type select: list[str or ~identity_sign_ins.models.Enum144]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -633,7 +633,7 @@ class PolicyPermissionGrantPolicyOperations(object):
         self,
         permission_grant_policy_id,  # type: str
         permission_grant_condition_set_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum143"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum145"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -647,7 +647,7 @@ class PolicyPermissionGrantPolicyOperations(object):
         :param permission_grant_condition_set_id: key: id of permissionGrantConditionSet.
         :type permission_grant_condition_set_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum143]
+        :type select: list[str or ~identity_sign_ins.models.Enum145]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

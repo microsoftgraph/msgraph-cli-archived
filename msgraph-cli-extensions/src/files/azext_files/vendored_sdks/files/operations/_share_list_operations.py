@@ -49,8 +49,8 @@ class ShareListOperations(object):
     def list_column(
         self,
         shared_drive_item_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum134"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum135"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum136"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum137"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -62,9 +62,9 @@ class ShareListOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum134]
+        :type orderby: list[str or ~files.models.Enum136]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum135]
+        :type select: list[str or ~files.models.Enum137]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -273,7 +273,7 @@ class ShareListOperations(object):
         self,
         shared_drive_item_id,  # type: str
         column_definition_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum136"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum138"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -287,7 +287,7 @@ class ShareListOperations(object):
         :param column_definition_id: key: id of columnDefinition.
         :type column_definition_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum136]
+        :type select: list[str or ~files.models.Enum138]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -527,9 +527,9 @@ class ShareListOperations(object):
     def list_content_type(
         self,
         shared_drive_item_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum137"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum138"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum139"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum139"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum140"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum141"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfContentType0"]
@@ -540,11 +540,11 @@ class ShareListOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum137]
+        :type orderby: list[str or ~files.models.Enum139]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum138]
+        :type select: list[str or ~files.models.Enum140]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum139]
+        :type expand: list[str or ~files.models.Enum141]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfContentType0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~files.models.CollectionOfContentType0]
@@ -744,8 +744,8 @@ class ShareListOperations(object):
         self,
         shared_drive_item_id,  # type: str
         content_type_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum140"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum141"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum142"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum143"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphContentType"
@@ -758,9 +758,9 @@ class ShareListOperations(object):
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum140]
+        :type select: list[str or ~files.models.Enum142]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum141]
+        :type expand: list[str or ~files.models.Enum143]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphContentType, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphContentType
@@ -991,8 +991,8 @@ class ShareListOperations(object):
     def get_drive(
         self,
         shared_drive_item_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum145"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum146"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum147"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum148"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDrive"
@@ -1003,9 +1003,9 @@ class ShareListOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum145]
+        :type select: list[str or ~files.models.Enum147]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum146]
+        :type expand: list[str or ~files.models.Enum148]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDrive, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphDrive
@@ -1394,9 +1394,9 @@ class ShareListOperations(object):
     def list_item(
         self,
         shared_drive_item_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum147"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum148"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum149"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum149"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum150"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum151"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfListItem0"]
@@ -1407,11 +1407,11 @@ class ShareListOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum147]
+        :type orderby: list[str or ~files.models.Enum149]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum148]
+        :type select: list[str or ~files.models.Enum150]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum149]
+        :type expand: list[str or ~files.models.Enum151]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfListItem0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~files.models.CollectionOfListItem0]
@@ -1641,8 +1641,8 @@ class ShareListOperations(object):
         self,
         shared_drive_item_id,  # type: str
         list_item_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum150"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum151"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum152"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum153"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphListItem"
@@ -1655,9 +1655,9 @@ class ShareListOperations(object):
         :param list_item_id: key: id of listItem.
         :type list_item_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum150]
+        :type select: list[str or ~files.models.Enum152]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum151]
+        :type expand: list[str or ~files.models.Enum153]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphListItem, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphListItem
@@ -1918,8 +1918,8 @@ class ShareListOperations(object):
     def list_subscription(
         self,
         shared_drive_item_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum161"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum162"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum163"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum164"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1931,9 +1931,9 @@ class ShareListOperations(object):
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum161]
+        :type orderby: list[str or ~files.models.Enum163]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum162]
+        :type select: list[str or ~files.models.Enum164]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2072,9 +2072,20 @@ class ShareListOperations(object):
         :param include_resource_data: When set to true, change notifications include resource data
          (such as content of a chat message). Optional.
         :type include_resource_data: bool
-        :param latest_supported_tls_version:
+        :param latest_supported_tls_version: Specifies the latest version of Transport Layer Security
+         (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible
+         values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a
+         version lower than the currently recommended version (TLS 1.2), specifying this property by a
+         set timeline allows them to temporarily use their deprecated version of TLS before completing
+         their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline
+         would result in subscription operations failing. For subscribers whose notification endpoint
+         already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph
+         defaults the property to v1_2.
         :type latest_supported_tls_version: str
-        :param lifecycle_notification_url:
+        :param lifecycle_notification_url: The URL of the endpoint that receives lifecycle
+         notifications, including subscriptionRemoved and missed notifications. This URL must make use
+         of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle
+         notifications.
         :type lifecycle_notification_url: str
         :param notification_url: Required. The URL of the endpoint that will receive the change
          notifications. This URL must make use of the HTTPS protocol.
@@ -2137,7 +2148,7 @@ class ShareListOperations(object):
         self,
         shared_drive_item_id,  # type: str
         subscription_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum163"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum165"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2151,7 +2162,7 @@ class ShareListOperations(object):
         :param subscription_id: key: id of subscription.
         :type subscription_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum163]
+        :type select: list[str or ~files.models.Enum165]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2266,9 +2277,20 @@ class ShareListOperations(object):
         :param include_resource_data: When set to true, change notifications include resource data
          (such as content of a chat message). Optional.
         :type include_resource_data: bool
-        :param latest_supported_tls_version:
+        :param latest_supported_tls_version: Specifies the latest version of Transport Layer Security
+         (TLS) that the notification endpoint, specified by notificationUrl, supports. The possible
+         values are: v1_0, v1_1, v1_2, v1_3. For subscribers whose notification endpoint supports a
+         version lower than the currently recommended version (TLS 1.2), specifying this property by a
+         set timeline allows them to temporarily use their deprecated version of TLS before completing
+         their upgrade to TLS 1.2. For these subscribers, not setting this property per the timeline
+         would result in subscription operations failing. For subscribers whose notification endpoint
+         already supports TLS 1.2, setting this property is optional. In such cases, Microsoft Graph
+         defaults the property to v1_2.
         :type latest_supported_tls_version: str
-        :param lifecycle_notification_url:
+        :param lifecycle_notification_url: The URL of the endpoint that receives lifecycle
+         notifications, including subscriptionRemoved and missed notifications. This URL must make use
+         of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle
+         notifications.
         :type lifecycle_notification_url: str
         :param notification_url: Required. The URL of the endpoint that will receive the change
          notifications. This URL must make use of the HTTPS protocol.

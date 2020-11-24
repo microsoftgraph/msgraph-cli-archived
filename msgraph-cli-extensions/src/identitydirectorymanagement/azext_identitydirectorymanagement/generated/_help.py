@@ -645,7 +645,7 @@ scoped-role-members=XX extensions=XX deleted-date-time=XX id=XX
 
             description: An optional description for the administrative unit.
             display-name: Display name for the administrative unit.
-            visibility: Controls whether the adminstrative unit and its members are hidden or public. Can be set to \
+            visibility: Controls whether the administrative unit and its members are hidden or public. Can be set to \
 HiddenMembership or Public. If not set, default behavior is Public. When set to HiddenMembership, only members of the \
 administrative unit can list other members of the adminstrative unit.
             members: Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), \

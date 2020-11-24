@@ -7,10 +7,12 @@
 # --------------------------------------------------------------------------
 
 import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 
 from azure.core.exceptions import HttpResponseError
 import msrest.serialization
+
+from ._applications_enums import *
 
 
 class CollectionOfApplication(msrest.serialization.Model):
@@ -200,6 +202,38 @@ class CollectionOfClaimsMappingPolicy(msrest.serialization.Model):
         **kwargs
     ):
         super(CollectionOfClaimsMappingPolicy, self).__init__(**kwargs)
+        self.additional_properties = additional_properties
+        self.value = value
+        self.odata_next_link = odata_next_link
+
+
+class CollectionOfDelegatedPermissionClassification(msrest.serialization.Model):
+    """Collection of delegatedPermissionClassification.
+
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param value:
+    :type value: list[~applications.models.MicrosoftGraphDelegatedPermissionClassification]
+    :param odata_next_link:
+    :type odata_next_link: str
+    """
+
+    _attribute_map = {
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphDelegatedPermissionClassification]'},
+        'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        additional_properties: Optional[Dict[str, object]] = None,
+        value: Optional[List["MicrosoftGraphDelegatedPermissionClassification"]] = None,
+        odata_next_link: Optional[str] = None,
+        **kwargs
+    ):
+        super(CollectionOfDelegatedPermissionClassification, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
@@ -1350,8 +1384,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
      property for its 'FileHandler' functionality. This will let services like Microsoft 365 call
      the application in the context of a document the user is working on.
     :type add_ins: list[~applications.models.MicrosoftGraphAddIn]
-    :param api: apiApplication.
-    :type api: ~applications.models.MicrosoftGraphApiApplication
     :param app_id: The unique identifier for the application that is assigned to an application by
      Azure AD. Not nullable. Read-only.
     :type app_id: str
@@ -1398,8 +1430,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
     :type notes: str
     :param oauth2_require_post_response:
     :type oauth2_require_post_response: bool
-    :param optional_claims: optionalClaims.
-    :type optional_claims: ~applications.models.MicrosoftGraphOptionalClaims
     :param parental_control_settings: parentalControlSettings.
     :type parental_control_settings: ~applications.models.MicrosoftGraphParentalControlSettings
     :param password_credentials: The collection of password credentials associated with the
@@ -1418,8 +1448,9 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
      application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account
      in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a Microsoft
      work or school account in any organization’s Azure AD tenant (multi-
-     tenant)AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work
-     or school account in any organization’s Azure AD tenant.
+     tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work
+     or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a
+     personal Microsoft account only.
     :type sign_in_audience: str
     :param tags: A set of tags. Custom strings that can be used to categorize and identify the
      application. Not nullable.
@@ -1429,8 +1460,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
      property points to. The application code that receives the encrypted token must use the
      matching private key to decrypt the token before it can be used for the signed-in user.
     :type token_encryption_key_id: str
-    :param web: webApplication.
-    :type web: ~applications.models.MicrosoftGraphWebApplication
     :param created_on_behalf_of: Represents an Azure Active Directory object. The directoryObject
      type is the base type for many other directory entity types.
     :type created_on_behalf_of: ~applications.models.MicrosoftGraphDirectoryObject
@@ -1447,7 +1476,58 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
     :type token_issuance_policies: list[~applications.models.MicrosoftGraphTokenIssuancePolicy]
     :param token_lifetime_policies:
     :type token_lifetime_policies: list[~applications.models.MicrosoftGraphTokenLifetimePolicy]
+    :param home_page_url: Home page or landing page of the application.
+    :type home_page_url: str
+    :param implicit_grant_settings: implicitGrantSettings.
+    :type implicit_grant_settings: ~applications.models.MicrosoftGraphImplicitGrantSettings
+    :param logout_url: Specifies the URL that will be used by Microsoft's authorization service to
+     logout an user using front-channel, back-channel or SAML logout protocols.
+    :type logout_url: str
+    :param redirect_uris: Specifies the URLs where user tokens are sent for sign-in, or the
+     redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+    :type redirect_uris: list[str]
+    :param access_token: The optional claims returned in the JWT access token.
+    :type access_token: list[~applications.models.MicrosoftGraphOptionalClaim]
+    :param id_token: The optional claims returned in the JWT ID token.
+    :type id_token: list[~applications.models.MicrosoftGraphOptionalClaim]
+    :param saml2_token: The optional claims returned in the SAML token.
+    :type saml2_token: list[~applications.models.MicrosoftGraphOptionalClaim]
+    :param accept_mapped_claims: When true, allows an application to use claims mapping without
+     specifying a custom signing key.
+    :type accept_mapped_claims: bool
+    :param known_client_applications: Used for bundling consent if you have a solution that
+     contains two parts: a client app and a custom web API app. If you set the appID of the client
+     app to this value, the user only consents once to the client app. Azure AD knows that
+     consenting to the client means implicitly consenting to the web API and automatically
+     provisions service principals for both APIs at the same time. Both the client and the web API
+     app must be registered in the same tenant.
+    :type known_client_applications: list[str]
+    :param oauth2_permission_scopes: The definition of the delegated permissions exposed by the web
+     API represented by this application registration. These delegated permissions may be requested
+     by a client application, and may be granted by users or administrators during consent.
+     Delegated permissions are sometimes referred to as OAuth 2.0 scopes.
+    :type oauth2_permission_scopes: list[~applications.models.MicrosoftGraphPermissionScope]
+    :param pre_authorized_applications: Lists the client applications that are pre-authorized with
+     the specified delegated permissions to access this application's APIs. Users are not required
+     to consent to any pre-authorized application (for the permissions specified). However, any
+     additional permissions not listed in preAuthorizedApplications (requested through incremental
+     consent for example) will require user consent.
+    :type pre_authorized_applications:
+     list[~applications.models.MicrosoftGraphPreAuthorizedApplication]
+    :param requested_access_token_version: Specifies the access token version expected by this
+     resource. This changes the version and format of the JWT produced independent of the endpoint
+     or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the
+     client and only impacts the version of id_tokens. Resources need to explicitly configure
+     requestedAccessTokenVersion to indicate the supported access token format.  Possible values for
+     requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which
+     corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as
+     AzureADandPersonalMicrosoftAccount, the value for this property must be 2.
+    :type requested_access_token_version: int
     """
+
+    _validation = {
+        'requested_access_token_version': {'maximum': 2147483647, 'minimum': -2147483648},
+    }
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1455,7 +1535,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'add_ins': {'key': 'addIns', 'type': '[MicrosoftGraphAddIn]'},
-        'api': {'key': 'api', 'type': 'MicrosoftGraphApiApplication'},
         'app_id': {'key': 'appId', 'type': 'str'},
         'application_template_id': {'key': 'applicationTemplateId', 'type': 'str'},
         'app_roles': {'key': 'appRoles', 'type': '[MicrosoftGraphAppRole]'},
@@ -1471,7 +1550,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         'logo': {'key': 'logo', 'type': 'base64'},
         'notes': {'key': 'notes', 'type': 'str'},
         'oauth2_require_post_response': {'key': 'oauth2RequirePostResponse', 'type': 'bool'},
-        'optional_claims': {'key': 'optionalClaims', 'type': 'MicrosoftGraphOptionalClaims'},
         'parental_control_settings': {'key': 'parentalControlSettings', 'type': 'MicrosoftGraphParentalControlSettings'},
         'password_credentials': {'key': 'passwordCredentials', 'type': '[MicrosoftGraphPasswordCredential]'},
         'public_client': {'key': 'publicClient', 'type': 'MicrosoftGraphPublicClientApplication'},
@@ -1480,13 +1558,24 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         'sign_in_audience': {'key': 'signInAudience', 'type': 'str'},
         'tags': {'key': 'tags', 'type': '[str]'},
         'token_encryption_key_id': {'key': 'tokenEncryptionKeyId', 'type': 'str'},
-        'web': {'key': 'web', 'type': 'MicrosoftGraphWebApplication'},
         'created_on_behalf_of': {'key': 'createdOnBehalfOf', 'type': 'MicrosoftGraphDirectoryObject'},
         'extension_properties': {'key': 'extensionProperties', 'type': '[MicrosoftGraphExtensionProperty]'},
         'home_realm_discovery_policies': {'key': 'homeRealmDiscoveryPolicies', 'type': '[MicrosoftGraphHomeRealmDiscoveryPolicy]'},
         'owners': {'key': 'owners', 'type': '[MicrosoftGraphDirectoryObject]'},
         'token_issuance_policies': {'key': 'tokenIssuancePolicies', 'type': '[MicrosoftGraphTokenIssuancePolicy]'},
         'token_lifetime_policies': {'key': 'tokenLifetimePolicies', 'type': '[MicrosoftGraphTokenLifetimePolicy]'},
+        'home_page_url': {'key': 'web.homePageUrl', 'type': 'str'},
+        'implicit_grant_settings': {'key': 'web.implicitGrantSettings', 'type': 'MicrosoftGraphImplicitGrantSettings'},
+        'logout_url': {'key': 'web.logoutUrl', 'type': 'str'},
+        'redirect_uris': {'key': 'web.redirectUris', 'type': '[str]'},
+        'access_token': {'key': 'optionalClaims.accessToken', 'type': '[MicrosoftGraphOptionalClaim]'},
+        'id_token': {'key': 'optionalClaims.idToken', 'type': '[MicrosoftGraphOptionalClaim]'},
+        'saml2_token': {'key': 'optionalClaims.saml2Token', 'type': '[MicrosoftGraphOptionalClaim]'},
+        'accept_mapped_claims': {'key': 'api.acceptMappedClaims', 'type': 'bool'},
+        'known_client_applications': {'key': 'api.knownClientApplications', 'type': '[str]'},
+        'oauth2_permission_scopes': {'key': 'api.oauth2PermissionScopes', 'type': '[MicrosoftGraphPermissionScope]'},
+        'pre_authorized_applications': {'key': 'api.preAuthorizedApplications', 'type': '[MicrosoftGraphPreAuthorizedApplication]'},
+        'requested_access_token_version': {'key': 'api.requestedAccessTokenVersion', 'type': 'int'},
     }
 
     def __init__(
@@ -1497,7 +1586,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         deleted_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         add_ins: Optional[List["MicrosoftGraphAddIn"]] = None,
-        api: Optional["MicrosoftGraphApiApplication"] = None,
         app_id: Optional[str] = None,
         application_template_id: Optional[str] = None,
         app_roles: Optional[List["MicrosoftGraphAppRole"]] = None,
@@ -1513,7 +1601,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         logo: Optional[bytes] = None,
         notes: Optional[str] = None,
         oauth2_require_post_response: Optional[bool] = None,
-        optional_claims: Optional["MicrosoftGraphOptionalClaims"] = None,
         parental_control_settings: Optional["MicrosoftGraphParentalControlSettings"] = None,
         password_credentials: Optional[List["MicrosoftGraphPasswordCredential"]] = None,
         public_client: Optional["MicrosoftGraphPublicClientApplication"] = None,
@@ -1522,20 +1609,30 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         sign_in_audience: Optional[str] = None,
         tags: Optional[List[str]] = None,
         token_encryption_key_id: Optional[str] = None,
-        web: Optional["MicrosoftGraphWebApplication"] = None,
         created_on_behalf_of: Optional["MicrosoftGraphDirectoryObject"] = None,
         extension_properties: Optional[List["MicrosoftGraphExtensionProperty"]] = None,
         home_realm_discovery_policies: Optional[List["MicrosoftGraphHomeRealmDiscoveryPolicy"]] = None,
         owners: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
         token_issuance_policies: Optional[List["MicrosoftGraphTokenIssuancePolicy"]] = None,
         token_lifetime_policies: Optional[List["MicrosoftGraphTokenLifetimePolicy"]] = None,
+        home_page_url: Optional[str] = None,
+        implicit_grant_settings: Optional["MicrosoftGraphImplicitGrantSettings"] = None,
+        logout_url: Optional[str] = None,
+        redirect_uris: Optional[List[str]] = None,
+        access_token: Optional[List["MicrosoftGraphOptionalClaim"]] = None,
+        id_token: Optional[List["MicrosoftGraphOptionalClaim"]] = None,
+        saml2_token: Optional[List["MicrosoftGraphOptionalClaim"]] = None,
+        accept_mapped_claims: Optional[bool] = None,
+        known_client_applications: Optional[List[str]] = None,
+        oauth2_permission_scopes: Optional[List["MicrosoftGraphPermissionScope"]] = None,
+        pre_authorized_applications: Optional[List["MicrosoftGraphPreAuthorizedApplication"]] = None,
+        requested_access_token_version: Optional[int] = None,
         **kwargs
     ):
         super(MicrosoftGraphApplication, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.add_ins = add_ins
-        self.api = api
         self.app_id = app_id
         self.application_template_id = application_template_id
         self.app_roles = app_roles
@@ -1551,7 +1648,6 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         self.logo = logo
         self.notes = notes
         self.oauth2_require_post_response = oauth2_require_post_response
-        self.optional_claims = optional_claims
         self.parental_control_settings = parental_control_settings
         self.password_credentials = password_credentials
         self.public_client = public_client
@@ -1560,13 +1656,24 @@ class MicrosoftGraphApplication(MicrosoftGraphDirectoryObject):
         self.sign_in_audience = sign_in_audience
         self.tags = tags
         self.token_encryption_key_id = token_encryption_key_id
-        self.web = web
         self.created_on_behalf_of = created_on_behalf_of
         self.extension_properties = extension_properties
         self.home_realm_discovery_policies = home_realm_discovery_policies
         self.owners = owners
         self.token_issuance_policies = token_issuance_policies
         self.token_lifetime_policies = token_lifetime_policies
+        self.home_page_url = home_page_url
+        self.implicit_grant_settings = implicit_grant_settings
+        self.logout_url = logout_url
+        self.redirect_uris = redirect_uris
+        self.access_token = access_token
+        self.id_token = id_token
+        self.saml2_token = saml2_token
+        self.accept_mapped_claims = accept_mapped_claims
+        self.known_client_applications = known_client_applications
+        self.oauth2_permission_scopes = oauth2_permission_scopes
+        self.pre_authorized_applications = pre_authorized_applications
+        self.requested_access_token_version = requested_access_token_version
 
 
 class MicrosoftGraphAppRole(msrest.serialization.Model):
@@ -1577,8 +1684,9 @@ class MicrosoftGraphAppRole(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param allowed_member_types: Specifies whether this app role can be assigned to users and
      groups (by setting to ['User']), to other application's (by setting to ['Application'], or both
-     (by setting to ['User', 'Application']). App roles supporting assignment of other applications'
-     service principals are also known as application permissions.
+     (by setting to ['User', 'Application']). App roles supporting assignment to other applications'
+     service principals are also known as application permissions. The 'Application' value is only
+     supported for app roles defined on application entities.
     :type allowed_member_types: list[str]
     :param description: The description for the app role. This is displayed when the app role is
      being assigned and, if the app role functions as an application permission, during  consent
@@ -1908,6 +2016,47 @@ class MicrosoftGraphClaimsMappingPolicy(MicrosoftGraphStsPolicy):
         self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.additional_properties = additional_properties
+
+
+class MicrosoftGraphDelegatedPermissionClassification(MicrosoftGraphEntity):
+    """delegatedPermissionClassification.
+
+    :param id: Read-only.
+    :type id: str
+    :param additional_properties: Unmatched properties from the message are deserialized to this
+     collection.
+    :type additional_properties: dict[str, object]
+    :param classification:  Possible values include: "low", "medium", "high", "unknownFutureValue".
+    :type classification: str or ~applications.models.MicrosoftGraphPermissionClassificationType
+    :param permission_id:
+    :type permission_id: str
+    :param permission_name:
+    :type permission_name: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'additional_properties': {'key': '', 'type': '{object}'},
+        'classification': {'key': 'classification', 'type': 'str'},
+        'permission_id': {'key': 'permissionId', 'type': 'str'},
+        'permission_name': {'key': 'permissionName', 'type': 'str'},
+    }
+
+    def __init__(
+        self,
+        *,
+        id: Optional[str] = None,
+        additional_properties: Optional[Dict[str, object]] = None,
+        classification: Optional[Union[str, "MicrosoftGraphPermissionClassificationType"]] = None,
+        permission_id: Optional[str] = None,
+        permission_name: Optional[str] = None,
+        **kwargs
+    ):
+        super(MicrosoftGraphDelegatedPermissionClassification, self).__init__(id=id, **kwargs)
+        self.additional_properties = additional_properties
+        self.classification = classification
+        self.permission_id = permission_id
+        self.permission_name = permission_name
 
 
 class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
@@ -2872,8 +3021,6 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
      application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent
      to for the associated application. Not nullable.
     :type reply_urls: list[str]
-    :param saml_single_sign_on_settings: samlSingleSignOnSettings.
-    :type saml_single_sign_on_settings: ~applications.models.MicrosoftGraphSamlSingleSignOnSettings
     :param service_principal_names: Contains the list of identifiersUris, copied over from the
      associated application. Additional values can be added to hybrid applications. These values can
      be used to identify the permissions exposed by this app within Azure AD. For example,Client
@@ -2905,6 +3052,9 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
     :param created_objects: Directory objects created by this service principal. Read-only.
      Nullable.
     :type created_objects: list[~applications.models.MicrosoftGraphDirectoryObject]
+    :param delegated_permission_classifications:
+    :type delegated_permission_classifications:
+     list[~applications.models.MicrosoftGraphDelegatedPermissionClassification]
     :param endpoints: Endpoints available for discovery. Services like Sharepoint populate this
      property with a tenant specific SharePoint endpoints that other applications can discover and
      use in their experiences.
@@ -2932,6 +3082,9 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
     :type token_lifetime_policies: list[~applications.models.MicrosoftGraphTokenLifetimePolicy]
     :param transitive_member_of:
     :type transitive_member_of: list[~applications.models.MicrosoftGraphDirectoryObject]
+    :param relay_state: The relative URI the service provider would redirect to after completion of
+     the single sign-on flow.
+    :type relay_state: str
     """
 
     _attribute_map = {
@@ -2963,7 +3116,6 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         'preferred_single_sign_on_mode': {'key': 'preferredSingleSignOnMode', 'type': 'str'},
         'preferred_token_signing_key_thumbprint': {'key': 'preferredTokenSigningKeyThumbprint', 'type': 'str'},
         'reply_urls': {'key': 'replyUrls', 'type': '[str]'},
-        'saml_single_sign_on_settings': {'key': 'samlSingleSignOnSettings', 'type': 'MicrosoftGraphSamlSingleSignOnSettings'},
         'service_principal_names': {'key': 'servicePrincipalNames', 'type': '[str]'},
         'service_principal_type': {'key': 'servicePrincipalType', 'type': 'str'},
         'tags': {'key': 'tags', 'type': '[str]'},
@@ -2972,6 +3124,7 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         'app_role_assignments': {'key': 'appRoleAssignments', 'type': '[MicrosoftGraphAppRoleAssignment]'},
         'claims_mapping_policies': {'key': 'claimsMappingPolicies', 'type': '[MicrosoftGraphClaimsMappingPolicy]'},
         'created_objects': {'key': 'createdObjects', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'delegated_permission_classifications': {'key': 'delegatedPermissionClassifications', 'type': '[MicrosoftGraphDelegatedPermissionClassification]'},
         'endpoints': {'key': 'endpoints', 'type': '[MicrosoftGraphEndpoint]'},
         'home_realm_discovery_policies': {'key': 'homeRealmDiscoveryPolicies', 'type': '[MicrosoftGraphHomeRealmDiscoveryPolicy]'},
         'member_of': {'key': 'memberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
@@ -2981,6 +3134,7 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         'token_issuance_policies': {'key': 'tokenIssuancePolicies', 'type': '[MicrosoftGraphTokenIssuancePolicy]'},
         'token_lifetime_policies': {'key': 'tokenLifetimePolicies', 'type': '[MicrosoftGraphTokenLifetimePolicy]'},
         'transitive_member_of': {'key': 'transitiveMemberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
+        'relay_state': {'key': 'samlSingleSignOnSettings.relayState', 'type': 'str'},
     }
 
     def __init__(
@@ -3014,7 +3168,6 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         preferred_single_sign_on_mode: Optional[str] = None,
         preferred_token_signing_key_thumbprint: Optional[str] = None,
         reply_urls: Optional[List[str]] = None,
-        saml_single_sign_on_settings: Optional["MicrosoftGraphSamlSingleSignOnSettings"] = None,
         service_principal_names: Optional[List[str]] = None,
         service_principal_type: Optional[str] = None,
         tags: Optional[List[str]] = None,
@@ -3023,6 +3176,7 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         app_role_assignments: Optional[List["MicrosoftGraphAppRoleAssignment"]] = None,
         claims_mapping_policies: Optional[List["MicrosoftGraphClaimsMappingPolicy"]] = None,
         created_objects: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        delegated_permission_classifications: Optional[List["MicrosoftGraphDelegatedPermissionClassification"]] = None,
         endpoints: Optional[List["MicrosoftGraphEndpoint"]] = None,
         home_realm_discovery_policies: Optional[List["MicrosoftGraphHomeRealmDiscoveryPolicy"]] = None,
         member_of: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
@@ -3032,6 +3186,7 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         token_issuance_policies: Optional[List["MicrosoftGraphTokenIssuancePolicy"]] = None,
         token_lifetime_policies: Optional[List["MicrosoftGraphTokenLifetimePolicy"]] = None,
         transitive_member_of: Optional[List["MicrosoftGraphDirectoryObject"]] = None,
+        relay_state: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphServicePrincipal, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
@@ -3061,7 +3216,6 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         self.preferred_single_sign_on_mode = preferred_single_sign_on_mode
         self.preferred_token_signing_key_thumbprint = preferred_token_signing_key_thumbprint
         self.reply_urls = reply_urls
-        self.saml_single_sign_on_settings = saml_single_sign_on_settings
         self.service_principal_names = service_principal_names
         self.service_principal_type = service_principal_type
         self.tags = tags
@@ -3070,6 +3224,7 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         self.app_role_assignments = app_role_assignments
         self.claims_mapping_policies = claims_mapping_policies
         self.created_objects = created_objects
+        self.delegated_permission_classifications = delegated_permission_classifications
         self.endpoints = endpoints
         self.home_realm_discovery_policies = home_realm_discovery_policies
         self.member_of = member_of
@@ -3079,6 +3234,7 @@ class MicrosoftGraphServicePrincipal(MicrosoftGraphDirectoryObject):
         self.token_issuance_policies = token_issuance_policies
         self.token_lifetime_policies = token_lifetime_policies
         self.transitive_member_of = transitive_member_of
+        self.relay_state = relay_state
 
 
 class MicrosoftGraphTokenIssuancePolicy(MicrosoftGraphStsPolicy):

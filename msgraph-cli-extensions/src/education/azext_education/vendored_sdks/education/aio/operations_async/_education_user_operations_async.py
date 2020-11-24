@@ -44,9 +44,9 @@ class EducationUserOperations:
     def list_class(
         self,
         education_user_id: str,
-        orderby: Optional[List[Union[str, "models.Enum113"]]] = None,
-        select: Optional[List[Union[str, "models.Enum114"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum115"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum115"]]] = None,
+        select: Optional[List[Union[str, "models.Enum116"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum117"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationClass2"]:
         """Get classes from education.
@@ -56,11 +56,11 @@ class EducationUserOperations:
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum113]
+        :type orderby: list[str or ~education.models.Enum115]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum114]
+        :type select: list[str or ~education.models.Enum116]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum115]
+        :type expand: list[str or ~education.models.Enum117]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfEducationClass2 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationClass2]
@@ -138,7 +138,7 @@ class EducationUserOperations:
     def list_ref_class(
         self,
         education_user_id: str,
-        orderby: Optional[List[Union[str, "models.Enum116"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum118"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfEducationClass1"]:
         """Get ref of classes from education.
@@ -148,7 +148,7 @@ class EducationUserOperations:
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum116]
+        :type orderby: list[str or ~education.models.Enum118]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfEducationClass1 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationClass1]
@@ -284,9 +284,9 @@ class EducationUserOperations:
     def list_school(
         self,
         education_user_id: str,
-        orderby: Optional[List[Union[str, "models.Enum117"]]] = None,
-        select: Optional[List[Union[str, "models.Enum118"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum119"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum119"]]] = None,
+        select: Optional[List[Union[str, "models.Enum120"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum121"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationSchool2"]:
         """Get schools from education.
@@ -296,11 +296,11 @@ class EducationUserOperations:
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum117]
+        :type orderby: list[str or ~education.models.Enum119]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum118]
+        :type select: list[str or ~education.models.Enum120]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum119]
+        :type expand: list[str or ~education.models.Enum121]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfEducationSchool2 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationSchool2]
@@ -378,7 +378,7 @@ class EducationUserOperations:
     def list_ref_school(
         self,
         education_user_id: str,
-        orderby: Optional[List[Union[str, "models.Enum120"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum122"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfEducationSchool1"]:
         """Get ref of schools from education.
@@ -388,7 +388,7 @@ class EducationUserOperations:
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum120]
+        :type orderby: list[str or ~education.models.Enum122]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfEducationSchool1 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationSchool1]
@@ -524,8 +524,8 @@ class EducationUserOperations:
     async def get_user(
         self,
         education_user_id: str,
-        select: Optional[List[Union[str, "models.Enum121"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum122"]]] = None,
+        select: Optional[List[Union[str, "models.Enum123"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum124"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphUser":
         """Get user from education.
@@ -535,9 +535,9 @@ class EducationUserOperations:
         :param education_user_id: key: id of educationUser.
         :type education_user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum121]
+        :type select: list[str or ~education.models.Enum123]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum122]
+        :type expand: list[str or ~education.models.Enum124]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphUser, or the result of cls(response)
         :rtype: ~education.models.MicrosoftGraphUser

@@ -44,8 +44,8 @@ class GroupOperations:
     async def get_team(
         self,
         group_id: str,
-        select: Optional[List[Union[str, "models.Enum7"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum8"]]] = None,
+        select: Optional[List[Union[str, "models.Enum16"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum17"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphTeam":
         """Get team from groups.
@@ -55,9 +55,9 @@ class GroupOperations:
         :param group_id: key: id of group.
         :type group_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum7]
+        :type select: list[str or ~teams.models.Enum16]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum8]
+        :type expand: list[str or ~teams.models.Enum17]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTeam, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTeam
@@ -311,8 +311,7 @@ class GroupOperations:
         :type mail: str
         :param mail_enabled: Specifies whether the group is mail-enabled. Returned by default.
         :type mail_enabled: bool
-        :param mail_nickname: The mail alias for the group, unique in the organization. This property
-         must be specified when a group is created. Returned by default. Supports $filter.
+        :param mail_nickname:
         :type mail_nickname: str
         :param membership_rule: The rule that determines members for this group if the group is a
          dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of
@@ -321,23 +320,13 @@ class GroupOperations:
         :param membership_rule_processing_state: Indicates whether the dynamic membership processing is
          on or paused. Possible values are 'On' or 'Paused'. Returned by default.
         :type membership_rule_processing_state: str
-        :param on_premises_domain_name: Contains the on-premises domain FQDN, also called dnsDomainName
-         synchronized from the on-premises directory. The property is only populated for customers who
-         are synchronizing their on-premises directory to Azure Active Directory via Azure AD
-         Connect.Returned by default. Read-only.
+        :param on_premises_domain_name:
         :type on_premises_domain_name: str
-        :param on_premises_last_sync_date_time: Indicates the last time at which the group was synced
-         with the on-premises directory.The Timestamp type represents date and time information using
-         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-         like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.
+        :param on_premises_last_sync_date_time:
         :type on_premises_last_sync_date_time: ~datetime.datetime
-        :param on_premises_net_bios_name: Contains the on-premises netBios name synchronized from the
-         on-premises directory. The property is only populated for customers who are synchronizing their
-         on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-
-         only.
+        :param on_premises_net_bios_name:
         :type on_premises_net_bios_name: str
-        :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
-         during provisioning. Returned by default.
+        :param on_premises_provisioning_errors:
         :type on_premises_provisioning_errors: list[~teams.models.MicrosoftGraphOnPremisesProvisioningError]
         :param on_premises_sam_account_name: Contains the on-premises SAM account name synchronized
          from the on-premises directory. The property is only populated for customers who are

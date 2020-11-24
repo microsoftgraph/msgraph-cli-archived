@@ -43,7 +43,7 @@ class TeamworkTeamworkOperations:
     async def get_teamwork(
         self,
         select: Optional[List[Union[str, "models.Get0ItemsItem"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum167"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum177"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphTeamwork":
         """Get teamwork.
@@ -53,7 +53,7 @@ class TeamworkTeamworkOperations:
         :param select: Select properties to be returned.
         :type select: list[str or ~teams.models.Get0ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum167]
+        :type expand: list[str or ~teams.models.Enum177]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTeamwork, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTeamwork

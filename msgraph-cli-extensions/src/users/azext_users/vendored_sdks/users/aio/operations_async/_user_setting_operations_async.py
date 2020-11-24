@@ -44,7 +44,7 @@ class UserSettingOperations:
     async def get_shift_preference(
         self,
         user_id: str,
-        select: Optional[List[Union[str, "models.Enum101"]]] = None,
+        select: Optional[List[Union[str, "models.Enum103"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphShiftPreferences":
@@ -55,7 +55,7 @@ class UserSettingOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum101]
+        :type select: list[str or ~users.models.Enum103]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

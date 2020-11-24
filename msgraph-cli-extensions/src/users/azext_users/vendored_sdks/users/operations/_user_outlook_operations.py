@@ -48,8 +48,8 @@ class UserOutlookOperations(object):
     def list_master_category(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum83"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum84"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum85"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -61,9 +61,9 @@ class UserOutlookOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum83]
+        :type orderby: list[str or ~users.models.Enum85]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum84]
+        :type select: list[str or ~users.models.Enum86]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -216,7 +216,7 @@ class UserOutlookOperations(object):
         self,
         user_id,  # type: str
         outlook_category_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum85"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum87"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -230,7 +230,7 @@ class UserOutlookOperations(object):
         :param outlook_category_id: key: id of outlookCategory.
         :type outlook_category_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum85]
+        :type select: list[str or ~users.models.Enum87]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

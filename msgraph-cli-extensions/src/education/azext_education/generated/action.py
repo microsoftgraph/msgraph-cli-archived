@@ -66,7 +66,7 @@ class AddCreatedByApplication(argparse.Action):
         return d
 
 
-class AddAddress(argparse.Action):
+class AddMailingAddress(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.address = action
@@ -93,4 +93,164 @@ class AddAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+        return d
+
+
+class AddAssignedLicenses(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAssignedLicenses, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'disabled-plans':
+                d['disabled_plans'] = v
+            elif kl == 'sku-id':
+                d['sku_id'] = v[0]
+        return d
+
+
+class AddAssignedPlans(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddAssignedPlans, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'assigned-date-time':
+                d['assigned_date_time'] = v[0]
+            elif kl == 'capability-status':
+                d['capability_status'] = v[0]
+            elif kl == 'service':
+                d['service'] = v[0]
+            elif kl == 'service-plan-id':
+                d['service_plan_id'] = v[0]
+        return d
+
+
+class AddPasswordProfile(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.password_profile = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'force-change-password-next-sign-in':
+                d['force_change_password_next_sign_in'] = v[0]
+            elif kl == 'force-change-password-next-sign-in-with-mfa':
+                d['force_change_password_next_sign_in_with_mfa'] = v[0]
+            elif kl == 'password':
+                d['password'] = v[0]
+        return d
+
+
+class AddProvisionedPlans(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddProvisionedPlans, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'capability-status':
+                d['capability_status'] = v[0]
+            elif kl == 'provisioning-status':
+                d['provisioning_status'] = v[0]
+            elif kl == 'service':
+                d['service'] = v[0]
+        return d
+
+
+class AddStudent(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.student = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'birth-date':
+                d['birth_date'] = v[0]
+            elif kl == 'external-id':
+                d['external_id'] = v[0]
+            elif kl == 'gender':
+                d['gender'] = v[0]
+            elif kl == 'grade':
+                d['grade'] = v[0]
+            elif kl == 'graduation-year':
+                d['graduation_year'] = v[0]
+            elif kl == 'student-number':
+                d['student_number'] = v[0]
+        return d
+
+
+class AddTeacher(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.teacher = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'external-id':
+                d['external_id'] = v[0]
+            elif kl == 'teacher-number':
+                d['teacher_number'] = v[0]
         return d

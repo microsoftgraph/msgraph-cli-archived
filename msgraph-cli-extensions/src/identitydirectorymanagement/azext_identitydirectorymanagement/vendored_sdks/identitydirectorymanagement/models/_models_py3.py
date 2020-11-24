@@ -1306,7 +1306,7 @@ class MicrosoftGraphAdministrativeUnit(MicrosoftGraphDirectoryObject):
     :type description: str
     :param display_name: Display name for the administrative unit.
     :type display_name: str
-    :param visibility: Controls whether the adminstrative unit and its members are hidden or
+    :param visibility: Controls whether the administrative unit and its members are hidden or
      public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When
      set to HiddenMembership, only members of the administrative unit can list other members of the
      adminstrative unit.
@@ -1633,9 +1633,9 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     :param device_id: Unique identifier set by Azure Device Registration Service at the time of
      registration.
     :type device_id: str
-    :param device_metadata: For interal use only. Set to null.
+    :param device_metadata: For internal use only. Set to null.
     :type device_metadata: str
-    :param device_version: For interal use only.
+    :param device_version: For internal use only.
     :type device_version: int
     :param display_name: The display name for the device. Required.
     :type display_name: str
@@ -1651,7 +1651,7 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
      $filter.
     :type mdm_app_id: str
     :param on_premises_last_sync_date_time: The last time at which the object was synced with the
-     on-premises directory.The Timestamp type represents date and time information using ISO 8601
+     on-premises directory. The Timestamp type represents date and time information using ISO 8601
      format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z' Read-only.
     :type on_premises_last_sync_date_time: ~datetime.datetime
@@ -1664,7 +1664,7 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     :type operating_system: str
     :param operating_system_version: The version of the operating system on the device. Required.
     :type operating_system_version: str
-    :param physical_ids: For interal use only. Not nullable.
+    :param physical_ids: For internal use only. Not nullable.
     :type physical_ids: list[str]
     :param profile_type: The profile type of the device. Possible values:RegisteredDevice
      (default)SecureVMPrinterSharedIoT.

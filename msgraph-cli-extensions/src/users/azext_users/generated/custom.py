@@ -25,18 +25,22 @@ def users_create_user(client,
 
 def users_get_user(client,
                    user_id,
+                   consistency_level=None,
                    select=None,
                    expand=None):
     return client.get_user(user_id=user_id,
+                           consistency_level=consistency_level,
                            select=select,
                            expand=expand)
 
 
 def users_list_user(client,
+                    consistency_level=None,
                     orderby=None,
                     select=None,
                     expand=None):
-    return client.list_user(orderby=orderby,
+    return client.list_user(consistency_level=consistency_level,
+                            orderby=orderby,
                             select=select,
                             expand=expand)
 
@@ -75,8 +79,11 @@ def users_delete(client,
     elif user_id is not None:
         return client.delete_photo(user_id=user_id,
                                    if_match=if_match)
-    return client.delete_setting(user_id=user_id,
-                                 if_match=if_match)
+    elif user_id is not None:
+        return client.delete_setting(user_id=user_id,
+                                     if_match=if_match)
+    return client.delete_todo(user_id=user_id,
+                              if_match=if_match)
 
 
 def users_create_extension(client,
@@ -221,6 +228,15 @@ def users_get_photo(client,
                             expand=expand)
 
 
+def users_get_photo_content(client,
+                            user_id,
+                            profile_photo_id=None):
+    if user_id is not None and profile_photo_id is not None:
+        return client.get_photo_content(user_id=user_id,
+                                        profile_photo_id=profile_photo_id)
+    return client.get_photo_content(user_id=user_id)
+
+
 def users_get_ref_manager(client,
                           user_id):
     return client.get_ref_manager(user_id=user_id)
@@ -233,6 +249,15 @@ def users_get_setting(client,
     return client.get_setting(user_id=user_id,
                               select=select,
                               expand=expand)
+
+
+def users_get_todo(client,
+                   user_id,
+                   select=None,
+                   expand=None):
+    return client.get_todo(user_id=user_id,
+                           select=select,
+                           expand=expand)
 
 
 def users_list_created_object(client,
@@ -412,6 +437,18 @@ def users_list_transitive_member_of(client,
                                             expand=expand)
 
 
+def users_set_photo_content(client,
+                            user_id,
+                            data,
+                            profile_photo_id=None):
+    if user_id is not None and profile_photo_id is not None and data is not None:
+        return client.set_photo_content(user_id=user_id,
+                                        profile_photo_id=profile_photo_id,
+                                        data=data)
+    return client.set_photo_content(user_id=user_id,
+                                    data=data)
+
+
 def users_set_ref_manager(client,
                           user_id,
                           body):
@@ -493,6 +530,15 @@ def users_update_setting(client,
                                  device=shift_preferences_last_modified_by_device,
                                  user=shift_preferences_last_modified_by_user,
                                  availability=shift_preferences_availability)
+
+
+def users_update_todo(client,
+                      user_id,
+                      id_=None,
+                      lists=None):
+    return client.update_todo(user_id=user_id,
+                              id=id_,
+                              lists=lists)
 
 
 def users_delete(client,
@@ -583,3 +629,387 @@ def users_update_shift_preference(client,
                                           device=last_modified_by_device,
                                           user=last_modified_by_user,
                                           availability=availability)
+
+
+def users_delete(client,
+                 user_id,
+                 todo_task_list_id,
+                 if_match=None):
+    return client.delete_list(user_id=user_id,
+                              todo_task_list_id=todo_task_list_id,
+                              if_match=if_match)
+
+
+def users_create_list(client,
+                      user_id,
+                      id_=None,
+                      display_name=None,
+                      is_owner=None,
+                      is_shared=None,
+                      wellknown_list_name=None,
+                      extensions=None,
+                      tasks=None):
+    return client.create_list(user_id=user_id,
+                              id=id_,
+                              display_name=display_name,
+                              is_owner=is_owner,
+                              is_shared=is_shared,
+                              wellknown_list_name=wellknown_list_name,
+                              extensions=extensions,
+                              tasks=tasks)
+
+
+def users_get_list(client,
+                   user_id,
+                   todo_task_list_id,
+                   select=None,
+                   expand=None):
+    return client.get_list(user_id=user_id,
+                           todo_task_list_id=todo_task_list_id,
+                           select=select,
+                           expand=expand)
+
+
+def users_list_list(client,
+                    user_id,
+                    orderby=None,
+                    select=None,
+                    expand=None):
+    return client.list_list(user_id=user_id,
+                            orderby=orderby,
+                            select=select,
+                            expand=expand)
+
+
+def users_update_list(client,
+                      user_id,
+                      todo_task_list_id,
+                      id_=None,
+                      display_name=None,
+                      is_owner=None,
+                      is_shared=None,
+                      wellknown_list_name=None,
+                      extensions=None,
+                      tasks=None):
+    return client.update_list(user_id=user_id,
+                              todo_task_list_id=todo_task_list_id,
+                              id=id_,
+                              display_name=display_name,
+                              is_owner=is_owner,
+                              is_shared=is_shared,
+                              wellknown_list_name=wellknown_list_name,
+                              extensions=extensions,
+                              tasks=tasks)
+
+
+def users_delete(client,
+                 user_id,
+                 todo_task_list_id,
+                 extension_id=None,
+                 if_match=None,
+                 todo_task_id=None):
+    if user_id is not None and todo_task_list_id is not None and extension_id is not None:
+        return client.delete_extension(user_id=user_id,
+                                       todo_task_list_id=todo_task_list_id,
+                                       extension_id=extension_id,
+                                       if_match=if_match)
+    return client.delete_task(user_id=user_id,
+                              todo_task_list_id=todo_task_list_id,
+                              todo_task_id=todo_task_id,
+                              if_match=if_match)
+
+
+def users_create_extension(client,
+                           user_id,
+                           todo_task_list_id,
+                           id_=None):
+    return client.create_extension(user_id=user_id,
+                                   todo_task_list_id=todo_task_list_id,
+                                   id=id_)
+
+
+def users_create_task(client,
+                      user_id,
+                      todo_task_list_id,
+                      id_=None,
+                      body=None,
+                      body_last_modified_date_time=None,
+                      completed_date_time=None,
+                      created_date_time=None,
+                      due_date_time=None,
+                      importance=None,
+                      is_reminder_on=None,
+                      last_modified_date_time=None,
+                      reminder_date_time=None,
+                      status=None,
+                      title=None,
+                      extensions=None,
+                      linked_resources=None,
+                      recurrence_pattern=None,
+                      recurrence_range=None):
+    return client.create_task(user_id=user_id,
+                              todo_task_list_id=todo_task_list_id,
+                              id=id_,
+                              body=body,
+                              body_last_modified_date_time=body_last_modified_date_time,
+                              completed_date_time=completed_date_time,
+                              created_date_time=created_date_time,
+                              due_date_time=due_date_time,
+                              importance=importance,
+                              is_reminder_on=is_reminder_on,
+                              last_modified_date_time=last_modified_date_time,
+                              reminder_date_time=reminder_date_time,
+                              status=status,
+                              title=title,
+                              extensions=extensions,
+                              linked_resources=linked_resources,
+                              pattern=recurrence_pattern,
+                              range=recurrence_range)
+
+
+def users_get_extension(client,
+                        user_id,
+                        todo_task_list_id,
+                        extension_id,
+                        select=None,
+                        expand=None):
+    return client.get_extension(user_id=user_id,
+                                todo_task_list_id=todo_task_list_id,
+                                extension_id=extension_id,
+                                select=select,
+                                expand=expand)
+
+
+def users_get_task(client,
+                   user_id,
+                   todo_task_list_id,
+                   todo_task_id,
+                   select=None,
+                   expand=None):
+    return client.get_task(user_id=user_id,
+                           todo_task_list_id=todo_task_list_id,
+                           todo_task_id=todo_task_id,
+                           select=select,
+                           expand=expand)
+
+
+def users_list_extension(client,
+                         user_id,
+                         todo_task_list_id,
+                         orderby=None,
+                         select=None,
+                         expand=None):
+    return client.list_extension(user_id=user_id,
+                                 todo_task_list_id=todo_task_list_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def users_list_task(client,
+                    user_id,
+                    todo_task_list_id,
+                    orderby=None,
+                    select=None,
+                    expand=None):
+    return client.list_task(user_id=user_id,
+                            todo_task_list_id=todo_task_list_id,
+                            orderby=orderby,
+                            select=select,
+                            expand=expand)
+
+
+def users_update_extension(client,
+                           user_id,
+                           todo_task_list_id,
+                           extension_id,
+                           id_=None):
+    return client.update_extension(user_id=user_id,
+                                   todo_task_list_id=todo_task_list_id,
+                                   extension_id=extension_id,
+                                   id=id_)
+
+
+def users_update_task(client,
+                      user_id,
+                      todo_task_list_id,
+                      todo_task_id,
+                      id_=None,
+                      body=None,
+                      body_last_modified_date_time=None,
+                      completed_date_time=None,
+                      created_date_time=None,
+                      due_date_time=None,
+                      importance=None,
+                      is_reminder_on=None,
+                      last_modified_date_time=None,
+                      reminder_date_time=None,
+                      status=None,
+                      title=None,
+                      extensions=None,
+                      linked_resources=None,
+                      recurrence_pattern=None,
+                      recurrence_range=None):
+    return client.update_task(user_id=user_id,
+                              todo_task_list_id=todo_task_list_id,
+                              todo_task_id=todo_task_id,
+                              id=id_,
+                              body=body,
+                              body_last_modified_date_time=body_last_modified_date_time,
+                              completed_date_time=completed_date_time,
+                              created_date_time=created_date_time,
+                              due_date_time=due_date_time,
+                              importance=importance,
+                              is_reminder_on=is_reminder_on,
+                              last_modified_date_time=last_modified_date_time,
+                              reminder_date_time=reminder_date_time,
+                              status=status,
+                              title=title,
+                              extensions=extensions,
+                              linked_resources=linked_resources,
+                              pattern=recurrence_pattern,
+                              range=recurrence_range)
+
+
+def users_delete(client,
+                 user_id,
+                 todo_task_list_id,
+                 todo_task_id,
+                 extension_id=None,
+                 if_match=None,
+                 linked_resource_id=None):
+    if user_id is not None and todo_task_list_id is not None and todo_task_id is not None and extension_id is not None:
+        return client.delete_extension(user_id=user_id,
+                                       todo_task_list_id=todo_task_list_id,
+                                       todo_task_id=todo_task_id,
+                                       extension_id=extension_id,
+                                       if_match=if_match)
+    return client.delete_linked_resource(user_id=user_id,
+                                         todo_task_list_id=todo_task_list_id,
+                                         todo_task_id=todo_task_id,
+                                         linked_resource_id=linked_resource_id,
+                                         if_match=if_match)
+
+
+def users_create_extension(client,
+                           user_id,
+                           todo_task_list_id,
+                           todo_task_id,
+                           id_=None):
+    return client.create_extension(user_id=user_id,
+                                   todo_task_list_id=todo_task_list_id,
+                                   todo_task_id=todo_task_id,
+                                   id=id_)
+
+
+def users_create_linked_resource(client,
+                                 user_id,
+                                 todo_task_list_id,
+                                 todo_task_id,
+                                 id_=None,
+                                 application_name=None,
+                                 display_name=None,
+                                 external_id=None,
+                                 web_url=None):
+    return client.create_linked_resource(user_id=user_id,
+                                         todo_task_list_id=todo_task_list_id,
+                                         todo_task_id=todo_task_id,
+                                         id=id_,
+                                         application_name=application_name,
+                                         display_name=display_name,
+                                         external_id=external_id,
+                                         web_url=web_url)
+
+
+def users_get_extension(client,
+                        user_id,
+                        todo_task_list_id,
+                        todo_task_id,
+                        extension_id,
+                        select=None,
+                        expand=None):
+    return client.get_extension(user_id=user_id,
+                                todo_task_list_id=todo_task_list_id,
+                                todo_task_id=todo_task_id,
+                                extension_id=extension_id,
+                                select=select,
+                                expand=expand)
+
+
+def users_get_linked_resource(client,
+                              user_id,
+                              todo_task_list_id,
+                              todo_task_id,
+                              linked_resource_id,
+                              select=None,
+                              expand=None):
+    return client.get_linked_resource(user_id=user_id,
+                                      todo_task_list_id=todo_task_list_id,
+                                      todo_task_id=todo_task_id,
+                                      linked_resource_id=linked_resource_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def users_list_extension(client,
+                         user_id,
+                         todo_task_list_id,
+                         todo_task_id,
+                         orderby=None,
+                         select=None,
+                         expand=None):
+    return client.list_extension(user_id=user_id,
+                                 todo_task_list_id=todo_task_list_id,
+                                 todo_task_id=todo_task_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def users_list_linked_resource(client,
+                               user_id,
+                               todo_task_list_id,
+                               todo_task_id,
+                               orderby=None,
+                               select=None,
+                               expand=None):
+    return client.list_linked_resource(user_id=user_id,
+                                       todo_task_list_id=todo_task_list_id,
+                                       todo_task_id=todo_task_id,
+                                       orderby=orderby,
+                                       select=select,
+                                       expand=expand)
+
+
+def users_update_extension(client,
+                           user_id,
+                           todo_task_list_id,
+                           todo_task_id,
+                           extension_id,
+                           id_=None):
+    return client.update_extension(user_id=user_id,
+                                   todo_task_list_id=todo_task_list_id,
+                                   todo_task_id=todo_task_id,
+                                   extension_id=extension_id,
+                                   id=id_)
+
+
+def users_update_linked_resource(client,
+                                 user_id,
+                                 todo_task_list_id,
+                                 todo_task_id,
+                                 linked_resource_id,
+                                 id_=None,
+                                 application_name=None,
+                                 display_name=None,
+                                 external_id=None,
+                                 web_url=None):
+    return client.update_linked_resource(user_id=user_id,
+                                         todo_task_list_id=todo_task_list_id,
+                                         todo_task_id=todo_task_id,
+                                         linked_resource_id=linked_resource_id,
+                                         id=id_,
+                                         application_name=application_name,
+                                         display_name=display_name,
+                                         external_id=external_id,
+                                         web_url=web_url)

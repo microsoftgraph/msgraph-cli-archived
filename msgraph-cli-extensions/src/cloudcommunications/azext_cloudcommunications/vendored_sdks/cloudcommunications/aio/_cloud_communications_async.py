@@ -16,6 +16,13 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration_async import CloudCommunicationsConfiguration
+from .operations_async import CommunicationCloudCommunicationOperations
+from .operations_async import CommunicationOperations
+from .operations_async import CommunicationCallRecordOperations
+from .operations_async import CommunicationCallRecordSessionOperations
+from .operations_async import CommunicationCallOperations
+from .operations_async import CommunicationCallParticipantOperations
+from .operations_async import CommunicationOnlineMeetingOperations
 from .operations_async import UserOperations
 from .. import models
 
@@ -23,6 +30,20 @@ from .. import models
 class CloudCommunications(object):
     """CloudCommunications.
 
+    :ivar communication_cloud_communication: CommunicationCloudCommunicationOperations operations
+    :vartype communication_cloud_communication: cloud_communications.aio.operations_async.CommunicationCloudCommunicationOperations
+    :ivar communication: CommunicationOperations operations
+    :vartype communication: cloud_communications.aio.operations_async.CommunicationOperations
+    :ivar communication_call_record: CommunicationCallRecordOperations operations
+    :vartype communication_call_record: cloud_communications.aio.operations_async.CommunicationCallRecordOperations
+    :ivar communication_call_record_session: CommunicationCallRecordSessionOperations operations
+    :vartype communication_call_record_session: cloud_communications.aio.operations_async.CommunicationCallRecordSessionOperations
+    :ivar communication_call: CommunicationCallOperations operations
+    :vartype communication_call: cloud_communications.aio.operations_async.CommunicationCallOperations
+    :ivar communication_call_participant: CommunicationCallParticipantOperations operations
+    :vartype communication_call_participant: cloud_communications.aio.operations_async.CommunicationCallParticipantOperations
+    :ivar communication_online_meeting: CommunicationOnlineMeetingOperations operations
+    :vartype communication_online_meeting: cloud_communications.aio.operations_async.CommunicationOnlineMeetingOperations
     :ivar user: UserOperations operations
     :vartype user: cloud_communications.aio.operations_async.UserOperations
     :param credential: Credential needed for the client to connect to Azure.
@@ -61,6 +82,20 @@ class CloudCommunications(object):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
+        self.communication_cloud_communication = CommunicationCloudCommunicationOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication = CommunicationOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call_record = CommunicationCallRecordOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call_record_session = CommunicationCallRecordSessionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call = CommunicationCallOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_call_participant = CommunicationCallParticipantOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_online_meeting = CommunicationOnlineMeetingOperations(
+            self._client, self._config, self._serialize, self._deserialize)
         self.user = UserOperations(
             self._client, self._config, self._serialize, self._deserialize)
 

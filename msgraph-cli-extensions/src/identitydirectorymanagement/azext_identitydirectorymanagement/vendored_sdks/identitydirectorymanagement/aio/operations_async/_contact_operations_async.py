@@ -284,7 +284,7 @@ class ContactOperations:
     async def get_manager(
         self,
         org_contact_id: str,
-        select: Optional[List[Union[str, "models.Enum9"]]] = None,
+        select: Optional[List[Union[str, "models.Get1ItemsItem"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphDirectoryObject":
@@ -295,7 +295,7 @@ class ContactOperations:
         :param org_contact_id: key: id of orgContact.
         :type org_contact_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_directory_management.models.Enum9]
+        :type select: list[str or ~identity_directory_management.models.Get1ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

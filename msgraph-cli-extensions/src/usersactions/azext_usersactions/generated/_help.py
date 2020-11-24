@@ -72,6 +72,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -80,6 +85,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -112,94 +131,9 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
-helps['usersactions decline'] = """
+helps['usersactions cancel'] = """
     type: command
-    short-summary: "Invoke action decline"
-"""
-
-helps['usersactions dismiss-reminder'] = """
-    type: command
-    short-summary: "Invoke action dismissReminder"
-"""
-
-helps['usersactions snooze-reminder'] = """
-    type: command
-    short-summary: "Invoke action snoozeReminder"
-    parameters:
-      - name: --new-reminder-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --new-reminder-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-"""
-
-helps['usersactions tentatively-accept'] = """
-    type: command
-    short-summary: "Invoke action tentativelyAccept"
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions create-upload-session'] = """
-    type: command
-    short-summary: "Invoke action createUploadSession"
-    parameters:
-      - name: --attachment-item
-        short-summary: "attachmentItem"
-        long-summary: |
-            Usage: --attachment-item attachment-type=XX content-type=XX is-inline=XX name=XX size=XX
-
-            content-type: The nature of the data in the attachment. Optional.
-            is-inline: true if the attachment is an inline attachment; otherwise, false. Optional.
-            name: The display name of the attachment. This can be a descriptive string and does not have to be the \
-actual file name. Required.
-            size: The length of the attachment in bytes. Required.
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions get-schedule'] = """
-    type: command
-    short-summary: "Invoke action getSchedule"
-    parameters:
-      - name: --end-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --start-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions accept'] = """
-    type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action cancel"
 """
 
 helps['usersactions decline'] = """
@@ -212,203 +146,18 @@ helps['usersactions dismiss-reminder'] = """
     short-summary: "Invoke action dismissReminder"
 """
 
-helps['usersactions snooze-reminder'] = """
+helps['usersactions forward'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action forward"
     parameters:
-      - name: --new-reminder-time
-        short-summary: "dateTimeTimeZone"
+      - name: --to-recipients
         long-summary: |
-            Usage: --new-reminder-time date-time=XX time-zone=XX
+            Usage: --to-recipients address=XX name=XX
 
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-"""
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
 
-helps['usersactions tentatively-accept'] = """
-    type: command
-    short-summary: "Invoke action tentativelyAccept"
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions accept'] = """
-    type: command
-    short-summary: "Invoke action accept"
-"""
-
-helps['usersactions decline'] = """
-    type: command
-    short-summary: "Invoke action decline"
-"""
-
-helps['usersactions dismiss-reminder'] = """
-    type: command
-    short-summary: "Invoke action dismissReminder"
-"""
-
-helps['usersactions snooze-reminder'] = """
-    type: command
-    short-summary: "Invoke action snoozeReminder"
-    parameters:
-      - name: --new-reminder-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --new-reminder-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-"""
-
-helps['usersactions tentatively-accept'] = """
-    type: command
-    short-summary: "Invoke action tentativelyAccept"
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions get-schedule'] = """
-    type: command
-    short-summary: "Invoke action getSchedule"
-    parameters:
-      - name: --end-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --start-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions create-upload-session'] = """
-    type: command
-    short-summary: "Invoke action createUploadSession"
-    parameters:
-      - name: --attachment-item
-        short-summary: "attachmentItem"
-        long-summary: |
-            Usage: --attachment-item attachment-type=XX content-type=XX is-inline=XX name=XX size=XX
-
-            content-type: The nature of the data in the attachment. Optional.
-            is-inline: true if the attachment is an inline attachment; otherwise, false. Optional.
-            name: The display name of the attachment. This can be a descriptive string and does not have to be the \
-actual file name. Required.
-            size: The length of the attachment in bytes. Required.
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions get-schedule'] = """
-    type: command
-    short-summary: "Invoke action getSchedule"
-    parameters:
-      - name: --end-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --start-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions accept'] = """
-    type: command
-    short-summary: "Invoke action accept"
-"""
-
-helps['usersactions decline'] = """
-    type: command
-    short-summary: "Invoke action decline"
-"""
-
-helps['usersactions dismiss-reminder'] = """
-    type: command
-    short-summary: "Invoke action dismissReminder"
-"""
-
-helps['usersactions snooze-reminder'] = """
-    type: command
-    short-summary: "Invoke action snoozeReminder"
-    parameters:
-      - name: --new-reminder-time
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --new-reminder-time date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-"""
-
-helps['usersactions tentatively-accept'] = """
-    type: command
-    short-summary: "Invoke action tentativelyAccept"
-"""
-
-helps['usersactions'] = """
-    type: group
-    short-summary: usersactions
-"""
-
-helps['usersactions accept'] = """
-    type: command
-    short-summary: "Invoke action accept"
-"""
-
-helps['usersactions decline'] = """
-    type: command
-    short-summary: "Invoke action decline"
-"""
-
-helps['usersactions dismiss-reminder'] = """
-    type: command
-    short-summary: "Invoke action dismissReminder"
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -491,6 +240,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -499,6 +253,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -531,6 +299,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -539,6 +312,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -650,6 +437,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -658,6 +450,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -690,6 +496,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -698,6 +509,385 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+"""
+
+helps['usersactions snooze-reminder'] = """
+    type: command
+    short-summary: "Invoke action snoozeReminder"
+    parameters:
+      - name: --new-reminder-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --new-reminder-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+"""
+
+helps['usersactions tentatively-accept'] = """
+    type: command
+    short-summary: "Invoke action tentativelyAccept"
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions create-upload-session'] = """
+    type: command
+    short-summary: "Invoke action createUploadSession"
+    parameters:
+      - name: --attachment-item
+        short-summary: "attachmentItem"
+        long-summary: |
+            Usage: --attachment-item attachment-type=XX content-type=XX is-inline=XX name=XX size=XX
+
+            content-type: The nature of the data in the attachment. Optional.
+            is-inline: true if the attachment is an inline attachment; otherwise, false. Optional.
+            name: The display name of the attachment. This can be a descriptive string and does not have to be the \
+actual file name. Required.
+            size: The length of the attachment in bytes. Required.
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions get-schedule'] = """
+    type: command
+    short-summary: "Invoke action getSchedule"
+    parameters:
+      - name: --end-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --end-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --start-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions accept'] = """
+    type: command
+    short-summary: "Invoke action accept"
+"""
+
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
+helps['usersactions decline'] = """
+    type: command
+    short-summary: "Invoke action decline"
+"""
+
+helps['usersactions dismiss-reminder'] = """
+    type: command
+    short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+"""
+
+helps['usersactions snooze-reminder'] = """
+    type: command
+    short-summary: "Invoke action snoozeReminder"
+    parameters:
+      - name: --new-reminder-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --new-reminder-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+"""
+
+helps['usersactions tentatively-accept'] = """
+    type: command
+    short-summary: "Invoke action tentativelyAccept"
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions accept'] = """
+    type: command
+    short-summary: "Invoke action accept"
+"""
+
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
+helps['usersactions decline'] = """
+    type: command
+    short-summary: "Invoke action decline"
+"""
+
+helps['usersactions dismiss-reminder'] = """
+    type: command
+    short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+"""
+
+helps['usersactions snooze-reminder'] = """
+    type: command
+    short-summary: "Invoke action snoozeReminder"
+    parameters:
+      - name: --new-reminder-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --new-reminder-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+"""
+
+helps['usersactions tentatively-accept'] = """
+    type: command
+    short-summary: "Invoke action tentativelyAccept"
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions get-schedule'] = """
+    type: command
+    short-summary: "Invoke action getSchedule"
+    parameters:
+      - name: --end-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --end-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --start-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions create-upload-session'] = """
+    type: command
+    short-summary: "Invoke action createUploadSession"
+    parameters:
+      - name: --attachment-item
+        short-summary: "attachmentItem"
+        long-summary: |
+            Usage: --attachment-item attachment-type=XX content-type=XX is-inline=XX name=XX size=XX
+
+            content-type: The nature of the data in the attachment. Optional.
+            is-inline: true if the attachment is an inline attachment; otherwise, false. Optional.
+            name: The display name of the attachment. This can be a descriptive string and does not have to be the \
+actual file name. Required.
+            size: The length of the attachment in bytes. Required.
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions get-schedule'] = """
+    type: command
+    short-summary: "Invoke action getSchedule"
+    parameters:
+      - name: --end-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --end-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+      - name: --start-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions accept'] = """
+    type: command
+    short-summary: "Invoke action accept"
+"""
+
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
+helps['usersactions decline'] = """
+    type: command
+    short-summary: "Invoke action decline"
+"""
+
+helps['usersactions dismiss-reminder'] = """
+    type: command
+    short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
+"""
+
+helps['usersactions snooze-reminder'] = """
+    type: command
+    short-summary: "Invoke action snoozeReminder"
+    parameters:
+      - name: --new-reminder-time
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --new-reminder-time date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
+"""
+
+helps['usersactions tentatively-accept'] = """
+    type: command
+    short-summary: "Invoke action tentativelyAccept"
+"""
+
+helps['usersactions'] = """
+    type: group
+    short-summary: usersactions
+"""
+
+helps['usersactions accept'] = """
+    type: command
+    short-summary: "Invoke action accept"
+"""
+
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
+helps['usersactions decline'] = """
+    type: command
+    short-summary: "Invoke action decline"
+"""
+
+helps['usersactions dismiss-reminder'] = """
+    type: command
+    short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -780,6 +970,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -788,6 +983,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -820,6 +1029,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -828,6 +1042,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -910,6 +1138,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -918,6 +1151,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -950,6 +1197,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -958,6 +1210,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -1019,6 +1285,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -1027,6 +1298,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -1059,6 +1344,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -1067,6 +1357,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -1120,6 +1424,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -1128,6 +1437,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -1160,6 +1483,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -1168,6 +1496,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -1229,6 +1571,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -1237,6 +1584,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """
@@ -1269,6 +1630,11 @@ helps['usersactions accept'] = """
     short-summary: "Invoke action accept"
 """
 
+helps['usersactions cancel'] = """
+    type: command
+    short-summary: "Invoke action cancel"
+"""
+
 helps['usersactions decline'] = """
     type: command
     short-summary: "Invoke action decline"
@@ -1277,6 +1643,20 @@ helps['usersactions decline'] = """
 helps['usersactions dismiss-reminder'] = """
     type: command
     short-summary: "Invoke action dismissReminder"
+"""
+
+helps['usersactions forward'] = """
+    type: command
+    short-summary: "Invoke action forward"
+    parameters:
+      - name: --to-recipients
+        long-summary: |
+            Usage: --to-recipients address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --to-recipients argument.
 """
 
 helps['usersactions snooze-reminder'] = """

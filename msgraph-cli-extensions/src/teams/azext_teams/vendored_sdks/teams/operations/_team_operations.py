@@ -49,9 +49,9 @@ class TeamOperations(object):
     def list_channel(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum68"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get8ItemsItem"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum77"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum78"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfChannel"]
@@ -62,11 +62,11 @@ class TeamOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum67]
+        :type orderby: list[str or ~teams.models.Enum77]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum68]
+        :type select: list[str or ~teams.models.Enum78]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Get8ItemsItem]
+        :type expand: list[str or ~teams.models.Enum79]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfChannel or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~teams.models.CollectionOfChannel]
@@ -173,9 +173,9 @@ class TeamOperations(object):
         :type email: str
         :param membership_type:
         :type membership_type: str or ~teams.models.MicrosoftGraphChannelMembershipType
-        :param web_url: A hyperlink that will navigate to the channel in Microsoft Teams. This is the
-         URL that you get when you right-click a channel in Microsoft Teams and select Get link to
-         channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
+        :param web_url: A hyperlink that will go to the channel in Microsoft Teams. This is the URL
+         that you get when you right-click a channel in Microsoft Teams and select Get link to channel.
+         This URL should be treated as an opaque blob, and not parsed. Read-only.
         :type web_url: str
         :param files_folder: driveItem.
         :type files_folder: ~teams.models.MicrosoftGraphDriveItem
@@ -240,8 +240,8 @@ class TeamOperations(object):
         self,
         team_id,  # type: str
         channel_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum70"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Get3ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum80"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphChannel"
@@ -254,9 +254,9 @@ class TeamOperations(object):
         :param channel_id: key: id of channel.
         :type channel_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum70]
+        :type select: list[str or ~teams.models.Enum80]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Get3ItemsItem]
+        :type expand: list[str or ~teams.models.Enum81]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphChannel, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphChannel
@@ -339,9 +339,9 @@ class TeamOperations(object):
         :type email: str
         :param membership_type:
         :type membership_type: str or ~teams.models.MicrosoftGraphChannelMembershipType
-        :param web_url: A hyperlink that will navigate to the channel in Microsoft Teams. This is the
-         URL that you get when you right-click a channel in Microsoft Teams and select Get link to
-         channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
+        :param web_url: A hyperlink that will go to the channel in Microsoft Teams. This is the URL
+         that you get when you right-click a channel in Microsoft Teams and select Get link to channel.
+         This URL should be treated as an opaque blob, and not parsed. Read-only.
         :type web_url: str
         :param files_folder: driveItem.
         :type files_folder: ~teams.models.MicrosoftGraphDriveItem
@@ -461,8 +461,8 @@ class TeamOperations(object):
     def get_group(
         self,
         team_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum95"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum96"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum105"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum106"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphGroup"
@@ -473,9 +473,9 @@ class TeamOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum95]
+        :type select: list[str or ~teams.models.Enum105]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum96]
+        :type expand: list[str or ~teams.models.Enum106]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphGroup, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphGroup
@@ -693,9 +693,9 @@ class TeamOperations(object):
     def list_installed_app(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum97"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum98"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum99"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum107"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum108"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum109"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfTeamsAppInstallation"]
@@ -706,11 +706,11 @@ class TeamOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum97]
+        :type orderby: list[str or ~teams.models.Enum107]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum98]
+        :type select: list[str or ~teams.models.Enum108]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum99]
+        :type expand: list[str or ~teams.models.Enum109]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfTeamsAppInstallation or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~teams.models.CollectionOfTeamsAppInstallation]
@@ -874,8 +874,8 @@ class TeamOperations(object):
         self,
         team_id,  # type: str
         teams_app_installation_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum100"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum101"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum111"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphTeamsAppInstallation"
@@ -888,9 +888,9 @@ class TeamOperations(object):
         :param teams_app_installation_id: key: id of teamsAppInstallation.
         :type teams_app_installation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum100]
+        :type select: list[str or ~teams.models.Enum110]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum101]
+        :type expand: list[str or ~teams.models.Enum111]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTeamsAppInstallation, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTeamsAppInstallation
@@ -1085,8 +1085,8 @@ class TeamOperations(object):
     def list_member(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum105"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum106"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum115"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum116"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1098,9 +1098,9 @@ class TeamOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum105]
+        :type orderby: list[str or ~teams.models.Enum115]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum106]
+        :type select: list[str or ~teams.models.Enum116]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1252,7 +1252,7 @@ class TeamOperations(object):
         self,
         team_id,  # type: str
         conversation_member_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum107"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum117"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1266,7 +1266,7 @@ class TeamOperations(object):
         :param conversation_member_id: key: id of conversationMember.
         :type conversation_member_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum107]
+        :type select: list[str or ~teams.models.Enum117]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1636,8 +1636,8 @@ class TeamOperations(object):
     def list_operation(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum109"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum110"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum119"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum120"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1649,9 +1649,9 @@ class TeamOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum109]
+        :type orderby: list[str or ~teams.models.Enum119]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum110]
+        :type select: list[str or ~teams.models.Enum120]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1825,7 +1825,7 @@ class TeamOperations(object):
         self,
         team_id,  # type: str
         teams_async_operation_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum111"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum121"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1839,7 +1839,7 @@ class TeamOperations(object):
         :param teams_async_operation_id: key: id of teamsAsyncOperation.
         :type teams_async_operation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum111]
+        :type select: list[str or ~teams.models.Enum121]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2044,8 +2044,8 @@ class TeamOperations(object):
     def get_primary_channel(
         self,
         team_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum112"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum113"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum122"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum123"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphChannel"
@@ -2056,9 +2056,9 @@ class TeamOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum112]
+        :type select: list[str or ~teams.models.Enum122]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum113]
+        :type expand: list[str or ~teams.models.Enum123]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphChannel, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphChannel
@@ -2137,9 +2137,9 @@ class TeamOperations(object):
         :type email: str
         :param membership_type:
         :type membership_type: str or ~teams.models.MicrosoftGraphChannelMembershipType
-        :param web_url: A hyperlink that will navigate to the channel in Microsoft Teams. This is the
-         URL that you get when you right-click a channel in Microsoft Teams and select Get link to
-         channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
+        :param web_url: A hyperlink that will go to the channel in Microsoft Teams. This is the URL
+         that you get when you right-click a channel in Microsoft Teams and select Get link to channel.
+         This URL should be treated as an opaque blob, and not parsed. Read-only.
         :type web_url: str
         :param files_folder: driveItem.
         :type files_folder: ~teams.models.MicrosoftGraphDriveItem
@@ -2254,8 +2254,8 @@ class TeamOperations(object):
     def get_schedule(
         self,
         team_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum137"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum138"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum147"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum148"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphSchedule"
@@ -2266,9 +2266,9 @@ class TeamOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum137]
+        :type select: list[str or ~teams.models.Enum147]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum138]
+        :type expand: list[str or ~teams.models.Enum148]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphSchedule, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphSchedule

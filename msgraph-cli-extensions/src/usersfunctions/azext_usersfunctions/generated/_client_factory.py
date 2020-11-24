@@ -228,3 +228,11 @@ def cf_user_onenote_section_page(cli_ctx, *_):
 
 def cf_user_outlook(cli_ctx, *_):
     return cf_usersfunctions_cl(cli_ctx).user_outlook
+
+
+def cf_user_todo_list_task(cli_ctx, *_):
+    return cf_usersfunctions_cl(cli_ctx).user_todo_list_task
+
+
+def cf_user_todo_list(cli_ctx, *_):
+    return cf_usersfunctions_cl(cli_ctx).user_todo_list

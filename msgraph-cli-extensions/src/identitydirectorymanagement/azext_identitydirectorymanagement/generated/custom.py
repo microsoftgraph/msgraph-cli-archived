@@ -63,18 +63,22 @@ def identitydirectorymanagement_create_org_contact(client,
 
 def identitydirectorymanagement_get_org_contact(client,
                                                 org_contact_id,
+                                                consistency_level=None,
                                                 select=None,
                                                 expand=None):
     return client.get_org_contact(org_contact_id=org_contact_id,
+                                  consistency_level=consistency_level,
                                   select=select,
                                   expand=expand)
 
 
 def identitydirectorymanagement_list_org_contact(client,
+                                                 consistency_level=None,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_org_contact(orderby=orderby,
+    return client.list_org_contact(consistency_level=consistency_level,
+                                   orderby=orderby,
                                    select=select,
                                    expand=expand)
 
@@ -476,18 +480,22 @@ def identitydirectorymanagement_create_device(client,
 
 def identitydirectorymanagement_get_device(client,
                                            device_id,
+                                           consistency_level=None,
                                            select=None,
                                            expand=None):
     return client.get_device(device_id=device_id,
+                             consistency_level=consistency_level,
                              select=select,
                              expand=expand)
 
 
 def identitydirectorymanagement_list_device(client,
+                                            consistency_level=None,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_device(orderby=orderby,
+    return client.list_device(consistency_level=consistency_level,
+                              orderby=orderby,
                               select=select,
                               expand=expand)
 

@@ -116,8 +116,8 @@ class TeamScheduleOperations(object):
     def list_offer_shift_request(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum139"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum140"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum149"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum150"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -129,9 +129,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum139]
+        :type orderby: list[str or ~teams.models.Enum149]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum140]
+        :type select: list[str or ~teams.models.Enum150]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -352,7 +352,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         offer_shift_request_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum141"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum151"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -366,7 +366,7 @@ class TeamScheduleOperations(object):
         :param offer_shift_request_id: key: id of offerShiftRequest.
         :type offer_shift_request_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum141]
+        :type select: list[str or ~teams.models.Enum151]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -618,8 +618,8 @@ class TeamScheduleOperations(object):
     def list_open_shift_change_request(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum142"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum143"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum152"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum153"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -631,9 +631,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum142]
+        :type orderby: list[str or ~teams.models.Enum152]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum143]
+        :type select: list[str or ~teams.models.Enum153]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -843,7 +843,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         open_shift_change_request_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum144"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum154"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -857,7 +857,7 @@ class TeamScheduleOperations(object):
         :param open_shift_change_request_id: key: id of openShiftChangeRequest.
         :type open_shift_change_request_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum144]
+        :type select: list[str or ~teams.models.Enum154]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1098,8 +1098,8 @@ class TeamScheduleOperations(object):
     def list_open_shift(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum145"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum146"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum155"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum156"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1111,9 +1111,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum145]
+        :type orderby: list[str or ~teams.models.Enum155]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum146]
+        :type select: list[str or ~teams.models.Enum156]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1305,7 +1305,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         open_shift_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum147"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum157"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1319,7 +1319,7 @@ class TeamScheduleOperations(object):
         :param open_shift_id: key: id of openShift.
         :type open_shift_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum147]
+        :type select: list[str or ~teams.models.Enum157]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1542,8 +1542,8 @@ class TeamScheduleOperations(object):
     def list_scheduling_group(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum148"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum149"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum158"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum159"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1555,9 +1555,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum148]
+        :type orderby: list[str or ~teams.models.Enum158]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum149]
+        :type select: list[str or ~teams.models.Enum159]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1751,7 +1751,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         scheduling_group_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum150"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum160"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1765,7 +1765,7 @@ class TeamScheduleOperations(object):
         :param scheduling_group_id: key: id of schedulingGroup.
         :type scheduling_group_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum150]
+        :type select: list[str or ~teams.models.Enum160]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1990,8 +1990,8 @@ class TeamScheduleOperations(object):
     def list_shift(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum151"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum152"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum161"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum162"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2003,9 +2003,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum151]
+        :type orderby: list[str or ~teams.models.Enum161]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum152]
+        :type select: list[str or ~teams.models.Enum162]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2149,7 +2149,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         shift_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum153"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum163"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2163,7 +2163,7 @@ class TeamScheduleOperations(object):
         :param shift_id: key: id of shift.
         :type shift_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum153]
+        :type select: list[str or ~teams.models.Enum163]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2338,8 +2338,8 @@ class TeamScheduleOperations(object):
     def list_swap_shift_change_request(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum154"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum155"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum164"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum165"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2351,9 +2351,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum154]
+        :type orderby: list[str or ~teams.models.Enum164]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum155]
+        :type select: list[str or ~teams.models.Enum165]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2577,7 +2577,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         swap_shifts_change_request_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum156"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum166"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2591,7 +2591,7 @@ class TeamScheduleOperations(object):
         :param swap_shifts_change_request_id: key: id of swapShiftsChangeRequest.
         :type swap_shifts_change_request_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum156]
+        :type select: list[str or ~teams.models.Enum166]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2846,8 +2846,8 @@ class TeamScheduleOperations(object):
     def list_time_off_reason(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum157"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum158"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum167"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum168"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2859,9 +2859,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum157]
+        :type orderby: list[str or ~teams.models.Enum167]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum158]
+        :type select: list[str or ~teams.models.Enum168]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3054,7 +3054,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         time_off_reason_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum159"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum169"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3068,7 +3068,7 @@ class TeamScheduleOperations(object):
         :param time_off_reason_id: key: id of timeOffReason.
         :type time_off_reason_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum159]
+        :type select: list[str or ~teams.models.Enum169]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3292,8 +3292,8 @@ class TeamScheduleOperations(object):
     def list_time_off_request(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum160"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum161"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum170"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum171"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3305,9 +3305,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum160]
+        :type orderby: list[str or ~teams.models.Enum170]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum161]
+        :type select: list[str or ~teams.models.Enum171]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3527,7 +3527,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         time_off_request_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum162"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum172"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3541,7 +3541,7 @@ class TeamScheduleOperations(object):
         :param time_off_request_id: key: id of timeOffRequest.
         :type time_off_request_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum162]
+        :type select: list[str or ~teams.models.Enum172]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3792,8 +3792,8 @@ class TeamScheduleOperations(object):
     def list_time_off(
         self,
         team_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum163"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum164"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum173"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum174"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3805,9 +3805,9 @@ class TeamScheduleOperations(object):
         :param team_id: key: id of team.
         :type team_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum163]
+        :type orderby: list[str or ~teams.models.Enum173]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum164]
+        :type select: list[str or ~teams.models.Enum174]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3999,7 +3999,7 @@ class TeamScheduleOperations(object):
         self,
         team_id,  # type: str
         time_off_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum165"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum175"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -4013,7 +4013,7 @@ class TeamScheduleOperations(object):
         :param time_off_id: key: id of timeOff.
         :type time_off_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum165]
+        :type select: list[str or ~teams.models.Enum175]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

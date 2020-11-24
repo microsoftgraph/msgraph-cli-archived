@@ -28,10 +28,24 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
 
 class Enum100(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
+    ID = "id"
+    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+
+class Enum101(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CONTRIBUTION_TO_CONTENT_DISCOVERY_AS_ORGANIZATION_DISABLED = "contributionToContentDiscoveryAsOrganizationDisabled"
+    CONTRIBUTION_TO_CONTENT_DISCOVERY_DISABLED = "contributionToContentDiscoveryDisabled"
+    SHIFT_PREFERENCES = "shiftPreferences"
+
+class Enum102(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
     ASTERISK = "*"
     SHIFT_PREFERENCES = "shiftPreferences"
 
-class Enum101(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum103(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CREATED_DATE_TIME = "createdDateTime"
@@ -39,36 +53,195 @@ class Enum101(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
     AVAILABILITY = "availability"
 
-class Enum102(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-
-class Enum103(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
-
 class Enum104(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    LISTS = "lists"
 
-class Enum64(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum105(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    LISTS = "lists"
+
+class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    IS_OWNER = "isOwner"
+    IS_OWNER_DESC = "isOwner desc"
+    IS_SHARED = "isShared"
+    IS_SHARED_DESC = "isShared desc"
+    WELLKNOWN_LIST_NAME = "wellknownListName"
+    WELLKNOWN_LIST_NAME_DESC = "wellknownListName desc"
+
+class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    IS_OWNER = "isOwner"
+    IS_SHARED = "isShared"
+    WELLKNOWN_LIST_NAME = "wellknownListName"
+    EXTENSIONS = "extensions"
+    TASKS = "tasks"
+
+class Enum108(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    EXTENSIONS = "extensions"
+    TASKS = "tasks"
+
+class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    IS_OWNER = "isOwner"
+    IS_SHARED = "isShared"
+    WELLKNOWN_LIST_NAME = "wellknownListName"
+    EXTENSIONS = "extensions"
+    TASKS = "tasks"
+
+class Enum110(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    EXTENSIONS = "extensions"
+    TASKS = "tasks"
+
+class Enum111(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum112(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    BODY_LAST_MODIFIED_DATE_TIME = "bodyLastModifiedDateTime"
+    BODY_LAST_MODIFIED_DATE_TIME_DESC = "bodyLastModifiedDateTime desc"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    COMPLETED_DATE_TIME_DESC = "completedDateTime desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DUE_DATE_TIME = "dueDateTime"
+    DUE_DATE_TIME_DESC = "dueDateTime desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    IS_REMINDER_ON = "isReminderOn"
+    IS_REMINDER_ON_DESC = "isReminderOn desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    RECURRENCE = "recurrence"
+    RECURRENCE_DESC = "recurrence desc"
+    REMINDER_DATE_TIME = "reminderDateTime"
+    REMINDER_DATE_TIME_DESC = "reminderDateTime desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+    TITLE = "title"
+    TITLE_DESC = "title desc"
+
+class Enum113(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BODY = "body"
+    BODY_LAST_MODIFIED_DATE_TIME = "bodyLastModifiedDateTime"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    CREATED_DATE_TIME = "createdDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    IMPORTANCE = "importance"
+    IS_REMINDER_ON = "isReminderOn"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    RECURRENCE = "recurrence"
+    REMINDER_DATE_TIME = "reminderDateTime"
+    STATUS = "status"
+    TITLE = "title"
+    EXTENSIONS = "extensions"
+    LINKED_RESOURCES = "linkedResources"
+
+class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    EXTENSIONS = "extensions"
+    LINKED_RESOURCES = "linkedResources"
+
+class Enum115(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BODY = "body"
+    BODY_LAST_MODIFIED_DATE_TIME = "bodyLastModifiedDateTime"
+    COMPLETED_DATE_TIME = "completedDateTime"
+    CREATED_DATE_TIME = "createdDateTime"
+    DUE_DATE_TIME = "dueDateTime"
+    IMPORTANCE = "importance"
+    IS_REMINDER_ON = "isReminderOn"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    RECURRENCE = "recurrence"
+    REMINDER_DATE_TIME = "reminderDateTime"
+    STATUS = "status"
+    TITLE = "title"
+    EXTENSIONS = "extensions"
+    LINKED_RESOURCES = "linkedResources"
+
+class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    EXTENSIONS = "extensions"
+    LINKED_RESOURCES = "linkedResources"
+
+class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum118(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    APPLICATION_NAME = "applicationName"
+    APPLICATION_NAME_DESC = "applicationName desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum119(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    APPLICATION_NAME = "applicationName"
+    DISPLAY_NAME = "displayName"
+    EXTERNAL_ID = "externalId"
+    WEB_URL = "webUrl"
+
+class Enum120(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    APPLICATION_NAME = "applicationName"
+    DISPLAY_NAME = "displayName"
+    EXTERNAL_ID = "externalId"
+    WEB_URL = "webUrl"
+
+class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
     DELETED_DATE_TIME = "deletedDateTime"
     DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
-class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DELETED_DATE_TIME = "deletedDateTime"
+
+class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
 class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -80,14 +253,14 @@ class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum67(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
     DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
 class Enum68(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    ID_DESC = "id desc"
     DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
 class Enum69(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -99,9 +272,21 @@ class Enum69(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum70(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
 
 class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+
+class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -112,36 +297,19 @@ class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SKU_PART_NUMBER = "skuPartNumber"
     SKU_PART_NUMBER_DESC = "skuPartNumber desc"
 
-class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    SERVICE_PLANS = "servicePlans"
-    SKU_ID = "skuId"
-    SKU_PART_NUMBER = "skuPartNumber"
-
-class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    SERVICE_PLANS = "servicePlans"
-    SKU_ID = "skuId"
-    SKU_PART_NUMBER = "skuPartNumber"
-
 class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    SERVICE_PLANS = "servicePlans"
+    SKU_ID = "skuId"
+    SKU_PART_NUMBER = "skuPartNumber"
 
 class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-
-class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    SERVICE_PLANS = "servicePlans"
+    SKU_ID = "skuId"
+    SKU_PART_NUMBER = "skuPartNumber"
 
 class Enum77(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -153,26 +321,14 @@ class Enum77(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum78(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CLIENT_ID = "clientId"
-    CLIENT_ID_DESC = "clientId desc"
-    CONSENT_TYPE = "consentType"
-    CONSENT_TYPE_DESC = "consentType desc"
-    PRINCIPAL_ID = "principalId"
-    PRINCIPAL_ID_DESC = "principalId desc"
-    RESOURCE_ID = "resourceId"
-    RESOURCE_ID_DESC = "resourceId desc"
-    SCOPE = "scope"
-    SCOPE_DESC = "scope desc"
+    DELETED_DATE_TIME = "deletedDateTime"
 
 class Enum79(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CLIENT_ID = "clientId"
-    CONSENT_TYPE = "consentType"
-    PRINCIPAL_ID = "principalId"
-    RESOURCE_ID = "resourceId"
-    SCOPE = "scope"
+    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
 class Enum80(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -192,14 +348,38 @@ class Enum80(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum81(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    MASTER_CATEGORIES = "masterCategories"
+    CLIENT_ID = "clientId"
+    CONSENT_TYPE = "consentType"
+    PRINCIPAL_ID = "principalId"
+    RESOURCE_ID = "resourceId"
+    SCOPE = "scope"
 
 class Enum82(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLIENT_ID = "clientId"
+    CLIENT_ID_DESC = "clientId desc"
+    CONSENT_TYPE = "consentType"
+    CONSENT_TYPE_DESC = "consentType desc"
+    PRINCIPAL_ID = "principalId"
+    PRINCIPAL_ID_DESC = "principalId desc"
+    RESOURCE_ID = "resourceId"
+    RESOURCE_ID_DESC = "resourceId desc"
+    SCOPE = "scope"
+    SCOPE_DESC = "scope desc"
+
+class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    MASTER_CATEGORIES = "masterCategories"
+
+class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     MASTER_CATEGORIES = "masterCategories"
 
-class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -208,29 +388,17 @@ class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     DISPLAY_NAME = "displayName"
     DISPLAY_NAME_DESC = "displayName desc"
 
-class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    COLOR = "color"
-    DISPLAY_NAME = "displayName"
-
-class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    COLOR = "color"
-    DISPLAY_NAME = "displayName"
-
 class Enum86(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    COLOR = "color"
+    DISPLAY_NAME = "displayName"
 
 class Enum87(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    COLOR = "color"
+    DISPLAY_NAME = "displayName"
 
 class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -242,14 +410,14 @@ class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
     DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
 class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    ID_DESC = "id desc"
     DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
 class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -261,17 +429,14 @@ class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum92(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    HEIGHT = "height"
-    WIDTH = "width"
+    DELETED_DATE_TIME = "deletedDateTime"
 
 class Enum93(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
-    HEIGHT = "height"
-    HEIGHT_DESC = "height desc"
-    WIDTH = "width"
-    WIDTH_DESC = "width desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
 class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -282,20 +447,23 @@ class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    ID_DESC = "id desc"
     HEIGHT = "height"
+    HEIGHT_DESC = "height desc"
     WIDTH = "width"
+    WIDTH_DESC = "width desc"
 
 class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    HEIGHT = "height"
+    WIDTH = "width"
 
 class Enum97(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
+    HEIGHT = "height"
+    WIDTH = "width"
 
 class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -307,11 +475,14 @@ class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum99(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CONTRIBUTION_TO_CONTENT_DISCOVERY_AS_ORGANIZATION_DISABLED = "contributionToContentDiscoveryAsOrganizationDisabled"
-    CONTRIBUTION_TO_CONTENT_DISCOVERY_DISABLED = "contributionToContentDiscoveryDisabled"
-    SHIFT_PREFERENCES = "shiftPreferences"
+    DELETED_DATE_TIME = "deletedDateTime"
 
 class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DELETED_DATE_TIME = "deletedDateTime"
@@ -421,8 +592,10 @@ class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ACTIVITIES = "activities"
     ONLINE_MEETINGS = "onlineMeetings"
     JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+    TODO = "todo"
 
-class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
@@ -465,8 +638,10 @@ class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ACTIVITIES = "activities"
     ONLINE_MEETINGS = "onlineMeetings"
     JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+    TODO = "todo"
 
-class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -605,7 +780,7 @@ class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SKILLS = "skills"
     SKILLS_DESC = "skills desc"
 
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DELETED_DATE_TIME = "deletedDateTime"
@@ -715,8 +890,10 @@ class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ACTIVITIES = "activities"
     ONLINE_MEETINGS = "onlineMeetings"
     JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+    TODO = "todo"
 
-class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
@@ -759,6 +936,8 @@ class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ACTIVITIES = "activities"
     ONLINE_MEETINGS = "onlineMeetings"
     JOINED_TEAMS = "joinedTeams"
+    TEAMWORK = "teamwork"
+    TODO = "todo"
 
 class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -1215,6 +1394,14 @@ class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     IGNORED = "ignored"
     UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
+class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    COMPLETED = "completed"
+    WAITING_ON_OTHERS = "waitingOnOthers"
+    DEFERRED = "deferred"
+
 class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STORE = "store"
@@ -1298,6 +1485,13 @@ class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     THIRD = "third"
     FOURTH = "fourth"
     LAST = "last"
+
+class MicrosoftGraphWellknownListName(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    DEFAULT_LIST = "defaultList"
+    FLAGGED_EMAILS = "flaggedEmails"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
 class MicrosoftGraphWorkbookOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 

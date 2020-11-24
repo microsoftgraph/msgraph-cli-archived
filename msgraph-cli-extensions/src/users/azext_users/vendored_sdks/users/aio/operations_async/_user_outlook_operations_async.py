@@ -44,8 +44,8 @@ class UserOutlookOperations:
     def list_master_category(
         self,
         user_id: str,
-        orderby: Optional[List[Union[str, "models.Enum83"]]] = None,
-        select: Optional[List[Union[str, "models.Enum84"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum85"]]] = None,
+        select: Optional[List[Union[str, "models.Enum86"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfOutlookCategory"]:
@@ -56,9 +56,9 @@ class UserOutlookOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum83]
+        :type orderby: list[str or ~users.models.Enum85]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum84]
+        :type select: list[str or ~users.models.Enum86]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -210,7 +210,7 @@ class UserOutlookOperations:
         self,
         user_id: str,
         outlook_category_id: str,
-        select: Optional[List[Union[str, "models.Enum85"]]] = None,
+        select: Optional[List[Union[str, "models.Enum87"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphOutlookCategory":
@@ -223,7 +223,7 @@ class UserOutlookOperations:
         :param outlook_category_id: key: id of outlookCategory.
         :type outlook_category_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum85]
+        :type select: list[str or ~users.models.Enum87]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

@@ -46,7 +46,48 @@ create-contact a personalcontacts.
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--body**|object|New navigation property|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--assistant-name**|string|The name of the contact's assistant.|assistant_name|assistantName|
+|**--birthday**|date-time|The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|birthday|birthday|
+|**--business-address**|object|physicalAddress|business_address|businessAddress|
+|**--business-home-page**|string|The business home page of the contact.|business_home_page|businessHomePage|
+|**--business-phones**|array|The contact's business phone numbers.|business_phones|businessPhones|
+|**--children**|array|The names of the contact's children.|children|children|
+|**--company-name**|string|The name of the contact's company.|company_name|companyName|
+|**--department**|string|The contact's department.|department|department|
+|**--display-name**|string|The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.|display_name|displayName|
+|**--email-addresses**|array|The contact's email addresses.|email_addresses|emailAddresses|
+|**--file-as**|string|The name the contact is filed under.|file_as|fileAs|
+|**--generation**|string|The contact's generation.|generation|generation|
+|**--given-name**|string|The contact's given name.|given_name|givenName|
+|**--home-address**|object|physicalAddress|home_address|homeAddress|
+|**--home-phones**|array|The contact's home phone numbers.|home_phones|homePhones|
+|**--im-addresses**|array|The contact's instant messaging (IM) addresses.|im_addresses|imAddresses|
+|**--initials**|string|The contact's initials.|initials|initials|
+|**--job-title**|string|The contact’s job title.|job_title|jobTitle|
+|**--manager**|string|The name of the contact's manager.|manager|manager|
+|**--middle-name**|string|The contact's middle name.|middle_name|middleName|
+|**--mobile-phone**|string|The contact's mobile phone number.|mobile_phone|mobilePhone|
+|**--nick-name**|string|The contact's nickname.|nick_name|nickName|
+|**--office-location**|string|The location of the contact's office.|office_location|officeLocation|
+|**--other-address**|object|physicalAddress|other_address|otherAddress|
+|**--parent-folder-id**|string|The ID of the contact's parent folder.|parent_folder_id|parentFolderId|
+|**--personal-notes**|string|The user's notes about the contact.|personal_notes|personalNotes|
+|**--profession**|string|The contact's profession.|profession|profession|
+|**--spouse-name**|string|The name of the contact's spouse/partner.|spouse_name|spouseName|
+|**--surname**|string|The contact's surname.|surname|surname|
+|**--title**|string|The contact's title.|title|title|
+|**--yomi-company-name**|string|The phonetic Japanese company name of the contact.|yomi_company_name|yomiCompanyName|
+|**--yomi-given-name**|string|The phonetic Japanese given name (first name) of the contact.|yomi_given_name|yomiGivenName|
+|**--yomi-surname**|string|The phonetic Japanese surname (last name)  of the contact.|yomi_surname|yomiSurname|
+|**--extensions**|array|The collection of open extensions defined for the contact. Read-only. Nullable.|extensions|extensions|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contact. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--photo**|object|profilePhoto|photo|photo|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contact. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
 
 ### personalcontacts create-contact-folder
 
@@ -302,6 +343,26 @@ get-photo a personalcontacts.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### personalcontacts get-photo-content
+
+get-photo-content a personalcontacts.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|personalcontacts|users.contacts|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-photo-content|GetPhotoContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+
 ### personalcontacts get-single-value-extended-property
 
 get-single-value-extended-property a personalcontacts.
@@ -462,6 +523,27 @@ list-single-value-extended-property a personalcontacts.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
+### personalcontacts set-photo-content
+
+set-photo-content a personalcontacts.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|personalcontacts|users.contacts|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|set-photo-content|SetPhotoContent|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--data**|binary|New media content.|data|data|
+
 ### personalcontacts update-child-folder
 
 update-child-folder a personalcontacts.
@@ -510,7 +592,48 @@ update-contact a personalcontacts.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--body**|object|New navigation property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--categories**|array|The categories associated with the item|categories|categories|
+|**--change-key**|string|Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.|change_key|changeKey|
+|**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
+|**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
+|**--assistant-name**|string|The name of the contact's assistant.|assistant_name|assistantName|
+|**--birthday**|date-time|The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|birthday|birthday|
+|**--business-address**|object|physicalAddress|business_address|businessAddress|
+|**--business-home-page**|string|The business home page of the contact.|business_home_page|businessHomePage|
+|**--business-phones**|array|The contact's business phone numbers.|business_phones|businessPhones|
+|**--children**|array|The names of the contact's children.|children|children|
+|**--company-name**|string|The name of the contact's company.|company_name|companyName|
+|**--department**|string|The contact's department.|department|department|
+|**--display-name**|string|The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.|display_name|displayName|
+|**--email-addresses**|array|The contact's email addresses.|email_addresses|emailAddresses|
+|**--file-as**|string|The name the contact is filed under.|file_as|fileAs|
+|**--generation**|string|The contact's generation.|generation|generation|
+|**--given-name**|string|The contact's given name.|given_name|givenName|
+|**--home-address**|object|physicalAddress|home_address|homeAddress|
+|**--home-phones**|array|The contact's home phone numbers.|home_phones|homePhones|
+|**--im-addresses**|array|The contact's instant messaging (IM) addresses.|im_addresses|imAddresses|
+|**--initials**|string|The contact's initials.|initials|initials|
+|**--job-title**|string|The contact’s job title.|job_title|jobTitle|
+|**--manager**|string|The name of the contact's manager.|manager|manager|
+|**--middle-name**|string|The contact's middle name.|middle_name|middleName|
+|**--mobile-phone**|string|The contact's mobile phone number.|mobile_phone|mobilePhone|
+|**--nick-name**|string|The contact's nickname.|nick_name|nickName|
+|**--office-location**|string|The location of the contact's office.|office_location|officeLocation|
+|**--other-address**|object|physicalAddress|other_address|otherAddress|
+|**--parent-folder-id**|string|The ID of the contact's parent folder.|parent_folder_id|parentFolderId|
+|**--personal-notes**|string|The user's notes about the contact.|personal_notes|personalNotes|
+|**--profession**|string|The contact's profession.|profession|profession|
+|**--spouse-name**|string|The name of the contact's spouse/partner.|spouse_name|spouseName|
+|**--surname**|string|The contact's surname.|surname|surname|
+|**--title**|string|The contact's title.|title|title|
+|**--yomi-company-name**|string|The phonetic Japanese company name of the contact.|yomi_company_name|yomiCompanyName|
+|**--yomi-given-name**|string|The phonetic Japanese given name (first name) of the contact.|yomi_given_name|yomiGivenName|
+|**--yomi-surname**|string|The phonetic Japanese surname (last name)  of the contact.|yomi_surname|yomiSurname|
+|**--extensions**|array|The collection of open extensions defined for the contact. Read-only. Nullable.|extensions|extensions|
+|**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contact. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
+|**--photo**|object|profilePhoto|photo|photo|
+|**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contact. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
 
 ### personalcontacts update-contact-folder
 

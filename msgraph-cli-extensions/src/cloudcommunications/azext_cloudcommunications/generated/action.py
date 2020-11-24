@@ -14,6 +14,298 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
+class AddChatInfo(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.chat_info = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'message-id':
+                d['message_id'] = v[0]
+            elif kl == 'reply-chain-message-id':
+                d['reply_chain_message_id'] = v[0]
+            elif kl == 'thread-id':
+                d['thread_id'] = v[0]
+        return d
+
+
+class AddResultInfo(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.result_info = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'message':
+                d['message'] = v[0]
+            elif kl == 'subcode':
+                d['subcode'] = v[0]
+        return d
+
+
+class AddCommunicationsTargets(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCommunicationsTargets, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'replaces-call-id':
+                d['replaces_call_id'] = v[0]
+            elif kl == 'display-name-identity-user-display-name':
+                d['display_name_identity_user_display_name'] = v[0]
+            elif kl == 'id-identity-user-id':
+                d['id_identity_user_id'] = v[0]
+            elif kl == 'display-name-identity-device-display-name':
+                d['display_name_identity_device_display_name'] = v[0]
+            elif kl == 'id-identity-device-id':
+                d['id_identity_device_id'] = v[0]
+            elif kl == 'display-name-identity-application-display-name':
+                d['display_name_identity_application_display_name'] = v[0]
+            elif kl == 'id-identity-application-id':
+                d['id_identity_application_id'] = v[0]
+        return d
+
+
+class AddToneInfo(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.tone_info = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'sequence-id':
+                d['sequence_id'] = v[0]
+            elif kl == 'tone':
+                d['tone'] = v[0]
+        return d
+
+
+class AddTranscription(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.transcription = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'last-modified-date-time':
+                d['last_modified_date_time'] = v[0]
+            elif kl == 'state':
+                d['state'] = v[0]
+        return d
+
+
+class AddOperations(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddOperations, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'client-context':
+                d['client_context'] = v[0]
+            elif kl == 'status':
+                d['status'] = v[0]
+            elif kl == 'code':
+                d['code'] = v[0]
+            elif kl == 'message':
+                d['message'] = v[0]
+            elif kl == 'subcode':
+                d['subcode'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddCloudcommunicationsCreateCallParticipants(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCloudcommunicationsCreateCallParticipants, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'is-in-lobby':
+                d['is_in_lobby'] = v[0]
+            elif kl == 'is-muted':
+                d['is_muted'] = v[0]
+            elif kl == 'media-streams':
+                d['media_streams'] = v
+            elif kl == 'recording-status':
+                d['recording_status'] = v[0]
+            elif kl == 'display-name-recording-info-initiator-user-display-name':
+                d['display_name_recording_info_initiator_user_display_name'] = v[0]
+            elif kl == 'id-recording-info-initiator-user-id':
+                d['id_recording_info_initiator_user_id'] = v[0]
+            elif kl == 'display-name-recording-info-initiator-device-display-name':
+                d['display_name_recording_info_initiator_device_display_name'] = v[0]
+            elif kl == 'id-recording-info-initiator-device-id':
+                d['id_recording_info_initiator_device_id'] = v[0]
+            elif kl == 'display-name-recording-info-initiator-application-display-name':
+                d['display_name_recording_info_initiator_application_display_name'] = v[0]
+            elif kl == 'id-recording-info-initiator-application-id':
+                d['id_recording_info_initiator_application_id'] = v[0]
+            elif kl == 'country-code':
+                d['country_code'] = v[0]
+            elif kl == 'endpoint-type':
+                d['endpoint_type'] = v[0]
+            elif kl == 'language-id':
+                d['language_id'] = v[0]
+            elif kl == 'region':
+                d['region'] = v[0]
+            elif kl == 'display-name-info-identity-user-display-name':
+                d['display_name_info_identity_user_display_name'] = v[0]
+            elif kl == 'id-info-identity-user-id':
+                d['id_info_identity_user_id'] = v[0]
+            elif kl == 'display-name-info-identity-device-display-name':
+                d['display_name_info_identity_device_display_name'] = v[0]
+            elif kl == 'id-info-identity-device-id':
+                d['id_info_identity_device_id'] = v[0]
+            elif kl == 'display-name-info-identity-application-display-name':
+                d['display_name_info_identity_application_display_name'] = v[0]
+            elif kl == 'id-info-identity-application-id':
+                d['id_info_identity_application_id'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+        return d
+
+
+class AddIncomingContextOnBehalfOf(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.incoming_context_on_behalf_of = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name-user-display-name':
+                d['display_name_user_display_name'] = v[0]
+            elif kl == 'id-user-id':
+                d['id_user_id'] = v[0]
+            elif kl == 'display-name-device-display-name':
+                d['display_name_device_display_name'] = v[0]
+            elif kl == 'id-device-id':
+                d['id_device_id'] = v[0]
+            elif kl == 'display-name-application-display-name':
+                d['display_name_application_display_name'] = v[0]
+            elif kl == 'id-application-id':
+                d['id_application_id'] = v[0]
+        return d
+
+
+class AddCloudcommunicationsCreateCallRecordParticipants(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCloudcommunicationsCreateCallRecordParticipants, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name-user-display-name':
+                d['display_name_user_display_name'] = v[0]
+            elif kl == 'id-user-id':
+                d['id_user_id'] = v[0]
+            elif kl == 'display-name-device-display-name':
+                d['display_name_device_display_name'] = v[0]
+            elif kl == 'id-device-id':
+                d['id_device_id'] = v[0]
+            elif kl == 'display-name-application-display-name':
+                d['display_name_application_display_name'] = v[0]
+            elif kl == 'id-application-id':
+                d['id_application_id'] = v[0]
+        return d
+
+
 class AddAudioConferencing(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -42,32 +334,6 @@ class AddAudioConferencing(argparse.Action):
         return d
 
 
-class AddChatInfo(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.chat_info = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'message-id':
-                d['message_id'] = v[0]
-            elif kl == 'reply-chain-message-id':
-                d['reply_chain_message_id'] = v[0]
-            elif kl == 'thread-id':
-                d['thread_id'] = v[0]
-        return d
-
-
 class AddJoinInformation(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -89,4 +355,252 @@ class AddJoinInformation(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+        return d
+
+
+class AddFailureInfo(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.failure_info = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'reason':
+                d['reason'] = v[0]
+            elif kl == 'stage':
+                d['stage'] = v[0]
+        return d
+
+
+class AddCallerUserAgent(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.caller_user_agent = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'application-version':
+                d['application_version'] = v[0]
+            elif kl == 'header-value':
+                d['header_value'] = v[0]
+        return d
+
+
+class AddMediaStreams(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddMediaStreams, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'direction':
+                d['direction'] = v[0]
+            elif kl == 'label':
+                d['label'] = v[0]
+            elif kl == 'media-type':
+                d['media_type'] = v[0]
+            elif kl == 'server-muted':
+                d['server_muted'] = v[0]
+            elif kl == 'source-id':
+                d['source_id'] = v[0]
+        return d
+
+
+class AddQualityMediaQualityList(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddQualityMediaQualityList, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'average-inbound-jitter':
+                d['average_inbound_jitter'] = v[0]
+            elif kl == 'average-inbound-packet-loss-rate-in-percentage':
+                d['average_inbound_packet_loss_rate_in_percentage'] = v[0]
+            elif kl == 'average-inbound-round-trip-delay':
+                d['average_inbound_round_trip_delay'] = v[0]
+            elif kl == 'average-outbound-jitter':
+                d['average_outbound_jitter'] = v[0]
+            elif kl == 'average-outbound-packet-loss-rate-in-percentage':
+                d['average_outbound_packet_loss_rate_in_percentage'] = v[0]
+            elif kl == 'average-outbound-round-trip-delay':
+                d['average_outbound_round_trip_delay'] = v[0]
+            elif kl == 'channel-index':
+                d['channel_index'] = v[0]
+            elif kl == 'inbound-packets':
+                d['inbound_packets'] = v[0]
+            elif kl == 'local-ip-address':
+                d['local_ip_address'] = v[0]
+            elif kl == 'local-port':
+                d['local_port'] = v[0]
+            elif kl == 'maximum-inbound-jitter':
+                d['maximum_inbound_jitter'] = v[0]
+            elif kl == 'maximum-inbound-packet-loss-rate-in-percentage':
+                d['maximum_inbound_packet_loss_rate_in_percentage'] = v[0]
+            elif kl == 'maximum-inbound-round-trip-delay':
+                d['maximum_inbound_round_trip_delay'] = v[0]
+            elif kl == 'maximum-outbound-jitter':
+                d['maximum_outbound_jitter'] = v[0]
+            elif kl == 'maximum-outbound-packet-loss-rate-in-percentage':
+                d['maximum_outbound_packet_loss_rate_in_percentage'] = v[0]
+            elif kl == 'maximum-outbound-round-trip-delay':
+                d['maximum_outbound_round_trip_delay'] = v[0]
+            elif kl == 'media-duration':
+                d['media_duration'] = v[0]
+            elif kl == 'network-link-speed-in-bytes':
+                d['network_link_speed_in_bytes'] = v[0]
+            elif kl == 'outbound-packets':
+                d['outbound_packets'] = v[0]
+            elif kl == 'remote-ip-address':
+                d['remote_ip_address'] = v[0]
+            elif kl == 'remote-port':
+                d['remote_port'] = v[0]
+        return d
+
+
+class AddCloudcommunicationsPlayPromptPrompts(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCloudcommunicationsPlayPromptPrompts, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            v = properties[k]
+            d[k] = v
+        return d
+
+
+class AddCloudcommunicationsRecordResponsePrompts(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCloudcommunicationsRecordResponsePrompts, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            v = properties[k]
+            d[k] = v
+        return d
+
+
+class AddCommunicationsCallsTargets(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCommunicationsCallsTargets, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'replaces-call-id':
+                d['replaces_call_id'] = v[0]
+            elif kl == 'display-name-identity-user-display-name':
+                d['display_name_identity_user_display_name'] = v[0]
+            elif kl == 'id-identity-user-id':
+                d['id_identity_user_id'] = v[0]
+            elif kl == 'display-name-identity-device-display-name':
+                d['display_name_identity_device_display_name'] = v[0]
+            elif kl == 'id-identity-device-id':
+                d['id_identity_device_id'] = v[0]
+            elif kl == 'display-name-identity-application-display-name':
+                d['display_name_identity_application_display_name'] = v[0]
+            elif kl == 'id-identity-application-id':
+                d['id_identity_application_id'] = v[0]
+        return d
+
+
+class AddParticipants(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddParticipants, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'replaces-call-id':
+                d['replaces_call_id'] = v[0]
+            elif kl == 'display-name-identity-user-display-name':
+                d['display_name_identity_user_display_name'] = v[0]
+            elif kl == 'id-identity-user-id':
+                d['id_identity_user_id'] = v[0]
+            elif kl == 'display-name-identity-device-display-name':
+                d['display_name_identity_device_display_name'] = v[0]
+            elif kl == 'id-identity-device-id':
+                d['id_identity_device_id'] = v[0]
+            elif kl == 'display-name-identity-application-display-name':
+                d['display_name_identity_application_display_name'] = v[0]
+            elif kl == 'id-identity-application-id':
+                d['id_identity_application_id'] = v[0]
         return d

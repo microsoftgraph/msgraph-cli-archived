@@ -48,9 +48,9 @@ class PolicyOperations(object):
 
     def list_activity_based_timeout_policy(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum114"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum115"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum116"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum116"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum117"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum118"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfActivityBasedTimeoutPolicy"]
@@ -59,11 +59,11 @@ class PolicyOperations(object):
         Get activityBasedTimeoutPolicies from policies.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum114]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum116]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum115]
+        :type select: list[str or ~identity_sign_ins.models.Enum117]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum116]
+        :type expand: list[str or ~identity_sign_ins.models.Enum118]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfActivityBasedTimeoutPolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfActivityBasedTimeoutPolicy]
@@ -217,8 +217,8 @@ class PolicyOperations(object):
     def get_activity_based_timeout_policy(
         self,
         activity_based_timeout_policy_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum117"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum118"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum119"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum120"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphActivityBasedTimeoutPolicy"
@@ -229,9 +229,9 @@ class PolicyOperations(object):
         :param activity_based_timeout_policy_id: key: id of activityBasedTimeoutPolicy.
         :type activity_based_timeout_policy_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum117]
+        :type select: list[str or ~identity_sign_ins.models.Enum119]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum118]
+        :type expand: list[str or ~identity_sign_ins.models.Enum120]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphActivityBasedTimeoutPolicy, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphActivityBasedTimeoutPolicy
@@ -418,9 +418,9 @@ class PolicyOperations(object):
 
     def list_claim_mapping_policy(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum119"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum120"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum121"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum121"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum122"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum123"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfClaimsMappingPolicy"]
@@ -429,11 +429,11 @@ class PolicyOperations(object):
         Get claimsMappingPolicies from policies.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum119]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum121]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum120]
+        :type select: list[str or ~identity_sign_ins.models.Enum122]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum121]
+        :type expand: list[str or ~identity_sign_ins.models.Enum123]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfClaimsMappingPolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfClaimsMappingPolicy]
@@ -587,8 +587,8 @@ class PolicyOperations(object):
     def get_claim_mapping_policy(
         self,
         claims_mapping_policy_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum122"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum123"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum124"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum125"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphClaimsMappingPolicy"
@@ -599,9 +599,9 @@ class PolicyOperations(object):
         :param claims_mapping_policy_id: key: id of claimsMappingPolicy.
         :type claims_mapping_policy_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum122]
+        :type select: list[str or ~identity_sign_ins.models.Enum124]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum123]
+        :type expand: list[str or ~identity_sign_ins.models.Enum125]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphClaimsMappingPolicy, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphClaimsMappingPolicy
@@ -788,8 +788,8 @@ class PolicyOperations(object):
 
     def list_conditional_access_policy(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum124"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum125"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum126"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum127"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -799,9 +799,9 @@ class PolicyOperations(object):
         Get conditionalAccessPolicies from policies.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum124]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum126]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum125]
+        :type select: list[str or ~identity_sign_ins.models.Enum127]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -989,7 +989,7 @@ class PolicyOperations(object):
     def get_conditional_access_policy(
         self,
         conditional_access_policy_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum126"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum128"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1001,7 +1001,7 @@ class PolicyOperations(object):
         :param conditional_access_policy_id: key: id of conditionalAccessPolicy.
         :type conditional_access_policy_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum126]
+        :type select: list[str or ~identity_sign_ins.models.Enum128]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1222,9 +1222,9 @@ class PolicyOperations(object):
 
     def list_home_realm_discovery_policy(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum127"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum128"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum129"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum129"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum130"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum131"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfHomeRealmDiscoveryPolicy"]
@@ -1233,11 +1233,11 @@ class PolicyOperations(object):
         Get homeRealmDiscoveryPolicies from policies.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum127]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum129]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum128]
+        :type select: list[str or ~identity_sign_ins.models.Enum130]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum129]
+        :type expand: list[str or ~identity_sign_ins.models.Enum131]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfHomeRealmDiscoveryPolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfHomeRealmDiscoveryPolicy]
@@ -1391,8 +1391,8 @@ class PolicyOperations(object):
     def get_home_realm_discovery_policy(
         self,
         home_realm_discovery_policy_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum130"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum131"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum132"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum133"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphHomeRealmDiscoveryPolicy"
@@ -1403,9 +1403,9 @@ class PolicyOperations(object):
         :param home_realm_discovery_policy_id: key: id of homeRealmDiscoveryPolicy.
         :type home_realm_discovery_policy_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum130]
+        :type select: list[str or ~identity_sign_ins.models.Enum132]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum131]
+        :type expand: list[str or ~identity_sign_ins.models.Enum133]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphHomeRealmDiscoveryPolicy, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphHomeRealmDiscoveryPolicy
@@ -1592,7 +1592,7 @@ class PolicyOperations(object):
 
     def get_identity_security_default_enforcement_policy(
         self,
-        select=None,  # type: Optional[List[Union[str, "models.Enum132"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum134"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1602,7 +1602,7 @@ class PolicyOperations(object):
         Get identitySecurityDefaultsEnforcementPolicy from policies.
 
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum132]
+        :type select: list[str or ~identity_sign_ins.models.Enum134]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1764,9 +1764,9 @@ class PolicyOperations(object):
 
     def list_permission_grant_policy(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum133"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum134"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum135"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum135"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum136"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum137"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfPermissionGrantPolicy"]
@@ -1775,11 +1775,11 @@ class PolicyOperations(object):
         Get permissionGrantPolicies from policies.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum133]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum135]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum134]
+        :type select: list[str or ~identity_sign_ins.models.Enum136]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum135]
+        :type expand: list[str or ~identity_sign_ins.models.Enum137]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfPermissionGrantPolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfPermissionGrantPolicy]
@@ -1926,8 +1926,8 @@ class PolicyOperations(object):
     def get_permission_grant_policy(
         self,
         permission_grant_policy_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum136"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum137"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum138"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum139"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphPermissionGrantPolicy"
@@ -1938,9 +1938,9 @@ class PolicyOperations(object):
         :param permission_grant_policy_id: key: id of permissionGrantPolicy.
         :type permission_grant_policy_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum136]
+        :type select: list[str or ~identity_sign_ins.models.Enum138]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum137]
+        :type expand: list[str or ~identity_sign_ins.models.Enum139]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphPermissionGrantPolicy, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphPermissionGrantPolicy
@@ -2120,9 +2120,9 @@ class PolicyOperations(object):
 
     def list_token_issuance_policy(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum144"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum145"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum146"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum146"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum147"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum148"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfTokenIssuancePolicy"]
@@ -2131,11 +2131,11 @@ class PolicyOperations(object):
         Get tokenIssuancePolicies from policies.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum144]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum146]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum145]
+        :type select: list[str or ~identity_sign_ins.models.Enum147]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum146]
+        :type expand: list[str or ~identity_sign_ins.models.Enum148]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfTokenIssuancePolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfTokenIssuancePolicy]
@@ -2289,8 +2289,8 @@ class PolicyOperations(object):
     def get_token_issuance_policy(
         self,
         token_issuance_policy_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum147"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum148"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum149"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum150"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphTokenIssuancePolicy"
@@ -2301,9 +2301,9 @@ class PolicyOperations(object):
         :param token_issuance_policy_id: key: id of tokenIssuancePolicy.
         :type token_issuance_policy_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum147]
+        :type select: list[str or ~identity_sign_ins.models.Enum149]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum148]
+        :type expand: list[str or ~identity_sign_ins.models.Enum150]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTokenIssuancePolicy, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphTokenIssuancePolicy
@@ -2490,9 +2490,9 @@ class PolicyOperations(object):
 
     def list_token_lifetime_policy(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum149"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum150"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum151"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum151"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum152"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum153"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfTokenLifetimePolicy"]
@@ -2501,11 +2501,11 @@ class PolicyOperations(object):
         Get tokenLifetimePolicies from policies.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_sign_ins.models.Enum149]
+        :type orderby: list[str or ~identity_sign_ins.models.Enum151]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum150]
+        :type select: list[str or ~identity_sign_ins.models.Enum152]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum151]
+        :type expand: list[str or ~identity_sign_ins.models.Enum153]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfTokenLifetimePolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~identity_sign_ins.models.CollectionOfTokenLifetimePolicy]
@@ -2659,8 +2659,8 @@ class PolicyOperations(object):
     def get_token_lifetime_policy(
         self,
         token_lifetime_policy_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum152"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum153"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum154"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum155"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphTokenLifetimePolicy"
@@ -2671,9 +2671,9 @@ class PolicyOperations(object):
         :param token_lifetime_policy_id: key: id of tokenLifetimePolicy.
         :type token_lifetime_policy_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum152]
+        :type select: list[str or ~identity_sign_ins.models.Enum154]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum153]
+        :type expand: list[str or ~identity_sign_ins.models.Enum155]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTokenLifetimePolicy, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphTokenLifetimePolicy

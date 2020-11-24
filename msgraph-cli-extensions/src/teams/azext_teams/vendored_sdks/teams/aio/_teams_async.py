@@ -16,6 +16,8 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration_async import TeamsConfiguration
+from .operations_async import AppCatalogOperations
+from .operations_async import AppCatalogTeamAppOperations
 from .operations_async import ChatChatOperations
 from .operations_async import ChatOperations
 from .operations_async import GroupOperations
@@ -32,12 +34,18 @@ from .operations_async import TeamScheduleOperations
 from .operations_async import TeamworkTeamworkOperations
 from .operations_async import TeamworkOperations
 from .operations_async import UserOperations
+from .operations_async import UserTeamworkOperations
+from .operations_async import UserTeamworkInstalledAppOperations
 from .. import models
 
 
 class Teams(object):
     """Teams.
 
+    :ivar app_catalog: AppCatalogOperations operations
+    :vartype app_catalog: teams.aio.operations_async.AppCatalogOperations
+    :ivar app_catalog_team_app: AppCatalogTeamAppOperations operations
+    :vartype app_catalog_team_app: teams.aio.operations_async.AppCatalogTeamAppOperations
     :ivar chat_chat: ChatChatOperations operations
     :vartype chat_chat: teams.aio.operations_async.ChatChatOperations
     :ivar chat: ChatOperations operations
@@ -70,6 +78,10 @@ class Teams(object):
     :vartype teamwork: teams.aio.operations_async.TeamworkOperations
     :ivar user: UserOperations operations
     :vartype user: teams.aio.operations_async.UserOperations
+    :ivar user_teamwork: UserTeamworkOperations operations
+    :vartype user_teamwork: teams.aio.operations_async.UserTeamworkOperations
+    :ivar user_teamwork_installed_app: UserTeamworkInstalledAppOperations operations
+    :vartype user_teamwork_installed_app: teams.aio.operations_async.UserTeamworkInstalledAppOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -106,6 +118,10 @@ class Teams(object):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
+        self.app_catalog = AppCatalogOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.app_catalog_team_app = AppCatalogTeamAppOperations(
+            self._client, self._config, self._serialize, self._deserialize)
         self.chat_chat = ChatChatOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.chat = ChatOperations(
@@ -137,6 +153,10 @@ class Teams(object):
         self.teamwork = TeamworkOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.user = UserOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_teamwork = UserTeamworkOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_teamwork_installed_app = UserTeamworkInstalledAppOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

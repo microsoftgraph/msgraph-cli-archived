@@ -63,6 +63,27 @@ bypass-activation-lock a usersactions.
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
 
+### usersactions cancel
+
+cancel a usersactions.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|usersactions|users.events|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|cancel|cancel|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--comment**|string||comment|Comment|
+
 ### usersactions change-password
 
 change-password a usersactions.
@@ -319,7 +340,7 @@ create-forward a usersactions.
 |**--message-subject**|string|The subject of the message.|subject|subject|
 |**--message-to-recipients**|array|The To: recipients for the message.|microsoft_graph_message_to_recipients|toRecipients|
 |**--message-unique-body**|object|itemBody|unique_body|uniqueBody|
-|**--message-web-link**|string|The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--message-web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
 |**--message-attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
 |**--message-extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
 |**--message-multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
@@ -401,7 +422,7 @@ create-reply a usersactions.
 |**--message-subject**|string|The subject of the message.|subject|subject|
 |**--message-to-recipients**|array|The To: recipients for the message.|to_recipients|toRecipients|
 |**--message-unique-body**|object|itemBody|unique_body|uniqueBody|
-|**--message-web-link**|string|The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--message-web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
 |**--message-attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
 |**--message-extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
 |**--message-multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
@@ -457,7 +478,7 @@ create-reply-all a usersactions.
 |**--message-subject**|string|The subject of the message.|subject|subject|
 |**--message-to-recipients**|array|The To: recipients for the message.|to_recipients|toRecipients|
 |**--message-unique-body**|object|itemBody|unique_body|uniqueBody|
-|**--message-web-link**|string|The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--message-web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
 |**--message-attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
 |**--message-extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
 |**--message-multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
@@ -658,7 +679,7 @@ forward a usersactions.
 |**--message-subject**|string|The subject of the message.|subject|subject|
 |**--message-to-recipients**|array|The To: recipients for the message.|microsoft_graph_message_to_recipients|toRecipients|
 |**--message-unique-body**|object|itemBody|unique_body|uniqueBody|
-|**--message-web-link**|string|The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--message-web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
 |**--message-attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
 |**--message-extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
 |**--message-multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
@@ -1020,7 +1041,7 @@ reply a usersactions.
 |**--message-subject**|string|The subject of the message.|subject|subject|
 |**--message-to-recipients**|array|The To: recipients for the message.|to_recipients|toRecipients|
 |**--message-unique-body**|object|itemBody|unique_body|uniqueBody|
-|**--message-web-link**|string|The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--message-web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
 |**--message-attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
 |**--message-extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
 |**--message-multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
@@ -1076,7 +1097,7 @@ reply-all a usersactions.
 |**--message-subject**|string|The subject of the message.|subject|subject|
 |**--message-to-recipients**|array|The To: recipients for the message.|to_recipients|toRecipients|
 |**--message-unique-body**|object|itemBody|unique_body|uniqueBody|
-|**--message-web-link**|string|The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--message-web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
 |**--message-attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
 |**--message-extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
 |**--message-multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
@@ -1268,7 +1289,7 @@ send-mail a usersactions.
 |**--message-subject**|string|The subject of the message.|subject|subject|
 |**--message-to-recipients**|array|The To: recipients for the message.|to_recipients|toRecipients|
 |**--message-unique-body**|object|itemBody|unique_body|uniqueBody|
-|**--message-web-link**|string|The URL to open the message in Outlook Web App.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook Web App review pane.The message will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted to login if you are not already logged in with the browser.This URL can be accessed from within an iFrame.|web_link|webLink|
+|**--message-web-link**|string|The URL to open the message in Outlook on the web.You can append an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to 0, then the browser will show the message in the Outlook on the web review pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.|web_link|webLink|
 |**--message-attachments**|array|The fileAttachment and itemAttachment attachments for the message.|attachments|attachments|
 |**--message-extensions**|array|The collection of open extensions defined for the message. Nullable.|extensions|extensions|
 |**--message-multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the message. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|

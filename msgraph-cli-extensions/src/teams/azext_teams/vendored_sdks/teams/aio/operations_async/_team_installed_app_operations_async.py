@@ -97,8 +97,8 @@ class TeamInstalledAppOperations:
         self,
         team_id: str,
         teams_app_installation_id: str,
-        select: Optional[List[Union[str, "models.Enum102"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum103"]]] = None,
+        select: Optional[List[Union[str, "models.Enum112"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum113"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphTeamsApp":
         """Get teamsApp from teams.
@@ -110,9 +110,9 @@ class TeamInstalledAppOperations:
         :param teams_app_installation_id: key: id of teamsAppInstallation.
         :type teams_app_installation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum102]
+        :type select: list[str or ~teams.models.Enum112]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum103]
+        :type expand: list[str or ~teams.models.Enum113]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTeamsApp, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTeamsApp
@@ -341,7 +341,7 @@ class TeamInstalledAppOperations:
         self,
         team_id: str,
         teams_app_installation_id: str,
-        select: Optional[List[Union[str, "models.Enum104"]]] = None,
+        select: Optional[List[Union[str, "models.Enum114"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphTeamsAppDefinition":
@@ -354,7 +354,7 @@ class TeamInstalledAppOperations:
         :param teams_app_installation_id: key: id of teamsAppInstallation.
         :type teams_app_installation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum104]
+        :type select: list[str or ~teams.models.Enum114]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

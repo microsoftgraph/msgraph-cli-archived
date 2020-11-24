@@ -44,8 +44,8 @@ class EducationClassOperations:
     async def get_group(
         self,
         education_class_id: str,
-        select: Optional[List[Union[str, "models.Enum69"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum70"]]] = None,
+        select: Optional[List[Union[str, "models.Enum71"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum72"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphGroup":
         """Get group from education.
@@ -55,9 +55,9 @@ class EducationClassOperations:
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum69]
+        :type select: list[str or ~education.models.Enum71]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum70]
+        :type expand: list[str or ~education.models.Enum72]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphGroup, or the result of cls(response)
         :rtype: ~education.models.MicrosoftGraphGroup
@@ -272,8 +272,8 @@ class EducationClassOperations:
     def list_member(
         self,
         education_class_id: str,
-        orderby: Optional[List[Union[str, "models.Enum71"]]] = None,
-        select: Optional[List[Union[str, "models.Enum72"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum73"]]] = None,
+        select: Optional[List[Union[str, "models.Enum74"]]] = None,
         expand: Optional[List[Union[str, "models.Get8ItemsItem"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationUser"]:
@@ -284,9 +284,9 @@ class EducationClassOperations:
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum71]
+        :type orderby: list[str or ~education.models.Enum73]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum72]
+        :type select: list[str or ~education.models.Enum74]
         :param expand: Expand related entities.
         :type expand: list[str or ~education.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -366,7 +366,7 @@ class EducationClassOperations:
     def list_ref_member(
         self,
         education_class_id: str,
-        orderby: Optional[List[Union[str, "models.Enum74"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum76"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfEducationUser"]:
         """Get ref of members from education.
@@ -376,7 +376,7 @@ class EducationClassOperations:
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum74]
+        :type orderby: list[str or ~education.models.Enum76]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfEducationUser or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationUser]
@@ -512,9 +512,9 @@ class EducationClassOperations:
     def list_school(
         self,
         education_class_id: str,
-        orderby: Optional[List[Union[str, "models.Enum75"]]] = None,
-        select: Optional[List[Union[str, "models.Enum76"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum77"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum77"]]] = None,
+        select: Optional[List[Union[str, "models.Enum78"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum79"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationSchool"]:
         """Get schools from education.
@@ -524,11 +524,11 @@ class EducationClassOperations:
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum75]
+        :type orderby: list[str or ~education.models.Enum77]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum76]
+        :type select: list[str or ~education.models.Enum78]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum77]
+        :type expand: list[str or ~education.models.Enum79]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfEducationSchool or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationSchool]
@@ -606,7 +606,7 @@ class EducationClassOperations:
     def list_ref_school(
         self,
         education_class_id: str,
-        orderby: Optional[List[Union[str, "models.Enum78"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum80"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfEducationSchool"]:
         """Get ref of schools from education.
@@ -616,7 +616,7 @@ class EducationClassOperations:
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum78]
+        :type orderby: list[str or ~education.models.Enum80]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfEducationSchool or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationSchool]
@@ -752,9 +752,9 @@ class EducationClassOperations:
     def list_teacher(
         self,
         education_class_id: str,
-        orderby: Optional[List[Union[str, "models.Enum79"]]] = None,
-        select: Optional[List[Union[str, "models.Enum80"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum81"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum81"]]] = None,
+        select: Optional[List[Union[str, "models.Enum82"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum83"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfEducationUser0"]:
         """Get teachers from education.
@@ -764,11 +764,11 @@ class EducationClassOperations:
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum79]
+        :type orderby: list[str or ~education.models.Enum81]
         :param select: Select properties to be returned.
-        :type select: list[str or ~education.models.Enum80]
+        :type select: list[str or ~education.models.Enum82]
         :param expand: Expand related entities.
-        :type expand: list[str or ~education.models.Enum81]
+        :type expand: list[str or ~education.models.Enum83]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfEducationUser0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfEducationUser0]
@@ -846,7 +846,7 @@ class EducationClassOperations:
     def list_ref_teacher(
         self,
         education_class_id: str,
-        orderby: Optional[List[Union[str, "models.Enum82"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum84"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfLinksOfEducationUser0"]:
         """Get ref of teachers from education.
@@ -856,7 +856,7 @@ class EducationClassOperations:
         :param education_class_id: key: id of educationClass.
         :type education_class_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~education.models.Enum82]
+        :type orderby: list[str or ~education.models.Enum84]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfEducationUser0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~education.models.CollectionOfLinksOfEducationUser0]

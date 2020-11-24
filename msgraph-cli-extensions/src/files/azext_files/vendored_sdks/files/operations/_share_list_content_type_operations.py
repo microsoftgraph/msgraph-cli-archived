@@ -49,8 +49,8 @@ class ShareListContentTypeOperations(object):
         self,
         shared_drive_item_id,  # type: str
         content_type_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum142"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum143"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum144"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum145"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -64,9 +64,9 @@ class ShareListContentTypeOperations(object):
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum142]
+        :type orderby: list[str or ~files.models.Enum144]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum143]
+        :type select: list[str or ~files.models.Enum145]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -221,7 +221,7 @@ class ShareListContentTypeOperations(object):
         shared_drive_item_id,  # type: str
         content_type_id,  # type: str
         column_link_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum144"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum146"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -237,7 +237,7 @@ class ShareListContentTypeOperations(object):
         :param column_link_id: key: id of columnLink.
         :type column_link_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum144]
+        :type select: list[str or ~files.models.Enum146]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

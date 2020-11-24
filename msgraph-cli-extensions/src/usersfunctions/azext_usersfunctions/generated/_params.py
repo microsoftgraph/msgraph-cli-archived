@@ -273,3 +273,10 @@ def load_arguments(self, _):
     with self.argument_context('usersfunctions supported-time-zones51-c6') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('time_zone_standard', arg_type=get_enum_type(['windows', 'iana']), help='')
+
+    with self.argument_context('usersfunctions delta') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+
+    with self.argument_context('usersfunctions delta') as c:
+        c.argument('user_id', type=str, help='key: id of user')

@@ -48,8 +48,8 @@ class TeamPrimaryChannelTabOperations(object):
         self,
         team_id,  # type: str
         teams_tab_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum135"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum136"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum145"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum146"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphTeamsApp"
@@ -62,9 +62,9 @@ class TeamPrimaryChannelTabOperations(object):
         :param teams_tab_id: key: id of teamsTab.
         :type teams_tab_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum135]
+        :type select: list[str or ~teams.models.Enum145]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum136]
+        :type expand: list[str or ~teams.models.Enum146]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTeamsApp, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTeamsApp

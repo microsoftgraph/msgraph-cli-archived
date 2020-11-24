@@ -566,3 +566,23 @@ helps['usersfunctions supported-time-zones51-c6'] = """
     type: command
     short-summary: "Invoke function supportedTimeZones"
 """
+
+helps['usersfunctions'] = """
+    type: group
+    short-summary: usersfunctions
+"""
+
+helps['usersfunctions delta'] = """
+    type: command
+    short-summary: "Invoke function delta"
+"""
+
+helps['usersfunctions'] = """
+    type: group
+    short-summary: usersfunctions
+"""
+
+helps['usersfunctions delta'] = """
+    type: command
+    short-summary: "Invoke function delta"
+"""

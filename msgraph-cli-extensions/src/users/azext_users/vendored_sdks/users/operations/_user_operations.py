@@ -19,7 +19,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, IO, Iterable, List, Optional, TypeVar, Union
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -49,8 +49,8 @@ class UserOperations(object):
     def list_created_object(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum64"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum65"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum66"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -62,9 +62,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum64]
+        :type orderby: list[str or ~users.models.Enum66]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum65]
+        :type select: list[str or ~users.models.Enum67]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -144,7 +144,7 @@ class UserOperations(object):
     def list_ref_created_object(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum66"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum68"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject"]
@@ -155,7 +155,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum66]
+        :type orderby: list[str or ~users.models.Enum68]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfDirectoryObject]
@@ -292,8 +292,8 @@ class UserOperations(object):
     def list_direct_report(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum68"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum69"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum70"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -305,9 +305,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum67]
+        :type orderby: list[str or ~users.models.Enum69]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum68]
+        :type select: list[str or ~users.models.Enum70]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -387,7 +387,7 @@ class UserOperations(object):
     def list_ref_direct_report(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum69"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum71"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject0"]
@@ -398,7 +398,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum69]
+        :type orderby: list[str or ~users.models.Enum71]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfDirectoryObject0]
@@ -535,7 +535,7 @@ class UserOperations(object):
     def list_extension(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum70"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum72"]]]
         select=None,  # type: Optional[List[str]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
@@ -548,7 +548,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum70]
+        :type orderby: list[str or ~users.models.Enum72]
         :param select: Select properties to be returned.
         :type select: list[str]
         :param expand: Expand related entities.
@@ -887,8 +887,8 @@ class UserOperations(object):
     def list_license_detail(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum71"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum72"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum73"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum74"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -900,9 +900,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum71]
+        :type orderby: list[str or ~users.models.Enum73]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum72]
+        :type select: list[str or ~users.models.Enum74]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1060,7 +1060,7 @@ class UserOperations(object):
         self,
         user_id,  # type: str
         license_details_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum73"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1074,7 +1074,7 @@ class UserOperations(object):
         :param license_details_id: key: id of licenseDetails.
         :type license_details_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum73]
+        :type select: list[str or ~users.models.Enum75]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1263,7 +1263,7 @@ class UserOperations(object):
     def get_manager(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum74"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get1ItemsItem"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1275,7 +1275,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum74]
+        :type select: list[str or ~users.models.Get1ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1495,8 +1495,8 @@ class UserOperations(object):
     def list_member_of(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum76"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum77"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum78"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1508,9 +1508,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum75]
+        :type orderby: list[str or ~users.models.Enum77]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum76]
+        :type select: list[str or ~users.models.Enum78]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1590,7 +1590,7 @@ class UserOperations(object):
     def list_ref_member_of(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum77"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject1"]
@@ -1601,7 +1601,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum77]
+        :type orderby: list[str or ~users.models.Enum79]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject1 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfDirectoryObject1]
@@ -1738,8 +1738,8 @@ class UserOperations(object):
     def list_oauth2_permission_grant(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum78"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum80"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1751,9 +1751,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum78]
+        :type orderby: list[str or ~users.models.Enum80]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum79]
+        :type select: list[str or ~users.models.Enum81]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1833,7 +1833,7 @@ class UserOperations(object):
     def list_ref_oauth2_permission_grant(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum80"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum82"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfOAuth2PermissionGrant"]
@@ -1844,7 +1844,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum80]
+        :type orderby: list[str or ~users.models.Enum82]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfOAuth2PermissionGrant or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfOAuth2PermissionGrant]
@@ -1981,8 +1981,8 @@ class UserOperations(object):
     def get_outlook(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum82"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum83"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum84"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphOutlookUser"
@@ -1993,9 +1993,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum81]
+        :type select: list[str or ~users.models.Enum83]
         :param expand: Expand related entities.
-        :type expand: list[str or ~users.models.Enum82]
+        :type expand: list[str or ~users.models.Enum84]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphOutlookUser, or the result of cls(response)
         :rtype: ~users.models.MicrosoftGraphOutlookUser
@@ -2164,8 +2164,8 @@ class UserOperations(object):
     def list_owned_device(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum87"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum88"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum89"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2177,9 +2177,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum86]
+        :type orderby: list[str or ~users.models.Enum88]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum87]
+        :type select: list[str or ~users.models.Enum89]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2259,7 +2259,7 @@ class UserOperations(object):
     def list_ref_owned_device(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum88"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum90"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject2"]
@@ -2270,7 +2270,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum88]
+        :type orderby: list[str or ~users.models.Enum90]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject2 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfDirectoryObject2]
@@ -2407,8 +2407,8 @@ class UserOperations(object):
     def list_owned_object(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum89"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum90"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum91"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum92"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2420,9 +2420,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum89]
+        :type orderby: list[str or ~users.models.Enum91]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum90]
+        :type select: list[str or ~users.models.Enum92]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2502,7 +2502,7 @@ class UserOperations(object):
     def list_ref_owned_object(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum91"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum93"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject3"]
@@ -2513,7 +2513,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum91]
+        :type orderby: list[str or ~users.models.Enum93]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject3 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfDirectoryObject3]
@@ -2650,7 +2650,7 @@ class UserOperations(object):
     def get_photo(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum92"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum94"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2662,7 +2662,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum92]
+        :type select: list[str or ~users.models.Enum94]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2833,11 +2833,123 @@ class UserOperations(object):
 
     delete_photo.metadata = {'url': '/users/{user-id}/photo'}  # type: ignore
 
+    def get_photo_content(
+        self,
+        user_id,  # type: str
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> IO
+        """Get media content for the navigation property photo from users.
+
+        Get media content for the navigation property photo from users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: IO, or the result of cls(response)
+        :rtype: IO
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[IO]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/octet-stream, application/json"
+
+        # Construct URL
+        url = self.get_photo_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/octet-stream, application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = response.stream_download(self._client._pipeline)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_photo_content.metadata = {'url': '/users/{user-id}/photo/$value'}  # type: ignore
+
+    def set_photo_content(
+        self,
+        user_id,  # type: str
+        data,  # type: IO
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Update media content for the navigation property photo in users.
+
+        Update media content for the navigation property photo in users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param data: New media content.
+        :type data: IO
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        content_type = kwargs.pop("content_type", "application/octet-stream")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.set_photo_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content_kwargs['stream_content'] = data
+        request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    set_photo_content.metadata = {'url': '/users/{user-id}/photo/$value'}  # type: ignore
+
     def list_photo(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum93"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum94"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum95"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum96"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2849,9 +2961,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum93]
+        :type orderby: list[str or ~users.models.Enum95]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum94]
+        :type select: list[str or ~users.models.Enum96]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3003,7 +3115,7 @@ class UserOperations(object):
         self,
         user_id,  # type: str
         profile_photo_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum95"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum97"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3017,7 +3129,7 @@ class UserOperations(object):
         :param profile_photo_id: key: id of profilePhoto.
         :type profile_photo_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum95]
+        :type select: list[str or ~users.models.Enum97]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3197,11 +3309,131 @@ class UserOperations(object):
 
     delete_photo.metadata = {'url': '/users/{user-id}/photos/{profilePhoto-id}'}  # type: ignore
 
+    def get_photo_content(
+        self,
+        user_id,  # type: str
+        profile_photo_id,  # type: str
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> IO
+        """Get media content for the navigation property photos from users.
+
+        Get media content for the navigation property photos from users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param profile_photo_id: key: id of profilePhoto.
+        :type profile_photo_id: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: IO, or the result of cls(response)
+        :rtype: IO
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[IO]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/octet-stream, application/json"
+
+        # Construct URL
+        url = self.get_photo_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'profilePhoto-id': self._serialize.url("profile_photo_id", profile_photo_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/octet-stream, application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = response.stream_download(self._client._pipeline)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_photo_content.metadata = {'url': '/users/{user-id}/photos/{profilePhoto-id}/$value'}  # type: ignore
+
+    def set_photo_content(
+        self,
+        user_id,  # type: str
+        profile_photo_id,  # type: str
+        data,  # type: IO
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Update media content for the navigation property photos in users.
+
+        Update media content for the navigation property photos in users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param profile_photo_id: key: id of profilePhoto.
+        :type profile_photo_id: str
+        :param data: New media content.
+        :type data: IO
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        content_type = kwargs.pop("content_type", "application/octet-stream")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.set_photo_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'profilePhoto-id': self._serialize.url("profile_photo_id", profile_photo_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content_kwargs['stream_content'] = data
+        request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    set_photo_content.metadata = {'url': '/users/{user-id}/photos/{profilePhoto-id}/$value'}  # type: ignore
+
     def list_registered_device(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum96"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum97"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum98"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum99"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3213,9 +3445,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum96]
+        :type orderby: list[str or ~users.models.Enum98]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum97]
+        :type select: list[str or ~users.models.Enum99]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3295,7 +3527,7 @@ class UserOperations(object):
     def list_ref_registered_device(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum98"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum100"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject4"]
@@ -3306,7 +3538,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum98]
+        :type orderby: list[str or ~users.models.Enum100]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject4 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfDirectoryObject4]
@@ -3443,8 +3675,8 @@ class UserOperations(object):
     def get_setting(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum99"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum100"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum101"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum102"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphUserSettings"
@@ -3455,9 +3687,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum99]
+        :type select: list[str or ~users.models.Enum101]
         :param expand: Expand related entities.
-        :type expand: list[str or ~users.models.Enum100]
+        :type expand: list[str or ~users.models.Enum102]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphUserSettings, or the result of cls(response)
         :rtype: ~users.models.MicrosoftGraphUserSettings
@@ -3652,11 +3884,194 @@ class UserOperations(object):
 
     delete_setting.metadata = {'url': '/users/{user-id}/settings'}  # type: ignore
 
+    def get_todo(
+        self,
+        user_id,  # type: str
+        select=None,  # type: Optional[List[Union[str, "models.Enum104"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum105"]]]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> "models.MicrosoftGraphTodo"
+        """Get todo from users.
+
+        Get todo from users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param select: Select properties to be returned.
+        :type select: list[str or ~users.models.Enum104]
+        :param expand: Expand related entities.
+        :type expand: list[str or ~users.models.Enum105]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: MicrosoftGraphTodo, or the result of cls(response)
+        :rtype: ~users.models.MicrosoftGraphTodo
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTodo"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.get_todo.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+        if select is not None:
+            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = self._deserialize('MicrosoftGraphTodo', pipeline_response)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_todo.metadata = {'url': '/users/{user-id}/todo'}  # type: ignore
+
+    def update_todo(
+        self,
+        user_id,  # type: str
+        id=None,  # type: Optional[str]
+        lists=None,  # type: Optional[List["models.MicrosoftGraphTodoTaskList"]]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Update the navigation property todo in users.
+
+        Update the navigation property todo in users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param id: Read-only.
+        :type id: str
+        :param lists:
+        :type lists: list[~users.models.MicrosoftGraphTodoTaskList]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphTodo(id=id, lists=lists)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.update_todo.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'MicrosoftGraphTodo')
+        body_content_kwargs['content'] = body_content
+        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    update_todo.metadata = {'url': '/users/{user-id}/todo'}  # type: ignore
+
+    def delete_todo(
+        self,
+        user_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property todo for users.
+
+        Delete navigation property todo for users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_todo.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_todo.metadata = {'url': '/users/{user-id}/todo'}  # type: ignore
+
     def list_transitive_member_of(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum102"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum103"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum121"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum122"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3668,9 +4083,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum102]
+        :type orderby: list[str or ~users.models.Enum121]
         :param select: Select properties to be returned.
-        :type select: list[str or ~users.models.Enum103]
+        :type select: list[str or ~users.models.Enum122]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3750,7 +4165,7 @@ class UserOperations(object):
     def list_ref_transitive_member_of(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum104"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum123"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject5"]
@@ -3761,7 +4176,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~users.models.Enum104]
+        :type orderby: list[str or ~users.models.Enum123]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject5 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~users.models.CollectionOfLinksOfDirectoryObject5]

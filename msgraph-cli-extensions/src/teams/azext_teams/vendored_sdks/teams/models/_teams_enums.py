@@ -28,1636 +28,36 @@ class _CaseInsensitiveEnumMeta(EnumMeta):
 
 class Enum100(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ID = "id"
+    ASTERISK = "*"
     TEAMS_APP = "teamsApp"
-    TEAMS_APP_DEFINITION = "teamsAppDefinition"
 
 class Enum101(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ASTERISK = "*"
+    ID = "id"
+    CONFIGURATION = "configuration"
+    DISPLAY_NAME = "displayName"
+    WEB_URL = "webUrl"
     TEAMS_APP = "teamsApp"
-    TEAMS_APP_DEFINITION = "teamsAppDefinition"
 
 class Enum102(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+
+class Enum103(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DISPLAY_NAME = "displayName"
     DISTRIBUTION_METHOD = "distributionMethod"
     EXTERNAL_ID = "externalId"
-    APP_DEFINITIONS = "appDefinitions"
-
-class Enum103(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
     APP_DEFINITIONS = "appDefinitions"
 
 class Enum104(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    TEAMS_APP_ID = "teamsAppId"
-    VERSION = "version"
+    ASTERISK = "*"
+    APP_DEFINITIONS = "appDefinitions"
 
 class Enum105(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    ROLES = "roles"
-    ROLES_DESC = "roles desc"
-
-class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    ROLES = "roles"
-
-class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    ROLES = "roles"
-
-class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    ATTEMPTS_COUNT = "attemptsCount"
-    ATTEMPTS_COUNT_DESC = "attemptsCount desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    ERROR = "error"
-    ERROR_DESC = "error desc"
-    LAST_ACTION_DATE_TIME = "lastActionDateTime"
-    LAST_ACTION_DATE_TIME_DESC = "lastActionDateTime desc"
-    OPERATION_TYPE = "operationType"
-    OPERATION_TYPE_DESC = "operationType desc"
-    STATUS = "status"
-    STATUS_DESC = "status desc"
-    TARGET_RESOURCE_ID = "targetResourceId"
-    TARGET_RESOURCE_ID_DESC = "targetResourceId desc"
-    TARGET_RESOURCE_LOCATION = "targetResourceLocation"
-    TARGET_RESOURCE_LOCATION_DESC = "targetResourceLocation desc"
-
-class Enum110(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTEMPTS_COUNT = "attemptsCount"
-    CREATED_DATE_TIME = "createdDateTime"
-    ERROR = "error"
-    LAST_ACTION_DATE_TIME = "lastActionDateTime"
-    OPERATION_TYPE = "operationType"
-    STATUS = "status"
-    TARGET_RESOURCE_ID = "targetResourceId"
-    TARGET_RESOURCE_LOCATION = "targetResourceLocation"
-
-class Enum111(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTEMPTS_COUNT = "attemptsCount"
-    CREATED_DATE_TIME = "createdDateTime"
-    ERROR = "error"
-    LAST_ACTION_DATE_TIME = "lastActionDateTime"
-    OPERATION_TYPE = "operationType"
-    STATUS = "status"
-    TARGET_RESOURCE_ID = "targetResourceId"
-    TARGET_RESOURCE_LOCATION = "targetResourceLocation"
-
-class Enum112(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    EMAIL = "email"
-    MEMBERSHIP_TYPE = "membershipType"
-    WEB_URL = "webUrl"
-    FILES_FOLDER = "filesFolder"
-    MEMBERS = "members"
-    MESSAGES = "messages"
-    TABS = "tabs"
-
-class Enum113(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    FILES_FOLDER = "filesFolder"
-    MEMBERS = "members"
-    MESSAGES = "messages"
-    TABS = "tabs"
-
-class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    DESCRIPTION = "description"
-    E_TAG = "eTag"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    NAME = "name"
-    PARENT_REFERENCE = "parentReference"
-    WEB_URL = "webUrl"
-    AUDIO = "audio"
-    CONTENT = "content"
-    C_TAG = "cTag"
-    DELETED = "deleted"
-    FILE = "file"
-    FILE_SYSTEM_INFO = "fileSystemInfo"
-    FOLDER = "folder"
-    IMAGE = "image"
-    LOCATION = "location"
-    PACKAGE = "package"
-    PENDING_OPERATIONS = "pendingOperations"
-    PHOTO = "photo"
-    PUBLICATION = "publication"
-    REMOTE_ITEM = "remoteItem"
-    ROOT = "root"
-    SEARCH_RESULT = "searchResult"
-    SHARED = "shared"
-    SHAREPOINT_IDS = "sharepointIds"
-    SIZE = "size"
-    SPECIAL_FOLDER = "specialFolder"
-    VIDEO = "video"
-    WEB_DAV_URL = "webDavUrl"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    WORKBOOK = "workbook"
-    ANALYTICS = "analytics"
-    CHILDREN = "children"
-    LIST_ITEM = "listItem"
-    PERMISSIONS = "permissions"
-    SUBSCRIPTIONS = "subscriptions"
-    THUMBNAILS = "thumbnails"
-    VERSIONS = "versions"
-
-class Enum115(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    WORKBOOK = "workbook"
-    ANALYTICS = "analytics"
-    CHILDREN = "children"
-    LIST_ITEM = "listItem"
-    PERMISSIONS = "permissions"
-    SUBSCRIPTIONS = "subscriptions"
-    THUMBNAILS = "thumbnails"
-    VERSIONS = "versions"
-
-class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    ROLES = "roles"
-    ROLES_DESC = "roles desc"
-
-class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    ROLES = "roles"
-
-class Enum118(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    ROLES = "roles"
-
-class Enum119(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    ATTACHMENTS = "attachments"
-    ATTACHMENTS_DESC = "attachments desc"
-    BODY = "body"
-    BODY_DESC = "body desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-    ETAG = "etag"
-    ETAG_DESC = "etag desc"
-    FROM_ENUM = "from"
-    FROM_DESC = "from desc"
-    IMPORTANCE = "importance"
-    IMPORTANCE_DESC = "importance desc"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    LOCALE = "locale"
-    LOCALE_DESC = "locale desc"
-    MENTIONS = "mentions"
-    MENTIONS_DESC = "mentions desc"
-    MESSAGE_TYPE = "messageType"
-    MESSAGE_TYPE_DESC = "messageType desc"
-    POLICY_VIOLATION = "policyViolation"
-    POLICY_VIOLATION_DESC = "policyViolation desc"
-    REACTIONS = "reactions"
-    REACTIONS_DESC = "reactions desc"
-    REPLY_TO_ID = "replyToId"
-    REPLY_TO_ID_DESC = "replyToId desc"
-    SUBJECT = "subject"
-    SUBJECT_DESC = "subject desc"
-    SUMMARY = "summary"
-    SUMMARY_DESC = "summary desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum120(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum124(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-
-class Enum125(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    ATTACHMENTS = "attachments"
-    ATTACHMENTS_DESC = "attachments desc"
-    BODY = "body"
-    BODY_DESC = "body desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-    ETAG = "etag"
-    ETAG_DESC = "etag desc"
-    FROM_ENUM = "from"
-    FROM_DESC = "from desc"
-    IMPORTANCE = "importance"
-    IMPORTANCE_DESC = "importance desc"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    LOCALE = "locale"
-    LOCALE_DESC = "locale desc"
-    MENTIONS = "mentions"
-    MENTIONS_DESC = "mentions desc"
-    MESSAGE_TYPE = "messageType"
-    MESSAGE_TYPE_DESC = "messageType desc"
-    POLICY_VIOLATION = "policyViolation"
-    POLICY_VIOLATION_DESC = "policyViolation desc"
-    REACTIONS = "reactions"
-    REACTIONS_DESC = "reactions desc"
-    REPLY_TO_ID = "replyToId"
-    REPLY_TO_ID_DESC = "replyToId desc"
-    SUBJECT = "subject"
-    SUBJECT_DESC = "subject desc"
-    SUMMARY = "summary"
-    SUMMARY_DESC = "summary desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum126(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum127(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum128(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum129(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum130(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CONFIGURATION = "configuration"
-    CONFIGURATION_DESC = "configuration desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum131(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CONFIGURATION = "configuration"
-    DISPLAY_NAME = "displayName"
-    WEB_URL = "webUrl"
-    TEAMS_APP = "teamsApp"
-
-class Enum132(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    TEAMS_APP = "teamsApp"
-
-class Enum133(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CONFIGURATION = "configuration"
-    DISPLAY_NAME = "displayName"
-    WEB_URL = "webUrl"
-    TEAMS_APP = "teamsApp"
-
-class Enum134(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    TEAMS_APP = "teamsApp"
-
-class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    DISTRIBUTION_METHOD = "distributionMethod"
-    EXTERNAL_ID = "externalId"
-    APP_DEFINITIONS = "appDefinitions"
-
-class Enum136(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    APP_DEFINITIONS = "appDefinitions"
-
-class Enum137(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ENABLED = "enabled"
-    OFFER_SHIFT_REQUESTS_ENABLED = "offerShiftRequestsEnabled"
-    OPEN_SHIFTS_ENABLED = "openShiftsEnabled"
-    PROVISION_STATUS = "provisionStatus"
-    PROVISION_STATUS_CODE = "provisionStatusCode"
-    SWAP_SHIFTS_REQUESTS_ENABLED = "swapShiftsRequestsEnabled"
-    TIME_CLOCK_ENABLED = "timeClockEnabled"
-    TIME_OFF_REQUESTS_ENABLED = "timeOffRequestsEnabled"
-    TIME_ZONE = "timeZone"
-    WORKFORCE_INTEGRATION_IDS = "workforceIntegrationIds"
-    OFFER_SHIFT_REQUESTS = "offerShiftRequests"
-    OPEN_SHIFT_CHANGE_REQUESTS = "openShiftChangeRequests"
-    OPEN_SHIFTS = "openShifts"
-    SCHEDULING_GROUPS = "schedulingGroups"
-    SHIFTS = "shifts"
-    SWAP_SHIFTS_CHANGE_REQUESTS = "swapShiftsChangeRequests"
-    TIME_OFF_REASONS = "timeOffReasons"
-    TIME_OFF_REQUESTS = "timeOffRequests"
-    TIMES_OFF = "timesOff"
-
-class Enum138(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    OFFER_SHIFT_REQUESTS = "offerShiftRequests"
-    OPEN_SHIFT_CHANGE_REQUESTS = "openShiftChangeRequests"
-    OPEN_SHIFTS = "openShifts"
-    SCHEDULING_GROUPS = "schedulingGroups"
-    SHIFTS = "shifts"
-    SWAP_SHIFTS_CHANGE_REQUESTS = "swapShiftsChangeRequests"
-    TIME_OFF_REASONS = "timeOffReasons"
-    TIME_OFF_REQUESTS = "timeOffRequests"
-    TIMES_OFF = "timesOff"
-
-class Enum139(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    ASSIGNED_TO = "assignedTo"
-    ASSIGNED_TO_DESC = "assignedTo desc"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
-    MANAGER_USER_ID = "managerUserId"
-    MANAGER_USER_ID_DESC = "managerUserId desc"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_DATE_TIME_DESC = "senderDateTime desc"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_MESSAGE_DESC = "senderMessage desc"
-    SENDER_USER_ID = "senderUserId"
-    SENDER_USER_ID_DESC = "senderUserId desc"
-    STATE = "state"
-    STATE_DESC = "state desc"
-    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
-    RECIPIENT_ACTION_DATE_TIME_DESC = "recipientActionDateTime desc"
-    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
-    RECIPIENT_ACTION_MESSAGE_DESC = "recipientActionMessage desc"
-    RECIPIENT_USER_ID = "recipientUserId"
-    RECIPIENT_USER_ID_DESC = "recipientUserId desc"
-    SENDER_SHIFT_ID = "senderShiftId"
-    SENDER_SHIFT_ID_DESC = "senderShiftId desc"
-
-class Enum140(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
-    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
-    RECIPIENT_USER_ID = "recipientUserId"
-    SENDER_SHIFT_ID = "senderShiftId"
-
-class Enum141(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
-    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
-    RECIPIENT_USER_ID = "recipientUserId"
-    SENDER_SHIFT_ID = "senderShiftId"
-
-class Enum142(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    ASSIGNED_TO = "assignedTo"
-    ASSIGNED_TO_DESC = "assignedTo desc"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
-    MANAGER_USER_ID = "managerUserId"
-    MANAGER_USER_ID_DESC = "managerUserId desc"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_DATE_TIME_DESC = "senderDateTime desc"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_MESSAGE_DESC = "senderMessage desc"
-    SENDER_USER_ID = "senderUserId"
-    SENDER_USER_ID_DESC = "senderUserId desc"
-    STATE = "state"
-    STATE_DESC = "state desc"
-    OPEN_SHIFT_ID = "openShiftId"
-    OPEN_SHIFT_ID_DESC = "openShiftId desc"
-
-class Enum143(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    OPEN_SHIFT_ID = "openShiftId"
-
-class Enum144(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    OPEN_SHIFT_ID = "openShiftId"
-
-class Enum145(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    DRAFT_OPEN_SHIFT = "draftOpenShift"
-    DRAFT_OPEN_SHIFT_DESC = "draftOpenShift desc"
-    SCHEDULING_GROUP_ID = "schedulingGroupId"
-    SCHEDULING_GROUP_ID_DESC = "schedulingGroupId desc"
-    SHARED_OPEN_SHIFT = "sharedOpenShift"
-    SHARED_OPEN_SHIFT_DESC = "sharedOpenShift desc"
-
-class Enum146(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DRAFT_OPEN_SHIFT = "draftOpenShift"
-    SCHEDULING_GROUP_ID = "schedulingGroupId"
-    SHARED_OPEN_SHIFT = "sharedOpenShift"
-
-class Enum147(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DRAFT_OPEN_SHIFT = "draftOpenShift"
-    SCHEDULING_GROUP_ID = "schedulingGroupId"
-    SHARED_OPEN_SHIFT = "sharedOpenShift"
-
-class Enum148(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_ACTIVE = "isActive"
-    IS_ACTIVE_DESC = "isActive desc"
-    USER_IDS = "userIds"
-    USER_IDS_DESC = "userIds desc"
-
-class Enum149(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DISPLAY_NAME = "displayName"
-    IS_ACTIVE = "isActive"
-    USER_IDS = "userIds"
-
-class Enum150(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DISPLAY_NAME = "displayName"
-    IS_ACTIVE = "isActive"
-    USER_IDS = "userIds"
-
-class Enum151(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    DRAFT_SHIFT = "draftShift"
-    DRAFT_SHIFT_DESC = "draftShift desc"
-    SCHEDULING_GROUP_ID = "schedulingGroupId"
-    SCHEDULING_GROUP_ID_DESC = "schedulingGroupId desc"
-    SHARED_SHIFT = "sharedShift"
-    SHARED_SHIFT_DESC = "sharedShift desc"
-    USER_ID = "userId"
-    USER_ID_DESC = "userId desc"
-
-class Enum152(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DRAFT_SHIFT = "draftShift"
-    SCHEDULING_GROUP_ID = "schedulingGroupId"
-    SHARED_SHIFT = "sharedShift"
-    USER_ID = "userId"
-
-class Enum153(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DRAFT_SHIFT = "draftShift"
-    SCHEDULING_GROUP_ID = "schedulingGroupId"
-    SHARED_SHIFT = "sharedShift"
-    USER_ID = "userId"
-
-class Enum154(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    ASSIGNED_TO = "assignedTo"
-    ASSIGNED_TO_DESC = "assignedTo desc"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
-    MANAGER_USER_ID = "managerUserId"
-    MANAGER_USER_ID_DESC = "managerUserId desc"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_DATE_TIME_DESC = "senderDateTime desc"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_MESSAGE_DESC = "senderMessage desc"
-    SENDER_USER_ID = "senderUserId"
-    SENDER_USER_ID_DESC = "senderUserId desc"
-    STATE = "state"
-    STATE_DESC = "state desc"
-    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
-    RECIPIENT_ACTION_DATE_TIME_DESC = "recipientActionDateTime desc"
-    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
-    RECIPIENT_ACTION_MESSAGE_DESC = "recipientActionMessage desc"
-    RECIPIENT_USER_ID = "recipientUserId"
-    RECIPIENT_USER_ID_DESC = "recipientUserId desc"
-    SENDER_SHIFT_ID = "senderShiftId"
-    SENDER_SHIFT_ID_DESC = "senderShiftId desc"
-    RECIPIENT_SHIFT_ID = "recipientShiftId"
-    RECIPIENT_SHIFT_ID_DESC = "recipientShiftId desc"
-
-class Enum155(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
-    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
-    RECIPIENT_USER_ID = "recipientUserId"
-    SENDER_SHIFT_ID = "senderShiftId"
-    RECIPIENT_SHIFT_ID = "recipientShiftId"
-
-class Enum156(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
-    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
-    RECIPIENT_USER_ID = "recipientUserId"
-    SENDER_SHIFT_ID = "senderShiftId"
-    RECIPIENT_SHIFT_ID = "recipientShiftId"
-
-class Enum157(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    ICON_TYPE = "iconType"
-    ICON_TYPE_DESC = "iconType desc"
-    IS_ACTIVE = "isActive"
-    IS_ACTIVE_DESC = "isActive desc"
-
-class Enum158(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DISPLAY_NAME = "displayName"
-    ICON_TYPE = "iconType"
-    IS_ACTIVE = "isActive"
-
-class Enum159(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DISPLAY_NAME = "displayName"
-    ICON_TYPE = "iconType"
-    IS_ACTIVE = "isActive"
-
-class Enum160(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    ASSIGNED_TO = "assignedTo"
-    ASSIGNED_TO_DESC = "assignedTo desc"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
-    MANAGER_USER_ID = "managerUserId"
-    MANAGER_USER_ID_DESC = "managerUserId desc"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_DATE_TIME_DESC = "senderDateTime desc"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_MESSAGE_DESC = "senderMessage desc"
-    SENDER_USER_ID = "senderUserId"
-    SENDER_USER_ID_DESC = "senderUserId desc"
-    STATE = "state"
-    STATE_DESC = "state desc"
-    END_DATE_TIME = "endDateTime"
-    END_DATE_TIME_DESC = "endDateTime desc"
-    START_DATE_TIME = "startDateTime"
-    START_DATE_TIME_DESC = "startDateTime desc"
-    TIME_OFF_REASON_ID = "timeOffReasonId"
-    TIME_OFF_REASON_ID_DESC = "timeOffReasonId desc"
-
-class Enum161(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    END_DATE_TIME = "endDateTime"
-    START_DATE_TIME = "startDateTime"
-    TIME_OFF_REASON_ID = "timeOffReasonId"
-
-class Enum162(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    ASSIGNED_TO = "assignedTo"
-    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
-    MANAGER_ACTION_MESSAGE = "managerActionMessage"
-    MANAGER_USER_ID = "managerUserId"
-    SENDER_DATE_TIME = "senderDateTime"
-    SENDER_MESSAGE = "senderMessage"
-    SENDER_USER_ID = "senderUserId"
-    STATE = "state"
-    END_DATE_TIME = "endDateTime"
-    START_DATE_TIME = "startDateTime"
-    TIME_OFF_REASON_ID = "timeOffReasonId"
-
-class Enum163(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    DRAFT_TIME_OFF = "draftTimeOff"
-    DRAFT_TIME_OFF_DESC = "draftTimeOff desc"
-    SHARED_TIME_OFF = "sharedTimeOff"
-    SHARED_TIME_OFF_DESC = "sharedTimeOff desc"
-    USER_ID = "userId"
-    USER_ID_DESC = "userId desc"
-
-class Enum164(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DRAFT_TIME_OFF = "draftTimeOff"
-    SHARED_TIME_OFF = "sharedTimeOff"
-    USER_ID = "userId"
-
-class Enum165(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    DRAFT_TIME_OFF = "draftTimeOff"
-    SHARED_TIME_OFF = "sharedTimeOff"
-    USER_ID = "userId"
-
-class Enum167(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    WORKFORCE_INTEGRATIONS = "workforceIntegrations"
-
-class Enum170(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    API_VERSION = "apiVersion"
-    API_VERSION_DESC = "apiVersion desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    ENCRYPTION = "encryption"
-    ENCRYPTION_DESC = "encryption desc"
-    IS_ACTIVE = "isActive"
-    IS_ACTIVE_DESC = "isActive desc"
-    SUPPORTED_ENTITIES = "supportedEntities"
-    SUPPORTED_ENTITIES_DESC = "supportedEntities desc"
-    URL = "url"
-    URL_DESC = "url desc"
-
-class Enum171(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    API_VERSION = "apiVersion"
-    DISPLAY_NAME = "displayName"
-    ENCRYPTION = "encryption"
-    IS_ACTIVE = "isActive"
-    SUPPORTED_ENTITIES = "supportedEntities"
-    URL = "url"
-
-class Enum172(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    API_VERSION = "apiVersion"
-    DISPLAY_NAME = "displayName"
-    ENCRYPTION = "encryption"
-    IS_ACTIVE = "isActive"
-    SUPPORTED_ENTITIES = "supportedEntities"
-    URL = "url"
-
-class Enum173(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CLASSIFICATION = "classification"
-    CLASSIFICATION_DESC = "classification desc"
-    DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    FUN_SETTINGS = "funSettings"
-    FUN_SETTINGS_DESC = "funSettings desc"
-    GUEST_SETTINGS = "guestSettings"
-    GUEST_SETTINGS_DESC = "guestSettings desc"
-    INTERNAL_ID = "internalId"
-    INTERNAL_ID_DESC = "internalId desc"
-    IS_ARCHIVED = "isArchived"
-    IS_ARCHIVED_DESC = "isArchived desc"
-    MEMBER_SETTINGS = "memberSettings"
-    MEMBER_SETTINGS_DESC = "memberSettings desc"
-    MESSAGING_SETTINGS = "messagingSettings"
-    MESSAGING_SETTINGS_DESC = "messagingSettings desc"
-    SPECIALIZATION = "specialization"
-    SPECIALIZATION_DESC = "specialization desc"
-    VISIBILITY = "visibility"
-    VISIBILITY_DESC = "visibility desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum174(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CLASSIFICATION = "classification"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    FUN_SETTINGS = "funSettings"
-    GUEST_SETTINGS = "guestSettings"
-    INTERNAL_ID = "internalId"
-    IS_ARCHIVED = "isArchived"
-    MEMBER_SETTINGS = "memberSettings"
-    MESSAGING_SETTINGS = "messagingSettings"
-    SPECIALIZATION = "specialization"
-    VISIBILITY = "visibility"
-    WEB_URL = "webUrl"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum175(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum176(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CLASSIFICATION = "classification"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    FUN_SETTINGS = "funSettings"
-    GUEST_SETTINGS = "guestSettings"
-    INTERNAL_ID = "internalId"
-    IS_ARCHIVED = "isArchived"
-    MEMBER_SETTINGS = "memberSettings"
-    MESSAGING_SETTINGS = "messagingSettings"
-    SPECIALIZATION = "specialization"
-    VISIBILITY = "visibility"
-    WEB_URL = "webUrl"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum177(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum62(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CLASSIFICATION = "classification"
-    CLASSIFICATION_DESC = "classification desc"
-    DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    FUN_SETTINGS = "funSettings"
-    FUN_SETTINGS_DESC = "funSettings desc"
-    GUEST_SETTINGS = "guestSettings"
-    GUEST_SETTINGS_DESC = "guestSettings desc"
-    INTERNAL_ID = "internalId"
-    INTERNAL_ID_DESC = "internalId desc"
-    IS_ARCHIVED = "isArchived"
-    IS_ARCHIVED_DESC = "isArchived desc"
-    MEMBER_SETTINGS = "memberSettings"
-    MEMBER_SETTINGS_DESC = "memberSettings desc"
-    MESSAGING_SETTINGS = "messagingSettings"
-    MESSAGING_SETTINGS_DESC = "messagingSettings desc"
-    SPECIALIZATION = "specialization"
-    SPECIALIZATION_DESC = "specialization desc"
-    VISIBILITY = "visibility"
-    VISIBILITY_DESC = "visibility desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum63(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CLASSIFICATION = "classification"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    FUN_SETTINGS = "funSettings"
-    GUEST_SETTINGS = "guestSettings"
-    INTERNAL_ID = "internalId"
-    IS_ARCHIVED = "isArchived"
-    MEMBER_SETTINGS = "memberSettings"
-    MESSAGING_SETTINGS = "messagingSettings"
-    SPECIALIZATION = "specialization"
-    VISIBILITY = "visibility"
-    WEB_URL = "webUrl"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum64(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CLASSIFICATION = "classification"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    FUN_SETTINGS = "funSettings"
-    GUEST_SETTINGS = "guestSettings"
-    INTERNAL_ID = "internalId"
-    IS_ARCHIVED = "isArchived"
-    MEMBER_SETTINGS = "memberSettings"
-    MESSAGING_SETTINGS = "messagingSettings"
-    SPECIALIZATION = "specialization"
-    VISIBILITY = "visibility"
-    WEB_URL = "webUrl"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum67(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    EMAIL = "email"
-    EMAIL_DESC = "email desc"
-    MEMBERSHIP_TYPE = "membershipType"
-    MEMBERSHIP_TYPE_DESC = "membershipType desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum68(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    EMAIL = "email"
-    MEMBERSHIP_TYPE = "membershipType"
-    WEB_URL = "webUrl"
-    FILES_FOLDER = "filesFolder"
-    MEMBERS = "members"
-    MESSAGES = "messages"
-    TABS = "tabs"
-
-class Enum7(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CLASSIFICATION = "classification"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    FUN_SETTINGS = "funSettings"
-    GUEST_SETTINGS = "guestSettings"
-    INTERNAL_ID = "internalId"
-    IS_ARCHIVED = "isArchived"
-    MEMBER_SETTINGS = "memberSettings"
-    MESSAGING_SETTINGS = "messagingSettings"
-    SPECIALIZATION = "specialization"
-    VISIBILITY = "visibility"
-    WEB_URL = "webUrl"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum70(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    EMAIL = "email"
-    MEMBERSHIP_TYPE = "membershipType"
-    WEB_URL = "webUrl"
-    FILES_FOLDER = "filesFolder"
-    MEMBERS = "members"
-    MESSAGES = "messages"
-    TABS = "tabs"
-
-class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    DESCRIPTION = "description"
-    E_TAG = "eTag"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    NAME = "name"
-    PARENT_REFERENCE = "parentReference"
-    WEB_URL = "webUrl"
-    AUDIO = "audio"
-    CONTENT = "content"
-    C_TAG = "cTag"
-    DELETED = "deleted"
-    FILE = "file"
-    FILE_SYSTEM_INFO = "fileSystemInfo"
-    FOLDER = "folder"
-    IMAGE = "image"
-    LOCATION = "location"
-    PACKAGE = "package"
-    PENDING_OPERATIONS = "pendingOperations"
-    PHOTO = "photo"
-    PUBLICATION = "publication"
-    REMOTE_ITEM = "remoteItem"
-    ROOT = "root"
-    SEARCH_RESULT = "searchResult"
-    SHARED = "shared"
-    SHAREPOINT_IDS = "sharepointIds"
-    SIZE = "size"
-    SPECIAL_FOLDER = "specialFolder"
-    VIDEO = "video"
-    WEB_DAV_URL = "webDavUrl"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    WORKBOOK = "workbook"
-    ANALYTICS = "analytics"
-    CHILDREN = "children"
-    LIST_ITEM = "listItem"
-    PERMISSIONS = "permissions"
-    SUBSCRIPTIONS = "subscriptions"
-    THUMBNAILS = "thumbnails"
-    VERSIONS = "versions"
-
-class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    WORKBOOK = "workbook"
-    ANALYTICS = "analytics"
-    CHILDREN = "children"
-    LIST_ITEM = "listItem"
-    PERMISSIONS = "permissions"
-    SUBSCRIPTIONS = "subscriptions"
-    THUMBNAILS = "thumbnails"
-    VERSIONS = "versions"
-
-class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    ROLES = "roles"
-    ROLES_DESC = "roles desc"
-
-class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    ROLES = "roles"
-
-class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    ROLES = "roles"
-
-class Enum77(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    ATTACHMENTS = "attachments"
-    ATTACHMENTS_DESC = "attachments desc"
-    BODY = "body"
-    BODY_DESC = "body desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-    ETAG = "etag"
-    ETAG_DESC = "etag desc"
-    FROM_ENUM = "from"
-    FROM_DESC = "from desc"
-    IMPORTANCE = "importance"
-    IMPORTANCE_DESC = "importance desc"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    LOCALE = "locale"
-    LOCALE_DESC = "locale desc"
-    MENTIONS = "mentions"
-    MENTIONS_DESC = "mentions desc"
-    MESSAGE_TYPE = "messageType"
-    MESSAGE_TYPE_DESC = "messageType desc"
-    POLICY_VIOLATION = "policyViolation"
-    POLICY_VIOLATION_DESC = "policyViolation desc"
-    REACTIONS = "reactions"
-    REACTIONS_DESC = "reactions desc"
-    REPLY_TO_ID = "replyToId"
-    REPLY_TO_ID_DESC = "replyToId desc"
-    SUBJECT = "subject"
-    SUBJECT_DESC = "subject desc"
-    SUMMARY = "summary"
-    SUMMARY_DESC = "summary desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum78(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum79(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    SCHEDULE = "schedule"
-    CHANNELS = "channels"
-    GROUP = "group"
-    INSTALLED_APPS = "installedApps"
-    MEMBERS = "members"
-    OPERATIONS = "operations"
-    PRIMARY_CHANNEL = "primaryChannel"
-    TEMPLATE = "template"
-
-class Enum80(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum81(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum82(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-
-class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    ATTACHMENTS = "attachments"
-    ATTACHMENTS_DESC = "attachments desc"
-    BODY = "body"
-    BODY_DESC = "body desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-    ETAG = "etag"
-    ETAG_DESC = "etag desc"
-    FROM_ENUM = "from"
-    FROM_DESC = "from desc"
-    IMPORTANCE = "importance"
-    IMPORTANCE_DESC = "importance desc"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
-    LOCALE = "locale"
-    LOCALE_DESC = "locale desc"
-    MENTIONS = "mentions"
-    MENTIONS_DESC = "mentions desc"
-    MESSAGE_TYPE = "messageType"
-    MESSAGE_TYPE_DESC = "messageType desc"
-    POLICY_VIOLATION = "policyViolation"
-    POLICY_VIOLATION_DESC = "policyViolation desc"
-    REACTIONS = "reactions"
-    REACTIONS_DESC = "reactions desc"
-    REPLY_TO_ID = "replyToId"
-    REPLY_TO_ID_DESC = "replyToId desc"
-    SUBJECT = "subject"
-    SUBJECT_DESC = "subject desc"
-    SUMMARY = "summary"
-    SUMMARY_DESC = "summary desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum86(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ATTACHMENTS = "attachments"
-    BODY = "body"
-    CREATED_DATE_TIME = "createdDateTime"
-    DELETED_DATE_TIME = "deletedDateTime"
-    ETAG = "etag"
-    FROM_ENUM = "from"
-    IMPORTANCE = "importance"
-    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LOCALE = "locale"
-    MENTIONS = "mentions"
-    MESSAGE_TYPE = "messageType"
-    POLICY_VIOLATION = "policyViolation"
-    REACTIONS = "reactions"
-    REPLY_TO_ID = "replyToId"
-    SUBJECT = "subject"
-    SUMMARY = "summary"
-    WEB_URL = "webUrl"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum87(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    HOSTED_CONTENTS = "hostedContents"
-    REPLIES = "replies"
-
-class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    CONFIGURATION = "configuration"
-    CONFIGURATION_DESC = "configuration desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
-
-class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CONFIGURATION = "configuration"
-    DISPLAY_NAME = "displayName"
-    WEB_URL = "webUrl"
-    TEAMS_APP = "teamsApp"
-
-class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    TEAMS_APP = "teamsApp"
-
-class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CONFIGURATION = "configuration"
-    DISPLAY_NAME = "displayName"
-    WEB_URL = "webUrl"
-    TEAMS_APP = "teamsApp"
-
-class Enum92(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    TEAMS_APP = "teamsApp"
-
-class Enum93(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DISPLAY_NAME = "displayName"
-    DISTRIBUTION_METHOD = "distributionMethod"
-    EXTERNAL_ID = "externalId"
-    APP_DEFINITIONS = "appDefinitions"
-
-class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    APP_DEFINITIONS = "appDefinitions"
-
-class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DELETED_DATE_TIME = "deletedDateTime"
@@ -1725,7 +125,7 @@ class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ONENOTE = "onenote"
     TEAM = "team"
 
-class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     APP_ROLE_ASSIGNMENTS = "appRoleAssignments"
@@ -1755,48 +155,1753 @@ class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ONENOTE = "onenote"
     TEAM = "team"
 
-class Enum97(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
 
-class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum108(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     TEAMS_APP = "teamsApp"
     TEAMS_APP_DEFINITION = "teamsAppDefinition"
 
-class Enum99(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     TEAMS_APP = "teamsApp"
     TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class Enum110(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class Enum111(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+
+class Enum112(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DISTRIBUTION_METHOD = "distributionMethod"
+    EXTERNAL_ID = "externalId"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Enum113(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    TEAMS_APP_ID = "teamsAppId"
+    VERSION = "version"
+
+class Enum115(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    ROLES = "roles"
+    ROLES_DESC = "roles desc"
+
+class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    ROLES = "roles"
+
+class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    ROLES = "roles"
+
+class Enum119(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ATTEMPTS_COUNT = "attemptsCount"
+    ATTEMPTS_COUNT_DESC = "attemptsCount desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    ERROR = "error"
+    ERROR_DESC = "error desc"
+    LAST_ACTION_DATE_TIME = "lastActionDateTime"
+    LAST_ACTION_DATE_TIME_DESC = "lastActionDateTime desc"
+    OPERATION_TYPE = "operationType"
+    OPERATION_TYPE_DESC = "operationType desc"
+    STATUS = "status"
+    STATUS_DESC = "status desc"
+    TARGET_RESOURCE_ID = "targetResourceId"
+    TARGET_RESOURCE_ID_DESC = "targetResourceId desc"
+    TARGET_RESOURCE_LOCATION = "targetResourceLocation"
+    TARGET_RESOURCE_LOCATION_DESC = "targetResourceLocation desc"
+
+class Enum120(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTEMPTS_COUNT = "attemptsCount"
+    CREATED_DATE_TIME = "createdDateTime"
+    ERROR = "error"
+    LAST_ACTION_DATE_TIME = "lastActionDateTime"
+    OPERATION_TYPE = "operationType"
+    STATUS = "status"
+    TARGET_RESOURCE_ID = "targetResourceId"
+    TARGET_RESOURCE_LOCATION = "targetResourceLocation"
+
+class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTEMPTS_COUNT = "attemptsCount"
+    CREATED_DATE_TIME = "createdDateTime"
+    ERROR = "error"
+    LAST_ACTION_DATE_TIME = "lastActionDateTime"
+    OPERATION_TYPE = "operationType"
+    STATUS = "status"
+    TARGET_RESOURCE_ID = "targetResourceId"
+    TARGET_RESOURCE_LOCATION = "targetResourceLocation"
+
+class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    EMAIL = "email"
+    MEMBERSHIP_TYPE = "membershipType"
+    WEB_URL = "webUrl"
+    FILES_FOLDER = "filesFolder"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    TABS = "tabs"
+
+class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FILES_FOLDER = "filesFolder"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    TABS = "tabs"
+
+class Enum124(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum125(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum126(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    ROLES = "roles"
+    ROLES_DESC = "roles desc"
+
+class Enum127(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    ROLES = "roles"
+
+class Enum128(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    ROLES = "roles"
+
+class Enum129(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ATTACHMENTS = "attachments"
+    ATTACHMENTS_DESC = "attachments desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    ETAG = "etag"
+    ETAG_DESC = "etag desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LOCALE = "locale"
+    LOCALE_DESC = "locale desc"
+    MENTIONS = "mentions"
+    MENTIONS_DESC = "mentions desc"
+    MESSAGE_TYPE = "messageType"
+    MESSAGE_TYPE_DESC = "messageType desc"
+    POLICY_VIOLATION = "policyViolation"
+    POLICY_VIOLATION_DESC = "policyViolation desc"
+    REACTIONS = "reactions"
+    REACTIONS_DESC = "reactions desc"
+    REPLY_TO_ID = "replyToId"
+    REPLY_TO_ID_DESC = "replyToId desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    SUMMARY = "summary"
+    SUMMARY_DESC = "summary desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum130(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum131(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum132(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum133(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum134(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ATTACHMENTS = "attachments"
+    ATTACHMENTS_DESC = "attachments desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    ETAG = "etag"
+    ETAG_DESC = "etag desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LOCALE = "locale"
+    LOCALE_DESC = "locale desc"
+    MENTIONS = "mentions"
+    MENTIONS_DESC = "mentions desc"
+    MESSAGE_TYPE = "messageType"
+    MESSAGE_TYPE_DESC = "messageType desc"
+    POLICY_VIOLATION = "policyViolation"
+    POLICY_VIOLATION_DESC = "policyViolation desc"
+    REACTIONS = "reactions"
+    REACTIONS_DESC = "reactions desc"
+    REPLY_TO_ID = "replyToId"
+    REPLY_TO_ID_DESC = "replyToId desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    SUMMARY = "summary"
+    SUMMARY_DESC = "summary desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum136(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum137(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum138(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum139(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum140(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CONFIGURATION = "configuration"
+    CONFIGURATION_DESC = "configuration desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum141(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CONFIGURATION = "configuration"
+    DISPLAY_NAME = "displayName"
+    WEB_URL = "webUrl"
+    TEAMS_APP = "teamsApp"
+
+class Enum142(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+
+class Enum143(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CONFIGURATION = "configuration"
+    DISPLAY_NAME = "displayName"
+    WEB_URL = "webUrl"
+    TEAMS_APP = "teamsApp"
+
+class Enum144(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+
+class Enum145(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DISTRIBUTION_METHOD = "distributionMethod"
+    EXTERNAL_ID = "externalId"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Enum146(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Enum147(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ENABLED = "enabled"
+    OFFER_SHIFT_REQUESTS_ENABLED = "offerShiftRequestsEnabled"
+    OPEN_SHIFTS_ENABLED = "openShiftsEnabled"
+    PROVISION_STATUS = "provisionStatus"
+    PROVISION_STATUS_CODE = "provisionStatusCode"
+    SWAP_SHIFTS_REQUESTS_ENABLED = "swapShiftsRequestsEnabled"
+    TIME_CLOCK_ENABLED = "timeClockEnabled"
+    TIME_OFF_REQUESTS_ENABLED = "timeOffRequestsEnabled"
+    TIME_ZONE = "timeZone"
+    WORKFORCE_INTEGRATION_IDS = "workforceIntegrationIds"
+    OFFER_SHIFT_REQUESTS = "offerShiftRequests"
+    OPEN_SHIFT_CHANGE_REQUESTS = "openShiftChangeRequests"
+    OPEN_SHIFTS = "openShifts"
+    SCHEDULING_GROUPS = "schedulingGroups"
+    SHIFTS = "shifts"
+    SWAP_SHIFTS_CHANGE_REQUESTS = "swapShiftsChangeRequests"
+    TIME_OFF_REASONS = "timeOffReasons"
+    TIME_OFF_REQUESTS = "timeOffRequests"
+    TIMES_OFF = "timesOff"
+
+class Enum148(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    OFFER_SHIFT_REQUESTS = "offerShiftRequests"
+    OPEN_SHIFT_CHANGE_REQUESTS = "openShiftChangeRequests"
+    OPEN_SHIFTS = "openShifts"
+    SCHEDULING_GROUPS = "schedulingGroups"
+    SHIFTS = "shifts"
+    SWAP_SHIFTS_CHANGE_REQUESTS = "swapShiftsChangeRequests"
+    TIME_OFF_REASONS = "timeOffReasons"
+    TIME_OFF_REQUESTS = "timeOffRequests"
+    TIMES_OFF = "timesOff"
+
+class Enum149(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    ASSIGNED_TO = "assignedTo"
+    ASSIGNED_TO_DESC = "assignedTo desc"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
+    MANAGER_USER_ID = "managerUserId"
+    MANAGER_USER_ID_DESC = "managerUserId desc"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_DATE_TIME_DESC = "senderDateTime desc"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_MESSAGE_DESC = "senderMessage desc"
+    SENDER_USER_ID = "senderUserId"
+    SENDER_USER_ID_DESC = "senderUserId desc"
+    STATE = "state"
+    STATE_DESC = "state desc"
+    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
+    RECIPIENT_ACTION_DATE_TIME_DESC = "recipientActionDateTime desc"
+    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
+    RECIPIENT_ACTION_MESSAGE_DESC = "recipientActionMessage desc"
+    RECIPIENT_USER_ID = "recipientUserId"
+    RECIPIENT_USER_ID_DESC = "recipientUserId desc"
+    SENDER_SHIFT_ID = "senderShiftId"
+    SENDER_SHIFT_ID_DESC = "senderShiftId desc"
+
+class Enum150(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
+    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
+    RECIPIENT_USER_ID = "recipientUserId"
+    SENDER_SHIFT_ID = "senderShiftId"
+
+class Enum151(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
+    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
+    RECIPIENT_USER_ID = "recipientUserId"
+    SENDER_SHIFT_ID = "senderShiftId"
+
+class Enum152(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    ASSIGNED_TO = "assignedTo"
+    ASSIGNED_TO_DESC = "assignedTo desc"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
+    MANAGER_USER_ID = "managerUserId"
+    MANAGER_USER_ID_DESC = "managerUserId desc"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_DATE_TIME_DESC = "senderDateTime desc"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_MESSAGE_DESC = "senderMessage desc"
+    SENDER_USER_ID = "senderUserId"
+    SENDER_USER_ID_DESC = "senderUserId desc"
+    STATE = "state"
+    STATE_DESC = "state desc"
+    OPEN_SHIFT_ID = "openShiftId"
+    OPEN_SHIFT_ID_DESC = "openShiftId desc"
+
+class Enum153(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    OPEN_SHIFT_ID = "openShiftId"
+
+class Enum154(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    OPEN_SHIFT_ID = "openShiftId"
+
+class Enum155(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    DRAFT_OPEN_SHIFT = "draftOpenShift"
+    DRAFT_OPEN_SHIFT_DESC = "draftOpenShift desc"
+    SCHEDULING_GROUP_ID = "schedulingGroupId"
+    SCHEDULING_GROUP_ID_DESC = "schedulingGroupId desc"
+    SHARED_OPEN_SHIFT = "sharedOpenShift"
+    SHARED_OPEN_SHIFT_DESC = "sharedOpenShift desc"
+
+class Enum156(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DRAFT_OPEN_SHIFT = "draftOpenShift"
+    SCHEDULING_GROUP_ID = "schedulingGroupId"
+    SHARED_OPEN_SHIFT = "sharedOpenShift"
+
+class Enum157(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DRAFT_OPEN_SHIFT = "draftOpenShift"
+    SCHEDULING_GROUP_ID = "schedulingGroupId"
+    SHARED_OPEN_SHIFT = "sharedOpenShift"
+
+class Enum158(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    IS_ACTIVE = "isActive"
+    IS_ACTIVE_DESC = "isActive desc"
+    USER_IDS = "userIds"
+    USER_IDS_DESC = "userIds desc"
+
+class Enum159(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DISPLAY_NAME = "displayName"
+    IS_ACTIVE = "isActive"
+    USER_IDS = "userIds"
+
+class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASSIFICATION = "classification"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    FUN_SETTINGS = "funSettings"
+    GUEST_SETTINGS = "guestSettings"
+    INTERNAL_ID = "internalId"
+    IS_ARCHIVED = "isArchived"
+    MEMBER_SETTINGS = "memberSettings"
+    MESSAGING_SETTINGS = "messagingSettings"
+    SPECIALIZATION = "specialization"
+    VISIBILITY = "visibility"
+    WEB_URL = "webUrl"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum160(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DISPLAY_NAME = "displayName"
+    IS_ACTIVE = "isActive"
+    USER_IDS = "userIds"
+
+class Enum161(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    DRAFT_SHIFT = "draftShift"
+    DRAFT_SHIFT_DESC = "draftShift desc"
+    SCHEDULING_GROUP_ID = "schedulingGroupId"
+    SCHEDULING_GROUP_ID_DESC = "schedulingGroupId desc"
+    SHARED_SHIFT = "sharedShift"
+    SHARED_SHIFT_DESC = "sharedShift desc"
+    USER_ID = "userId"
+    USER_ID_DESC = "userId desc"
+
+class Enum162(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DRAFT_SHIFT = "draftShift"
+    SCHEDULING_GROUP_ID = "schedulingGroupId"
+    SHARED_SHIFT = "sharedShift"
+    USER_ID = "userId"
+
+class Enum163(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DRAFT_SHIFT = "draftShift"
+    SCHEDULING_GROUP_ID = "schedulingGroupId"
+    SHARED_SHIFT = "sharedShift"
+    USER_ID = "userId"
+
+class Enum164(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    ASSIGNED_TO = "assignedTo"
+    ASSIGNED_TO_DESC = "assignedTo desc"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
+    MANAGER_USER_ID = "managerUserId"
+    MANAGER_USER_ID_DESC = "managerUserId desc"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_DATE_TIME_DESC = "senderDateTime desc"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_MESSAGE_DESC = "senderMessage desc"
+    SENDER_USER_ID = "senderUserId"
+    SENDER_USER_ID_DESC = "senderUserId desc"
+    STATE = "state"
+    STATE_DESC = "state desc"
+    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
+    RECIPIENT_ACTION_DATE_TIME_DESC = "recipientActionDateTime desc"
+    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
+    RECIPIENT_ACTION_MESSAGE_DESC = "recipientActionMessage desc"
+    RECIPIENT_USER_ID = "recipientUserId"
+    RECIPIENT_USER_ID_DESC = "recipientUserId desc"
+    SENDER_SHIFT_ID = "senderShiftId"
+    SENDER_SHIFT_ID_DESC = "senderShiftId desc"
+    RECIPIENT_SHIFT_ID = "recipientShiftId"
+    RECIPIENT_SHIFT_ID_DESC = "recipientShiftId desc"
+
+class Enum165(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
+    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
+    RECIPIENT_USER_ID = "recipientUserId"
+    SENDER_SHIFT_ID = "senderShiftId"
+    RECIPIENT_SHIFT_ID = "recipientShiftId"
+
+class Enum166(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    RECIPIENT_ACTION_DATE_TIME = "recipientActionDateTime"
+    RECIPIENT_ACTION_MESSAGE = "recipientActionMessage"
+    RECIPIENT_USER_ID = "recipientUserId"
+    SENDER_SHIFT_ID = "senderShiftId"
+    RECIPIENT_SHIFT_ID = "recipientShiftId"
+
+class Enum167(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    ICON_TYPE = "iconType"
+    ICON_TYPE_DESC = "iconType desc"
+    IS_ACTIVE = "isActive"
+    IS_ACTIVE_DESC = "isActive desc"
+
+class Enum168(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DISPLAY_NAME = "displayName"
+    ICON_TYPE = "iconType"
+    IS_ACTIVE = "isActive"
+
+class Enum169(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DISPLAY_NAME = "displayName"
+    ICON_TYPE = "iconType"
+    IS_ACTIVE = "isActive"
+
+class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum170(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    ASSIGNED_TO = "assignedTo"
+    ASSIGNED_TO_DESC = "assignedTo desc"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_DATE_TIME_DESC = "managerActionDateTime desc"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_ACTION_MESSAGE_DESC = "managerActionMessage desc"
+    MANAGER_USER_ID = "managerUserId"
+    MANAGER_USER_ID_DESC = "managerUserId desc"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_DATE_TIME_DESC = "senderDateTime desc"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_MESSAGE_DESC = "senderMessage desc"
+    SENDER_USER_ID = "senderUserId"
+    SENDER_USER_ID_DESC = "senderUserId desc"
+    STATE = "state"
+    STATE_DESC = "state desc"
+    END_DATE_TIME = "endDateTime"
+    END_DATE_TIME_DESC = "endDateTime desc"
+    START_DATE_TIME = "startDateTime"
+    START_DATE_TIME_DESC = "startDateTime desc"
+    TIME_OFF_REASON_ID = "timeOffReasonId"
+    TIME_OFF_REASON_ID_DESC = "timeOffReasonId desc"
+
+class Enum171(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    END_DATE_TIME = "endDateTime"
+    START_DATE_TIME = "startDateTime"
+    TIME_OFF_REASON_ID = "timeOffReasonId"
+
+class Enum172(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    ASSIGNED_TO = "assignedTo"
+    MANAGER_ACTION_DATE_TIME = "managerActionDateTime"
+    MANAGER_ACTION_MESSAGE = "managerActionMessage"
+    MANAGER_USER_ID = "managerUserId"
+    SENDER_DATE_TIME = "senderDateTime"
+    SENDER_MESSAGE = "senderMessage"
+    SENDER_USER_ID = "senderUserId"
+    STATE = "state"
+    END_DATE_TIME = "endDateTime"
+    START_DATE_TIME = "startDateTime"
+    TIME_OFF_REASON_ID = "timeOffReasonId"
+
+class Enum173(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    DRAFT_TIME_OFF = "draftTimeOff"
+    DRAFT_TIME_OFF_DESC = "draftTimeOff desc"
+    SHARED_TIME_OFF = "sharedTimeOff"
+    SHARED_TIME_OFF_DESC = "sharedTimeOff desc"
+    USER_ID = "userId"
+    USER_ID_DESC = "userId desc"
+
+class Enum174(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DRAFT_TIME_OFF = "draftTimeOff"
+    SHARED_TIME_OFF = "sharedTimeOff"
+    USER_ID = "userId"
+
+class Enum175(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    DRAFT_TIME_OFF = "draftTimeOff"
+    SHARED_TIME_OFF = "sharedTimeOff"
+    USER_ID = "userId"
+
+class Enum177(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    WORKFORCE_INTEGRATIONS = "workforceIntegrations"
+
+class Enum180(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    API_VERSION = "apiVersion"
+    API_VERSION_DESC = "apiVersion desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    ENCRYPTION = "encryption"
+    ENCRYPTION_DESC = "encryption desc"
+    IS_ACTIVE = "isActive"
+    IS_ACTIVE_DESC = "isActive desc"
+    SUPPORTED_ENTITIES = "supportedEntities"
+    SUPPORTED_ENTITIES_DESC = "supportedEntities desc"
+    URL = "url"
+    URL_DESC = "url desc"
+
+class Enum181(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    API_VERSION = "apiVersion"
+    DISPLAY_NAME = "displayName"
+    ENCRYPTION = "encryption"
+    IS_ACTIVE = "isActive"
+    SUPPORTED_ENTITIES = "supportedEntities"
+    URL = "url"
+
+class Enum182(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_DATE_TIME = "createdDateTime"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    API_VERSION = "apiVersion"
+    DISPLAY_NAME = "displayName"
+    ENCRYPTION = "encryption"
+    IS_ACTIVE = "isActive"
+    SUPPORTED_ENTITIES = "supportedEntities"
+    URL = "url"
+
+class Enum183(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLASSIFICATION = "classification"
+    CLASSIFICATION_DESC = "classification desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    FUN_SETTINGS = "funSettings"
+    FUN_SETTINGS_DESC = "funSettings desc"
+    GUEST_SETTINGS = "guestSettings"
+    GUEST_SETTINGS_DESC = "guestSettings desc"
+    INTERNAL_ID = "internalId"
+    INTERNAL_ID_DESC = "internalId desc"
+    IS_ARCHIVED = "isArchived"
+    IS_ARCHIVED_DESC = "isArchived desc"
+    MEMBER_SETTINGS = "memberSettings"
+    MEMBER_SETTINGS_DESC = "memberSettings desc"
+    MESSAGING_SETTINGS = "messagingSettings"
+    MESSAGING_SETTINGS_DESC = "messagingSettings desc"
+    SPECIALIZATION = "specialization"
+    SPECIALIZATION_DESC = "specialization desc"
+    VISIBILITY = "visibility"
+    VISIBILITY_DESC = "visibility desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum184(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASSIFICATION = "classification"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    FUN_SETTINGS = "funSettings"
+    GUEST_SETTINGS = "guestSettings"
+    INTERNAL_ID = "internalId"
+    IS_ARCHIVED = "isArchived"
+    MEMBER_SETTINGS = "memberSettings"
+    MESSAGING_SETTINGS = "messagingSettings"
+    SPECIALIZATION = "specialization"
+    VISIBILITY = "visibility"
+    WEB_URL = "webUrl"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum185(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum186(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASSIFICATION = "classification"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    FUN_SETTINGS = "funSettings"
+    GUEST_SETTINGS = "guestSettings"
+    INTERNAL_ID = "internalId"
+    IS_ARCHIVED = "isArchived"
+    MEMBER_SETTINGS = "memberSettings"
+    MESSAGING_SETTINGS = "messagingSettings"
+    SPECIALIZATION = "specialization"
+    VISIBILITY = "visibility"
+    WEB_URL = "webUrl"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum187(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum188(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    INSTALLED_APPS = "installedApps"
+
+class Enum189(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    INSTALLED_APPS = "installedApps"
+
+class Enum190(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum191(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+    CHAT = "chat"
+
+class Enum192(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+    CHAT = "chat"
+
+class Enum193(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+    CHAT = "chat"
+
+class Enum194(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    TEAMS_APP = "teamsApp"
+    TEAMS_APP_DEFINITION = "teamsAppDefinition"
+    CHAT = "chat"
+
+class Enum6(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    TEAMS_APP_ID = "teamsAppId"
+    TEAMS_APP_ID_DESC = "teamsAppId desc"
+    VERSION = "version"
+    VERSION_DESC = "version desc"
+
+class Enum7(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    TEAMS_APP_ID = "teamsAppId"
+    VERSION = "version"
+
+class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CLASSIFICATION = "classification"
+    CLASSIFICATION_DESC = "classification desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    FUN_SETTINGS = "funSettings"
+    FUN_SETTINGS_DESC = "funSettings desc"
+    GUEST_SETTINGS = "guestSettings"
+    GUEST_SETTINGS_DESC = "guestSettings desc"
+    INTERNAL_ID = "internalId"
+    INTERNAL_ID_DESC = "internalId desc"
+    IS_ARCHIVED = "isArchived"
+    IS_ARCHIVED_DESC = "isArchived desc"
+    MEMBER_SETTINGS = "memberSettings"
+    MEMBER_SETTINGS_DESC = "memberSettings desc"
+    MESSAGING_SETTINGS = "messagingSettings"
+    MESSAGING_SETTINGS_DESC = "messagingSettings desc"
+    SPECIALIZATION = "specialization"
+    SPECIALIZATION_DESC = "specialization desc"
+    VISIBILITY = "visibility"
+    VISIBILITY_DESC = "visibility desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASSIFICATION = "classification"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    FUN_SETTINGS = "funSettings"
+    GUEST_SETTINGS = "guestSettings"
+    INTERNAL_ID = "internalId"
+    IS_ARCHIVED = "isArchived"
+    MEMBER_SETTINGS = "memberSettings"
+    MESSAGING_SETTINGS = "messagingSettings"
+    SPECIALIZATION = "specialization"
+    VISIBILITY = "visibility"
+    WEB_URL = "webUrl"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CLASSIFICATION = "classification"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    FUN_SETTINGS = "funSettings"
+    GUEST_SETTINGS = "guestSettings"
+    INTERNAL_ID = "internalId"
+    IS_ARCHIVED = "isArchived"
+    MEMBER_SETTINGS = "memberSettings"
+    MESSAGING_SETTINGS = "messagingSettings"
+    SPECIALIZATION = "specialization"
+    VISIBILITY = "visibility"
+    WEB_URL = "webUrl"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    SCHEDULE = "schedule"
+    CHANNELS = "channels"
+    GROUP = "group"
+    INSTALLED_APPS = "installedApps"
+    MEMBERS = "members"
+    OPERATIONS = "operations"
+    PRIMARY_CHANNEL = "primaryChannel"
+    TEMPLATE = "template"
+
+class Enum77(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    EMAIL = "email"
+    EMAIL_DESC = "email desc"
+    MEMBERSHIP_TYPE = "membershipType"
+    MEMBERSHIP_TYPE_DESC = "membershipType desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum78(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    EMAIL = "email"
+    MEMBERSHIP_TYPE = "membershipType"
+    WEB_URL = "webUrl"
+    FILES_FOLDER = "filesFolder"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    TABS = "tabs"
+
+class Enum79(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FILES_FOLDER = "filesFolder"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    TABS = "tabs"
+
+class Enum8(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    TEAMS_APP_ID = "teamsAppId"
+    VERSION = "version"
+
+class Enum80(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    EMAIL = "email"
+    MEMBERSHIP_TYPE = "membershipType"
+    WEB_URL = "webUrl"
+    FILES_FOLDER = "filesFolder"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    TABS = "tabs"
+
+class Enum81(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FILES_FOLDER = "filesFolder"
+    MEMBERS = "members"
+    MESSAGES = "messages"
+    TABS = "tabs"
+
+class Enum82(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    AUDIO = "audio"
+    CONTENT = "content"
+    C_TAG = "cTag"
+    DELETED = "deleted"
+    FILE = "file"
+    FILE_SYSTEM_INFO = "fileSystemInfo"
+    FOLDER = "folder"
+    IMAGE = "image"
+    LOCATION = "location"
+    PACKAGE = "package"
+    PENDING_OPERATIONS = "pendingOperations"
+    PHOTO = "photo"
+    PUBLICATION = "publication"
+    REMOTE_ITEM = "remoteItem"
+    ROOT = "root"
+    SEARCH_RESULT = "searchResult"
+    SHARED = "shared"
+    SHAREPOINT_IDS = "sharepointIds"
+    SIZE = "size"
+    SPECIAL_FOLDER = "specialFolder"
+    VIDEO = "video"
+    WEB_DAV_URL = "webDavUrl"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    WORKBOOK = "workbook"
+    ANALYTICS = "analytics"
+    CHILDREN = "children"
+    LIST_ITEM = "listItem"
+    PERMISSIONS = "permissions"
+    SUBSCRIPTIONS = "subscriptions"
+    THUMBNAILS = "thumbnails"
+    VERSIONS = "versions"
+
+class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    ROLES = "roles"
+    ROLES_DESC = "roles desc"
+
+class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    ROLES = "roles"
+
+class Enum86(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    ROLES = "roles"
+
+class Enum87(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ATTACHMENTS = "attachments"
+    ATTACHMENTS_DESC = "attachments desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    ETAG = "etag"
+    ETAG_DESC = "etag desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LOCALE = "locale"
+    LOCALE_DESC = "locale desc"
+    MENTIONS = "mentions"
+    MENTIONS_DESC = "mentions desc"
+    MESSAGE_TYPE = "messageType"
+    MESSAGE_TYPE_DESC = "messageType desc"
+    POLICY_VIOLATION = "policyViolation"
+    POLICY_VIOLATION_DESC = "policyViolation desc"
+    REACTIONS = "reactions"
+    REACTIONS_DESC = "reactions desc"
+    REPLY_TO_ID = "replyToId"
+    REPLY_TO_ID_DESC = "replyToId desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    SUMMARY = "summary"
+    SUMMARY_DESC = "summary desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum92(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+
+class Enum93(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    ATTACHMENTS = "attachments"
+    ATTACHMENTS_DESC = "attachments desc"
+    BODY = "body"
+    BODY_DESC = "body desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    ETAG = "etag"
+    ETAG_DESC = "etag desc"
+    FROM_ENUM = "from"
+    FROM_DESC = "from desc"
+    IMPORTANCE = "importance"
+    IMPORTANCE_DESC = "importance desc"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_EDITED_DATE_TIME_DESC = "lastEditedDateTime desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    LOCALE = "locale"
+    LOCALE_DESC = "locale desc"
+    MENTIONS = "mentions"
+    MENTIONS_DESC = "mentions desc"
+    MESSAGE_TYPE = "messageType"
+    MESSAGE_TYPE_DESC = "messageType desc"
+    POLICY_VIOLATION = "policyViolation"
+    POLICY_VIOLATION_DESC = "policyViolation desc"
+    REACTIONS = "reactions"
+    REACTIONS_DESC = "reactions desc"
+    REPLY_TO_ID = "replyToId"
+    REPLY_TO_ID_DESC = "replyToId desc"
+    SUBJECT = "subject"
+    SUBJECT_DESC = "subject desc"
+    SUMMARY = "summary"
+    SUMMARY_DESC = "summary desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ATTACHMENTS = "attachments"
+    BODY = "body"
+    CREATED_DATE_TIME = "createdDateTime"
+    DELETED_DATE_TIME = "deletedDateTime"
+    ETAG = "etag"
+    FROM_ENUM = "from"
+    IMPORTANCE = "importance"
+    LAST_EDITED_DATE_TIME = "lastEditedDateTime"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LOCALE = "locale"
+    MENTIONS = "mentions"
+    MESSAGE_TYPE = "messageType"
+    POLICY_VIOLATION = "policyViolation"
+    REACTIONS = "reactions"
+    REPLY_TO_ID = "replyToId"
+    SUBJECT = "subject"
+    SUMMARY = "summary"
+    WEB_URL = "webUrl"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum97(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    HOSTED_CONTENTS = "hostedContents"
+    REPLIES = "replies"
+
+class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    CONFIGURATION = "configuration"
+    CONFIGURATION_DESC = "configuration desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+
+class Enum99(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CONFIGURATION = "configuration"
+    DISPLAY_NAME = "displayName"
+    WEB_URL = "webUrl"
+    TEAMS_APP = "teamsApp"
 
 class Get0ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     WORKFORCE_INTEGRATIONS = "workforceIntegrations"
 
-class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DISTRIBUTION_METHOD = "distributionMethod"
+    EXTERNAL_ID = "externalId"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    FILES_FOLDER = "filesFolder"
-    MEMBERS = "members"
-    MESSAGES = "messages"
-    TABS = "tabs"
+    APP_DEFINITIONS = "appDefinitions"
 
 class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    DISTRIBUTION_METHOD = "distributionMethod"
+    DISTRIBUTION_METHOD_DESC = "distributionMethod desc"
+    EXTERNAL_ID = "externalId"
+    EXTERNAL_ID_DESC = "externalId desc"
 
-class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DISPLAY_NAME = "displayName"
+    DISTRIBUTION_METHOD = "distributionMethod"
+    EXTERNAL_ID = "externalId"
+    APP_DEFINITIONS = "appDefinitions"
+
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    FILES_FOLDER = "filesFolder"
-    MEMBERS = "members"
-    MESSAGES = "messages"
-    TABS = "tabs"
+    APP_DEFINITIONS = "appDefinitions"
 
 class MicrosoftGraphActionState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -2261,6 +2366,14 @@ class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     IGNORED = "ignored"
     UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
+class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    COMPLETED = "completed"
+    WAITING_ON_OTHERS = "waitingOnOthers"
+    DEFERRED = "deferred"
+
 class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STORE = "store"
@@ -2344,6 +2457,13 @@ class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     THIRD = "third"
     FOURTH = "fourth"
     LAST = "last"
+
+class MicrosoftGraphWellknownListName(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    DEFAULT_LIST = "defaultList"
+    FLAGGED_EMAILS = "flaggedEmails"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
 class MicrosoftGraphWorkbookOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 

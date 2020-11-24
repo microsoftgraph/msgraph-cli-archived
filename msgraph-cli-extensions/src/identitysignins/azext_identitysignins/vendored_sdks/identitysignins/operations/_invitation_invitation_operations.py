@@ -242,8 +242,8 @@ class InvitationInvitationOperations(object):
     def get_invitation(
         self,
         invitation_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum101"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum102"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum103"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum104"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphInvitation"
@@ -254,9 +254,9 @@ class InvitationInvitationOperations(object):
         :param invitation_id: key: id of invitation.
         :type invitation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Enum101]
+        :type select: list[str or ~identity_sign_ins.models.Enum103]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_sign_ins.models.Enum102]
+        :type expand: list[str or ~identity_sign_ins.models.Enum104]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphInvitation, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphInvitation

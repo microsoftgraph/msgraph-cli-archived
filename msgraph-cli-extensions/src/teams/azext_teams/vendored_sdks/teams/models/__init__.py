@@ -26,6 +26,8 @@ try:
     from ._models_py3 import CollectionOfSwapShiftsChangeRequest
     from ._models_py3 import CollectionOfTeam
     from ._models_py3 import CollectionOfTeam0
+    from ._models_py3 import CollectionOfTeamsApp
+    from ._models_py3 import CollectionOfTeamsAppDefinition
     from ._models_py3 import CollectionOfTeamsAppInstallation
     from ._models_py3 import CollectionOfTeamsAsyncOperation
     from ._models_py3 import CollectionOfTeamsTab
@@ -33,6 +35,7 @@ try:
     from ._models_py3 import CollectionOfTimeOff
     from ._models_py3 import CollectionOfTimeOffReason
     from ._models_py3 import CollectionOfTimeOffRequest
+    from ._models_py3 import CollectionOfUserScopeTeamsAppInstallation
     from ._models_py3 import CollectionOfWorkforceIntegration
     from ._models_py3 import MicrosoftGraphActivityHistoryItem
     from ._models_py3 import MicrosoftGraphAppRoleAssignment
@@ -125,6 +128,7 @@ try:
     from ._models_py3 import MicrosoftGraphLicenseAssignmentState
     from ._models_py3 import MicrosoftGraphLicenseDetails
     from ._models_py3 import MicrosoftGraphLicenseProcessingState
+    from ._models_py3 import MicrosoftGraphLinkedResource
     from ._models_py3 import MicrosoftGraphList
     from ._models_py3 import MicrosoftGraphListInfo
     from ._models_py3 import MicrosoftGraphListItem
@@ -267,12 +271,17 @@ try:
     from ._models_py3 import MicrosoftGraphTimeRange
     from ._models_py3 import MicrosoftGraphTimeSlot
     from ._models_py3 import MicrosoftGraphTimeZoneBase
+    from ._models_py3 import MicrosoftGraphTodo
+    from ._models_py3 import MicrosoftGraphTodoTask
+    from ._models_py3 import MicrosoftGraphTodoTaskList
     from ._models_py3 import MicrosoftGraphTrending
     from ._models_py3 import MicrosoftGraphUsageDetails
     from ._models_py3 import MicrosoftGraphUsedInsight
     from ._models_py3 import MicrosoftGraphUser
     from ._models_py3 import MicrosoftGraphUserActivity
+    from ._models_py3 import MicrosoftGraphUserScopeTeamsAppInstallation
     from ._models_py3 import MicrosoftGraphUserSettings
+    from ._models_py3 import MicrosoftGraphUserTeamwork
     from ._models_py3 import MicrosoftGraphVideo
     from ._models_py3 import MicrosoftGraphVisualInfo
     from ._models_py3 import MicrosoftGraphWebsite
@@ -347,6 +356,8 @@ except (SyntaxError, ImportError):
     from ._models import CollectionOfSwapShiftsChangeRequest  # type: ignore
     from ._models import CollectionOfTeam  # type: ignore
     from ._models import CollectionOfTeam0  # type: ignore
+    from ._models import CollectionOfTeamsApp  # type: ignore
+    from ._models import CollectionOfTeamsAppDefinition  # type: ignore
     from ._models import CollectionOfTeamsAppInstallation  # type: ignore
     from ._models import CollectionOfTeamsAsyncOperation  # type: ignore
     from ._models import CollectionOfTeamsTab  # type: ignore
@@ -354,6 +365,7 @@ except (SyntaxError, ImportError):
     from ._models import CollectionOfTimeOff  # type: ignore
     from ._models import CollectionOfTimeOffReason  # type: ignore
     from ._models import CollectionOfTimeOffRequest  # type: ignore
+    from ._models import CollectionOfUserScopeTeamsAppInstallation  # type: ignore
     from ._models import CollectionOfWorkforceIntegration  # type: ignore
     from ._models import MicrosoftGraphActivityHistoryItem  # type: ignore
     from ._models import MicrosoftGraphAppRoleAssignment  # type: ignore
@@ -446,6 +458,7 @@ except (SyntaxError, ImportError):
     from ._models import MicrosoftGraphLicenseAssignmentState  # type: ignore
     from ._models import MicrosoftGraphLicenseDetails  # type: ignore
     from ._models import MicrosoftGraphLicenseProcessingState  # type: ignore
+    from ._models import MicrosoftGraphLinkedResource  # type: ignore
     from ._models import MicrosoftGraphList  # type: ignore
     from ._models import MicrosoftGraphListInfo  # type: ignore
     from ._models import MicrosoftGraphListItem  # type: ignore
@@ -588,12 +601,17 @@ except (SyntaxError, ImportError):
     from ._models import MicrosoftGraphTimeRange  # type: ignore
     from ._models import MicrosoftGraphTimeSlot  # type: ignore
     from ._models import MicrosoftGraphTimeZoneBase  # type: ignore
+    from ._models import MicrosoftGraphTodo  # type: ignore
+    from ._models import MicrosoftGraphTodoTask  # type: ignore
+    from ._models import MicrosoftGraphTodoTaskList  # type: ignore
     from ._models import MicrosoftGraphTrending  # type: ignore
     from ._models import MicrosoftGraphUsageDetails  # type: ignore
     from ._models import MicrosoftGraphUsedInsight  # type: ignore
     from ._models import MicrosoftGraphUser  # type: ignore
     from ._models import MicrosoftGraphUserActivity  # type: ignore
+    from ._models import MicrosoftGraphUserScopeTeamsAppInstallation  # type: ignore
     from ._models import MicrosoftGraphUserSettings  # type: ignore
+    from ._models import MicrosoftGraphUserTeamwork  # type: ignore
     from ._models import MicrosoftGraphVideo  # type: ignore
     from ._models import MicrosoftGraphVisualInfo  # type: ignore
     from ._models import MicrosoftGraphWebsite  # type: ignore
@@ -658,6 +676,7 @@ from ._teams_enums import (
     Enum105,
     Enum106,
     Enum107,
+    Enum108,
     Enum109,
     Enum110,
     Enum111,
@@ -667,7 +686,6 @@ from ._teams_enums import (
     Enum115,
     Enum116,
     Enum117,
-    Enum118,
     Enum119,
     Enum120,
     Enum121,
@@ -709,30 +727,42 @@ from ._teams_enums import (
     Enum157,
     Enum158,
     Enum159,
+    Enum16,
     Enum160,
     Enum161,
     Enum162,
     Enum163,
     Enum164,
     Enum165,
+    Enum166,
     Enum167,
+    Enum168,
+    Enum169,
+    Enum17,
     Enum170,
     Enum171,
     Enum172,
     Enum173,
     Enum174,
     Enum175,
-    Enum176,
     Enum177,
-    Enum62,
-    Enum63,
-    Enum64,
-    Enum65,
-    Enum66,
-    Enum67,
-    Enum68,
+    Enum180,
+    Enum181,
+    Enum182,
+    Enum183,
+    Enum184,
+    Enum185,
+    Enum186,
+    Enum187,
+    Enum188,
+    Enum189,
+    Enum190,
+    Enum191,
+    Enum192,
+    Enum193,
+    Enum194,
+    Enum6,
     Enum7,
-    Enum70,
     Enum72,
     Enum73,
     Enum74,
@@ -752,6 +782,7 @@ from ._teams_enums import (
     Enum87,
     Enum88,
     Enum89,
+    Enum9,
     Enum90,
     Enum91,
     Enum92,
@@ -763,9 +794,11 @@ from ._teams_enums import (
     Enum98,
     Enum99,
     Get0ItemsItem,
-    Get3ItemsItem,
+    Get1ItemsItem,
+    Get2ItemsItem,
     Get5ItemsItem,
-    Get8ItemsItem,
+    Get6ItemsItem,
+    Get7ItemsItem,
     MicrosoftGraphActionState,
     MicrosoftGraphAttendeeType,
     MicrosoftGraphAutomaticRepliesStatus,
@@ -817,6 +850,7 @@ from ._teams_enums import (
     MicrosoftGraphSelectionLikelihoodInfo,
     MicrosoftGraphSensitivity,
     MicrosoftGraphStatus,
+    MicrosoftGraphTaskStatus,
     MicrosoftGraphTeamSpecialization,
     MicrosoftGraphTeamVisibilityType,
     MicrosoftGraphTeamsAppDistributionMethod,
@@ -825,6 +859,7 @@ from ._teams_enums import (
     MicrosoftGraphTimeOffReasonIconType,
     MicrosoftGraphWebsiteType,
     MicrosoftGraphWeekIndex,
+    MicrosoftGraphWellknownListName,
     MicrosoftGraphWorkbookOperationStatus,
     MicrosoftGraphWorkforceIntegrationEncryptionProtocol,
     MicrosoftGraphWorkforceIntegrationSupportedEntities,
@@ -850,6 +885,8 @@ __all__ = [
     'CollectionOfSwapShiftsChangeRequest',
     'CollectionOfTeam',
     'CollectionOfTeam0',
+    'CollectionOfTeamsApp',
+    'CollectionOfTeamsAppDefinition',
     'CollectionOfTeamsAppInstallation',
     'CollectionOfTeamsAsyncOperation',
     'CollectionOfTeamsTab',
@@ -857,6 +894,7 @@ __all__ = [
     'CollectionOfTimeOff',
     'CollectionOfTimeOffReason',
     'CollectionOfTimeOffRequest',
+    'CollectionOfUserScopeTeamsAppInstallation',
     'CollectionOfWorkforceIntegration',
     'MicrosoftGraphActivityHistoryItem',
     'MicrosoftGraphAppRoleAssignment',
@@ -949,6 +987,7 @@ __all__ = [
     'MicrosoftGraphLicenseAssignmentState',
     'MicrosoftGraphLicenseDetails',
     'MicrosoftGraphLicenseProcessingState',
+    'MicrosoftGraphLinkedResource',
     'MicrosoftGraphList',
     'MicrosoftGraphListInfo',
     'MicrosoftGraphListItem',
@@ -1091,12 +1130,17 @@ __all__ = [
     'MicrosoftGraphTimeRange',
     'MicrosoftGraphTimeSlot',
     'MicrosoftGraphTimeZoneBase',
+    'MicrosoftGraphTodo',
+    'MicrosoftGraphTodoTask',
+    'MicrosoftGraphTodoTaskList',
     'MicrosoftGraphTrending',
     'MicrosoftGraphUsageDetails',
     'MicrosoftGraphUsedInsight',
     'MicrosoftGraphUser',
     'MicrosoftGraphUserActivity',
+    'MicrosoftGraphUserScopeTeamsAppInstallation',
     'MicrosoftGraphUserSettings',
+    'MicrosoftGraphUserTeamwork',
     'MicrosoftGraphVideo',
     'MicrosoftGraphVisualInfo',
     'MicrosoftGraphWebsite',
@@ -1159,6 +1203,7 @@ __all__ = [
     'Enum105',
     'Enum106',
     'Enum107',
+    'Enum108',
     'Enum109',
     'Enum110',
     'Enum111',
@@ -1168,7 +1213,6 @@ __all__ = [
     'Enum115',
     'Enum116',
     'Enum117',
-    'Enum118',
     'Enum119',
     'Enum120',
     'Enum121',
@@ -1210,30 +1254,42 @@ __all__ = [
     'Enum157',
     'Enum158',
     'Enum159',
+    'Enum16',
     'Enum160',
     'Enum161',
     'Enum162',
     'Enum163',
     'Enum164',
     'Enum165',
+    'Enum166',
     'Enum167',
+    'Enum168',
+    'Enum169',
+    'Enum17',
     'Enum170',
     'Enum171',
     'Enum172',
     'Enum173',
     'Enum174',
     'Enum175',
-    'Enum176',
     'Enum177',
-    'Enum62',
-    'Enum63',
-    'Enum64',
-    'Enum65',
-    'Enum66',
-    'Enum67',
-    'Enum68',
+    'Enum180',
+    'Enum181',
+    'Enum182',
+    'Enum183',
+    'Enum184',
+    'Enum185',
+    'Enum186',
+    'Enum187',
+    'Enum188',
+    'Enum189',
+    'Enum190',
+    'Enum191',
+    'Enum192',
+    'Enum193',
+    'Enum194',
+    'Enum6',
     'Enum7',
-    'Enum70',
     'Enum72',
     'Enum73',
     'Enum74',
@@ -1253,6 +1309,7 @@ __all__ = [
     'Enum87',
     'Enum88',
     'Enum89',
+    'Enum9',
     'Enum90',
     'Enum91',
     'Enum92',
@@ -1264,9 +1321,11 @@ __all__ = [
     'Enum98',
     'Enum99',
     'Get0ItemsItem',
-    'Get3ItemsItem',
+    'Get1ItemsItem',
+    'Get2ItemsItem',
     'Get5ItemsItem',
-    'Get8ItemsItem',
+    'Get6ItemsItem',
+    'Get7ItemsItem',
     'MicrosoftGraphActionState',
     'MicrosoftGraphAttendeeType',
     'MicrosoftGraphAutomaticRepliesStatus',
@@ -1318,6 +1377,7 @@ __all__ = [
     'MicrosoftGraphSelectionLikelihoodInfo',
     'MicrosoftGraphSensitivity',
     'MicrosoftGraphStatus',
+    'MicrosoftGraphTaskStatus',
     'MicrosoftGraphTeamSpecialization',
     'MicrosoftGraphTeamVisibilityType',
     'MicrosoftGraphTeamsAppDistributionMethod',
@@ -1326,6 +1386,7 @@ __all__ = [
     'MicrosoftGraphTimeOffReasonIconType',
     'MicrosoftGraphWebsiteType',
     'MicrosoftGraphWeekIndex',
+    'MicrosoftGraphWellknownListName',
     'MicrosoftGraphWorkbookOperationStatus',
     'MicrosoftGraphWorkforceIntegrationEncryptionProtocol',
     'MicrosoftGraphWorkforceIntegrationSupportedEntities',

@@ -64,21 +64,6 @@ class Enum15(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     DELETED_DATE_TIME = "deletedDateTime"
     DELETED_DATE_TIME_DESC = "deletedDateTime desc"
 
-class Enum16(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    DELETED_DATE_TIME = "deletedDateTime"
-    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
-    CONTRACT_TYPE = "contractType"
-    CONTRACT_TYPE_DESC = "contractType desc"
-    CUSTOMER_ID = "customerId"
-    CUSTOMER_ID_DESC = "customerId desc"
-    DEFAULT_DOMAIN_NAME = "defaultDomainName"
-    DEFAULT_DOMAIN_NAME_DESC = "defaultDomainName desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-
 class Enum17(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
@@ -868,11 +853,6 @@ class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SKU_PART_NUMBER = "skuPartNumber"
     SKU_PART_NUMBER_DESC = "skuPartNumber desc"
 
-class Enum9(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DELETED_DATE_TIME = "deletedDateTime"
-
 class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
@@ -930,6 +910,11 @@ class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DELETED_DATE_TIME = "deletedDateTime"
+
+class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    DELETED_DATE_TIME = "deletedDateTime"
     ADDRESSES = "addresses"
     COMPANY_NAME = "companyName"
     DEPARTMENT = "department"
@@ -949,7 +934,7 @@ class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     MEMBER_OF = "memberOf"
     TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
 
-class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get3ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     DIRECT_REPORTS = "directReports"
@@ -958,6 +943,21 @@ class Get2ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
 
 class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    ID_DESC = "id desc"
+    DELETED_DATE_TIME = "deletedDateTime"
+    DELETED_DATE_TIME_DESC = "deletedDateTime desc"
+    CONTRACT_TYPE = "contractType"
+    CONTRACT_TYPE_DESC = "contractType desc"
+    CUSTOMER_ID = "customerId"
+    CUSTOMER_ID_DESC = "customerId desc"
+    DEFAULT_DOMAIN_NAME = "defaultDomainName"
+    DEFAULT_DOMAIN_NAME_DESC = "defaultDomainName desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+
+class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -992,7 +992,7 @@ class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SURNAME = "surname"
     SURNAME_DESC = "surname desc"
 
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     DELETED_DATE_TIME = "deletedDateTime"
@@ -1015,7 +1015,7 @@ class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     MEMBER_OF = "memberOf"
     TRANSITIVE_MEMBER_OF = "transitiveMemberOf"
 
-class Get7ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get8ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     DIRECT_REPORTS = "directReports"

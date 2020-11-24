@@ -70,8 +70,16 @@ def cf_group_onenote_page_parent_notebook_section_group_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).group_onenote_page_parent_notebook_section_group_section
 
 
+def cf_group_onenote_parent_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).group_onenote_parent_notebook_section_group_section_page
+
+
 def cf_group_onenote_page_parent_notebook_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).group_onenote_page_parent_notebook_section
+
+
+def cf_group_onenote_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).group_onenote_parent_notebook_section_page
 
 
 def cf_group_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *_):
@@ -80,6 +88,10 @@ def cf_group_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, 
 
 def cf_group_onenote_page_parent_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).group_onenote_page_parent_section
+
+
+def cf_group_onenote_parent_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).group_onenote_parent_section_page
 
 
 def cf_group_onenote_page_parent_section_parent_notebook(cli_ctx, *_):
@@ -214,8 +226,16 @@ def cf_site_onenote_page_parent_notebook_section_group_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).site_onenote_page_parent_notebook_section_group_section
 
 
+def cf_site_onenote_parent_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).site_onenote_parent_notebook_section_group_section_page
+
+
 def cf_site_onenote_page_parent_notebook_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).site_onenote_page_parent_notebook_section
+
+
+def cf_site_onenote_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).site_onenote_parent_notebook_section_page
 
 
 def cf_site_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *_):
@@ -224,6 +244,10 @@ def cf_site_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *
 
 def cf_site_onenote_page_parent_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).site_onenote_page_parent_section
+
+
+def cf_site_onenote_parent_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).site_onenote_parent_section_page
 
 
 def cf_site_onenote_page_parent_section_parent_notebook(cli_ctx, *_):
@@ -358,8 +382,16 @@ def cf_user_onenote_page_parent_notebook_section_group_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).user_onenote_page_parent_notebook_section_group_section
 
 
+def cf_user_onenote_parent_notebook_section_group_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).user_onenote_parent_notebook_section_group_section_page
+
+
 def cf_user_onenote_page_parent_notebook_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).user_onenote_page_parent_notebook_section
+
+
+def cf_user_onenote_parent_notebook_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).user_onenote_parent_notebook_section_page
 
 
 def cf_user_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *_):
@@ -368,6 +400,10 @@ def cf_user_onenote_page_parent_notebook_section_parent_section_group(cli_ctx, *
 
 def cf_user_onenote_page_parent_section(cli_ctx, *_):
     return cf_notes_cl(cli_ctx).user_onenote_page_parent_section
+
+
+def cf_user_onenote_parent_section_page(cli_ctx, *_):
+    return cf_notes_cl(cli_ctx).user_onenote_parent_section_page
 
 
 def cf_user_onenote_page_parent_section_parent_notebook(cli_ctx, *_):

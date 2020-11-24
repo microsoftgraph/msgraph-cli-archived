@@ -155,7 +155,73 @@ create-application a applications.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New entity|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--add-ins**|array|Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.|add_ins|addIns|
+|**--app-id**|string|The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only.|app_id|appId|
+|**--application-template-id**|string||application_template_id|applicationTemplateId|
+|**--app-roles**|array|The collection of roles the application declares. With app role assignments, these roles can be assigned to users, groups, or other applications' service principals. Not nullable.|app_roles|appRoles|
+|**--created-date-time**|date-time|The date and time the application was registered. Read-only.|created_date_time|createdDateTime|
+|**--description**|string||description|description|
+|**--display-name**|string|The display name for the application.|display_name|displayName|
+|**--group-membership-claims**|string|Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values:NoneSecurityGroup: For security groups and Azure AD rolesAll: This will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of|group_membership_claims|groupMembershipClaims|
+|**--identifier-uris**|array|The URIs that identify the application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant. For more information see Application Objects and Service Principal Objects. The any operator is required for filter expressions on multi-valued properties. Not nullable.|identifier_uris|identifierUris|
+|**--info**|object|informationalUrl|info|info|
+|**--is-device-only-auth-supported**|boolean||is_device_only_auth_supported|isDeviceOnlyAuthSupported|
+|**--is-fallback-public-client**|boolean|Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app. There are certain scenarios where Azure AD cannot determine the client application type (e.g. ROPC flow where it is configured without specifying a redirect URI). In those cases Azure AD will interpret the application type based on the value of this property.|is_fallback_public_client|isFallbackPublicClient|
+|**--key-credentials**|array|The collection of key credentials associated with the application Not nullable.|key_credentials|keyCredentials|
+|**--logo**|byte-array|The main logo for the application. Not nullable.|logo|logo|
+|**--notes**|string||notes|notes|
+|**--oauth2-require-post-response**|boolean||oauth2_require_post_response|oauth2RequirePostResponse|
+|**--parental-control-settings**|object|parentalControlSettings|parental_control_settings|parentalControlSettings|
+|**--password-credentials**|array|The collection of password credentials associated with the application. Not nullable.|password_credentials|passwordCredentials|
+|**--public-client**|object|publicClientApplication|public_client|publicClient|
+|**--publisher-domain**|string|The verified publisher domain for the application. Read-only.|publisher_domain|publisherDomain|
+|**--required-resource-access**|array|Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience. Not nullable.|required_resource_access|requiredResourceAccess|
+|**--sign-in-audience**|string|Specifies the Microsoft accounts that are supported for the current application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.|sign_in_audience|signInAudience|
+|**--tags**|array|Custom strings that can be used to categorize and identify the application. Not nullable.|tags|tags|
+|**--token-encryption-key-id**|uuid|Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.|token_encryption_key_id|tokenEncryptionKeyId|
+|**--created-on-behalf-of**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|created_on_behalf_of|createdOnBehalfOf|
+|**--extension-properties**|array|Read-only. Nullable.|extension_properties|extensionProperties|
+|**--home-realm-discovery-policies**|array||home_realm_discovery_policies|homeRealmDiscoveryPolicies|
+|**--owners**|array|Directory objects that are owners of the application. The owners are a set of non-admin users who are allowed to modify this object. Requires version 2013-11-08 or newer. Read-only. Nullable.|owners|owners|
+|**--token-issuance-policies**|array||token_issuance_policies|tokenIssuancePolicies|
+|**--token-lifetime-policies**|array||token_lifetime_policies|tokenLifetimePolicies|
+|**--web-home-page-url**|string|Home page or landing page of the application.|home_page_url|homePageUrl|
+|**--web-implicit-grant-settings**|object|implicitGrantSettings|implicit_grant_settings|implicitGrantSettings|
+|**--web-logout-url**|string|Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.|logout_url|logoutUrl|
+|**--web-redirect-uris**|array|Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.|redirect_uris|redirectUris|
+|**--optional-claims-access-token**|array|The optional claims returned in the JWT access token.|access_token|accessToken|
+|**--optional-claims-id-token**|array|The optional claims returned in the JWT ID token.|id_token|idToken|
+|**--optional-claims-saml2token**|array|The optional claims returned in the SAML token.|saml2_token|saml2Token|
+|**--api-accept-mapped-claims**|boolean|When true, allows an application to use claims mapping without specifying a custom signing key.|accept_mapped_claims|acceptMappedClaims|
+|**--api-known-client-applications**|array|Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.|known_client_applications|knownClientApplications|
+|**--api-oauth2permission-scopes**|array|The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes.|oauth2_permission_scopes|oauth2PermissionScopes|
+|**--api-pre-authorized-applications**|array|Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent.|pre_authorized_applications|preAuthorizedApplications|
+|**--api-requested-access-token-version**|integer|Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount, the value for this property must be 2|requested_access_token_version|requestedAccessTokenVersion|
+
+### applications create-delegated-permission-classification
+
+create-delegated-permission-classification a applications.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|applications|servicePrincipals|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|create-delegated-permission-classification|CreateDelegatedPermissionClassifications|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--id**|string|Read-only.|id|id|
+|**--classification**|choice||classification|classification|
+|**--permission-id**|string||permission_id|permissionId|
+|**--permission-name**|string||permission_name|permissionName|
 
 ### applications create-endpoint
 
@@ -426,7 +492,51 @@ create-service-principal a applications.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|object|New entity|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--account-enabled**|boolean|true if the service principal account is enabled; otherwise, false.|account_enabled|accountEnabled|
+|**--add-ins**|array|Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.|add_ins|addIns|
+|**--alternative-names**|array|Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities.|alternative_names|alternativeNames|
+|**--app-description**|string||app_description|appDescription|
+|**--app-display-name**|string|The display name exposed by the associated application.|app_display_name|appDisplayName|
+|**--app-id**|string|The unique identifier for the associated application (its appId property).|app_id|appId|
+|**--application-template-id**|string|Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only.|application_template_id|applicationTemplateId|
+|**--app-owner-organization-id**|uuid|Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications.|app_owner_organization_id|appOwnerOrganizationId|
+|**--app-role-assignment-required**|boolean|Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable.|app_role_assignment_required|appRoleAssignmentRequired|
+|**--app-roles**|array|The roles exposed by the application which this service principal represents. For more information see the appRoles property definition on the application entity. Not nullable.|app_roles|appRoles|
+|**--description**|string||description|description|
+|**--display-name**|string|The display name for the service principal.|display_name|displayName|
+|**--homepage**|string|Home page or landing page of the application.|homepage|homepage|
+|**--info**|object|informationalUrl|info|info|
+|**--key-credentials**|array|The collection of key credentials associated with the service principal. Not nullable.|key_credentials|keyCredentials|
+|**--login-url**|string|Specifies the URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Azure AD My Apps, or the Azure AD SSO URL.|login_url|loginUrl|
+|**--logout-url**|string|Specifies the URL that will be used by Microsoft's authorization service to logout an user using OpenId Connect front-channel, back-channel or SAML logout protocols.|logout_url|logoutUrl|
+|**--notes**|string||notes|notes|
+|**--notification-email-addresses**|array|Specifies the list of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications.|notification_email_addresses|notificationEmailAddresses|
+|**--oauth2-permission-scopes**|array|The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity's api property. Not nullable.|oauth2_permission_scopes|oauth2PermissionScopes|
+|**--password-credentials**|array|The collection of password credentials associated with the service principal. Not nullable.|password_credentials|passwordCredentials|
+|**--preferred-single-sign-on-mode**|string|Specifies the single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, external, and oidc.|preferred_single_sign_on_mode|preferredSingleSignOnMode|
+|**--preferred-token-signing-key-thumbprint**|string||preferred_token_signing_key_thumbprint|preferredTokenSigningKeyThumbprint|
+|**--reply-urls**|array|The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.|reply_urls|replyUrls|
+|**--service-principal-names**|array|Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.|service_principal_names|servicePrincipalNames|
+|**--service-principal-type**|string|Identifies if the service principal represents an application or a managed identity. This is set by Azure AD internally. For a service principal that represents an application this is set as Application. For a service principal that represent a managed identity this is set as ManagedIdentity.|service_principal_type|servicePrincipalType|
+|**--tags**|array|Custom strings that can be used to categorize and identify the service principal. Not nullable.|tags|tags|
+|**--token-encryption-key-id**|uuid|Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.|token_encryption_key_id|tokenEncryptionKeyId|
+|**--app-role-assigned-to**|array|Principals (users, groups, and service principals) that are assigned to this service principal. Read-only.|app_role_assigned_to|appRoleAssignedTo|
+|**--app-role-assignments**|array|Applications that this service principal is assigned to. Read-only. Nullable.|app_role_assignments|appRoleAssignments|
+|**--claims-mapping-policies**|array|The claimsMappingPolicies assigned to this service principal.|claims_mapping_policies|claimsMappingPolicies|
+|**--created-objects**|array|Directory objects created by this service principal. Read-only. Nullable.|created_objects|createdObjects|
+|**--delegated-permission-classifications**|array||delegated_permission_classifications|delegatedPermissionClassifications|
+|**--endpoints**|array|Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.|endpoints|endpoints|
+|**--home-realm-discovery-policies**|array|The homeRealmDiscoveryPolicies assigned to this service principal.|home_realm_discovery_policies|homeRealmDiscoveryPolicies|
+|**--member-of**|array|Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable.|member_of|memberOf|
+|**--oauth2-permission-grants**|array|Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.|oauth2_permission_grants|oauth2PermissionGrants|
+|**--owned-objects**|array|Directory objects that are owned by this service principal. Read-only. Nullable.|owned_objects|ownedObjects|
+|**--owners**|array|Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.|owners|owners|
+|**--token-issuance-policies**|array|The tokenIssuancePolicies assigned to this service principal.|token_issuance_policies|tokenIssuancePolicies|
+|**--token-lifetime-policies**|array|The tokenLifetimePolicies assigned to this service principal.|token_lifetime_policies|tokenLifetimePolicies|
+|**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
+|**--saml-single-sign-on-settings-relay-state**|string|The relative URI the service provider would redirect to after completion of the single sign-on flow.|relay_state|relayState|
 
 ### applications delete
 
@@ -529,6 +639,7 @@ get-application a applications.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--application-id**|string|key: id of application|application_id|application-id|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -589,6 +700,28 @@ get-created-on-behalf-of a applications.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--application-id**|string|key: id of application|application_id|application-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### applications get-delegated-permission-classification
+
+get-delegated-permission-classification a applications.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|applications|servicePrincipals|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|get-delegated-permission-classification|GetDelegatedPermissionClassifications|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--delegated-permission-classification-id**|string|key: id of delegatedPermissionClassification|delegated_permission_classification_id|delegatedPermissionClassification-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -732,6 +865,7 @@ get-service-principal a applications.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -796,6 +930,7 @@ list-application a applications.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -835,6 +970,28 @@ list-created-object a applications.
 |Name (az)|Swagger name|
 |---------|------------|
 |list-created-object|ListCreatedObjects|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### applications list-delegated-permission-classification
+
+list-delegated-permission-classification a applications.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|applications|servicePrincipals|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|list-delegated-permission-classification|ListDelegatedPermissionClassifications|
 
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1215,6 +1372,7 @@ list-service-principal a applications.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--consistency-level**|string|Indicates the requested consistency level.|consistency_level|ConsistencyLevel|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -1461,7 +1619,74 @@ update-application a applications.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--application-id**|string|key: id of application|application_id|application-id|
-|**--body**|object|New property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--add-ins**|array|Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.|add_ins|addIns|
+|**--app-id**|string|The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only.|app_id|appId|
+|**--application-template-id**|string||application_template_id|applicationTemplateId|
+|**--app-roles**|array|The collection of roles the application declares. With app role assignments, these roles can be assigned to users, groups, or other applications' service principals. Not nullable.|app_roles|appRoles|
+|**--created-date-time**|date-time|The date and time the application was registered. Read-only.|created_date_time|createdDateTime|
+|**--description**|string||description|description|
+|**--display-name**|string|The display name for the application.|display_name|displayName|
+|**--group-membership-claims**|string|Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values:NoneSecurityGroup: For security groups and Azure AD rolesAll: This will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of|group_membership_claims|groupMembershipClaims|
+|**--identifier-uris**|array|The URIs that identify the application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant. For more information see Application Objects and Service Principal Objects. The any operator is required for filter expressions on multi-valued properties. Not nullable.|identifier_uris|identifierUris|
+|**--info**|object|informationalUrl|info|info|
+|**--is-device-only-auth-supported**|boolean||is_device_only_auth_supported|isDeviceOnlyAuthSupported|
+|**--is-fallback-public-client**|boolean|Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app. There are certain scenarios where Azure AD cannot determine the client application type (e.g. ROPC flow where it is configured without specifying a redirect URI). In those cases Azure AD will interpret the application type based on the value of this property.|is_fallback_public_client|isFallbackPublicClient|
+|**--key-credentials**|array|The collection of key credentials associated with the application Not nullable.|key_credentials|keyCredentials|
+|**--logo**|byte-array|The main logo for the application. Not nullable.|logo|logo|
+|**--notes**|string||notes|notes|
+|**--oauth2-require-post-response**|boolean||oauth2_require_post_response|oauth2RequirePostResponse|
+|**--parental-control-settings**|object|parentalControlSettings|parental_control_settings|parentalControlSettings|
+|**--password-credentials**|array|The collection of password credentials associated with the application. Not nullable.|password_credentials|passwordCredentials|
+|**--public-client**|object|publicClientApplication|public_client|publicClient|
+|**--publisher-domain**|string|The verified publisher domain for the application. Read-only.|publisher_domain|publisherDomain|
+|**--required-resource-access**|array|Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience. Not nullable.|required_resource_access|requiredResourceAccess|
+|**--sign-in-audience**|string|Specifies the Microsoft accounts that are supported for the current application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.|sign_in_audience|signInAudience|
+|**--tags**|array|Custom strings that can be used to categorize and identify the application. Not nullable.|tags|tags|
+|**--token-encryption-key-id**|uuid|Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.|token_encryption_key_id|tokenEncryptionKeyId|
+|**--created-on-behalf-of**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|created_on_behalf_of|createdOnBehalfOf|
+|**--extension-properties**|array|Read-only. Nullable.|extension_properties|extensionProperties|
+|**--home-realm-discovery-policies**|array||home_realm_discovery_policies|homeRealmDiscoveryPolicies|
+|**--owners**|array|Directory objects that are owners of the application. The owners are a set of non-admin users who are allowed to modify this object. Requires version 2013-11-08 or newer. Read-only. Nullable.|owners|owners|
+|**--token-issuance-policies**|array||token_issuance_policies|tokenIssuancePolicies|
+|**--token-lifetime-policies**|array||token_lifetime_policies|tokenLifetimePolicies|
+|**--web-home-page-url**|string|Home page or landing page of the application.|home_page_url|homePageUrl|
+|**--web-implicit-grant-settings**|object|implicitGrantSettings|implicit_grant_settings|implicitGrantSettings|
+|**--web-logout-url**|string|Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.|logout_url|logoutUrl|
+|**--web-redirect-uris**|array|Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.|redirect_uris|redirectUris|
+|**--optional-claims-access-token**|array|The optional claims returned in the JWT access token.|access_token|accessToken|
+|**--optional-claims-id-token**|array|The optional claims returned in the JWT ID token.|id_token|idToken|
+|**--optional-claims-saml2token**|array|The optional claims returned in the SAML token.|saml2_token|saml2Token|
+|**--api-accept-mapped-claims**|boolean|When true, allows an application to use claims mapping without specifying a custom signing key.|accept_mapped_claims|acceptMappedClaims|
+|**--api-known-client-applications**|array|Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.|known_client_applications|knownClientApplications|
+|**--api-oauth2permission-scopes**|array|The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes.|oauth2_permission_scopes|oauth2PermissionScopes|
+|**--api-pre-authorized-applications**|array|Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent.|pre_authorized_applications|preAuthorizedApplications|
+|**--api-requested-access-token-version**|integer|Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount, the value for this property must be 2|requested_access_token_version|requestedAccessTokenVersion|
+
+### applications update-delegated-permission-classification
+
+update-delegated-permission-classification a applications.
+
+#### Command group
+|Name (az)|Swagger name|
+|---------|------------|
+|applications|servicePrincipals|
+
+#### Methods
+|Name (az)|Swagger name|
+|---------|------------|
+|update-delegated-permission-classification|UpdateDelegatedPermissionClassifications|
+
+#### Parameters
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--delegated-permission-classification-id**|string|key: id of delegatedPermissionClassification|delegated_permission_classification_id|delegatedPermissionClassification-id|
+|**--id**|string|Read-only.|id|id|
+|**--classification**|choice||classification|classification|
+|**--permission-id**|string||permission_id|permissionId|
+|**--permission-name**|string||permission_name|permissionName|
 
 ### applications update-endpoint
 
@@ -1535,7 +1760,51 @@ update-service-principal a applications.
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--body**|object|New property values|body|body|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--account-enabled**|boolean|true if the service principal account is enabled; otherwise, false.|account_enabled|accountEnabled|
+|**--add-ins**|array|Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.|add_ins|addIns|
+|**--alternative-names**|array|Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities.|alternative_names|alternativeNames|
+|**--app-description**|string||app_description|appDescription|
+|**--app-display-name**|string|The display name exposed by the associated application.|app_display_name|appDisplayName|
+|**--app-id**|string|The unique identifier for the associated application (its appId property).|app_id|appId|
+|**--application-template-id**|string|Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only.|application_template_id|applicationTemplateId|
+|**--app-owner-organization-id**|uuid|Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications.|app_owner_organization_id|appOwnerOrganizationId|
+|**--app-role-assignment-required**|boolean|Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable.|app_role_assignment_required|appRoleAssignmentRequired|
+|**--app-roles**|array|The roles exposed by the application which this service principal represents. For more information see the appRoles property definition on the application entity. Not nullable.|app_roles|appRoles|
+|**--description**|string||description|description|
+|**--display-name**|string|The display name for the service principal.|display_name|displayName|
+|**--homepage**|string|Home page or landing page of the application.|homepage|homepage|
+|**--info**|object|informationalUrl|info|info|
+|**--key-credentials**|array|The collection of key credentials associated with the service principal. Not nullable.|key_credentials|keyCredentials|
+|**--login-url**|string|Specifies the URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Azure AD My Apps, or the Azure AD SSO URL.|login_url|loginUrl|
+|**--logout-url**|string|Specifies the URL that will be used by Microsoft's authorization service to logout an user using OpenId Connect front-channel, back-channel or SAML logout protocols.|logout_url|logoutUrl|
+|**--notes**|string||notes|notes|
+|**--notification-email-addresses**|array|Specifies the list of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications.|notification_email_addresses|notificationEmailAddresses|
+|**--oauth2-permission-scopes**|array|The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity's api property. Not nullable.|oauth2_permission_scopes|oauth2PermissionScopes|
+|**--password-credentials**|array|The collection of password credentials associated with the service principal. Not nullable.|password_credentials|passwordCredentials|
+|**--preferred-single-sign-on-mode**|string|Specifies the single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, external, and oidc.|preferred_single_sign_on_mode|preferredSingleSignOnMode|
+|**--preferred-token-signing-key-thumbprint**|string||preferred_token_signing_key_thumbprint|preferredTokenSigningKeyThumbprint|
+|**--reply-urls**|array|The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.|reply_urls|replyUrls|
+|**--service-principal-names**|array|Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.|service_principal_names|servicePrincipalNames|
+|**--service-principal-type**|string|Identifies if the service principal represents an application or a managed identity. This is set by Azure AD internally. For a service principal that represents an application this is set as Application. For a service principal that represent a managed identity this is set as ManagedIdentity.|service_principal_type|servicePrincipalType|
+|**--tags**|array|Custom strings that can be used to categorize and identify the service principal. Not nullable.|tags|tags|
+|**--token-encryption-key-id**|uuid|Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.|token_encryption_key_id|tokenEncryptionKeyId|
+|**--app-role-assigned-to**|array|Principals (users, groups, and service principals) that are assigned to this service principal. Read-only.|app_role_assigned_to|appRoleAssignedTo|
+|**--app-role-assignments**|array|Applications that this service principal is assigned to. Read-only. Nullable.|app_role_assignments|appRoleAssignments|
+|**--claims-mapping-policies**|array|The claimsMappingPolicies assigned to this service principal.|claims_mapping_policies|claimsMappingPolicies|
+|**--created-objects**|array|Directory objects created by this service principal. Read-only. Nullable.|created_objects|createdObjects|
+|**--delegated-permission-classifications**|array||delegated_permission_classifications|delegatedPermissionClassifications|
+|**--endpoints**|array|Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.|endpoints|endpoints|
+|**--home-realm-discovery-policies**|array|The homeRealmDiscoveryPolicies assigned to this service principal.|home_realm_discovery_policies|homeRealmDiscoveryPolicies|
+|**--member-of**|array|Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable.|member_of|memberOf|
+|**--oauth2-permission-grants**|array|Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.|oauth2_permission_grants|oauth2PermissionGrants|
+|**--owned-objects**|array|Directory objects that are owned by this service principal. Read-only. Nullable.|owned_objects|ownedObjects|
+|**--owners**|array|Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.|owners|owners|
+|**--token-issuance-policies**|array|The tokenIssuancePolicies assigned to this service principal.|token_issuance_policies|tokenIssuancePolicies|
+|**--token-lifetime-policies**|array|The tokenLifetimePolicies assigned to this service principal.|token_lifetime_policies|tokenLifetimePolicies|
+|**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
+|**--saml-single-sign-on-settings-relay-state**|string|The relative URI the service provider would redirect to after completion of the single sign-on flow.|relay_state|relayState|
 
 ### applications validate-property
 

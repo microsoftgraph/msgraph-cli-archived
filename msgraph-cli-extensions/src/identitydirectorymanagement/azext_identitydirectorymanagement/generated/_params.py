@@ -82,10 +82,12 @@ def load_arguments(self, _):
 
     with self.argument_context('identitydirectorymanagement get-org-contact') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
+        c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('identitydirectorymanagement list-org-contact') as c:
+        c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
@@ -313,8 +315,8 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'. Read-only.')
         c.argument('device_id', type=str, help='Unique identifier set by Azure Device Registration Service at the time '
                    'of registration.')
-        c.argument('device_metadata', type=str, help='For interal use only. Set to null.')
-        c.argument('device_version', type=int, help='For interal use only.')
+        c.argument('device_metadata', type=str, help='For internal use only. Set to null.')
+        c.argument('device_version', type=int, help='For internal use only.')
         c.argument('display_name', type=str, help='The display name for the device. Required.')
         c.argument('is_compliant', arg_type=get_three_state_flag(), help='true if the device complies with Mobile '
                    'Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune '
@@ -325,7 +327,7 @@ def load_arguments(self, _):
         c.argument('mdm_app_id', type=str, help='Application identifier used to register device into MDM. Read-only. '
                    'Supports $filter.')
         c.argument('on_premises_last_sync_date_time', help='The last time at which the object was synced with the '
-                   'on-premises directory.The Timestamp type represents date and time information using ISO 8601 '
+                   'on-premises directory. The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
                    '\'2014-01-01T00:00:00Z\' Read-only.')
         c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
@@ -335,7 +337,7 @@ def load_arguments(self, _):
         c.argument('operating_system', type=str, help='The type of operating system on the device. Required.')
         c.argument('operating_system_version', type=str, help='The version of the operating system on the device. '
                    'Required.')
-        c.argument('physical_ids', nargs='*', help='For interal use only. Not nullable.')
+        c.argument('physical_ids', nargs='*', help='For internal use only. Not nullable.')
         c.argument('profile_type', type=str, help='The profile type of the device. Possible values:RegisteredDevice '
                    '(default)SecureVMPrinterSharedIoT')
         c.argument('system_labels', nargs='*', help='List of labels applied to the device by the system.')
@@ -357,10 +359,12 @@ def load_arguments(self, _):
 
     with self.argument_context('identitydirectorymanagement get-device') as c:
         c.argument('device_id', type=str, help='key: id of device')
+        c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('identitydirectorymanagement list-device') as c:
+        c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
@@ -382,8 +386,8 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'. Read-only.')
         c.argument('microsoft_graph_device_id', type=str, help='Unique identifier set by Azure Device Registration '
                    'Service at the time of registration.')
-        c.argument('device_metadata', type=str, help='For interal use only. Set to null.')
-        c.argument('device_version', type=int, help='For interal use only.')
+        c.argument('device_metadata', type=str, help='For internal use only. Set to null.')
+        c.argument('device_version', type=int, help='For internal use only.')
         c.argument('display_name', type=str, help='The display name for the device. Required.')
         c.argument('is_compliant', arg_type=get_three_state_flag(), help='true if the device complies with Mobile '
                    'Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune '
@@ -394,7 +398,7 @@ def load_arguments(self, _):
         c.argument('mdm_app_id', type=str, help='Application identifier used to register device into MDM. Read-only. '
                    'Supports $filter.')
         c.argument('on_premises_last_sync_date_time', help='The last time at which the object was synced with the '
-                   'on-premises directory.The Timestamp type represents date and time information using ISO 8601 '
+                   'on-premises directory. The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
                    '\'2014-01-01T00:00:00Z\' Read-only.')
         c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
@@ -404,7 +408,7 @@ def load_arguments(self, _):
         c.argument('operating_system', type=str, help='The type of operating system on the device. Required.')
         c.argument('operating_system_version', type=str, help='The version of the operating system on the device. '
                    'Required.')
-        c.argument('physical_ids', nargs='*', help='For interal use only. Not nullable.')
+        c.argument('physical_ids', nargs='*', help='For internal use only. Not nullable.')
         c.argument('profile_type', type=str, help='The profile type of the device. Possible values:RegisteredDevice '
                    '(default)SecureVMPrinterSharedIoT')
         c.argument('system_labels', nargs='*', help='List of labels applied to the device by the system.')
@@ -562,9 +566,9 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='An optional description for the administrative unit.')
         c.argument('display_name', type=str, help='Display name for the administrative unit.')
-        c.argument('visibility', type=str, help='Controls whether the adminstrative unit and its members are hidden or '
-                   'public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set '
-                   'to HiddenMembership, only members of the administrative unit can list other members of the '
+        c.argument('visibility', type=str, help='Controls whether the administrative unit and its members are hidden '
+                   'or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When '
+                   'set to HiddenMembership, only members of the administrative unit can list other members of the '
                    'adminstrative unit.')
         c.argument('members', action=AddDirectoryMembers, nargs='*', help='Users and groups that are members of this '
                    'Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove '
@@ -604,9 +608,9 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='An optional description for the administrative unit.')
         c.argument('display_name', type=str, help='Display name for the administrative unit.')
-        c.argument('visibility', type=str, help='Controls whether the adminstrative unit and its members are hidden or '
-                   'public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When set '
-                   'to HiddenMembership, only members of the administrative unit can list other members of the '
+        c.argument('visibility', type=str, help='Controls whether the administrative unit and its members are hidden '
+                   'or public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When '
+                   'set to HiddenMembership, only members of the administrative unit can list other members of the '
                    'adminstrative unit.')
         c.argument('members', action=AddDirectoryMembers, nargs='*', help='Users and groups that are members of this '
                    'Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove '

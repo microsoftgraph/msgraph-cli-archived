@@ -29,9 +29,12 @@ from .operations_async import GroupOnenotePageOperations
 from .operations_async import GroupOnenotePageParentNotebookOperations
 from .operations_async import GroupOnenotePageParentNotebookSectionGroupOperations
 from .operations_async import GroupOnenotePageParentNotebookSectionGroupSectionOperations
+from .operations_async import GroupOnenoteParentNotebookSectionGroupSectionPageOperations
 from .operations_async import GroupOnenotePageParentNotebookSectionOperations
+from .operations_async import GroupOnenoteParentNotebookSectionPageOperations
 from .operations_async import GroupOnenotePageParentNotebookSectionParentSectionGroupOperations
 from .operations_async import GroupOnenotePageParentSectionOperations
+from .operations_async import GroupOnenoteParentSectionPageOperations
 from .operations_async import GroupOnenotePageParentSectionParentNotebookOperations
 from .operations_async import GroupOnenotePageParentSectionParentNotebookSectionGroupOperations
 from .operations_async import GroupOnenotePageParentSectionParentSectionGroupOperations
@@ -65,9 +68,12 @@ from .operations_async import SiteOnenotePageOperations
 from .operations_async import SiteOnenotePageParentNotebookOperations
 from .operations_async import SiteOnenotePageParentNotebookSectionGroupOperations
 from .operations_async import SiteOnenotePageParentNotebookSectionGroupSectionOperations
+from .operations_async import SiteOnenoteParentNotebookSectionGroupSectionPageOperations
 from .operations_async import SiteOnenotePageParentNotebookSectionOperations
+from .operations_async import SiteOnenoteParentNotebookSectionPageOperations
 from .operations_async import SiteOnenotePageParentNotebookSectionParentSectionGroupOperations
 from .operations_async import SiteOnenotePageParentSectionOperations
+from .operations_async import SiteOnenoteParentSectionPageOperations
 from .operations_async import SiteOnenotePageParentSectionParentNotebookOperations
 from .operations_async import SiteOnenotePageParentSectionParentNotebookSectionGroupOperations
 from .operations_async import SiteOnenotePageParentSectionParentSectionGroupOperations
@@ -101,9 +107,12 @@ from .operations_async import UserOnenotePageOperations
 from .operations_async import UserOnenotePageParentNotebookOperations
 from .operations_async import UserOnenotePageParentNotebookSectionGroupOperations
 from .operations_async import UserOnenotePageParentNotebookSectionGroupSectionOperations
+from .operations_async import UserOnenoteParentNotebookSectionGroupSectionPageOperations
 from .operations_async import UserOnenotePageParentNotebookSectionOperations
+from .operations_async import UserOnenoteParentNotebookSectionPageOperations
 from .operations_async import UserOnenotePageParentNotebookSectionParentSectionGroupOperations
 from .operations_async import UserOnenotePageParentSectionOperations
+from .operations_async import UserOnenoteParentSectionPageOperations
 from .operations_async import UserOnenotePageParentSectionParentNotebookOperations
 from .operations_async import UserOnenotePageParentSectionParentNotebookSectionGroupOperations
 from .operations_async import UserOnenotePageParentSectionParentSectionGroupOperations
@@ -156,12 +165,18 @@ class Notes(object):
     :vartype group_onenote_page_parent_notebook_section_group: notes.aio.operations_async.GroupOnenotePageParentNotebookSectionGroupOperations
     :ivar group_onenote_page_parent_notebook_section_group_section: GroupOnenotePageParentNotebookSectionGroupSectionOperations operations
     :vartype group_onenote_page_parent_notebook_section_group_section: notes.aio.operations_async.GroupOnenotePageParentNotebookSectionGroupSectionOperations
+    :ivar group_onenote_parent_notebook_section_group_section_page: GroupOnenoteParentNotebookSectionGroupSectionPageOperations operations
+    :vartype group_onenote_parent_notebook_section_group_section_page: notes.aio.operations_async.GroupOnenoteParentNotebookSectionGroupSectionPageOperations
     :ivar group_onenote_page_parent_notebook_section: GroupOnenotePageParentNotebookSectionOperations operations
     :vartype group_onenote_page_parent_notebook_section: notes.aio.operations_async.GroupOnenotePageParentNotebookSectionOperations
+    :ivar group_onenote_parent_notebook_section_page: GroupOnenoteParentNotebookSectionPageOperations operations
+    :vartype group_onenote_parent_notebook_section_page: notes.aio.operations_async.GroupOnenoteParentNotebookSectionPageOperations
     :ivar group_onenote_page_parent_notebook_section_parent_section_group: GroupOnenotePageParentNotebookSectionParentSectionGroupOperations operations
     :vartype group_onenote_page_parent_notebook_section_parent_section_group: notes.aio.operations_async.GroupOnenotePageParentNotebookSectionParentSectionGroupOperations
     :ivar group_onenote_page_parent_section: GroupOnenotePageParentSectionOperations operations
     :vartype group_onenote_page_parent_section: notes.aio.operations_async.GroupOnenotePageParentSectionOperations
+    :ivar group_onenote_parent_section_page: GroupOnenoteParentSectionPageOperations operations
+    :vartype group_onenote_parent_section_page: notes.aio.operations_async.GroupOnenoteParentSectionPageOperations
     :ivar group_onenote_page_parent_section_parent_notebook: GroupOnenotePageParentSectionParentNotebookOperations operations
     :vartype group_onenote_page_parent_section_parent_notebook: notes.aio.operations_async.GroupOnenotePageParentSectionParentNotebookOperations
     :ivar group_onenote_page_parent_section_parent_notebook_section_group: GroupOnenotePageParentSectionParentNotebookSectionGroupOperations operations
@@ -228,12 +243,18 @@ class Notes(object):
     :vartype site_onenote_page_parent_notebook_section_group: notes.aio.operations_async.SiteOnenotePageParentNotebookSectionGroupOperations
     :ivar site_onenote_page_parent_notebook_section_group_section: SiteOnenotePageParentNotebookSectionGroupSectionOperations operations
     :vartype site_onenote_page_parent_notebook_section_group_section: notes.aio.operations_async.SiteOnenotePageParentNotebookSectionGroupSectionOperations
+    :ivar site_onenote_parent_notebook_section_group_section_page: SiteOnenoteParentNotebookSectionGroupSectionPageOperations operations
+    :vartype site_onenote_parent_notebook_section_group_section_page: notes.aio.operations_async.SiteOnenoteParentNotebookSectionGroupSectionPageOperations
     :ivar site_onenote_page_parent_notebook_section: SiteOnenotePageParentNotebookSectionOperations operations
     :vartype site_onenote_page_parent_notebook_section: notes.aio.operations_async.SiteOnenotePageParentNotebookSectionOperations
+    :ivar site_onenote_parent_notebook_section_page: SiteOnenoteParentNotebookSectionPageOperations operations
+    :vartype site_onenote_parent_notebook_section_page: notes.aio.operations_async.SiteOnenoteParentNotebookSectionPageOperations
     :ivar site_onenote_page_parent_notebook_section_parent_section_group: SiteOnenotePageParentNotebookSectionParentSectionGroupOperations operations
     :vartype site_onenote_page_parent_notebook_section_parent_section_group: notes.aio.operations_async.SiteOnenotePageParentNotebookSectionParentSectionGroupOperations
     :ivar site_onenote_page_parent_section: SiteOnenotePageParentSectionOperations operations
     :vartype site_onenote_page_parent_section: notes.aio.operations_async.SiteOnenotePageParentSectionOperations
+    :ivar site_onenote_parent_section_page: SiteOnenoteParentSectionPageOperations operations
+    :vartype site_onenote_parent_section_page: notes.aio.operations_async.SiteOnenoteParentSectionPageOperations
     :ivar site_onenote_page_parent_section_parent_notebook: SiteOnenotePageParentSectionParentNotebookOperations operations
     :vartype site_onenote_page_parent_section_parent_notebook: notes.aio.operations_async.SiteOnenotePageParentSectionParentNotebookOperations
     :ivar site_onenote_page_parent_section_parent_notebook_section_group: SiteOnenotePageParentSectionParentNotebookSectionGroupOperations operations
@@ -300,12 +321,18 @@ class Notes(object):
     :vartype user_onenote_page_parent_notebook_section_group: notes.aio.operations_async.UserOnenotePageParentNotebookSectionGroupOperations
     :ivar user_onenote_page_parent_notebook_section_group_section: UserOnenotePageParentNotebookSectionGroupSectionOperations operations
     :vartype user_onenote_page_parent_notebook_section_group_section: notes.aio.operations_async.UserOnenotePageParentNotebookSectionGroupSectionOperations
+    :ivar user_onenote_parent_notebook_section_group_section_page: UserOnenoteParentNotebookSectionGroupSectionPageOperations operations
+    :vartype user_onenote_parent_notebook_section_group_section_page: notes.aio.operations_async.UserOnenoteParentNotebookSectionGroupSectionPageOperations
     :ivar user_onenote_page_parent_notebook_section: UserOnenotePageParentNotebookSectionOperations operations
     :vartype user_onenote_page_parent_notebook_section: notes.aio.operations_async.UserOnenotePageParentNotebookSectionOperations
+    :ivar user_onenote_parent_notebook_section_page: UserOnenoteParentNotebookSectionPageOperations operations
+    :vartype user_onenote_parent_notebook_section_page: notes.aio.operations_async.UserOnenoteParentNotebookSectionPageOperations
     :ivar user_onenote_page_parent_notebook_section_parent_section_group: UserOnenotePageParentNotebookSectionParentSectionGroupOperations operations
     :vartype user_onenote_page_parent_notebook_section_parent_section_group: notes.aio.operations_async.UserOnenotePageParentNotebookSectionParentSectionGroupOperations
     :ivar user_onenote_page_parent_section: UserOnenotePageParentSectionOperations operations
     :vartype user_onenote_page_parent_section: notes.aio.operations_async.UserOnenotePageParentSectionOperations
+    :ivar user_onenote_parent_section_page: UserOnenoteParentSectionPageOperations operations
+    :vartype user_onenote_parent_section_page: notes.aio.operations_async.UserOnenoteParentSectionPageOperations
     :ivar user_onenote_page_parent_section_parent_notebook: UserOnenotePageParentSectionParentNotebookOperations operations
     :vartype user_onenote_page_parent_section_parent_notebook: notes.aio.operations_async.UserOnenotePageParentSectionParentNotebookOperations
     :ivar user_onenote_page_parent_section_parent_notebook_section_group: UserOnenotePageParentSectionParentNotebookSectionGroupOperations operations
@@ -408,11 +435,17 @@ class Notes(object):
             self._client, self._config, self._serialize, self._deserialize)
         self.group_onenote_page_parent_notebook_section_group_section = GroupOnenotePageParentNotebookSectionGroupSectionOperations(
             self._client, self._config, self._serialize, self._deserialize)
+        self.group_onenote_parent_notebook_section_group_section_page = GroupOnenoteParentNotebookSectionGroupSectionPageOperations(
+            self._client, self._config, self._serialize, self._deserialize)
         self.group_onenote_page_parent_notebook_section = GroupOnenotePageParentNotebookSectionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.group_onenote_parent_notebook_section_page = GroupOnenoteParentNotebookSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.group_onenote_page_parent_notebook_section_parent_section_group = GroupOnenotePageParentNotebookSectionParentSectionGroupOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.group_onenote_page_parent_section = GroupOnenotePageParentSectionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.group_onenote_parent_section_page = GroupOnenoteParentSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.group_onenote_page_parent_section_parent_notebook = GroupOnenotePageParentSectionParentNotebookOperations(
             self._client, self._config, self._serialize, self._deserialize)
@@ -480,11 +513,17 @@ class Notes(object):
             self._client, self._config, self._serialize, self._deserialize)
         self.site_onenote_page_parent_notebook_section_group_section = SiteOnenotePageParentNotebookSectionGroupSectionOperations(
             self._client, self._config, self._serialize, self._deserialize)
+        self.site_onenote_parent_notebook_section_group_section_page = SiteOnenoteParentNotebookSectionGroupSectionPageOperations(
+            self._client, self._config, self._serialize, self._deserialize)
         self.site_onenote_page_parent_notebook_section = SiteOnenotePageParentNotebookSectionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.site_onenote_parent_notebook_section_page = SiteOnenoteParentNotebookSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.site_onenote_page_parent_notebook_section_parent_section_group = SiteOnenotePageParentNotebookSectionParentSectionGroupOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.site_onenote_page_parent_section = SiteOnenotePageParentSectionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.site_onenote_parent_section_page = SiteOnenoteParentSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.site_onenote_page_parent_section_parent_notebook = SiteOnenotePageParentSectionParentNotebookOperations(
             self._client, self._config, self._serialize, self._deserialize)
@@ -552,11 +591,17 @@ class Notes(object):
             self._client, self._config, self._serialize, self._deserialize)
         self.user_onenote_page_parent_notebook_section_group_section = UserOnenotePageParentNotebookSectionGroupSectionOperations(
             self._client, self._config, self._serialize, self._deserialize)
+        self.user_onenote_parent_notebook_section_group_section_page = UserOnenoteParentNotebookSectionGroupSectionPageOperations(
+            self._client, self._config, self._serialize, self._deserialize)
         self.user_onenote_page_parent_notebook_section = UserOnenotePageParentNotebookSectionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_onenote_parent_notebook_section_page = UserOnenoteParentNotebookSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.user_onenote_page_parent_notebook_section_parent_section_group = UserOnenotePageParentNotebookSectionParentSectionGroupOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.user_onenote_page_parent_section = UserOnenotePageParentSectionOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user_onenote_parent_section_page = UserOnenoteParentSectionPageOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.user_onenote_page_parent_section_parent_notebook = UserOnenotePageParentSectionParentNotebookOperations(
             self._client, self._config, self._serialize, self._deserialize)

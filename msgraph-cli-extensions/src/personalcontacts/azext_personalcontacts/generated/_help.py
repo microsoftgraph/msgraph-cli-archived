@@ -25,6 +25,82 @@ helps['personalcontacts delete'] = """
 helps['personalcontacts create-contact'] = """
     type: command
     short-summary: "Create new navigation property to contacts for users"
+    parameters:
+      - name: --business-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --business-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --home-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --home-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --other-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --other-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['personalcontacts create-contact-folder'] = """
@@ -76,6 +152,82 @@ helps['personalcontacts list-contact-folder'] = """
 helps['personalcontacts update-contact'] = """
     type: command
     short-summary: "Update the navigation property contacts in users"
+    parameters:
+      - name: --business-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --business-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --home-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --home-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --other-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --other-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['personalcontacts update-contact-folder'] = """
@@ -143,6 +295,82 @@ Nullable."
 helps['personalcontacts create-contact'] = """
     type: command
     short-summary: "Create new navigation property to contacts for users"
+    parameters:
+      - name: --business-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --business-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --home-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --home-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --other-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --other-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['personalcontacts create-multi-value-extended-property'] = """
@@ -224,6 +452,82 @@ Nullable."
 helps['personalcontacts update-contact'] = """
     type: command
     short-summary: "Update the navigation property contacts in users"
+    parameters:
+      - name: --business-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --business-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --email-addresses
+        short-summary: "The contact's email addresses."
+        long-summary: |
+            Usage: --email-addresses address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+
+            Multiple actions can be specified by using more than one --email-addresses argument.
+      - name: --home-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --home-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --other-address
+        short-summary: "physicalAddress"
+        long-summary: |
+            Usage: --other-address city=XX country-or-region=XX postal-code=XX state=XX street=XX
+
+            city: The city.
+            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
+            postal-code: The postal code.
+            state: The state.
+            street: The street.
+      - name: --extensions
+        short-summary: "The collection of open extensions defined for the contact. Read-only. Nullable."
+        long-summary: |
+            Usage: --extensions id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
+        short-summary: "The collection of multi-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --multi-value-extended-properties value=XX id=XX
+
+            value: A collection of property values.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --photo
+        short-summary: "profilePhoto"
+        long-summary: |
+            Usage: --photo height=XX width=XX id=XX
+
+            height: The height of the photo. Read-only.
+            width: The width of the photo. Read-only.
+            id: Read-only.
+      - name: --single-value-extended-properties
+        short-summary: "The collection of single-value extended properties defined for the contact. Read-only. \
+Nullable."
+        long-summary: |
+            Usage: --single-value-extended-properties value=XX id=XX
+
+            value: A property value.
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['personalcontacts update-multi-value-extended-property'] = """
@@ -276,6 +580,11 @@ helps['personalcontacts get-photo'] = """
     short-summary: "Get photo from users"
 """
 
+helps['personalcontacts get-photo-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property photo from users"
+"""
+
 helps['personalcontacts get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
@@ -294,6 +603,11 @@ helps['personalcontacts list-multi-value-extended-property'] = """
 helps['personalcontacts list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
+"""
+
+helps['personalcontacts set-photo-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property photo in users"
 """
 
 helps['personalcontacts update-extension'] = """
@@ -356,6 +670,11 @@ helps['personalcontacts get-photo'] = """
     short-summary: "Get photo from users"
 """
 
+helps['personalcontacts get-photo-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property photo from users"
+"""
+
 helps['personalcontacts get-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
@@ -374,6 +693,11 @@ helps['personalcontacts list-multi-value-extended-property'] = """
 helps['personalcontacts list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users"
+"""
+
+helps['personalcontacts set-photo-content'] = """
+    type: command
+    short-summary: "Update media content for the navigation property photo in users"
 """
 
 helps['personalcontacts update-extension'] = """

@@ -44,21 +44,24 @@ class ContactOrgContactOperations:
 
     def list_org_contact(
         self,
-        orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
-        select: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get7ItemsItem"]]] = None,
+        consistency_level: Optional[str] = None,
+        orderby: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
+        select: Optional[List[Union[str, "models.Get7ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get8ItemsItem"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfOrgContact"]:
         """Get entities from contacts.
 
         Get entities from contacts.
 
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~identity_directory_management.models.Get5ItemsItem]
+        :type orderby: list[str or ~identity_directory_management.models.Get6ItemsItem]
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_directory_management.models.Get6ItemsItem]
+        :type select: list[str or ~identity_directory_management.models.Get7ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_directory_management.models.Get7ItemsItem]
+        :type expand: list[str or ~identity_directory_management.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfOrgContact or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~identity_directory_management.models.CollectionOfOrgContact]
@@ -72,6 +75,8 @@ class ContactOrgContactOperations:
         def prepare_request(next_link=None):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
+            if consistency_level is not None:
+                header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
             header_parameters['Accept'] = 'application/json'
 
@@ -247,8 +252,9 @@ class ContactOrgContactOperations:
     async def get_org_contact(
         self,
         org_contact_id: str,
-        select: Optional[List[Union[str, "models.Get1ItemsItem"]]] = None,
-        expand: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
+        consistency_level: Optional[str] = None,
+        select: Optional[List[Union[str, "models.Get2ItemsItem"]]] = None,
+        expand: Optional[List[Union[str, "models.Get3ItemsItem"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphOrgContact":
         """Get entity from contacts by key.
@@ -257,10 +263,12 @@ class ContactOrgContactOperations:
 
         :param org_contact_id: key: id of orgContact.
         :type org_contact_id: str
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_directory_management.models.Get1ItemsItem]
+        :type select: list[str or ~identity_directory_management.models.Get2ItemsItem]
         :param expand: Expand related entities.
-        :type expand: list[str or ~identity_directory_management.models.Get2ItemsItem]
+        :type expand: list[str or ~identity_directory_management.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphOrgContact, or the result of cls(response)
         :rtype: ~identity_directory_management.models.MicrosoftGraphOrgContact
@@ -287,6 +295,8 @@ class ContactOrgContactOperations:
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        if consistency_level is not None:
+            header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 

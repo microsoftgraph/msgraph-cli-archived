@@ -32,3 +32,15 @@ def cf_user_outlook(cli_ctx, *_):
 
 def cf_user_setting(cli_ctx, *_):
     return cf_users_cl(cli_ctx).user_setting
+
+
+def cf_user_todo(cli_ctx, *_):
+    return cf_users_cl(cli_ctx).user_todo
+
+
+def cf_user_todo_list(cli_ctx, *_):
+    return cf_users_cl(cli_ctx).user_todo_list
+
+
+def cf_user_todo_list_task(cli_ctx, *_):
+    return cf_users_cl(cli_ctx).user_todo_list_task

@@ -689,8 +689,6 @@ class MicrosoftGraphFileSecurityState(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param file_hash: fileHash.
-    :type file_hash: ~security.models.MicrosoftGraphFileHash
     :param name: File name (without path).
     :type name: str
     :param path: Full file path of the file/imageFile.
@@ -698,32 +696,40 @@ class MicrosoftGraphFileSecurityState(msrest.serialization.Model):
     :param risk_score: Provider generated/calculated risk score of the alert file. Recommended
      value range of 0-1, which equates to a percentage.
     :type risk_score: str
+    :param hash_type:  Possible values include: "unknown", "sha1", "sha256", "md5",
+     "authenticodeHash256", "lsHash", "ctph", "unknownFutureValue".
+    :type hash_type: str or ~security.models.MicrosoftGraphFileHashType
+    :param hash_value: Value of the file hash.
+    :type hash_value: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'file_hash': {'key': 'fileHash', 'type': 'MicrosoftGraphFileHash'},
         'name': {'key': 'name', 'type': 'str'},
         'path': {'key': 'path', 'type': 'str'},
         'risk_score': {'key': 'riskScore', 'type': 'str'},
+        'hash_type': {'key': 'fileHash.hashType', 'type': 'str'},
+        'hash_value': {'key': 'fileHash.hashValue', 'type': 'str'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        file_hash: Optional["MicrosoftGraphFileHash"] = None,
         name: Optional[str] = None,
         path: Optional[str] = None,
         risk_score: Optional[str] = None,
+        hash_type: Optional[Union[str, "MicrosoftGraphFileHashType"]] = None,
+        hash_value: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphFileSecurityState, self).__init__(**kwargs)
         self.additional_properties = additional_properties
-        self.file_hash = file_hash
         self.name = name
         self.path = path
         self.risk_score = risk_score
+        self.hash_type = hash_type
+        self.hash_value = hash_value
 
 
 class MicrosoftGraphHostSecurityState(msrest.serialization.Model):

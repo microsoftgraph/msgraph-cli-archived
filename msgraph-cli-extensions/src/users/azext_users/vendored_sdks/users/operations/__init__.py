@@ -10,10 +10,16 @@ from ._user_user_operations import UserUserOperations
 from ._user_operations import UserOperations
 from ._user_outlook_operations import UserOutlookOperations
 from ._user_setting_operations import UserSettingOperations
+from ._user_todo_operations import UserTodoOperations
+from ._user_todo_list_operations import UserTodoListOperations
+from ._user_todo_list_task_operations import UserTodoListTaskOperations
 
 __all__ = [
     'UserUserOperations',
     'UserOperations',
     'UserOutlookOperations',
     'UserSettingOperations',
+    'UserTodoOperations',
+    'UserTodoListOperations',
+    'UserTodoListTaskOperations',
 ]

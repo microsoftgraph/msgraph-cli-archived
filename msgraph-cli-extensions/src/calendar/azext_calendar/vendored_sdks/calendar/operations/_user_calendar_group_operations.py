@@ -156,6 +156,8 @@ class UserCalendarGroupOperations(object):
         change_key=None,  # type: Optional[str]
         color=None,  # type: Optional[Union[str, "models.MicrosoftGraphCalendarColor"]]
         default_online_meeting_provider=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingProviderType"]]
+        hex_color=None,  # type: Optional[str]
+        is_default_calendar=None,  # type: Optional[bool]
         is_removable=None,  # type: Optional[bool]
         is_tallying_responses=None,  # type: Optional[bool]
         name=None,  # type: Optional[str]
@@ -200,6 +202,10 @@ class UserCalendarGroupOperations(object):
         :type color: str or ~calendar.models.MicrosoftGraphCalendarColor
         :param default_online_meeting_provider:
         :type default_online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
+        :param hex_color:
+        :type hex_color: str
+        :param is_default_calendar:
+        :type is_default_calendar: bool
         :param is_removable: Indicates whether this user calendar can be deleted from the user mailbox.
         :type is_removable: bool
         :param is_tallying_responses: Indicates whether this user calendar supports tracking of meeting
@@ -231,7 +237,7 @@ class UserCalendarGroupOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCalendar(id=id, allowed_online_meeting_providers=allowed_online_meeting_providers, can_edit=can_edit, can_share=can_share, can_view_private_items=can_view_private_items, change_key=change_key, color=color, default_online_meeting_provider=default_online_meeting_provider, is_removable=is_removable, is_tallying_responses=is_tallying_responses, name=name, owner=owner, calendar_permissions=calendar_permissions, calendar_view=calendar_view, events=events, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
+        _body = models.MicrosoftGraphCalendar(id=id, allowed_online_meeting_providers=allowed_online_meeting_providers, can_edit=can_edit, can_share=can_share, can_view_private_items=can_view_private_items, change_key=change_key, color=color, default_online_meeting_provider=default_online_meeting_provider, hex_color=hex_color, is_default_calendar=is_default_calendar, is_removable=is_removable, is_tallying_responses=is_tallying_responses, name=name, owner=owner, calendar_permissions=calendar_permissions, calendar_view=calendar_view, events=events, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -358,6 +364,8 @@ class UserCalendarGroupOperations(object):
         change_key=None,  # type: Optional[str]
         color=None,  # type: Optional[Union[str, "models.MicrosoftGraphCalendarColor"]]
         default_online_meeting_provider=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingProviderType"]]
+        hex_color=None,  # type: Optional[str]
+        is_default_calendar=None,  # type: Optional[bool]
         is_removable=None,  # type: Optional[bool]
         is_tallying_responses=None,  # type: Optional[bool]
         name=None,  # type: Optional[str]
@@ -404,6 +412,10 @@ class UserCalendarGroupOperations(object):
         :type color: str or ~calendar.models.MicrosoftGraphCalendarColor
         :param default_online_meeting_provider:
         :type default_online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
+        :param hex_color:
+        :type hex_color: str
+        :param is_default_calendar:
+        :type is_default_calendar: bool
         :param is_removable: Indicates whether this user calendar can be deleted from the user mailbox.
         :type is_removable: bool
         :param is_tallying_responses: Indicates whether this user calendar supports tracking of meeting
@@ -435,7 +447,7 @@ class UserCalendarGroupOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCalendar(id=id, allowed_online_meeting_providers=allowed_online_meeting_providers, can_edit=can_edit, can_share=can_share, can_view_private_items=can_view_private_items, change_key=change_key, color=color, default_online_meeting_provider=default_online_meeting_provider, is_removable=is_removable, is_tallying_responses=is_tallying_responses, name=name, owner=owner, calendar_permissions=calendar_permissions, calendar_view=calendar_view, events=events, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
+        _body = models.MicrosoftGraphCalendar(id=id, allowed_online_meeting_providers=allowed_online_meeting_providers, can_edit=can_edit, can_share=can_share, can_view_private_items=can_view_private_items, change_key=change_key, color=color, default_online_meeting_provider=default_online_meeting_provider, hex_color=hex_color, is_default_calendar=is_default_calendar, is_removable=is_removable, is_tallying_responses=is_tallying_responses, name=name, owner=owner, calendar_permissions=calendar_permissions, calendar_view=calendar_view, events=events, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

@@ -1,7 +1,10 @@
 import argparse
+import platform
 from knack.util import CLIError
 from knack import ArgumentsContext
 from knack.arguments import (CLIArgumentType, CaseInsensitiveList)
+
+from msgraph.cli.core.commands.validators import validate_tag, validate_tags
 
 
 class GraphArgumentContext(ArgumentsContext):
@@ -79,3 +82,17 @@ def get_enum_type(data, default=None):
     else:
         arg_type = CLIArgumentType(choices=CaseInsensitiveList(choices), action=DefaultAction)
     return arg_type
+
+
+quotes = '""' if platform.system() == 'Windows' else "''"
+quote_text = 'Use {} to clear existing tags.'.format(quotes)
+
+tags_type = CLIArgumentType(
+    validator=validate_tags,
+    help="space-separated tags: key[=value] [key[=value] ...]. {}".format(quote_text),
+    nargs='*')
+
+tag_type = CLIArgumentType(type=validate_tag,
+                           help="a single tag in 'key[=value]' format. {}".format(quote_text),
+                           nargs='?',
+                           const='')

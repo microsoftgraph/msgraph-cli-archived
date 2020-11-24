@@ -19,7 +19,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, IO, Iterable, List, Optional, TypeVar, Union
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -154,7 +154,21 @@ class UserOnenoteSectionGroupSectionOperations(object):
         user_id,  # type: str
         section_group_id,  # type: str
         onenote_section_id,  # type: str
-        body,  # type: "models.MicrosoftGraphOnenotePage"
+        id=None,  # type: Optional[str]
+        self_parameter=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        content=None,  # type: Optional[bytes]
+        content_url=None,  # type: Optional[str]
+        created_by_app_id=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        level=None,  # type: Optional[int]
+        order=None,  # type: Optional[int]
+        title=None,  # type: Optional[str]
+        user_tags=None,  # type: Optional[List[str]]
+        parent_notebook=None,  # type: Optional["models.MicrosoftGraphNotebook"]
+        parent_section=None,  # type: Optional["models.MicrosoftGraphOnenoteSection"]
+        href=None,  # type: Optional[str]
+        microsoft_graph_external_link_href=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphOnenotePage"
@@ -168,8 +182,42 @@ class UserOnenoteSectionGroupSectionOperations(object):
         :type section_group_id: str
         :param onenote_section_id: key: id of onenoteSection.
         :type onenote_section_id: str
-        :param body: New navigation property.
-        :type body: ~notes.models.MicrosoftGraphOnenotePage
+        :param id: Read-only.
+        :type id: str
+        :param self_parameter: The endpoint where you can get details about the page. Read-only.
+        :type self_parameter: str
+        :param created_date_time: The date and time when the page was created. The timestamp represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+        :type created_date_time: ~datetime.datetime
+        :param content: The page's HTML content.
+        :type content: bytes
+        :param content_url: The URL for the page's HTML content.  Read-only.
+        :type content_url: str
+        :param created_by_app_id: The unique identifier of the application that created the page. Read-
+         only.
+        :type created_by_app_id: str
+        :param last_modified_date_time: The date and time when the page was last modified. The
+         timestamp represents date and time information using ISO 8601 format and is always in UTC time.
+         For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
+         only.
+        :type last_modified_date_time: ~datetime.datetime
+        :param level: The indentation level of the page. Read-only.
+        :type level: int
+        :param order: The order of the page within its parent section. Read-only.
+        :type order: int
+        :param title: The title of the page.
+        :type title: str
+        :param user_tags:
+        :type user_tags: list[str]
+        :param parent_notebook: notebook.
+        :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
+        :param parent_section: onenoteSection.
+        :type parent_section: ~notes.models.MicrosoftGraphOnenoteSection
+        :param href: The url of the link.
+        :type href: str
+        :param microsoft_graph_external_link_href: The url of the link.
+        :type microsoft_graph_external_link_href: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphOnenotePage, or the result of cls(response)
         :rtype: ~notes.models.MicrosoftGraphOnenotePage
@@ -178,6 +226,8 @@ class UserOnenoteSectionGroupSectionOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnenotePage"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphOnenotePage(id=id, self_property=self_parameter, created_date_time=created_date_time, content=content, content_url=content_url, created_by_app_id=created_by_app_id, last_modified_date_time=last_modified_date_time, level=level, order=order, title=title, user_tags=user_tags, parent_notebook=parent_notebook, parent_section=parent_section, href_links_one_note_web_url_href=href, href_links_one_note_client_url_href=microsoft_graph_external_link_href)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -200,7 +250,7 @@ class UserOnenoteSectionGroupSectionOperations(object):
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphOnenotePage')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphOnenotePage')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -302,7 +352,21 @@ class UserOnenoteSectionGroupSectionOperations(object):
         section_group_id,  # type: str
         onenote_section_id,  # type: str
         onenote_page_id,  # type: str
-        body,  # type: "models.MicrosoftGraphOnenotePage"
+        id=None,  # type: Optional[str]
+        self_parameter=None,  # type: Optional[str]
+        created_date_time=None,  # type: Optional[datetime.datetime]
+        content=None,  # type: Optional[bytes]
+        content_url=None,  # type: Optional[str]
+        created_by_app_id=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        level=None,  # type: Optional[int]
+        order=None,  # type: Optional[int]
+        title=None,  # type: Optional[str]
+        user_tags=None,  # type: Optional[List[str]]
+        parent_notebook=None,  # type: Optional["models.MicrosoftGraphNotebook"]
+        parent_section=None,  # type: Optional["models.MicrosoftGraphOnenoteSection"]
+        href=None,  # type: Optional[str]
+        microsoft_graph_external_link_href=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -318,8 +382,42 @@ class UserOnenoteSectionGroupSectionOperations(object):
         :type onenote_section_id: str
         :param onenote_page_id: key: id of onenotePage.
         :type onenote_page_id: str
-        :param body: New navigation property values.
-        :type body: ~notes.models.MicrosoftGraphOnenotePage
+        :param id: Read-only.
+        :type id: str
+        :param self_parameter: The endpoint where you can get details about the page. Read-only.
+        :type self_parameter: str
+        :param created_date_time: The date and time when the page was created. The timestamp represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+        :type created_date_time: ~datetime.datetime
+        :param content: The page's HTML content.
+        :type content: bytes
+        :param content_url: The URL for the page's HTML content.  Read-only.
+        :type content_url: str
+        :param created_by_app_id: The unique identifier of the application that created the page. Read-
+         only.
+        :type created_by_app_id: str
+        :param last_modified_date_time: The date and time when the page was last modified. The
+         timestamp represents date and time information using ISO 8601 format and is always in UTC time.
+         For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
+         only.
+        :type last_modified_date_time: ~datetime.datetime
+        :param level: The indentation level of the page. Read-only.
+        :type level: int
+        :param order: The order of the page within its parent section. Read-only.
+        :type order: int
+        :param title: The title of the page.
+        :type title: str
+        :param user_tags:
+        :type user_tags: list[str]
+        :param parent_notebook: notebook.
+        :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
+        :param parent_section: onenoteSection.
+        :type parent_section: ~notes.models.MicrosoftGraphOnenoteSection
+        :param href: The url of the link.
+        :type href: str
+        :param microsoft_graph_external_link_href: The url of the link.
+        :type microsoft_graph_external_link_href: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -328,6 +426,8 @@ class UserOnenoteSectionGroupSectionOperations(object):
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphOnenotePage(id=id, self_property=self_parameter, created_date_time=created_date_time, content=content, content_url=content_url, created_by_app_id=created_by_app_id, last_modified_date_time=last_modified_date_time, level=level, order=order, title=title, user_tags=user_tags, parent_notebook=parent_notebook, parent_section=parent_section, href_links_one_note_web_url_href=href, href_links_one_note_client_url_href=microsoft_graph_external_link_href)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -350,7 +450,7 @@ class UserOnenoteSectionGroupSectionOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphOnenotePage')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphOnenotePage')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -433,6 +533,142 @@ class UserOnenoteSectionGroupSectionOperations(object):
             return cls(pipeline_response, None, {})
 
     delete_page.metadata = {'url': '/users/{user-id}/onenote/sectionGroups/{sectionGroup-id}/sections/{onenoteSection-id}/pages/{onenotePage-id}'}  # type: ignore
+
+    def get_page_content(
+        self,
+        user_id,  # type: str
+        section_group_id,  # type: str
+        onenote_section_id,  # type: str
+        onenote_page_id,  # type: str
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> IO
+        """Get media content for the navigation property pages from users.
+
+        Get media content for the navigation property pages from users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param section_group_id: key: id of sectionGroup.
+        :type section_group_id: str
+        :param onenote_section_id: key: id of onenoteSection.
+        :type onenote_section_id: str
+        :param onenote_page_id: key: id of onenotePage.
+        :type onenote_page_id: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: IO, or the result of cls(response)
+        :rtype: IO
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[IO]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/octet-stream, application/json"
+
+        # Construct URL
+        url = self.get_page_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'sectionGroup-id': self._serialize.url("section_group_id", section_group_id, 'str'),
+            'onenoteSection-id': self._serialize.url("onenote_section_id", onenote_section_id, 'str'),
+            'onenotePage-id': self._serialize.url("onenote_page_id", onenote_page_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/octet-stream, application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = response.stream_download(self._client._pipeline)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_page_content.metadata = {'url': '/users/{user-id}/onenote/sectionGroups/{sectionGroup-id}/sections/{onenoteSection-id}/pages/{onenotePage-id}/content'}  # type: ignore
+
+    def set_page_content(
+        self,
+        user_id,  # type: str
+        section_group_id,  # type: str
+        onenote_section_id,  # type: str
+        onenote_page_id,  # type: str
+        data,  # type: IO
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Update media content for the navigation property pages in users.
+
+        Update media content for the navigation property pages in users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param section_group_id: key: id of sectionGroup.
+        :type section_group_id: str
+        :param onenote_section_id: key: id of onenoteSection.
+        :type onenote_section_id: str
+        :param onenote_page_id: key: id of onenotePage.
+        :type onenote_page_id: str
+        :param data: New media content.
+        :type data: IO
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        content_type = kwargs.pop("content_type", "application/octet-stream")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.set_page_content.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+            'sectionGroup-id': self._serialize.url("section_group_id", section_group_id, 'str'),
+            'onenoteSection-id': self._serialize.url("onenote_section_id", onenote_section_id, 'str'),
+            'onenotePage-id': self._serialize.url("onenote_page_id", onenote_page_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content_kwargs['stream_content'] = data
+        request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    set_page_content.metadata = {'url': '/users/{user-id}/onenote/sectionGroups/{sectionGroup-id}/sections/{onenoteSection-id}/pages/{onenotePage-id}/content'}  # type: ignore
 
     def get_parent_notebook(
         self,
@@ -529,8 +765,8 @@ class UserOnenoteSectionGroupSectionOperations(object):
         user_role=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnenoteUserRole"]]
         section_groups=None,  # type: Optional[List["models.MicrosoftGraphSectionGroup"]]
         sections=None,  # type: Optional[List["models.MicrosoftGraphOnenoteSection"]]
-        one_note_client_url=None,  # type: Optional["models.MicrosoftGraphExternalLink"]
-        one_note_web_url=None,  # type: Optional["models.MicrosoftGraphExternalLink"]
+        href=None,  # type: Optional[str]
+        microsoft_graph_external_link_href=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -588,10 +824,10 @@ class UserOnenoteSectionGroupSectionOperations(object):
         :type section_groups: list[~notes.models.MicrosoftGraphSectionGroup]
         :param sections: The sections in the notebook. Read-only. Nullable.
         :type sections: list[~notes.models.MicrosoftGraphOnenoteSection]
-        :param one_note_client_url: externalLink.
-        :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
-        :param one_note_web_url: externalLink.
-        :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
+        :param href: The url of the link.
+        :type href: str
+        :param microsoft_graph_external_link_href: The url of the link.
+        :type microsoft_graph_external_link_href: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -601,7 +837,7 @@ class UserOnenoteSectionGroupSectionOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphNotebook(id=id, self_property=self_parameter, created_date_time=created_date_time, display_name=display_name, last_modified_date_time=last_modified_date_time, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, is_default=is_default, is_shared=is_shared, section_groups_url=section_groups_url, sections_url=sections_url, user_role=user_role, section_groups=section_groups, sections=sections, one_note_client_url=one_note_client_url, one_note_web_url=one_note_web_url)
+        _body = models.MicrosoftGraphNotebook(id=id, self_property=self_parameter, created_date_time=created_date_time, display_name=display_name, last_modified_date_time=last_modified_date_time, application_last_modified_by_application=application, device_last_modified_by_device=device, user_last_modified_by_user=user, application_created_by_application=microsoft_graph_identity_application, device_created_by_device=microsoft_graph_identity_device, user_created_by_user=microsoft_graph_identity_user, is_default=is_default, is_shared=is_shared, section_groups_url=section_groups_url, sections_url=sections_url, user_role=user_role, section_groups=section_groups, sections=sections, href_links_one_note_web_url_href=href, href_links_one_note_client_url_href=microsoft_graph_external_link_href)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

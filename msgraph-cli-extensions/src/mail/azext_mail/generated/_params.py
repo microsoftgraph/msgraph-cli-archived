@@ -16,8 +16,19 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_mail.action import (
-    AddMultiValueExtendedProperties,
-    AddSingleValueExtendedProperties,
+    AddMailCreateMailFolderMultiValueExtendedProperties,
+    AddMailCreateMailFolderSingleValueExtendedProperties,
+    AddBccRecipients,
+    AddBody,
+    AddCcRecipients,
+    AddInternetMessageHeaders,
+    AddReplyTo,
+    AddToRecipients,
+    AddAttachments,
+    AddExtensions,
+    AddMailCreateMessageMultiValueExtendedProperties,
+    AddMailCreateMessageSingleValueExtendedProperties,
+    AddFlagCompletedDateTime,
     AddOverrides
 )
 
@@ -46,15 +57,83 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMailFolderMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMailFolderSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('mail create-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', action=AddBccRecipients, nargs='*', help='The Bcc: recipients for the message.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', action=AddCcRecipients, nargs='*', help='The Cc: recipients for the message.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
+                   '6C05F070\'>`.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='*', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', action=AddReplyTo, nargs='*', help='The email addresses to use when replying.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', action=AddToRecipients, nargs='*', help='The To: recipients for the message.')
+        c.argument('unique_body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook on the web review pane.The message will '
+                   'open in the browser if you are logged in to your mailbox via Outlook on the web. You will be '
+                   'prompted to login if you are not already logged in with the browser.This URL cannot be accessed '
+                   'from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMessageMultiValueExtendedProperties, nargs=''
+                   '*', help='The collection of multi-value extended properties defined for the message. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMessageSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('sender_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('sender_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('from_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('from_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('flag_completed_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_due_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='')
+        c.argument('flag_start_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
 
     with self.argument_context('mail get-inference-classification') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -73,6 +152,10 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('mail get-message-content') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+
     with self.argument_context('mail list-mail-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
@@ -84,6 +167,11 @@ def load_arguments(self, _):
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('mail set-message-content') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('data', help='New media content.')
 
     with self.argument_context('mail update-inference-classification') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -108,16 +196,84 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMailFolderMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMailFolderSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('mail update-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', action=AddBccRecipients, nargs='*', help='The Bcc: recipients for the message.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', action=AddCcRecipients, nargs='*', help='The Cc: recipients for the message.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
+                   '6C05F070\'>`.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='*', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', action=AddReplyTo, nargs='*', help='The email addresses to use when replying.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', action=AddToRecipients, nargs='*', help='The To: recipients for the message.')
+        c.argument('unique_body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook on the web review pane.The message will '
+                   'open in the browser if you are logged in to your mailbox via Outlook on the web. You will be '
+                   'prompted to login if you are not already logged in with the browser.This URL cannot be accessed '
+                   'from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMessageMultiValueExtendedProperties, nargs=''
+                   '*', help='The collection of multi-value extended properties defined for the message. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMessageSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('sender_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('sender_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('from_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('from_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('flag_completed_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_due_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='')
+        c.argument('flag_start_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
 
     with self.argument_context('mail delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -183,16 +339,84 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMailFolderMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMailFolderSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('mail create-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', action=AddBccRecipients, nargs='*', help='The Bcc: recipients for the message.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', action=AddCcRecipients, nargs='*', help='The Cc: recipients for the message.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
+                   '6C05F070\'>`.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='*', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', action=AddReplyTo, nargs='*', help='The email addresses to use when replying.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', action=AddToRecipients, nargs='*', help='The To: recipients for the message.')
+        c.argument('unique_body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook on the web review pane.The message will '
+                   'open in the browser if you are logged in to your mailbox via Outlook on the web. You will be '
+                   'prompted to login if you are not already logged in with the browser.This URL cannot be accessed '
+                   'from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMessageMultiValueExtendedProperties, nargs=''
+                   '*', help='The collection of multi-value extended properties defined for the message. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMessageSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('sender_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('sender_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('from_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('from_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('flag_completed_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_due_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='')
+        c.argument('flag_start_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
 
     with self.argument_context('mail create-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -225,6 +449,11 @@ def load_arguments(self, _):
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('mail get-message-content') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
 
     with self.argument_context('mail get-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -284,6 +513,12 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('mail set-message-content') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('data', help='New media content.')
+
     with self.argument_context('mail update-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
@@ -302,17 +537,85 @@ def load_arguments(self, _):
                    'user\'s Inbox folder. Expected value: json-string/@json-file.')
         c.argument('messages', type=validate_file_or_dict, help='The collection of messages in the mailFolder. '
                    'Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMailFolderMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMailFolderSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the mailFolder. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('mail update-message') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('message_id', type=str, help='key: id of message')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('bcc_recipients', action=AddBccRecipients, nargs='*', help='The Bcc: recipients for the message.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str,
+                   help='The first 255 characters of the message body. It is in text format.')
+        c.argument('cc_recipients', action=AddCcRecipients, nargs='*', help='The Cc: recipients for the message.')
+        c.argument('conversation_id', type=str, help='The ID of the conversation the email belongs to.')
+        c.argument('conversation_index', help='Indicates the position of the message within the conversation.')
+        c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
+                   'attachments. This property doesn\'t include inline attachments, so if a message contains only '
+                   'inline attachments, this property is false. To verify the existence of inline attachments, parse '
+                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
+                   '6C05F070\'>`.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
+        c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='*', help='A collection of '
+                   'message headers defined by RFC5322. The set includes message headers indicating the network path '
+                   'taken by a message from the sender to the recipient. It can also contain custom message headers '
+                   'that hold app data for the message.  Returned only on applying a $select query option. Read-only.')
+        c.argument('internet_message_id', type=str, help='The message ID in the format specified by RFC2822.')
+        c.argument('is_delivery_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='Indicates whether the message is a draft. A '
+                   'message is a draft if it hasn\'t been sent yet.')
+        c.argument('is_read', arg_type=get_three_state_flag(), help='Indicates whether the message has been read.')
+        c.argument('is_read_receipt_requested', arg_type=get_three_state_flag(), help='Indicates whether a read '
+                   'receipt is requested for the message.')
+        c.argument('parent_folder_id', type=str, help='The unique identifier for the message\'s parent mailFolder.')
+        c.argument('received_date_time', help='The date and time the message was received.')
+        c.argument('reply_to', action=AddReplyTo, nargs='*', help='The email addresses to use when replying.')
+        c.argument('sent_date_time', help='The date and time the message was sent.')
+        c.argument('subject', type=str, help='The subject of the message.')
+        c.argument('to_recipients', action=AddToRecipients, nargs='*', help='The To: recipients for the message.')
+        c.argument('unique_body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
+                   'ispopout argument to the end of the URL to change how the message is displayed. If ispopout is not '
+                   'present or if it is set to 1, then the message is shown in a popout window. If ispopout is set to '
+                   '0, then the browser will show the message in the Outlook on the web review pane.The message will '
+                   'open in the browser if you are logged in to your mailbox via Outlook on the web. You will be '
+                   'prompted to login if you are not already logged in with the browser.This URL cannot be accessed '
+                   'from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The fileAttachment and itemAttachment '
+                   'attachments for the message.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the message. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddMailCreateMessageMultiValueExtendedProperties, nargs=''
+                   '*', help='The collection of multi-value extended properties defined for the message. Nullable.')
+        c.argument('single_value_extended_properties', action=AddMailCreateMessageSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the message. '
+                   'Nullable.')
+        c.argument('sender_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('sender_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('from_email_address_address', type=str, help='The email address of the person or entity.')
+        c.argument('from_email_address_name', type=str, help='The display name of the person or entity.')
+        c.argument('flag_completed_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_due_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('flag_flag_status', arg_type=get_enum_type(['notFlagged', 'complete', 'flagged']), help='')
+        c.argument('flag_start_date_time', action=AddFlagCompletedDateTime, nargs='*', help='dateTimeTimeZone')
 
     with self.argument_context('mail update-message-rule') as c:
         c.argument('user_id', type=str, help='key: id of user')

@@ -18,6 +18,26 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_usersactions.action import (
     AddAttachmentItem,
     AddEndTime,
+    AddUsersCalendarCalendarviewInstancesToRecipients,
+    AddUsersCalendarCalendarviewToRecipients,
+    AddUsersCalendarEventsInstancesToRecipients,
+    AddUsersCalendarEventsToRecipients,
+    AddUsersCalendargroupsCalendarsCalendarviewInstancesToRecipients,
+    AddUsersCalendargroupsCalendarsCalendarviewToRecipients,
+    AddUsersCalendargroupsCalendarsEventsInstancesToRecipients,
+    AddUsersCalendargroupsCalendarsEventsToRecipients,
+    AddUsersCalendarsCalendarviewInstancesToRecipients,
+    AddUsersCalendarsCalendarviewToRecipients,
+    AddUsersCalendarsEventsInstancesToRecipients,
+    AddUsersCalendarsEventsToRecipients,
+    AddUsersCalendarviewCalendarCalendarviewToRecipients,
+    AddUsersCalendarviewCalendarEventsToRecipients,
+    AddUsersCalendarviewInstancesToRecipients,
+    AddUsersCalendarviewToRecipients,
+    AddUsersEventsCalendarCalendarviewToRecipients,
+    AddUsersEventsCalendarEventsToRecipients,
+    AddUsersEventsInstancesToRecipients,
+    AddUsersEventsToRecipients,
     AddUsersactionsCreateForwardToRecipients,
     AddMessageBccRecipients,
     AddMessageBody,
@@ -67,6 +87,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -78,6 +104,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarCalendarviewInstancesToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -98,6 +131,11 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -107,6 +145,12 @@ def load_arguments(self, _):
     with self.argument_context('usersactions dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarCalendarviewToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -139,6 +183,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -150,6 +200,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarEventsInstancesToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -170,6 +227,11 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -179,6 +241,12 @@ def load_arguments(self, _):
     with self.argument_context('usersactions dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarEventsToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -197,102 +265,6 @@ def load_arguments(self, _):
         c.argument('end_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
         c.argument('availability_view_interval', type=int, help='')
-
-    with self.argument_context('usersactions create-upload-session') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
-
-    with self.argument_context('usersactions get-schedule') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('schedules', nargs='*', help='')
-        c.argument('end_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-        c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-        c.argument('availability_view_interval', type=int, help='')
-
-    with self.argument_context('usersactions accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions decline') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions dismiss-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-
-    with self.argument_context('usersactions snooze-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-
-    with self.argument_context('usersactions tentatively-accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions decline') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('usersactions dismiss-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-
-    with self.argument_context('usersactions snooze-reminder') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
-
-    with self.argument_context('usersactions tentatively-accept') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('comment', type=str, help='')
-        c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
     with self.argument_context('usersactions create-upload-session') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -320,6 +292,14 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
@@ -335,6 +315,16 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendargroupsCalendarsCalendarviewInstancesToRecipients, nargs='*',
+                   help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -361,6 +351,13 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
@@ -374,6 +371,144 @@ def load_arguments(self, _):
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendargroupsCalendarsCalendarviewToRecipients, nargs='*',
+                   help='')
+        c.argument('comment', type=str, help='')
+
+    with self.argument_context('usersactions snooze-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+
+    with self.argument_context('usersactions tentatively-accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions create-upload-session') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_item', action=AddAttachmentItem, nargs='*', help='attachmentItem')
+
+    with self.argument_context('usersactions get-schedule') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('schedules', nargs='*', help='')
+        c.argument('end_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('start_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('availability_view_interval', type=int, help='')
+
+    with self.argument_context('usersactions accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
+    with self.argument_context('usersactions decline') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions dismiss-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendargroupsCalendarsEventsInstancesToRecipients, nargs='*',
+                   help='')
+        c.argument('comment', type=str, help='')
+
+    with self.argument_context('usersactions snooze-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('new_reminder_time', action=AddEndTime, nargs='*', help='dateTimeTimeZone')
+
+    with self.argument_context('usersactions tentatively-accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions accept') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
+    with self.argument_context('usersactions decline') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+        c.argument('send_response', arg_type=get_three_state_flag(), help='')
+
+    with self.argument_context('usersactions dismiss-reminder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendargroupsCalendarsEventsToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -422,6 +557,13 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -435,6 +577,14 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarsCalendarviewInstancesToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -458,6 +608,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -469,6 +625,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarsCalendarviewToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -506,6 +669,13 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -519,6 +689,14 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarsEventsInstancesToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -542,6 +720,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -553,6 +737,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarsEventsToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -587,6 +778,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -598,6 +795,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarviewCalendarCalendarviewToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -619,6 +823,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -630,6 +840,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarviewCalendarEventsToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -659,6 +876,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -670,6 +893,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarviewInstancesToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -690,6 +920,11 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -699,6 +934,12 @@ def load_arguments(self, _):
     with self.argument_context('usersactions dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersCalendarviewToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -723,6 +964,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -734,6 +981,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersEventsCalendarCalendarviewToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -755,6 +1009,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -766,6 +1026,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersEventsCalendarEventsToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -795,6 +1062,12 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -806,6 +1079,13 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersEventsInstancesToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -826,6 +1106,11 @@ def load_arguments(self, _):
         c.argument('comment', type=str, help='')
         c.argument('send_response', arg_type=get_three_state_flag(), help='')
 
+    with self.argument_context('usersactions cancel') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('comment', type=str, help='')
+
     with self.argument_context('usersactions decline') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -835,6 +1120,12 @@ def load_arguments(self, _):
     with self.argument_context('usersactions dismiss-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
+
+    with self.argument_context('usersactions forward') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('to_recipients', action=AddUsersEventsToRecipients, nargs='*', help='')
+        c.argument('comment', type=str, help='')
 
     with self.argument_context('usersactions snooze-reminder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -933,13 +1224,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1010,13 +1301,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1087,13 +1378,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1165,13 +1456,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1248,13 +1539,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1325,13 +1616,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1517,13 +1808,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1593,13 +1884,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1669,13 +1960,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1746,13 +2037,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1827,13 +2118,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -1903,13 +2194,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '
@@ -2045,13 +2336,13 @@ def load_arguments(self, _):
         c.argument('message_to_recipients', action=AddMessageToRecipients, nargs='*', help='The To: recipients for the '
                    'message.')
         c.argument('message_unique_body', action=AddMessageBody, nargs='*', help='itemBody')
-        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook Web App.You can append '
-                   'an ispopout argument to the end of the URL to change how the message is displayed. If ispopout is '
-                   'not present or if it is set to 1, then the message is shown in a popout window. If ispopout is set '
-                   'to 0, then the browser will show the message in the Outlook Web App review pane.The message will '
-                   'open in the browser if you are logged in to your mailbox via Outlook Web App. You will be prompted '
-                   'to login if you are not already logged in with the browser.This URL can be accessed from within an '
-                   'iFrame.')
+        c.argument('message_web_link', type=str, help='The URL to open the message in Outlook on the web.You can '
+                   'append an ispopout argument to the end of the URL to change how the message is displayed. If '
+                   'ispopout is not present or if it is set to 1, then the message is shown in a popout window. If '
+                   'ispopout is set to 0, then the browser will show the message in the Outlook on the web review '
+                   'pane.The message will open in the browser if you are logged in to your mailbox via Outlook on the '
+                   'web. You will be prompted to login if you are not already logged in with the browser.This URL '
+                   'cannot be accessed from within an iFrame.')
         c.argument('message_attachments', action=AddMessageAttachments, nargs='*', help='The fileAttachment and '
                    'itemAttachment attachments for the message.')
         c.argument('message_extensions', action=AddMessageExtensions, nargs='*', help='The collection of open '

@@ -102,8 +102,8 @@ class TeamInstalledAppOperations(object):
         self,
         team_id,  # type: str
         teams_app_installation_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum102"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum103"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum112"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum113"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphTeamsApp"
@@ -116,9 +116,9 @@ class TeamInstalledAppOperations(object):
         :param teams_app_installation_id: key: id of teamsAppInstallation.
         :type teams_app_installation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum102]
+        :type select: list[str or ~teams.models.Enum112]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum103]
+        :type expand: list[str or ~teams.models.Enum113]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTeamsApp, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTeamsApp
@@ -350,7 +350,7 @@ class TeamInstalledAppOperations(object):
         self,
         team_id,  # type: str
         teams_app_installation_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum104"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum114"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -364,7 +364,7 @@ class TeamInstalledAppOperations(object):
         :param teams_app_installation_id: key: id of teamsAppInstallation.
         :type teams_app_installation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum104]
+        :type select: list[str or ~teams.models.Enum114]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

@@ -16,11 +16,21 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_calendar.action import (
+    AddBody,
+    AddEnd,
+    AddResponseStatus,
+    AddAttachments,
+    AddExtensions,
+    AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+    AddCalendarCreateCalendarViewSingleValueExtendedProperties,
+    AddRecurrencePattern,
+    AddRecurrenceRange,
     AddOwner,
-    AddMultiValueExtendedProperties,
-    AddSingleValueExtendedProperties,
-    AddAddress,
-    AddGeoCoordinates
+    AddOnlineMeetingPhones,
+    AddLocationAddress,
+    AddLocationCoordinates,
+    AddCalendarUpdateCalendarMultiValueExtendedProperties,
+    AddCalendarUpdateCalendarSingleValueExtendedProperties
 )
 
 
@@ -33,13 +43,239 @@ def load_arguments(self, _):
 
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar get-calendar') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -100,6 +336,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -113,22 +351,250 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -159,13 +625,239 @@ def load_arguments(self, _):
 
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -268,14 +960,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar update-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -324,8 +1242,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -454,6 +1485,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -467,10 +1500,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -482,8 +1517,121 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -534,8 +1682,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -664,6 +1925,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -677,10 +1940,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -692,8 +1957,121 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -744,8 +2122,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -874,6 +2365,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -887,10 +2380,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -902,8 +2397,121 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -953,14 +2561,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1069,15 +2903,241 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1128,8 +3188,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1258,6 +3431,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -1271,10 +3446,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1286,8 +3463,121 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1337,14 +3627,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1453,15 +3969,241 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1485,9 +4227,9 @@ def load_arguments(self, _):
 
     with self.argument_context('calendar create-place') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddLocationAddress, nargs='*', help='physicalAddress')
         c.argument('display_name', type=str, help='The name associated with the place.')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('geo_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
         c.argument('phone', type=str, help='The phone number of the place.')
 
     with self.argument_context('calendar get-place') as c:
@@ -1503,9 +4245,9 @@ def load_arguments(self, _):
     with self.argument_context('calendar update-place') as c:
         c.argument('place_id', type=str, help='key: id of place')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddLocationAddress, nargs='*', help='physicalAddress')
         c.argument('display_name', type=str, help='The name associated with the place.')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('geo_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
         c.argument('phone', type=str, help='The phone number of the place.')
 
     with self.argument_context('calendar delete') as c:
@@ -1537,6 +4279,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -1550,10 +4294,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar create-calendar-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1568,13 +4314,239 @@ def load_arguments(self, _):
 
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar get-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1655,6 +4627,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -1668,10 +4642,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-calendar-group') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1688,14 +4664,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1726,13 +4928,239 @@ def load_arguments(self, _):
 
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1835,14 +5263,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar update-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1891,8 +5545,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2021,6 +5788,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -2034,10 +5803,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2049,8 +5820,121 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2101,8 +5985,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2231,6 +6228,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -2244,10 +6243,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2259,8 +6260,121 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2307,6 +6421,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -2320,10 +6436,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar get-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2363,6 +6481,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -2376,10 +6496,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2416,15 +6538,241 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2547,16 +6895,242 @@ def load_arguments(self, _):
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2617,8 +7191,121 @@ def load_arguments(self, _):
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2777,6 +7464,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -2790,10 +7479,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2809,8 +7500,121 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2873,8 +7677,121 @@ def load_arguments(self, _):
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3033,6 +7950,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -3046,10 +7965,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3065,8 +7986,121 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3120,14 +8154,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3244,15 +8504,241 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3307,8 +8793,121 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3452,6 +9051,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -3465,10 +9066,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3482,8 +9085,121 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3540,8 +9256,121 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3685,6 +9514,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -3698,10 +9529,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3715,8 +9548,121 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3769,8 +9715,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3899,6 +9958,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -3912,10 +9973,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3927,8 +9990,121 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -3978,14 +10154,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4094,15 +10496,241 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4153,8 +10781,121 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-instance') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4283,6 +11024,8 @@ def load_arguments(self, _):
         c.argument('default_online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness', ''
                                                                               'skypeForConsumer', 'teamsForBusiness']),
                    help='')
+        c.argument('hex_color', type=str, help='')
+        c.argument('is_default_calendar', arg_type=get_three_state_flag(), help='')
         c.argument('is_removable', arg_type=get_three_state_flag(), help='Indicates whether this user calendar can be '
                    'deleted from the user mailbox.')
         c.argument('is_tallying_responses', arg_type=get_three_state_flag(), help='Indicates whether this user '
@@ -4296,10 +11039,12 @@ def load_arguments(self, _):
                    'property. Read-only. Expected value: json-string/@json-file.')
         c.argument('events', type=validate_file_or_dict, help='The events in the calendar. Navigation property. '
                    'Read-only. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='*', help='The '
-                   'collection of multi-value extended properties defined for the calendar. Read-only. Nullable.')
-        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='*', help='The '
-                   'collection of single-value extended properties defined for the calendar. Read-only. Nullable.')
+        c.argument('multi_value_extended_properties', action=AddCalendarUpdateCalendarMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties', action=AddCalendarUpdateCalendarSingleValueExtendedProperties,
+                   nargs='*', help='The collection of single-value extended properties defined for the calendar. '
+                   'Read-only. Nullable.')
 
     with self.argument_context('calendar update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4311,8 +11056,121 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4362,14 +11220,240 @@ def load_arguments(self, _):
     with self.argument_context('calendar create-calendar-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4478,15 +11562,241 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('categories', nargs='*', help='The categories associated with the item')
+        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
+                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
+                   'object. Read-only.')
+        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'')
+        c.argument('allow_new_time_proposals', arg_type=get_three_state_flag(), help='True if the meeting organizer '
+                   'allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.')
+        c.argument('attendees', type=validate_file_or_dict, help='The collection of attendees for the event. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_preview', type=str, help='The preview of the message associated with the event. It is in text '
+                   'format.')
+        c.argument('end', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('has_attachments', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has attachments.')
+        c.argument('i_cal_u_id', type=str, help='A unique identifier for an event across calendars. This ID is '
+                   'different for each occurrence in a recurring series. Read-only.')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_all_day', arg_type=get_three_state_flag(), help='Set to true if the event lasts all day.')
+        c.argument('is_cancelled', arg_type=get_three_state_flag(),
+                   help='Set to true if the event has been canceled.')
+        c.argument('is_draft', arg_type=get_three_state_flag(), help='')
+        c.argument('is_online_meeting', arg_type=get_three_state_flag(), help='True if this event has online meeting '
+                   'information, false otherwise. Default is false. Optional.')
+        c.argument('is_organizer', arg_type=get_three_state_flag(), help='Set to true if the calendar owner (specified '
+                   'by the owner property of the calendar) is the organizer of the event (specified by the organizer '
+                   'property of the event). This also applies if a delegate organized the event on behalf of the '
+                   'owner.')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='Set to true if an alert is set to remind '
+                   'the user of the event.')
+        c.argument('locations', type=validate_file_or_dict, help='The locations where the event is held or attended '
+                   'from. The location and locations properties always correspond with each other. If you update the '
+                   'location property, any prior locations in the locations collection would be removed and replaced '
+                   'by the new location value. Expected value: json-string/@json-file.')
+        c.argument('online_meeting_provider', arg_type=get_enum_type(['unknown', 'skypeForBusiness',
+                                                                      'skypeForConsumer', 'teamsForBusiness']),
+                   help='')
+        c.argument('online_meeting_url', type=str, help='A URL for an online meeting. The property is set only when an '
+                   'organizer specifies an event as an online meeting such as a Skype meeting. Read-only.')
+        c.argument('original_end_time_zone', type=str, help='The end time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('original_start', help='The Timestamp type represents date and time information using ISO 8601 '
+                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('original_start_time_zone', type=str, help='The start time zone that was set when the event was '
+                   'created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in '
+                   'desktop Outlook.')
+        c.argument('reminder_minutes_before_start', type=int, help='The number of minutes before the event start time '
+                   'that the reminder alert occurs.')
+        c.argument('response_requested', arg_type=get_three_state_flag(), help='Default is true, which represents the '
+                   'organizer would like an invitee to send a response to the event.')
+        c.argument('response_status', action=AddResponseStatus, nargs='*', help='responseStatus')
+        c.argument('sensitivity', arg_type=get_enum_type(['normal', 'personal', 'private', 'confidential']), help='')
+        c.argument('series_master_id', type=str, help='The ID for the recurring series master item, if this event is '
+                   'part of a recurring series.')
+        c.argument('show_as', arg_type=get_enum_type(['free', 'tentative', 'unknown', 'busy', 'oof',
+                                                      'workingElsewhere']), help='')
+        c.argument('start', action=AddEnd, nargs='*', help='dateTimeTimeZone')
+        c.argument('subject', type=str, help='The text of the event\'s subject line.')
+        c.argument('transaction_id', type=str, help='A custom identifier specified by a client app for the server to '
+                   'avoid redundant POST operations in case of client retries to create the same event. This is useful '
+                   'when low network connectivity causes the client to time out before receiving a response from the '
+                   'server for the client\'s prior create-event request. After you set transactionId when creating an '
+                   'event, you cannot change transactionId in a subsequent update. This property is only returned in a '
+                   'response payload if an app has set it. Optional.')
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['singleInstance', 'occurrence', ''
+                                                                             'exception', 'seriesMaster']), help='')
+        c.argument('web_link', type=str, help='The URL to open the event in Outlook on the web.Outlook on the web '
+                   'opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web '
+                   'prompts you to sign in.This URL can be accessed from within an iFrame.')
+        c.argument('attachments', action=AddAttachments, nargs='*', help='The collection of fileAttachment and '
+                   'itemAttachment attachments for the event. Navigation property. Read-only. Nullable.')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+                   'the event. Read-only. Nullable.')
+        c.argument('instances', type=validate_file_or_dict, help='The instances of the event. Navigation property. '
+                   'Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('multi_value_extended_properties', action=AddCalendarCreateCalendarViewMultiValueExtendedProperties,
+                   nargs='*', help='The collection of multi-value extended properties defined for the event. '
+                   'Read-only. Nullable.')
+        c.argument('single_value_extended_properties',
+                   action=AddCalendarCreateCalendarViewSingleValueExtendedProperties, nargs='*', help='The collection '
+                   'of single-value extended properties defined for the event. Read-only. Nullable.')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+        c.argument('organizer_email_address', action=AddOwner, nargs='*', help='emailAddress')
+        c.argument('online_meeting_conference_id', type=str, help='The ID of the conference.')
+        c.argument('online_meeting_join_url', type=str, help='The external link that launches the online meeting. This '
+                   'is a URL that clients will launch into a browser and will redirect the user to join the meeting.')
+        c.argument('online_meeting_phones', action=AddOnlineMeetingPhones, nargs='*', help='All of the phone numbers '
+                   'associated with this conference.')
+        c.argument('online_meeting_quick_dial', type=str, help='The pre-formatted quickdial for this call.')
+        c.argument('online_meeting_toll_free_numbers', nargs='*', help='The toll free numbers that can be used to join '
+                   'the conference.')
+        c.argument('online_meeting_toll_number', type=str, help='The toll number that can be used to join the '
+                   'conference.')
+        c.argument('location_address', action=AddLocationAddress, nargs='*', help='physicalAddress')
+        c.argument('location_coordinates', action=AddLocationCoordinates, nargs='*', help='outlookGeoCoordinates')
+        c.argument('location_display_name', type=str, help='The name associated with the location.')
+        c.argument('location_location_email_address', type=str, help='Optional email address of the location.')
+        c.argument('location_location_type', arg_type=get_enum_type(['default', 'conferenceRoom', 'homeAddress', ''
+                                                                     'businessAddress', 'geoCoordinates', ''
+                                                                     'streetAddress', 'hotel', 'restaurant', ''
+                                                                     'localBusiness', 'postalAddress']), help='')
+        c.argument('location_location_uri', type=str, help='Optional URI representing the location.')
+        c.argument('location_unique_id', type=str, help='For internal use only.')
+        c.argument('location_unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', ''
+                                                                      'private', 'bing']), help='')
 
     with self.argument_context('calendar update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')

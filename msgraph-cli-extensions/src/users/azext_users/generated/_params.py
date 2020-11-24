@@ -18,7 +18,14 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_users.action import (
     AddServicePlans,
     AddMasterCategories,
-    AddShiftPreferencesLastModifiedByApplication
+    AddShiftPreferencesLastModifiedByApplication,
+    AddUsersTodoExtensions,
+    AddBody,
+    AddCompletedDateTime,
+    AddUsersTodoListsExtensions,
+    AddLinkedResources,
+    AddRecurrencePattern,
+    AddRecurrenceRange
 )
 
 
@@ -33,10 +40,12 @@ def load_arguments(self, _):
 
     with self.argument_context('users get-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
+        c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('users list-user') as c:
+        c.argument('consistency_level', type=str, help='Indicates the requested consistency level.')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
@@ -141,10 +150,19 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('users get-photo-content') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
+
     with self.argument_context('users get-ref-manager') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
     with self.argument_context('users get-setting') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users get-todo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
@@ -247,6 +265,11 @@ def load_arguments(self, _):
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
+    with self.argument_context('users set-photo-content') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('profile_photo_id', type=str, help='key: id of profilePhoto')
+        c.argument('data', help='New media content.')
+
     with self.argument_context('users set-ref-manager') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
@@ -302,6 +325,11 @@ def load_arguments(self, _):
                    nargs='*', help='identity')
         c.argument('shift_preferences_availability', type=validate_file_or_dict, help='Availability of the user to be '
                    'scheduled for work and its recurrence pattern. Expected value: json-string/@json-file.')
+
+    with self.argument_context('users update-todo') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('lists', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('users delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -369,3 +397,206 @@ def load_arguments(self, _):
                    'identity')
         c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
                    'and its recurrence pattern. Expected value: json-string/@json-file.')
+
+    with self.argument_context('users delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('users create-list') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='')
+        c.argument('is_owner', arg_type=get_three_state_flag(), help='')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='')
+        c.argument('wellknown_list_name', arg_type=get_enum_type(['none', 'defaultList', 'flaggedEmails', ''
+                                                                  'unknownFutureValue']), help='')
+        c.argument('extensions', action=AddUsersTodoExtensions, nargs='*', help='')
+        c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('users get-list') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users list-list') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users update-list') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='')
+        c.argument('is_owner', arg_type=get_three_state_flag(), help='')
+        c.argument('is_shared', arg_type=get_three_state_flag(), help='')
+        c.argument('wellknown_list_name', arg_type=get_enum_type(['none', 'defaultList', 'flaggedEmails', ''
+                                                                  'unknownFutureValue']), help='')
+        c.argument('extensions', action=AddUsersTodoExtensions, nargs='*', help='')
+        c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('users delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+
+    with self.argument_context('users create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('users create-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_last_modified_date_time', help='')
+        c.argument('completed_date_time', action=AddCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('created_date_time', help='')
+        c.argument('due_date_time', action=AddCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='')
+        c.argument('last_modified_date_time', help='')
+        c.argument('reminder_date_time', action=AddCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('status', arg_type=get_enum_type(['notStarted', 'inProgress', 'completed', 'waitingOnOthers', ''
+                                                     'deferred']), help='')
+        c.argument('title', type=str, help='')
+        c.argument('extensions', action=AddUsersTodoListsExtensions, nargs='*', help='')
+        c.argument('linked_resources', action=AddLinkedResources, nargs='*', help='')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+
+    with self.argument_context('users get-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users get-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users list-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users list-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users update-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('users update-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('body', action=AddBody, nargs='*', help='itemBody')
+        c.argument('body_last_modified_date_time', help='')
+        c.argument('completed_date_time', action=AddCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('created_date_time', help='')
+        c.argument('due_date_time', action=AddCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
+        c.argument('is_reminder_on', arg_type=get_three_state_flag(), help='')
+        c.argument('last_modified_date_time', help='')
+        c.argument('reminder_date_time', action=AddCompletedDateTime, nargs='*', help='dateTimeTimeZone')
+        c.argument('status', arg_type=get_enum_type(['notStarted', 'inProgress', 'completed', 'waitingOnOthers', ''
+                                                     'deferred']), help='')
+        c.argument('title', type=str, help='')
+        c.argument('extensions', action=AddUsersTodoListsExtensions, nargs='*', help='')
+        c.argument('linked_resources', action=AddLinkedResources, nargs='*', help='')
+        c.argument('recurrence_pattern', action=AddRecurrencePattern, nargs='*', help='recurrencePattern')
+        c.argument('recurrence_range', action=AddRecurrenceRange, nargs='*', help='recurrenceRange')
+
+    with self.argument_context('users delete') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('linked_resource_id', type=str, help='key: id of linkedResource')
+
+    with self.argument_context('users create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('users create-linked-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('application_name', type=str, help='')
+        c.argument('display_name', type=str, help='')
+        c.argument('external_id', type=str, help='')
+        c.argument('web_url', type=str, help='')
+
+    with self.argument_context('users get-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users get-linked-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('linked_resource_id', type=str, help='key: id of linkedResource')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users list-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users list-linked-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('users update-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('users update-linked-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('todo_task_list_id', type=str, help='key: id of todoTaskList')
+        c.argument('todo_task_id', type=str, help='key: id of todoTask')
+        c.argument('linked_resource_id', type=str, help='key: id of linkedResource')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('application_name', type=str, help='')
+        c.argument('display_name', type=str, help='')
+        c.argument('external_id', type=str, help='')
+        c.argument('web_url', type=str, help='')

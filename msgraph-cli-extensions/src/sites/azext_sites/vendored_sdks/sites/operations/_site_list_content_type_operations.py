@@ -50,8 +50,8 @@ class SiteListContentTypeOperations(object):
         site_id,  # type: str
         list_id,  # type: str
         content_type_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum102"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum103"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum104"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum105"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -67,9 +67,9 @@ class SiteListContentTypeOperations(object):
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum102]
+        :type orderby: list[str or ~sites.models.Enum104]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum103]
+        :type select: list[str or ~sites.models.Enum105]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -230,7 +230,7 @@ class SiteListContentTypeOperations(object):
         list_id,  # type: str
         content_type_id,  # type: str
         column_link_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum104"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum106"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -248,7 +248,7 @@ class SiteListContentTypeOperations(object):
         :param column_link_id: key: id of columnLink.
         :type column_link_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum104]
+        :type select: list[str or ~sites.models.Enum106]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

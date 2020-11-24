@@ -48,6 +48,7 @@ class DeviceDeviceOperations(object):
 
     def list_device(
         self,
+        consistency_level=None,  # type: Optional[str]
         orderby=None,  # type: Optional[List[Union[str, "models.Enum19"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum20"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Enum21"]]]
@@ -58,6 +59,8 @@ class DeviceDeviceOperations(object):
 
         Get entities from devices.
 
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param orderby: Order items by property values.
         :type orderby: list[str or ~identity_directory_management.models.Enum19]
         :param select: Select properties to be returned.
@@ -77,6 +80,8 @@ class DeviceDeviceOperations(object):
         def prepare_request(next_link=None):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
+            if consistency_level is not None:
+                header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
             header_parameters['Accept'] = 'application/json'
 
@@ -189,9 +194,9 @@ class DeviceDeviceOperations(object):
         :param device_id: Unique identifier set by Azure Device Registration Service at the time of
          registration.
         :type device_id: str
-        :param device_metadata: For interal use only. Set to null.
+        :param device_metadata: For internal use only. Set to null.
         :type device_metadata: str
-        :param device_version: For interal use only.
+        :param device_version: For internal use only.
         :type device_version: int
         :param display_name: The display name for the device. Required.
         :type display_name: str
@@ -207,7 +212,7 @@ class DeviceDeviceOperations(object):
          $filter.
         :type mdm_app_id: str
         :param on_premises_last_sync_date_time: The last time at which the object was synced with the
-         on-premises directory.The Timestamp type represents date and time information using ISO 8601
+         on-premises directory. The Timestamp type represents date and time information using ISO 8601
          format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
          this: '2014-01-01T00:00:00Z' Read-only.
         :type on_premises_last_sync_date_time: ~datetime.datetime
@@ -220,7 +225,7 @@ class DeviceDeviceOperations(object):
         :type operating_system: str
         :param operating_system_version: The version of the operating system on the device. Required.
         :type operating_system_version: str
-        :param physical_ids: For interal use only. Not nullable.
+        :param physical_ids: For internal use only. Not nullable.
         :type physical_ids: list[str]
         :param profile_type: The profile type of the device. Possible values:RegisteredDevice
          (default)SecureVMPrinterSharedIoT.
@@ -297,6 +302,7 @@ class DeviceDeviceOperations(object):
     def get_device(
         self,
         device_id,  # type: str
+        consistency_level=None,  # type: Optional[str]
         select=None,  # type: Optional[List[Union[str, "models.Enum22"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Enum23"]]]
         **kwargs  # type: Any
@@ -308,6 +314,8 @@ class DeviceDeviceOperations(object):
 
         :param device_id: key: id of device.
         :type device_id: str
+        :param consistency_level: Indicates the requested consistency level.
+        :type consistency_level: str
         :param select: Select properties to be returned.
         :type select: list[str or ~identity_directory_management.models.Enum22]
         :param expand: Expand related entities.
@@ -338,6 +346,8 @@ class DeviceDeviceOperations(object):
 
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
+        if consistency_level is not None:
+            header_parameters['ConsistencyLevel'] = self._serialize.header("consistency_level", consistency_level, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
         header_parameters['Accept'] = 'application/json'
 
@@ -416,9 +426,9 @@ class DeviceDeviceOperations(object):
         :param microsoft_graph_device_id: Unique identifier set by Azure Device Registration Service at
          the time of registration.
         :type microsoft_graph_device_id: str
-        :param device_metadata: For interal use only. Set to null.
+        :param device_metadata: For internal use only. Set to null.
         :type device_metadata: str
-        :param device_version: For interal use only.
+        :param device_version: For internal use only.
         :type device_version: int
         :param display_name: The display name for the device. Required.
         :type display_name: str
@@ -434,7 +444,7 @@ class DeviceDeviceOperations(object):
          $filter.
         :type mdm_app_id: str
         :param on_premises_last_sync_date_time: The last time at which the object was synced with the
-         on-premises directory.The Timestamp type represents date and time information using ISO 8601
+         on-premises directory. The Timestamp type represents date and time information using ISO 8601
          format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
          this: '2014-01-01T00:00:00Z' Read-only.
         :type on_premises_last_sync_date_time: ~datetime.datetime
@@ -447,7 +457,7 @@ class DeviceDeviceOperations(object):
         :type operating_system: str
         :param operating_system_version: The version of the operating system on the device. Required.
         :type operating_system_version: str
-        :param physical_ids: For interal use only. Not nullable.
+        :param physical_ids: For internal use only. Not nullable.
         :type physical_ids: list[str]
         :param profile_type: The profile type of the device. Possible values:RegisteredDevice
          (default)SecureVMPrinterSharedIoT.

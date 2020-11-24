@@ -45,9 +45,9 @@ class UserOperations:
     def list_joined_team(
         self,
         user_id: str,
-        orderby: Optional[List[Union[str, "models.Enum173"]]] = None,
-        select: Optional[List[Union[str, "models.Enum174"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum175"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum183"]]] = None,
+        select: Optional[List[Union[str, "models.Enum184"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum185"]]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfTeam0"]:
         """Get joinedTeams from users.
@@ -57,11 +57,11 @@ class UserOperations:
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~teams.models.Enum173]
+        :type orderby: list[str or ~teams.models.Enum183]
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum174]
+        :type select: list[str or ~teams.models.Enum184]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum175]
+        :type expand: list[str or ~teams.models.Enum185]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfTeam0 or the result of cls(response)
         :rtype: ~azure.core.async_paging.AsyncItemPaged[~teams.models.CollectionOfTeam0]
@@ -343,8 +343,7 @@ class UserOperations:
         :type mail: str
         :param mail_enabled: Specifies whether the group is mail-enabled. Returned by default.
         :type mail_enabled: bool
-        :param mail_nickname: The mail alias for the group, unique in the organization. This property
-         must be specified when a group is created. Returned by default. Supports $filter.
+        :param mail_nickname:
         :type mail_nickname: str
         :param membership_rule: The rule that determines members for this group if the group is a
          dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of
@@ -353,23 +352,13 @@ class UserOperations:
         :param membership_rule_processing_state: Indicates whether the dynamic membership processing is
          on or paused. Possible values are 'On' or 'Paused'. Returned by default.
         :type membership_rule_processing_state: str
-        :param on_premises_domain_name: Contains the on-premises domain FQDN, also called dnsDomainName
-         synchronized from the on-premises directory. The property is only populated for customers who
-         are synchronizing their on-premises directory to Azure Active Directory via Azure AD
-         Connect.Returned by default. Read-only.
+        :param on_premises_domain_name:
         :type on_premises_domain_name: str
-        :param on_premises_last_sync_date_time: Indicates the last time at which the group was synced
-         with the on-premises directory.The Timestamp type represents date and time information using
-         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-         like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.
+        :param on_premises_last_sync_date_time:
         :type on_premises_last_sync_date_time: ~datetime.datetime
-        :param on_premises_net_bios_name: Contains the on-premises netBios name synchronized from the
-         on-premises directory. The property is only populated for customers who are synchronizing their
-         on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-
-         only.
+        :param on_premises_net_bios_name:
         :type on_premises_net_bios_name: str
-        :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
-         during provisioning. Returned by default.
+        :param on_premises_provisioning_errors:
         :type on_premises_provisioning_errors: list[~teams.models.MicrosoftGraphOnPremisesProvisioningError]
         :param on_premises_sam_account_name: Contains the on-premises SAM account name synchronized
          from the on-premises directory. The property is only populated for customers who are
@@ -605,8 +594,8 @@ class UserOperations:
         self,
         user_id: str,
         team_id: str,
-        select: Optional[List[Union[str, "models.Enum176"]]] = None,
-        expand: Optional[List[Union[str, "models.Enum177"]]] = None,
+        select: Optional[List[Union[str, "models.Enum186"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum187"]]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphTeam":
         """Get joinedTeams from users.
@@ -618,9 +607,9 @@ class UserOperations:
         :param team_id: key: id of team.
         :type team_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~teams.models.Enum176]
+        :type select: list[str or ~teams.models.Enum186]
         :param expand: Expand related entities.
-        :type expand: list[str or ~teams.models.Enum177]
+        :type expand: list[str or ~teams.models.Enum187]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTeam, or the result of cls(response)
         :rtype: ~teams.models.MicrosoftGraphTeam
@@ -878,8 +867,7 @@ class UserOperations:
         :type mail: str
         :param mail_enabled: Specifies whether the group is mail-enabled. Returned by default.
         :type mail_enabled: bool
-        :param mail_nickname: The mail alias for the group, unique in the organization. This property
-         must be specified when a group is created. Returned by default. Supports $filter.
+        :param mail_nickname:
         :type mail_nickname: str
         :param membership_rule: The rule that determines members for this group if the group is a
          dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of
@@ -888,23 +876,13 @@ class UserOperations:
         :param membership_rule_processing_state: Indicates whether the dynamic membership processing is
          on or paused. Possible values are 'On' or 'Paused'. Returned by default.
         :type membership_rule_processing_state: str
-        :param on_premises_domain_name: Contains the on-premises domain FQDN, also called dnsDomainName
-         synchronized from the on-premises directory. The property is only populated for customers who
-         are synchronizing their on-premises directory to Azure Active Directory via Azure AD
-         Connect.Returned by default. Read-only.
+        :param on_premises_domain_name:
         :type on_premises_domain_name: str
-        :param on_premises_last_sync_date_time: Indicates the last time at which the group was synced
-         with the on-premises directory.The Timestamp type represents date and time information using
-         ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-         like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.
+        :param on_premises_last_sync_date_time:
         :type on_premises_last_sync_date_time: ~datetime.datetime
-        :param on_premises_net_bios_name: Contains the on-premises netBios name synchronized from the
-         on-premises directory. The property is only populated for customers who are synchronizing their
-         on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-
-         only.
+        :param on_premises_net_bios_name:
         :type on_premises_net_bios_name: str
-        :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
-         during provisioning. Returned by default.
+        :param on_premises_provisioning_errors:
         :type on_premises_provisioning_errors: list[~teams.models.MicrosoftGraphOnPremisesProvisioningError]
         :param on_premises_sam_account_name: Contains the on-premises SAM account name synchronized
          from the on-premises directory. The property is only populated for customers who are
@@ -1190,3 +1168,183 @@ class UserOperations:
             return cls(pipeline_response, None, {})
 
     delete_joined_team.metadata = {'url': '/users/{user-id}/joinedTeams/{team-id}'}  # type: ignore
+
+    async def get_teamwork(
+        self,
+        user_id: str,
+        select: Optional[List[Union[str, "models.Enum188"]]] = None,
+        expand: Optional[List[Union[str, "models.Enum189"]]] = None,
+        **kwargs
+    ) -> "models.MicrosoftGraphUserTeamwork":
+        """Get teamwork from users.
+
+        Get teamwork from users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param select: Select properties to be returned.
+        :type select: list[str or ~teams.models.Enum188]
+        :param expand: Expand related entities.
+        :type expand: list[str or ~teams.models.Enum189]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: MicrosoftGraphUserTeamwork, or the result of cls(response)
+        :rtype: ~teams.models.MicrosoftGraphUserTeamwork
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserTeamwork"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.get_teamwork.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+        if select is not None:
+            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = self._deserialize('MicrosoftGraphUserTeamwork', pipeline_response)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_teamwork.metadata = {'url': '/users/{user-id}/teamwork'}  # type: ignore
+
+    async def update_teamwork(
+        self,
+        user_id: str,
+        id: Optional[str] = None,
+        installed_apps: Optional[List["models.MicrosoftGraphUserScopeTeamsAppInstallation"]] = None,
+        **kwargs
+    ) -> None:
+        """Update the navigation property teamwork in users.
+
+        Update the navigation property teamwork in users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param id: Read-only.
+        :type id: str
+        :param installed_apps: The apps installed in the personal scope of this user.
+        :type installed_apps: list[~teams.models.MicrosoftGraphUserScopeTeamsAppInstallation]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphUserTeamwork(id=id, installed_apps=installed_apps)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.update_teamwork.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'MicrosoftGraphUserTeamwork')
+        body_content_kwargs['content'] = body_content
+        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    update_teamwork.metadata = {'url': '/users/{user-id}/teamwork'}  # type: ignore
+
+    async def delete_teamwork(
+        self,
+        user_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property teamwork for users.
+
+        Delete navigation property teamwork for users.
+
+        :param user_id: key: id of user.
+        :type user_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_teamwork.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'user-id': self._serialize.url("user_id", user_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_teamwork.metadata = {'url': '/users/{user-id}/teamwork'}  # type: ignore

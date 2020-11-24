@@ -50,6 +50,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -72,6 +83,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -113,6 +137,15 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -131,6 +164,17 @@ def usersactions_dismiss_reminder(client,
                                   event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -194,179 +238,19 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         event_id1,
-                         comment=None,
-                         send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.decline(user_id=user_id,
-                          event_id=event_id,
-                          event_id1=event_id1,
-                          comment=comment,
-                          send_response=send_response)
-
-
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id,
-                                  event_id1):
-    return client.dismiss_reminder(user_id=user_id,
-                                   event_id=event_id,
-                                   event_id1=event_id1)
-
-
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 event_id1,
-                                 new_reminder_time=None):
-    return client.snooze_reminder(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  new_reminder_time=new_reminder_time)
-
-
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    event_id1,
-                                    comment=None,
-                                    send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.tentatively_accept(user_id=user_id,
-                                     event_id=event_id,
-                                     event_id1=event_id1,
-                                     comment=comment,
-                                     send_response=send_response)
-
-
-def usersactions_accept(client,
+def usersactions_cancel(client,
                         user_id,
-                        event_id,
-                        comment=None,
-                        send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.accept(user_id=user_id,
-                         event_id=event_id,
-                         comment=comment,
-                         send_response=send_response)
-
-
-def usersactions_decline(client,
-                         user_id,
-                         event_id,
-                         comment=None,
-                         send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.decline(user_id=user_id,
-                          event_id=event_id,
-                          comment=comment,
-                          send_response=send_response)
-
-
-def usersactions_dismiss_reminder(client,
-                                  user_id,
-                                  event_id):
-    return client.dismiss_reminder(user_id=user_id,
-                                   event_id=event_id)
-
-
-def usersactions_snooze_reminder(client,
-                                 user_id,
-                                 event_id,
-                                 new_reminder_time=None):
-    return client.snooze_reminder(user_id=user_id,
-                                  event_id=event_id,
-                                  new_reminder_time=new_reminder_time)
-
-
-def usersactions_tentatively_accept(client,
-                                    user_id,
-                                    event_id,
-                                    comment=None,
-                                    send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.tentatively_accept(user_id=user_id,
-                                     event_id=event_id,
-                                     comment=comment,
-                                     send_response=send_response)
-
-
-def usersactions_get_schedule(client,
-                              user_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
-    return client.get_schedule(user_id=user_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
-
-
-def usersactions_create_upload_session(client,
-                                       user_id,
-                                       calendar_group_id,
-                                       calendar_id,
-                                       event_id,
-                                       attachment_item=None):
-    return client.create_upload_session(user_id=user_id,
-                                        calendar_group_id=calendar_group_id,
-                                        calendar_id=calendar_id,
-                                        event_id=event_id,
-                                        attachment_item=attachment_item)
-
-
-def usersactions_get_schedule(client,
-                              user_id,
-                              calendar_group_id,
-                              calendar_id,
-                              event_id,
-                              schedules=None,
-                              end_time=None,
-                              start_time=None,
-                              availability_view_interval=None):
-    return client.get_schedule(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               schedules=schedules,
-                               end_time=end_time,
-                               start_time=start_time,
-                               availability_view_interval=availability_view_interval)
-
-
-def usersactions_accept(client,
-                        user_id,
-                        calendar_group_id,
-                        calendar_id,
                         event_id,
                         event_id1,
-                        comment=None,
-                        send_response=None):
-    if send_response is None:
-        send_response = False
-    return client.accept(user_id=user_id,
-                         calendar_group_id=calendar_group_id,
-                         calendar_id=calendar_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
                          event_id=event_id,
                          event_id1=event_id1,
-                         comment=comment,
-                         send_response=send_response)
+                         comment=comment)
 
 
 def usersactions_decline(client,
                          user_id,
-                         calendar_group_id,
-                         calendar_id,
                          event_id,
                          event_id1,
                          comment=None,
@@ -374,8 +258,6 @@ def usersactions_decline(client,
     if send_response is None:
         send_response = False
     return client.decline(user_id=user_id,
-                          calendar_group_id=calendar_group_id,
-                          calendar_id=calendar_id,
                           event_id=event_id,
                           event_id1=event_id1,
                           comment=comment,
@@ -384,27 +266,32 @@ def usersactions_decline(client,
 
 def usersactions_dismiss_reminder(client,
                                   user_id,
-                                  calendar_group_id,
-                                  calendar_id,
                                   event_id,
                                   event_id1):
     return client.dismiss_reminder(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
 
 
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
+
+
 def usersactions_snooze_reminder(client,
                                  user_id,
-                                 calendar_group_id,
-                                 calendar_id,
                                  event_id,
                                  event_id1,
                                  new_reminder_time=None):
     return client.snooze_reminder(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
                                   event_id=event_id,
                                   event_id1=event_id1,
                                   new_reminder_time=new_reminder_time)
@@ -412,8 +299,6 @@ def usersactions_snooze_reminder(client,
 
 def usersactions_tentatively_accept(client,
                                     user_id,
-                                    calendar_group_id,
-                                    calendar_id,
                                     event_id,
                                     event_id1,
                                     comment=None,
@@ -421,8 +306,6 @@ def usersactions_tentatively_accept(client,
     if send_response is None:
         send_response = False
     return client.tentatively_accept(user_id=user_id,
-                                     calendar_group_id=calendar_group_id,
-                                     calendar_id=calendar_id,
                                      event_id=event_id,
                                      event_id1=event_id1,
                                      comment=comment,
@@ -431,33 +314,34 @@ def usersactions_tentatively_accept(client,
 
 def usersactions_accept(client,
                         user_id,
-                        calendar_group_id,
-                        calendar_id,
                         event_id,
                         comment=None,
                         send_response=None):
     if send_response is None:
         send_response = False
     return client.accept(user_id=user_id,
-                         calendar_group_id=calendar_group_id,
-                         calendar_id=calendar_id,
                          event_id=event_id,
                          comment=comment,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
-                         calendar_group_id,
-                         calendar_id,
                          event_id,
                          comment=None,
                          send_response=None):
     if send_response is None:
         send_response = False
     return client.decline(user_id=user_id,
-                          calendar_group_id=calendar_group_id,
-                          calendar_id=calendar_id,
                           event_id=event_id,
                           comment=comment,
                           send_response=send_response)
@@ -465,43 +349,55 @@ def usersactions_decline(client,
 
 def usersactions_dismiss_reminder(client,
                                   user_id,
-                                  calendar_group_id,
-                                  calendar_id,
                                   event_id):
     return client.dismiss_reminder(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
                                    event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
                                  user_id,
-                                 calendar_group_id,
-                                 calendar_id,
                                  event_id,
                                  new_reminder_time=None):
     return client.snooze_reminder(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
                                   event_id=event_id,
                                   new_reminder_time=new_reminder_time)
 
 
 def usersactions_tentatively_accept(client,
                                     user_id,
-                                    calendar_group_id,
-                                    calendar_id,
                                     event_id,
                                     comment=None,
                                     send_response=None):
     if send_response is None:
         send_response = False
     return client.tentatively_accept(user_id=user_id,
-                                     calendar_group_id=calendar_group_id,
-                                     calendar_id=calendar_id,
                                      event_id=event_id,
                                      comment=comment,
                                      send_response=send_response)
+
+
+def usersactions_get_schedule(client,
+                              user_id,
+                              schedules=None,
+                              end_time=None,
+                              start_time=None,
+                              availability_view_interval=None):
+    return client.get_schedule(user_id=user_id,
+                               schedules=schedules,
+                               end_time=end_time,
+                               start_time=start_time,
+                               availability_view_interval=availability_view_interval)
 
 
 def usersactions_create_upload_session(client,
@@ -555,6 +451,21 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_group_id,
+                        calendar_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          calendar_group_id,
@@ -585,6 +496,23 @@ def usersactions_dismiss_reminder(client,
                                    calendar_id=calendar_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_group_id,
+                         calendar_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -638,6 +566,19 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_group_id,
+                        calendar_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          calendar_group_id,
@@ -664,6 +605,273 @@ def usersactions_dismiss_reminder(client,
                                    calendar_group_id=calendar_group_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_group_id,
+                         calendar_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
+
+
+def usersactions_snooze_reminder(client,
+                                 user_id,
+                                 calendar_group_id,
+                                 calendar_id,
+                                 event_id,
+                                 new_reminder_time=None):
+    return client.snooze_reminder(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  new_reminder_time=new_reminder_time)
+
+
+def usersactions_tentatively_accept(client,
+                                    user_id,
+                                    calendar_group_id,
+                                    calendar_id,
+                                    event_id,
+                                    comment=None,
+                                    send_response=None):
+    if send_response is None:
+        send_response = False
+    return client.tentatively_accept(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     comment=comment,
+                                     send_response=send_response)
+
+
+def usersactions_create_upload_session(client,
+                                       user_id,
+                                       calendar_group_id,
+                                       calendar_id,
+                                       event_id,
+                                       attachment_item=None):
+    return client.create_upload_session(user_id=user_id,
+                                        calendar_group_id=calendar_group_id,
+                                        calendar_id=calendar_id,
+                                        event_id=event_id,
+                                        attachment_item=attachment_item)
+
+
+def usersactions_get_schedule(client,
+                              user_id,
+                              calendar_group_id,
+                              calendar_id,
+                              event_id,
+                              schedules=None,
+                              end_time=None,
+                              start_time=None,
+                              availability_view_interval=None):
+    return client.get_schedule(user_id=user_id,
+                               calendar_group_id=calendar_group_id,
+                               calendar_id=calendar_id,
+                               event_id=event_id,
+                               schedules=schedules,
+                               end_time=end_time,
+                               start_time=start_time,
+                               availability_view_interval=availability_view_interval)
+
+
+def usersactions_accept(client,
+                        user_id,
+                        calendar_group_id,
+                        calendar_id,
+                        event_id,
+                        event_id1,
+                        comment=None,
+                        send_response=None):
+    if send_response is None:
+        send_response = False
+    return client.accept(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment,
+                         send_response=send_response)
+
+
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_group_id,
+                        calendar_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
+def usersactions_decline(client,
+                         user_id,
+                         calendar_group_id,
+                         calendar_id,
+                         event_id,
+                         event_id1,
+                         comment=None,
+                         send_response=None):
+    if send_response is None:
+        send_response = False
+    return client.decline(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          comment=comment,
+                          send_response=send_response)
+
+
+def usersactions_dismiss_reminder(client,
+                                  user_id,
+                                  calendar_group_id,
+                                  calendar_id,
+                                  event_id,
+                                  event_id1):
+    return client.dismiss_reminder(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_group_id,
+                         calendar_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
+
+
+def usersactions_snooze_reminder(client,
+                                 user_id,
+                                 calendar_group_id,
+                                 calendar_id,
+                                 event_id,
+                                 event_id1,
+                                 new_reminder_time=None):
+    return client.snooze_reminder(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  new_reminder_time=new_reminder_time)
+
+
+def usersactions_tentatively_accept(client,
+                                    user_id,
+                                    calendar_group_id,
+                                    calendar_id,
+                                    event_id,
+                                    event_id1,
+                                    comment=None,
+                                    send_response=None):
+    if send_response is None:
+        send_response = False
+    return client.tentatively_accept(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     event_id1=event_id1,
+                                     comment=comment,
+                                     send_response=send_response)
+
+
+def usersactions_accept(client,
+                        user_id,
+                        calendar_group_id,
+                        calendar_id,
+                        event_id,
+                        comment=None,
+                        send_response=None):
+    if send_response is None:
+        send_response = False
+    return client.accept(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         comment=comment,
+                         send_response=send_response)
+
+
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_group_id,
+                        calendar_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_group_id=calendar_group_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
+def usersactions_decline(client,
+                         user_id,
+                         calendar_group_id,
+                         calendar_id,
+                         event_id,
+                         comment=None,
+                         send_response=None):
+    if send_response is None:
+        send_response = False
+    return client.decline(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          comment=comment,
+                          send_response=send_response)
+
+
+def usersactions_dismiss_reminder(client,
+                                  user_id,
+                                  calendar_group_id,
+                                  calendar_id,
+                                  event_id):
+    return client.dismiss_reminder(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_group_id,
+                         calendar_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_group_id=calendar_group_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -758,6 +966,19 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          calendar_id,
@@ -784,6 +1005,21 @@ def usersactions_dismiss_reminder(client,
                                    calendar_id=calendar_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -831,6 +1067,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          calendar_id,
@@ -853,6 +1100,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -926,6 +1186,19 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          calendar_id,
@@ -952,6 +1225,21 @@ def usersactions_dismiss_reminder(client,
                                    calendar_id=calendar_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -999,6 +1287,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        calendar_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         calendar_id=calendar_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          calendar_id,
@@ -1021,6 +1320,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    calendar_id=calendar_id,
                                    event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         calendar_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          calendar_id=calendar_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1088,6 +1400,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1110,6 +1433,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1153,6 +1489,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1175,6 +1522,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1233,6 +1593,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1255,6 +1626,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1296,6 +1680,15 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1314,6 +1707,17 @@ def usersactions_dismiss_reminder(client,
                                   event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1362,6 +1766,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1384,6 +1799,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1427,6 +1855,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1449,6 +1888,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1507,6 +1959,17 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        event_id1,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         event_id1=event_id1,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1529,6 +1992,19 @@ def usersactions_dismiss_reminder(client,
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id,
                                    event_id1=event_id1)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         event_id1,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          event_id1=event_id1,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,
@@ -1570,6 +2046,15 @@ def usersactions_accept(client,
                          send_response=send_response)
 
 
+def usersactions_cancel(client,
+                        user_id,
+                        event_id,
+                        comment=None):
+    return client.cancel(user_id=user_id,
+                         event_id=event_id,
+                         comment=comment)
+
+
 def usersactions_decline(client,
                          user_id,
                          event_id,
@@ -1588,6 +2073,17 @@ def usersactions_dismiss_reminder(client,
                                   event_id):
     return client.dismiss_reminder(user_id=user_id,
                                    event_id=event_id)
+
+
+def usersactions_forward(client,
+                         user_id,
+                         event_id,
+                         to_recipients=None,
+                         comment=None):
+    return client.forward(user_id=user_id,
+                          event_id=event_id,
+                          to_recipients=to_recipients,
+                          comment=comment)
 
 
 def usersactions_snooze_reminder(client,

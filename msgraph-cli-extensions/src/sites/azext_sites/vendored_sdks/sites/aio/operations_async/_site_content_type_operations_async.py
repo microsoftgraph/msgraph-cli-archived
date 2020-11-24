@@ -45,8 +45,8 @@ class SiteContentTypeOperations:
         self,
         site_id: str,
         content_type_id: str,
-        orderby: Optional[List[Union[str, "models.Enum79"]]] = None,
-        select: Optional[List[Union[str, "models.Enum80"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum81"]]] = None,
+        select: Optional[List[Union[str, "models.Enum82"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfColumnLink"]:
@@ -59,9 +59,9 @@ class SiteContentTypeOperations:
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum79]
+        :type orderby: list[str or ~sites.models.Enum81]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum80]
+        :type select: list[str or ~sites.models.Enum82]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -215,7 +215,7 @@ class SiteContentTypeOperations:
         site_id: str,
         content_type_id: str,
         column_link_id: str,
-        select: Optional[List[Union[str, "models.Enum81"]]] = None,
+        select: Optional[List[Union[str, "models.Enum83"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphColumnLink":
@@ -230,7 +230,7 @@ class SiteContentTypeOperations:
         :param column_link_id: key: id of columnLink.
         :type column_link_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum81]
+        :type select: list[str or ~sites.models.Enum83]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

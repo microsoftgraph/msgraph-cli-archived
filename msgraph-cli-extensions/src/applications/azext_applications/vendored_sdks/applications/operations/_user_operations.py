@@ -49,8 +49,8 @@ class UserOperations(object):
     def list_app_role_assignment(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum76"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum79"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum80"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -62,9 +62,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum75]
+        :type orderby: list[str or ~applications.models.Enum79]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum76]
+        :type select: list[str or ~applications.models.Enum80]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -244,7 +244,7 @@ class UserOperations(object):
         self,
         user_id,  # type: str
         app_role_assignment_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum77"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum81"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -258,7 +258,7 @@ class UserOperations(object):
         :param app_role_assignment_id: key: id of appRoleAssignment.
         :type app_role_assignment_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum77]
+        :type select: list[str or ~applications.models.Enum81]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

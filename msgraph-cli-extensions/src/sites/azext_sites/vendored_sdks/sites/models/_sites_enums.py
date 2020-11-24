@@ -48,21 +48,40 @@ class Enum101(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum102(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    DESCRIPTION = "description"
+    GROUP = "group"
+    HIDDEN = "hidden"
+    INHERITED_FROM = "inheritedFrom"
     NAME = "name"
-    NAME_DESC = "name desc"
+    ORDER = "order"
+    PARENT_ID = "parentId"
+    READ_ONLY = "readOnly"
+    SEALED = "sealed"
+    COLUMN_LINKS = "columnLinks"
 
 class Enum103(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ID = "id"
-    NAME = "name"
+    ASTERISK = "*"
+    COLUMN_LINKS = "columnLinks"
 
 class Enum104(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    ID_DESC = "id desc"
     NAME = "name"
+    NAME_DESC = "name desc"
 
 class Enum105(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+
+class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+
+class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CREATED_BY = "createdBy"
@@ -87,7 +106,7 @@ class Enum105(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ROOT = "root"
     SPECIAL = "special"
 
-class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum108(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     CREATED_BY_USER = "createdByUser"
@@ -98,7 +117,7 @@ class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ROOT = "root"
     SPECIAL = "special"
 
-class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -124,37 +143,6 @@ class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     CONTENT_TYPE_DESC = "contentType desc"
     SHAREPOINT_IDS = "sharepointIds"
     SHAREPOINT_IDS_DESC = "sharepointIds desc"
-
-class Enum108(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    DESCRIPTION = "description"
-    E_TAG = "eTag"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    NAME = "name"
-    PARENT_REFERENCE = "parentReference"
-    WEB_URL = "webUrl"
-    CONTENT_TYPE = "contentType"
-    SHAREPOINT_IDS = "sharepointIds"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    ANALYTICS = "analytics"
-    DRIVE_ITEM = "driveItem"
-    FIELDS = "fields"
-    VERSIONS = "versions"
-
-class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    ANALYTICS = "analytics"
-    DRIVE_ITEM = "driveItem"
-    FIELDS = "fields"
-    VERSIONS = "versions"
 
 class Enum110(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -190,18 +178,49 @@ class Enum111(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum112(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    CONTENT_TYPE = "contentType"
+    SHAREPOINT_IDS = "sharepointIds"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum113(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ANALYTICS = "analytics"
+    DRIVE_ITEM = "driveItem"
+    FIELDS = "fields"
+    VERSIONS = "versions"
+
+class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
     ALL_TIME = "allTime"
     ITEM_ACTIVITY_STATS = "itemActivityStats"
     LAST_SEVEN_DAYS = "lastSevenDays"
 
-class Enum113(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum115(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     ALL_TIME = "allTime"
     ITEM_ACTIVITY_STATS = "itemActivityStats"
     LAST_SEVEN_DAYS = "lastSevenDays"
 
-class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CREATED_BY = "createdBy"
@@ -246,7 +265,7 @@ class Enum114(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     THUMBNAILS = "thumbnails"
     VERSIONS = "versions"
 
-class Enum115(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     CREATED_BY_USER = "createdByUser"
@@ -260,7 +279,7 @@ class Enum115(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     THUMBNAILS = "thumbnails"
     VERSIONS = "versions"
 
-class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum118(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -270,19 +289,6 @@ class Enum116(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
     PUBLICATION = "publication"
     PUBLICATION_DESC = "publication desc"
-
-class Enum117(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    PUBLICATION = "publication"
-    FIELDS = "fields"
-
-class Enum118(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    FIELDS = "fields"
 
 class Enum119(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -298,6 +304,19 @@ class Enum120(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     FIELDS = "fields"
 
 class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    PUBLICATION = "publication"
+    FIELDS = "fields"
+
+class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    FIELDS = "fields"
+
+class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -326,7 +345,7 @@ class Enum121(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     RESOURCE = "resource"
     RESOURCE_DESC = "resource desc"
 
-class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum124(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     APPLICATION_ID = "applicationId"
@@ -342,7 +361,7 @@ class Enum122(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     NOTIFICATION_URL = "notificationUrl"
     RESOURCE = "resource"
 
-class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum125(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     APPLICATION_ID = "applicationId"
@@ -358,7 +377,7 @@ class Enum123(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     NOTIFICATION_URL = "notificationUrl"
     RESOURCE = "resource"
 
-class Enum127(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum129(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -390,50 +409,6 @@ class Enum127(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SHAREPOINT_IDS_DESC = "sharepointIds desc"
     SITE_COLLECTION = "siteCollection"
     SITE_COLLECTION_DESC = "siteCollection desc"
-
-class Enum128(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    DESCRIPTION = "description"
-    E_TAG = "eTag"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    NAME = "name"
-    PARENT_REFERENCE = "parentReference"
-    WEB_URL = "webUrl"
-    DISPLAY_NAME = "displayName"
-    ERROR = "error"
-    ROOT = "root"
-    SHAREPOINT_IDS = "sharepointIds"
-    SITE_COLLECTION = "siteCollection"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    ANALYTICS = "analytics"
-    COLUMNS = "columns"
-    CONTENT_TYPES = "contentTypes"
-    DRIVE = "drive"
-    DRIVES = "drives"
-    ITEMS = "items"
-    LISTS = "lists"
-    SITES = "sites"
-    ONENOTE = "onenote"
-
-class Enum129(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    ANALYTICS = "analytics"
-    COLUMNS = "columns"
-    CONTENT_TYPES = "contentTypes"
-    DRIVE = "drive"
-    DRIVES = "drives"
-    ITEMS = "items"
-    LISTS = "lists"
-    SITES = "sites"
-    ONENOTE = "onenote"
 
 class Enum130(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -482,53 +457,35 @@ class Enum131(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum132(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
     CREATED_BY = "createdBy"
-    CREATED_BY_DESC = "createdBy desc"
     CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
     DESCRIPTION = "description"
-    DESCRIPTION_DESC = "description desc"
     E_TAG = "eTag"
-    E_TAG_DESC = "eTag desc"
     LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
     LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
     NAME = "name"
-    NAME_DESC = "name desc"
     PARENT_REFERENCE = "parentReference"
-    PARENT_REFERENCE_DESC = "parentReference desc"
     WEB_URL = "webUrl"
-    WEB_URL_DESC = "webUrl desc"
     DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
     ERROR = "error"
-    ERROR_DESC = "error desc"
     ROOT = "root"
-    ROOT_DESC = "root desc"
     SHAREPOINT_IDS = "sharepointIds"
-    SHAREPOINT_IDS_DESC = "sharepointIds desc"
     SITE_COLLECTION = "siteCollection"
-    SITE_COLLECTION_DESC = "siteCollection desc"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ANALYTICS = "analytics"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    ITEMS = "items"
+    LISTS = "lists"
+    SITES = "sites"
+    ONENOTE = "onenote"
 
 class Enum133(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ID = "id"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    DESCRIPTION = "description"
-    E_TAG = "eTag"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    NAME = "name"
-    PARENT_REFERENCE = "parentReference"
-    WEB_URL = "webUrl"
-    DISPLAY_NAME = "displayName"
-    ERROR = "error"
-    ROOT = "root"
-    SHAREPOINT_IDS = "sharepointIds"
-    SITE_COLLECTION = "siteCollection"
+    ASTERISK = "*"
     CREATED_BY_USER = "createdByUser"
     LAST_MODIFIED_BY_USER = "lastModifiedByUser"
     ANALYTICS = "analytics"
@@ -543,6 +500,68 @@ class Enum133(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
 class Enum134(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
+    ID = "id"
+    ID_DESC = "id desc"
+    CREATED_BY = "createdBy"
+    CREATED_BY_DESC = "createdBy desc"
+    CREATED_DATE_TIME = "createdDateTime"
+    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    DESCRIPTION = "description"
+    DESCRIPTION_DESC = "description desc"
+    E_TAG = "eTag"
+    E_TAG_DESC = "eTag desc"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_BY_DESC = "lastModifiedBy desc"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    LAST_MODIFIED_DATE_TIME_DESC = "lastModifiedDateTime desc"
+    NAME = "name"
+    NAME_DESC = "name desc"
+    PARENT_REFERENCE = "parentReference"
+    PARENT_REFERENCE_DESC = "parentReference desc"
+    WEB_URL = "webUrl"
+    WEB_URL_DESC = "webUrl desc"
+    DISPLAY_NAME = "displayName"
+    DISPLAY_NAME_DESC = "displayName desc"
+    ERROR = "error"
+    ERROR_DESC = "error desc"
+    ROOT = "root"
+    ROOT_DESC = "root desc"
+    SHAREPOINT_IDS = "sharepointIds"
+    SHAREPOINT_IDS_DESC = "sharepointIds desc"
+    SITE_COLLECTION = "siteCollection"
+    SITE_COLLECTION_DESC = "siteCollection desc"
+
+class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    DISPLAY_NAME = "displayName"
+    ERROR = "error"
+    ROOT = "root"
+    SHAREPOINT_IDS = "sharepointIds"
+    SITE_COLLECTION = "siteCollection"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ANALYTICS = "analytics"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    ITEMS = "items"
+    LISTS = "lists"
+    SITES = "sites"
+    ONENOTE = "onenote"
+
+class Enum136(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
     ASTERISK = "*"
     CREATED_BY_USER = "createdByUser"
     LAST_MODIFIED_BY_USER = "lastModifiedByUser"
@@ -556,7 +575,7 @@ class Enum134(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SITES = "sites"
     ONENOTE = "onenote"
 
-class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum137(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -589,7 +608,7 @@ class Enum135(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SITE_COLLECTION = "siteCollection"
     SITE_COLLECTION_DESC = "siteCollection desc"
 
-class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum67(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CREATED_BY = "createdBy"
@@ -606,21 +625,6 @@ class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ROOT = "root"
     SHAREPOINT_IDS = "sharepointIds"
     SITE_COLLECTION = "siteCollection"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    ANALYTICS = "analytics"
-    COLUMNS = "columns"
-    CONTENT_TYPES = "contentTypes"
-    DRIVE = "drive"
-    DRIVES = "drives"
-    ITEMS = "items"
-    LISTS = "lists"
-    SITES = "sites"
-    ONENOTE = "onenote"
-
-class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
     CREATED_BY_USER = "createdByUser"
     LAST_MODIFIED_BY_USER = "lastModifiedByUser"
     ANALYTICS = "analytics"
@@ -648,21 +652,36 @@ class Enum68(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SITES = "sites"
     ONENOTE = "onenote"
 
-class Enum69(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum70(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    ANALYTICS = "analytics"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    DRIVES = "drives"
+    ITEMS = "items"
+    LISTS = "lists"
+    SITES = "sites"
+    ONENOTE = "onenote"
+
+class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ALL_TIME = "allTime"
     ITEM_ACTIVITY_STATS = "itemActivityStats"
     LAST_SEVEN_DAYS = "lastSevenDays"
 
-class Enum70(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     ALL_TIME = "allTime"
     ITEM_ACTIVITY_STATS = "itemActivityStats"
     LAST_SEVEN_DAYS = "lastSevenDays"
 
-class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -707,55 +726,55 @@ class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     TEXT = "text"
     TEXT_DESC = "text desc"
 
-class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    BOOLEAN = "boolean"
-    CALCULATED = "calculated"
-    CHOICE = "choice"
-    COLUMN_GROUP = "columnGroup"
-    CURRENCY = "currency"
-    DATE_TIME = "dateTime"
-    DEFAULT_VALUE = "defaultValue"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
-    GEOLOCATION = "geolocation"
-    HIDDEN = "hidden"
-    INDEXED = "indexed"
-    LOOKUP = "lookup"
-    NAME = "name"
-    NUMBER = "number"
-    PERSON_OR_GROUP = "personOrGroup"
-    READ_ONLY = "readOnly"
-    REQUIRED = "required"
-    TEXT = "text"
-
-class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    BOOLEAN = "boolean"
-    CALCULATED = "calculated"
-    CHOICE = "choice"
-    COLUMN_GROUP = "columnGroup"
-    CURRENCY = "currency"
-    DATE_TIME = "dateTime"
-    DEFAULT_VALUE = "defaultValue"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
-    GEOLOCATION = "geolocation"
-    HIDDEN = "hidden"
-    INDEXED = "indexed"
-    LOOKUP = "lookup"
-    NAME = "name"
-    NUMBER = "number"
-    PERSON_OR_GROUP = "personOrGroup"
-    READ_ONLY = "readOnly"
-    REQUIRED = "required"
-    TEXT = "text"
-
 class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BOOLEAN = "boolean"
+    CALCULATED = "calculated"
+    CHOICE = "choice"
+    COLUMN_GROUP = "columnGroup"
+    CURRENCY = "currency"
+    DATE_TIME = "dateTime"
+    DEFAULT_VALUE = "defaultValue"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
+    GEOLOCATION = "geolocation"
+    HIDDEN = "hidden"
+    INDEXED = "indexed"
+    LOOKUP = "lookup"
+    NAME = "name"
+    NUMBER = "number"
+    PERSON_OR_GROUP = "personOrGroup"
+    READ_ONLY = "readOnly"
+    REQUIRED = "required"
+    TEXT = "text"
+
+class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BOOLEAN = "boolean"
+    CALCULATED = "calculated"
+    CHOICE = "choice"
+    COLUMN_GROUP = "columnGroup"
+    CURRENCY = "currency"
+    DATE_TIME = "dateTime"
+    DEFAULT_VALUE = "defaultValue"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
+    GEOLOCATION = "geolocation"
+    HIDDEN = "hidden"
+    INDEXED = "indexed"
+    LOOKUP = "lookup"
+    NAME = "name"
+    NUMBER = "number"
+    PERSON_OR_GROUP = "personOrGroup"
+    READ_ONLY = "readOnly"
+    REQUIRED = "required"
+    TEXT = "text"
+
+class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -777,25 +796,6 @@ class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     READ_ONLY_DESC = "readOnly desc"
     SEALED = "sealed"
     SEALED_DESC = "sealed desc"
-
-class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DESCRIPTION = "description"
-    GROUP = "group"
-    HIDDEN = "hidden"
-    INHERITED_FROM = "inheritedFrom"
-    NAME = "name"
-    ORDER = "order"
-    PARENT_ID = "parentId"
-    READ_ONLY = "readOnly"
-    SEALED = "sealed"
-    COLUMN_LINKS = "columnLinks"
-
-class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    COLUMN_LINKS = "columnLinks"
 
 class Enum77(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -819,21 +819,40 @@ class Enum78(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum79(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    DESCRIPTION = "description"
+    GROUP = "group"
+    HIDDEN = "hidden"
+    INHERITED_FROM = "inheritedFrom"
     NAME = "name"
-    NAME_DESC = "name desc"
+    ORDER = "order"
+    PARENT_ID = "parentId"
+    READ_ONLY = "readOnly"
+    SEALED = "sealed"
+    COLUMN_LINKS = "columnLinks"
 
 class Enum80(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    ID = "id"
-    NAME = "name"
+    ASTERISK = "*"
+    COLUMN_LINKS = "columnLinks"
 
 class Enum81(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    ID_DESC = "id desc"
     NAME = "name"
+    NAME_DESC = "name desc"
 
 class Enum82(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+
+class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    NAME = "name"
+
+class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CREATED_BY = "createdBy"
@@ -858,7 +877,7 @@ class Enum82(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ROOT = "root"
     SPECIAL = "special"
 
-class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     CREATED_BY_USER = "createdByUser"
@@ -869,7 +888,7 @@ class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ROOT = "root"
     SPECIAL = "special"
 
-class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Enum86(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -901,42 +920,6 @@ class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SHARE_POINT_IDS_DESC = "sharePointIds desc"
     SYSTEM = "system"
     SYSTEM_DESC = "system desc"
-
-class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    DESCRIPTION = "description"
-    E_TAG = "eTag"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    NAME = "name"
-    PARENT_REFERENCE = "parentReference"
-    WEB_URL = "webUrl"
-    DRIVE_TYPE = "driveType"
-    OWNER = "owner"
-    QUOTA = "quota"
-    SHARE_POINT_IDS = "sharePointIds"
-    SYSTEM = "system"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    FOLLOWING = "following"
-    ITEMS = "items"
-    LIST = "list"
-    ROOT = "root"
-    SPECIAL = "special"
-
-class Enum86(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    FOLLOWING = "following"
-    ITEMS = "items"
-    LIST = "list"
-    ROOT = "root"
-    SPECIAL = "special"
 
 class Enum87(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -977,6 +960,42 @@ class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    DRIVE_TYPE = "driveType"
+    OWNER = "owner"
+    QUOTA = "quota"
+    SHARE_POINT_IDS = "sharePointIds"
+    SYSTEM = "system"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    FOLLOWING = "following"
+    ITEMS = "items"
+    LIST = "list"
+    ROOT = "root"
+    SPECIAL = "special"
+
+class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    FOLLOWING = "following"
+    ITEMS = "items"
+    LIST = "list"
+    ROOT = "root"
+    SPECIAL = "special"
+
+class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
     ID_DESC = "id desc"
     CREATED_BY = "createdBy"
     CREATED_BY_DESC = "createdBy desc"
@@ -1004,41 +1023,6 @@ class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SHAREPOINT_IDS_DESC = "sharepointIds desc"
     SYSTEM = "system"
     SYSTEM_DESC = "system desc"
-
-class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    CREATED_BY = "createdBy"
-    CREATED_DATE_TIME = "createdDateTime"
-    DESCRIPTION = "description"
-    E_TAG = "eTag"
-    LAST_MODIFIED_BY = "lastModifiedBy"
-    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
-    NAME = "name"
-    PARENT_REFERENCE = "parentReference"
-    WEB_URL = "webUrl"
-    DISPLAY_NAME = "displayName"
-    LIST = "list"
-    SHAREPOINT_IDS = "sharepointIds"
-    SYSTEM = "system"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    COLUMNS = "columns"
-    CONTENT_TYPES = "contentTypes"
-    DRIVE = "drive"
-    ITEMS = "items"
-    SUBSCRIPTIONS = "subscriptions"
-
-class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    CREATED_BY_USER = "createdByUser"
-    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
-    COLUMNS = "columns"
-    CONTENT_TYPES = "contentTypes"
-    DRIVE = "drive"
-    ITEMS = "items"
-    SUBSCRIPTIONS = "subscriptions"
 
 class Enum92(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -1076,6 +1060,41 @@ class Enum93(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     SUBSCRIPTIONS = "subscriptions"
 
 class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    CREATED_BY = "createdBy"
+    CREATED_DATE_TIME = "createdDateTime"
+    DESCRIPTION = "description"
+    E_TAG = "eTag"
+    LAST_MODIFIED_BY = "lastModifiedBy"
+    LAST_MODIFIED_DATE_TIME = "lastModifiedDateTime"
+    NAME = "name"
+    PARENT_REFERENCE = "parentReference"
+    WEB_URL = "webUrl"
+    DISPLAY_NAME = "displayName"
+    LIST = "list"
+    SHAREPOINT_IDS = "sharepointIds"
+    SYSTEM = "system"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    ITEMS = "items"
+    SUBSCRIPTIONS = "subscriptions"
+
+class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ASTERISK = "*"
+    CREATED_BY_USER = "createdByUser"
+    LAST_MODIFIED_BY_USER = "lastModifiedByUser"
+    COLUMNS = "columns"
+    CONTENT_TYPES = "contentTypes"
+    DRIVE = "drive"
+    ITEMS = "items"
+    SUBSCRIPTIONS = "subscriptions"
+
+class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -1120,55 +1139,55 @@ class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     TEXT = "text"
     TEXT_DESC = "text desc"
 
-class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    BOOLEAN = "boolean"
-    CALCULATED = "calculated"
-    CHOICE = "choice"
-    COLUMN_GROUP = "columnGroup"
-    CURRENCY = "currency"
-    DATE_TIME = "dateTime"
-    DEFAULT_VALUE = "defaultValue"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
-    GEOLOCATION = "geolocation"
-    HIDDEN = "hidden"
-    INDEXED = "indexed"
-    LOOKUP = "lookup"
-    NAME = "name"
-    NUMBER = "number"
-    PERSON_OR_GROUP = "personOrGroup"
-    READ_ONLY = "readOnly"
-    REQUIRED = "required"
-    TEXT = "text"
-
-class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    BOOLEAN = "boolean"
-    CALCULATED = "calculated"
-    CHOICE = "choice"
-    COLUMN_GROUP = "columnGroup"
-    CURRENCY = "currency"
-    DATE_TIME = "dateTime"
-    DEFAULT_VALUE = "defaultValue"
-    DESCRIPTION = "description"
-    DISPLAY_NAME = "displayName"
-    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
-    GEOLOCATION = "geolocation"
-    HIDDEN = "hidden"
-    INDEXED = "indexed"
-    LOOKUP = "lookup"
-    NAME = "name"
-    NUMBER = "number"
-    PERSON_OR_GROUP = "personOrGroup"
-    READ_ONLY = "readOnly"
-    REQUIRED = "required"
-    TEXT = "text"
-
 class Enum97(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BOOLEAN = "boolean"
+    CALCULATED = "calculated"
+    CHOICE = "choice"
+    COLUMN_GROUP = "columnGroup"
+    CURRENCY = "currency"
+    DATE_TIME = "dateTime"
+    DEFAULT_VALUE = "defaultValue"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
+    GEOLOCATION = "geolocation"
+    HIDDEN = "hidden"
+    INDEXED = "indexed"
+    LOOKUP = "lookup"
+    NAME = "name"
+    NUMBER = "number"
+    PERSON_OR_GROUP = "personOrGroup"
+    READ_ONLY = "readOnly"
+    REQUIRED = "required"
+    TEXT = "text"
+
+class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    BOOLEAN = "boolean"
+    CALCULATED = "calculated"
+    CHOICE = "choice"
+    COLUMN_GROUP = "columnGroup"
+    CURRENCY = "currency"
+    DATE_TIME = "dateTime"
+    DEFAULT_VALUE = "defaultValue"
+    DESCRIPTION = "description"
+    DISPLAY_NAME = "displayName"
+    ENFORCE_UNIQUE_VALUES = "enforceUniqueValues"
+    GEOLOCATION = "geolocation"
+    HIDDEN = "hidden"
+    INDEXED = "indexed"
+    LOOKUP = "lookup"
+    NAME = "name"
+    NUMBER = "number"
+    PERSON_OR_GROUP = "personOrGroup"
+    READ_ONLY = "readOnly"
+    REQUIRED = "required"
+    TEXT = "text"
+
+class Enum99(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     ID_DESC = "id desc"
@@ -1190,25 +1209,6 @@ class Enum97(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     READ_ONLY_DESC = "readOnly desc"
     SEALED = "sealed"
     SEALED_DESC = "sealed desc"
-
-class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    DESCRIPTION = "description"
-    GROUP = "group"
-    HIDDEN = "hidden"
-    INHERITED_FROM = "inheritedFrom"
-    NAME = "name"
-    ORDER = "order"
-    PARENT_ID = "parentId"
-    READ_ONLY = "readOnly"
-    SEALED = "sealed"
-    COLUMN_LINKS = "columnLinks"
-
-class Enum99(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ASTERISK = "*"
-    COLUMN_LINKS = "columnLinks"
 
 class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -1868,6 +1868,14 @@ class MicrosoftGraphStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     IGNORED = "ignored"
     UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
+class MicrosoftGraphTaskStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NOT_STARTED = "notStarted"
+    IN_PROGRESS = "inProgress"
+    COMPLETED = "completed"
+    WAITING_ON_OTHERS = "waitingOnOthers"
+    DEFERRED = "deferred"
+
 class MicrosoftGraphTeamsAppDistributionMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STORE = "store"
@@ -1951,6 +1959,13 @@ class MicrosoftGraphWeekIndex(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum
     THIRD = "third"
     FOURTH = "fourth"
     LAST = "last"
+
+class MicrosoftGraphWellknownListName(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    NONE = "none"
+    DEFAULT_LIST = "defaultList"
+    FLAGGED_EMAILS = "flaggedEmails"
+    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
 class MicrosoftGraphWorkbookOperationStatus(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 

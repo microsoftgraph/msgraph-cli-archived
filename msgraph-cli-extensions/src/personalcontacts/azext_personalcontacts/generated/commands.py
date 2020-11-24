@@ -77,11 +77,13 @@ def load_command_table(self, _):
         g.custom_command('get-extension', 'personalcontacts_get_extension')
         g.custom_command('get-multi-value-extended-property', 'personalcontacts_get_multi_value_extended_property')
         g.custom_command('get-photo', 'personalcontacts_get_photo')
+        g.custom_command('get-photo-content', 'personalcontacts_get_photo_content')
         g.custom_command('get-single-value-extended-property', 'personalcontacts_get_single_value_extended_property')
         g.custom_command('list-extension', 'personalcontacts_list_extension')
         g.custom_command('list-multi-value-extended-property', 'personalcontacts_list_multi_value_extended_property')
         g.custom_command('list-single-value-extended-property',
                          'personalcontacts_list_single_value_extended_property')
+        g.custom_command('set-photo-content', 'personalcontacts_set_photo_content')
         g.custom_command('update-extension', 'personalcontacts_update_extension')
         g.custom_command('update-multi-value-extended-property', 'personalcontacts_update_multi_value_extended_property'
                          '')
@@ -104,11 +106,13 @@ def load_command_table(self, _):
         g.custom_command('get-extension', 'personalcontacts_get_extension')
         g.custom_command('get-multi-value-extended-property', 'personalcontacts_get_multi_value_extended_property')
         g.custom_command('get-photo', 'personalcontacts_get_photo')
+        g.custom_command('get-photo-content', 'personalcontacts_get_photo_content')
         g.custom_command('get-single-value-extended-property', 'personalcontacts_get_single_value_extended_property')
         g.custom_command('list-extension', 'personalcontacts_list_extension')
         g.custom_command('list-multi-value-extended-property', 'personalcontacts_list_multi_value_extended_property')
         g.custom_command('list-single-value-extended-property',
                          'personalcontacts_list_single_value_extended_property')
+        g.custom_command('set-photo-content', 'personalcontacts_set_photo_content')
         g.custom_command('update-extension', 'personalcontacts_update_extension')
         g.custom_command('update-multi-value-extended-property', 'personalcontacts_update_multi_value_extended_property'
                          '')

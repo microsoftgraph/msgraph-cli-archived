@@ -7,7 +7,912 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
+# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
+
+
+def cloudcommunications_get_cloud_communication(client,
+                                                select=None,
+                                                expand=None):
+    return client.get_cloud_communication(select=select,
+                                          expand=expand)
+
+
+def cloudcommunications_update_cloud_communication(client,
+                                                   id_=None,
+                                                   calls=None,
+                                                   call_records=None,
+                                                   online_meetings=None):
+    return client.update_cloud_communication(id=id_,
+                                             calls=calls,
+                                             call_records=call_records,
+                                             online_meetings=online_meetings)
+
+
+def cloudcommunications_delete(client,
+                               call_record_id=None,
+                               if_match=None,
+                               call_id=None,
+                               online_meeting_id=None):
+    if call_record_id is not None:
+        return client.delete_call_record(call_record_id=call_record_id,
+                                         if_match=if_match)
+    elif call_id is not None:
+        return client.delete_call(call_id=call_id,
+                                  if_match=if_match)
+    return client.delete_online_meeting(online_meeting_id=online_meeting_id,
+                                        if_match=if_match)
+
+
+def cloudcommunications_create_call(client,
+                                    id_=None,
+                                    callback_uri=None,
+                                    call_chain_id=None,
+                                    call_options=None,
+                                    call_routes=None,
+                                    chat_info=None,
+                                    direction=None,
+                                    media_config=None,
+                                    meeting_info=None,
+                                    my_participant_id=None,
+                                    requested_modalities=None,
+                                    result_info=None,
+                                    state=None,
+                                    subject=None,
+                                    targets=None,
+                                    tenant_id=None,
+                                    tone_info=None,
+                                    transcription=None,
+                                    operations=None,
+                                    participants=None,
+                                    source_country_code=None,
+                                    source_endpoint_type=None,
+                                    source_language_id=None,
+                                    source_region=None,
+                                    source_identity_user_display_name=None,
+                                    source_identity_user_id=None,
+                                    source_identity_device_display_name=None,
+                                    source_identity_device_id=None,
+                                    source_identity_application_display_name=None,
+                                    source_identity_application_id=None,
+                                    media_state_audio=None,
+                                    incoming_context_observed_participant_id=None,
+                                    incoming_context_on_behalf_of=None,
+                                    incoming_context_source_participant_id=None,
+                                    incoming_context_transferor=None):
+    return client.create_call(id=id_,
+                              callback_uri=callback_uri,
+                              call_chain_id=call_chain_id,
+                              call_options=call_options,
+                              call_routes=call_routes,
+                              chat_info=chat_info,
+                              direction=direction,
+                              media_config=media_config,
+                              meeting_info=meeting_info,
+                              my_participant_id=my_participant_id,
+                              requested_modalities=requested_modalities,
+                              result_info=result_info,
+                              state=state,
+                              subject=subject,
+                              targets=targets,
+                              tenant_id=tenant_id,
+                              tone_info=tone_info,
+                              transcription=transcription,
+                              operations=operations,
+                              participants=participants,
+                              country_code=source_country_code,
+                              endpoint_type=source_endpoint_type,
+                              language_id=source_language_id,
+                              region=source_region,
+                              display_name=source_identity_user_display_name,
+                              microsoft_graph_identity_id=source_identity_user_id,
+                              microsoft_graph_identity_display_name=source_identity_device_display_name,
+                              id1=source_identity_device_id,
+                              display_name1=source_identity_application_display_name,
+                              id2=source_identity_application_id,
+                              audio=media_state_audio,
+                              observed_participant_id=incoming_context_observed_participant_id,
+                              on_behalf_of=incoming_context_on_behalf_of,
+                              source_participant_id=incoming_context_source_participant_id,
+                              transferor=incoming_context_transferor)
+
+
+def cloudcommunications_create_call_record(client,
+                                           id_=None,
+                                           end_date_time=None,
+                                           join_web_url=None,
+                                           last_modified_date_time=None,
+                                           modalities=None,
+                                           participants=None,
+                                           start_date_time=None,
+                                           type_=None,
+                                           version=None,
+                                           sessions=None,
+                                           organizer_user_display_name=None,
+                                           organizer_user_id=None,
+                                           organizer_device_display_name=None,
+                                           organizer_device_id=None,
+                                           organizer_application_display_name=None,
+                                           organizer_application_id=None):
+    return client.create_call_record(id=id_,
+                                     end_date_time=end_date_time,
+                                     join_web_url=join_web_url,
+                                     last_modified_date_time=last_modified_date_time,
+                                     modalities=modalities,
+                                     participants=participants,
+                                     start_date_time=start_date_time,
+                                     type=type_,
+                                     version=version,
+                                     sessions=sessions,
+                                     display_name=organizer_user_display_name,
+                                     microsoft_graph_identity_id=organizer_user_id,
+                                     microsoft_graph_identity_display_name=organizer_device_display_name,
+                                     id1=organizer_device_id,
+                                     display_name1=organizer_application_display_name,
+                                     id2=organizer_application_id)
+
+
+def cloudcommunications_create_online_meeting(client,
+                                              id_=None,
+                                              audio_conferencing=None,
+                                              chat_info=None,
+                                              creation_date_time=None,
+                                              end_date_time=None,
+                                              external_id=None,
+                                              join_information=None,
+                                              join_web_url=None,
+                                              start_date_time=None,
+                                              subject=None,
+                                              video_teleconference_id=None,
+                                              participants_attendees=None,
+                                              participants_organizer=None):
+    return client.create_online_meeting(id=id_,
+                                        audio_conferencing=audio_conferencing,
+                                        chat_info=chat_info,
+                                        creation_date_time=creation_date_time,
+                                        end_date_time=end_date_time,
+                                        external_id=external_id,
+                                        join_information=join_information,
+                                        join_web_url=join_web_url,
+                                        start_date_time=start_date_time,
+                                        subject=subject,
+                                        video_teleconference_id=video_teleconference_id,
+                                        attendees=participants_attendees,
+                                        organizer=participants_organizer)
+
+
+def cloudcommunications_get_call(client,
+                                 call_id,
+                                 select=None,
+                                 expand=None):
+    return client.get_call(call_id=call_id,
+                           select=select,
+                           expand=expand)
+
+
+def cloudcommunications_get_call_record(client,
+                                        call_record_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_call_record(call_record_id=call_record_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def cloudcommunications_get_online_meeting(client,
+                                           online_meeting_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_online_meeting(online_meeting_id=online_meeting_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def cloudcommunications_list_call(client,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
+    return client.list_call(orderby=orderby,
+                            select=select,
+                            expand=expand)
+
+
+def cloudcommunications_list_call_record(client,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
+    return client.list_call_record(orderby=orderby,
+                                   select=select,
+                                   expand=expand)
+
+
+def cloudcommunications_list_online_meeting(client,
+                                            orderby=None,
+                                            select=None,
+                                            expand=None):
+    return client.list_online_meeting(orderby=orderby,
+                                      select=select,
+                                      expand=expand)
+
+
+def cloudcommunications_update_call(client,
+                                    call_id,
+                                    id_=None,
+                                    callback_uri=None,
+                                    call_chain_id=None,
+                                    call_options=None,
+                                    call_routes=None,
+                                    chat_info=None,
+                                    direction=None,
+                                    media_config=None,
+                                    meeting_info=None,
+                                    my_participant_id=None,
+                                    requested_modalities=None,
+                                    result_info=None,
+                                    state=None,
+                                    subject=None,
+                                    targets=None,
+                                    tenant_id=None,
+                                    tone_info=None,
+                                    transcription=None,
+                                    operations=None,
+                                    participants=None,
+                                    source_country_code=None,
+                                    source_endpoint_type=None,
+                                    source_language_id=None,
+                                    source_region=None,
+                                    source_identity_user_display_name=None,
+                                    source_identity_user_id=None,
+                                    source_identity_device_display_name=None,
+                                    source_identity_device_id=None,
+                                    source_identity_application_display_name=None,
+                                    source_identity_application_id=None,
+                                    media_state_audio=None,
+                                    incoming_context_observed_participant_id=None,
+                                    incoming_context_on_behalf_of=None,
+                                    incoming_context_source_participant_id=None,
+                                    incoming_context_transferor=None):
+    return client.update_call(call_id=call_id,
+                              id=id_,
+                              callback_uri=callback_uri,
+                              call_chain_id=call_chain_id,
+                              call_options=call_options,
+                              call_routes=call_routes,
+                              chat_info=chat_info,
+                              direction=direction,
+                              media_config=media_config,
+                              meeting_info=meeting_info,
+                              my_participant_id=my_participant_id,
+                              requested_modalities=requested_modalities,
+                              result_info=result_info,
+                              state=state,
+                              subject=subject,
+                              targets=targets,
+                              tenant_id=tenant_id,
+                              tone_info=tone_info,
+                              transcription=transcription,
+                              operations=operations,
+                              participants=participants,
+                              country_code=source_country_code,
+                              endpoint_type=source_endpoint_type,
+                              language_id=source_language_id,
+                              region=source_region,
+                              display_name=source_identity_user_display_name,
+                              microsoft_graph_identity_id=source_identity_user_id,
+                              microsoft_graph_identity_display_name=source_identity_device_display_name,
+                              id1=source_identity_device_id,
+                              display_name1=source_identity_application_display_name,
+                              id2=source_identity_application_id,
+                              audio=media_state_audio,
+                              observed_participant_id=incoming_context_observed_participant_id,
+                              on_behalf_of=incoming_context_on_behalf_of,
+                              source_participant_id=incoming_context_source_participant_id,
+                              transferor=incoming_context_transferor)
+
+
+def cloudcommunications_update_call_record(client,
+                                           call_record_id,
+                                           id_=None,
+                                           end_date_time=None,
+                                           join_web_url=None,
+                                           last_modified_date_time=None,
+                                           modalities=None,
+                                           participants=None,
+                                           start_date_time=None,
+                                           type_=None,
+                                           version=None,
+                                           sessions=None,
+                                           organizer_user_display_name=None,
+                                           organizer_user_id=None,
+                                           organizer_device_display_name=None,
+                                           organizer_device_id=None,
+                                           organizer_application_display_name=None,
+                                           organizer_application_id=None):
+    return client.update_call_record(call_record_id=call_record_id,
+                                     id=id_,
+                                     end_date_time=end_date_time,
+                                     join_web_url=join_web_url,
+                                     last_modified_date_time=last_modified_date_time,
+                                     modalities=modalities,
+                                     participants=participants,
+                                     start_date_time=start_date_time,
+                                     type=type_,
+                                     version=version,
+                                     sessions=sessions,
+                                     display_name=organizer_user_display_name,
+                                     microsoft_graph_identity_id=organizer_user_id,
+                                     microsoft_graph_identity_display_name=organizer_device_display_name,
+                                     id1=organizer_device_id,
+                                     display_name1=organizer_application_display_name,
+                                     id2=organizer_application_id)
+
+
+def cloudcommunications_update_online_meeting(client,
+                                              online_meeting_id,
+                                              id_=None,
+                                              audio_conferencing=None,
+                                              chat_info=None,
+                                              creation_date_time=None,
+                                              end_date_time=None,
+                                              external_id=None,
+                                              join_information=None,
+                                              join_web_url=None,
+                                              start_date_time=None,
+                                              subject=None,
+                                              video_teleconference_id=None,
+                                              participants_attendees=None,
+                                              participants_organizer=None):
+    return client.update_online_meeting(online_meeting_id=online_meeting_id,
+                                        id=id_,
+                                        audio_conferencing=audio_conferencing,
+                                        chat_info=chat_info,
+                                        creation_date_time=creation_date_time,
+                                        end_date_time=end_date_time,
+                                        external_id=external_id,
+                                        join_information=join_information,
+                                        join_web_url=join_web_url,
+                                        start_date_time=start_date_time,
+                                        subject=subject,
+                                        video_teleconference_id=video_teleconference_id,
+                                        attendees=participants_attendees,
+                                        organizer=participants_organizer)
+
+
+def cloudcommunications_delete(client,
+                               call_record_id,
+                               session_id,
+                               if_match=None):
+    return client.delete_session(call_record_id=call_record_id,
+                                 session_id=session_id,
+                                 if_match=if_match)
+
+
+def cloudcommunications_create_session(client,
+                                       call_record_id,
+                                       id_=None,
+                                       end_date_time=None,
+                                       failure_info=None,
+                                       modalities=None,
+                                       start_date_time=None,
+                                       segments=None,
+                                       caller_user_agent=None,
+                                       callee_user_agent=None):
+    return client.create_session(call_record_id=call_record_id,
+                                 id=id_,
+                                 end_date_time=end_date_time,
+                                 failure_info=failure_info,
+                                 modalities=modalities,
+                                 start_date_time=start_date_time,
+                                 segments=segments,
+                                 user_agent_parameter=caller_user_agent,
+                                 microsoft_graph_call_records_user_agent=callee_user_agent)
+
+
+def cloudcommunications_get_session(client,
+                                    call_record_id,
+                                    session_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_session(call_record_id=call_record_id,
+                              session_id=session_id,
+                              select=select,
+                              expand=expand)
+
+
+def cloudcommunications_list_session(client,
+                                     call_record_id,
+                                     orderby=None,
+                                     select=None,
+                                     expand=None):
+    return client.list_session(call_record_id=call_record_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def cloudcommunications_update_session(client,
+                                       call_record_id,
+                                       session_id,
+                                       id_=None,
+                                       end_date_time=None,
+                                       failure_info=None,
+                                       modalities=None,
+                                       start_date_time=None,
+                                       segments=None,
+                                       caller_user_agent=None,
+                                       callee_user_agent=None):
+    return client.update_session(call_record_id=call_record_id,
+                                 session_id=session_id,
+                                 id=id_,
+                                 end_date_time=end_date_time,
+                                 failure_info=failure_info,
+                                 modalities=modalities,
+                                 start_date_time=start_date_time,
+                                 segments=segments,
+                                 user_agent_parameter=caller_user_agent,
+                                 microsoft_graph_call_records_user_agent=callee_user_agent)
+
+
+def cloudcommunications_delete(client,
+                               call_record_id,
+                               session_id,
+                               segment_id,
+                               if_match=None):
+    return client.delete_segment(call_record_id=call_record_id,
+                                 session_id=session_id,
+                                 segment_id=segment_id,
+                                 if_match=if_match)
+
+
+def cloudcommunications_create_segment(client,
+                                       call_record_id,
+                                       session_id,
+                                       id_=None,
+                                       end_date_time=None,
+                                       failure_info=None,
+                                       media=None,
+                                       start_date_time=None,
+                                       caller_user_agent=None,
+                                       callee_user_agent=None):
+    return client.create_segment(call_record_id=call_record_id,
+                                 session_id=session_id,
+                                 id=id_,
+                                 end_date_time=end_date_time,
+                                 failure_info=failure_info,
+                                 media=media,
+                                 start_date_time=start_date_time,
+                                 user_agent_parameter=caller_user_agent,
+                                 microsoft_graph_call_records_user_agent=callee_user_agent)
+
+
+def cloudcommunications_get_segment(client,
+                                    call_record_id,
+                                    session_id,
+                                    segment_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_segment(call_record_id=call_record_id,
+                              session_id=session_id,
+                              segment_id=segment_id,
+                              select=select,
+                              expand=expand)
+
+
+def cloudcommunications_list_segment(client,
+                                     call_record_id,
+                                     session_id,
+                                     orderby=None,
+                                     select=None,
+                                     expand=None):
+    return client.list_segment(call_record_id=call_record_id,
+                               session_id=session_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def cloudcommunications_update_segment(client,
+                                       call_record_id,
+                                       session_id,
+                                       segment_id,
+                                       id_=None,
+                                       end_date_time=None,
+                                       failure_info=None,
+                                       media=None,
+                                       start_date_time=None,
+                                       caller_user_agent=None,
+                                       callee_user_agent=None):
+    return client.update_segment(call_record_id=call_record_id,
+                                 session_id=session_id,
+                                 segment_id=segment_id,
+                                 id=id_,
+                                 end_date_time=end_date_time,
+                                 failure_info=failure_info,
+                                 media=media,
+                                 start_date_time=start_date_time,
+                                 user_agent_parameter=caller_user_agent,
+                                 microsoft_graph_call_records_user_agent=callee_user_agent)
+
+
+def cloudcommunications_delete(client,
+                               call_id,
+                               comms_operation_id=None,
+                               if_match=None,
+                               participant_id=None):
+    if call_id is not None and comms_operation_id is not None:
+        return client.delete_operation(call_id=call_id,
+                                       comms_operation_id=comms_operation_id,
+                                       if_match=if_match)
+    return client.delete_participant(call_id=call_id,
+                                     participant_id=participant_id,
+                                     if_match=if_match)
+
+
+def cloudcommunications_answer(client,
+                               call_id,
+                               callback_uri=None,
+                               media_config=None,
+                               accepted_modalities=None):
+    return client.answer(call_id=call_id,
+                         callback_uri=callback_uri,
+                         media_config=media_config,
+                         accepted_modalities=accepted_modalities)
+
+
+def cloudcommunications_cancel_media_processing(client,
+                                                call_id,
+                                                client_context=None):
+    return client.cancel_media_processing(call_id=call_id,
+                                          client_context=client_context)
+
+
+def cloudcommunications_change_screen_sharing_role(client,
+                                                   call_id,
+                                                   role=None):
+    return client.change_screen_sharing_role(call_id=call_id,
+                                             role=role)
+
+
+def cloudcommunications_create_operation(client,
+                                         call_id,
+                                         id_=None,
+                                         client_context=None,
+                                         status=None,
+                                         result_info_code=None,
+                                         result_info_message=None,
+                                         result_info_subcode=None):
+    return client.create_operation(call_id=call_id,
+                                   id=id_,
+                                   client_context=client_context,
+                                   status=status,
+                                   code=result_info_code,
+                                   message=result_info_message,
+                                   subcode=result_info_subcode)
+
+
+def cloudcommunications_create_participant(client,
+                                           call_id,
+                                           id_=None,
+                                           is_in_lobby=None,
+                                           is_muted=None,
+                                           media_streams=None,
+                                           recording_info_recording_status=None,
+                                           recording_info_initiator_user_display_name=None,
+                                           recording_info_initiator_user_id=None,
+                                           recording_info_initiator_device_display_name=None,
+                                           recording_info_initiator_device_id=None,
+                                           recording_info_initiator_application_display_name=None,
+                                           recording_info_initiator_application_id=None,
+                                           info_country_code=None,
+                                           info_endpoint_type=None,
+                                           info_language_id=None,
+                                           info_region=None,
+                                           info_identity_user_display_name=None,
+                                           info_identity_user_id=None,
+                                           info_identity_device_display_name=None,
+                                           info_identity_device_id=None,
+                                           info_identity_application_display_name=None,
+                                           info_identity_application_id=None):
+    return client.create_participant(call_id=call_id,
+                                     id=id_,
+                                     is_in_lobby=is_in_lobby,
+                                     is_muted=is_muted,
+                                     media_streams=media_streams,
+                                     recording_status=recording_info_recording_status,
+                                     display_name=recording_info_initiator_user_display_name,
+                                     microsoft_graph_identity_id=recording_info_initiator_user_id,
+                                     microsoft_graph_identity_display_name=recording_info_initiator_device_display_name,
+                                     id1=recording_info_initiator_device_id,
+                                     display_name1=recording_info_initiator_application_display_name,
+                                     id2=recording_info_initiator_application_id,
+                                     country_code=info_country_code,
+                                     endpoint_type=info_endpoint_type,
+                                     language_id=info_language_id,
+                                     region=info_region,
+                                     display_name2=info_identity_user_display_name,
+                                     id3=info_identity_user_id,
+                                     display_name3=info_identity_device_display_name,
+                                     id4=info_identity_device_id,
+                                     display_name4=info_identity_application_display_name,
+                                     id5=info_identity_application_id)
+
+
+def cloudcommunications_get_operation(client,
+                                      call_id,
+                                      comms_operation_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_operation(call_id=call_id,
+                                comms_operation_id=comms_operation_id,
+                                select=select,
+                                expand=expand)
+
+
+def cloudcommunications_get_participant(client,
+                                        call_id,
+                                        participant_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_participant(call_id=call_id,
+                                  participant_id=participant_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def cloudcommunications_keep_alive(client,
+                                   call_id):
+    return client.keep_alive(call_id=call_id)
+
+
+def cloudcommunications_list_operation(client,
+                                       call_id,
+                                       orderby=None,
+                                       select=None,
+                                       expand=None):
+    return client.list_operation(call_id=call_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def cloudcommunications_list_participant(client,
+                                         call_id,
+                                         orderby=None,
+                                         select=None,
+                                         expand=None):
+    return client.list_participant(call_id=call_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
+
+
+def cloudcommunications_log_teleconference_device_quality(client,
+                                                          quality_call_chain_id=None,
+                                                          quality_cloud_service_deployment_environment=None,
+                                                          quality_cloud_service_deployment_id=None,
+                                                          quality_cloud_service_instance_name=None,
+                                                          quality_cloud_service_name=None,
+                                                          quality_device_description=None,
+                                                          quality_device_name=None,
+                                                          quality_media_leg_id=None,
+                                                          quality_media_quality_list=None,
+                                                          quality_participant_id=None):
+    return client.log_teleconference_device_quality(call_chain_id=quality_call_chain_id,
+                                                    cloud_service_deployment_environment=quality_cloud_service_deployment_environment,
+                                                    cloud_service_deployment_id=quality_cloud_service_deployment_id,
+                                                    cloud_service_instance_name=quality_cloud_service_instance_name,
+                                                    cloud_service_name=quality_cloud_service_name,
+                                                    device_description=quality_device_description,
+                                                    device_name=quality_device_name,
+                                                    media_leg_id=quality_media_leg_id,
+                                                    media_quality_list=quality_media_quality_list,
+                                                    participant_id=quality_participant_id)
+
+
+def cloudcommunications_mute(client,
+                             call_id,
+                             client_context=None):
+    return client.mute(call_id=call_id,
+                       client_context=client_context)
+
+
+def cloudcommunications_play_prompt(client,
+                                    call_id,
+                                    prompts=None,
+                                    client_context=None):
+    return client.play_prompt(call_id=call_id,
+                              prompts=prompts,
+                              client_context=client_context)
+
+
+def cloudcommunications_record_response(client,
+                                        call_id,
+                                        prompts=None,
+                                        barge_in_allowed=None,
+                                        initial_silence_timeout_in_seconds=None,
+                                        max_silence_timeout_in_seconds=None,
+                                        max_record_duration_in_seconds=None,
+                                        play_beep=None,
+                                        stop_tones=None,
+                                        client_context=None):
+    if barge_in_allowed is None:
+        barge_in_allowed = False
+    if play_beep is None:
+        play_beep = False
+    return client.record_response(call_id=call_id,
+                                  prompts=prompts,
+                                  barge_in_allowed=barge_in_allowed,
+                                  initial_silence_timeout_in_seconds=initial_silence_timeout_in_seconds,
+                                  max_silence_timeout_in_seconds=max_silence_timeout_in_seconds,
+                                  max_record_duration_in_seconds=max_record_duration_in_seconds,
+                                  play_beep=play_beep,
+                                  stop_tones=stop_tones,
+                                  client_context=client_context)
+
+
+def cloudcommunications_redirect(client,
+                                 call_id,
+                                 targets=None,
+                                 timeout=None,
+                                 callback_uri=None):
+    return client.redirect(call_id=call_id,
+                           targets=targets,
+                           timeout=timeout,
+                           callback_uri=callback_uri)
+
+
+def cloudcommunications_reject(client,
+                               call_id,
+                               reason=None,
+                               callback_uri=None):
+    return client.reject(call_id=call_id,
+                         reason=reason,
+                         callback_uri=callback_uri)
+
+
+def cloudcommunications_subscribe_to_tone(client,
+                                          call_id,
+                                          client_context=None):
+    return client.subscribe_to_tone(call_id=call_id,
+                                    client_context=client_context)
+
+
+def cloudcommunications_transfer(client,
+                                 call_id,
+                                 transfer_target_replaces_call_id=None,
+                                 transfer_target_identity_user_display_name=None,
+                                 transfer_target_identity_user_id=None,
+                                 transfer_target_identity_device_display_name=None,
+                                 transfer_target_identity_device_id=None,
+                                 transfer_target_identity_application_display_name=None,
+                                 transfer_target_identity_application_id=None):
+    return client.transfer(call_id=call_id,
+                           replaces_call_id=transfer_target_replaces_call_id,
+                           display_name=transfer_target_identity_user_display_name,
+                           id=transfer_target_identity_user_id,
+                           microsoft_graph_identity_display_name=transfer_target_identity_device_display_name,
+                           microsoft_graph_identity_id=transfer_target_identity_device_id,
+                           display_name1=transfer_target_identity_application_display_name,
+                           id1=transfer_target_identity_application_id)
+
+
+def cloudcommunications_unmute(client,
+                               call_id,
+                               client_context=None):
+    return client.unmute(call_id=call_id,
+                         client_context=client_context)
+
+
+def cloudcommunications_update_operation(client,
+                                         call_id,
+                                         comms_operation_id,
+                                         id_=None,
+                                         client_context=None,
+                                         status=None,
+                                         result_info_code=None,
+                                         result_info_message=None,
+                                         result_info_subcode=None):
+    return client.update_operation(call_id=call_id,
+                                   comms_operation_id=comms_operation_id,
+                                   id=id_,
+                                   client_context=client_context,
+                                   status=status,
+                                   code=result_info_code,
+                                   message=result_info_message,
+                                   subcode=result_info_subcode)
+
+
+def cloudcommunications_update_participant(client,
+                                           call_id,
+                                           participant_id,
+                                           id_=None,
+                                           is_in_lobby=None,
+                                           is_muted=None,
+                                           media_streams=None,
+                                           recording_info_recording_status=None,
+                                           recording_info_initiator_user_display_name=None,
+                                           recording_info_initiator_user_id=None,
+                                           recording_info_initiator_device_display_name=None,
+                                           recording_info_initiator_device_id=None,
+                                           recording_info_initiator_application_display_name=None,
+                                           recording_info_initiator_application_id=None,
+                                           info_country_code=None,
+                                           info_endpoint_type=None,
+                                           info_language_id=None,
+                                           info_region=None,
+                                           info_identity_user_display_name=None,
+                                           info_identity_user_id=None,
+                                           info_identity_device_display_name=None,
+                                           info_identity_device_id=None,
+                                           info_identity_application_display_name=None,
+                                           info_identity_application_id=None):
+    return client.update_participant(call_id=call_id,
+                                     participant_id=participant_id,
+                                     id=id_,
+                                     is_in_lobby=is_in_lobby,
+                                     is_muted=is_muted,
+                                     media_streams=media_streams,
+                                     recording_status=recording_info_recording_status,
+                                     display_name=recording_info_initiator_user_display_name,
+                                     microsoft_graph_identity_id=recording_info_initiator_user_id,
+                                     microsoft_graph_identity_display_name=recording_info_initiator_device_display_name,
+                                     id1=recording_info_initiator_device_id,
+                                     display_name1=recording_info_initiator_application_display_name,
+                                     id2=recording_info_initiator_application_id,
+                                     country_code=info_country_code,
+                                     endpoint_type=info_endpoint_type,
+                                     language_id=info_language_id,
+                                     region=info_region,
+                                     display_name2=info_identity_user_display_name,
+                                     id3=info_identity_user_id,
+                                     display_name3=info_identity_device_display_name,
+                                     id4=info_identity_device_id,
+                                     display_name4=info_identity_application_display_name,
+                                     id5=info_identity_application_id)
+
+
+def cloudcommunications_update_recording_status(client,
+                                                call_id,
+                                                status=None,
+                                                client_context=None):
+    return client.update_recording_status(call_id=call_id,
+                                          status=status,
+                                          client_context=client_context)
+
+
+def cloudcommunications_invite(client,
+                               call_id,
+                               participants=None,
+                               client_context=None):
+    return client.invite(call_id=call_id,
+                         participants=participants,
+                         client_context=client_context)
+
+
+def cloudcommunications_mute(client,
+                             call_id,
+                             participant_id,
+                             client_context=None):
+    return client.mute(call_id=call_id,
+                       participant_id=participant_id,
+                       client_context=client_context)
+
+
+def cloudcommunications_create_or_get(client,
+                                      chat_info=None,
+                                      end_date_time=None,
+                                      external_id=None,
+                                      start_date_time=None,
+                                      subject=None,
+                                      participants_attendees=None,
+                                      participants_organizer=None):
+    return client.create_or_get(chat_info=chat_info,
+                                end_date_time=end_date_time,
+                                external_id=external_id,
+                                start_date_time=start_date_time,
+                                subject=subject,
+                                attendees=participants_attendees,
+                                organizer=participants_organizer)
 
 
 def cloudcommunications_delete(client,

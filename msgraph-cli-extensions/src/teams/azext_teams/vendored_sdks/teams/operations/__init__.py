@@ -6,6 +6,8 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
+from ._app_catalog_operations import AppCatalogOperations
+from ._app_catalog_team_app_operations import AppCatalogTeamAppOperations
 from ._chat_chat_operations import ChatChatOperations
 from ._chat_operations import ChatOperations
 from ._group_operations import GroupOperations
@@ -22,8 +24,12 @@ from ._team_schedule_operations import TeamScheduleOperations
 from ._teamwork_teamwork_operations import TeamworkTeamworkOperations
 from ._teamwork_operations import TeamworkOperations
 from ._user_operations import UserOperations
+from ._user_teamwork_operations import UserTeamworkOperations
+from ._user_teamwork_installed_app_operations import UserTeamworkInstalledAppOperations
 
 __all__ = [
+    'AppCatalogOperations',
+    'AppCatalogTeamAppOperations',
     'ChatChatOperations',
     'ChatOperations',
     'GroupOperations',
@@ -40,4 +46,6 @@ __all__ = [
     'TeamworkTeamworkOperations',
     'TeamworkOperations',
     'UserOperations',
+    'UserTeamworkOperations',
+    'UserTeamworkInstalledAppOperations',
 ]

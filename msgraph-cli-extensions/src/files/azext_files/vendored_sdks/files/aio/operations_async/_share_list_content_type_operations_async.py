@@ -45,8 +45,8 @@ class ShareListContentTypeOperations:
         self,
         shared_drive_item_id: str,
         content_type_id: str,
-        orderby: Optional[List[Union[str, "models.Enum142"]]] = None,
-        select: Optional[List[Union[str, "models.Enum143"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum144"]]] = None,
+        select: Optional[List[Union[str, "models.Enum145"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfColumnLink0"]:
@@ -59,9 +59,9 @@ class ShareListContentTypeOperations:
         :param content_type_id: key: id of contentType.
         :type content_type_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum142]
+        :type orderby: list[str or ~files.models.Enum144]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum143]
+        :type select: list[str or ~files.models.Enum145]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -215,7 +215,7 @@ class ShareListContentTypeOperations:
         shared_drive_item_id: str,
         content_type_id: str,
         column_link_id: str,
-        select: Optional[List[Union[str, "models.Enum144"]]] = None,
+        select: Optional[List[Union[str, "models.Enum146"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphColumnLink":
@@ -230,7 +230,7 @@ class ShareListContentTypeOperations:
         :param column_link_id: key: id of columnLink.
         :type column_link_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum144]
+        :type select: list[str or ~files.models.Enum146]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response

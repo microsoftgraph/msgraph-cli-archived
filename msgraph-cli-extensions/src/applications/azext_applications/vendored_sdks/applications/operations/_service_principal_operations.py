@@ -49,8 +49,8 @@ class ServicePrincipalOperations(object):
     def list_app_role_assigned_to(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum32"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum33"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum33"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum34"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -62,9 +62,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum32]
+        :type orderby: list[str or ~applications.models.Enum33]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum33]
+        :type select: list[str or ~applications.models.Enum34]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -244,7 +244,7 @@ class ServicePrincipalOperations(object):
         self,
         service_principal_id,  # type: str
         app_role_assignment_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum34"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum35"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -258,7 +258,7 @@ class ServicePrincipalOperations(object):
         :param app_role_assignment_id: key: id of appRoleAssignment.
         :type app_role_assignment_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum34]
+        :type select: list[str or ~applications.models.Enum35]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -469,8 +469,8 @@ class ServicePrincipalOperations(object):
     def list_app_role_assignment(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum35"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum36"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum36"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum37"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -482,9 +482,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum35]
+        :type orderby: list[str or ~applications.models.Enum36]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum36]
+        :type select: list[str or ~applications.models.Enum37]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -664,7 +664,7 @@ class ServicePrincipalOperations(object):
         self,
         service_principal_id,  # type: str
         app_role_assignment_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum37"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum38"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -678,7 +678,7 @@ class ServicePrincipalOperations(object):
         :param app_role_assignment_id: key: id of appRoleAssignment.
         :type app_role_assignment_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum37]
+        :type select: list[str or ~applications.models.Enum38]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -889,9 +889,9 @@ class ServicePrincipalOperations(object):
     def list_claim_mapping_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum38"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum39"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum40"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum39"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum40"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum41"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfClaimsMappingPolicy"]
@@ -902,11 +902,11 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum38]
+        :type orderby: list[str or ~applications.models.Enum39]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum39]
+        :type select: list[str or ~applications.models.Enum40]
         :param expand: Expand related entities.
-        :type expand: list[str or ~applications.models.Enum40]
+        :type expand: list[str or ~applications.models.Enum41]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfClaimsMappingPolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfClaimsMappingPolicy]
@@ -984,7 +984,7 @@ class ServicePrincipalOperations(object):
     def list_ref_claim_mapping_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum41"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum42"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfClaimsMappingPolicy"]
@@ -995,7 +995,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum41]
+        :type orderby: list[str or ~applications.models.Enum42]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfClaimsMappingPolicy or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfClaimsMappingPolicy]
@@ -1132,8 +1132,8 @@ class ServicePrincipalOperations(object):
     def list_created_object(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum42"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum43"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum43"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum44"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1145,9 +1145,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum42]
+        :type orderby: list[str or ~applications.models.Enum43]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum43]
+        :type select: list[str or ~applications.models.Enum44]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1227,7 +1227,7 @@ class ServicePrincipalOperations(object):
     def list_ref_created_object(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum44"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum45"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject0"]
@@ -1238,7 +1238,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum44]
+        :type orderby: list[str or ~applications.models.Enum45]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfDirectoryObject0]
@@ -1372,11 +1372,381 @@ class ServicePrincipalOperations(object):
         return deserialized
     create_ref_created_object.metadata = {'url': '/servicePrincipals/{servicePrincipal-id}/createdObjects/$ref'}  # type: ignore
 
+    def list_delegated_permission_classification(
+        self,
+        service_principal_id,  # type: str
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum46"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum47"]]]
+        expand=None,  # type: Optional[List[str]]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> Iterable["models.CollectionOfDelegatedPermissionClassification"]
+        """Get delegatedPermissionClassifications from servicePrincipals.
+
+        Get delegatedPermissionClassifications from servicePrincipals.
+
+        :param service_principal_id: key: id of servicePrincipal.
+        :type service_principal_id: str
+        :param orderby: Order items by property values.
+        :type orderby: list[str or ~applications.models.Enum46]
+        :param select: Select properties to be returned.
+        :type select: list[str or ~applications.models.Enum47]
+        :param expand: Expand related entities.
+        :type expand: list[str]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: An iterator like instance of either CollectionOfDelegatedPermissionClassification or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfDelegatedPermissionClassification]
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDelegatedPermissionClassification"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
+
+            if not next_link:
+                # Construct URL
+                url = self.list_delegated_permission_classification.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'servicePrincipal-id': self._serialize.url("service_principal_id", service_principal_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
+
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfDelegatedPermissionClassification', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
+
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
+
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
+
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
+    list_delegated_permission_classification.metadata = {'url': '/servicePrincipals/{servicePrincipal-id}/delegatedPermissionClassifications'}  # type: ignore
+
+    def create_delegated_permission_classification(
+        self,
+        service_principal_id,  # type: str
+        id=None,  # type: Optional[str]
+        classification=None,  # type: Optional[Union[str, "models.MicrosoftGraphPermissionClassificationType"]]
+        permission_id=None,  # type: Optional[str]
+        permission_name=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> "models.MicrosoftGraphDelegatedPermissionClassification"
+        """Create new navigation property to delegatedPermissionClassifications for servicePrincipals.
+
+        Create new navigation property to delegatedPermissionClassifications for servicePrincipals.
+
+        :param service_principal_id: key: id of servicePrincipal.
+        :type service_principal_id: str
+        :param id: Read-only.
+        :type id: str
+        :param classification:
+        :type classification: str or ~applications.models.MicrosoftGraphPermissionClassificationType
+        :param permission_id:
+        :type permission_id: str
+        :param permission_name:
+        :type permission_name: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: MicrosoftGraphDelegatedPermissionClassification, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphDelegatedPermissionClassification
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDelegatedPermissionClassification"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphDelegatedPermissionClassification(id=id, classification=classification, permission_id=permission_id, permission_name=permission_name)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.create_delegated_permission_classification.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'servicePrincipal-id': self._serialize.url("service_principal_id", service_principal_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/json'
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'MicrosoftGraphDelegatedPermissionClassification')
+        body_content_kwargs['content'] = body_content
+        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [201]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = self._deserialize('MicrosoftGraphDelegatedPermissionClassification', pipeline_response)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    create_delegated_permission_classification.metadata = {'url': '/servicePrincipals/{servicePrincipal-id}/delegatedPermissionClassifications'}  # type: ignore
+
+    def get_delegated_permission_classification(
+        self,
+        service_principal_id,  # type: str
+        delegated_permission_classification_id,  # type: str
+        select=None,  # type: Optional[List[Union[str, "models.Enum48"]]]
+        expand=None,  # type: Optional[List[str]]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> "models.MicrosoftGraphDelegatedPermissionClassification"
+        """Get delegatedPermissionClassifications from servicePrincipals.
+
+        Get delegatedPermissionClassifications from servicePrincipals.
+
+        :param service_principal_id: key: id of servicePrincipal.
+        :type service_principal_id: str
+        :param delegated_permission_classification_id: key: id of delegatedPermissionClassification.
+        :type delegated_permission_classification_id: str
+        :param select: Select properties to be returned.
+        :type select: list[str or ~applications.models.Enum48]
+        :param expand: Expand related entities.
+        :type expand: list[str]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: MicrosoftGraphDelegatedPermissionClassification, or the result of cls(response)
+        :rtype: ~applications.models.MicrosoftGraphDelegatedPermissionClassification
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDelegatedPermissionClassification"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.get_delegated_permission_classification.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'servicePrincipal-id': self._serialize.url("service_principal_id", service_principal_id, 'str'),
+            'delegatedPermissionClassification-id': self._serialize.url("delegated_permission_classification_id", delegated_permission_classification_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+        if select is not None:
+            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = self._deserialize('MicrosoftGraphDelegatedPermissionClassification', pipeline_response)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_delegated_permission_classification.metadata = {'url': '/servicePrincipals/{servicePrincipal-id}/delegatedPermissionClassifications/{delegatedPermissionClassification-id}'}  # type: ignore
+
+    def update_delegated_permission_classification(
+        self,
+        service_principal_id,  # type: str
+        delegated_permission_classification_id,  # type: str
+        id=None,  # type: Optional[str]
+        classification=None,  # type: Optional[Union[str, "models.MicrosoftGraphPermissionClassificationType"]]
+        permission_id=None,  # type: Optional[str]
+        permission_name=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Update the navigation property delegatedPermissionClassifications in servicePrincipals.
+
+        Update the navigation property delegatedPermissionClassifications in servicePrincipals.
+
+        :param service_principal_id: key: id of servicePrincipal.
+        :type service_principal_id: str
+        :param delegated_permission_classification_id: key: id of delegatedPermissionClassification.
+        :type delegated_permission_classification_id: str
+        :param id: Read-only.
+        :type id: str
+        :param classification:
+        :type classification: str or ~applications.models.MicrosoftGraphPermissionClassificationType
+        :param permission_id:
+        :type permission_id: str
+        :param permission_name:
+        :type permission_name: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphDelegatedPermissionClassification(id=id, classification=classification, permission_id=permission_id, permission_name=permission_name)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.update_delegated_permission_classification.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'servicePrincipal-id': self._serialize.url("service_principal_id", service_principal_id, 'str'),
+            'delegatedPermissionClassification-id': self._serialize.url("delegated_permission_classification_id", delegated_permission_classification_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'MicrosoftGraphDelegatedPermissionClassification')
+        body_content_kwargs['content'] = body_content
+        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    update_delegated_permission_classification.metadata = {'url': '/servicePrincipals/{servicePrincipal-id}/delegatedPermissionClassifications/{delegatedPermissionClassification-id}'}  # type: ignore
+
+    def delete_delegated_permission_classification(
+        self,
+        service_principal_id,  # type: str
+        delegated_permission_classification_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property delegatedPermissionClassifications for servicePrincipals.
+
+        Delete navigation property delegatedPermissionClassifications for servicePrincipals.
+
+        :param service_principal_id: key: id of servicePrincipal.
+        :type service_principal_id: str
+        :param delegated_permission_classification_id: key: id of delegatedPermissionClassification.
+        :type delegated_permission_classification_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_delegated_permission_classification.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'servicePrincipal-id': self._serialize.url("service_principal_id", service_principal_id, 'str'),
+            'delegatedPermissionClassification-id': self._serialize.url("delegated_permission_classification_id", delegated_permission_classification_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_delegated_permission_classification.metadata = {'url': '/servicePrincipals/{servicePrincipal-id}/delegatedPermissionClassifications/{delegatedPermissionClassification-id}'}  # type: ignore
+
     def list_endpoint(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum45"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum46"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum49"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum50"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1388,9 +1758,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum45]
+        :type orderby: list[str or ~applications.models.Enum49]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum46]
+        :type select: list[str or ~applications.models.Enum50]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1557,7 +1927,7 @@ class ServicePrincipalOperations(object):
         self,
         service_principal_id,  # type: str
         endpoint_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum47"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum51"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1571,7 +1941,7 @@ class ServicePrincipalOperations(object):
         :param endpoint_id: key: id of endpoint.
         :type endpoint_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum47]
+        :type select: list[str or ~applications.models.Enum51]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1769,9 +2139,9 @@ class ServicePrincipalOperations(object):
     def list_home_realm_discovery_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum48"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum49"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum50"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum52"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum53"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum54"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfHomeRealmDiscoveryPolicy0"]
@@ -1782,11 +2152,11 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum48]
+        :type orderby: list[str or ~applications.models.Enum52]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum49]
+        :type select: list[str or ~applications.models.Enum53]
         :param expand: Expand related entities.
-        :type expand: list[str or ~applications.models.Enum50]
+        :type expand: list[str or ~applications.models.Enum54]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfHomeRealmDiscoveryPolicy0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfHomeRealmDiscoveryPolicy0]
@@ -1864,7 +2234,7 @@ class ServicePrincipalOperations(object):
     def list_ref_home_realm_discovery_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum51"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum55"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfHomeRealmDiscoveryPolicy0"]
@@ -1875,7 +2245,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum51]
+        :type orderby: list[str or ~applications.models.Enum55]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfHomeRealmDiscoveryPolicy0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfHomeRealmDiscoveryPolicy0]
@@ -2012,8 +2382,8 @@ class ServicePrincipalOperations(object):
     def list_member_of(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum52"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum53"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum56"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum57"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2025,9 +2395,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum52]
+        :type orderby: list[str or ~applications.models.Enum56]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum53]
+        :type select: list[str or ~applications.models.Enum57]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2107,7 +2477,7 @@ class ServicePrincipalOperations(object):
     def list_ref_member_of(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum54"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum58"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject1"]
@@ -2118,7 +2488,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum54]
+        :type orderby: list[str or ~applications.models.Enum58]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject1 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfDirectoryObject1]
@@ -2830,8 +3200,8 @@ class ServicePrincipalOperations(object):
     def list_oauth2_permission_grant(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum55"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum56"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum59"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum60"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -2843,9 +3213,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum55]
+        :type orderby: list[str or ~applications.models.Enum59]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum56]
+        :type select: list[str or ~applications.models.Enum60]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -2925,7 +3295,7 @@ class ServicePrincipalOperations(object):
     def list_ref_oauth2_permission_grant(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum57"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum61"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfOAuth2PermissionGrant"]
@@ -2936,7 +3306,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum57]
+        :type orderby: list[str or ~applications.models.Enum61]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfOAuth2PermissionGrant or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfOAuth2PermissionGrant]
@@ -3073,8 +3443,8 @@ class ServicePrincipalOperations(object):
     def list_owned_object(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum58"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum59"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum62"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum63"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3086,9 +3456,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum58]
+        :type orderby: list[str or ~applications.models.Enum62]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum59]
+        :type select: list[str or ~applications.models.Enum63]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3168,7 +3538,7 @@ class ServicePrincipalOperations(object):
     def list_ref_owned_object(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum60"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum64"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject2"]
@@ -3179,7 +3549,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum60]
+        :type orderby: list[str or ~applications.models.Enum64]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject2 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfDirectoryObject2]
@@ -3316,8 +3686,8 @@ class ServicePrincipalOperations(object):
     def list_owner(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum61"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum62"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum65"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum66"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -3329,9 +3699,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum61]
+        :type orderby: list[str or ~applications.models.Enum65]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum62]
+        :type select: list[str or ~applications.models.Enum66]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -3411,7 +3781,7 @@ class ServicePrincipalOperations(object):
     def list_ref_owner(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum63"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject3"]
@@ -3422,7 +3792,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum63]
+        :type orderby: list[str or ~applications.models.Enum67]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject3 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfDirectoryObject3]
@@ -3559,9 +3929,9 @@ class ServicePrincipalOperations(object):
     def list_token_issuance_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum64"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum65"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum66"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum68"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum69"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum70"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfTokenIssuancePolicy0"]
@@ -3572,11 +3942,11 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum64]
+        :type orderby: list[str or ~applications.models.Enum68]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum65]
+        :type select: list[str or ~applications.models.Enum69]
         :param expand: Expand related entities.
-        :type expand: list[str or ~applications.models.Enum66]
+        :type expand: list[str or ~applications.models.Enum70]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfTokenIssuancePolicy0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfTokenIssuancePolicy0]
@@ -3654,7 +4024,7 @@ class ServicePrincipalOperations(object):
     def list_ref_token_issuance_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum67"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum71"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfTokenIssuancePolicy0"]
@@ -3665,7 +4035,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum67]
+        :type orderby: list[str or ~applications.models.Enum71]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfTokenIssuancePolicy0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfTokenIssuancePolicy0]
@@ -3802,9 +4172,9 @@ class ServicePrincipalOperations(object):
     def list_token_lifetime_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum68"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum69"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum70"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum72"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum73"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum74"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfTokenLifetimePolicy0"]
@@ -3815,11 +4185,11 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum68]
+        :type orderby: list[str or ~applications.models.Enum72]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum69]
+        :type select: list[str or ~applications.models.Enum73]
         :param expand: Expand related entities.
-        :type expand: list[str or ~applications.models.Enum70]
+        :type expand: list[str or ~applications.models.Enum74]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfTokenLifetimePolicy0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfTokenLifetimePolicy0]
@@ -3897,7 +4267,7 @@ class ServicePrincipalOperations(object):
     def list_ref_token_lifetime_policy(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum71"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum75"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfTokenLifetimePolicy0"]
@@ -3908,7 +4278,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum71]
+        :type orderby: list[str or ~applications.models.Enum75]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfTokenLifetimePolicy0 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfTokenLifetimePolicy0]
@@ -4045,8 +4415,8 @@ class ServicePrincipalOperations(object):
     def list_transitive_member_of(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum72"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum73"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum76"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum77"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -4058,9 +4428,9 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum72]
+        :type orderby: list[str or ~applications.models.Enum76]
         :param select: Select properties to be returned.
-        :type select: list[str or ~applications.models.Enum73]
+        :type select: list[str or ~applications.models.Enum77]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -4140,7 +4510,7 @@ class ServicePrincipalOperations(object):
     def list_ref_transitive_member_of(
         self,
         service_principal_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum74"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum78"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfDirectoryObject4"]
@@ -4151,7 +4521,7 @@ class ServicePrincipalOperations(object):
         :param service_principal_id: key: id of servicePrincipal.
         :type service_principal_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~applications.models.Enum74]
+        :type orderby: list[str or ~applications.models.Enum78]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfDirectoryObject4 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~applications.models.CollectionOfLinksOfDirectoryObject4]

@@ -49,8 +49,8 @@ class UserOperations(object):
     def get_drive(
         self,
         user_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum180"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum181"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum182"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum183"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDrive"
@@ -61,9 +61,9 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum180]
+        :type select: list[str or ~files.models.Enum182]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum181]
+        :type expand: list[str or ~files.models.Enum183]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDrive, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphDrive
@@ -452,9 +452,9 @@ class UserOperations(object):
     def list_drive(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum182"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum183"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum184"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum184"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum185"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum186"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfDrive1"]
@@ -465,11 +465,11 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~files.models.Enum182]
+        :type orderby: list[str or ~files.models.Enum184]
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum183]
+        :type select: list[str or ~files.models.Enum185]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum184]
+        :type expand: list[str or ~files.models.Enum186]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfDrive1 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~files.models.CollectionOfDrive1]
@@ -836,8 +836,8 @@ class UserOperations(object):
         self,
         user_id,  # type: str
         drive_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum185"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum186"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum187"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum188"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphDrive"
@@ -850,9 +850,9 @@ class UserOperations(object):
         :param drive_id: key: id of drive.
         :type drive_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~files.models.Enum185]
+        :type select: list[str or ~files.models.Enum187]
         :param expand: Expand related entities.
-        :type expand: list[str or ~files.models.Enum186]
+        :type expand: list[str or ~files.models.Enum188]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphDrive, or the result of cls(response)
         :rtype: ~files.models.MicrosoftGraphDrive

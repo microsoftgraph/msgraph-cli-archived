@@ -10,12 +10,21 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from msgraph.cli.core.commands.parameters import get_enum_type
+from msgraph.cli.core.commands.parameters import (
+    get_three_state_flag,
+    get_enum_type
+)
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_education.action import (
     AddTerm,
     AddCreatedByApplication,
-    AddAddress
+    AddMailingAddress,
+    AddAssignedLicenses,
+    AddAssignedPlans,
+    AddPasswordProfile,
+    AddProvisionedPlans,
+    AddStudent,
+    AddTeacher
 )
 
 
@@ -69,7 +78,7 @@ def load_arguments(self, _):
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddMailingAddress, nargs='*', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -88,8 +97,69 @@ def load_arguments(self, _):
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('education create-user') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='*', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='*', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='*', help='The telephone numbers for the user. Note: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial, and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Read-Only. Supports $filter.')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('middle_name', type=str, help='The middle name of user.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='*', help='passwordProfile')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example, \'en-US\'.')
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']), help=''
+                   '')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='*', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('refresh_tokens_valid_from_date_time', help='')
+        c.argument('residence_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
+        c.argument('student', action=AddStudent, nargs='*', help='educationStudent')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('teacher', action=AddTeacher, nargs='*', help='educationTeacher')
+        c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
+                   'who will be assigned licenses due to a legal requirement to check for availability of services in '
+                   'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
+                   '$filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant\'s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('classes', type=validate_file_or_dict, help='Classes to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('schools', type=validate_file_or_dict, help='Schools to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('education get-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
@@ -150,8 +220,69 @@ def load_arguments(self, _):
         c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('education update-me') as c:
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='*', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='*', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='*', help='The telephone numbers for the user. Note: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial, and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Read-Only. Supports $filter.')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('middle_name', type=str, help='The middle name of user.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='*', help='passwordProfile')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example, \'en-US\'.')
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']), help=''
+                   '')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='*', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('refresh_tokens_valid_from_date_time', help='')
+        c.argument('residence_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
+        c.argument('student', action=AddStudent, nargs='*', help='educationStudent')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('teacher', action=AddTeacher, nargs='*', help='educationTeacher')
+        c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
+                   'who will be assigned licenses due to a legal requirement to check for availability of services in '
+                   'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
+                   '$filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant\'s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('classes', type=validate_file_or_dict, help='Classes to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('schools', type=validate_file_or_dict, help='Schools to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('education update-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
@@ -159,7 +290,7 @@ def load_arguments(self, _):
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
-        c.argument('address', action=AddAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddMailingAddress, nargs='*', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -179,8 +310,69 @@ def load_arguments(self, _):
 
     with self.argument_context('education update-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='*', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='*', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='*', help='The telephone numbers for the user. Note: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial, and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Read-Only. Supports $filter.')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('middle_name', type=str, help='The middle name of user.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='*', help='passwordProfile')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example, \'en-US\'.')
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']), help=''
+                   '')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='*', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('refresh_tokens_valid_from_date_time', help='')
+        c.argument('residence_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
+        c.argument('student', action=AddStudent, nargs='*', help='educationStudent')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('teacher', action=AddTeacher, nargs='*', help='educationTeacher')
+        c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
+                   'who will be assigned licenses due to a legal requirement to check for availability of services in '
+                   'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
+                   '$filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant\'s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('classes', type=validate_file_or_dict, help='Classes to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('schools', type=validate_file_or_dict, help='Schools to which the user belongs. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
 
     with self.argument_context('education delete') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')

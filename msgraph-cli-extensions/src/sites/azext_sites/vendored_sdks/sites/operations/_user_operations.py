@@ -48,9 +48,9 @@ class UserOperations(object):
     def list_followed_site(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum132"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum133"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum134"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum134"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum135"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum136"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfSite2"]
@@ -61,11 +61,11 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum132]
+        :type orderby: list[str or ~sites.models.Enum134]
         :param select: Select properties to be returned.
-        :type select: list[str or ~sites.models.Enum133]
+        :type select: list[str or ~sites.models.Enum135]
         :param expand: Expand related entities.
-        :type expand: list[str or ~sites.models.Enum134]
+        :type expand: list[str or ~sites.models.Enum136]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfSite2 or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfSite2]
@@ -143,7 +143,7 @@ class UserOperations(object):
     def list_ref_followed_site(
         self,
         user_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum135"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum137"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> Iterable["models.CollectionOfLinksOfSite"]
@@ -154,7 +154,7 @@ class UserOperations(object):
         :param user_id: key: id of user.
         :type user_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~sites.models.Enum135]
+        :type orderby: list[str or ~sites.models.Enum137]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: An iterator like instance of either CollectionOfLinksOfSite or the result of cls(response)
         :rtype: ~azure.core.paging.ItemPaged[~sites.models.CollectionOfLinksOfSite]
