@@ -10,6 +10,7 @@ AUTH_RECORD_LOCATION = path.join(Path.home(), '.mg', 'record.txt')
 PROFILE_LOCATION = path.join(Path.home(), '.mg', 'profile.json')
 DEFAULT_CLIENT_ID = '837b13ab-6d14-4dc7-837f-8954cc87fdc0'
 DEFAULT_AUTHORITY = 'https://login.microsoftonline.com'
+DEFAULT_BASE_URL = 'https://graph.microsoft.com/v1.0'
 
 CLI_COMMON_KWARGS = [
     'min_api', 'max_api', 'resource_type', 'operation_group', 'custom_command_type', 'command_type',
@@ -37,7 +38,7 @@ DEFAULT_CLOUDS = {
         'authority': 'https://login.microsoftonline.us'
     },
     'US_GOV_L5': {
-        'endpoint': 'https://dod-graph.microsoft.us',
+        'endpoint': 'https://dod-graph.microsoft.us/v1.0',
         'authority': 'https://login.microsoftonline.us'
     },
     'GERMANY': {
