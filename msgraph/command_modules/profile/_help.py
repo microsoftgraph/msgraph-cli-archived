@@ -18,13 +18,31 @@ parameters:
     type: string
     short-summary:  Cloud's name
     long-summary: The cloud's name is shown in the list of clouds when a user runs mg cloud select.
-  - name: --endpoint
+  - name: --graph-endpoint
     type: string
     short-summary: Cloud's endpoint
-  - name: --authority
+  - name: --azure-ad-endpoint
     short-summary: Cloud's authentication endpoint
 examples:
   - name: Add a new cloud
     text: >
       mg cloud add --name CUSTOM_CLOUD --endpoint https://graph.microsoft.com --authority https://graph.microsoftonline.com
+"""
+
+helps['cloud show-current'] = """
+type: command
+short-summary: Show current cloud
+"""
+
+helps['cloud delete'] = """
+type: command
+short-summary: Deletes a user defined cloud
+parameters:
+  - name: --name
+    type: string
+    short-summary: Cloud to delete
+examples:
+  - name: Delete cloud
+    text: >
+      mg cloud delete --name CUSTOM_CLOUD
 """
