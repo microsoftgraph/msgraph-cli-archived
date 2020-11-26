@@ -46,8 +46,9 @@ def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):
     print(f'Cloud "{name}" added successfully')
 
 
-def delete_cloud():
-    pass
+def delete_cloud(name: str):
+    cloud_manager.delete_cloud(name)
+    print(f'Cloud "{name}" deleted successfully')
 
 
 def _validate(url: str):

@@ -18,15 +18,22 @@ class CloudManager:
 
         write_profile(json.dumps(self.profile))
 
-    def get_current_cloud(self):
+    def get_current_cloud(self) -> dict:
         return self.profile.get('cloud', None)
 
     def update_cloud(self):
 
         pass
 
-    def delete_cloud(self):
-        pass
+    def delete_cloud(self, name: str):
+        result = []
+
+        for cloud in self.profile['user_defined_clouds']:
+            if name not in cloud.keys():
+                result.append(cloud)
+
+        self.profile['user_defined_clouds'] = result
+        write_profile(json.dumps(self.profile))
 
 
 def read_profile() -> dict:
