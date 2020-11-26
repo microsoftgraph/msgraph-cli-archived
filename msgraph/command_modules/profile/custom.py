@@ -3,6 +3,9 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
+'''
+Update the _help.py file after changing the signature or behavior of functions in this file
+'''
 import json
 from knack.prompting import prompt_choice_list
 from msgraph.cli.core.constants import DEFAULT_CLOUDS
