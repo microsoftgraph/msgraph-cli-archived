@@ -30,23 +30,23 @@ EXCLUDED_PARAMS = [
 
 DEFAULT_CLOUDS = {
     'PUBLIC': {
-        'endpoint': 'https://graph.microsoft.com/v1.0',
-        'authority': 'https://login.microsoftonline.com'
+        'graph_endpoint': 'https://graph.microsoft.com/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.com'
     },
     'US_GOV_L4': {
-        'endpoint': 'https://graph.microsoft.us/v1.0',
-        'authority': 'https://login.microsoftonline.us'
+        'graph_endpoint': 'https://graph.microsoft.us/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.us'
     },
     'US_GOV_L5': {
-        'endpoint': 'https://dod-graph.microsoft.us/v1.0',
-        'authority': 'https://login.microsoftonline.us'
+        'graph_endpoint': 'https://dod-graph.microsoft.us/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.us'
     },
     'GERMANY': {
-        'endpoint': 'https://graph.microsoft.de/v1.0',
-        'authority': 'https://login.microsoftonline.de'
+        'graph_endpoint': 'https://graph.microsoft.de/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.de'
     },
     'CHINA': {
-        'endpoint': 'https://microsoftgraph.chinacloudapi.cn/v1.0',
-        'authority': 'https://login.chinacloudapi.cn'
+        'graph_endpoint': 'https://microsoftgraph.chinacloudapi.cn/v1.0',
+        'azure_ad_endpoint': 'https://login.chinacloudapi.cn'
     }
 }

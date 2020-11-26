@@ -45,7 +45,7 @@ class Authentication:
         '''
         profile = read_profile()
         user_cloud = profile.get('cloud', None)
-        cloud_authority = user_cloud.get('authority', None)
+        cloud_authority = user_cloud.get('azure_ad_endpoint', None)
 
         authority = cloud_authority or DEFAULT_AUTHORITY
         client_id = user_client_id or DEFAULT_CLIENT_ID

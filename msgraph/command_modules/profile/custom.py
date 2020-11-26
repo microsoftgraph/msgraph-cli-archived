@@ -24,10 +24,10 @@ def select_cloud():
     print(f'Selected {supported_clouds[selected]} cloud')
 
 
-def add_cloud(name: str, endpoint: str, authority: str):
-    _validate(endpoint)
+def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):
+    _validate(graph_endpoint)
 
-    cloud = {name: {'endpoint': endpoint, 'authority': authority}}
+    cloud = {name: {'graph_endpoint': graph_endpoint, 'azure_ad_endpoint': azure_ad_endpoint}}
 
     profile = read_profile()
 

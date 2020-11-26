@@ -47,7 +47,7 @@ def get_mgmt_service_client(cli_ctx, client_type, **kwargs):
     cloud = read_profile().get('cloud', None)
 
     if cloud:
-        base_url = cloud.get('endpoint')
+        base_url = cloud.get('graph_endpoint')
     else:
         base_url = DEFAULT_BASE_URL
 
