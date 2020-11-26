@@ -30,7 +30,7 @@ def select_cloud():
 
 
 def current_cloud():
-    pass
+    return cloud_manager.get_current_cloud() or DEFAULT_CLOUDS['PUBLIC']
 
 
 def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):

@@ -4,20 +4,22 @@ from msgraph.cli.core.exceptions import CLIException
 
 
 class CloudManager:
+    def __init__(self):
+        self.profile = read_profile()
+
     def create_cloud(self, cloud_name, cloud_endpoints):
         entry = {cloud_name: cloud_endpoints}
-        profile = read_profile()
 
         try:
-            user_defined_clouds = profile['user_defined_clouds']
+            user_defined_clouds = self.profile['user_defined_clouds']
             user_defined_clouds.append(entry)
         except KeyError:
-            profile['user_defined_clouds'] = [entry]
+            self.profile['user_defined_clouds'] = [entry]
 
-        write_profile(json.dumps(profile))
+        write_profile(json.dumps(self.profile))
 
     def get_current_cloud(self):
-        pass
+        return self.profile.get('cloud', None)
 
     def update_cloud(self):
 
