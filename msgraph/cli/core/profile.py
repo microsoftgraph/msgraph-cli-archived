@@ -3,6 +3,30 @@ from msgraph.cli.core.constants import PROFILE_LOCATION
 from msgraph.cli.core.exceptions import CLIException
 
 
+class CloudManager:
+    def create_cloud(self, cloud_name, cloud_endpoints):
+        entry = {cloud_name: cloud_endpoints}
+        profile = read_profile()
+
+        try:
+            user_defined_clouds = profile['user_defined_clouds']
+            user_defined_clouds.append(entry)
+        except KeyError:
+            profile['user_defined_clouds'] = [entry]
+
+        write_profile(json.dumps(profile))
+
+    def get_current_cloud(self):
+        pass
+
+    def update_cloud(self):
+
+        pass
+
+    def delete_cloud(self):
+        pass
+
+
 def read_profile() -> dict:
     result = None
 

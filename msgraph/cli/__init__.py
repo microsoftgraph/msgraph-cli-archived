@@ -3,4 +3,4 @@
 # Licensed under the MIT License.
 # ------------------------------------
 
-from .core.profile import read_profile, write_profile
+from .core.profile import CloudManager, read_profile, write_profile

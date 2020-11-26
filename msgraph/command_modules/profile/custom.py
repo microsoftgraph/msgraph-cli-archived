@@ -9,7 +9,9 @@ Update the _help.py file after changing the signature or behavior of functions i
 import json
 from knack.prompting import prompt_choice_list
 from msgraph.cli.core.constants import DEFAULT_CLOUDS
-from msgraph.cli import read_profile, write_profile
+from msgraph.cli import CloudManager, read_profile, write_profile
+
+cloud_manager = CloudManager()
 
 
 def select_cloud():
@@ -22,26 +24,30 @@ def select_cloud():
 
     selected = prompt_choice_list('Select a cloud', supported_clouds)
     profile['cloud'] = DEFAULT_CLOUDS.get(supported_clouds[selected])
-    write_profile(json.dumps(profile))
 
+    write_profile(json.dumps(profile))
     print(f'Selected {supported_clouds[selected]} cloud')
+
+
+def current_cloud():
+    pass
 
 
 def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):
     _validate(graph_endpoint)
 
-    cloud = {name: {'graph_endpoint': graph_endpoint, 'azure_ad_endpoint': azure_ad_endpoint}}
+    properties = {
+        'name': name,
+        'graph_endpoint': graph_endpoint,
+        'azure_ad_endpoint': azure_ad_endpoint
+    }
 
-    profile = read_profile()
-
-    try:
-        user_defined_clouds = profile['user_defined_clouds']
-        user_defined_clouds.append(cloud)
-    except KeyError:
-        profile['user_defined_clouds'] = [cloud]
-
-    write_profile(json.dumps(profile))
+    cloud_manager.create_cloud(name, properties)
     print(f'Cloud "{name}" added successfully')
+
+
+def delete_cloud():
+    pass
 
 
 def _validate(url: str):
