@@ -12,9 +12,9 @@ from msgraph.cli.core.profile import read_profile
 
 
 class Authentication:
-    def login(self, scopes: [str], client_id=None) -> bool:
+    def login(self, scopes: [str], client_id=None, tenant_id=None) -> bool:
         try:
-            credential = self.get_credential(user_client_id=client_id)
+            credential = self.get_credential(user_client_id=client_id, tenant_id=tenant_id)
             auth_record = credential.authenticate(scopes=scopes)
 
             if auth_record is None:
@@ -36,7 +36,10 @@ class Authentication:
         # By deleting the authentication record, we logout the user
         self._delete_auth_record()
 
-    def get_credential(self, auth_record=None, user_client_id=None) -> InteractiveBrowserCredential:
+    def get_credential(self,
+                       auth_record=None,
+                       user_client_id=None,
+                       tenant_id=None) -> InteractiveBrowserCredential:
         '''
         Raises
         ------
@@ -63,6 +66,7 @@ class Authentication:
         return InteractiveBrowserCredential(
             authority=authority,
             client_id=client_id,
+            tenant_id=tenant_id,
             enable_persistent_cache=True,
             allow_unencrypted_cache=False,
         )
