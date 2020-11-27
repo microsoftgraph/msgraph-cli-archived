@@ -8,7 +8,7 @@ Update the _help.py file after changing the signature or behavior of functions i
 '''
 from knack.prompting import prompt_choice_list
 from msgraph.cli.core.constants import DEFAULT_CLOUDS
-from msgraph.cli import CloudManager
+from ._cloud_manager import CloudManager
 
 cloud_manager = CloudManager()
 
