@@ -6,27 +6,32 @@
 '''
 Update the _help.py file after changing the signature or behavior of functions in this file
 '''
-import json
 from knack.prompting import prompt_choice_list
 from msgraph.cli.core.constants import DEFAULT_CLOUDS
-from msgraph.cli import CloudManager, read_profile, write_profile
+from msgraph.cli import CloudManager
 
 cloud_manager = CloudManager()
 
 
 def select_cloud():
-    profile = read_profile()
-    user_defined_clouds = profile.get('user_defined_clouds', {})
+    supported_clouds = cloud_manager.get_clouds()
+    formatted = []
 
-    for cloud in user_defined_clouds:
-        DEFAULT_CLOUDS.update(cloud)
-    supported_clouds = list(DEFAULT_CLOUDS.keys())
+    for cloud_name in supported_clouds:
+        cloud = supported_clouds[cloud_name]
+        formatted.append({
+            'name':
+            cloud.get('name'),
+            'desc':
+            f"""Graph Endpoint: {cloud.get('graph_endpoint')} - Azure AD Endpoint: {cloud.get('azure_ad_endpoint')}
+            """
+        })
 
-    selected = prompt_choice_list('Select a cloud', supported_clouds)
-    profile['cloud'] = DEFAULT_CLOUDS.get(supported_clouds[selected])
+    selected = prompt_choice_list('Select a cloud \n', formatted)
+    name = formatted[selected].get('name')
 
-    write_profile(json.dumps(profile))
-    print(f'Selected {supported_clouds[selected]} cloud')
+    cloud_manager.set_current_cloud(name)
+    print(f'{name} cloud selected')
 
 
 def current_cloud():

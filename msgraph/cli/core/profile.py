@@ -1,11 +1,19 @@
 import json
-from msgraph.cli.core.constants import PROFILE_LOCATION
+from msgraph.cli.core.constants import PROFILE_LOCATION, DEFAULT_CLOUDS
 from msgraph.cli.core.exceptions import CLIException
 
 
 class CloudManager:
     def __init__(self):
         self.profile = read_profile()
+
+    def get_clouds(self) -> dict:
+        user_defined_clouds = self.profile.get('user_defined_clouds', {})
+        supported_clouds = DEFAULT_CLOUDS
+
+        for cloud in user_defined_clouds:
+            supported_clouds.update(cloud)
+        return supported_clouds
 
     def create_cloud(self, cloud_name, cloud_endpoints):
         entry = {cloud_name: cloud_endpoints}
@@ -16,7 +24,7 @@ class CloudManager:
         except KeyError:
             self.profile['user_defined_clouds'] = [entry]
 
-        write_profile(json.dumps(self.profile))
+        write_profile(self.profile)
 
     def get_current_cloud(self) -> dict:
         return self.profile.get('cloud', None)
@@ -33,7 +41,11 @@ class CloudManager:
                 result.append(cloud)
 
         self.profile['user_defined_clouds'] = result
-        write_profile(json.dumps(self.profile))
+        write_profile(self.profile)
+
+    def set_current_cloud(self, name: str):
+        self.profile['cloud'] = self.get_clouds().get(name)
+        write_profile(self.profile)
 
 
 def read_profile() -> dict:
@@ -49,9 +61,9 @@ def read_profile() -> dict:
         return {}
 
 
-def write_profile(profile: str):
+def write_profile(profile: dict):
     try:
         with open(PROFILE_LOCATION, 'w') as file:
-            file.write(profile)
+            file.write(json.dumps(profile))
     except IOError as ex:
         raise CLIException('Selected cloud was not set, CLI will use the PublicCLoud') from ex
