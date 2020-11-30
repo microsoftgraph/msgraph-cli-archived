@@ -13,6 +13,28 @@ from ._cloud_manager import CloudManager
 cloud_manager = CloudManager()
 
 
+def current_cloud():
+    return cloud_manager.get_current_cloud() or DEFAULT_CLOUDS['PUBLIC']
+
+
+def delete_cloud(name: str):
+    cloud_manager.delete_cloud(name)
+    print(f'Cloud "{name}" deleted successfully')
+
+
+def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):
+    _validate(graph_endpoint)
+
+    properties = {
+        'name': name,
+        'graph_endpoint': graph_endpoint,
+        'azure_ad_endpoint': azure_ad_endpoint
+    }
+
+    cloud_manager.create_cloud(name, properties)
+    print(f'Cloud "{name}" added successfully')
+
+
 def select_cloud():
     supported_clouds = cloud_manager.get_clouds()
     formatted = []
@@ -34,26 +56,24 @@ def select_cloud():
     print(f'{name} cloud selected')
 
 
-def current_cloud():
-    return cloud_manager.get_current_cloud() or DEFAULT_CLOUDS['PUBLIC']
+def update_cloud(cloud: str, name=None, graph_endpoint=None, azure_ad_endpoint=None):
 
+    update_props = {}
 
-def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):
-    _validate(graph_endpoint)
+    if name:
+        update_props.update({'name': name})
+    if graph_endpoint:
+        _validate(graph_endpoint)
+        update_props.update({'graph_endpoint': graph_endpoint})
+    if azure_ad_endpoint:
+        update_props.update({'azure_ad_endpoint': azure_ad_endpoint})
 
-    properties = {
-        'name': name,
-        'graph_endpoint': graph_endpoint,
-        'azure_ad_endpoint': azure_ad_endpoint
-    }
+    updated = cloud_manager.update_cloud(cloud, update_props)
 
-    cloud_manager.create_cloud(name, properties)
-    print(f'Cloud "{name}" added successfully')
-
-
-def delete_cloud(name: str):
-    cloud_manager.delete_cloud(name)
-    print(f'Cloud "{name}" deleted successfully')
+    if updated:
+        print(f'{cloud} updated successfully')
+    else:
+        print(f'{cloud} does not exist')
 
 
 def _validate(url: str):

@@ -23,6 +23,7 @@ class ProfileCommandsLoader(AzCommandsLoader):
             group.command('select', 'select_cloud')
             group.command('add', 'add_cloud')
             group.command('show-current', 'current_cloud')
+            group.command('update', 'update_cloud')
             group.command('delete', 'delete_cloud')
 
         return self.command_table
