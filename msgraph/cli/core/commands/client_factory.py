@@ -43,13 +43,24 @@ def get_mgmt_service_client(cli_ctx, client_type, **kwargs):
     credential = auth.get_credential(auth_record=record)
     graph_session = GraphSession(credential=credential)
 
-    base_url = None
-    cloud = read_profile().get('cloud', None)
-
-    if cloud:
-        base_url = cloud.get('graph_endpoint')
-    else:
-        base_url = DEFAULT_BASE_URL
-
+    base_url = _get_base_url()
     client = client_type({}, session=graph_session, base_url=base_url)
     return client
+
+
+def _get_base_url():
+    return _get_endpoint() + '/' + _get_version()
+
+
+def _get_endpoint():
+    result = None
+    cloud = read_profile().get('cloud', DEFAULT_BASE_URL)
+
+    if cloud:
+        return cloud.get('graph_endpoint')
+
+    return cloud
+
+
+def _get_version():
+    return read_profile.get(version, 'v1.0')
