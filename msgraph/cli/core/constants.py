@@ -51,7 +51,7 @@ DEFAULT_CLOUDS = {
     },
     'CHINA': {
         'name': 'CHINA',
-        'graph_endpoint': 'https://microsoftgraph.chinacloudapi.cn,
+        'graph_endpoint': 'https://microsoftgraph.chinacloudapi.cn',
         'azure_ad_endpoint': 'https://login.chinacloudapi.cn'
     }
 }

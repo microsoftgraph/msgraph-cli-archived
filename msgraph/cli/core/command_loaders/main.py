@@ -11,7 +11,14 @@ from knack.arguments import ignore_type
 from knack import CLICommandsLoader
 
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
-from msgraph.cli.core.v1_0_installed_extensions import installed_extensions
+from msgraph.cli.core.profile import read_profile
+
+version = read_profile().get('version', 'v1.0')
+
+if version == 'v1.0':
+    from msgraph.cli.core.v1_0_installed_extensions import installed_extensions
+else:
+    from msgraph.cli.core.beta_installed_extensions import installed_extensions
 
 
 class MainCommandsLoader(CLICommandsLoader):

@@ -6,7 +6,6 @@
 from knack import CLI
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
-from msgraph.cli.core.installed_extensions import installed_extensions
 from msgraph.cli.core.commands import GraphCommandGroup, GraphCliCommand
 from msgraph.cli.core.commands._util import get_arg_list
 from msgraph.cli.core.commands.client_factory import resolve_client_arg_name
