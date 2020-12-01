@@ -6,9 +6,14 @@ import subprocess
 import sys
 from os import path
 
-path_to_extensions = path.join(os.getcwd(), os.pardir, 'msgraph-cli-extensions', 'src')
+VERSION = 'v1_0'
+
+if len(sys.argv) > 1 and sys.argv[1] == 'beta':
+    VERSION = 'beta'
+
+path_to_extensions = path.join(os.getcwd(), os.pardir, 'msgraph-cli-extensions', f'{VERSION}')
 path_to_manifest = path.join(os.getcwd(), os.pardir, 'msgraph', 'cli', 'core',
-                             'installed_extensions.py')
+                             f'{VERSION}_installed_extensions.py')
 
 
 def install_extension(extensions_directory=path_to_extensions):

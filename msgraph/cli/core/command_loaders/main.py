@@ -3,7 +3,6 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-
 import pkgutil
 from knack.cli import logger
 from importlib import import_module
@@ -12,7 +11,7 @@ from knack.arguments import ignore_type
 from knack import CLICommandsLoader
 
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
-from msgraph.cli.core.installed_extensions import installed_extensions
+from msgraph.cli.core.v1_0_installed_extensions import installed_extensions
 
 
 class MainCommandsLoader(CLICommandsLoader):
