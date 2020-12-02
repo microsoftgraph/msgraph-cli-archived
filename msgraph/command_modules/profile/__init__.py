@@ -28,7 +28,7 @@ class ProfileCommandsLoader(AzCommandsLoader):
 
         with self.command_group('graph-version', command_type) as group:
             group.command('select', 'select_version')
-            group.command('show', 'show_version')
+            group.command('show-current', 'show_version')
 
         return self.command_table
 

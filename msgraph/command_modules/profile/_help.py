@@ -4,6 +4,15 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 from knack.help_files import helps
+helps['graph-version select'] = """
+type: command
+short-summary: Select a graph-version from supported versions.
+"""
+
+helps['graph-version show-current'] = """
+type: command
+short-summary: Show current graph-version
+"""
 
 helps['cloud select'] = """
 type: command
