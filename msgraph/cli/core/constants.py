@@ -7,7 +7,10 @@ from pathlib import Path
 from os import path
 
 AUTH_RECORD_LOCATION = path.join(Path.home(), '.mg', 'record.txt')
-CLIENT_ID = 'f7218512-c727-4138-9fb9-a0fe2500650c'
+PROFILE_LOCATION = path.join(Path.home(), '.mg', 'profile.json')
+DEFAULT_CLIENT_ID = '837b13ab-6d14-4dc7-837f-8954cc87fdc0'
+DEFAULT_AUTHORITY = 'https://login.microsoftonline.com'
+DEFAULT_BASE_URL = 'https://graph.microsoft.com/v1.0'
 
 CLI_COMMON_KWARGS = [
     'min_api', 'max_api', 'resource_type', 'operation_group', 'custom_command_type', 'command_type',
@@ -24,3 +27,31 @@ EXCLUDED_PARAMS = [
     'self', 'raw', 'polling', 'custom_headers', 'operation_config', 'content_version', 'kwargs',
     'client', 'no_wait'
 ]
+
+DEFAULT_CLOUDS = {
+    'PUBLIC': {
+        'name': 'PUBLIC',
+        'graph_endpoint': 'https://graph.microsoft.com/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.com'
+    },
+    'US_GOV_L4': {
+        'name': 'US_GOV_L4',
+        'graph_endpoint': 'https://graph.microsoft.us/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.us'
+    },
+    'US_GOV_L5': {
+        'name': 'US_GOV_L5',
+        'graph_endpoint': 'https://dod-graph.microsoft.us/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.us'
+    },
+    'GERMANY': {
+        'name': 'GERMANY',
+        'graph_endpoint': 'https://graph.microsoft.de/v1.0',
+        'azure_ad_endpoint': 'https://login.microsoftonline.de'
+    },
+    'CHINA': {
+        'name': 'CHINA',
+        'graph_endpoint': 'https://microsoftgraph.chinacloudapi.cn/v1.0',
+        'azure_ad_endpoint': 'https://login.chinacloudapi.cn'
+    }
+}
