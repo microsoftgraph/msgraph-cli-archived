@@ -10,6 +10,9 @@ from msgraph.cli.core.exceptions import CLIError
 
 
 class CloudManager:
+    '''This class adds support for managing MicrosoftGraph and user defined clouds
+    List of supported Microsoft Graph clouds: https://docs.microsoft.com/en-us/graph/deployments
+    '''
     def __init__(self):
         self.profile = read_profile()
 
