@@ -40,3 +40,11 @@ def cf_communication_call(cli_ctx, *_):
 
 def cf_communication_call_participant(cli_ctx, *_):
     return cf_cloudcommunications_beta_cl(cli_ctx).communication_call_participant
+
+
+def cf_communication_online_meeting(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).communication_online_meeting
+
+
+def cf_user(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).user

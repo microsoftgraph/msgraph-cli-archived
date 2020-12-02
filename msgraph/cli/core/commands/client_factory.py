@@ -63,4 +63,4 @@ def _get_endpoint():
 
 
 def _get_version():
-    return read_profile.get(version, 'v1.0')
+    return read_profile().get('version', 'v1.0')

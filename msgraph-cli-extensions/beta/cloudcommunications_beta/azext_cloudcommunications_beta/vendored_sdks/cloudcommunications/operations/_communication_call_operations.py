@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING
 import warnings
 
 from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -17,7 +18,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -47,27 +48,27 @@ class CommunicationCallOperations(object):
     def list_audio_routing_group(
         self,
         call_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum42"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum43"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum47"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum48"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.CollectionOfAudioRoutingGroup"
+        # type: (...) -> Iterable["models.CollectionOfAudioRoutingGroup"]
         """Get audioRoutingGroups from communications.
 
         Get audioRoutingGroups from communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Enum42]
+        :type orderby: list[str or ~cloud_communications.models.Enum47]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum43]
+        :type select: list[str or ~cloud_communications.models.Enum48]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfAudioRoutingGroup, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfAudioRoutingGroup
+        :return: An iterator like instance of either CollectionOfAudioRoutingGroup or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfAudioRoutingGroup]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAudioRoutingGroup"]
@@ -75,61 +76,77 @@ class CommunicationCallOperations(object):
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_audio_routing_group.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'call-id': self._serialize.url("call_id", call_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_audio_routing_group.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'call-id': self._serialize.url("call_id", call_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfAudioRoutingGroup', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfAudioRoutingGroup', pipeline_response)
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
     list_audio_routing_group.metadata = {'url': '/communications/calls/{call-id}/audioRoutingGroups'}  # type: ignore
 
     def create_audio_routing_group(
         self,
         call_id,  # type: str
         id=None,  # type: Optional[str]
+        receivers=None,  # type: Optional[List[str]]
         routing_mode=None,  # type: Optional[Union[str, "models.MicrosoftGraphRoutingMode"]]
         sources=None,  # type: Optional[List[str]]
-        receivers=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphAudioRoutingGroup"
@@ -137,16 +154,16 @@ class CommunicationCallOperations(object):
 
         Create new navigation property to audioRoutingGroups for communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param id: Read-only.
         :type id: str
+        :param receivers:
+        :type receivers: list[str]
         :param routing_mode:
         :type routing_mode: str or ~cloud_communications.models.MicrosoftGraphRoutingMode
         :param sources:
         :type sources: list[str]
-        :param receivers:
-        :type receivers: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphAudioRoutingGroup, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphAudioRoutingGroup
@@ -156,7 +173,7 @@ class CommunicationCallOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAudioRoutingGroup(id=id, routing_mode=routing_mode, sources=sources, receivers=receivers)
+        _body = models.MicrosoftGraphAudioRoutingGroup(id=id, receivers=receivers, routing_mode=routing_mode, sources=sources)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -201,7 +218,7 @@ class CommunicationCallOperations(object):
         self,
         call_id,  # type: str
         audio_routing_group_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum44"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum49"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -210,12 +227,12 @@ class CommunicationCallOperations(object):
 
         Get audioRoutingGroups from communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
-        :param audio_routing_group_id: key: audioRoutingGroup-id of audioRoutingGroup.
+        :param audio_routing_group_id: key: id of audioRoutingGroup.
         :type audio_routing_group_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum44]
+        :type select: list[str or ~cloud_communications.models.Enum49]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -270,9 +287,9 @@ class CommunicationCallOperations(object):
         call_id,  # type: str
         audio_routing_group_id,  # type: str
         id=None,  # type: Optional[str]
+        receivers=None,  # type: Optional[List[str]]
         routing_mode=None,  # type: Optional[Union[str, "models.MicrosoftGraphRoutingMode"]]
         sources=None,  # type: Optional[List[str]]
-        receivers=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -280,18 +297,18 @@ class CommunicationCallOperations(object):
 
         Update the navigation property audioRoutingGroups in communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
-        :param audio_routing_group_id: key: audioRoutingGroup-id of audioRoutingGroup.
+        :param audio_routing_group_id: key: id of audioRoutingGroup.
         :type audio_routing_group_id: str
         :param id: Read-only.
         :type id: str
+        :param receivers:
+        :type receivers: list[str]
         :param routing_mode:
         :type routing_mode: str or ~cloud_communications.models.MicrosoftGraphRoutingMode
         :param sources:
         :type sources: list[str]
-        :param receivers:
-        :type receivers: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -301,7 +318,7 @@ class CommunicationCallOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAudioRoutingGroup(id=id, routing_mode=routing_mode, sources=sources, receivers=receivers)
+        _body = models.MicrosoftGraphAudioRoutingGroup(id=id, receivers=receivers, routing_mode=routing_mode, sources=sources)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -339,6 +356,65 @@ class CommunicationCallOperations(object):
 
     update_audio_routing_group.metadata = {'url': '/communications/calls/{call-id}/audioRoutingGroups/{audioRoutingGroup-id}'}  # type: ignore
 
+    def delete_audio_routing_group(
+        self,
+        call_id,  # type: str
+        audio_routing_group_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property audioRoutingGroups for communications.
+
+        Delete navigation property audioRoutingGroups for communications.
+
+        :param call_id: key: id of call.
+        :type call_id: str
+        :param audio_routing_group_id: key: id of audioRoutingGroup.
+        :type audio_routing_group_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_audio_routing_group.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'call-id': self._serialize.url("call_id", call_id, 'str'),
+            'audioRoutingGroup-id': self._serialize.url("audio_routing_group_id", audio_routing_group_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_audio_routing_group.metadata = {'url': '/communications/calls/{call-id}/audioRoutingGroups/{audioRoutingGroup-id}'}  # type: ignore
+
     def answer(
         self,
         call_id,  # type: str
@@ -352,7 +428,7 @@ class CommunicationCallOperations(object):
 
         Invoke action answer.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param callback_uri:
         :type callback_uri: str
@@ -412,21 +488,21 @@ class CommunicationCallOperations(object):
         client_context=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphCommsOperation"
+        # type: (...) -> "models.MicrosoftGraphCancelMediaProcessingOperation"
         """Invoke action cancelMediaProcessing.
 
         Invoke action cancelMediaProcessing.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param client_context:
         :type client_context: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCommsOperation, or the result of cls(response)
-        :rtype: ~cloud_communications.models.MicrosoftGraphCommsOperation
+        :return: MicrosoftGraphCancelMediaProcessingOperation, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphCancelMediaProcessingOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCommsOperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCancelMediaProcessingOperation"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -463,7 +539,7 @@ class CommunicationCallOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphCommsOperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphCancelMediaProcessingOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -482,7 +558,7 @@ class CommunicationCallOperations(object):
 
         Invoke action changeScreenSharingRole.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param role:
         :type role: str or ~cloud_communications.models.MicrosoftGraphScreenSharingRole
@@ -542,7 +618,7 @@ class CommunicationCallOperations(object):
 
         Invoke action keepAlive.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
@@ -588,21 +664,21 @@ class CommunicationCallOperations(object):
         client_context=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphCommsOperation"
+        # type: (...) -> "models.MicrosoftGraphMuteParticipantOperation"
         """Invoke action mute.
 
         Invoke action mute.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param client_context:
         :type client_context: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCommsOperation, or the result of cls(response)
-        :rtype: ~cloud_communications.models.MicrosoftGraphCommsOperation
+        :return: MicrosoftGraphMuteParticipantOperation, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphMuteParticipantOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCommsOperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMuteParticipantOperation"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -639,7 +715,7 @@ class CommunicationCallOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphCommsOperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphMuteParticipantOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -650,7 +726,7 @@ class CommunicationCallOperations(object):
     def play_prompt(
         self,
         call_id,  # type: str
-        prompts=None,  # type: Optional[List[object]]
+        prompts=None,  # type: Optional[List[Dict[str, object]]]
         loop=False,  # type: Optional[bool]
         client_context=None,  # type: Optional[str]
         **kwargs  # type: Any
@@ -660,10 +736,10 @@ class CommunicationCallOperations(object):
 
         Invoke action playPrompt.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param prompts:
-        :type prompts: list[object]
+        :type prompts: list[dict[str, object]]
         :param loop:
         :type loop: bool
         :param client_context:
@@ -721,7 +797,7 @@ class CommunicationCallOperations(object):
     def record(
         self,
         call_id,  # type: str
-        prompts=None,  # type: Optional[List[object]]
+        prompts=None,  # type: Optional[List[Dict[str, object]]]
         barge_in_allowed=False,  # type: Optional[bool]
         initial_silence_timeout_in_seconds=None,  # type: Optional[int]
         max_silence_timeout_in_seconds=None,  # type: Optional[int]
@@ -737,10 +813,10 @@ class CommunicationCallOperations(object):
 
         Invoke action record.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param prompts:
-        :type prompts: list[object]
+        :type prompts: list[dict[str, object]]
         :param barge_in_allowed:
         :type barge_in_allowed: bool
         :param initial_silence_timeout_in_seconds:
@@ -810,7 +886,7 @@ class CommunicationCallOperations(object):
     def record_response(
         self,
         call_id,  # type: str
-        prompts=None,  # type: Optional[List[object]]
+        prompts=None,  # type: Optional[List[Dict[str, object]]]
         barge_in_allowed=False,  # type: Optional[bool]
         initial_silence_timeout_in_seconds=None,  # type: Optional[int]
         max_silence_timeout_in_seconds=None,  # type: Optional[int]
@@ -826,10 +902,10 @@ class CommunicationCallOperations(object):
 
         Invoke action recordResponse.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param prompts:
-        :type prompts: list[object]
+        :type prompts: list[dict[str, object]]
         :param barge_in_allowed:
         :type barge_in_allowed: bool
         :param initial_silence_timeout_in_seconds:
@@ -912,7 +988,7 @@ class CommunicationCallOperations(object):
 
         Invoke action redirect.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param targets:
         :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
@@ -984,7 +1060,7 @@ class CommunicationCallOperations(object):
 
         Invoke action reject.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param reason:
         :type reason: str or ~cloud_communications.models.MicrosoftGraphRejectReason
@@ -1042,21 +1118,21 @@ class CommunicationCallOperations(object):
         client_context=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphCommsOperation"
+        # type: (...) -> "models.MicrosoftGraphSubscribeToToneOperation"
         """Invoke action subscribeToTone.
 
         Invoke action subscribeToTone.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param client_context:
         :type client_context: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCommsOperation, or the result of cls(response)
-        :rtype: ~cloud_communications.models.MicrosoftGraphCommsOperation
+        :return: MicrosoftGraphSubscribeToToneOperation, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphSubscribeToToneOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCommsOperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSubscribeToToneOperation"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -1093,7 +1169,7 @@ class CommunicationCallOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphCommsOperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphSubscribeToToneOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1106,12 +1182,12 @@ class CommunicationCallOperations(object):
         call_id,  # type: str
         endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
         replaces_call_id=None,  # type: Optional[str]
-        id=None,  # type: Optional[str]
         display_name=None,  # type: Optional[str]
-        microsoft_graph_identity_id=None,  # type: Optional[str]
+        id=None,  # type: Optional[str]
         microsoft_graph_identity_display_name=None,  # type: Optional[str]
-        id1=None,  # type: Optional[str]
+        microsoft_graph_identity_id=None,  # type: Optional[str]
         display_name1=None,  # type: Optional[str]
+        id1=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1119,34 +1195,34 @@ class CommunicationCallOperations(object):
 
         Invoke action transfer.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param endpoint_type:
         :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
         :param replaces_call_id: Optional. The call which the target identity is currently a part of.
          This call will be dropped once the participant is added.
         :type replaces_call_id: str
-        :param id: Unique identifier for the identity.
-        :type id: str
         :param display_name: The identity's display name. Note that this may not always be available or
          up to date. For example, if a user changes their display name, the API may show the new value
          in a future response, but the items associated with the user won't show up as having changed
          when using delta.
         :type display_name: str
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
+        :param id: Unique identifier for the identity.
+        :type id: str
         :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
          not always be available or up to date. For example, if a user changes their display name, the
          API may show the new value in a future response, but the items associated with the user won't
          show up as having changed when using delta.
         :type microsoft_graph_identity_display_name: str
-        :param id1: Unique identifier for the identity.
-        :type id1: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
         :param display_name1: The identity's display name. Note that this may not always be available
          or up to date. For example, if a user changes their display name, the API may show the new
          value in a future response, but the items associated with the user won't show up as having
          changed when using delta.
         :type display_name1: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1156,7 +1232,7 @@ class CommunicationCallOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema(endpoint_type=endpoint_type, replaces_call_id=replaces_call_id, id_transfer_target_identity_user_id=id, display_name_transfer_target_identity_user_display_name=display_name, id_transfer_target_identity_device_id=microsoft_graph_identity_id, display_name_transfer_target_identity_device_display_name=microsoft_graph_identity_display_name, id_transfer_target_identity_application_id=id1, display_name_transfer_target_identity_application_display_name=display_name1)
+        _body = models.Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema(endpoint_type=endpoint_type, replaces_call_id=replaces_call_id, display_name_transfer_target_identity_user_display_name=display_name, id_transfer_target_identity_user_id=id, display_name_transfer_target_identity_device_display_name=microsoft_graph_identity_display_name, id_transfer_target_identity_device_id=microsoft_graph_identity_id, display_name_transfer_target_identity_application_display_name=display_name1, id_transfer_target_identity_application_id=id1)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1199,21 +1275,21 @@ class CommunicationCallOperations(object):
         client_context=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphCommsOperation"
+        # type: (...) -> "models.MicrosoftGraphUnmuteParticipantOperation"
         """Invoke action unmute.
 
         Invoke action unmute.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param client_context:
         :type client_context: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCommsOperation, or the result of cls(response)
-        :rtype: ~cloud_communications.models.MicrosoftGraphCommsOperation
+        :return: MicrosoftGraphUnmuteParticipantOperation, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphUnmuteParticipantOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCommsOperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUnmuteParticipantOperation"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -1250,7 +1326,7 @@ class CommunicationCallOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphCommsOperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphUnmuteParticipantOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1265,23 +1341,23 @@ class CommunicationCallOperations(object):
         client_context=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphCommsOperation"
+        # type: (...) -> "models.MicrosoftGraphUpdateRecordingStatusOperation"
         """Invoke action updateRecordingStatus.
 
         Invoke action updateRecordingStatus.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param status:
         :type status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
         :param client_context:
         :type client_context: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCommsOperation, or the result of cls(response)
-        :rtype: ~cloud_communications.models.MicrosoftGraphCommsOperation
+        :return: MicrosoftGraphUpdateRecordingStatusOperation, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphUpdateRecordingStatusOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCommsOperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUpdateRecordingStatusOperation"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -1318,7 +1394,7 @@ class CommunicationCallOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphCommsOperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphUpdateRecordingStatusOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1329,27 +1405,27 @@ class CommunicationCallOperations(object):
     def list_operation(
         self,
         call_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum50"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum51"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum55"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum56"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.CollectionOfCommsOperation"
+        # type: (...) -> Iterable["models.CollectionOfCommsOperation"]
         """Get operations from communications.
 
         Get operations from communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Enum50]
+        :type orderby: list[str or ~cloud_communications.models.Enum55]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum51]
+        :type select: list[str or ~cloud_communications.models.Enum56]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfCommsOperation, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfCommsOperation
+        :return: An iterator like instance of either CollectionOfCommsOperation or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfCommsOperation]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCommsOperation"]
@@ -1357,63 +1433,79 @@ class CommunicationCallOperations(object):
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_operation.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'call-id': self._serialize.url("call_id", call_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_operation.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'call-id': self._serialize.url("call_id", call_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfCommsOperation', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfCommsOperation', pipeline_response)
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
     list_operation.metadata = {'url': '/communications/calls/{call-id}/operations'}  # type: ignore
 
     def create_operation(
         self,
         call_id,  # type: str
         id=None,  # type: Optional[str]
-        status=None,  # type: Optional[Union[str, "models.MicrosoftGraphOperationStatus"]]
         client_context=None,  # type: Optional[str]
+        status=None,  # type: Optional[Union[str, "models.MicrosoftGraphOperationStatus"]]
         code=None,  # type: Optional[int]
-        subcode=None,  # type: Optional[int]
         message=None,  # type: Optional[str]
+        subcode=None,  # type: Optional[int]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphCommsOperation"
@@ -1421,20 +1513,20 @@ class CommunicationCallOperations(object):
 
         Create new navigation property to operations for communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param id: Read-only.
         :type id: str
-        :param status:
-        :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
         :param client_context: Unique Client Context string. Max limit is 256 chars.
         :type client_context: str
+        :param status:
+        :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
         :param code:
         :type code: int
-        :param subcode:
-        :type subcode: int
         :param message:
         :type message: str
+        :param subcode:
+        :type subcode: int
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphCommsOperation, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphCommsOperation
@@ -1444,7 +1536,7 @@ class CommunicationCallOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCommsOperation(id=id, status=status, client_context=client_context, code=code, subcode=subcode, message=message)
+        _body = models.MicrosoftGraphCommsOperation(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1489,7 +1581,7 @@ class CommunicationCallOperations(object):
         self,
         call_id,  # type: str
         comms_operation_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum52"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum57"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1498,12 +1590,12 @@ class CommunicationCallOperations(object):
 
         Get operations from communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
-        :param comms_operation_id: key: commsOperation-id of commsOperation.
+        :param comms_operation_id: key: id of commsOperation.
         :type comms_operation_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum52]
+        :type select: list[str or ~cloud_communications.models.Enum57]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1558,11 +1650,11 @@ class CommunicationCallOperations(object):
         call_id,  # type: str
         comms_operation_id,  # type: str
         id=None,  # type: Optional[str]
-        status=None,  # type: Optional[Union[str, "models.MicrosoftGraphOperationStatus"]]
         client_context=None,  # type: Optional[str]
+        status=None,  # type: Optional[Union[str, "models.MicrosoftGraphOperationStatus"]]
         code=None,  # type: Optional[int]
-        subcode=None,  # type: Optional[int]
         message=None,  # type: Optional[str]
+        subcode=None,  # type: Optional[int]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1570,22 +1662,22 @@ class CommunicationCallOperations(object):
 
         Update the navigation property operations in communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
-        :param comms_operation_id: key: commsOperation-id of commsOperation.
+        :param comms_operation_id: key: id of commsOperation.
         :type comms_operation_id: str
         :param id: Read-only.
         :type id: str
-        :param status:
-        :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
         :param client_context: Unique Client Context string. Max limit is 256 chars.
         :type client_context: str
+        :param status:
+        :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
         :param code:
         :type code: int
-        :param subcode:
-        :type subcode: int
         :param message:
         :type message: str
+        :param subcode:
+        :type subcode: int
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1595,7 +1687,7 @@ class CommunicationCallOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCommsOperation(id=id, status=status, client_context=client_context, code=code, subcode=subcode, message=message)
+        _body = models.MicrosoftGraphCommsOperation(id=id, client_context=client_context, status=status, code=code, message=message, subcode=subcode)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1633,30 +1725,89 @@ class CommunicationCallOperations(object):
 
     update_operation.metadata = {'url': '/communications/calls/{call-id}/operations/{commsOperation-id}'}  # type: ignore
 
+    def delete_operation(
+        self,
+        call_id,  # type: str
+        comms_operation_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property operations for communications.
+
+        Delete navigation property operations for communications.
+
+        :param call_id: key: id of call.
+        :type call_id: str
+        :param comms_operation_id: key: id of commsOperation.
+        :type comms_operation_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_operation.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'call-id': self._serialize.url("call_id", call_id, 'str'),
+            'commsOperation-id': self._serialize.url("comms_operation_id", comms_operation_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_operation.metadata = {'url': '/communications/calls/{call-id}/operations/{commsOperation-id}'}  # type: ignore
+
     def list_participant(
         self,
         call_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum53"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum54"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum58"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum59"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.CollectionOfParticipant"
+        # type: (...) -> Iterable["models.CollectionOfParticipant"]
         """Get participants from communications.
 
         Get participants from communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Enum53]
+        :type orderby: list[str or ~cloud_communications.models.Enum58]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum54]
+        :type select: list[str or ~cloud_communications.models.Enum59]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfParticipant, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfParticipant
+        :return: An iterator like instance of either CollectionOfParticipant or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfParticipant]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfParticipant"]
@@ -1664,70 +1815,86 @@ class CommunicationCallOperations(object):
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_participant.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'call-id': self._serialize.url("call_id", call_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_participant.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'call-id': self._serialize.url("call_id", call_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfParticipant', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfParticipant', pipeline_response)
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
     list_participant.metadata = {'url': '/communications/calls/{call-id}/participants'}  # type: ignore
 
     def create_participant(
         self,
         call_id,  # type: str
         id=None,  # type: Optional[str]
+        is_in_lobby=None,  # type: Optional[bool]
+        is_muted=None,  # type: Optional[bool]
         media_streams=None,  # type: Optional[List["models.MicrosoftGraphMediaStream"]]
         metadata=None,  # type: Optional[str]
-        is_muted=None,  # type: Optional[bool]
-        is_in_lobby=None,  # type: Optional[bool]
-        recording_status=None,  # type: Optional[Union[str, "models.MicrosoftGraphRecordingStatus"]]
         initiated_by=None,  # type: Optional["models.MicrosoftGraphParticipantInfo"]
         initiator=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
-        region=None,  # type: Optional[str]
-        language_id=None,  # type: Optional[str]
+        recording_status=None,  # type: Optional[Union[str, "models.MicrosoftGraphRecordingStatus"]]
         country_code=None,  # type: Optional[str]
+        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
+        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        language_id=None,  # type: Optional[str]
+        region=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphParticipant"
@@ -1735,36 +1902,37 @@ class CommunicationCallOperations(object):
 
         Create new navigation property to participants for communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param id: Read-only.
         :type id: str
+        :param is_in_lobby: true if the participant is in lobby.
+        :type is_in_lobby: bool
+        :param is_muted: true if the participant is muted (client or server muted).
+        :type is_muted: bool
         :param media_streams: The list of media streams.
         :type media_streams: list[~cloud_communications.models.MicrosoftGraphMediaStream]
         :param metadata:
         :type metadata: str
-        :param is_muted: true if the participant is muted (client or server muted).
-        :type is_muted: bool
-        :param is_in_lobby: true if the participant is in lobby.
-        :type is_in_lobby: bool
-        :param recording_status:
-        :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
         :param initiated_by: participantInfo.
         :type initiated_by: ~cloud_communications.models.MicrosoftGraphParticipantInfo
         :param initiator: identitySet.
         :type initiator: ~cloud_communications.models.MicrosoftGraphIdentitySet
-        :param identity: identitySet.
-        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param recording_status:
+        :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
+        :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
+         physical location at the start of the call. Read-only.
+        :type country_code: str
         :param endpoint_type:
         :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+        :param identity: identitySet.
+        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param language_id: The language culture string. Read-only.
+        :type language_id: str
         :param region: The home region of the participant. This can be a country, a continent, or a
          larger geographic region. This does not change based on the participant's current physical
          location. Read-only.
         :type region: str
-        :param language_id: The language culture string. Read-only.
-        :type language_id: str
-        :param country_code:
-        :type country_code: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphParticipant, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphParticipant
@@ -1774,7 +1942,7 @@ class CommunicationCallOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphParticipant(id=id, media_streams=media_streams, metadata=metadata, is_muted=is_muted, is_in_lobby=is_in_lobby, recording_status=recording_status, initiated_by=initiated_by, initiator=initiator, identity=identity, endpoint_type=endpoint_type, region=region, language_id=language_id, country_code=country_code)
+        _body = models.MicrosoftGraphParticipant(id=id, is_in_lobby=is_in_lobby, is_muted=is_muted, media_streams=media_streams, metadata=metadata, initiated_by=initiated_by, initiator=initiator, recording_status=recording_status, country_code=country_code, endpoint_type=endpoint_type, identity=identity, language_id=language_id, region=region)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1819,7 +1987,7 @@ class CommunicationCallOperations(object):
         self,
         call_id,  # type: str
         participant_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum55"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum60"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1828,12 +1996,12 @@ class CommunicationCallOperations(object):
 
         Get participants from communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
-        :param participant_id: key: participant-id of participant.
+        :param participant_id: key: id of participant.
         :type participant_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum55]
+        :type select: list[str or ~cloud_communications.models.Enum60]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1888,18 +2056,18 @@ class CommunicationCallOperations(object):
         call_id,  # type: str
         participant_id,  # type: str
         id=None,  # type: Optional[str]
+        is_in_lobby=None,  # type: Optional[bool]
+        is_muted=None,  # type: Optional[bool]
         media_streams=None,  # type: Optional[List["models.MicrosoftGraphMediaStream"]]
         metadata=None,  # type: Optional[str]
-        is_muted=None,  # type: Optional[bool]
-        is_in_lobby=None,  # type: Optional[bool]
-        recording_status=None,  # type: Optional[Union[str, "models.MicrosoftGraphRecordingStatus"]]
         initiated_by=None,  # type: Optional["models.MicrosoftGraphParticipantInfo"]
         initiator=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
-        region=None,  # type: Optional[str]
-        language_id=None,  # type: Optional[str]
+        recording_status=None,  # type: Optional[Union[str, "models.MicrosoftGraphRecordingStatus"]]
         country_code=None,  # type: Optional[str]
+        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
+        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        language_id=None,  # type: Optional[str]
+        region=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1907,38 +2075,39 @@ class CommunicationCallOperations(object):
 
         Update the navigation property participants in communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
-        :param participant_id: key: participant-id of participant.
+        :param participant_id: key: id of participant.
         :type participant_id: str
         :param id: Read-only.
         :type id: str
+        :param is_in_lobby: true if the participant is in lobby.
+        :type is_in_lobby: bool
+        :param is_muted: true if the participant is muted (client or server muted).
+        :type is_muted: bool
         :param media_streams: The list of media streams.
         :type media_streams: list[~cloud_communications.models.MicrosoftGraphMediaStream]
         :param metadata:
         :type metadata: str
-        :param is_muted: true if the participant is muted (client or server muted).
-        :type is_muted: bool
-        :param is_in_lobby: true if the participant is in lobby.
-        :type is_in_lobby: bool
-        :param recording_status:
-        :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
         :param initiated_by: participantInfo.
         :type initiated_by: ~cloud_communications.models.MicrosoftGraphParticipantInfo
         :param initiator: identitySet.
         :type initiator: ~cloud_communications.models.MicrosoftGraphIdentitySet
-        :param identity: identitySet.
-        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param recording_status:
+        :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
+        :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
+         physical location at the start of the call. Read-only.
+        :type country_code: str
         :param endpoint_type:
         :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+        :param identity: identitySet.
+        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param language_id: The language culture string. Read-only.
+        :type language_id: str
         :param region: The home region of the participant. This can be a country, a continent, or a
          larger geographic region. This does not change based on the participant's current physical
          location. Read-only.
         :type region: str
-        :param language_id: The language culture string. Read-only.
-        :type language_id: str
-        :param country_code:
-        :type country_code: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1948,7 +2117,7 @@ class CommunicationCallOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphParticipant(id=id, media_streams=media_streams, metadata=metadata, is_muted=is_muted, is_in_lobby=is_in_lobby, recording_status=recording_status, initiated_by=initiated_by, initiator=initiator, identity=identity, endpoint_type=endpoint_type, region=region, language_id=language_id, country_code=country_code)
+        _body = models.MicrosoftGraphParticipant(id=id, is_in_lobby=is_in_lobby, is_muted=is_muted, media_streams=media_streams, metadata=metadata, initiated_by=initiated_by, initiator=initiator, recording_status=recording_status, country_code=country_code, endpoint_type=endpoint_type, identity=identity, language_id=language_id, region=region)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1985,3 +2154,151 @@ class CommunicationCallOperations(object):
             return cls(pipeline_response, None, {})
 
     update_participant.metadata = {'url': '/communications/calls/{call-id}/participants/{participant-id}'}  # type: ignore
+
+    def delete_participant(
+        self,
+        call_id,  # type: str
+        participant_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property participants for communications.
+
+        Delete navigation property participants for communications.
+
+        :param call_id: key: id of call.
+        :type call_id: str
+        :param participant_id: key: id of participant.
+        :type participant_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_participant.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'call-id': self._serialize.url("call_id", call_id, 'str'),
+            'participant-id': self._serialize.url("participant_id", participant_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_participant.metadata = {'url': '/communications/calls/{call-id}/participants/{participant-id}'}  # type: ignore
+
+    def log_teleconference_device_quality(
+        self,
+        call_chain_id=None,  # type: Optional[str]
+        cloud_service_deployment_environment=None,  # type: Optional[str]
+        cloud_service_deployment_id=None,  # type: Optional[str]
+        cloud_service_instance_name=None,  # type: Optional[str]
+        cloud_service_name=None,  # type: Optional[str]
+        device_description=None,  # type: Optional[str]
+        device_name=None,  # type: Optional[str]
+        media_leg_id=None,  # type: Optional[str]
+        media_quality_list=None,  # type: Optional[List["models.MicrosoftGraphTeleconferenceDeviceMediaQuality"]]
+        participant_id=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Invoke action logTeleconferenceDeviceQuality.
+
+        Invoke action logTeleconferenceDeviceQuality.
+
+        :param call_chain_id: A unique identifier for all  the participant calls in a conference or a
+         unique identifier for two participant calls in P2P call. This needs to be copied over from
+         Microsoft.Graph.Call.CallChainId.
+        :type call_chain_id: str
+        :param cloud_service_deployment_environment: A geo-region where the service is deployed, such
+         as ProdNoam.
+        :type cloud_service_deployment_environment: str
+        :param cloud_service_deployment_id: A unique deployment identifier assigned by Azure.
+        :type cloud_service_deployment_id: str
+        :param cloud_service_instance_name: The Azure deployed cloud service instance name, such as
+         FrontEnd_IN_3.
+        :type cloud_service_instance_name: str
+        :param cloud_service_name: The Azure deployed cloud service name, such as contoso.cloudapp.net.
+        :type cloud_service_name: str
+        :param device_description: Any additional description, such as VTC Bldg 30/21.
+        :type device_description: str
+        :param device_name: The user media agent name, such as Cisco SX80.
+        :type device_name: str
+        :param media_leg_id: A unique identifier for a specific media leg of a participant in a
+         conference.  One participant can have multiple media leg identifiers if retargeting happens.
+         CVI partner assigns this value.
+        :type media_leg_id: str
+        :param media_quality_list: The list of media qualities in a media session (call), such as audio
+         quality, video quality, and/or screen sharing quality.
+        :type media_quality_list: list[~cloud_communications.models.MicrosoftGraphTeleconferenceDeviceMediaQuality]
+        :param participant_id: A unique identifier for a specific participant in a conference. The CVI
+         partner needs to copy over Call.MyParticipantId to this property.
+        :type participant_id: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema(call_chain_id=call_chain_id, cloud_service_deployment_environment=cloud_service_deployment_environment, cloud_service_deployment_id=cloud_service_deployment_id, cloud_service_instance_name=cloud_service_instance_name, cloud_service_name=cloud_service_name, device_description=device_description, device_name=device_name, media_leg_id=media_leg_id, media_quality_list=media_quality_list, participant_id=participant_id)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.log_teleconference_device_quality.metadata['url']  # type: ignore
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema')
+        body_content_kwargs['content'] = body_content
+        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    log_teleconference_device_quality.metadata = {'url': '/communications/calls/microsoft.graph.logTeleconferenceDeviceQuality'}  # type: ignore

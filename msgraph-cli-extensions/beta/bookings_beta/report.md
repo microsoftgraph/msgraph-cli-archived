@@ -17,8 +17,8 @@ cancel a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-appointment-id**|string|key: bookingAppointment-id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--cancellation-message**|string||cancellation_message|cancellationMessage|
 
 ### bookings create-appointment
@@ -38,46 +38,49 @@ create-appointment a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--id**|string|Read-only.|id|id|
-|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
 |**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
 |**--customer-name**|string||customer_name|customerName|
-|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
-|**--customer-phone**|string||customer_phone|customerPhone|
 |**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
-|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
-|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
-|**--start**|object|dateTimeTimeZone|start|start|
-|**--end**|object|dateTimeTimeZone|end|end|
+|**--customer-phone**|string||customer_phone|customerPhone|
 |**--duration**|duration||duration|duration|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
-|**--post-buffer**|duration||post_buffer|postBuffer|
-|**--price-type**|choice||price_type|priceType|
-|**--price**|number||price|price|
-|**--service-notes**|string||service_notes|serviceNotes|
-|**--reminders**|array||reminders|reminders|
-|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
-|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--end**|object|dateTimeTimeZone|end|end|
 |**--invoice-amount**|number||invoice_amount|invoiceAmount|
 |**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
 |**--invoice-id**|string||invoice_id|invoiceId|
 |**--invoice-status**|choice||invoice_status|invoiceStatus|
 |**--invoice-url**|string||invoice_url|invoiceUrl|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
+|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
+|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
+|**--post-buffer**|duration||post_buffer|postBuffer|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--price**|number||price|price|
+|**--price-type**|choice||price_type|priceType|
+|**--reminders**|array||reminders|reminders|
+|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
+|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
+|**--service-notes**|string||service_notes|serviceNotes|
+|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--start**|object|dateTimeTimeZone|start|start|
 |**--service-location-address**|object|physicalAddress|address|address|
 |**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--service-location-location-type**|choice||location_type|locationType|
+|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
 |**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
 |**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
 |**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
 
@@ -100,16 +103,16 @@ create-booking-business a bookings.
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
-|**--business-type**|string||business_type|businessType|
 |**--address**|object|physicalAddress|address|address|
-|**--phone**|string||phone|phone|
-|**--email**|string||email|email|
-|**--web-site-url**|string|The URL of the business web site.|web_site_url|webSiteUrl|
-|**--default-currency-iso**|string||default_currency_iso|defaultCurrencyIso|
 |**--business-hours**|array||business_hours|businessHours|
-|**--scheduling-policy**|object|bookingSchedulingPolicy|scheduling_policy|schedulingPolicy|
+|**--business-type**|string||business_type|businessType|
+|**--default-currency-iso**|string||default_currency_iso|defaultCurrencyIso|
+|**--email**|string||email|email|
 |**--is-published**|boolean||is_published|isPublished|
+|**--phone**|string||phone|phone|
 |**--public-url**|string||public_url|publicUrl|
+|**--scheduling-policy**|object|This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.|scheduling_policy|schedulingPolicy|
+|**--web-site-url**|string|The URL of the business web site.|web_site_url|webSiteUrl|
 |**--appointments**|array|All appointments in this business.|appointments|appointments|
 |**--calendar-view**|array|A calendar view of appointments in this business.|calendar_view|calendarView|
 |**--customers**|array|All customers of this business.|customers|customers|
@@ -153,46 +156,49 @@ create-calendar-view a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--id**|string|Read-only.|id|id|
-|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
 |**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
 |**--customer-name**|string||customer_name|customerName|
-|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
-|**--customer-phone**|string||customer_phone|customerPhone|
 |**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
-|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
-|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
-|**--start**|object|dateTimeTimeZone|start|start|
-|**--end**|object|dateTimeTimeZone|end|end|
+|**--customer-phone**|string||customer_phone|customerPhone|
 |**--duration**|duration||duration|duration|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
-|**--post-buffer**|duration||post_buffer|postBuffer|
-|**--price-type**|choice||price_type|priceType|
-|**--price**|number||price|price|
-|**--service-notes**|string||service_notes|serviceNotes|
-|**--reminders**|array||reminders|reminders|
-|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
-|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--end**|object|dateTimeTimeZone|end|end|
 |**--invoice-amount**|number||invoice_amount|invoiceAmount|
 |**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
 |**--invoice-id**|string||invoice_id|invoiceId|
 |**--invoice-status**|choice||invoice_status|invoiceStatus|
 |**--invoice-url**|string||invoice_url|invoiceUrl|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
+|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
+|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
+|**--post-buffer**|duration||post_buffer|postBuffer|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--price**|number||price|price|
+|**--price-type**|choice||price_type|priceType|
+|**--reminders**|array||reminders|reminders|
+|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
+|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
+|**--service-notes**|string||service_notes|serviceNotes|
+|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--start**|object|dateTimeTimeZone|start|start|
 |**--service-location-address**|object|physicalAddress|address|address|
 |**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--service-location-location-type**|choice||location_type|locationType|
+|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
 |**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
 |**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
 |**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
 
@@ -213,7 +219,7 @@ create-customer a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
 |**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
@@ -235,26 +241,28 @@ create-service a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
+|**--additional-information**|string||additional_information|additionalInformation|
 |**--default-duration**|duration||default_duration|defaultDuration|
 |**--default-price**|number||default_price|defaultPrice|
 |**--default-price-type**|choice||default_price_type|defaultPriceType|
 |**--default-reminders**|array|The default reminders set in an appointment of this service.|default_reminders|defaultReminders|
 |**--description**|string||description|description|
 |**--is-hidden-from-customers**|boolean||is_hidden_from_customers|isHiddenFromCustomers|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
 |**--notes**|string||notes|notes|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
 |**--post-buffer**|duration||post_buffer|postBuffer|
-|**--scheduling-policy**|object|bookingSchedulingPolicy|scheduling_policy|schedulingPolicy|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--scheduling-policy**|object|This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.|scheduling_policy|schedulingPolicy|
 |**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
-|**--default-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--default-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--default-location-address**|object|physicalAddress|address|address|
 |**--default-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--default-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--default-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--default-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--default-location-location-type**|choice||location_type|locationType|
+|**--default-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--default-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--default-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
@@ -275,7 +283,7 @@ create-staff-member a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
 |**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
@@ -302,7 +310,7 @@ delete a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-currency-id**|string|key: bookingCurrency-id of bookingCurrency|booking_currency_id|bookingCurrency-id|
+|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
 ### bookings get-appointment
@@ -322,8 +330,8 @@ get-appointment a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-appointment-id**|string|key: bookingAppointment-id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -344,7 +352,7 @@ get-booking-business a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -365,7 +373,7 @@ get-booking-currency a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-currency-id**|string|key: bookingCurrency-id of bookingCurrency|booking_currency_id|bookingCurrency-id|
+|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -386,8 +394,10 @@ get-calendar-view a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-appointment-id**|string|key: bookingAppointment-id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--start**|string|The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00|start|start|
+|**--end**|string|The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00|end|end|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -408,8 +418,8 @@ get-customer a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-customer-id**|string|key: bookingCustomer-id of bookingCustomer|booking_customer_id|bookingCustomer-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-customer-id**|string|key: id of bookingCustomer|booking_customer_id|bookingCustomer-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -430,8 +440,8 @@ get-service a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-service-id**|string|key: bookingService-id of bookingService|booking_service_id|bookingService-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-service-id**|string|key: id of bookingService|booking_service_id|bookingService-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -452,8 +462,8 @@ get-staff-member a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-staff-member-id**|string|key: bookingStaffMember-id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-staff-member-id**|string|key: id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
@@ -474,7 +484,7 @@ list-appointment a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -538,7 +548,9 @@ list-calendar-view a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--start**|string|The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00|start|start|
+|**--end**|string|The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00|end|end|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -560,7 +572,7 @@ list-customer a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -582,7 +594,7 @@ list-service a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -604,7 +616,7 @@ list-staff-member a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
@@ -626,7 +638,7 @@ publish a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 
 ### bookings unpublish
 
@@ -645,7 +657,7 @@ unpublish a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 
 ### bookings update-appointment
 
@@ -664,47 +676,50 @@ update-appointment a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-appointment-id**|string|key: bookingAppointment-id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--id**|string|Read-only.|id|id|
-|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
 |**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
 |**--customer-name**|string||customer_name|customerName|
-|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
-|**--customer-phone**|string||customer_phone|customerPhone|
 |**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
-|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
-|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
-|**--start**|object|dateTimeTimeZone|start|start|
-|**--end**|object|dateTimeTimeZone|end|end|
+|**--customer-phone**|string||customer_phone|customerPhone|
 |**--duration**|duration||duration|duration|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
-|**--post-buffer**|duration||post_buffer|postBuffer|
-|**--price-type**|choice||price_type|priceType|
-|**--price**|number||price|price|
-|**--service-notes**|string||service_notes|serviceNotes|
-|**--reminders**|array||reminders|reminders|
-|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
-|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--end**|object|dateTimeTimeZone|end|end|
 |**--invoice-amount**|number||invoice_amount|invoiceAmount|
 |**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
 |**--invoice-id**|string||invoice_id|invoiceId|
 |**--invoice-status**|choice||invoice_status|invoiceStatus|
 |**--invoice-url**|string||invoice_url|invoiceUrl|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
+|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
+|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
+|**--post-buffer**|duration||post_buffer|postBuffer|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--price**|number||price|price|
+|**--price-type**|choice||price_type|priceType|
+|**--reminders**|array||reminders|reminders|
+|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
+|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
+|**--service-notes**|string||service_notes|serviceNotes|
+|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--start**|object|dateTimeTimeZone|start|start|
 |**--service-location-address**|object|physicalAddress|address|address|
 |**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--service-location-location-type**|choice||location_type|locationType|
+|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
 |**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
 |**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
 |**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
 
@@ -725,19 +740,19 @@ update-booking-business a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
-|**--business-type**|string||business_type|businessType|
 |**--address**|object|physicalAddress|address|address|
-|**--phone**|string||phone|phone|
-|**--email**|string||email|email|
-|**--web-site-url**|string|The URL of the business web site.|web_site_url|webSiteUrl|
-|**--default-currency-iso**|string||default_currency_iso|defaultCurrencyIso|
 |**--business-hours**|array||business_hours|businessHours|
-|**--scheduling-policy**|object|bookingSchedulingPolicy|scheduling_policy|schedulingPolicy|
+|**--business-type**|string||business_type|businessType|
+|**--default-currency-iso**|string||default_currency_iso|defaultCurrencyIso|
+|**--email**|string||email|email|
 |**--is-published**|boolean||is_published|isPublished|
+|**--phone**|string||phone|phone|
 |**--public-url**|string||public_url|publicUrl|
+|**--scheduling-policy**|object|This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.|scheduling_policy|schedulingPolicy|
+|**--web-site-url**|string|The URL of the business web site.|web_site_url|webSiteUrl|
 |**--appointments**|array|All appointments in this business.|appointments|appointments|
 |**--calendar-view**|array|A calendar view of appointments in this business.|calendar_view|calendarView|
 |**--customers**|array|All customers of this business.|customers|customers|
@@ -761,7 +776,7 @@ update-booking-currency a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-currency-id**|string|key: bookingCurrency-id of bookingCurrency|booking_currency_id|bookingCurrency-id|
+|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
 |**--id**|string|Read-only.|id|id|
 |**--symbol**|string||symbol|symbol|
 
@@ -782,47 +797,50 @@ update-calendar-view a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-appointment-id**|string|key: bookingAppointment-id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--id**|string|Read-only.|id|id|
-|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
 |**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
 |**--customer-name**|string||customer_name|customerName|
-|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
-|**--customer-phone**|string||customer_phone|customerPhone|
 |**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
-|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
-|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
-|**--start**|object|dateTimeTimeZone|start|start|
-|**--end**|object|dateTimeTimeZone|end|end|
+|**--customer-phone**|string||customer_phone|customerPhone|
 |**--duration**|duration||duration|duration|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
-|**--post-buffer**|duration||post_buffer|postBuffer|
-|**--price-type**|choice||price_type|priceType|
-|**--price**|number||price|price|
-|**--service-notes**|string||service_notes|serviceNotes|
-|**--reminders**|array||reminders|reminders|
-|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
-|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--end**|object|dateTimeTimeZone|end|end|
 |**--invoice-amount**|number||invoice_amount|invoiceAmount|
 |**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
 |**--invoice-id**|string||invoice_id|invoiceId|
 |**--invoice-status**|choice||invoice_status|invoiceStatus|
 |**--invoice-url**|string||invoice_url|invoiceUrl|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
+|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
+|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
+|**--post-buffer**|duration||post_buffer|postBuffer|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--price**|number||price|price|
+|**--price-type**|choice||price_type|priceType|
+|**--reminders**|array||reminders|reminders|
+|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
+|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
+|**--service-notes**|string||service_notes|serviceNotes|
+|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--start**|object|dateTimeTimeZone|start|start|
 |**--service-location-address**|object|physicalAddress|address|address|
 |**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
+|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--service-location-location-type**|choice||location_type|locationType|
+|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
 |**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
 |**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
 |**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
 |**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
 
@@ -843,8 +861,8 @@ update-customer a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-customer-id**|string|key: bookingCustomer-id of bookingCustomer|booking_customer_id|bookingCustomer-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-customer-id**|string|key: id of bookingCustomer|booking_customer_id|bookingCustomer-id|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
 |**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
@@ -866,27 +884,29 @@ update-service a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-service-id**|string|key: bookingService-id of bookingService|booking_service_id|bookingService-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-service-id**|string|key: id of bookingService|booking_service_id|bookingService-id|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
+|**--additional-information**|string||additional_information|additionalInformation|
 |**--default-duration**|duration||default_duration|defaultDuration|
 |**--default-price**|number||default_price|defaultPrice|
 |**--default-price-type**|choice||default_price_type|defaultPriceType|
 |**--default-reminders**|array|The default reminders set in an appointment of this service.|default_reminders|defaultReminders|
 |**--description**|string||description|description|
 |**--is-hidden-from-customers**|boolean||is_hidden_from_customers|isHiddenFromCustomers|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
 |**--notes**|string||notes|notes|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
 |**--post-buffer**|duration||post_buffer|postBuffer|
-|**--scheduling-policy**|object|bookingSchedulingPolicy|scheduling_policy|schedulingPolicy|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--scheduling-policy**|object|This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.|scheduling_policy|schedulingPolicy|
 |**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
-|**--default-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--default-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--default-location-address**|object|physicalAddress|address|address|
 |**--default-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--default-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--default-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--default-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
 |**--default-location-location-type**|choice||location_type|locationType|
+|**--default-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--default-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--default-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
 
@@ -907,8 +927,8 @@ update-staff-member a bookings.
 #### Parameters
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: bookingBusiness-id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-staff-member-id**|string|key: bookingStaffMember-id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-staff-member-id**|string|key: id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
 |**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|

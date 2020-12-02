@@ -31,20 +31,20 @@ class AddAddress(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'type':
-                d['type'] = v[0]
-            elif kl == 'post-office-box':
-                d['post_office_box'] = v[0]
-            elif kl == 'street':
-                d['street'] = v[0]
-            elif kl == 'city':
+            if kl == 'city':
                 d['city'] = v[0]
-            elif kl == 'state':
-                d['state'] = v[0]
             elif kl == 'country-or-region':
                 d['country_or_region'] = v[0]
             elif kl == 'postal-code':
                 d['postal_code'] = v[0]
+            elif kl == 'post-office-box':
+                d['post_office_box'] = v[0]
+            elif kl == 'state':
+                d['state'] = v[0]
+            elif kl == 'street':
+                d['street'] = v[0]
+            elif kl == 'type':
+                d['type'] = v[0]
         return d
 
 
@@ -89,16 +89,16 @@ class AddSchedulingPolicy(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'time-slot-interval':
-                d['time_slot_interval'] = v[0]
-            elif kl == 'minimum-lead-time':
-                d['minimum_lead_time'] = v[0]
+            if kl == 'allow-staff-selection':
+                d['allow_staff_selection'] = v[0]
             elif kl == 'maximum-advance':
                 d['maximum_advance'] = v[0]
+            elif kl == 'minimum-lead-time':
+                d['minimum_lead_time'] = v[0]
             elif kl == 'send-confirmations-to-owner':
                 d['send_confirmations_to_owner'] = v[0]
-            elif kl == 'allow-staff-selection':
-                d['allow_staff_selection'] = v[0]
+            elif kl == 'time-slot-interval':
+                d['time_slot_interval'] = v[0]
         return d
 
 
@@ -128,10 +128,10 @@ class AddCustomers(argparse._AppendAction):
         return d
 
 
-class AddStart(argparse.Action):
+class AddEnd(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.start = action
+        namespace.end = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -169,12 +169,12 @@ class AddReminders(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'offset':
+            if kl == 'message':
+                d['message'] = v[0]
+            elif kl == 'offset':
                 d['offset'] = v[0]
             elif kl == 'recipients':
                 d['recipients'] = v[0]
-            elif kl == 'message':
-                d['message'] = v[0]
         return d
 
 
@@ -195,16 +195,16 @@ class AddServiceLocationCoordinates(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'altitude':
+            if kl == 'accuracy':
+                d['accuracy'] = v[0]
+            elif kl == 'altitude':
                 d['altitude'] = v[0]
+            elif kl == 'altitude-accuracy':
+                d['altitude_accuracy'] = v[0]
             elif kl == 'latitude':
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
-            elif kl == 'accuracy':
-                d['accuracy'] = v[0]
-            elif kl == 'altitude-accuracy':
-                d['altitude_accuracy'] = v[0]
         return d
 
 
@@ -225,12 +225,12 @@ class AddDefaultReminders(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            if kl == 'offset':
+            if kl == 'message':
+                d['message'] = v[0]
+            elif kl == 'offset':
                 d['offset'] = v[0]
             elif kl == 'recipients':
                 d['recipients'] = v[0]
-            elif kl == 'message':
-                d['message'] = v[0]
         return d
 
 

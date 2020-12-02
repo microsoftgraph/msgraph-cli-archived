@@ -51,23 +51,23 @@ class CommunicationCallParticipantOperations(object):
         client_context=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphCommsOperation"
+        # type: (...) -> "models.MicrosoftGraphMuteParticipantOperation"
         """Invoke action mute.
 
         Invoke action mute.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
-        :param participant_id: key: participant-id of participant.
+        :param participant_id: key: id of participant.
         :type participant_id: str
         :param client_context:
         :type client_context: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphCommsOperation, or the result of cls(response)
-        :rtype: ~cloud_communications.models.MicrosoftGraphCommsOperation
+        :return: MicrosoftGraphMuteParticipantOperation, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphMuteParticipantOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCommsOperation"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMuteParticipantOperation"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
@@ -105,7 +105,7 @@ class CommunicationCallParticipantOperations(object):
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphCommsOperation', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphMuteParticipantOperation', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -125,7 +125,7 @@ class CommunicationCallParticipantOperations(object):
 
         Invoke action invite.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param participants:
         :type participants: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
@@ -193,7 +193,7 @@ class CommunicationCallParticipantOperations(object):
 
         Invoke action muteAll.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param participants:
         :type participants: list[str]

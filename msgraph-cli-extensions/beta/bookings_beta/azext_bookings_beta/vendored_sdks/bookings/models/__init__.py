@@ -28,6 +28,7 @@ try:
     from ._models_py3 import MicrosoftGraphBookingWorkTimeSlot
     from ._models_py3 import MicrosoftGraphDateTimeZone
     from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphLocation
     from ._models_py3 import MicrosoftGraphOutlookGeoCoordinates
     from ._models_py3 import MicrosoftGraphPhysicalAddress
     from ._models_py3 import OdataError
@@ -57,6 +58,7 @@ except (SyntaxError, ImportError):
     from ._models import MicrosoftGraphBookingWorkTimeSlot  # type: ignore
     from ._models import MicrosoftGraphDateTimeZone  # type: ignore
     from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphLocation  # type: ignore
     from ._models import MicrosoftGraphOutlookGeoCoordinates  # type: ignore
     from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
     from ._models import OdataError  # type: ignore
@@ -70,8 +72,6 @@ from ._bookings_enums import (
     Enum14,
     Enum15,
     Enum16,
-    Enum17,
-    Enum18,
     Enum19,
     Enum20,
     Enum21,
@@ -86,9 +86,11 @@ from ._bookings_enums import (
     Enum30,
     Get1ItemsItem,
     Get2ItemsItem,
+    Get4ItemsItem,
     Get5ItemsItem,
     Get6ItemsItem,
     Get7ItemsItem,
+    Get9ItemsItem,
     MicrosoftGraphBookingInvoiceStatus,
     MicrosoftGraphBookingPriceType,
     MicrosoftGraphBookingReminderRecipients,
@@ -121,6 +123,7 @@ __all__ = [
     'MicrosoftGraphBookingWorkTimeSlot',
     'MicrosoftGraphDateTimeZone',
     'MicrosoftGraphEntity',
+    'MicrosoftGraphLocation',
     'MicrosoftGraphOutlookGeoCoordinates',
     'MicrosoftGraphPhysicalAddress',
     'OdataError',
@@ -132,8 +135,6 @@ __all__ = [
     'Enum14',
     'Enum15',
     'Enum16',
-    'Enum17',
-    'Enum18',
     'Enum19',
     'Enum20',
     'Enum21',
@@ -148,9 +149,11 @@ __all__ = [
     'Enum30',
     'Get1ItemsItem',
     'Get2ItemsItem',
+    'Get4ItemsItem',
     'Get5ItemsItem',
     'Get6ItemsItem',
     'Get7ItemsItem',
+    'Get9ItemsItem',
     'MicrosoftGraphBookingInvoiceStatus',
     'MicrosoftGraphBookingPriceType',
     'MicrosoftGraphBookingReminderRecipients',

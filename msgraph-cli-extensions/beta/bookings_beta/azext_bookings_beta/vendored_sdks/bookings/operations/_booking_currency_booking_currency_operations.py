@@ -206,7 +206,7 @@ class BookingCurrencyBookingCurrencyOperations(object):
 
         Get entity from bookingCurrencies by key.
 
-        :param booking_currency_id: key: bookingCurrency-id of bookingCurrency.
+        :param booking_currency_id: key: id of bookingCurrency.
         :type booking_currency_id: str
         :param select: Select properties to be returned.
         :type select: list[str or ~bookings.models.Enum30]
@@ -270,7 +270,7 @@ class BookingCurrencyBookingCurrencyOperations(object):
 
         Update entity in bookingCurrencies.
 
-        :param booking_currency_id: key: bookingCurrency-id of bookingCurrency.
+        :param booking_currency_id: key: id of bookingCurrency.
         :type booking_currency_id: str
         :param id: Read-only.
         :type id: str
@@ -333,7 +333,7 @@ class BookingCurrencyBookingCurrencyOperations(object):
 
         Delete entity from bookingCurrencies.
 
-        :param booking_currency_id: key: bookingCurrency-id of bookingCurrency.
+        :param booking_currency_id: key: id of bookingCurrency.
         :type booking_currency_id: str
         :param if_match: ETag.
         :type if_match: str

@@ -54,7 +54,7 @@ class BookingBusinessOperations:
 
         Get appointments from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param orderby: Order items by property values.
         :type orderby: list[str or ~bookings.models.Enum13]
@@ -140,44 +140,47 @@ class BookingBusinessOperations:
         self,
         booking_business_id: str,
         id: Optional[str] = None,
-        self_service_appointment_id: Optional[str] = None,
+        additional_information: Optional[str] = None,
+        customer_email_address: Optional[str] = None,
         customer_id: Optional[str] = None,
         customer_name: Optional[str] = None,
-        customer_email_address: Optional[str] = None,
-        customer_phone: Optional[str] = None,
         customer_notes: Optional[str] = None,
-        service_id: Optional[str] = None,
-        service_name: Optional[str] = None,
-        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
-        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
+        customer_phone: Optional[str] = None,
         duration: Optional[datetime.timedelta] = None,
-        pre_buffer: Optional[datetime.timedelta] = None,
-        post_buffer: Optional[datetime.timedelta] = None,
-        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
-        price: Optional[float] = None,
-        service_notes: Optional[str] = None,
-        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
-        opt_out_of_customer_email: Optional[bool] = None,
-        staff_member_ids: Optional[List[str]] = None,
+        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_amount: Optional[float] = None,
         invoice_date: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_id: Optional[str] = None,
         invoice_status: Optional[Union[str, "models.MicrosoftGraphBookingInvoiceStatus"]] = None,
         invoice_url: Optional[str] = None,
-        display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
+        is_location_online: Optional[bool] = None,
+        online_meeting_url: Optional[str] = None,
+        opt_out_of_customer_email: Optional[bool] = None,
+        post_buffer: Optional[datetime.timedelta] = None,
+        pre_buffer: Optional[datetime.timedelta] = None,
+        price: Optional[float] = None,
+        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
+        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
+        self_service_appointment_id: Optional[str] = None,
+        service_id: Optional[str] = None,
+        service_name: Optional[str] = None,
+        service_notes: Optional[str] = None,
+        staff_member_ids: Optional[List[str]] = None,
+        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        location_uri: Optional[str] = None,
+        display_name: Optional[str] = None,
+        location_email_address: Optional[str] = None,
         location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
         unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
-        microsoft_graph_location_display_name: Optional[str] = None,
-        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_physical_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         microsoft_graph_outlook_geo_coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        microsoft_graph_location_uri: Optional[str] = None,
+        microsoft_graph_location_display_name: Optional[str] = None,
+        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        microsoft_graph_location_uri: Optional[str] = None,
         microsoft_graph_location_unique_id: Optional[str] = None,
         microsoft_graph_location_unique_id_type_unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
@@ -186,48 +189,26 @@ class BookingBusinessOperations:
 
         Create new navigation property to appointments for bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param id: Read-only.
         :type id: str
-        :param self_service_appointment_id:
-        :type self_service_appointment_id: str
+        :param additional_information:
+        :type additional_information: str
+        :param customer_email_address:
+        :type customer_email_address: str
         :param customer_id: The id of the booking customer associated with this appointment.
         :type customer_id: str
         :param customer_name:
         :type customer_name: str
-        :param customer_email_address:
-        :type customer_email_address: str
-        :param customer_phone:
-        :type customer_phone: str
         :param customer_notes: Notes from the customer associated with this appointment.
         :type customer_notes: str
-        :param service_id: The id of the booking service associated with this appointment.
-        :type service_id: str
-        :param service_name: The name of the booking service associated with this appointment.
-        :type service_name: str
-        :param start: dateTimeTimeZone.
-        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
-        :param end: dateTimeTimeZone.
-        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
+        :param customer_phone:
+        :type customer_phone: str
         :param duration:
         :type duration: ~datetime.timedelta
-        :param pre_buffer:
-        :type pre_buffer: ~datetime.timedelta
-        :param post_buffer:
-        :type post_buffer: ~datetime.timedelta
-        :param price_type:
-        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
-        :param price:
-        :type price: float
-        :param service_notes:
-        :type service_notes: str
-        :param reminders:
-        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
-        :param opt_out_of_customer_email:
-        :type opt_out_of_customer_email: bool
-        :param staff_member_ids:
-        :type staff_member_ids: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
         :param invoice_amount:
         :type invoice_amount: float
         :param invoice_date: dateTimeTimeZone.
@@ -238,35 +219,63 @@ class BookingBusinessOperations:
         :type invoice_status: str or ~bookings.models.MicrosoftGraphBookingInvoiceStatus
         :param invoice_url:
         :type invoice_url: str
-        :param display_name: The name associated with the location.
-        :type display_name: str
-        :param location_email_address: Optional email address of the location.
-        :type location_email_address: str
+        :param is_location_online:
+        :type is_location_online: bool
+        :param online_meeting_url:
+        :type online_meeting_url: str
+        :param opt_out_of_customer_email:
+        :type opt_out_of_customer_email: bool
+        :param post_buffer:
+        :type post_buffer: ~datetime.timedelta
+        :param pre_buffer:
+        :type pre_buffer: ~datetime.timedelta
+        :param price:
+        :type price: float
+        :param price_type:
+        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
+        :param reminders:
+        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
+        :param self_service_appointment_id:
+        :type self_service_appointment_id: str
+        :param service_id: The id of the booking service associated with this appointment.
+        :type service_id: str
+        :param service_name: The name of the booking service associated with this appointment.
+        :type service_name: str
+        :param service_notes:
+        :type service_notes: str
+        :param staff_member_ids:
+        :type staff_member_ids: list[str]
+        :param start: dateTimeTimeZone.
+        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
         :param coordinates: outlookGeoCoordinates.
         :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param location_uri: Optional URI representing the location.
-        :type location_uri: str
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
         :param location_type:
         :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
         :param unique_id: For internal use only.
         :type unique_id: str
         :param unique_id_type:
         :type unique_id_type: str or ~bookings.models.MicrosoftGraphLocationUniqueIdType
+        :param microsoft_graph_physical_address: physicalAddress.
+        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
+        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
+        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
         :param microsoft_graph_location_display_name: The name associated with the location.
         :type microsoft_graph_location_display_name: str
         :param microsoft_graph_location_email_address_location_email_address: Optional email address of
          the location.
         :type microsoft_graph_location_email_address_location_email_address: str
-        :param microsoft_graph_physical_address: physicalAddress.
-        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
-        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
-        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param microsoft_graph_location_uri: Optional URI representing the location.
-        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_type:
         :type microsoft_graph_location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param microsoft_graph_location_uri: Optional URI representing the location.
+        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_unique_id: For internal use only.
         :type microsoft_graph_location_unique_id: str
         :param microsoft_graph_location_unique_id_type_unique_id_type:
@@ -280,7 +289,7 @@ class BookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingAppointment(id=id, self_service_appointment_id=self_service_appointment_id, customer_id=customer_id, customer_name=customer_name, customer_email_address=customer_email_address, customer_phone=customer_phone, customer_notes=customer_notes, service_id=service_id, service_name=service_name, start=start, end=end, duration=duration, pre_buffer=pre_buffer, post_buffer=post_buffer, price_type=price_type, price=price, service_notes=service_notes, reminders=reminders, opt_out_of_customer_email=opt_out_of_customer_email, staff_member_ids=staff_member_ids, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, location_uri_service_location_uri=location_uri, location_type_service_location_type=location_type, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, location_uri_customer_location_uri=microsoft_graph_location_uri, location_type_customer_location_type=microsoft_graph_location_type, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
+        _body = models.MicrosoftGraphBookingAppointment(id=id, additional_information=additional_information, customer_email_address=customer_email_address, customer_id=customer_id, customer_name=customer_name, customer_notes=customer_notes, customer_phone=customer_phone, duration=duration, end=end, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, is_location_online=is_location_online, online_meeting_url=online_meeting_url, opt_out_of_customer_email=opt_out_of_customer_email, post_buffer=post_buffer, pre_buffer=pre_buffer, price=price, price_type=price_type, reminders=reminders, self_service_appointment_id=self_service_appointment_id, service_id=service_id, service_name=service_name, service_notes=service_notes, staff_member_ids=staff_member_ids, start=start, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, location_type_service_location_type=location_type, location_uri_service_location_uri=location_uri, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, location_type_customer_location_type=microsoft_graph_location_type, location_uri_customer_location_uri=microsoft_graph_location_uri, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -333,9 +342,9 @@ class BookingBusinessOperations:
 
         Get appointments from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_appointment_id: key: bookingAppointment-id of bookingAppointment.
+        :param booking_appointment_id: key: id of bookingAppointment.
         :type booking_appointment_id: str
         :param select: Select properties to be returned.
         :type select: list[str or ~bookings.models.Enum15]
@@ -393,44 +402,47 @@ class BookingBusinessOperations:
         booking_business_id: str,
         booking_appointment_id: str,
         id: Optional[str] = None,
-        self_service_appointment_id: Optional[str] = None,
+        additional_information: Optional[str] = None,
+        customer_email_address: Optional[str] = None,
         customer_id: Optional[str] = None,
         customer_name: Optional[str] = None,
-        customer_email_address: Optional[str] = None,
-        customer_phone: Optional[str] = None,
         customer_notes: Optional[str] = None,
-        service_id: Optional[str] = None,
-        service_name: Optional[str] = None,
-        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
-        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
+        customer_phone: Optional[str] = None,
         duration: Optional[datetime.timedelta] = None,
-        pre_buffer: Optional[datetime.timedelta] = None,
-        post_buffer: Optional[datetime.timedelta] = None,
-        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
-        price: Optional[float] = None,
-        service_notes: Optional[str] = None,
-        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
-        opt_out_of_customer_email: Optional[bool] = None,
-        staff_member_ids: Optional[List[str]] = None,
+        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_amount: Optional[float] = None,
         invoice_date: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_id: Optional[str] = None,
         invoice_status: Optional[Union[str, "models.MicrosoftGraphBookingInvoiceStatus"]] = None,
         invoice_url: Optional[str] = None,
-        display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
+        is_location_online: Optional[bool] = None,
+        online_meeting_url: Optional[str] = None,
+        opt_out_of_customer_email: Optional[bool] = None,
+        post_buffer: Optional[datetime.timedelta] = None,
+        pre_buffer: Optional[datetime.timedelta] = None,
+        price: Optional[float] = None,
+        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
+        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
+        self_service_appointment_id: Optional[str] = None,
+        service_id: Optional[str] = None,
+        service_name: Optional[str] = None,
+        service_notes: Optional[str] = None,
+        staff_member_ids: Optional[List[str]] = None,
+        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        location_uri: Optional[str] = None,
+        display_name: Optional[str] = None,
+        location_email_address: Optional[str] = None,
         location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
         unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
-        microsoft_graph_location_display_name: Optional[str] = None,
-        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_physical_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         microsoft_graph_outlook_geo_coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        microsoft_graph_location_uri: Optional[str] = None,
+        microsoft_graph_location_display_name: Optional[str] = None,
+        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        microsoft_graph_location_uri: Optional[str] = None,
         microsoft_graph_location_unique_id: Optional[str] = None,
         microsoft_graph_location_unique_id_type_unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
@@ -439,50 +451,28 @@ class BookingBusinessOperations:
 
         Update the navigation property appointments in bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_appointment_id: key: bookingAppointment-id of bookingAppointment.
+        :param booking_appointment_id: key: id of bookingAppointment.
         :type booking_appointment_id: str
         :param id: Read-only.
         :type id: str
-        :param self_service_appointment_id:
-        :type self_service_appointment_id: str
+        :param additional_information:
+        :type additional_information: str
+        :param customer_email_address:
+        :type customer_email_address: str
         :param customer_id: The id of the booking customer associated with this appointment.
         :type customer_id: str
         :param customer_name:
         :type customer_name: str
-        :param customer_email_address:
-        :type customer_email_address: str
-        :param customer_phone:
-        :type customer_phone: str
         :param customer_notes: Notes from the customer associated with this appointment.
         :type customer_notes: str
-        :param service_id: The id of the booking service associated with this appointment.
-        :type service_id: str
-        :param service_name: The name of the booking service associated with this appointment.
-        :type service_name: str
-        :param start: dateTimeTimeZone.
-        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
-        :param end: dateTimeTimeZone.
-        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
+        :param customer_phone:
+        :type customer_phone: str
         :param duration:
         :type duration: ~datetime.timedelta
-        :param pre_buffer:
-        :type pre_buffer: ~datetime.timedelta
-        :param post_buffer:
-        :type post_buffer: ~datetime.timedelta
-        :param price_type:
-        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
-        :param price:
-        :type price: float
-        :param service_notes:
-        :type service_notes: str
-        :param reminders:
-        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
-        :param opt_out_of_customer_email:
-        :type opt_out_of_customer_email: bool
-        :param staff_member_ids:
-        :type staff_member_ids: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
         :param invoice_amount:
         :type invoice_amount: float
         :param invoice_date: dateTimeTimeZone.
@@ -493,35 +483,63 @@ class BookingBusinessOperations:
         :type invoice_status: str or ~bookings.models.MicrosoftGraphBookingInvoiceStatus
         :param invoice_url:
         :type invoice_url: str
-        :param display_name: The name associated with the location.
-        :type display_name: str
-        :param location_email_address: Optional email address of the location.
-        :type location_email_address: str
+        :param is_location_online:
+        :type is_location_online: bool
+        :param online_meeting_url:
+        :type online_meeting_url: str
+        :param opt_out_of_customer_email:
+        :type opt_out_of_customer_email: bool
+        :param post_buffer:
+        :type post_buffer: ~datetime.timedelta
+        :param pre_buffer:
+        :type pre_buffer: ~datetime.timedelta
+        :param price:
+        :type price: float
+        :param price_type:
+        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
+        :param reminders:
+        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
+        :param self_service_appointment_id:
+        :type self_service_appointment_id: str
+        :param service_id: The id of the booking service associated with this appointment.
+        :type service_id: str
+        :param service_name: The name of the booking service associated with this appointment.
+        :type service_name: str
+        :param service_notes:
+        :type service_notes: str
+        :param staff_member_ids:
+        :type staff_member_ids: list[str]
+        :param start: dateTimeTimeZone.
+        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
         :param coordinates: outlookGeoCoordinates.
         :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param location_uri: Optional URI representing the location.
-        :type location_uri: str
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
         :param location_type:
         :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
         :param unique_id: For internal use only.
         :type unique_id: str
         :param unique_id_type:
         :type unique_id_type: str or ~bookings.models.MicrosoftGraphLocationUniqueIdType
+        :param microsoft_graph_physical_address: physicalAddress.
+        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
+        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
+        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
         :param microsoft_graph_location_display_name: The name associated with the location.
         :type microsoft_graph_location_display_name: str
         :param microsoft_graph_location_email_address_location_email_address: Optional email address of
          the location.
         :type microsoft_graph_location_email_address_location_email_address: str
-        :param microsoft_graph_physical_address: physicalAddress.
-        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
-        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
-        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param microsoft_graph_location_uri: Optional URI representing the location.
-        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_type:
         :type microsoft_graph_location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param microsoft_graph_location_uri: Optional URI representing the location.
+        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_unique_id: For internal use only.
         :type microsoft_graph_location_unique_id: str
         :param microsoft_graph_location_unique_id_type_unique_id_type:
@@ -535,7 +553,7 @@ class BookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingAppointment(id=id, self_service_appointment_id=self_service_appointment_id, customer_id=customer_id, customer_name=customer_name, customer_email_address=customer_email_address, customer_phone=customer_phone, customer_notes=customer_notes, service_id=service_id, service_name=service_name, start=start, end=end, duration=duration, pre_buffer=pre_buffer, post_buffer=post_buffer, price_type=price_type, price=price, service_notes=service_notes, reminders=reminders, opt_out_of_customer_email=opt_out_of_customer_email, staff_member_ids=staff_member_ids, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, location_uri_service_location_uri=location_uri, location_type_service_location_type=location_type, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, location_uri_customer_location_uri=microsoft_graph_location_uri, location_type_customer_location_type=microsoft_graph_location_type, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
+        _body = models.MicrosoftGraphBookingAppointment(id=id, additional_information=additional_information, customer_email_address=customer_email_address, customer_id=customer_id, customer_name=customer_name, customer_notes=customer_notes, customer_phone=customer_phone, duration=duration, end=end, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, is_location_online=is_location_online, online_meeting_url=online_meeting_url, opt_out_of_customer_email=opt_out_of_customer_email, post_buffer=post_buffer, pre_buffer=pre_buffer, price=price, price_type=price_type, reminders=reminders, self_service_appointment_id=self_service_appointment_id, service_id=service_id, service_name=service_name, service_notes=service_notes, staff_member_ids=staff_member_ids, start=start, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, location_type_service_location_type=location_type, location_uri_service_location_uri=location_uri, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, location_type_customer_location_type=microsoft_graph_location_type, location_uri_customer_location_uri=microsoft_graph_location_uri, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -573,11 +591,71 @@ class BookingBusinessOperations:
 
     update_appointment.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/appointments/{bookingAppointment-id}'}  # type: ignore
 
+    async def delete_appointment(
+        self,
+        booking_business_id: str,
+        booking_appointment_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property appointments for bookingBusinesses.
+
+        Delete navigation property appointments for bookingBusinesses.
+
+        :param booking_business_id: key: id of bookingBusiness.
+        :type booking_business_id: str
+        :param booking_appointment_id: key: id of bookingAppointment.
+        :type booking_appointment_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_appointment.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'bookingBusiness-id': self._serialize.url("booking_business_id", booking_business_id, 'str'),
+            'bookingAppointment-id': self._serialize.url("booking_appointment_id", booking_appointment_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_appointment.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/appointments/{bookingAppointment-id}'}  # type: ignore
+
     def list_calendar_view(
         self,
         booking_business_id: str,
+        start: str,
+        end: str,
         orderby: Optional[List[Union[str, "models.Enum16"]]] = None,
-        select: Optional[List[Union[str, "models.Enum17"]]] = None,
+        select: Optional[List[Union[str, "models.Get9ItemsItem"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> AsyncIterable["models.CollectionOfBookingAppointment0"]:
@@ -585,12 +663,18 @@ class BookingBusinessOperations:
 
         Get calendarView from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
+        :param start: The start date and time of the time range, represented in ISO 8601 format. For
+         example, 2019-11-08T19:00:00-08:00.
+        :type start: str
+        :param end: The end date and time of the time range, represented in ISO 8601 format. For
+         example, 2019-11-08T20:00:00-08:00.
+        :type end: str
         :param orderby: Order items by property values.
         :type orderby: list[str or ~bookings.models.Enum16]
         :param select: Select properties to be returned.
-        :type select: list[str or ~bookings.models.Enum17]
+        :type select: list[str or ~bookings.models.Get9ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -618,6 +702,8 @@ class BookingBusinessOperations:
                 url = self._client.format_url(url, **path_format_arguments)
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
+                query_parameters['start'] = self._serialize.query("start", start, 'str')
+                query_parameters['end'] = self._serialize.query("end", end, 'str')
                 if self._config.top is not None:
                     query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
                 if self._config.skip is not None:
@@ -671,44 +757,47 @@ class BookingBusinessOperations:
         self,
         booking_business_id: str,
         id: Optional[str] = None,
-        self_service_appointment_id: Optional[str] = None,
+        additional_information: Optional[str] = None,
+        customer_email_address: Optional[str] = None,
         customer_id: Optional[str] = None,
         customer_name: Optional[str] = None,
-        customer_email_address: Optional[str] = None,
-        customer_phone: Optional[str] = None,
         customer_notes: Optional[str] = None,
-        service_id: Optional[str] = None,
-        service_name: Optional[str] = None,
-        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
-        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
+        customer_phone: Optional[str] = None,
         duration: Optional[datetime.timedelta] = None,
-        pre_buffer: Optional[datetime.timedelta] = None,
-        post_buffer: Optional[datetime.timedelta] = None,
-        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
-        price: Optional[float] = None,
-        service_notes: Optional[str] = None,
-        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
-        opt_out_of_customer_email: Optional[bool] = None,
-        staff_member_ids: Optional[List[str]] = None,
+        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_amount: Optional[float] = None,
         invoice_date: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_id: Optional[str] = None,
         invoice_status: Optional[Union[str, "models.MicrosoftGraphBookingInvoiceStatus"]] = None,
         invoice_url: Optional[str] = None,
-        display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
+        is_location_online: Optional[bool] = None,
+        online_meeting_url: Optional[str] = None,
+        opt_out_of_customer_email: Optional[bool] = None,
+        post_buffer: Optional[datetime.timedelta] = None,
+        pre_buffer: Optional[datetime.timedelta] = None,
+        price: Optional[float] = None,
+        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
+        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
+        self_service_appointment_id: Optional[str] = None,
+        service_id: Optional[str] = None,
+        service_name: Optional[str] = None,
+        service_notes: Optional[str] = None,
+        staff_member_ids: Optional[List[str]] = None,
+        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        location_uri: Optional[str] = None,
+        display_name: Optional[str] = None,
+        location_email_address: Optional[str] = None,
         location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
         unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
-        microsoft_graph_location_display_name: Optional[str] = None,
-        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_physical_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         microsoft_graph_outlook_geo_coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        microsoft_graph_location_uri: Optional[str] = None,
+        microsoft_graph_location_display_name: Optional[str] = None,
+        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        microsoft_graph_location_uri: Optional[str] = None,
         microsoft_graph_location_unique_id: Optional[str] = None,
         microsoft_graph_location_unique_id_type_unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
@@ -717,48 +806,26 @@ class BookingBusinessOperations:
 
         Create new navigation property to calendarView for bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param id: Read-only.
         :type id: str
-        :param self_service_appointment_id:
-        :type self_service_appointment_id: str
+        :param additional_information:
+        :type additional_information: str
+        :param customer_email_address:
+        :type customer_email_address: str
         :param customer_id: The id of the booking customer associated with this appointment.
         :type customer_id: str
         :param customer_name:
         :type customer_name: str
-        :param customer_email_address:
-        :type customer_email_address: str
-        :param customer_phone:
-        :type customer_phone: str
         :param customer_notes: Notes from the customer associated with this appointment.
         :type customer_notes: str
-        :param service_id: The id of the booking service associated with this appointment.
-        :type service_id: str
-        :param service_name: The name of the booking service associated with this appointment.
-        :type service_name: str
-        :param start: dateTimeTimeZone.
-        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
-        :param end: dateTimeTimeZone.
-        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
+        :param customer_phone:
+        :type customer_phone: str
         :param duration:
         :type duration: ~datetime.timedelta
-        :param pre_buffer:
-        :type pre_buffer: ~datetime.timedelta
-        :param post_buffer:
-        :type post_buffer: ~datetime.timedelta
-        :param price_type:
-        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
-        :param price:
-        :type price: float
-        :param service_notes:
-        :type service_notes: str
-        :param reminders:
-        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
-        :param opt_out_of_customer_email:
-        :type opt_out_of_customer_email: bool
-        :param staff_member_ids:
-        :type staff_member_ids: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
         :param invoice_amount:
         :type invoice_amount: float
         :param invoice_date: dateTimeTimeZone.
@@ -769,35 +836,63 @@ class BookingBusinessOperations:
         :type invoice_status: str or ~bookings.models.MicrosoftGraphBookingInvoiceStatus
         :param invoice_url:
         :type invoice_url: str
-        :param display_name: The name associated with the location.
-        :type display_name: str
-        :param location_email_address: Optional email address of the location.
-        :type location_email_address: str
+        :param is_location_online:
+        :type is_location_online: bool
+        :param online_meeting_url:
+        :type online_meeting_url: str
+        :param opt_out_of_customer_email:
+        :type opt_out_of_customer_email: bool
+        :param post_buffer:
+        :type post_buffer: ~datetime.timedelta
+        :param pre_buffer:
+        :type pre_buffer: ~datetime.timedelta
+        :param price:
+        :type price: float
+        :param price_type:
+        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
+        :param reminders:
+        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
+        :param self_service_appointment_id:
+        :type self_service_appointment_id: str
+        :param service_id: The id of the booking service associated with this appointment.
+        :type service_id: str
+        :param service_name: The name of the booking service associated with this appointment.
+        :type service_name: str
+        :param service_notes:
+        :type service_notes: str
+        :param staff_member_ids:
+        :type staff_member_ids: list[str]
+        :param start: dateTimeTimeZone.
+        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
         :param coordinates: outlookGeoCoordinates.
         :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param location_uri: Optional URI representing the location.
-        :type location_uri: str
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
         :param location_type:
         :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
         :param unique_id: For internal use only.
         :type unique_id: str
         :param unique_id_type:
         :type unique_id_type: str or ~bookings.models.MicrosoftGraphLocationUniqueIdType
+        :param microsoft_graph_physical_address: physicalAddress.
+        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
+        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
+        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
         :param microsoft_graph_location_display_name: The name associated with the location.
         :type microsoft_graph_location_display_name: str
         :param microsoft_graph_location_email_address_location_email_address: Optional email address of
          the location.
         :type microsoft_graph_location_email_address_location_email_address: str
-        :param microsoft_graph_physical_address: physicalAddress.
-        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
-        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
-        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param microsoft_graph_location_uri: Optional URI representing the location.
-        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_type:
         :type microsoft_graph_location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param microsoft_graph_location_uri: Optional URI representing the location.
+        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_unique_id: For internal use only.
         :type microsoft_graph_location_unique_id: str
         :param microsoft_graph_location_unique_id_type_unique_id_type:
@@ -811,7 +906,7 @@ class BookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingAppointment(id=id, self_service_appointment_id=self_service_appointment_id, customer_id=customer_id, customer_name=customer_name, customer_email_address=customer_email_address, customer_phone=customer_phone, customer_notes=customer_notes, service_id=service_id, service_name=service_name, start=start, end=end, duration=duration, pre_buffer=pre_buffer, post_buffer=post_buffer, price_type=price_type, price=price, service_notes=service_notes, reminders=reminders, opt_out_of_customer_email=opt_out_of_customer_email, staff_member_ids=staff_member_ids, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, location_uri_service_location_uri=location_uri, location_type_service_location_type=location_type, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, location_uri_customer_location_uri=microsoft_graph_location_uri, location_type_customer_location_type=microsoft_graph_location_type, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
+        _body = models.MicrosoftGraphBookingAppointment(id=id, additional_information=additional_information, customer_email_address=customer_email_address, customer_id=customer_id, customer_name=customer_name, customer_notes=customer_notes, customer_phone=customer_phone, duration=duration, end=end, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, is_location_online=is_location_online, online_meeting_url=online_meeting_url, opt_out_of_customer_email=opt_out_of_customer_email, post_buffer=post_buffer, pre_buffer=pre_buffer, price=price, price_type=price_type, reminders=reminders, self_service_appointment_id=self_service_appointment_id, service_id=service_id, service_name=service_name, service_notes=service_notes, staff_member_ids=staff_member_ids, start=start, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, location_type_service_location_type=location_type, location_uri_service_location_uri=location_uri, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, location_type_customer_location_type=microsoft_graph_location_type, location_uri_customer_location_uri=microsoft_graph_location_uri, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -856,7 +951,9 @@ class BookingBusinessOperations:
         self,
         booking_business_id: str,
         booking_appointment_id: str,
-        select: Optional[List[Union[str, "models.Enum18"]]] = None,
+        start: str,
+        end: str,
+        select: Optional[List[Union[str, "models.Get4ItemsItem"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphBookingAppointment":
@@ -864,12 +961,18 @@ class BookingBusinessOperations:
 
         Get calendarView from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_appointment_id: key: bookingAppointment-id of bookingAppointment.
+        :param booking_appointment_id: key: id of bookingAppointment.
         :type booking_appointment_id: str
+        :param start: The start date and time of the time range, represented in ISO 8601 format. For
+         example, 2019-11-08T19:00:00-08:00.
+        :type start: str
+        :param end: The end date and time of the time range, represented in ISO 8601 format. For
+         example, 2019-11-08T20:00:00-08:00.
+        :type end: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~bookings.models.Enum18]
+        :type select: list[str or ~bookings.models.Get4ItemsItem]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -892,6 +995,8 @@ class BookingBusinessOperations:
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
+        query_parameters['start'] = self._serialize.query("start", start, 'str')
+        query_parameters['end'] = self._serialize.query("end", end, 'str')
         if select is not None:
             query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
         if expand is not None:
@@ -924,44 +1029,47 @@ class BookingBusinessOperations:
         booking_business_id: str,
         booking_appointment_id: str,
         id: Optional[str] = None,
-        self_service_appointment_id: Optional[str] = None,
+        additional_information: Optional[str] = None,
+        customer_email_address: Optional[str] = None,
         customer_id: Optional[str] = None,
         customer_name: Optional[str] = None,
-        customer_email_address: Optional[str] = None,
-        customer_phone: Optional[str] = None,
         customer_notes: Optional[str] = None,
-        service_id: Optional[str] = None,
-        service_name: Optional[str] = None,
-        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
-        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
+        customer_phone: Optional[str] = None,
         duration: Optional[datetime.timedelta] = None,
-        pre_buffer: Optional[datetime.timedelta] = None,
-        post_buffer: Optional[datetime.timedelta] = None,
-        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
-        price: Optional[float] = None,
-        service_notes: Optional[str] = None,
-        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
-        opt_out_of_customer_email: Optional[bool] = None,
-        staff_member_ids: Optional[List[str]] = None,
+        end: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_amount: Optional[float] = None,
         invoice_date: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         invoice_id: Optional[str] = None,
         invoice_status: Optional[Union[str, "models.MicrosoftGraphBookingInvoiceStatus"]] = None,
         invoice_url: Optional[str] = None,
-        display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
+        is_location_online: Optional[bool] = None,
+        online_meeting_url: Optional[str] = None,
+        opt_out_of_customer_email: Optional[bool] = None,
+        post_buffer: Optional[datetime.timedelta] = None,
+        pre_buffer: Optional[datetime.timedelta] = None,
+        price: Optional[float] = None,
+        price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
+        reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
+        self_service_appointment_id: Optional[str] = None,
+        service_id: Optional[str] = None,
+        service_name: Optional[str] = None,
+        service_notes: Optional[str] = None,
+        staff_member_ids: Optional[List[str]] = None,
+        start: Optional["models.MicrosoftGraphDateTimeZone"] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        location_uri: Optional[str] = None,
+        display_name: Optional[str] = None,
+        location_email_address: Optional[str] = None,
         location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
         unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
-        microsoft_graph_location_display_name: Optional[str] = None,
-        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_physical_address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         microsoft_graph_outlook_geo_coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        microsoft_graph_location_uri: Optional[str] = None,
+        microsoft_graph_location_display_name: Optional[str] = None,
+        microsoft_graph_location_email_address_location_email_address: Optional[str] = None,
         microsoft_graph_location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        microsoft_graph_location_uri: Optional[str] = None,
         microsoft_graph_location_unique_id: Optional[str] = None,
         microsoft_graph_location_unique_id_type_unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
@@ -970,50 +1078,28 @@ class BookingBusinessOperations:
 
         Update the navigation property calendarView in bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_appointment_id: key: bookingAppointment-id of bookingAppointment.
+        :param booking_appointment_id: key: id of bookingAppointment.
         :type booking_appointment_id: str
         :param id: Read-only.
         :type id: str
-        :param self_service_appointment_id:
-        :type self_service_appointment_id: str
+        :param additional_information:
+        :type additional_information: str
+        :param customer_email_address:
+        :type customer_email_address: str
         :param customer_id: The id of the booking customer associated with this appointment.
         :type customer_id: str
         :param customer_name:
         :type customer_name: str
-        :param customer_email_address:
-        :type customer_email_address: str
-        :param customer_phone:
-        :type customer_phone: str
         :param customer_notes: Notes from the customer associated with this appointment.
         :type customer_notes: str
-        :param service_id: The id of the booking service associated with this appointment.
-        :type service_id: str
-        :param service_name: The name of the booking service associated with this appointment.
-        :type service_name: str
-        :param start: dateTimeTimeZone.
-        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
-        :param end: dateTimeTimeZone.
-        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
+        :param customer_phone:
+        :type customer_phone: str
         :param duration:
         :type duration: ~datetime.timedelta
-        :param pre_buffer:
-        :type pre_buffer: ~datetime.timedelta
-        :param post_buffer:
-        :type post_buffer: ~datetime.timedelta
-        :param price_type:
-        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
-        :param price:
-        :type price: float
-        :param service_notes:
-        :type service_notes: str
-        :param reminders:
-        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
-        :param opt_out_of_customer_email:
-        :type opt_out_of_customer_email: bool
-        :param staff_member_ids:
-        :type staff_member_ids: list[str]
+        :param end: dateTimeTimeZone.
+        :type end: ~bookings.models.MicrosoftGraphDateTimeZone
         :param invoice_amount:
         :type invoice_amount: float
         :param invoice_date: dateTimeTimeZone.
@@ -1024,35 +1110,63 @@ class BookingBusinessOperations:
         :type invoice_status: str or ~bookings.models.MicrosoftGraphBookingInvoiceStatus
         :param invoice_url:
         :type invoice_url: str
-        :param display_name: The name associated with the location.
-        :type display_name: str
-        :param location_email_address: Optional email address of the location.
-        :type location_email_address: str
+        :param is_location_online:
+        :type is_location_online: bool
+        :param online_meeting_url:
+        :type online_meeting_url: str
+        :param opt_out_of_customer_email:
+        :type opt_out_of_customer_email: bool
+        :param post_buffer:
+        :type post_buffer: ~datetime.timedelta
+        :param pre_buffer:
+        :type pre_buffer: ~datetime.timedelta
+        :param price:
+        :type price: float
+        :param price_type:
+        :type price_type: str or ~bookings.models.MicrosoftGraphBookingPriceType
+        :param reminders:
+        :type reminders: list[~bookings.models.MicrosoftGraphBookingReminder]
+        :param self_service_appointment_id:
+        :type self_service_appointment_id: str
+        :param service_id: The id of the booking service associated with this appointment.
+        :type service_id: str
+        :param service_name: The name of the booking service associated with this appointment.
+        :type service_name: str
+        :param service_notes:
+        :type service_notes: str
+        :param staff_member_ids:
+        :type staff_member_ids: list[str]
+        :param start: dateTimeTimeZone.
+        :type start: ~bookings.models.MicrosoftGraphDateTimeZone
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
         :param coordinates: outlookGeoCoordinates.
         :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param location_uri: Optional URI representing the location.
-        :type location_uri: str
+        :param display_name: The name associated with the location.
+        :type display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
         :param location_type:
         :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
         :param unique_id: For internal use only.
         :type unique_id: str
         :param unique_id_type:
         :type unique_id_type: str or ~bookings.models.MicrosoftGraphLocationUniqueIdType
+        :param microsoft_graph_physical_address: physicalAddress.
+        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
+        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
+        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
         :param microsoft_graph_location_display_name: The name associated with the location.
         :type microsoft_graph_location_display_name: str
         :param microsoft_graph_location_email_address_location_email_address: Optional email address of
          the location.
         :type microsoft_graph_location_email_address_location_email_address: str
-        :param microsoft_graph_physical_address: physicalAddress.
-        :type microsoft_graph_physical_address: ~bookings.models.MicrosoftGraphPhysicalAddress
-        :param microsoft_graph_outlook_geo_coordinates: outlookGeoCoordinates.
-        :type microsoft_graph_outlook_geo_coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param microsoft_graph_location_uri: Optional URI representing the location.
-        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_type:
         :type microsoft_graph_location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param microsoft_graph_location_uri: Optional URI representing the location.
+        :type microsoft_graph_location_uri: str
         :param microsoft_graph_location_unique_id: For internal use only.
         :type microsoft_graph_location_unique_id: str
         :param microsoft_graph_location_unique_id_type_unique_id_type:
@@ -1066,7 +1180,7 @@ class BookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingAppointment(id=id, self_service_appointment_id=self_service_appointment_id, customer_id=customer_id, customer_name=customer_name, customer_email_address=customer_email_address, customer_phone=customer_phone, customer_notes=customer_notes, service_id=service_id, service_name=service_name, start=start, end=end, duration=duration, pre_buffer=pre_buffer, post_buffer=post_buffer, price_type=price_type, price=price, service_notes=service_notes, reminders=reminders, opt_out_of_customer_email=opt_out_of_customer_email, staff_member_ids=staff_member_ids, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, location_uri_service_location_uri=location_uri, location_type_service_location_type=location_type, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, location_uri_customer_location_uri=microsoft_graph_location_uri, location_type_customer_location_type=microsoft_graph_location_type, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
+        _body = models.MicrosoftGraphBookingAppointment(id=id, additional_information=additional_information, customer_email_address=customer_email_address, customer_id=customer_id, customer_name=customer_name, customer_notes=customer_notes, customer_phone=customer_phone, duration=duration, end=end, invoice_amount=invoice_amount, invoice_date=invoice_date, invoice_id=invoice_id, invoice_status=invoice_status, invoice_url=invoice_url, is_location_online=is_location_online, online_meeting_url=online_meeting_url, opt_out_of_customer_email=opt_out_of_customer_email, post_buffer=post_buffer, pre_buffer=pre_buffer, price=price, price_type=price_type, reminders=reminders, self_service_appointment_id=self_service_appointment_id, service_id=service_id, service_name=service_name, service_notes=service_notes, staff_member_ids=staff_member_ids, start=start, address_service_location_address=address, coordinates_service_location_coordinates=coordinates, display_name_service_location_display_name=display_name, location_email_address_service_location_email_address=location_email_address, location_type_service_location_type=location_type, location_uri_service_location_uri=location_uri, unique_id_service_location_unique_id=unique_id, unique_id_type_service_location_unique_id_type=unique_id_type, address_customer_location_address=microsoft_graph_physical_address, coordinates_customer_location_coordinates=microsoft_graph_outlook_geo_coordinates, display_name_customer_location_display_name=microsoft_graph_location_display_name, location_email_address_customer_location_email_address=microsoft_graph_location_email_address_location_email_address, location_type_customer_location_type=microsoft_graph_location_type, location_uri_customer_location_uri=microsoft_graph_location_uri, unique_id_customer_location_unique_id=microsoft_graph_location_unique_id, unique_id_type_customer_location_unique_id_type=microsoft_graph_location_unique_id_type_unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1104,6 +1218,64 @@ class BookingBusinessOperations:
 
     update_calendar_view.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/calendarView/{bookingAppointment-id}'}  # type: ignore
 
+    async def delete_calendar_view(
+        self,
+        booking_business_id: str,
+        booking_appointment_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property calendarView for bookingBusinesses.
+
+        Delete navigation property calendarView for bookingBusinesses.
+
+        :param booking_business_id: key: id of bookingBusiness.
+        :type booking_business_id: str
+        :param booking_appointment_id: key: id of bookingAppointment.
+        :type booking_appointment_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_calendar_view.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'bookingBusiness-id': self._serialize.url("booking_business_id", booking_business_id, 'str'),
+            'bookingAppointment-id': self._serialize.url("booking_appointment_id", booking_appointment_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_calendar_view.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/calendarView/{bookingAppointment-id}'}  # type: ignore
+
     def list_customer(
         self,
         booking_business_id: str,
@@ -1116,7 +1288,7 @@ class BookingBusinessOperations:
 
         Get customers from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param orderby: Order items by property values.
         :type orderby: list[str or ~bookings.models.Enum19]
@@ -1205,12 +1377,12 @@ class BookingBusinessOperations:
         display_name: Optional[str] = None,
         email_address: Optional[str] = None,
         **kwargs
-    ) -> "models.MicrosoftGraphBookingPerson":
+    ) -> "models.MicrosoftGraphBookingCustomer":
         """Create new navigation property to customers for bookingBusinesses.
 
         Create new navigation property to customers for bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param id: Read-only.
         :type id: str
@@ -1219,15 +1391,15 @@ class BookingBusinessOperations:
         :param email_address: The e-mail address of this person.
         :type email_address: str
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphBookingPerson, or the result of cls(response)
-        :rtype: ~bookings.models.MicrosoftGraphBookingPerson
+        :return: MicrosoftGraphBookingCustomer, or the result of cls(response)
+        :rtype: ~bookings.models.MicrosoftGraphBookingCustomer
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphBookingPerson"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphBookingCustomer"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingPerson(id=id, display_name=display_name, email_address=email_address)
+        _body = models.MicrosoftGraphBookingCustomer(id=id, display_name=display_name, email_address=email_address)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1248,7 +1420,7 @@ class BookingBusinessOperations:
         header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphBookingPerson')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphBookingCustomer')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1260,7 +1432,7 @@ class BookingBusinessOperations:
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphBookingPerson', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphBookingCustomer', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1275,25 +1447,25 @@ class BookingBusinessOperations:
         select: Optional[List[Union[str, "models.Enum21"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.MicrosoftGraphBookingPerson":
+    ) -> "models.MicrosoftGraphBookingCustomer":
         """Get customers from bookingBusinesses.
 
         Get customers from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_customer_id: key: bookingCustomer-id of bookingCustomer.
+        :param booking_customer_id: key: id of bookingCustomer.
         :type booking_customer_id: str
         :param select: Select properties to be returned.
         :type select: list[str or ~bookings.models.Enum21]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphBookingPerson, or the result of cls(response)
-        :rtype: ~bookings.models.MicrosoftGraphBookingPerson
+        :return: MicrosoftGraphBookingCustomer, or the result of cls(response)
+        :rtype: ~bookings.models.MicrosoftGraphBookingCustomer
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphBookingPerson"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphBookingCustomer"]
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
@@ -1327,7 +1499,7 @@ class BookingBusinessOperations:
             error = self._deserialize(models.OdataError, response)
             raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        deserialized = self._deserialize('MicrosoftGraphBookingPerson', pipeline_response)
+        deserialized = self._deserialize('MicrosoftGraphBookingCustomer', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -1348,9 +1520,9 @@ class BookingBusinessOperations:
 
         Update the navigation property customers in bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_customer_id: key: bookingCustomer-id of bookingCustomer.
+        :param booking_customer_id: key: id of bookingCustomer.
         :type booking_customer_id: str
         :param id: Read-only.
         :type id: str
@@ -1367,7 +1539,7 @@ class BookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingPerson(id=id, display_name=display_name, email_address=email_address)
+        _body = models.MicrosoftGraphBookingCustomer(id=id, display_name=display_name, email_address=email_address)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1388,7 +1560,7 @@ class BookingBusinessOperations:
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphBookingPerson')
+        body_content = self._serialize.body(_body, 'MicrosoftGraphBookingCustomer')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
 
@@ -1405,6 +1577,64 @@ class BookingBusinessOperations:
 
     update_customer.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/customers/{bookingCustomer-id}'}  # type: ignore
 
+    async def delete_customer(
+        self,
+        booking_business_id: str,
+        booking_customer_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property customers for bookingBusinesses.
+
+        Delete navigation property customers for bookingBusinesses.
+
+        :param booking_business_id: key: id of bookingBusiness.
+        :type booking_business_id: str
+        :param booking_customer_id: key: id of bookingCustomer.
+        :type booking_customer_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_customer.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'bookingBusiness-id': self._serialize.url("booking_business_id", booking_business_id, 'str'),
+            'bookingCustomer-id': self._serialize.url("booking_customer_id", booking_customer_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_customer.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/customers/{bookingCustomer-id}'}  # type: ignore
+
     async def publish(
         self,
         booking_business_id: str,
@@ -1414,7 +1644,7 @@ class BookingBusinessOperations:
 
         Invoke action publish.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
@@ -1463,7 +1693,7 @@ class BookingBusinessOperations:
 
         Invoke action unpublish.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
@@ -1515,7 +1745,7 @@ class BookingBusinessOperations:
 
         Get services from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param orderby: Order items by property values.
         :type orderby: list[str or ~bookings.models.Enum22]
@@ -1602,23 +1832,25 @@ class BookingBusinessOperations:
         booking_business_id: str,
         id: Optional[str] = None,
         display_name: Optional[str] = None,
+        additional_information: Optional[str] = None,
         default_duration: Optional[datetime.timedelta] = None,
         default_price: Optional[float] = None,
         default_price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
         default_reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
         description: Optional[str] = None,
         is_hidden_from_customers: Optional[bool] = None,
+        is_location_online: Optional[bool] = None,
         notes: Optional[str] = None,
-        pre_buffer: Optional[datetime.timedelta] = None,
         post_buffer: Optional[datetime.timedelta] = None,
+        pre_buffer: Optional[datetime.timedelta] = None,
         scheduling_policy: Optional["models.MicrosoftGraphBookingSchedulingPolicy"] = None,
         staff_member_ids: Optional[List[str]] = None,
-        microsoft_graph_location_display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        location_uri: Optional[str] = None,
+        microsoft_graph_location_display_name: Optional[str] = None,
+        location_email_address: Optional[str] = None,
         location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
         unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
@@ -1627,12 +1859,14 @@ class BookingBusinessOperations:
 
         Create new navigation property to services for bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param id: Read-only.
         :type id: str
         :param display_name: Display name of this entity.
         :type display_name: str
+        :param additional_information:
+        :type additional_information: str
         :param default_duration:
         :type default_duration: ~datetime.timedelta
         :param default_price:
@@ -1645,28 +1879,31 @@ class BookingBusinessOperations:
         :type description: str
         :param is_hidden_from_customers:
         :type is_hidden_from_customers: bool
+        :param is_location_online:
+        :type is_location_online: bool
         :param notes:
         :type notes: str
-        :param pre_buffer:
-        :type pre_buffer: ~datetime.timedelta
         :param post_buffer:
         :type post_buffer: ~datetime.timedelta
-        :param scheduling_policy: bookingSchedulingPolicy.
+        :param pre_buffer:
+        :type pre_buffer: ~datetime.timedelta
+        :param scheduling_policy: This type represents the set of policies that dictate how bookings
+         can be created in a Booking Calendar.
         :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
         :param staff_member_ids:
         :type staff_member_ids: list[str]
-        :param microsoft_graph_location_display_name: The name associated with the location.
-        :type microsoft_graph_location_display_name: str
-        :param location_email_address: Optional email address of the location.
-        :type location_email_address: str
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
         :param coordinates: outlookGeoCoordinates.
         :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param location_uri: Optional URI representing the location.
-        :type location_uri: str
+        :param microsoft_graph_location_display_name: The name associated with the location.
+        :type microsoft_graph_location_display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
         :param location_type:
         :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
         :param unique_id: For internal use only.
         :type unique_id: str
         :param unique_id_type:
@@ -1680,7 +1917,7 @@ class BookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingService(id=id, display_name=display_name, default_duration=default_duration, default_price=default_price, default_price_type=default_price_type, default_reminders=default_reminders, description=description, is_hidden_from_customers=is_hidden_from_customers, notes=notes, pre_buffer=pre_buffer, post_buffer=post_buffer, scheduling_policy=scheduling_policy, staff_member_ids=staff_member_ids, display_name_default_location_display_name=microsoft_graph_location_display_name, location_email_address=location_email_address, address=address, coordinates=coordinates, location_uri=location_uri, location_type=location_type, unique_id=unique_id, unique_id_type=unique_id_type)
+        _body = models.MicrosoftGraphBookingService(id=id, display_name=display_name, additional_information=additional_information, default_duration=default_duration, default_price=default_price, default_price_type=default_price_type, default_reminders=default_reminders, description=description, is_hidden_from_customers=is_hidden_from_customers, is_location_online=is_location_online, notes=notes, post_buffer=post_buffer, pre_buffer=pre_buffer, scheduling_policy=scheduling_policy, staff_member_ids=staff_member_ids, address=address, coordinates=coordinates, display_name_default_location_display_name=microsoft_graph_location_display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1733,9 +1970,9 @@ class BookingBusinessOperations:
 
         Get services from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_service_id: key: bookingService-id of bookingService.
+        :param booking_service_id: key: id of bookingService.
         :type booking_service_id: str
         :param select: Select properties to be returned.
         :type select: list[str or ~bookings.models.Enum24]
@@ -1794,23 +2031,25 @@ class BookingBusinessOperations:
         booking_service_id: str,
         id: Optional[str] = None,
         display_name: Optional[str] = None,
+        additional_information: Optional[str] = None,
         default_duration: Optional[datetime.timedelta] = None,
         default_price: Optional[float] = None,
         default_price_type: Optional[Union[str, "models.MicrosoftGraphBookingPriceType"]] = None,
         default_reminders: Optional[List["models.MicrosoftGraphBookingReminder"]] = None,
         description: Optional[str] = None,
         is_hidden_from_customers: Optional[bool] = None,
+        is_location_online: Optional[bool] = None,
         notes: Optional[str] = None,
-        pre_buffer: Optional[datetime.timedelta] = None,
         post_buffer: Optional[datetime.timedelta] = None,
+        pre_buffer: Optional[datetime.timedelta] = None,
         scheduling_policy: Optional["models.MicrosoftGraphBookingSchedulingPolicy"] = None,
         staff_member_ids: Optional[List[str]] = None,
-        microsoft_graph_location_display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
         coordinates: Optional["models.MicrosoftGraphOutlookGeoCoordinates"] = None,
-        location_uri: Optional[str] = None,
+        microsoft_graph_location_display_name: Optional[str] = None,
+        location_email_address: Optional[str] = None,
         location_type: Optional[Union[str, "models.MicrosoftGraphLocationType"]] = None,
+        location_uri: Optional[str] = None,
         unique_id: Optional[str] = None,
         unique_id_type: Optional[Union[str, "models.MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
@@ -1819,14 +2058,16 @@ class BookingBusinessOperations:
 
         Update the navigation property services in bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_service_id: key: bookingService-id of bookingService.
+        :param booking_service_id: key: id of bookingService.
         :type booking_service_id: str
         :param id: Read-only.
         :type id: str
         :param display_name: Display name of this entity.
         :type display_name: str
+        :param additional_information:
+        :type additional_information: str
         :param default_duration:
         :type default_duration: ~datetime.timedelta
         :param default_price:
@@ -1839,28 +2080,31 @@ class BookingBusinessOperations:
         :type description: str
         :param is_hidden_from_customers:
         :type is_hidden_from_customers: bool
+        :param is_location_online:
+        :type is_location_online: bool
         :param notes:
         :type notes: str
-        :param pre_buffer:
-        :type pre_buffer: ~datetime.timedelta
         :param post_buffer:
         :type post_buffer: ~datetime.timedelta
-        :param scheduling_policy: bookingSchedulingPolicy.
+        :param pre_buffer:
+        :type pre_buffer: ~datetime.timedelta
+        :param scheduling_policy: This type represents the set of policies that dictate how bookings
+         can be created in a Booking Calendar.
         :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
         :param staff_member_ids:
         :type staff_member_ids: list[str]
-        :param microsoft_graph_location_display_name: The name associated with the location.
-        :type microsoft_graph_location_display_name: str
-        :param location_email_address: Optional email address of the location.
-        :type location_email_address: str
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
         :param coordinates: outlookGeoCoordinates.
         :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-        :param location_uri: Optional URI representing the location.
-        :type location_uri: str
+        :param microsoft_graph_location_display_name: The name associated with the location.
+        :type microsoft_graph_location_display_name: str
+        :param location_email_address: Optional email address of the location.
+        :type location_email_address: str
         :param location_type:
         :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
+        :param location_uri: Optional URI representing the location.
+        :type location_uri: str
         :param unique_id: For internal use only.
         :type unique_id: str
         :param unique_id_type:
@@ -1874,7 +2118,7 @@ class BookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingService(id=id, display_name=display_name, default_duration=default_duration, default_price=default_price, default_price_type=default_price_type, default_reminders=default_reminders, description=description, is_hidden_from_customers=is_hidden_from_customers, notes=notes, pre_buffer=pre_buffer, post_buffer=post_buffer, scheduling_policy=scheduling_policy, staff_member_ids=staff_member_ids, display_name_default_location_display_name=microsoft_graph_location_display_name, location_email_address=location_email_address, address=address, coordinates=coordinates, location_uri=location_uri, location_type=location_type, unique_id=unique_id, unique_id_type=unique_id_type)
+        _body = models.MicrosoftGraphBookingService(id=id, display_name=display_name, additional_information=additional_information, default_duration=default_duration, default_price=default_price, default_price_type=default_price_type, default_reminders=default_reminders, description=description, is_hidden_from_customers=is_hidden_from_customers, is_location_online=is_location_online, notes=notes, post_buffer=post_buffer, pre_buffer=pre_buffer, scheduling_policy=scheduling_policy, staff_member_ids=staff_member_ids, address=address, coordinates=coordinates, display_name_default_location_display_name=microsoft_graph_location_display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1912,6 +2156,64 @@ class BookingBusinessOperations:
 
     update_service.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/services/{bookingService-id}'}  # type: ignore
 
+    async def delete_service(
+        self,
+        booking_business_id: str,
+        booking_service_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property services for bookingBusinesses.
+
+        Delete navigation property services for bookingBusinesses.
+
+        :param booking_business_id: key: id of bookingBusiness.
+        :type booking_business_id: str
+        :param booking_service_id: key: id of bookingService.
+        :type booking_service_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_service.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'bookingBusiness-id': self._serialize.url("booking_business_id", booking_business_id, 'str'),
+            'bookingService-id': self._serialize.url("booking_service_id", booking_service_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_service.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/services/{bookingService-id}'}  # type: ignore
+
     def list_staff_member(
         self,
         booking_business_id: str,
@@ -1924,7 +2226,7 @@ class BookingBusinessOperations:
 
         Get staffMembers from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param orderby: Order items by property values.
         :type orderby: list[str or ~bookings.models.Enum25]
@@ -2023,7 +2325,7 @@ class BookingBusinessOperations:
 
         Create new navigation property to staffMembers for bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param id: Read-only.
         :type id: str
@@ -2103,9 +2405,9 @@ class BookingBusinessOperations:
 
         Get staffMembers from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_staff_member_id: key: bookingStaffMember-id of bookingStaffMember.
+        :param booking_staff_member_id: key: id of bookingStaffMember.
         :type booking_staff_member_id: str
         :param select: Select properties to be returned.
         :type select: list[str or ~bookings.models.Enum27]
@@ -2176,9 +2478,9 @@ class BookingBusinessOperations:
 
         Update the navigation property staffMembers in bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_staff_member_id: key: bookingStaffMember-id of bookingStaffMember.
+        :param booking_staff_member_id: key: id of bookingStaffMember.
         :type booking_staff_member_id: str
         :param id: Read-only.
         :type id: str
@@ -2242,3 +2544,61 @@ class BookingBusinessOperations:
             return cls(pipeline_response, None, {})
 
     update_staff_member.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/staffMembers/{bookingStaffMember-id}'}  # type: ignore
+
+    async def delete_staff_member(
+        self,
+        booking_business_id: str,
+        booking_staff_member_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property staffMembers for bookingBusinesses.
+
+        Delete navigation property staffMembers for bookingBusinesses.
+
+        :param booking_business_id: key: id of bookingBusiness.
+        :type booking_business_id: str
+        :param booking_staff_member_id: key: id of bookingStaffMember.
+        :type booking_staff_member_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_staff_member.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'bookingBusiness-id': self._serialize.url("booking_business_id", booking_business_id, 'str'),
+            'bookingStaffMember-id': self._serialize.url("booking_staff_member_id", booking_staff_member_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_staff_member.metadata = {'url': '/bookingBusinesses/{bookingBusiness-id}/staffMembers/{bookingStaffMember-id}'}  # type: ignore

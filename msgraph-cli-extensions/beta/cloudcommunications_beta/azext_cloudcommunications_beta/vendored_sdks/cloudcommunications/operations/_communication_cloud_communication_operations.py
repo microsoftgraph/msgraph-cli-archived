@@ -107,6 +107,7 @@ class CommunicationCloudCommunicationOperations(object):
         calls=None,  # type: Optional[List["models.MicrosoftGraphCall"]]
         call_records=None,  # type: Optional[List["models.MicrosoftGraphCallRecordsCallRecord"]]
         online_meetings=None,  # type: Optional[List["models.MicrosoftGraphOnlineMeeting"]]
+        presences=None,  # type: Optional[List["models.MicrosoftGraphPresence"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -122,6 +123,8 @@ class CommunicationCloudCommunicationOperations(object):
         :type call_records: list[~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord]
         :param online_meetings:
         :type online_meetings: list[~cloud_communications.models.MicrosoftGraphOnlineMeeting]
+        :param presences:
+        :type presences: list[~cloud_communications.models.MicrosoftGraphPresence]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -131,7 +134,7 @@ class CommunicationCloudCommunicationOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCloudCommunications(id=id, calls=calls, call_records=call_records, online_meetings=online_meetings)
+        _body = models.MicrosoftGraphCloudCommunications(id=id, calls=calls, call_records=call_records, online_meetings=online_meetings, presences=presences)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

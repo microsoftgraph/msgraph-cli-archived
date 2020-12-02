@@ -12,6 +12,8 @@ from ._communication_call_record_operations import CommunicationCallRecordOperat
 from ._communication_call_record_session_operations import CommunicationCallRecordSessionOperations
 from ._communication_call_operations import CommunicationCallOperations
 from ._communication_call_participant_operations import CommunicationCallParticipantOperations
+from ._communication_online_meeting_operations import CommunicationOnlineMeetingOperations
+from ._user_operations import UserOperations
 
 __all__ = [
     'CommunicationCloudCommunicationOperations',
@@ -20,4 +22,6 @@ __all__ = [
     'CommunicationCallRecordSessionOperations',
     'CommunicationCallOperations',
     'CommunicationCallParticipantOperations',
+    'CommunicationOnlineMeetingOperations',
+    'UserOperations',
 ]

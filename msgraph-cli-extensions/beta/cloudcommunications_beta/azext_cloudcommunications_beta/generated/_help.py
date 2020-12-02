@@ -25,6 +25,14 @@ helps['cloudcommunications get-cloud-communication'] = """
 helps['cloudcommunications update-cloud-communication'] = """
     type: command
     short-summary: "Update communications"
+    parameters:
+      - name: --presences
+        long-summary: |
+            Usage: --presences activity=XX availability=XX id=XX
+
+            id: Read-only.
+
+            Multiple actions can be specified by using more than one --presences argument.
 """
 
 helps['cloudcommunications'] = """
@@ -32,61 +40,71 @@ helps['cloudcommunications'] = """
     short-summary: cloudcommunications
 """
 
+helps['cloudcommunications delete'] = """
+    type: command
+    short-summary: "Delete navigation property presences for communications"
+"""
+
 helps['cloudcommunications create-call'] = """
     type: command
     short-summary: "Create new navigation property to calls for communications"
     parameters:
-      - name: --result-info
-        short-summary: "ResultInfo"
-        long-summary: |
-            Usage: --result-info code=XX subcode=XX message=XX
-
-      - name: --targets
-        short-summary: "The targets of the call. Required information for creating peer to peer call."
-        long-summary: |
-            Usage: --targets endpoint-type=XX replaces-call-id=XX id-identity-user-id=XX \
-display-name-identity-user-display-name=XX id-identity-device-id=XX display-name-identity-device-display-name=XX \
-id-identity-application-id=XX display-name-identity-application-display-name=XX
-
-            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
-dropped once the participant is added.
-            id-identity-user-id: Unique identifier for the identity.
-            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
-            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
-            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
-be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
-future response, but the items associated with the user won't show up as having changed when using delta.
-
-            Multiple actions can be specified by using more than one --targets argument.
       - name: --chat-info
         short-summary: "chatInfo"
         long-summary: |
-            Usage: --chat-info thread-id=XX message-id=XX reply-chain-message-id=XX
+            Usage: --chat-info message-id=XX reply-chain-message-id=XX thread-id=XX
 
-            thread-id: The unique identifier for a thread in Microsoft Teams.
             message-id: The unique identifier of a message in a Microsoft Teams channel.
             reply-chain-message-id: The ID of the reply message.
+            thread-id: The unique identifier for a thread in Microsoft Teams.
       - name: --meeting-capability
         short-summary: "meetingCapability"
         long-summary: |
-            Usage: --meeting-capability allow-anonymous-users-to-dial-out=XX auto-admitted-users=XX \
-allow-anonymous-users-to-start-meeting=XX
+            Usage: --meeting-capability allow-anonymous-users-to-dial-out=XX allow-anonymous-users-to-start-meeting=XX \
+auto-admitted-users=XX
 
+      - name: --result-info
+        short-summary: "ResultInfo"
+        long-summary: |
+            Usage: --result-info code=XX message=XX subcode=XX
+
+      - name: --targets
+        long-summary: |
+            Usage: --targets endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
+id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
+display-name-identity-application-display-name=XX id-identity-application-id=XX
+
+            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
+dropped once the participant is added.
+            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-user-id: Unique identifier for the identity.
+            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-device-id: Unique identifier for the identity.
+            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
+be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
+future response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-application-id: Unique identifier for the identity.
+
+            Multiple actions can be specified by using more than one --targets argument.
       - name: --tone-info
         short-summary: "toneInfo"
         long-summary: |
             Usage: --tone-info sequence-id=XX tone=XX
 
             sequence-id: An incremental identifier used for ordering DTMF events.
+      - name: --transcription
+        short-summary: "callTranscriptionInfo"
+        long-summary: |
+            Usage: --transcription last-modified-date-time=XX state=XX
+
+            last-modified-date-time: The state modified time in UTC.
       - name: --audio-routing-groups
         long-summary: |
-            Usage: --audio-routing-groups routing-mode=XX sources=XX receivers=XX id=XX
+            Usage: --audio-routing-groups receivers=XX routing-mode=XX sources=XX id=XX
 
             id: Read-only.
 
@@ -94,84 +112,84 @@ allow-anonymous-users-to-start-meeting=XX
       - name: --operations
         short-summary: "Read-only. Nullable."
         long-summary: |
-            Usage: --operations status=XX client-context=XX code=XX subcode=XX message=XX id=XX
+            Usage: --operations client-context=XX status=XX code=XX message=XX subcode=XX id=XX
 
             client-context: Unique Client Context string. Max limit is 256 chars.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --operations argument.
-      - name: --incoming-context-on-behalf-of
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-on-behalf-of id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
-
-            id-user-id: Unique identifier for the identity.
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-      - name: --incoming-context-transferor
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-transferor id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
-
-            id-user-id: Unique identifier for the identity.
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-      - name: --answered-by-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --answered-by-identity id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
-
-            id-user-id: Unique identifier for the identity.
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
       - name: --source-identity
         short-summary: "identitySet"
         long-summary: |
-            Usage: --source-identity id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --source-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=X\
+X id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --incoming-context-on-behalf-of
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --incoming-context-on-behalf-of display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --incoming-context-transferor
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --incoming-context-transferor display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --answered-by-identity
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --answered-by-identity display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications create-call-record'] = """
@@ -179,22 +197,23 @@ helps['cloudcommunications create-call-record'] = """
     short-summary: "Create new navigation property to callRecords for communications"
     parameters:
       - name: --participants
+        short-summary: "List of distinct identities involved in the call."
         long-summary: |
-            Usage: --participants id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --participants display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
 
             Multiple actions can be specified by using more than one --participants argument.
 """
@@ -206,19 +225,35 @@ helps['cloudcommunications create-online-meeting'] = """
       - name: --audio-conferencing
         short-summary: "audioConferencing"
         long-summary: |
-            Usage: --audio-conferencing conference-id=XX toll-number=XX toll-free-number=XX dialin-url=XX
+            Usage: --audio-conferencing conference-id=XX dialin-url=XX toll-free-number=XX toll-number=XX
 
-            toll-number: The toll number that connects to the Audio Conference Provider.
-            toll-free-number: The toll-free number that connects to the Audio Conference Provider.
             dialin-url: A URL to the externally-accessible web page that contains dial-in information.
+            toll-free-number: The toll-free number that connects to the Audio Conference Provider.
+            toll-number: The toll number that connects to the Audio Conference Provider.
       - name: --chat-info
         short-summary: "chatInfo"
         long-summary: |
-            Usage: --chat-info thread-id=XX message-id=XX reply-chain-message-id=XX
+            Usage: --chat-info message-id=XX reply-chain-message-id=XX thread-id=XX
 
-            thread-id: The unique identifier for a thread in Microsoft Teams.
             message-id: The unique identifier of a message in a Microsoft Teams channel.
             reply-chain-message-id: The ID of the reply message.
+            thread-id: The unique identifier for a thread in Microsoft Teams.
+      - name: --join-information
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --join-information content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --lobby-bypass-settings
+        short-summary: "lobbyBypassSettings"
+        long-summary: |
+            Usage: --lobby-bypass-settings is-dial-in-bypass-enabled=XX scope=XX
+
+"""
+
+helps['cloudcommunications create-presence'] = """
+    type: command
+    short-summary: "Create new navigation property to presences for communications"
 """
 
 helps['cloudcommunications get-call'] = """
@@ -234,6 +269,11 @@ helps['cloudcommunications get-call-record'] = """
 helps['cloudcommunications get-online-meeting'] = """
     type: command
     short-summary: "Get onlineMeetings from communications"
+"""
+
+helps['cloudcommunications get-presence'] = """
+    type: command
+    short-summary: "Get presences from communications"
 """
 
 helps['cloudcommunications get-presence-by-user-id'] = """
@@ -256,61 +296,71 @@ helps['cloudcommunications list-online-meeting'] = """
     short-summary: "Get onlineMeetings from communications"
 """
 
+helps['cloudcommunications list-presence'] = """
+    type: command
+    short-summary: "Get presences from communications"
+"""
+
 helps['cloudcommunications update-call'] = """
     type: command
     short-summary: "Update the navigation property calls in communications"
     parameters:
-      - name: --result-info
-        short-summary: "ResultInfo"
-        long-summary: |
-            Usage: --result-info code=XX subcode=XX message=XX
-
-      - name: --targets
-        short-summary: "The targets of the call. Required information for creating peer to peer call."
-        long-summary: |
-            Usage: --targets endpoint-type=XX replaces-call-id=XX id-identity-user-id=XX \
-display-name-identity-user-display-name=XX id-identity-device-id=XX display-name-identity-device-display-name=XX \
-id-identity-application-id=XX display-name-identity-application-display-name=XX
-
-            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
-dropped once the participant is added.
-            id-identity-user-id: Unique identifier for the identity.
-            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
-            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
-            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
-be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
-future response, but the items associated with the user won't show up as having changed when using delta.
-
-            Multiple actions can be specified by using more than one --targets argument.
       - name: --chat-info
         short-summary: "chatInfo"
         long-summary: |
-            Usage: --chat-info thread-id=XX message-id=XX reply-chain-message-id=XX
+            Usage: --chat-info message-id=XX reply-chain-message-id=XX thread-id=XX
 
-            thread-id: The unique identifier for a thread in Microsoft Teams.
             message-id: The unique identifier of a message in a Microsoft Teams channel.
             reply-chain-message-id: The ID of the reply message.
+            thread-id: The unique identifier for a thread in Microsoft Teams.
       - name: --meeting-capability
         short-summary: "meetingCapability"
         long-summary: |
-            Usage: --meeting-capability allow-anonymous-users-to-dial-out=XX auto-admitted-users=XX \
-allow-anonymous-users-to-start-meeting=XX
+            Usage: --meeting-capability allow-anonymous-users-to-dial-out=XX allow-anonymous-users-to-start-meeting=XX \
+auto-admitted-users=XX
 
+      - name: --result-info
+        short-summary: "ResultInfo"
+        long-summary: |
+            Usage: --result-info code=XX message=XX subcode=XX
+
+      - name: --targets
+        long-summary: |
+            Usage: --targets endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
+id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
+display-name-identity-application-display-name=XX id-identity-application-id=XX
+
+            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
+dropped once the participant is added.
+            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-user-id: Unique identifier for the identity.
+            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-device-id: Unique identifier for the identity.
+            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
+be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
+future response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-application-id: Unique identifier for the identity.
+
+            Multiple actions can be specified by using more than one --targets argument.
       - name: --tone-info
         short-summary: "toneInfo"
         long-summary: |
             Usage: --tone-info sequence-id=XX tone=XX
 
             sequence-id: An incremental identifier used for ordering DTMF events.
+      - name: --transcription
+        short-summary: "callTranscriptionInfo"
+        long-summary: |
+            Usage: --transcription last-modified-date-time=XX state=XX
+
+            last-modified-date-time: The state modified time in UTC.
       - name: --audio-routing-groups
         long-summary: |
-            Usage: --audio-routing-groups routing-mode=XX sources=XX receivers=XX id=XX
+            Usage: --audio-routing-groups receivers=XX routing-mode=XX sources=XX id=XX
 
             id: Read-only.
 
@@ -318,84 +368,84 @@ allow-anonymous-users-to-start-meeting=XX
       - name: --operations
         short-summary: "Read-only. Nullable."
         long-summary: |
-            Usage: --operations status=XX client-context=XX code=XX subcode=XX message=XX id=XX
+            Usage: --operations client-context=XX status=XX code=XX message=XX subcode=XX id=XX
 
             client-context: Unique Client Context string. Max limit is 256 chars.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --operations argument.
-      - name: --incoming-context-on-behalf-of
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-on-behalf-of id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
-
-            id-user-id: Unique identifier for the identity.
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-      - name: --incoming-context-transferor
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-transferor id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
-
-            id-user-id: Unique identifier for the identity.
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-      - name: --answered-by-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --answered-by-identity id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
-
-            id-user-id: Unique identifier for the identity.
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
       - name: --source-identity
         short-summary: "identitySet"
         long-summary: |
-            Usage: --source-identity id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --source-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=X\
+X id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --incoming-context-on-behalf-of
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --incoming-context-on-behalf-of display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --incoming-context-transferor
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --incoming-context-transferor display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
+      - name: --answered-by-identity
+        short-summary: "identitySet"
+        long-summary: |
+            Usage: --answered-by-identity display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+
+            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
+up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-user-id: Unique identifier for the identity.
+            display-name-device-display-name: The identity's display name. Note that this may not always be available \
+or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
+but the items associated with the user won't show up as having changed when using delta.
+            id-device-id: Unique identifier for the identity.
+            display-name-application-display-name: The identity's display name. Note that this may not always be \
+available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
+response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications update-call-record'] = """
@@ -403,22 +453,23 @@ helps['cloudcommunications update-call-record'] = """
     short-summary: "Update the navigation property callRecords in communications"
     parameters:
       - name: --participants
+        short-summary: "List of distinct identities involved in the call."
         long-summary: |
-            Usage: --participants id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --participants display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
 
             Multiple actions can be specified by using more than one --participants argument.
 """
@@ -430,24 +481,45 @@ helps['cloudcommunications update-online-meeting'] = """
       - name: --audio-conferencing
         short-summary: "audioConferencing"
         long-summary: |
-            Usage: --audio-conferencing conference-id=XX toll-number=XX toll-free-number=XX dialin-url=XX
+            Usage: --audio-conferencing conference-id=XX dialin-url=XX toll-free-number=XX toll-number=XX
 
-            toll-number: The toll number that connects to the Audio Conference Provider.
-            toll-free-number: The toll-free number that connects to the Audio Conference Provider.
             dialin-url: A URL to the externally-accessible web page that contains dial-in information.
+            toll-free-number: The toll-free number that connects to the Audio Conference Provider.
+            toll-number: The toll number that connects to the Audio Conference Provider.
       - name: --chat-info
         short-summary: "chatInfo"
         long-summary: |
-            Usage: --chat-info thread-id=XX message-id=XX reply-chain-message-id=XX
+            Usage: --chat-info message-id=XX reply-chain-message-id=XX thread-id=XX
 
-            thread-id: The unique identifier for a thread in Microsoft Teams.
             message-id: The unique identifier of a message in a Microsoft Teams channel.
             reply-chain-message-id: The ID of the reply message.
+            thread-id: The unique identifier for a thread in Microsoft Teams.
+      - name: --join-information
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --join-information content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --lobby-bypass-settings
+        short-summary: "lobbyBypassSettings"
+        long-summary: |
+            Usage: --lobby-bypass-settings is-dial-in-bypass-enabled=XX scope=XX
+
+"""
+
+helps['cloudcommunications update-presence'] = """
+    type: command
+    short-summary: "Update the navigation property presences in communications"
 """
 
 helps['cloudcommunications'] = """
     type: group
     short-summary: cloudcommunications
+"""
+
+helps['cloudcommunications delete'] = """
+    type: command
+    short-summary: "Delete navigation property sessions for communications"
 """
 
 helps['cloudcommunications create-session'] = """
@@ -457,18 +529,23 @@ helps['cloudcommunications create-session'] = """
       - name: --failure-info
         short-summary: "failureInfo"
         long-summary: |
-            Usage: --failure-info stage=XX reason=XX
+            Usage: --failure-info reason=XX stage=XX
 
-      - name: --callee-user-agent
-        short-summary: "userAgent"
-        long-summary: |
-            Usage: --callee-user-agent header-value=XX application-version=XX
-
+            reason: Classification of why a call or portion of a call failed.
       - name: --caller-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent header-value=XX application-version=XX
+            Usage: --caller-user-agent application-version=XX header-value=XX
 
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
+      - name: --callee-user-agent
+        short-summary: "userAgent"
+        long-summary: |
+            Usage: --callee-user-agent application-version=XX header-value=XX
+
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
 """
 
 helps['cloudcommunications get-session'] = """
@@ -488,23 +565,33 @@ helps['cloudcommunications update-session'] = """
       - name: --failure-info
         short-summary: "failureInfo"
         long-summary: |
-            Usage: --failure-info stage=XX reason=XX
+            Usage: --failure-info reason=XX stage=XX
 
-      - name: --callee-user-agent
-        short-summary: "userAgent"
-        long-summary: |
-            Usage: --callee-user-agent header-value=XX application-version=XX
-
+            reason: Classification of why a call or portion of a call failed.
       - name: --caller-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent header-value=XX application-version=XX
+            Usage: --caller-user-agent application-version=XX header-value=XX
 
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
+      - name: --callee-user-agent
+        short-summary: "userAgent"
+        long-summary: |
+            Usage: --callee-user-agent application-version=XX header-value=XX
+
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
 """
 
 helps['cloudcommunications'] = """
     type: group
     short-summary: cloudcommunications
+"""
+
+helps['cloudcommunications delete'] = """
+    type: command
+    short-summary: "Delete navigation property segments for communications"
 """
 
 helps['cloudcommunications create-segment'] = """
@@ -514,18 +601,23 @@ helps['cloudcommunications create-segment'] = """
       - name: --failure-info
         short-summary: "failureInfo"
         long-summary: |
-            Usage: --failure-info stage=XX reason=XX
+            Usage: --failure-info reason=XX stage=XX
 
-      - name: --callee-user-agent
-        short-summary: "userAgent"
-        long-summary: |
-            Usage: --callee-user-agent header-value=XX application-version=XX
-
+            reason: Classification of why a call or portion of a call failed.
       - name: --caller-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent header-value=XX application-version=XX
+            Usage: --caller-user-agent application-version=XX header-value=XX
 
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
+      - name: --callee-user-agent
+        short-summary: "userAgent"
+        long-summary: |
+            Usage: --callee-user-agent application-version=XX header-value=XX
+
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
 """
 
 helps['cloudcommunications get-segment'] = """
@@ -545,23 +637,33 @@ helps['cloudcommunications update-segment'] = """
       - name: --failure-info
         short-summary: "failureInfo"
         long-summary: |
-            Usage: --failure-info stage=XX reason=XX
+            Usage: --failure-info reason=XX stage=XX
 
-      - name: --callee-user-agent
-        short-summary: "userAgent"
-        long-summary: |
-            Usage: --callee-user-agent header-value=XX application-version=XX
-
+            reason: Classification of why a call or portion of a call failed.
       - name: --caller-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent header-value=XX application-version=XX
+            Usage: --caller-user-agent application-version=XX header-value=XX
 
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
+      - name: --callee-user-agent
+        short-summary: "userAgent"
+        long-summary: |
+            Usage: --callee-user-agent application-version=XX header-value=XX
+
+            application-version: Identifies the version of application software used by this endpoint.
+            header-value: User-agent header value reported by this endpoint.
 """
 
 helps['cloudcommunications'] = """
     type: group
     short-summary: cloudcommunications
+"""
+
+helps['cloudcommunications delete'] = """
+    type: command
+    short-summary: "Delete navigation property participants for communications"
 """
 
 helps['cloudcommunications answer'] = """
@@ -596,49 +698,49 @@ helps['cloudcommunications create-participant'] = """
       - name: --media-streams
         short-summary: "The list of media streams."
         long-summary: |
-            Usage: --media-streams media-type=XX label=XX source-id=XX direction=XX server-muted=XX
+            Usage: --media-streams direction=XX label=XX media-type=XX server-muted=XX source-id=XX
 
             label: The media stream label.
-            source-id: The source ID.
             server-muted: If the media is muted by the server.
+            source-id: The source ID.
 
             Multiple actions can be specified by using more than one --media-streams argument.
       - name: --recording-info-initiator
         short-summary: "identitySet"
         long-summary: |
-            Usage: --recording-info-initiator id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --recording-info-initiator display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --info-identity
         short-summary: "identitySet"
         long-summary: |
-            Usage: --info-identity id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --info-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications get-audio-routing-group'] = """
@@ -676,6 +778,52 @@ helps['cloudcommunications list-participant'] = """
     short-summary: "Get participants from communications"
 """
 
+helps['cloudcommunications log-teleconference-device-quality'] = """
+    type: command
+    short-summary: "Invoke action logTeleconferenceDeviceQuality"
+    parameters:
+      - name: --quality-media-quality-list
+        short-summary: "The list of media qualities in a media session (call), such as audio quality, video quality, \
+and/or screen sharing quality."
+        long-summary: |
+            Usage: --quality-media-quality-list average-inbound-jitter=XX average-inbound-packet-loss-rate-in-percentag\
+e=XX average-inbound-round-trip-delay=XX average-outbound-jitter=XX average-outbound-packet-loss-rate-in-percentage=XX \
+average-outbound-round-trip-delay=XX channel-index=XX inbound-packets=XX local-ip-address=XX local-port=XX \
+maximum-inbound-jitter=XX maximum-inbound-packet-loss-rate-in-percentage=XX maximum-inbound-round-trip-delay=XX \
+maximum-outbound-jitter=XX maximum-outbound-packet-loss-rate-in-percentage=XX maximum-outbound-round-trip-delay=XX \
+media-duration=XX network-link-speed-in-bytes=XX outbound-packets=XX remote-ip-address=XX remote-port=XX
+
+            average-inbound-jitter: The average inbound stream network jitter.
+            average-inbound-packet-loss-rate-in-percentage: The average inbound stream packet loss rate in percentage \
+(0-100). For example, 0.01 means 0.01%.
+            average-inbound-round-trip-delay: The average inbound stream network round trip delay.
+            average-outbound-jitter: The average outbound stream network jitter.
+            average-outbound-packet-loss-rate-in-percentage: The average outbound stream packet loss rate in \
+percentage (0-100). For example, 0.01 means 0.01%.
+            average-outbound-round-trip-delay: The average outbound stream network round trip delay.
+            channel-index: The channel index of media. Indexing begins with 1.  If a media session contains 3 video \
+modalities, channel indexes will be 1, 2, and 3.
+            inbound-packets: The total number of the inbound packets.
+            local-ip-address: the local IP address for the media session.
+            local-port: The local media port.
+            maximum-inbound-jitter: The maximum inbound stream network jitter.
+            maximum-inbound-packet-loss-rate-in-percentage: The maximum inbound stream packet loss rate in percentage \
+(0-100). For example, 0.01 means 0.01%.
+            maximum-inbound-round-trip-delay: The maximum inbound stream network round trip delay.
+            maximum-outbound-jitter: The maximum outbound stream network jitter.
+            maximum-outbound-packet-loss-rate-in-percentage: The maximum outbound stream packet loss rate in \
+percentage (0-100). For example, 0.01 means 0.01%.
+            maximum-outbound-round-trip-delay: The maximum outbound stream network round trip delay.
+            media-duration: The total modality duration. If the media enabled and disabled multiple times, \
+MediaDuration will the summation of all of the durations.
+            network-link-speed-in-bytes: The network link speed in bytes
+            outbound-packets: The total number of the outbound packets.
+            remote-ip-address: The remote IP address for the media session.
+            remote-port: The remote media port.
+
+            Multiple actions can be specified by using more than one --quality-media-quality-list argument.
+"""
+
 helps['cloudcommunications mute'] = """
     type: command
     short-summary: "Invoke action mute"
@@ -702,24 +850,24 @@ helps['cloudcommunications redirect'] = """
     parameters:
       - name: --targets
         long-summary: |
-            Usage: --targets endpoint-type=XX replaces-call-id=XX id-identity-user-id=XX \
-display-name-identity-user-display-name=XX id-identity-device-id=XX display-name-identity-device-display-name=XX \
-id-identity-application-id=XX display-name-identity-application-display-name=XX
+            Usage: --targets endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
+id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
+display-name-identity-application-display-name=XX id-identity-application-id=XX
 
             replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
 dropped once the participant is added.
-            id-identity-user-id: Unique identifier for the identity.
             display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
+            id-identity-user-id: Unique identifier for the identity.
             display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
+            id-identity-device-id: Unique identifier for the identity.
             display-name-identity-application-display-name: The identity's display name. Note that this may not always \
 be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
 future response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-application-id: Unique identifier for the identity.
 
             Multiple actions can be specified by using more than one --targets argument.
 """
@@ -761,49 +909,49 @@ helps['cloudcommunications update-participant'] = """
       - name: --media-streams
         short-summary: "The list of media streams."
         long-summary: |
-            Usage: --media-streams media-type=XX label=XX source-id=XX direction=XX server-muted=XX
+            Usage: --media-streams direction=XX label=XX media-type=XX server-muted=XX source-id=XX
 
             label: The media stream label.
-            source-id: The source ID.
             server-muted: If the media is muted by the server.
+            source-id: The source ID.
 
             Multiple actions can be specified by using more than one --media-streams argument.
       - name: --recording-info-initiator
         short-summary: "identitySet"
         long-summary: |
-            Usage: --recording-info-initiator id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --recording-info-initiator display-name-user-display-name=XX id-user-id=XX \
+display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
       - name: --info-identity
         short-summary: "identitySet"
         long-summary: |
-            Usage: --info-identity id-user-id=XX display-name-user-display-name=XX id-device-id=XX \
-display-name-device-display-name=XX id-application-id=XX display-name-application-display-name=XX
+            Usage: --info-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
+id-device-id=XX display-name-application-display-name=XX id-application-id=XX
 
-            id-user-id: Unique identifier for the identity.
             display-name-user-display-name: The identity's display name. Note that this may not always be available or \
 up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
+            id-user-id: Unique identifier for the identity.
             display-name-device-display-name: The identity's display name. Note that this may not always be available \
 or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
 but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            id-device-id: Unique identifier for the identity.
             display-name-application-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
+            id-application-id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications update-recording-status'] = """
@@ -822,24 +970,24 @@ helps['cloudcommunications invite'] = """
     parameters:
       - name: --participants
         long-summary: |
-            Usage: --participants endpoint-type=XX replaces-call-id=XX id-identity-user-id=XX \
-display-name-identity-user-display-name=XX id-identity-device-id=XX display-name-identity-device-display-name=XX \
-id-identity-application-id=XX display-name-identity-application-display-name=XX
+            Usage: --participants endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
+id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
+display-name-identity-application-display-name=XX id-identity-application-id=XX
 
             replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
 dropped once the participant is added.
-            id-identity-user-id: Unique identifier for the identity.
             display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
+            id-identity-user-id: Unique identifier for the identity.
             display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
 available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
 response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
+            id-identity-device-id: Unique identifier for the identity.
             display-name-identity-application-display-name: The identity's display name. Note that this may not always \
 be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
 future response, but the items associated with the user won't show up as having changed when using delta.
+            id-identity-application-id: Unique identifier for the identity.
 
             Multiple actions can be specified by using more than one --participants argument.
 """
@@ -852,4 +1000,119 @@ helps['cloudcommunications mute'] = """
 helps['cloudcommunications mute-all'] = """
     type: command
     short-summary: "Invoke action muteAll"
+"""
+
+helps['cloudcommunications'] = """
+    type: group
+    short-summary: cloudcommunications
+"""
+
+helps['cloudcommunications create-or-get'] = """
+    type: command
+    short-summary: "Invoke action createOrGet"
+    parameters:
+      - name: --chat-info
+        short-summary: "chatInfo"
+        long-summary: |
+            Usage: --chat-info message-id=XX reply-chain-message-id=XX thread-id=XX
+
+            message-id: The unique identifier of a message in a Microsoft Teams channel.
+            reply-chain-message-id: The ID of the reply message.
+            thread-id: The unique identifier for a thread in Microsoft Teams.
+"""
+
+helps['cloudcommunications'] = """
+    type: group
+    short-summary: cloudcommunications
+"""
+
+helps['cloudcommunications delete'] = """
+    type: command
+    short-summary: "Delete navigation property presence for users"
+"""
+
+helps['cloudcommunications create-online-meeting'] = """
+    type: command
+    short-summary: "Create new navigation property to onlineMeetings for users"
+    parameters:
+      - name: --audio-conferencing
+        short-summary: "audioConferencing"
+        long-summary: |
+            Usage: --audio-conferencing conference-id=XX dialin-url=XX toll-free-number=XX toll-number=XX
+
+            dialin-url: A URL to the externally-accessible web page that contains dial-in information.
+            toll-free-number: The toll-free number that connects to the Audio Conference Provider.
+            toll-number: The toll number that connects to the Audio Conference Provider.
+      - name: --chat-info
+        short-summary: "chatInfo"
+        long-summary: |
+            Usage: --chat-info message-id=XX reply-chain-message-id=XX thread-id=XX
+
+            message-id: The unique identifier of a message in a Microsoft Teams channel.
+            reply-chain-message-id: The ID of the reply message.
+            thread-id: The unique identifier for a thread in Microsoft Teams.
+      - name: --join-information
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --join-information content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --lobby-bypass-settings
+        short-summary: "lobbyBypassSettings"
+        long-summary: |
+            Usage: --lobby-bypass-settings is-dial-in-bypass-enabled=XX scope=XX
+
+"""
+
+helps['cloudcommunications get-online-meeting'] = """
+    type: command
+    short-summary: "Get onlineMeetings from users"
+"""
+
+helps['cloudcommunications get-presence'] = """
+    type: command
+    short-summary: "Get presence from users"
+"""
+
+helps['cloudcommunications list-online-meeting'] = """
+    type: command
+    short-summary: "Get onlineMeetings from users"
+"""
+
+helps['cloudcommunications update-online-meeting'] = """
+    type: command
+    short-summary: "Update the navigation property onlineMeetings in users"
+    parameters:
+      - name: --audio-conferencing
+        short-summary: "audioConferencing"
+        long-summary: |
+            Usage: --audio-conferencing conference-id=XX dialin-url=XX toll-free-number=XX toll-number=XX
+
+            dialin-url: A URL to the externally-accessible web page that contains dial-in information.
+            toll-free-number: The toll-free number that connects to the Audio Conference Provider.
+            toll-number: The toll number that connects to the Audio Conference Provider.
+      - name: --chat-info
+        short-summary: "chatInfo"
+        long-summary: |
+            Usage: --chat-info message-id=XX reply-chain-message-id=XX thread-id=XX
+
+            message-id: The unique identifier of a message in a Microsoft Teams channel.
+            reply-chain-message-id: The ID of the reply message.
+            thread-id: The unique identifier for a thread in Microsoft Teams.
+      - name: --join-information
+        short-summary: "itemBody"
+        long-summary: |
+            Usage: --join-information content=XX content-type=XX
+
+            content: The content of the item.
+      - name: --lobby-bypass-settings
+        short-summary: "lobbyBypassSettings"
+        long-summary: |
+            Usage: --lobby-bypass-settings is-dial-in-bypass-enabled=XX scope=XX
+
+"""
+
+helps['cloudcommunications update-presence'] = """
+    type: command
+    short-summary: "Update the navigation property presence in users"
 """

@@ -56,9 +56,9 @@ class BookingBusinessAppointmentOperations(object):
 
         Invoke action cancel.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
-        :param booking_appointment_id: key: bookingAppointment-id of bookingAppointment.
+        :param booking_appointment_id: key: id of bookingAppointment.
         :type booking_appointment_id: str
         :param cancellation_message:
         :type cancellation_message: str

@@ -6,9 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 import datetime
-from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar, Union
+from typing import Any, AsyncIterable, Callable, Dict, Generic, List, Optional, TypeVar, Union
 import warnings
 
+from azure.core.async_paging import AsyncItemPaged, AsyncList
 from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import AsyncHttpResponse, HttpRequest
@@ -41,32 +42,32 @@ class CommunicationCallRecordSessionOperations:
         self._deserialize = deserializer
         self._config = config
 
-    async def list_segment(
+    def list_segment(
         self,
         call_record_id: str,
         session_id: str,
-        orderby: Optional[List[Union[str, "models.Enum34"]]] = None,
-        select: Optional[List[Union[str, "models.Enum35"]]] = None,
+        orderby: Optional[List[Union[str, "models.Enum39"]]] = None,
+        select: Optional[List[Union[str, "models.Enum40"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
-    ) -> "models.CollectionOfSegment":
+    ) -> AsyncIterable["models.CollectionOfSegment"]:
         """Get segments from communications.
 
         Get segments from communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
-        :param session_id: key: session-id of session.
+        :param session_id: key: id of session.
         :type session_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Enum34]
+        :type orderby: list[str or ~cloud_communications.models.Enum39]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum35]
+        :type select: list[str or ~cloud_communications.models.Enum40]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfSegment, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfSegment
+        :return: An iterator like instance of either CollectionOfSegment or the result of cls(response)
+        :rtype: ~azure.core.async_paging.AsyncItemPaged[~cloud_communications.models.CollectionOfSegment]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSegment"]
@@ -74,53 +75,69 @@ class CommunicationCallRecordSessionOperations:
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_segment.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'callRecord-id': self._serialize.url("call_record_id", call_record_id, 'str'),
-            'session-id': self._serialize.url("session_id", session_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_segment.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'callRecord-id': self._serialize.url("call_record_id", call_record_id, 'str'),
+                    'session-id': self._serialize.url("session_id", session_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        async def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfSegment', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, AsyncList(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        async def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfSegment', pipeline_response)
+            pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return AsyncItemPaged(
+            get_next, extract_data
+        )
     list_segment.metadata = {'url': '/communications/callRecords/{callRecord-id}/sessions/{session-id}/segments'}  # type: ignore
 
     async def create_segment(
@@ -128,10 +145,10 @@ class CommunicationCallRecordSessionOperations:
         call_record_id: str,
         session_id: str,
         id: Optional[str] = None,
-        start_date_time: Optional[datetime.datetime] = None,
         end_date_time: Optional[datetime.datetime] = None,
         failure_info: Optional["models.MicrosoftGraphCallRecordsFailureInfo"] = None,
         media: Optional[List["models.MicrosoftGraphCallRecordsMedia"]] = None,
+        start_date_time: Optional[datetime.datetime] = None,
         user_agent_parameter: Optional["models.MicrosoftGraphCallRecordsUserAgent"] = None,
         microsoft_graph_call_records_user_agent: Optional["models.MicrosoftGraphCallRecordsUserAgent"] = None,
         **kwargs
@@ -140,20 +157,24 @@ class CommunicationCallRecordSessionOperations:
 
         Create new navigation property to segments for communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
-        :param session_id: key: session-id of session.
+        :param session_id: key: id of session.
         :type session_id: str
         :param id: Read-only.
         :type id: str
-        :param start_date_time:
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time:
+        :param end_date_time: UTC time when the segment ended. The DateTimeOffset type represents date
+         and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
+         on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
         :type end_date_time: ~datetime.datetime
         :param failure_info: failureInfo.
         :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
-        :param media:
+        :param media: Media associated with this segment.
         :type media: list[~cloud_communications.models.MicrosoftGraphCallRecordsMedia]
+        :param start_date_time: UTC time when the segment started. The DateTimeOffset type represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
         :param user_agent_parameter: userAgent.
         :type user_agent_parameter: ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
         :param microsoft_graph_call_records_user_agent: userAgent.
@@ -167,7 +188,7 @@ class CommunicationCallRecordSessionOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsSegment(id=id, start_date_time=start_date_time, end_date_time=end_date_time, failure_info=failure_info, media=media, user_agent_callee_user_agent=user_agent_parameter, user_agent_caller_user_agent=microsoft_graph_call_records_user_agent)
+        _body = models.MicrosoftGraphCallRecordsSegment(id=id, end_date_time=end_date_time, failure_info=failure_info, media=media, start_date_time=start_date_time, user_agent_caller_user_agent=user_agent_parameter, user_agent_callee_user_agent=microsoft_graph_call_records_user_agent)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -214,7 +235,7 @@ class CommunicationCallRecordSessionOperations:
         call_record_id: str,
         session_id: str,
         segment_id: str,
-        select: Optional[List[Union[str, "models.Enum36"]]] = None,
+        select: Optional[List[Union[str, "models.Enum41"]]] = None,
         expand: Optional[List[str]] = None,
         **kwargs
     ) -> "models.MicrosoftGraphCallRecordsSegment":
@@ -222,14 +243,14 @@ class CommunicationCallRecordSessionOperations:
 
         Get segments from communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
-        :param session_id: key: session-id of session.
+        :param session_id: key: id of session.
         :type session_id: str
-        :param segment_id: key: segment-id of segment.
+        :param segment_id: key: id of segment.
         :type segment_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum36]
+        :type select: list[str or ~cloud_communications.models.Enum41]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -286,10 +307,10 @@ class CommunicationCallRecordSessionOperations:
         session_id: str,
         segment_id: str,
         id: Optional[str] = None,
-        start_date_time: Optional[datetime.datetime] = None,
         end_date_time: Optional[datetime.datetime] = None,
         failure_info: Optional["models.MicrosoftGraphCallRecordsFailureInfo"] = None,
         media: Optional[List["models.MicrosoftGraphCallRecordsMedia"]] = None,
+        start_date_time: Optional[datetime.datetime] = None,
         user_agent_parameter: Optional["models.MicrosoftGraphCallRecordsUserAgent"] = None,
         microsoft_graph_call_records_user_agent: Optional["models.MicrosoftGraphCallRecordsUserAgent"] = None,
         **kwargs
@@ -298,22 +319,26 @@ class CommunicationCallRecordSessionOperations:
 
         Update the navigation property segments in communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
-        :param session_id: key: session-id of session.
+        :param session_id: key: id of session.
         :type session_id: str
-        :param segment_id: key: segment-id of segment.
+        :param segment_id: key: id of segment.
         :type segment_id: str
         :param id: Read-only.
         :type id: str
-        :param start_date_time:
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time:
+        :param end_date_time: UTC time when the segment ended. The DateTimeOffset type represents date
+         and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
+         on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
         :type end_date_time: ~datetime.datetime
         :param failure_info: failureInfo.
         :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
-        :param media:
+        :param media: Media associated with this segment.
         :type media: list[~cloud_communications.models.MicrosoftGraphCallRecordsMedia]
+        :param start_date_time: UTC time when the segment started. The DateTimeOffset type represents
+         date and time information using ISO 8601 format and is always in UTC time. For example,
+         midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
         :param user_agent_parameter: userAgent.
         :type user_agent_parameter: ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
         :param microsoft_graph_call_records_user_agent: userAgent.
@@ -327,7 +352,7 @@ class CommunicationCallRecordSessionOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsSegment(id=id, start_date_time=start_date_time, end_date_time=end_date_time, failure_info=failure_info, media=media, user_agent_callee_user_agent=user_agent_parameter, user_agent_caller_user_agent=microsoft_graph_call_records_user_agent)
+        _body = models.MicrosoftGraphCallRecordsSegment(id=id, end_date_time=end_date_time, failure_info=failure_info, media=media, start_date_time=start_date_time, user_agent_caller_user_agent=user_agent_parameter, user_agent_callee_user_agent=microsoft_graph_call_records_user_agent)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -365,3 +390,65 @@ class CommunicationCallRecordSessionOperations:
             return cls(pipeline_response, None, {})
 
     update_segment.metadata = {'url': '/communications/callRecords/{callRecord-id}/sessions/{session-id}/segments/{segment-id}'}  # type: ignore
+
+    async def delete_segment(
+        self,
+        call_record_id: str,
+        session_id: str,
+        segment_id: str,
+        if_match: Optional[str] = None,
+        **kwargs
+    ) -> None:
+        """Delete navigation property segments for communications.
+
+        Delete navigation property segments for communications.
+
+        :param call_record_id: key: id of callRecord.
+        :type call_record_id: str
+        :param session_id: key: id of session.
+        :type session_id: str
+        :param segment_id: key: id of segment.
+        :type segment_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_segment.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'callRecord-id': self._serialize.url("call_record_id", call_record_id, 'str'),
+            'session-id': self._serialize.url("session_id", session_id, 'str'),
+            'segment-id': self._serialize.url("segment_id", segment_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_segment.metadata = {'url': '/communications/callRecords/{callRecord-id}/sessions/{session-id}/segments/{segment-id}'}  # type: ignore

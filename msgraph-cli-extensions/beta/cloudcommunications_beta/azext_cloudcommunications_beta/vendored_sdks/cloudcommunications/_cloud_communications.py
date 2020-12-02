@@ -24,6 +24,8 @@ from .operations import CommunicationCallRecordOperations
 from .operations import CommunicationCallRecordSessionOperations
 from .operations import CommunicationCallOperations
 from .operations import CommunicationCallParticipantOperations
+from .operations import CommunicationOnlineMeetingOperations
+from .operations import UserOperations
 from . import models
 
 
@@ -42,6 +44,10 @@ class CloudCommunications(object):
     :vartype communication_call: cloud_communications.operations.CommunicationCallOperations
     :ivar communication_call_participant: CommunicationCallParticipantOperations operations
     :vartype communication_call_participant: cloud_communications.operations.CommunicationCallParticipantOperations
+    :ivar communication_online_meeting: CommunicationOnlineMeetingOperations operations
+    :vartype communication_online_meeting: cloud_communications.operations.CommunicationOnlineMeetingOperations
+    :ivar user: UserOperations operations
+    :vartype user: cloud_communications.operations.UserOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -90,6 +96,10 @@ class CloudCommunications(object):
         self.communication_call = CommunicationCallOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.communication_call_participant = CommunicationCallParticipantOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_online_meeting = CommunicationOnlineMeetingOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user = UserOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

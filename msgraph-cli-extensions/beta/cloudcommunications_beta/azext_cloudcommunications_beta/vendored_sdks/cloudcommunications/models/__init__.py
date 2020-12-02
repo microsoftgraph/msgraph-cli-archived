@@ -12,14 +12,18 @@ try:
     from ._models_py3 import CollectionOfCallRecord
     from ._models_py3 import CollectionOfCommsOperation
     from ._models_py3 import CollectionOfOnlineMeeting
+    from ._models_py3 import CollectionOfOnlineMeeting0
     from ._models_py3 import CollectionOfParticipant
+    from ._models_py3 import CollectionOfPresence
     from ._models_py3 import CollectionOfSegment
     from ._models_py3 import CollectionOfSession
     from ._models_py3 import MicrosoftGraphAudioConferencing
     from ._models_py3 import MicrosoftGraphAudioRoutingGroup
     from ._models_py3 import MicrosoftGraphCall
+    from ._models_py3 import MicrosoftGraphCallMediaState
     from ._models_py3 import MicrosoftGraphCallRecordsCallRecord
     from ._models_py3 import MicrosoftGraphCallRecordsDeviceInfo
+    from ._models_py3 import MicrosoftGraphCallRecordsEndpoint
     from ._models_py3 import MicrosoftGraphCallRecordsFailureInfo
     from ._models_py3 import MicrosoftGraphCallRecordsMedia
     from ._models_py3 import MicrosoftGraphCallRecordsMediaStream
@@ -28,17 +32,25 @@ try:
     from ._models_py3 import MicrosoftGraphCallRecordsSession
     from ._models_py3 import MicrosoftGraphCallRecordsUserAgent
     from ._models_py3 import MicrosoftGraphCallRoute
+    from ._models_py3 import MicrosoftGraphCallTranscriptionInfo
     from ._models_py3 import MicrosoftGraphCancelMediaProcessingOperation
     from ._models_py3 import MicrosoftGraphChatInfo
     from ._models_py3 import MicrosoftGraphCloudCommunications
     from ._models_py3 import MicrosoftGraphCommsOperation
     from ._models_py3 import MicrosoftGraphEntity
+    from ._models_py3 import MicrosoftGraphIdentity
     from ._models_py3 import MicrosoftGraphIdentitySet
+    from ._models_py3 import MicrosoftGraphIncomingContext
     from ._models_py3 import MicrosoftGraphInvitationParticipantInfo
     from ._models_py3 import MicrosoftGraphInviteParticipantsOperation
+    from ._models_py3 import MicrosoftGraphItemBody
+    from ._models_py3 import MicrosoftGraphLobbyBypassSettings
+    from ._models_py3 import MicrosoftGraphMediaConfig
     from ._models_py3 import MicrosoftGraphMediaStream
     from ._models_py3 import MicrosoftGraphMeetingCapability
+    from ._models_py3 import MicrosoftGraphMeetingInfo
     from ._models_py3 import MicrosoftGraphMeetingParticipantInfo
+    from ._models_py3 import MicrosoftGraphMeetingParticipants
     from ._models_py3 import MicrosoftGraphMuteParticipantOperation
     from ._models_py3 import MicrosoftGraphMuteParticipantsOperation
     from ._models_py3 import MicrosoftGraphOnlineMeeting
@@ -47,8 +59,11 @@ try:
     from ._models_py3 import MicrosoftGraphPlayPromptOperation
     from ._models_py3 import MicrosoftGraphPresence
     from ._models_py3 import MicrosoftGraphRecordOperation
+    from ._models_py3 import MicrosoftGraphRecordingInfo
     from ._models_py3 import MicrosoftGraphResultInfo
     from ._models_py3 import MicrosoftGraphSubscribeToToneOperation
+    from ._models_py3 import MicrosoftGraphTeleconferenceDeviceMediaQuality
+    from ._models_py3 import MicrosoftGraphTeleconferenceDeviceQuality
     from ._models_py3 import MicrosoftGraphToneInfo
     from ._models_py3 import MicrosoftGraphUnmuteParticipantOperation
     from ._models_py3 import MicrosoftGraphUpdateRecordingStatusOperation
@@ -61,7 +76,9 @@ try:
     from ._models_py3 import Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema
     from ._models_py3 import Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema
     from ._models_py3 import Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema
     from ._models_py3 import Paths1Mdqe66CommunicationsCallsCallIdMicrosoftGraphRecordPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema
     from ._models_py3 import Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema
     from ._models_py3 import Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema
     from ._models_py3 import Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema
@@ -78,14 +95,18 @@ except (SyntaxError, ImportError):
     from ._models import CollectionOfCallRecord  # type: ignore
     from ._models import CollectionOfCommsOperation  # type: ignore
     from ._models import CollectionOfOnlineMeeting  # type: ignore
+    from ._models import CollectionOfOnlineMeeting0  # type: ignore
     from ._models import CollectionOfParticipant  # type: ignore
+    from ._models import CollectionOfPresence  # type: ignore
     from ._models import CollectionOfSegment  # type: ignore
     from ._models import CollectionOfSession  # type: ignore
     from ._models import MicrosoftGraphAudioConferencing  # type: ignore
     from ._models import MicrosoftGraphAudioRoutingGroup  # type: ignore
     from ._models import MicrosoftGraphCall  # type: ignore
+    from ._models import MicrosoftGraphCallMediaState  # type: ignore
     from ._models import MicrosoftGraphCallRecordsCallRecord  # type: ignore
     from ._models import MicrosoftGraphCallRecordsDeviceInfo  # type: ignore
+    from ._models import MicrosoftGraphCallRecordsEndpoint  # type: ignore
     from ._models import MicrosoftGraphCallRecordsFailureInfo  # type: ignore
     from ._models import MicrosoftGraphCallRecordsMedia  # type: ignore
     from ._models import MicrosoftGraphCallRecordsMediaStream  # type: ignore
@@ -94,17 +115,25 @@ except (SyntaxError, ImportError):
     from ._models import MicrosoftGraphCallRecordsSession  # type: ignore
     from ._models import MicrosoftGraphCallRecordsUserAgent  # type: ignore
     from ._models import MicrosoftGraphCallRoute  # type: ignore
+    from ._models import MicrosoftGraphCallTranscriptionInfo  # type: ignore
     from ._models import MicrosoftGraphCancelMediaProcessingOperation  # type: ignore
     from ._models import MicrosoftGraphChatInfo  # type: ignore
     from ._models import MicrosoftGraphCloudCommunications  # type: ignore
     from ._models import MicrosoftGraphCommsOperation  # type: ignore
     from ._models import MicrosoftGraphEntity  # type: ignore
+    from ._models import MicrosoftGraphIdentity  # type: ignore
     from ._models import MicrosoftGraphIdentitySet  # type: ignore
+    from ._models import MicrosoftGraphIncomingContext  # type: ignore
     from ._models import MicrosoftGraphInvitationParticipantInfo  # type: ignore
     from ._models import MicrosoftGraphInviteParticipantsOperation  # type: ignore
+    from ._models import MicrosoftGraphItemBody  # type: ignore
+    from ._models import MicrosoftGraphLobbyBypassSettings  # type: ignore
+    from ._models import MicrosoftGraphMediaConfig  # type: ignore
     from ._models import MicrosoftGraphMediaStream  # type: ignore
     from ._models import MicrosoftGraphMeetingCapability  # type: ignore
+    from ._models import MicrosoftGraphMeetingInfo  # type: ignore
     from ._models import MicrosoftGraphMeetingParticipantInfo  # type: ignore
+    from ._models import MicrosoftGraphMeetingParticipants  # type: ignore
     from ._models import MicrosoftGraphMuteParticipantOperation  # type: ignore
     from ._models import MicrosoftGraphMuteParticipantsOperation  # type: ignore
     from ._models import MicrosoftGraphOnlineMeeting  # type: ignore
@@ -113,8 +142,11 @@ except (SyntaxError, ImportError):
     from ._models import MicrosoftGraphPlayPromptOperation  # type: ignore
     from ._models import MicrosoftGraphPresence  # type: ignore
     from ._models import MicrosoftGraphRecordOperation  # type: ignore
+    from ._models import MicrosoftGraphRecordingInfo  # type: ignore
     from ._models import MicrosoftGraphResultInfo  # type: ignore
     from ._models import MicrosoftGraphSubscribeToToneOperation  # type: ignore
+    from ._models import MicrosoftGraphTeleconferenceDeviceMediaQuality  # type: ignore
+    from ._models import MicrosoftGraphTeleconferenceDeviceQuality  # type: ignore
     from ._models import MicrosoftGraphToneInfo  # type: ignore
     from ._models import MicrosoftGraphUnmuteParticipantOperation  # type: ignore
     from ._models import MicrosoftGraphUpdateRecordingStatusOperation  # type: ignore
@@ -127,7 +159,9 @@ except (SyntaxError, ImportError):
     from ._models import Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema  # type: ignore
     from ._models import Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema  # type: ignore
     from ._models import Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema  # type: ignore
     from ._models import Paths1Mdqe66CommunicationsCallsCallIdMicrosoftGraphRecordPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema  # type: ignore
     from ._models import Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema  # type: ignore
     from ._models import Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema  # type: ignore
     from ._models import Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema  # type: ignore
@@ -140,30 +174,37 @@ except (SyntaxError, ImportError):
     from ._models import PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema  # type: ignore
 
 from ._cloud_communications_enums import (
-    Enum27,
-    Enum29,
-    Enum30,
     Enum32,
     Enum34,
     Enum35,
-    Enum36,
     Enum37,
-    Enum38,
     Enum39,
     Enum40,
     Enum41,
     Enum42,
     Enum43,
     Enum44,
-    Enum50,
-    Enum51,
-    Enum52,
-    Enum53,
-    Enum54,
+    Enum45,
+    Enum46,
+    Enum47,
+    Enum48,
+    Enum49,
     Enum55,
     Enum56,
     Enum57,
     Enum58,
+    Enum59,
+    Enum60,
+    Enum61,
+    Enum62,
+    Enum63,
+    Enum64,
+    Enum65,
+    Enum66,
+    Enum67,
+    Enum68,
+    Enum69,
+    Enum70,
     Get0ItemsItem,
     Get1ItemsItem,
     Get2ItemsItem,
@@ -174,6 +215,7 @@ from ._cloud_communications_enums import (
     Get8ItemsItem,
     MicrosoftGraphAccessLevel,
     MicrosoftGraphAutoAdmittedUsersType,
+    MicrosoftGraphBodyType,
     MicrosoftGraphCallDirection,
     MicrosoftGraphCallDisposition,
     MicrosoftGraphCallRecordsCallType,
@@ -184,11 +226,15 @@ from ._cloud_communications_enums import (
     MicrosoftGraphCallRecordsWifiBand,
     MicrosoftGraphCallRecordsWifiRadioType,
     MicrosoftGraphCallState,
+    MicrosoftGraphCallTranscriptionState,
     MicrosoftGraphEndpointType,
+    MicrosoftGraphLobbyBypassScope,
     MicrosoftGraphMediaDirection,
     MicrosoftGraphMediaState,
     MicrosoftGraphMeetingCapabilities,
     MicrosoftGraphModality,
+    MicrosoftGraphOnlineMeetingPresenters,
+    MicrosoftGraphOnlineMeetingRole,
     MicrosoftGraphOperationStatus,
     MicrosoftGraphPlayPromptCompletionReason,
     MicrosoftGraphRecordCompletionReason,
@@ -207,14 +253,18 @@ __all__ = [
     'CollectionOfCallRecord',
     'CollectionOfCommsOperation',
     'CollectionOfOnlineMeeting',
+    'CollectionOfOnlineMeeting0',
     'CollectionOfParticipant',
+    'CollectionOfPresence',
     'CollectionOfSegment',
     'CollectionOfSession',
     'MicrosoftGraphAudioConferencing',
     'MicrosoftGraphAudioRoutingGroup',
     'MicrosoftGraphCall',
+    'MicrosoftGraphCallMediaState',
     'MicrosoftGraphCallRecordsCallRecord',
     'MicrosoftGraphCallRecordsDeviceInfo',
+    'MicrosoftGraphCallRecordsEndpoint',
     'MicrosoftGraphCallRecordsFailureInfo',
     'MicrosoftGraphCallRecordsMedia',
     'MicrosoftGraphCallRecordsMediaStream',
@@ -223,17 +273,25 @@ __all__ = [
     'MicrosoftGraphCallRecordsSession',
     'MicrosoftGraphCallRecordsUserAgent',
     'MicrosoftGraphCallRoute',
+    'MicrosoftGraphCallTranscriptionInfo',
     'MicrosoftGraphCancelMediaProcessingOperation',
     'MicrosoftGraphChatInfo',
     'MicrosoftGraphCloudCommunications',
     'MicrosoftGraphCommsOperation',
     'MicrosoftGraphEntity',
+    'MicrosoftGraphIdentity',
     'MicrosoftGraphIdentitySet',
+    'MicrosoftGraphIncomingContext',
     'MicrosoftGraphInvitationParticipantInfo',
     'MicrosoftGraphInviteParticipantsOperation',
+    'MicrosoftGraphItemBody',
+    'MicrosoftGraphLobbyBypassSettings',
+    'MicrosoftGraphMediaConfig',
     'MicrosoftGraphMediaStream',
     'MicrosoftGraphMeetingCapability',
+    'MicrosoftGraphMeetingInfo',
     'MicrosoftGraphMeetingParticipantInfo',
+    'MicrosoftGraphMeetingParticipants',
     'MicrosoftGraphMuteParticipantOperation',
     'MicrosoftGraphMuteParticipantsOperation',
     'MicrosoftGraphOnlineMeeting',
@@ -242,8 +300,11 @@ __all__ = [
     'MicrosoftGraphPlayPromptOperation',
     'MicrosoftGraphPresence',
     'MicrosoftGraphRecordOperation',
+    'MicrosoftGraphRecordingInfo',
     'MicrosoftGraphResultInfo',
     'MicrosoftGraphSubscribeToToneOperation',
+    'MicrosoftGraphTeleconferenceDeviceMediaQuality',
+    'MicrosoftGraphTeleconferenceDeviceQuality',
     'MicrosoftGraphToneInfo',
     'MicrosoftGraphUnmuteParticipantOperation',
     'MicrosoftGraphUpdateRecordingStatusOperation',
@@ -256,7 +317,9 @@ __all__ = [
     'Paths183Gi8UCommunicationsCallsCallIdMicrosoftGraphRedirectPostRequestbodyContentApplicationJsonSchema',
     'Paths1Bh76WaCommunicationsCallsCallIdParticipantsMicrosoftGraphInvitePostRequestbodyContentApplicationJsonSchema',
     'Paths1Gzqcv2CommunicationsCallsCallIdMicrosoftGraphPlaypromptPostRequestbodyContentApplicationJsonSchema',
+    'Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema',
     'Paths1Mdqe66CommunicationsCallsCallIdMicrosoftGraphRecordPostRequestbodyContentApplicationJsonSchema',
+    'Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostRequestbodyContentApplicationJsonSchema',
     'Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema',
     'Paths4QrghdCommunicationsCallsCallIdMicrosoftGraphRejectPostRequestbodyContentApplicationJsonSchema',
     'Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema',
@@ -267,30 +330,37 @@ __all__ = [
     'PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema',
     'PathsXyl6WiCommunicationsCallsCallIdMicrosoftGraphSubscribetotonePostRequestbodyContentApplicationJsonSchema',
     'PathsYp37FjCommunicationsCallsCallIdMicrosoftGraphCancelmediaprocessingPostRequestbodyContentApplicationJsonSchema',
-    'Enum27',
-    'Enum29',
-    'Enum30',
     'Enum32',
     'Enum34',
     'Enum35',
-    'Enum36',
     'Enum37',
-    'Enum38',
     'Enum39',
     'Enum40',
     'Enum41',
     'Enum42',
     'Enum43',
     'Enum44',
-    'Enum50',
-    'Enum51',
-    'Enum52',
-    'Enum53',
-    'Enum54',
+    'Enum45',
+    'Enum46',
+    'Enum47',
+    'Enum48',
+    'Enum49',
     'Enum55',
     'Enum56',
     'Enum57',
     'Enum58',
+    'Enum59',
+    'Enum60',
+    'Enum61',
+    'Enum62',
+    'Enum63',
+    'Enum64',
+    'Enum65',
+    'Enum66',
+    'Enum67',
+    'Enum68',
+    'Enum69',
+    'Enum70',
     'Get0ItemsItem',
     'Get1ItemsItem',
     'Get2ItemsItem',
@@ -301,6 +371,7 @@ __all__ = [
     'Get8ItemsItem',
     'MicrosoftGraphAccessLevel',
     'MicrosoftGraphAutoAdmittedUsersType',
+    'MicrosoftGraphBodyType',
     'MicrosoftGraphCallDirection',
     'MicrosoftGraphCallDisposition',
     'MicrosoftGraphCallRecordsCallType',
@@ -311,11 +382,15 @@ __all__ = [
     'MicrosoftGraphCallRecordsWifiBand',
     'MicrosoftGraphCallRecordsWifiRadioType',
     'MicrosoftGraphCallState',
+    'MicrosoftGraphCallTranscriptionState',
     'MicrosoftGraphEndpointType',
+    'MicrosoftGraphLobbyBypassScope',
     'MicrosoftGraphMediaDirection',
     'MicrosoftGraphMediaState',
     'MicrosoftGraphMeetingCapabilities',
     'MicrosoftGraphModality',
+    'MicrosoftGraphOnlineMeetingPresenters',
+    'MicrosoftGraphOnlineMeetingRole',
     'MicrosoftGraphOperationStatus',
     'MicrosoftGraphPlayPromptCompletionReason',
     'MicrosoftGraphRecordCompletionReason',

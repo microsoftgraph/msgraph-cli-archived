@@ -22,6 +22,8 @@ from .operations_async import CommunicationCallRecordOperations
 from .operations_async import CommunicationCallRecordSessionOperations
 from .operations_async import CommunicationCallOperations
 from .operations_async import CommunicationCallParticipantOperations
+from .operations_async import CommunicationOnlineMeetingOperations
+from .operations_async import UserOperations
 from .. import models
 
 
@@ -40,6 +42,10 @@ class CloudCommunications(object):
     :vartype communication_call: cloud_communications.aio.operations_async.CommunicationCallOperations
     :ivar communication_call_participant: CommunicationCallParticipantOperations operations
     :vartype communication_call_participant: cloud_communications.aio.operations_async.CommunicationCallParticipantOperations
+    :ivar communication_online_meeting: CommunicationOnlineMeetingOperations operations
+    :vartype communication_online_meeting: cloud_communications.aio.operations_async.CommunicationOnlineMeetingOperations
+    :ivar user: UserOperations operations
+    :vartype user: cloud_communications.aio.operations_async.UserOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -87,6 +93,10 @@ class CloudCommunications(object):
         self.communication_call = CommunicationCallOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.communication_call_participant = CommunicationCallParticipantOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.communication_online_meeting = CommunicationOnlineMeetingOperations(
+            self._client, self._config, self._serialize, self._deserialize)
+        self.user = UserOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

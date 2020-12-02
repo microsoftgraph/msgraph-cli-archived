@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 import warnings
 
 from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -18,7 +19,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -48,27 +49,27 @@ class CommunicationCallRecordOperations(object):
     def list_session(
         self,
         call_record_id,  # type: str
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum29"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum30"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum34"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum35"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Get8ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.CollectionOfSession"
+        # type: (...) -> Iterable["models.CollectionOfSession"]
         """Get sessions from communications.
 
         Get sessions from communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Enum29]
+        :type orderby: list[str or ~cloud_communications.models.Enum34]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum30]
+        :type select: list[str or ~cloud_communications.models.Enum35]
         :param expand: Expand related entities.
         :type expand: list[str or ~cloud_communications.models.Get8ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfSession, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfSession
+        :return: An iterator like instance of either CollectionOfSession or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfSession]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSession"]
@@ -76,62 +77,78 @@ class CommunicationCallRecordOperations(object):
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_session.metadata['url']  # type: ignore
-        path_format_arguments = {
-            'callRecord-id': self._serialize.url("call_record_id", call_record_id, 'str'),
-        }
-        url = self._client.format_url(url, **path_format_arguments)
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_session.metadata['url']  # type: ignore
+                path_format_arguments = {
+                    'callRecord-id': self._serialize.url("call_record_id", call_record_id, 'str'),
+                }
+                url = self._client.format_url(url, **path_format_arguments)
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfSession', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfSession', pipeline_response)
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
     list_session.metadata = {'url': '/communications/callRecords/{callRecord-id}/sessions'}  # type: ignore
 
     def create_session(
         self,
         call_record_id,  # type: str
         id=None,  # type: Optional[str]
-        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
-        start_date_time=None,  # type: Optional[datetime.datetime]
         end_date_time=None,  # type: Optional[datetime.datetime]
         failure_info=None,  # type: Optional["models.MicrosoftGraphCallRecordsFailureInfo"]
+        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
+        start_date_time=None,  # type: Optional[datetime.datetime]
         segments=None,  # type: Optional[List["models.MicrosoftGraphCallRecordsSegment"]]
         user_agent_parameter=None,  # type: Optional["models.MicrosoftGraphCallRecordsUserAgent"]
         microsoft_graph_call_records_user_agent=None,  # type: Optional["models.MicrosoftGraphCallRecordsUserAgent"]
@@ -142,19 +159,24 @@ class CommunicationCallRecordOperations(object):
 
         Create new navigation property to sessions for communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
         :param id: Read-only.
         :type id: str
-        :param modalities:
-        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
-        :param start_date_time:
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time:
+        :param end_date_time: UTC time when the last user left the session. The DateTimeOffset type
+         represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
         :type end_date_time: ~datetime.datetime
         :param failure_info: failureInfo.
         :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
-        :param segments:
+        :param modalities: List of modalities present in the session. Possible values are: unknown,
+         audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
+        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
+        :param start_date_time: UTC fime when the first user joined the session. The DateTimeOffset
+         type represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
+        :param segments: The list of segments involved in the session. Read-only. Nullable.
         :type segments: list[~cloud_communications.models.MicrosoftGraphCallRecordsSegment]
         :param user_agent_parameter: userAgent.
         :type user_agent_parameter: ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
@@ -169,7 +191,7 @@ class CommunicationCallRecordOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsSession(id=id, modalities=modalities, start_date_time=start_date_time, end_date_time=end_date_time, failure_info=failure_info, segments=segments, user_agent_callee_user_agent=user_agent_parameter, user_agent_caller_user_agent=microsoft_graph_call_records_user_agent)
+        _body = models.MicrosoftGraphCallRecordsSession(id=id, end_date_time=end_date_time, failure_info=failure_info, modalities=modalities, start_date_time=start_date_time, segments=segments, user_agent_caller_user_agent=user_agent_parameter, user_agent_callee_user_agent=microsoft_graph_call_records_user_agent)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -214,7 +236,7 @@ class CommunicationCallRecordOperations(object):
         self,
         call_record_id,  # type: str
         session_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum32"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum37"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Get3ItemsItem"]]]
         **kwargs  # type: Any
     ):
@@ -223,12 +245,12 @@ class CommunicationCallRecordOperations(object):
 
         Get sessions from communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
-        :param session_id: key: session-id of session.
+        :param session_id: key: id of session.
         :type session_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum32]
+        :type select: list[str or ~cloud_communications.models.Enum37]
         :param expand: Expand related entities.
         :type expand: list[str or ~cloud_communications.models.Get3ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -283,10 +305,10 @@ class CommunicationCallRecordOperations(object):
         call_record_id,  # type: str
         session_id,  # type: str
         id=None,  # type: Optional[str]
-        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
-        start_date_time=None,  # type: Optional[datetime.datetime]
         end_date_time=None,  # type: Optional[datetime.datetime]
         failure_info=None,  # type: Optional["models.MicrosoftGraphCallRecordsFailureInfo"]
+        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
+        start_date_time=None,  # type: Optional[datetime.datetime]
         segments=None,  # type: Optional[List["models.MicrosoftGraphCallRecordsSegment"]]
         user_agent_parameter=None,  # type: Optional["models.MicrosoftGraphCallRecordsUserAgent"]
         microsoft_graph_call_records_user_agent=None,  # type: Optional["models.MicrosoftGraphCallRecordsUserAgent"]
@@ -297,21 +319,26 @@ class CommunicationCallRecordOperations(object):
 
         Update the navigation property sessions in communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
-        :param session_id: key: session-id of session.
+        :param session_id: key: id of session.
         :type session_id: str
         :param id: Read-only.
         :type id: str
-        :param modalities:
-        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
-        :param start_date_time:
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time:
+        :param end_date_time: UTC time when the last user left the session. The DateTimeOffset type
+         represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
         :type end_date_time: ~datetime.datetime
         :param failure_info: failureInfo.
         :type failure_info: ~cloud_communications.models.MicrosoftGraphCallRecordsFailureInfo
-        :param segments:
+        :param modalities: List of modalities present in the session. Possible values are: unknown,
+         audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
+        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
+        :param start_date_time: UTC fime when the first user joined the session. The DateTimeOffset
+         type represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
+        :param segments: The list of segments involved in the session. Read-only. Nullable.
         :type segments: list[~cloud_communications.models.MicrosoftGraphCallRecordsSegment]
         :param user_agent_parameter: userAgent.
         :type user_agent_parameter: ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
@@ -326,7 +353,7 @@ class CommunicationCallRecordOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsSession(id=id, modalities=modalities, start_date_time=start_date_time, end_date_time=end_date_time, failure_info=failure_info, segments=segments, user_agent_callee_user_agent=user_agent_parameter, user_agent_caller_user_agent=microsoft_graph_call_records_user_agent)
+        _body = models.MicrosoftGraphCallRecordsSession(id=id, end_date_time=end_date_time, failure_info=failure_info, modalities=modalities, start_date_time=start_date_time, segments=segments, user_agent_caller_user_agent=user_agent_parameter, user_agent_callee_user_agent=microsoft_graph_call_records_user_agent)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -363,3 +390,62 @@ class CommunicationCallRecordOperations(object):
             return cls(pipeline_response, None, {})
 
     update_session.metadata = {'url': '/communications/callRecords/{callRecord-id}/sessions/{session-id}'}  # type: ignore
+
+    def delete_session(
+        self,
+        call_record_id,  # type: str
+        session_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property sessions for communications.
+
+        Delete navigation property sessions for communications.
+
+        :param call_record_id: key: id of callRecord.
+        :type call_record_id: str
+        :param session_id: key: id of session.
+        :type session_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_session.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'callRecord-id': self._serialize.url("call_record_id", call_record_id, 'str'),
+            'session-id': self._serialize.url("session_id", session_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_session.metadata = {'url': '/communications/callRecords/{callRecord-id}/sessions/{session-id}'}  # type: ignore

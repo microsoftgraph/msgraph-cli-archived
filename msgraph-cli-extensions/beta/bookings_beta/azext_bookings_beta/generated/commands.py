@@ -34,6 +34,7 @@ def load_command_table(self, _):
         'nessOperations.{}',
         client_factory=cf_booking_business)
     with self.command_group('bookings', bookings_beta_booking_business, client_factory=cf_booking_business) as g:
+        g.custom_command('delete', 'bookings_delete', confirmation=True)
         g.custom_command('create-appointment', 'bookings_create_appointment')
         g.custom_command('create-calendar-view', 'bookings_create_calendar_view')
         g.custom_command('create-customer', 'bookings_create_customer')

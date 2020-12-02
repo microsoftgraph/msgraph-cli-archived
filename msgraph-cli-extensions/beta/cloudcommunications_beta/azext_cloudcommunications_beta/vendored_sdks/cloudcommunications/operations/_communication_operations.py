@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 import warnings
 
 from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -18,7 +19,7 @@ from .. import models
 
 if TYPE_CHECKING:
     # pylint: disable=unused-import,ungrouped-imports
-    from typing import Any, Callable, Dict, Generic, List, Optional, TypeVar, Union
+    from typing import Any, Callable, Dict, Generic, Iterable, List, Optional, TypeVar, Union
 
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
@@ -52,7 +53,7 @@ class CommunicationOperations(object):
         expand=None,  # type: Optional[List[Union[str, "models.Get7ItemsItem"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.CollectionOfCallRecord"
+        # type: (...) -> Iterable["models.CollectionOfCallRecord"]
         """Get callRecords from communications.
 
         Get callRecords from communications.
@@ -64,8 +65,8 @@ class CommunicationOperations(object):
         :param expand: Expand related entities.
         :type expand: list[str or ~cloud_communications.models.Get7ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfCallRecord, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfCallRecord
+        :return: An iterator like instance of either CollectionOfCallRecord or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfCallRecord]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCallRecord"]
@@ -73,68 +74,84 @@ class CommunicationOperations(object):
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_call_record.metadata['url']  # type: ignore
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_call_record.metadata['url']  # type: ignore
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfCallRecord', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfCallRecord', pipeline_response)
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
     list_call_record.metadata = {'url': '/communications/callRecords'}  # type: ignore
 
     def create_call_record(
         self,
         id=None,  # type: Optional[str]
-        version=None,  # type: Optional[int]
-        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallRecordsCallType"]]
-        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
-        last_modified_date_time=None,  # type: Optional[datetime.datetime]
-        start_date_time=None,  # type: Optional[datetime.datetime]
         end_date_time=None,  # type: Optional[datetime.datetime]
-        participants=None,  # type: Optional[List["models.MicrosoftGraphIdentitySet"]]
         join_web_url=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
+        participants=None,  # type: Optional[List["models.MicrosoftGraphIdentitySet"]]
+        start_date_time=None,  # type: Optional[datetime.datetime]
+        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallRecordsCallType"]]
+        version=None,  # type: Optional[int]
         sessions=None,  # type: Optional[List["models.MicrosoftGraphCallRecordsSession"]]
-        microsoft_graph_identity_id=None,  # type: Optional[str]
         display_name=None,  # type: Optional[str]
-        id1=None,  # type: Optional[str]
+        microsoft_graph_identity_id=None,  # type: Optional[str]
         microsoft_graph_identity_display_name=None,  # type: Optional[str]
-        id2=None,  # type: Optional[str]
+        id1=None,  # type: Optional[str]
         display_name1=None,  # type: Optional[str]
+        id2=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphCallRecordsCallRecord"
@@ -144,45 +161,56 @@ class CommunicationOperations(object):
 
         :param id: Read-only.
         :type id: str
-        :param version:
-        :type version: long
+        :param end_date_time: UTC time when the last user left the call. The DateTimeOffset type
+         represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type end_date_time: ~datetime.datetime
+        :param join_web_url: Meeting URL associated to the call. May not be available for a peerToPeer
+         call record type.
+        :type join_web_url: str
+        :param last_modified_date_time: UTC time when the call record was created. The DatetimeOffset
+         type represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param modalities: List of all the modalities used in the call. Possible values are: unknown,
+         audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
+        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
+        :param participants: List of distinct identities involved in the call.
+        :type participants: list[~cloud_communications.models.MicrosoftGraphIdentitySet]
+        :param start_date_time: UTC time when the first user joined the call. The DatetimeOffset type
+         represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
         :param type:
         :type type: str or ~cloud_communications.models.MicrosoftGraphCallRecordsCallType
-        :param modalities:
-        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
-        :param last_modified_date_time:
-        :type last_modified_date_time: ~datetime.datetime
-        :param start_date_time:
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time:
-        :type end_date_time: ~datetime.datetime
-        :param participants:
-        :type participants: list[~cloud_communications.models.MicrosoftGraphIdentitySet]
-        :param join_web_url:
-        :type join_web_url: str
-        :param sessions:
+        :param version: Monotonically increasing version of the call record. Higher version call
+         records with the same id includes additional data compared to the lower version.
+        :type version: long
+        :param sessions: List of sessions involved in the call. Peer-to-peer calls typically only have
+         one session, whereas group calls typically have at least one session per participant. Read-
+         only. Nullable.
         :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
         :param display_name: The identity's display name. Note that this may not always be available or
          up to date. For example, if a user changes their display name, the API may show the new value
          in a future response, but the items associated with the user won't show up as having changed
          when using delta.
         :type display_name: str
-        :param id1: Unique identifier for the identity.
-        :type id1: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
         :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
          not always be available or up to date. For example, if a user changes their display name, the
          API may show the new value in a future response, but the items associated with the user won't
          show up as having changed when using delta.
         :type microsoft_graph_identity_display_name: str
-        :param id2: Unique identifier for the identity.
-        :type id2: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
         :param display_name1: The identity's display name. Note that this may not always be available
          or up to date. For example, if a user changes their display name, the API may show the new
          value in a future response, but the items associated with the user won't show up as having
          changed when using delta.
         :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphCallRecordsCallRecord, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord
@@ -192,7 +220,7 @@ class CommunicationOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsCallRecord(id=id, version=version, type=type, modalities=modalities, last_modified_date_time=last_modified_date_time, start_date_time=start_date_time, end_date_time=end_date_time, participants=participants, join_web_url=join_web_url, sessions=sessions, id_organizer_user_id=microsoft_graph_identity_id, display_name_organizer_user_display_name=display_name, id_organizer_device_id=id1, display_name_organizer_device_display_name=microsoft_graph_identity_display_name, id_organizer_application_id=id2, display_name_organizer_application_display_name=display_name1)
+        _body = models.MicrosoftGraphCallRecordsCallRecord(id=id, end_date_time=end_date_time, join_web_url=join_web_url, last_modified_date_time=last_modified_date_time, modalities=modalities, participants=participants, start_date_time=start_date_time, type=type, version=version, sessions=sessions, display_name_organizer_user_display_name=display_name, id_organizer_user_id=microsoft_graph_identity_id, display_name_organizer_device_display_name=microsoft_graph_identity_display_name, id_organizer_device_id=id1, display_name_organizer_application_display_name=display_name1, id_organizer_application_id=id2)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -232,7 +260,7 @@ class CommunicationOperations(object):
     def get_call_record(
         self,
         call_record_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum27"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum32"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Get2ItemsItem"]]]
         **kwargs  # type: Any
     ):
@@ -241,10 +269,10 @@ class CommunicationOperations(object):
 
         Get callRecords from communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum27]
+        :type select: list[str or ~cloud_communications.models.Enum32]
         :param expand: Expand related entities.
         :type expand: list[str or ~cloud_communications.models.Get2ItemsItem]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -297,21 +325,21 @@ class CommunicationOperations(object):
         self,
         call_record_id,  # type: str
         id=None,  # type: Optional[str]
-        version=None,  # type: Optional[int]
-        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallRecordsCallType"]]
-        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
-        last_modified_date_time=None,  # type: Optional[datetime.datetime]
-        start_date_time=None,  # type: Optional[datetime.datetime]
         end_date_time=None,  # type: Optional[datetime.datetime]
-        participants=None,  # type: Optional[List["models.MicrosoftGraphIdentitySet"]]
         join_web_url=None,  # type: Optional[str]
+        last_modified_date_time=None,  # type: Optional[datetime.datetime]
+        modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphCallRecordsModality"]]]
+        participants=None,  # type: Optional[List["models.MicrosoftGraphIdentitySet"]]
+        start_date_time=None,  # type: Optional[datetime.datetime]
+        type=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallRecordsCallType"]]
+        version=None,  # type: Optional[int]
         sessions=None,  # type: Optional[List["models.MicrosoftGraphCallRecordsSession"]]
-        microsoft_graph_identity_id=None,  # type: Optional[str]
         display_name=None,  # type: Optional[str]
-        id1=None,  # type: Optional[str]
+        microsoft_graph_identity_id=None,  # type: Optional[str]
         microsoft_graph_identity_display_name=None,  # type: Optional[str]
-        id2=None,  # type: Optional[str]
+        id1=None,  # type: Optional[str]
         display_name1=None,  # type: Optional[str]
+        id2=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -319,49 +347,60 @@ class CommunicationOperations(object):
 
         Update the navigation property callRecords in communications.
 
-        :param call_record_id: key: callRecord-id of callRecord.
+        :param call_record_id: key: id of callRecord.
         :type call_record_id: str
         :param id: Read-only.
         :type id: str
-        :param version:
-        :type version: long
+        :param end_date_time: UTC time when the last user left the call. The DateTimeOffset type
+         represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type end_date_time: ~datetime.datetime
+        :param join_web_url: Meeting URL associated to the call. May not be available for a peerToPeer
+         call record type.
+        :type join_web_url: str
+        :param last_modified_date_time: UTC time when the call record was created. The DatetimeOffset
+         type represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type last_modified_date_time: ~datetime.datetime
+        :param modalities: List of all the modalities used in the call. Possible values are: unknown,
+         audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
+        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
+        :param participants: List of distinct identities involved in the call.
+        :type participants: list[~cloud_communications.models.MicrosoftGraphIdentitySet]
+        :param start_date_time: UTC time when the first user joined the call. The DatetimeOffset type
+         represents date and time information using ISO 8601 format and is always in UTC time. For
+         example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+        :type start_date_time: ~datetime.datetime
         :param type:
         :type type: str or ~cloud_communications.models.MicrosoftGraphCallRecordsCallType
-        :param modalities:
-        :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
-        :param last_modified_date_time:
-        :type last_modified_date_time: ~datetime.datetime
-        :param start_date_time:
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time:
-        :type end_date_time: ~datetime.datetime
-        :param participants:
-        :type participants: list[~cloud_communications.models.MicrosoftGraphIdentitySet]
-        :param join_web_url:
-        :type join_web_url: str
-        :param sessions:
+        :param version: Monotonically increasing version of the call record. Higher version call
+         records with the same id includes additional data compared to the lower version.
+        :type version: long
+        :param sessions: List of sessions involved in the call. Peer-to-peer calls typically only have
+         one session, whereas group calls typically have at least one session per participant. Read-
+         only. Nullable.
         :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
         :param display_name: The identity's display name. Note that this may not always be available or
          up to date. For example, if a user changes their display name, the API may show the new value
          in a future response, but the items associated with the user won't show up as having changed
          when using delta.
         :type display_name: str
-        :param id1: Unique identifier for the identity.
-        :type id1: str
+        :param microsoft_graph_identity_id: Unique identifier for the identity.
+        :type microsoft_graph_identity_id: str
         :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
          not always be available or up to date. For example, if a user changes their display name, the
          API may show the new value in a future response, but the items associated with the user won't
          show up as having changed when using delta.
         :type microsoft_graph_identity_display_name: str
-        :param id2: Unique identifier for the identity.
-        :type id2: str
+        :param id1: Unique identifier for the identity.
+        :type id1: str
         :param display_name1: The identity's display name. Note that this may not always be available
          or up to date. For example, if a user changes their display name, the API may show the new
          value in a future response, but the items associated with the user won't show up as having
          changed when using delta.
         :type display_name1: str
+        :param id2: Unique identifier for the identity.
+        :type id2: str
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -371,7 +410,7 @@ class CommunicationOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsCallRecord(id=id, version=version, type=type, modalities=modalities, last_modified_date_time=last_modified_date_time, start_date_time=start_date_time, end_date_time=end_date_time, participants=participants, join_web_url=join_web_url, sessions=sessions, id_organizer_user_id=microsoft_graph_identity_id, display_name_organizer_user_display_name=display_name, id_organizer_device_id=id1, display_name_organizer_device_display_name=microsoft_graph_identity_display_name, id_organizer_application_id=id2, display_name_organizer_application_display_name=display_name1)
+        _body = models.MicrosoftGraphCallRecordsCallRecord(id=id, end_date_time=end_date_time, join_web_url=join_web_url, last_modified_date_time=last_modified_date_time, modalities=modalities, participants=participants, start_date_time=start_date_time, type=type, version=version, sessions=sessions, display_name_organizer_user_display_name=display_name, id_organizer_user_id=microsoft_graph_identity_id, display_name_organizer_device_display_name=microsoft_graph_identity_display_name, id_organizer_device_id=id1, display_name_organizer_application_display_name=display_name1, id_organizer_application_id=id2)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -408,27 +447,82 @@ class CommunicationOperations(object):
 
     update_call_record.metadata = {'url': '/communications/callRecords/{callRecord-id}'}  # type: ignore
 
-    def list_call(
+    def delete_call_record(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum37"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum38"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum39"]]]
+        call_record_id,  # type: str
+        if_match=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.CollectionOfCall"
+        # type: (...) -> None
+        """Delete navigation property callRecords for communications.
+
+        Delete navigation property callRecords for communications.
+
+        :param call_record_id: key: id of callRecord.
+        :type call_record_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_call_record.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'callRecord-id': self._serialize.url("call_record_id", call_record_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_call_record.metadata = {'url': '/communications/callRecords/{callRecord-id}'}  # type: ignore
+
+    def list_call(
+        self,
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum42"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum43"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum44"]]]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> Iterable["models.CollectionOfCall"]
         """Get calls from communications.
 
         Get calls from communications.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Enum37]
+        :type orderby: list[str or ~cloud_communications.models.Enum42]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum38]
+        :type select: list[str or ~cloud_communications.models.Enum43]
         :param expand: Expand related entities.
-        :type expand: list[str or ~cloud_communications.models.Enum39]
+        :type expand: list[str or ~cloud_communications.models.Enum44]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfCall, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfCall
+        :return: An iterator like instance of either CollectionOfCall or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfCall]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCall"]
@@ -436,91 +530,109 @@ class CommunicationOperations(object):
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_call.metadata['url']  # type: ignore
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_call.metadata['url']  # type: ignore
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfCall', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfCall', pipeline_response)
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
     list_call.metadata = {'url': '/communications/calls'}  # type: ignore
 
     def create_call(
         self,
         id=None,  # type: Optional[str]
-        state=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallState"]]
-        result_info=None,  # type: Optional["models.MicrosoftGraphResultInfo"]
-        termination_reason=None,  # type: Optional[str]
-        direction=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallDirection"]]
-        ringing_timeout_in_seconds=None,  # type: Optional[int]
-        subject=None,  # type: Optional[str]
-        callback_uri=None,  # type: Optional[str]
-        call_routes=None,  # type: Optional[List["models.MicrosoftGraphCallRoute"]]
-        targets=None,  # type: Optional[List["models.MicrosoftGraphInvitationParticipantInfo"]]
-        requested_modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphModality"]]]
         active_modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphModality"]]]
+        callback_uri=None,  # type: Optional[str]
+        call_chain_id=None,  # type: Optional[str]
+        call_options=None,  # type: Optional[Dict[str, object]]
+        call_routes=None,  # type: Optional[List["models.MicrosoftGraphCallRoute"]]
         chat_info=None,  # type: Optional["models.MicrosoftGraphChatInfo"]
-        call_options=None,  # type: Optional[object]
+        direction=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallDirection"]]
         meeting_capability=None,  # type: Optional["models.MicrosoftGraphMeetingCapability"]
-        routing_policies=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphRoutingPolicy"]]]
-        tenant_id=None,  # type: Optional[str]
         my_participant_id=None,  # type: Optional[str]
+        requested_modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphModality"]]]
+        result_info=None,  # type: Optional["models.MicrosoftGraphResultInfo"]
+        ringing_timeout_in_seconds=None,  # type: Optional[int]
+        routing_policies=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphRoutingPolicy"]]]
+        state=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallState"]]
+        subject=None,  # type: Optional[str]
+        targets=None,  # type: Optional[List["models.MicrosoftGraphInvitationParticipantInfo"]]
+        tenant_id=None,  # type: Optional[str]
+        termination_reason=None,  # type: Optional[str]
         tone_info=None,  # type: Optional["models.MicrosoftGraphToneInfo"]
-        participants=None,  # type: Optional[List["models.MicrosoftGraphParticipant"]]
+        transcription=None,  # type: Optional["models.MicrosoftGraphCallTranscriptionInfo"]
         audio_routing_groups=None,  # type: Optional[List["models.MicrosoftGraphAudioRoutingGroup"]]
         operations=None,  # type: Optional[List["models.MicrosoftGraphCommsOperation"]]
-        source_participant_id=None,  # type: Optional[str]
+        participants=None,  # type: Optional[List["models.MicrosoftGraphParticipant"]]
+        country_code=None,  # type: Optional[str]
+        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
+        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        language_id=None,  # type: Optional[str]
+        region=None,  # type: Optional[str]
+        allow_conversation_without_host=None,  # type: Optional[bool]
+        audio=None,  # type: Optional[Union[str, "models.MicrosoftGraphMediaState"]]
+        remove_from_default_audio_group=None,  # type: Optional[bool]
         observed_participant_id=None,  # type: Optional[str]
         on_behalf_of=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        source_participant_id=None,  # type: Optional[str]
         transferor=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        allow_conversation_without_host=None,  # type: Optional[bool]
-        remove_from_default_audio_group=None,  # type: Optional[bool]
-        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
-        region=None,  # type: Optional[str]
-        language_id=None,  # type: Optional[str]
-        country_code=None,  # type: Optional[str]
-        microsoft_graph_identity_set_identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        microsoft_graph_endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
-        microsoft_graph_participant_info_region=None,  # type: Optional[str]
-        microsoft_graph_participant_info_language_id=None,  # type: Optional[str]
         microsoft_graph_participant_info_country_code=None,  # type: Optional[str]
-        audio=None,  # type: Optional[Union[str, "models.MicrosoftGraphMediaState"]]
+        microsoft_graph_endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
+        microsoft_graph_identity_set_identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        microsoft_graph_participant_info_language_id=None,  # type: Optional[str]
+        microsoft_graph_participant_info_region=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphCall"
@@ -530,86 +642,95 @@ class CommunicationOperations(object):
 
         :param id: Read-only.
         :type id: str
-        :param state:
-        :type state: str or ~cloud_communications.models.MicrosoftGraphCallState
-        :param result_info: ResultInfo.
-        :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
-        :param termination_reason:
-        :type termination_reason: str
-        :param direction:
-        :type direction: str or ~cloud_communications.models.MicrosoftGraphCallDirection
-        :param ringing_timeout_in_seconds:
-        :type ringing_timeout_in_seconds: int
-        :param subject: The subject of the conversation.
-        :type subject: str
-        :param callback_uri: The callback URL on which callbacks will be delivered. Must be https.
-        :type callback_uri: str
-        :param call_routes:
-        :type call_routes: list[~cloud_communications.models.MicrosoftGraphCallRoute]
-        :param targets: The targets of the call. Required information for creating peer to peer call.
-        :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
-        :param requested_modalities: The list of requested modalities.
-        :type requested_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
         :param active_modalities:
         :type active_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
+        :param callback_uri: The callback URL on which callbacks will be delivered. Must be https.
+        :type callback_uri: str
+        :param call_chain_id: A unique identifier for all the participant calls in a conference or a
+         unique identifier for two participant calls in a P2P call.  This needs to be copied over from
+         Microsoft.Graph.Call.CallChainId.
+        :type call_chain_id: str
+        :param call_options: callOptions.
+        :type call_options: dict[str, object]
+        :param call_routes: The routing information on how the call was retargeted. Read-only.
+        :type call_routes: list[~cloud_communications.models.MicrosoftGraphCallRoute]
         :param chat_info: chatInfo.
         :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
-        :param call_options: Any object.
-        :type call_options: object
+        :param direction:
+        :type direction: str or ~cloud_communications.models.MicrosoftGraphCallDirection
         :param meeting_capability: meetingCapability.
         :type meeting_capability: ~cloud_communications.models.MicrosoftGraphMeetingCapability
+        :param my_participant_id:
+        :type my_participant_id: str
+        :param requested_modalities:
+        :type requested_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
+        :param result_info: ResultInfo.
+        :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
+        :param ringing_timeout_in_seconds:
+        :type ringing_timeout_in_seconds: int
         :param routing_policies:
         :type routing_policies: list[str or ~cloud_communications.models.MicrosoftGraphRoutingPolicy]
+        :param state:
+        :type state: str or ~cloud_communications.models.MicrosoftGraphCallState
+        :param subject:
+        :type subject: str
+        :param targets:
+        :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
         :param tenant_id:
         :type tenant_id: str
-        :param my_participant_id: Read-only.
-        :type my_participant_id: str
+        :param termination_reason:
+        :type termination_reason: str
         :param tone_info: toneInfo.
         :type tone_info: ~cloud_communications.models.MicrosoftGraphToneInfo
-        :param participants: Read-only. Nullable.
-        :type participants: list[~cloud_communications.models.MicrosoftGraphParticipant]
+        :param transcription: callTranscriptionInfo.
+        :type transcription: ~cloud_communications.models.MicrosoftGraphCallTranscriptionInfo
         :param audio_routing_groups:
         :type audio_routing_groups: list[~cloud_communications.models.MicrosoftGraphAudioRoutingGroup]
         :param operations: Read-only. Nullable.
         :type operations: list[~cloud_communications.models.MicrosoftGraphCommsOperation]
-        :param source_participant_id:
-        :type source_participant_id: str
-        :param observed_participant_id:
-        :type observed_participant_id: str
-        :param on_behalf_of: identitySet.
-        :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
-        :param transferor: identitySet.
-        :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
-        :param allow_conversation_without_host:
-        :type allow_conversation_without_host: bool
-        :param remove_from_default_audio_group:
-        :type remove_from_default_audio_group: bool
-        :param identity: identitySet.
-        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param participants: Read-only. Nullable.
+        :type participants: list[~cloud_communications.models.MicrosoftGraphParticipant]
+        :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
+         physical location at the start of the call. Read-only.
+        :type country_code: str
         :param endpoint_type:
         :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+        :param identity: identitySet.
+        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param language_id: The language culture string. Read-only.
+        :type language_id: str
         :param region: The home region of the participant. This can be a country, a continent, or a
          larger geographic region. This does not change based on the participant's current physical
          location. Read-only.
         :type region: str
-        :param language_id: The language culture string. Read-only.
-        :type language_id: str
-        :param country_code:
-        :type country_code: str
-        :param microsoft_graph_identity_set_identity: identitySet.
-        :type microsoft_graph_identity_set_identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param allow_conversation_without_host:
+        :type allow_conversation_without_host: bool
+        :param audio:
+        :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
+        :param remove_from_default_audio_group:
+        :type remove_from_default_audio_group: bool
+        :param observed_participant_id: The ID of the participant that is under observation. Read-only.
+        :type observed_participant_id: str
+        :param on_behalf_of: identitySet.
+        :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param source_participant_id: The ID of the participant that triggered the incoming call. Read-
+         only.
+        :type source_participant_id: str
+        :param transferor: identitySet.
+        :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param microsoft_graph_participant_info_country_code: The ISO 3166-1 Alpha-2 country code of
+         the participant's best estimated physical location at the start of the call. Read-only.
+        :type microsoft_graph_participant_info_country_code: str
         :param microsoft_graph_endpoint_type:
         :type microsoft_graph_endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+        :param microsoft_graph_identity_set_identity: identitySet.
+        :type microsoft_graph_identity_set_identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param microsoft_graph_participant_info_language_id: The language culture string. Read-only.
+        :type microsoft_graph_participant_info_language_id: str
         :param microsoft_graph_participant_info_region: The home region of the participant. This can be
          a country, a continent, or a larger geographic region. This does not change based on the
          participant's current physical location. Read-only.
         :type microsoft_graph_participant_info_region: str
-        :param microsoft_graph_participant_info_language_id: The language culture string. Read-only.
-        :type microsoft_graph_participant_info_language_id: str
-        :param microsoft_graph_participant_info_country_code:
-        :type microsoft_graph_participant_info_country_code: str
-        :param audio:
-        :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphCall, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphCall
@@ -619,7 +740,7 @@ class CommunicationOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCall(id=id, state=state, result_info=result_info, termination_reason=termination_reason, direction=direction, ringing_timeout_in_seconds=ringing_timeout_in_seconds, subject=subject, callback_uri=callback_uri, call_routes=call_routes, targets=targets, requested_modalities=requested_modalities, active_modalities=active_modalities, chat_info=chat_info, call_options=call_options, meeting_capability=meeting_capability, routing_policies=routing_policies, tenant_id=tenant_id, my_participant_id=my_participant_id, tone_info=tone_info, participants=participants, audio_routing_groups=audio_routing_groups, operations=operations, source_participant_id=source_participant_id, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, transferor=transferor, allow_conversation_without_host=allow_conversation_without_host, remove_from_default_audio_group=remove_from_default_audio_group, identity_answered_by_identity=identity, endpoint_type_answered_by_endpoint_type=endpoint_type, region_answered_by_region=region, language_id_answered_by_language_id=language_id, country_code_answered_by_country_code=country_code, identity_source_identity=microsoft_graph_identity_set_identity, endpoint_type_source_endpoint_type=microsoft_graph_endpoint_type, region_source_region=microsoft_graph_participant_info_region, language_id_source_language_id=microsoft_graph_participant_info_language_id, country_code_source_country_code=microsoft_graph_participant_info_country_code, audio=audio)
+        _body = models.MicrosoftGraphCall(id=id, active_modalities=active_modalities, callback_uri=callback_uri, call_chain_id=call_chain_id, call_options=call_options, call_routes=call_routes, chat_info=chat_info, direction=direction, meeting_capability=meeting_capability, my_participant_id=my_participant_id, requested_modalities=requested_modalities, result_info=result_info, ringing_timeout_in_seconds=ringing_timeout_in_seconds, routing_policies=routing_policies, state=state, subject=subject, targets=targets, tenant_id=tenant_id, termination_reason=termination_reason, tone_info=tone_info, transcription=transcription, audio_routing_groups=audio_routing_groups, operations=operations, participants=participants, country_code_source_country_code=country_code, endpoint_type_source_endpoint_type=endpoint_type, identity_source_identity=identity, language_id_source_language_id=language_id, region_source_region=region, allow_conversation_without_host=allow_conversation_without_host, audio=audio, remove_from_default_audio_group=remove_from_default_audio_group, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, source_participant_id=source_participant_id, transferor=transferor, country_code_answered_by_country_code=microsoft_graph_participant_info_country_code, endpoint_type_answered_by_endpoint_type=microsoft_graph_endpoint_type, identity_answered_by_identity=microsoft_graph_identity_set_identity, language_id_answered_by_language_id=microsoft_graph_participant_info_language_id, region_answered_by_region=microsoft_graph_participant_info_region)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -659,8 +780,8 @@ class CommunicationOperations(object):
     def get_call(
         self,
         call_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum40"]]]
-        expand=None,  # type: Optional[List[Union[str, "models.Enum41"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum45"]]]
+        expand=None,  # type: Optional[List[Union[str, "models.Enum46"]]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphCall"
@@ -668,12 +789,12 @@ class CommunicationOperations(object):
 
         Get calls from communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum40]
+        :type select: list[str or ~cloud_communications.models.Enum45]
         :param expand: Expand related entities.
-        :type expand: list[str or ~cloud_communications.models.Enum41]
+        :type expand: list[str or ~cloud_communications.models.Enum46]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphCall, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphCall
@@ -724,44 +845,46 @@ class CommunicationOperations(object):
         self,
         call_id,  # type: str
         id=None,  # type: Optional[str]
-        state=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallState"]]
-        result_info=None,  # type: Optional["models.MicrosoftGraphResultInfo"]
-        termination_reason=None,  # type: Optional[str]
-        direction=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallDirection"]]
-        ringing_timeout_in_seconds=None,  # type: Optional[int]
-        subject=None,  # type: Optional[str]
-        callback_uri=None,  # type: Optional[str]
-        call_routes=None,  # type: Optional[List["models.MicrosoftGraphCallRoute"]]
-        targets=None,  # type: Optional[List["models.MicrosoftGraphInvitationParticipantInfo"]]
-        requested_modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphModality"]]]
         active_modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphModality"]]]
+        callback_uri=None,  # type: Optional[str]
+        call_chain_id=None,  # type: Optional[str]
+        call_options=None,  # type: Optional[Dict[str, object]]
+        call_routes=None,  # type: Optional[List["models.MicrosoftGraphCallRoute"]]
         chat_info=None,  # type: Optional["models.MicrosoftGraphChatInfo"]
-        call_options=None,  # type: Optional[object]
+        direction=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallDirection"]]
         meeting_capability=None,  # type: Optional["models.MicrosoftGraphMeetingCapability"]
-        routing_policies=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphRoutingPolicy"]]]
-        tenant_id=None,  # type: Optional[str]
         my_participant_id=None,  # type: Optional[str]
+        requested_modalities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphModality"]]]
+        result_info=None,  # type: Optional["models.MicrosoftGraphResultInfo"]
+        ringing_timeout_in_seconds=None,  # type: Optional[int]
+        routing_policies=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphRoutingPolicy"]]]
+        state=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallState"]]
+        subject=None,  # type: Optional[str]
+        targets=None,  # type: Optional[List["models.MicrosoftGraphInvitationParticipantInfo"]]
+        tenant_id=None,  # type: Optional[str]
+        termination_reason=None,  # type: Optional[str]
         tone_info=None,  # type: Optional["models.MicrosoftGraphToneInfo"]
-        participants=None,  # type: Optional[List["models.MicrosoftGraphParticipant"]]
+        transcription=None,  # type: Optional["models.MicrosoftGraphCallTranscriptionInfo"]
         audio_routing_groups=None,  # type: Optional[List["models.MicrosoftGraphAudioRoutingGroup"]]
         operations=None,  # type: Optional[List["models.MicrosoftGraphCommsOperation"]]
-        source_participant_id=None,  # type: Optional[str]
+        participants=None,  # type: Optional[List["models.MicrosoftGraphParticipant"]]
+        country_code=None,  # type: Optional[str]
+        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
+        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        language_id=None,  # type: Optional[str]
+        region=None,  # type: Optional[str]
+        allow_conversation_without_host=None,  # type: Optional[bool]
+        audio=None,  # type: Optional[Union[str, "models.MicrosoftGraphMediaState"]]
+        remove_from_default_audio_group=None,  # type: Optional[bool]
         observed_participant_id=None,  # type: Optional[str]
         on_behalf_of=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        source_participant_id=None,  # type: Optional[str]
         transferor=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        allow_conversation_without_host=None,  # type: Optional[bool]
-        remove_from_default_audio_group=None,  # type: Optional[bool]
-        identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
-        region=None,  # type: Optional[str]
-        language_id=None,  # type: Optional[str]
-        country_code=None,  # type: Optional[str]
-        microsoft_graph_identity_set_identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
-        microsoft_graph_endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
-        microsoft_graph_participant_info_region=None,  # type: Optional[str]
-        microsoft_graph_participant_info_language_id=None,  # type: Optional[str]
         microsoft_graph_participant_info_country_code=None,  # type: Optional[str]
-        audio=None,  # type: Optional[Union[str, "models.MicrosoftGraphMediaState"]]
+        microsoft_graph_endpoint_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphEndpointType"]]
+        microsoft_graph_identity_set_identity=None,  # type: Optional["models.MicrosoftGraphIdentitySet"]
+        microsoft_graph_participant_info_language_id=None,  # type: Optional[str]
+        microsoft_graph_participant_info_region=None,  # type: Optional[str]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -769,90 +892,99 @@ class CommunicationOperations(object):
 
         Update the navigation property calls in communications.
 
-        :param call_id: key: call-id of call.
+        :param call_id: key: id of call.
         :type call_id: str
         :param id: Read-only.
         :type id: str
-        :param state:
-        :type state: str or ~cloud_communications.models.MicrosoftGraphCallState
-        :param result_info: ResultInfo.
-        :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
-        :param termination_reason:
-        :type termination_reason: str
-        :param direction:
-        :type direction: str or ~cloud_communications.models.MicrosoftGraphCallDirection
-        :param ringing_timeout_in_seconds:
-        :type ringing_timeout_in_seconds: int
-        :param subject: The subject of the conversation.
-        :type subject: str
-        :param callback_uri: The callback URL on which callbacks will be delivered. Must be https.
-        :type callback_uri: str
-        :param call_routes:
-        :type call_routes: list[~cloud_communications.models.MicrosoftGraphCallRoute]
-        :param targets: The targets of the call. Required information for creating peer to peer call.
-        :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
-        :param requested_modalities: The list of requested modalities.
-        :type requested_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
         :param active_modalities:
         :type active_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
+        :param callback_uri: The callback URL on which callbacks will be delivered. Must be https.
+        :type callback_uri: str
+        :param call_chain_id: A unique identifier for all the participant calls in a conference or a
+         unique identifier for two participant calls in a P2P call.  This needs to be copied over from
+         Microsoft.Graph.Call.CallChainId.
+        :type call_chain_id: str
+        :param call_options: callOptions.
+        :type call_options: dict[str, object]
+        :param call_routes: The routing information on how the call was retargeted. Read-only.
+        :type call_routes: list[~cloud_communications.models.MicrosoftGraphCallRoute]
         :param chat_info: chatInfo.
         :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
-        :param call_options: Any object.
-        :type call_options: object
+        :param direction:
+        :type direction: str or ~cloud_communications.models.MicrosoftGraphCallDirection
         :param meeting_capability: meetingCapability.
         :type meeting_capability: ~cloud_communications.models.MicrosoftGraphMeetingCapability
+        :param my_participant_id:
+        :type my_participant_id: str
+        :param requested_modalities:
+        :type requested_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
+        :param result_info: ResultInfo.
+        :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
+        :param ringing_timeout_in_seconds:
+        :type ringing_timeout_in_seconds: int
         :param routing_policies:
         :type routing_policies: list[str or ~cloud_communications.models.MicrosoftGraphRoutingPolicy]
+        :param state:
+        :type state: str or ~cloud_communications.models.MicrosoftGraphCallState
+        :param subject:
+        :type subject: str
+        :param targets:
+        :type targets: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
         :param tenant_id:
         :type tenant_id: str
-        :param my_participant_id: Read-only.
-        :type my_participant_id: str
+        :param termination_reason:
+        :type termination_reason: str
         :param tone_info: toneInfo.
         :type tone_info: ~cloud_communications.models.MicrosoftGraphToneInfo
-        :param participants: Read-only. Nullable.
-        :type participants: list[~cloud_communications.models.MicrosoftGraphParticipant]
+        :param transcription: callTranscriptionInfo.
+        :type transcription: ~cloud_communications.models.MicrosoftGraphCallTranscriptionInfo
         :param audio_routing_groups:
         :type audio_routing_groups: list[~cloud_communications.models.MicrosoftGraphAudioRoutingGroup]
         :param operations: Read-only. Nullable.
         :type operations: list[~cloud_communications.models.MicrosoftGraphCommsOperation]
-        :param source_participant_id:
-        :type source_participant_id: str
-        :param observed_participant_id:
-        :type observed_participant_id: str
-        :param on_behalf_of: identitySet.
-        :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
-        :param transferor: identitySet.
-        :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
-        :param allow_conversation_without_host:
-        :type allow_conversation_without_host: bool
-        :param remove_from_default_audio_group:
-        :type remove_from_default_audio_group: bool
-        :param identity: identitySet.
-        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param participants: Read-only. Nullable.
+        :type participants: list[~cloud_communications.models.MicrosoftGraphParticipant]
+        :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
+         physical location at the start of the call. Read-only.
+        :type country_code: str
         :param endpoint_type:
         :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+        :param identity: identitySet.
+        :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param language_id: The language culture string. Read-only.
+        :type language_id: str
         :param region: The home region of the participant. This can be a country, a continent, or a
          larger geographic region. This does not change based on the participant's current physical
          location. Read-only.
         :type region: str
-        :param language_id: The language culture string. Read-only.
-        :type language_id: str
-        :param country_code:
-        :type country_code: str
-        :param microsoft_graph_identity_set_identity: identitySet.
-        :type microsoft_graph_identity_set_identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param allow_conversation_without_host:
+        :type allow_conversation_without_host: bool
+        :param audio:
+        :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
+        :param remove_from_default_audio_group:
+        :type remove_from_default_audio_group: bool
+        :param observed_participant_id: The ID of the participant that is under observation. Read-only.
+        :type observed_participant_id: str
+        :param on_behalf_of: identitySet.
+        :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param source_participant_id: The ID of the participant that triggered the incoming call. Read-
+         only.
+        :type source_participant_id: str
+        :param transferor: identitySet.
+        :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param microsoft_graph_participant_info_country_code: The ISO 3166-1 Alpha-2 country code of
+         the participant's best estimated physical location at the start of the call. Read-only.
+        :type microsoft_graph_participant_info_country_code: str
         :param microsoft_graph_endpoint_type:
         :type microsoft_graph_endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+        :param microsoft_graph_identity_set_identity: identitySet.
+        :type microsoft_graph_identity_set_identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
+        :param microsoft_graph_participant_info_language_id: The language culture string. Read-only.
+        :type microsoft_graph_participant_info_language_id: str
         :param microsoft_graph_participant_info_region: The home region of the participant. This can be
          a country, a continent, or a larger geographic region. This does not change based on the
          participant's current physical location. Read-only.
         :type microsoft_graph_participant_info_region: str
-        :param microsoft_graph_participant_info_language_id: The language culture string. Read-only.
-        :type microsoft_graph_participant_info_language_id: str
-        :param microsoft_graph_participant_info_country_code:
-        :type microsoft_graph_participant_info_country_code: str
-        :param audio:
-        :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -862,7 +994,7 @@ class CommunicationOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCall(id=id, state=state, result_info=result_info, termination_reason=termination_reason, direction=direction, ringing_timeout_in_seconds=ringing_timeout_in_seconds, subject=subject, callback_uri=callback_uri, call_routes=call_routes, targets=targets, requested_modalities=requested_modalities, active_modalities=active_modalities, chat_info=chat_info, call_options=call_options, meeting_capability=meeting_capability, routing_policies=routing_policies, tenant_id=tenant_id, my_participant_id=my_participant_id, tone_info=tone_info, participants=participants, audio_routing_groups=audio_routing_groups, operations=operations, source_participant_id=source_participant_id, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, transferor=transferor, allow_conversation_without_host=allow_conversation_without_host, remove_from_default_audio_group=remove_from_default_audio_group, identity_answered_by_identity=identity, endpoint_type_answered_by_endpoint_type=endpoint_type, region_answered_by_region=region, language_id_answered_by_language_id=language_id, country_code_answered_by_country_code=country_code, identity_source_identity=microsoft_graph_identity_set_identity, endpoint_type_source_endpoint_type=microsoft_graph_endpoint_type, region_source_region=microsoft_graph_participant_info_region, language_id_source_language_id=microsoft_graph_participant_info_language_id, country_code_source_country_code=microsoft_graph_participant_info_country_code, audio=audio)
+        _body = models.MicrosoftGraphCall(id=id, active_modalities=active_modalities, callback_uri=callback_uri, call_chain_id=call_chain_id, call_options=call_options, call_routes=call_routes, chat_info=chat_info, direction=direction, meeting_capability=meeting_capability, my_participant_id=my_participant_id, requested_modalities=requested_modalities, result_info=result_info, ringing_timeout_in_seconds=ringing_timeout_in_seconds, routing_policies=routing_policies, state=state, subject=subject, targets=targets, tenant_id=tenant_id, termination_reason=termination_reason, tone_info=tone_info, transcription=transcription, audio_routing_groups=audio_routing_groups, operations=operations, participants=participants, country_code_source_country_code=country_code, endpoint_type_source_endpoint_type=endpoint_type, identity_source_identity=identity, language_id_source_language_id=language_id, region_source_region=region, allow_conversation_without_host=allow_conversation_without_host, audio=audio, remove_from_default_audio_group=remove_from_default_audio_group, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, source_participant_id=source_participant_id, transferor=transferor, country_code_answered_by_country_code=microsoft_graph_participant_info_country_code, endpoint_type_answered_by_endpoint_type=microsoft_graph_endpoint_type, identity_answered_by_identity=microsoft_graph_identity_set_identity, language_id_answered_by_language_id=microsoft_graph_participant_info_language_id, region_answered_by_region=microsoft_graph_participant_info_region)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -898,6 +1030,61 @@ class CommunicationOperations(object):
             return cls(pipeline_response, None, {})
 
     update_call.metadata = {'url': '/communications/calls/{call-id}'}  # type: ignore
+
+    def delete_call(
+        self,
+        call_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property calls for communications.
+
+        Delete navigation property calls for communications.
+
+        :param call_id: key: id of call.
+        :type call_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_call.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'call-id': self._serialize.url("call_id", call_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_call.metadata = {'url': '/communications/calls/{call-id}'}  # type: ignore
 
     def get_presence_by_user_id(
         self,
@@ -959,25 +1146,25 @@ class CommunicationOperations(object):
 
     def list_online_meeting(
         self,
-        orderby=None,  # type: Optional[List[Union[str, "models.Enum56"]]]
-        select=None,  # type: Optional[List[Union[str, "models.Enum57"]]]
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum61"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum62"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.CollectionOfOnlineMeeting"
+        # type: (...) -> Iterable["models.CollectionOfOnlineMeeting"]
         """Get onlineMeetings from communications.
 
         Get onlineMeetings from communications.
 
         :param orderby: Order items by property values.
-        :type orderby: list[str or ~cloud_communications.models.Enum56]
+        :type orderby: list[str or ~cloud_communications.models.Enum61]
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum57]
+        :type select: list[str or ~cloud_communications.models.Enum62]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: CollectionOfOnlineMeeting, or the result of cls(response)
-        :rtype: ~cloud_communications.models.CollectionOfOnlineMeeting
+        :return: An iterator like instance of either CollectionOfOnlineMeeting or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfOnlineMeeting]
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfOnlineMeeting"]
@@ -985,72 +1172,93 @@ class CommunicationOperations(object):
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
-        # Construct URL
-        url = self.list_online_meeting.metadata['url']  # type: ignore
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
 
-        # Construct parameters
-        query_parameters = {}  # type: Dict[str, Any]
-        if self._config.top is not None:
-            query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
-        if self._config.skip is not None:
-            query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
-        if self._config.search is not None:
-            query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
-        if self._config.filter is not None:
-            query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
-        if self._config.count is not None:
-            query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
-        if orderby is not None:
-            query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
-        if select is not None:
-            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+            if not next_link:
+                # Construct URL
+                url = self.list_online_meeting.metadata['url']  # type: ignore
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
 
-        # Construct headers
-        header_parameters = {}  # type: Dict[str, Any]
-        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
 
-        request = self._client.get(url, query_parameters, header_parameters)
-        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
-        response = pipeline_response.http_response
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfOnlineMeeting', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
 
-        if response.status_code not in [200]:
-            map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
 
-        deserialized = self._deserialize('CollectionOfOnlineMeeting', pipeline_response)
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
 
-        if cls:
-            return cls(pipeline_response, deserialized, {})
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
 
-        return deserialized
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
     list_online_meeting.metadata = {'url': '/communications/onlineMeetings'}  # type: ignore
 
     def create_online_meeting(
         self,
         id=None,  # type: Optional[str]
-        creation_date_time=None,  # type: Optional[datetime.datetime]
-        start_date_time=None,  # type: Optional[datetime.datetime]
-        end_date_time=None,  # type: Optional[datetime.datetime]
-        canceled_date_time=None,  # type: Optional[datetime.datetime]
-        expiration_date_time=None,  # type: Optional[datetime.datetime]
-        entry_exit_announcement=None,  # type: Optional[bool]
-        join_url=None,  # type: Optional[str]
-        subject=None,  # type: Optional[str]
-        is_cancelled=None,  # type: Optional[bool]
-        is_broadcast=None,  # type: Optional[bool]
         access_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphAccessLevel"]]
-        capabilities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphMeetingCapabilities"]]]
+        allowed_presenters=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingPresenters"]]
         audio_conferencing=None,  # type: Optional["models.MicrosoftGraphAudioConferencing"]
+        canceled_date_time=None,  # type: Optional[datetime.datetime]
+        capabilities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphMeetingCapabilities"]]]
         chat_info=None,  # type: Optional["models.MicrosoftGraphChatInfo"]
+        creation_date_time=None,  # type: Optional[datetime.datetime]
+        end_date_time=None,  # type: Optional[datetime.datetime]
+        entry_exit_announcement=None,  # type: Optional[bool]
+        expiration_date_time=None,  # type: Optional[datetime.datetime]
+        external_id=None,  # type: Optional[str]
+        is_broadcast=None,  # type: Optional[bool]
+        is_cancelled=None,  # type: Optional[bool]
+        is_entry_exit_announced=None,  # type: Optional[bool]
+        join_information=None,  # type: Optional["models.MicrosoftGraphItemBody"]
+        join_url=None,  # type: Optional[str]
+        lobby_bypass_settings=None,  # type: Optional["models.MicrosoftGraphLobbyBypassSettings"]
+        start_date_time=None,  # type: Optional[datetime.datetime]
+        subject=None,  # type: Optional[str]
         video_teleconference_id=None,  # type: Optional[str]
-        organizer=None,  # type: Optional["models.MicrosoftGraphMeetingParticipantInfo"]
         attendees=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
-        producers=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
         contributors=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
+        organizer=None,  # type: Optional["models.MicrosoftGraphMeetingParticipantInfo"]
+        producers=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphOnlineMeeting"
@@ -1060,44 +1268,54 @@ class CommunicationOperations(object):
 
         :param id: Read-only.
         :type id: str
-        :param creation_date_time: The meeting creation time in UTC. Read-only.
-        :type creation_date_time: ~datetime.datetime
-        :param start_date_time: The meeting start time in UTC.
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time: The meeting end time in UTC.
-        :type end_date_time: ~datetime.datetime
-        :param canceled_date_time:
-        :type canceled_date_time: ~datetime.datetime
-        :param expiration_date_time:
-        :type expiration_date_time: ~datetime.datetime
-        :param entry_exit_announcement:
-        :type entry_exit_announcement: bool
-        :param join_url:
-        :type join_url: str
-        :param subject: The subject of the online meeting.
-        :type subject: str
-        :param is_cancelled:
-        :type is_cancelled: bool
-        :param is_broadcast:
-        :type is_broadcast: bool
         :param access_level:
         :type access_level: str or ~cloud_communications.models.MicrosoftGraphAccessLevel
-        :param capabilities:
-        :type capabilities: list[str or ~cloud_communications.models.MicrosoftGraphMeetingCapabilities]
+        :param allowed_presenters:
+        :type allowed_presenters: str or ~cloud_communications.models.MicrosoftGraphOnlineMeetingPresenters
         :param audio_conferencing: audioConferencing.
         :type audio_conferencing: ~cloud_communications.models.MicrosoftGraphAudioConferencing
+        :param canceled_date_time:
+        :type canceled_date_time: ~datetime.datetime
+        :param capabilities:
+        :type capabilities: list[str or ~cloud_communications.models.MicrosoftGraphMeetingCapabilities]
         :param chat_info: chatInfo.
         :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
+        :param creation_date_time: The meeting creation time in UTC. Read-only.
+        :type creation_date_time: ~datetime.datetime
+        :param end_date_time: The meeting end time in UTC.
+        :type end_date_time: ~datetime.datetime
+        :param entry_exit_announcement:
+        :type entry_exit_announcement: bool
+        :param expiration_date_time:
+        :type expiration_date_time: ~datetime.datetime
+        :param external_id:
+        :type external_id: str
+        :param is_broadcast:
+        :type is_broadcast: bool
+        :param is_cancelled:
+        :type is_cancelled: bool
+        :param is_entry_exit_announced:
+        :type is_entry_exit_announced: bool
+        :param join_information: itemBody.
+        :type join_information: ~cloud_communications.models.MicrosoftGraphItemBody
+        :param join_url:
+        :type join_url: str
+        :param lobby_bypass_settings: lobbyBypassSettings.
+        :type lobby_bypass_settings: ~cloud_communications.models.MicrosoftGraphLobbyBypassSettings
+        :param start_date_time: The meeting start time in UTC.
+        :type start_date_time: ~datetime.datetime
+        :param subject: The subject of the online meeting.
+        :type subject: str
         :param video_teleconference_id: The video teleconferencing ID. Read-only.
         :type video_teleconference_id: str
-        :param organizer: meetingParticipantInfo.
-        :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
         :param attendees:
         :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-        :param producers:
-        :type producers: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
         :param contributors:
         :type contributors: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
+        :param organizer: meetingParticipantInfo.
+        :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
+        :param producers:
+        :type producers: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphOnlineMeeting, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphOnlineMeeting
@@ -1107,7 +1325,7 @@ class CommunicationOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphOnlineMeeting(id=id, creation_date_time=creation_date_time, start_date_time=start_date_time, end_date_time=end_date_time, canceled_date_time=canceled_date_time, expiration_date_time=expiration_date_time, entry_exit_announcement=entry_exit_announcement, join_url=join_url, subject=subject, is_cancelled=is_cancelled, is_broadcast=is_broadcast, access_level=access_level, capabilities=capabilities, audio_conferencing=audio_conferencing, chat_info=chat_info, video_teleconference_id=video_teleconference_id, organizer=organizer, attendees=attendees, producers=producers, contributors=contributors)
+        _body = models.MicrosoftGraphOnlineMeeting(id=id, access_level=access_level, allowed_presenters=allowed_presenters, audio_conferencing=audio_conferencing, canceled_date_time=canceled_date_time, capabilities=capabilities, chat_info=chat_info, creation_date_time=creation_date_time, end_date_time=end_date_time, entry_exit_announcement=entry_exit_announcement, expiration_date_time=expiration_date_time, external_id=external_id, is_broadcast=is_broadcast, is_cancelled=is_cancelled, is_entry_exit_announced=is_entry_exit_announced, join_information=join_information, join_url=join_url, lobby_bypass_settings=lobby_bypass_settings, start_date_time=start_date_time, subject=subject, video_teleconference_id=video_teleconference_id, attendees=attendees, contributors=contributors, organizer=organizer, producers=producers)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1147,7 +1365,7 @@ class CommunicationOperations(object):
     def get_online_meeting(
         self,
         online_meeting_id,  # type: str
-        select=None,  # type: Optional[List[Union[str, "models.Enum58"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum63"]]]
         expand=None,  # type: Optional[List[str]]
         **kwargs  # type: Any
     ):
@@ -1156,10 +1374,10 @@ class CommunicationOperations(object):
 
         Get onlineMeetings from communications.
 
-        :param online_meeting_id: key: onlineMeeting-id of onlineMeeting.
+        :param online_meeting_id: key: id of onlineMeeting.
         :type online_meeting_id: str
         :param select: Select properties to be returned.
-        :type select: list[str or ~cloud_communications.models.Enum58]
+        :type select: list[str or ~cloud_communications.models.Enum63]
         :param expand: Expand related entities.
         :type expand: list[str]
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -1212,25 +1430,30 @@ class CommunicationOperations(object):
         self,
         online_meeting_id,  # type: str
         id=None,  # type: Optional[str]
-        creation_date_time=None,  # type: Optional[datetime.datetime]
-        start_date_time=None,  # type: Optional[datetime.datetime]
-        end_date_time=None,  # type: Optional[datetime.datetime]
-        canceled_date_time=None,  # type: Optional[datetime.datetime]
-        expiration_date_time=None,  # type: Optional[datetime.datetime]
-        entry_exit_announcement=None,  # type: Optional[bool]
-        join_url=None,  # type: Optional[str]
-        subject=None,  # type: Optional[str]
-        is_cancelled=None,  # type: Optional[bool]
-        is_broadcast=None,  # type: Optional[bool]
         access_level=None,  # type: Optional[Union[str, "models.MicrosoftGraphAccessLevel"]]
-        capabilities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphMeetingCapabilities"]]]
+        allowed_presenters=None,  # type: Optional[Union[str, "models.MicrosoftGraphOnlineMeetingPresenters"]]
         audio_conferencing=None,  # type: Optional["models.MicrosoftGraphAudioConferencing"]
+        canceled_date_time=None,  # type: Optional[datetime.datetime]
+        capabilities=None,  # type: Optional[List[Union[str, "models.MicrosoftGraphMeetingCapabilities"]]]
         chat_info=None,  # type: Optional["models.MicrosoftGraphChatInfo"]
+        creation_date_time=None,  # type: Optional[datetime.datetime]
+        end_date_time=None,  # type: Optional[datetime.datetime]
+        entry_exit_announcement=None,  # type: Optional[bool]
+        expiration_date_time=None,  # type: Optional[datetime.datetime]
+        external_id=None,  # type: Optional[str]
+        is_broadcast=None,  # type: Optional[bool]
+        is_cancelled=None,  # type: Optional[bool]
+        is_entry_exit_announced=None,  # type: Optional[bool]
+        join_information=None,  # type: Optional["models.MicrosoftGraphItemBody"]
+        join_url=None,  # type: Optional[str]
+        lobby_bypass_settings=None,  # type: Optional["models.MicrosoftGraphLobbyBypassSettings"]
+        start_date_time=None,  # type: Optional[datetime.datetime]
+        subject=None,  # type: Optional[str]
         video_teleconference_id=None,  # type: Optional[str]
-        organizer=None,  # type: Optional["models.MicrosoftGraphMeetingParticipantInfo"]
         attendees=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
-        producers=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
         contributors=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
+        organizer=None,  # type: Optional["models.MicrosoftGraphMeetingParticipantInfo"]
+        producers=None,  # type: Optional[List["models.MicrosoftGraphMeetingParticipantInfo"]]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -1238,48 +1461,58 @@ class CommunicationOperations(object):
 
         Update the navigation property onlineMeetings in communications.
 
-        :param online_meeting_id: key: onlineMeeting-id of onlineMeeting.
+        :param online_meeting_id: key: id of onlineMeeting.
         :type online_meeting_id: str
         :param id: Read-only.
         :type id: str
-        :param creation_date_time: The meeting creation time in UTC. Read-only.
-        :type creation_date_time: ~datetime.datetime
-        :param start_date_time: The meeting start time in UTC.
-        :type start_date_time: ~datetime.datetime
-        :param end_date_time: The meeting end time in UTC.
-        :type end_date_time: ~datetime.datetime
-        :param canceled_date_time:
-        :type canceled_date_time: ~datetime.datetime
-        :param expiration_date_time:
-        :type expiration_date_time: ~datetime.datetime
-        :param entry_exit_announcement:
-        :type entry_exit_announcement: bool
-        :param join_url:
-        :type join_url: str
-        :param subject: The subject of the online meeting.
-        :type subject: str
-        :param is_cancelled:
-        :type is_cancelled: bool
-        :param is_broadcast:
-        :type is_broadcast: bool
         :param access_level:
         :type access_level: str or ~cloud_communications.models.MicrosoftGraphAccessLevel
-        :param capabilities:
-        :type capabilities: list[str or ~cloud_communications.models.MicrosoftGraphMeetingCapabilities]
+        :param allowed_presenters:
+        :type allowed_presenters: str or ~cloud_communications.models.MicrosoftGraphOnlineMeetingPresenters
         :param audio_conferencing: audioConferencing.
         :type audio_conferencing: ~cloud_communications.models.MicrosoftGraphAudioConferencing
+        :param canceled_date_time:
+        :type canceled_date_time: ~datetime.datetime
+        :param capabilities:
+        :type capabilities: list[str or ~cloud_communications.models.MicrosoftGraphMeetingCapabilities]
         :param chat_info: chatInfo.
         :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
+        :param creation_date_time: The meeting creation time in UTC. Read-only.
+        :type creation_date_time: ~datetime.datetime
+        :param end_date_time: The meeting end time in UTC.
+        :type end_date_time: ~datetime.datetime
+        :param entry_exit_announcement:
+        :type entry_exit_announcement: bool
+        :param expiration_date_time:
+        :type expiration_date_time: ~datetime.datetime
+        :param external_id:
+        :type external_id: str
+        :param is_broadcast:
+        :type is_broadcast: bool
+        :param is_cancelled:
+        :type is_cancelled: bool
+        :param is_entry_exit_announced:
+        :type is_entry_exit_announced: bool
+        :param join_information: itemBody.
+        :type join_information: ~cloud_communications.models.MicrosoftGraphItemBody
+        :param join_url:
+        :type join_url: str
+        :param lobby_bypass_settings: lobbyBypassSettings.
+        :type lobby_bypass_settings: ~cloud_communications.models.MicrosoftGraphLobbyBypassSettings
+        :param start_date_time: The meeting start time in UTC.
+        :type start_date_time: ~datetime.datetime
+        :param subject: The subject of the online meeting.
+        :type subject: str
         :param video_teleconference_id: The video teleconferencing ID. Read-only.
         :type video_teleconference_id: str
-        :param organizer: meetingParticipantInfo.
-        :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
         :param attendees:
         :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-        :param producers:
-        :type producers: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
         :param contributors:
         :type contributors: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
+        :param organizer: meetingParticipantInfo.
+        :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
+        :param producers:
+        :type producers: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -1289,7 +1522,7 @@ class CommunicationOperations(object):
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphOnlineMeeting(id=id, creation_date_time=creation_date_time, start_date_time=start_date_time, end_date_time=end_date_time, canceled_date_time=canceled_date_time, expiration_date_time=expiration_date_time, entry_exit_announcement=entry_exit_announcement, join_url=join_url, subject=subject, is_cancelled=is_cancelled, is_broadcast=is_broadcast, access_level=access_level, capabilities=capabilities, audio_conferencing=audio_conferencing, chat_info=chat_info, video_teleconference_id=video_teleconference_id, organizer=organizer, attendees=attendees, producers=producers, contributors=contributors)
+        _body = models.MicrosoftGraphOnlineMeeting(id=id, access_level=access_level, allowed_presenters=allowed_presenters, audio_conferencing=audio_conferencing, canceled_date_time=canceled_date_time, capabilities=capabilities, chat_info=chat_info, creation_date_time=creation_date_time, end_date_time=end_date_time, entry_exit_announcement=entry_exit_announcement, expiration_date_time=expiration_date_time, external_id=external_id, is_broadcast=is_broadcast, is_cancelled=is_cancelled, is_entry_exit_announced=is_entry_exit_announced, join_information=join_information, join_url=join_url, lobby_bypass_settings=lobby_bypass_settings, start_date_time=start_date_time, subject=subject, video_teleconference_id=video_teleconference_id, attendees=attendees, contributors=contributors, organizer=organizer, producers=producers)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1325,3 +1558,396 @@ class CommunicationOperations(object):
             return cls(pipeline_response, None, {})
 
     update_online_meeting.metadata = {'url': '/communications/onlineMeetings/{onlineMeeting-id}'}  # type: ignore
+
+    def delete_online_meeting(
+        self,
+        online_meeting_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property onlineMeetings for communications.
+
+        Delete navigation property onlineMeetings for communications.
+
+        :param online_meeting_id: key: id of onlineMeeting.
+        :type online_meeting_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_online_meeting.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'onlineMeeting-id': self._serialize.url("online_meeting_id", online_meeting_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_online_meeting.metadata = {'url': '/communications/onlineMeetings/{onlineMeeting-id}'}  # type: ignore
+
+    def list_presence(
+        self,
+        orderby=None,  # type: Optional[List[Union[str, "models.Enum64"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Enum65"]]]
+        expand=None,  # type: Optional[List[str]]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> Iterable["models.CollectionOfPresence"]
+        """Get presences from communications.
+
+        Get presences from communications.
+
+        :param orderby: Order items by property values.
+        :type orderby: list[str or ~cloud_communications.models.Enum64]
+        :param select: Select properties to be returned.
+        :type select: list[str or ~cloud_communications.models.Enum65]
+        :param expand: Expand related entities.
+        :type expand: list[str]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: An iterator like instance of either CollectionOfPresence or the result of cls(response)
+        :rtype: ~azure.core.paging.ItemPaged[~cloud_communications.models.CollectionOfPresence]
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPresence"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        def prepare_request(next_link=None):
+            # Construct headers
+            header_parameters = {}  # type: Dict[str, Any]
+            header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+            header_parameters['Accept'] = 'application/json'
+
+            if not next_link:
+                # Construct URL
+                url = self.list_presence.metadata['url']  # type: ignore
+                # Construct parameters
+                query_parameters = {}  # type: Dict[str, Any]
+                if self._config.top is not None:
+                    query_parameters['$top'] = self._serialize.query("self._config.top", self._config.top, 'int', minimum=0)
+                if self._config.skip is not None:
+                    query_parameters['$skip'] = self._serialize.query("self._config.skip", self._config.skip, 'int', minimum=0)
+                if self._config.search is not None:
+                    query_parameters['$search'] = self._serialize.query("self._config.search", self._config.search, 'str')
+                if self._config.filter is not None:
+                    query_parameters['$filter'] = self._serialize.query("self._config.filter", self._config.filter, 'str')
+                if self._config.count is not None:
+                    query_parameters['$count'] = self._serialize.query("self._config.count", self._config.count, 'bool')
+                if orderby is not None:
+                    query_parameters['$orderby'] = self._serialize.query("orderby", orderby, '[str]', div=',')
+                if select is not None:
+                    query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+                if expand is not None:
+                    query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+
+                request = self._client.get(url, query_parameters, header_parameters)
+            else:
+                url = next_link
+                query_parameters = {}  # type: Dict[str, Any]
+                request = self._client.get(url, query_parameters, header_parameters)
+            return request
+
+        def extract_data(pipeline_response):
+            deserialized = self._deserialize('CollectionOfPresence', pipeline_response)
+            list_of_elem = deserialized.value
+            if cls:
+                list_of_elem = cls(list_of_elem)
+            return deserialized.odata_next_link or None, iter(list_of_elem)
+
+        def get_next(next_link=None):
+            request = prepare_request(next_link)
+
+            pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+            response = pipeline_response.http_response
+
+            if response.status_code not in [200]:
+                error = self._deserialize(models.OdataError, response)
+                map_error(status_code=response.status_code, response=response, error_map=error_map)
+                raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+            return pipeline_response
+
+        return ItemPaged(
+            get_next, extract_data
+        )
+    list_presence.metadata = {'url': '/communications/presences'}  # type: ignore
+
+    def create_presence(
+        self,
+        id=None,  # type: Optional[str]
+        activity=None,  # type: Optional[str]
+        availability=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> "models.MicrosoftGraphPresence"
+        """Create new navigation property to presences for communications.
+
+        Create new navigation property to presences for communications.
+
+        :param id: Read-only.
+        :type id: str
+        :param activity:
+        :type activity: str
+        :param availability:
+        :type availability: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: MicrosoftGraphPresence, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphPresence
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPresence"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphPresence(id=id, activity=activity, availability=availability)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.create_presence.metadata['url']  # type: ignore
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/json'
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'MicrosoftGraphPresence')
+        body_content_kwargs['content'] = body_content
+        request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [201]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = self._deserialize('MicrosoftGraphPresence', pipeline_response)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    create_presence.metadata = {'url': '/communications/presences'}  # type: ignore
+
+    def get_presence(
+        self,
+        presence_id,  # type: str
+        select=None,  # type: Optional[List[Union[str, "models.Enum66"]]]
+        expand=None,  # type: Optional[List[str]]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> "models.MicrosoftGraphPresence"
+        """Get presences from communications.
+
+        Get presences from communications.
+
+        :param presence_id: key: id of presence.
+        :type presence_id: str
+        :param select: Select properties to be returned.
+        :type select: list[str or ~cloud_communications.models.Enum66]
+        :param expand: Expand related entities.
+        :type expand: list[str]
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: MicrosoftGraphPresence, or the result of cls(response)
+        :rtype: ~cloud_communications.models.MicrosoftGraphPresence
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPresence"]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.get_presence.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'presence-id': self._serialize.url("presence_id", presence_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+        if select is not None:
+            query_parameters['$select'] = self._serialize.query("select", select, '[str]', div=',')
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query("expand", expand, '[str]', div=',')
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+        header_parameters['Accept'] = 'application/json'
+
+        request = self._client.get(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [200]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        deserialized = self._deserialize('MicrosoftGraphPresence', pipeline_response)
+
+        if cls:
+            return cls(pipeline_response, deserialized, {})
+
+        return deserialized
+    get_presence.metadata = {'url': '/communications/presences/{presence-id}'}  # type: ignore
+
+    def update_presence(
+        self,
+        presence_id,  # type: str
+        id=None,  # type: Optional[str]
+        activity=None,  # type: Optional[str]
+        availability=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Update the navigation property presences in communications.
+
+        Update the navigation property presences in communications.
+
+        :param presence_id: key: id of presence.
+        :type presence_id: str
+        :param id: Read-only.
+        :type id: str
+        :param activity:
+        :type activity: str
+        :param availability:
+        :type availability: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+
+        _body = models.MicrosoftGraphPresence(id=id, activity=activity, availability=availability)
+        content_type = kwargs.pop("content_type", "application/json")
+        accept = "application/json"
+
+        # Construct URL
+        url = self.update_presence.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'presence-id': self._serialize.url("presence_id", presence_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        body_content_kwargs = {}  # type: Dict[str, Any]
+        body_content = self._serialize.body(_body, 'MicrosoftGraphPresence')
+        body_content_kwargs['content'] = body_content
+        request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
+
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    update_presence.metadata = {'url': '/communications/presences/{presence-id}'}  # type: ignore
+
+    def delete_presence(
+        self,
+        presence_id,  # type: str
+        if_match=None,  # type: Optional[str]
+        **kwargs  # type: Any
+    ):
+        # type: (...) -> None
+        """Delete navigation property presences for communications.
+
+        Delete navigation property presences for communications.
+
+        :param presence_id: key: id of presence.
+        :type presence_id: str
+        :param if_match: ETag.
+        :type if_match: str
+        :keyword callable cls: A custom type or function that will be passed the direct response
+        :return: None, or the result of cls(response)
+        :rtype: None
+        :raises: ~azure.core.exceptions.HttpResponseError
+        """
+        cls = kwargs.pop('cls', None)  # type: ClsType[None]
+        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map.update(kwargs.pop('error_map', {}))
+        accept = "application/json"
+
+        # Construct URL
+        url = self.delete_presence.metadata['url']  # type: ignore
+        path_format_arguments = {
+            'presence-id': self._serialize.url("presence_id", presence_id, 'str'),
+        }
+        url = self._client.format_url(url, **path_format_arguments)
+
+        # Construct parameters
+        query_parameters = {}  # type: Dict[str, Any]
+
+        # Construct headers
+        header_parameters = {}  # type: Dict[str, Any]
+        if if_match is not None:
+            header_parameters['If-Match'] = self._serialize.header("if_match", if_match, 'str')
+        header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.delete(url, query_parameters, header_parameters)
+        pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    delete_presence.metadata = {'url': '/communications/presences/{presence-id}'}  # type: ignore

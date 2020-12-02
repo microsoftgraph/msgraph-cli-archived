@@ -12,6 +12,8 @@ from ._communication_call_record_operations_async import CommunicationCallRecord
 from ._communication_call_record_session_operations_async import CommunicationCallRecordSessionOperations
 from ._communication_call_operations_async import CommunicationCallOperations
 from ._communication_call_participant_operations_async import CommunicationCallParticipantOperations
+from ._communication_online_meeting_operations_async import CommunicationOnlineMeetingOperations
+from ._user_operations_async import UserOperations
 
 __all__ = [
     'CommunicationCloudCommunicationOperations',
@@ -20,4 +22,6 @@ __all__ = [
     'CommunicationCallRecordSessionOperations',
     'CommunicationCallOperations',
     'CommunicationCallParticipantOperations',
+    'CommunicationOnlineMeetingOperations',
+    'UserOperations',
 ]

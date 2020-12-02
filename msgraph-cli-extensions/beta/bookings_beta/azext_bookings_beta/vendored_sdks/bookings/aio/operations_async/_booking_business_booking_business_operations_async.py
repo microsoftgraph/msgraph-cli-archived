@@ -132,19 +132,19 @@ class BookingBusinessBookingBusinessOperations:
         self,
         id: Optional[str] = None,
         display_name: Optional[str] = None,
-        business_type: Optional[str] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
-        phone: Optional[str] = None,
-        email: Optional[str] = None,
-        web_site_url: Optional[str] = None,
-        default_currency_iso: Optional[str] = None,
         business_hours: Optional[List["models.MicrosoftGraphBookingWorkHours"]] = None,
-        scheduling_policy: Optional["models.MicrosoftGraphBookingSchedulingPolicy"] = None,
+        business_type: Optional[str] = None,
+        default_currency_iso: Optional[str] = None,
+        email: Optional[str] = None,
         is_published: Optional[bool] = None,
+        phone: Optional[str] = None,
         public_url: Optional[str] = None,
+        scheduling_policy: Optional["models.MicrosoftGraphBookingSchedulingPolicy"] = None,
+        web_site_url: Optional[str] = None,
         appointments: Optional[List["models.MicrosoftGraphBookingAppointment"]] = None,
         calendar_view: Optional[List["models.MicrosoftGraphBookingAppointment"]] = None,
-        customers: Optional[List["models.MicrosoftGraphBookingPerson"]] = None,
+        customers: Optional[List["models.MicrosoftGraphBookingCustomer"]] = None,
         services: Optional[List["models.MicrosoftGraphBookingService"]] = None,
         staff_members: Optional[List["models.MicrosoftGraphBookingStaffMember"]] = None,
         **kwargs
@@ -157,32 +157,33 @@ class BookingBusinessBookingBusinessOperations:
         :type id: str
         :param display_name: Display name of this entity.
         :type display_name: str
-        :param business_type:
-        :type business_type: str
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
-        :param phone:
-        :type phone: str
-        :param email:
-        :type email: str
-        :param web_site_url: The URL of the business web site.
-        :type web_site_url: str
-        :param default_currency_iso:
-        :type default_currency_iso: str
         :param business_hours:
         :type business_hours: list[~bookings.models.MicrosoftGraphBookingWorkHours]
-        :param scheduling_policy: bookingSchedulingPolicy.
-        :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
+        :param business_type:
+        :type business_type: str
+        :param default_currency_iso:
+        :type default_currency_iso: str
+        :param email:
+        :type email: str
         :param is_published:
         :type is_published: bool
+        :param phone:
+        :type phone: str
         :param public_url:
         :type public_url: str
+        :param scheduling_policy: This type represents the set of policies that dictate how bookings
+         can be created in a Booking Calendar.
+        :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
+        :param web_site_url: The URL of the business web site.
+        :type web_site_url: str
         :param appointments: All appointments in this business.
         :type appointments: list[~bookings.models.MicrosoftGraphBookingAppointment]
         :param calendar_view: A calendar view of appointments in this business.
         :type calendar_view: list[~bookings.models.MicrosoftGraphBookingAppointment]
         :param customers: All customers of this business.
-        :type customers: list[~bookings.models.MicrosoftGraphBookingPerson]
+        :type customers: list[~bookings.models.MicrosoftGraphBookingCustomer]
         :param services: All services offered by this business.
         :type services: list[~bookings.models.MicrosoftGraphBookingService]
         :param staff_members: All staff members that provides services in this business.
@@ -196,7 +197,7 @@ class BookingBusinessBookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, business_type=business_type, address=address, phone=phone, email=email, web_site_url=web_site_url, default_currency_iso=default_currency_iso, business_hours=business_hours, scheduling_policy=scheduling_policy, is_published=is_published, public_url=public_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
+        _body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, address=address, business_hours=business_hours, business_type=business_type, default_currency_iso=default_currency_iso, email=email, is_published=is_published, phone=phone, public_url=public_url, scheduling_policy=scheduling_policy, web_site_url=web_site_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -244,7 +245,7 @@ class BookingBusinessBookingBusinessOperations:
 
         Get entity from bookingBusinesses by key.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param select: Select properties to be returned.
         :type select: list[str or ~bookings.models.Get1ItemsItem]
@@ -301,19 +302,19 @@ class BookingBusinessBookingBusinessOperations:
         booking_business_id: str,
         id: Optional[str] = None,
         display_name: Optional[str] = None,
-        business_type: Optional[str] = None,
         address: Optional["models.MicrosoftGraphPhysicalAddress"] = None,
-        phone: Optional[str] = None,
-        email: Optional[str] = None,
-        web_site_url: Optional[str] = None,
-        default_currency_iso: Optional[str] = None,
         business_hours: Optional[List["models.MicrosoftGraphBookingWorkHours"]] = None,
-        scheduling_policy: Optional["models.MicrosoftGraphBookingSchedulingPolicy"] = None,
+        business_type: Optional[str] = None,
+        default_currency_iso: Optional[str] = None,
+        email: Optional[str] = None,
         is_published: Optional[bool] = None,
+        phone: Optional[str] = None,
         public_url: Optional[str] = None,
+        scheduling_policy: Optional["models.MicrosoftGraphBookingSchedulingPolicy"] = None,
+        web_site_url: Optional[str] = None,
         appointments: Optional[List["models.MicrosoftGraphBookingAppointment"]] = None,
         calendar_view: Optional[List["models.MicrosoftGraphBookingAppointment"]] = None,
-        customers: Optional[List["models.MicrosoftGraphBookingPerson"]] = None,
+        customers: Optional[List["models.MicrosoftGraphBookingCustomer"]] = None,
         services: Optional[List["models.MicrosoftGraphBookingService"]] = None,
         staff_members: Optional[List["models.MicrosoftGraphBookingStaffMember"]] = None,
         **kwargs
@@ -322,38 +323,39 @@ class BookingBusinessBookingBusinessOperations:
 
         Update entity in bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param id: Read-only.
         :type id: str
         :param display_name: Display name of this entity.
         :type display_name: str
-        :param business_type:
-        :type business_type: str
         :param address: physicalAddress.
         :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
-        :param phone:
-        :type phone: str
-        :param email:
-        :type email: str
-        :param web_site_url: The URL of the business web site.
-        :type web_site_url: str
-        :param default_currency_iso:
-        :type default_currency_iso: str
         :param business_hours:
         :type business_hours: list[~bookings.models.MicrosoftGraphBookingWorkHours]
-        :param scheduling_policy: bookingSchedulingPolicy.
-        :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
+        :param business_type:
+        :type business_type: str
+        :param default_currency_iso:
+        :type default_currency_iso: str
+        :param email:
+        :type email: str
         :param is_published:
         :type is_published: bool
+        :param phone:
+        :type phone: str
         :param public_url:
         :type public_url: str
+        :param scheduling_policy: This type represents the set of policies that dictate how bookings
+         can be created in a Booking Calendar.
+        :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
+        :param web_site_url: The URL of the business web site.
+        :type web_site_url: str
         :param appointments: All appointments in this business.
         :type appointments: list[~bookings.models.MicrosoftGraphBookingAppointment]
         :param calendar_view: A calendar view of appointments in this business.
         :type calendar_view: list[~bookings.models.MicrosoftGraphBookingAppointment]
         :param customers: All customers of this business.
-        :type customers: list[~bookings.models.MicrosoftGraphBookingPerson]
+        :type customers: list[~bookings.models.MicrosoftGraphBookingCustomer]
         :param services: All services offered by this business.
         :type services: list[~bookings.models.MicrosoftGraphBookingService]
         :param staff_members: All staff members that provides services in this business.
@@ -367,7 +369,7 @@ class BookingBusinessBookingBusinessOperations:
         error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, business_type=business_type, address=address, phone=phone, email=email, web_site_url=web_site_url, default_currency_iso=default_currency_iso, business_hours=business_hours, scheduling_policy=scheduling_policy, is_published=is_published, public_url=public_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
+        _body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, address=address, business_hours=business_hours, business_type=business_type, default_currency_iso=default_currency_iso, email=email, is_published=is_published, phone=phone, public_url=public_url, scheduling_policy=scheduling_policy, web_site_url=web_site_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -414,7 +416,7 @@ class BookingBusinessBookingBusinessOperations:
 
         Delete entity from bookingBusinesses.
 
-        :param booking_business_id: key: bookingBusiness-id of bookingBusiness.
+        :param booking_business_id: key: id of bookingBusiness.
         :type booking_business_id: str
         :param if_match: ETag.
         :type if_match: str

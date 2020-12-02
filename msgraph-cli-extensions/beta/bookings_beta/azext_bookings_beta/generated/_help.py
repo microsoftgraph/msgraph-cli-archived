@@ -29,13 +29,13 @@ helps['bookings create-booking-business'] = """
       - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --address type=XX post-office-box=XX street=XX city=XX state=XX country-or-region=XX postal-code=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --business-hours
         long-summary: |
             Usage: --business-hours day=XX time-slots=XX
@@ -44,16 +44,17 @@ helps['bookings create-booking-business'] = """
 
             Multiple actions can be specified by using more than one --business-hours argument.
       - name: --scheduling-policy
-        short-summary: "bookingSchedulingPolicy"
+        short-summary: "This type represents the set of policies that dictate how bookings can be created in a Booking \
+Calendar."
         long-summary: |
-            Usage: --scheduling-policy time-slot-interval=XX minimum-lead-time=XX maximum-advance=XX \
-send-confirmations-to-owner=XX allow-staff-selection=XX
+            Usage: --scheduling-policy allow-staff-selection=XX maximum-advance=XX minimum-lead-time=XX \
+send-confirmations-to-owner=XX time-slot-interval=XX
 
-            time-slot-interval: Duration of each time slot.
-            minimum-lead-time: Minimum lead time for bookings and cancellations.
-            maximum-advance: Maximum number of days in advance that a booking can be made.
-            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
             allow-staff-selection: Allow customers to choose a specific person for the booking.
+            maximum-advance: Maximum number of days in advance that a booking can be made.
+            minimum-lead-time: Minimum lead time for bookings and cancellations.
+            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
+            time-slot-interval: Duration of each time slot.
       - name: --customers
         short-summary: "All customers of this business."
         long-summary: |
@@ -83,13 +84,13 @@ helps['bookings update-booking-business'] = """
       - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --address type=XX post-office-box=XX street=XX city=XX state=XX country-or-region=XX postal-code=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --business-hours
         long-summary: |
             Usage: --business-hours day=XX time-slots=XX
@@ -98,16 +99,17 @@ helps['bookings update-booking-business'] = """
 
             Multiple actions can be specified by using more than one --business-hours argument.
       - name: --scheduling-policy
-        short-summary: "bookingSchedulingPolicy"
+        short-summary: "This type represents the set of policies that dictate how bookings can be created in a Booking \
+Calendar."
         long-summary: |
-            Usage: --scheduling-policy time-slot-interval=XX minimum-lead-time=XX maximum-advance=XX \
-send-confirmations-to-owner=XX allow-staff-selection=XX
+            Usage: --scheduling-policy allow-staff-selection=XX maximum-advance=XX minimum-lead-time=XX \
+send-confirmations-to-owner=XX time-slot-interval=XX
 
-            time-slot-interval: Duration of each time slot.
-            minimum-lead-time: Minimum lead time for bookings and cancellations.
-            maximum-advance: Maximum number of days in advance that a booking can be made.
-            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
             allow-staff-selection: Allow customers to choose a specific person for the booking.
+            maximum-advance: Maximum number of days in advance that a booking can be made.
+            minimum-lead-time: Minimum lead time for bookings and cancellations.
+            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
+            time-slot-interval: Duration of each time slot.
       - name: --customers
         short-summary: "All customers of this business."
         long-summary: |
@@ -125,19 +127,15 @@ helps['bookings'] = """
     short-summary: bookings
 """
 
+helps['bookings delete'] = """
+    type: command
+    short-summary: "Delete navigation property staffMembers for bookingBusinesses"
+"""
+
 helps['bookings create-appointment'] = """
     type: command
     short-summary: "Create new navigation property to appointments for bookingBusinesses"
     parameters:
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
       - name: --end
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -147,14 +145,6 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --reminders
-        long-summary: |
-            Usage: --reminders offset=XX recipients=XX message=XX
-
-            offset: How much time before an appointment the reminder should be sent.
-            message: Message to send.
-
-            Multiple actions can be specified by using more than one --reminders argument.
       - name: --invoice-date
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -164,67 +154,75 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
+      - name: --reminders
+        long-summary: |
+            Usage: --reminders message=XX offset=XX recipients=XX
+
+            message: Message to send.
+            offset: How much time before an appointment the reminder should be sent.
+
+            Multiple actions can be specified by using more than one --reminders argument.
+      - name: --start
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
       - name: --service-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --service-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
       - name: --customer-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --customer-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
 """
 
 helps['bookings create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for bookingBusinesses"
     parameters:
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
       - name: --end
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -234,14 +232,6 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --reminders
-        long-summary: |
-            Usage: --reminders offset=XX recipients=XX message=XX
-
-            offset: How much time before an appointment the reminder should be sent.
-            message: Message to send.
-
-            Multiple actions can be specified by using more than one --reminders argument.
       - name: --invoice-date
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -251,52 +241,69 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
+      - name: --reminders
+        long-summary: |
+            Usage: --reminders message=XX offset=XX recipients=XX
+
+            message: Message to send.
+            offset: How much time before an appointment the reminder should be sent.
+
+            Multiple actions can be specified by using more than one --reminders argument.
+      - name: --start
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
       - name: --service-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --service-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
       - name: --customer-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --customer-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
 """
 
 helps['bookings create-customer'] = """
@@ -311,46 +318,47 @@ helps['bookings create-service'] = """
       - name: --default-reminders
         short-summary: "The default reminders set in an appointment of this service."
         long-summary: |
-            Usage: --default-reminders offset=XX recipients=XX message=XX
+            Usage: --default-reminders message=XX offset=XX recipients=XX
 
-            offset: How much time before an appointment the reminder should be sent.
             message: Message to send.
+            offset: How much time before an appointment the reminder should be sent.
 
             Multiple actions can be specified by using more than one --default-reminders argument.
       - name: --scheduling-policy
-        short-summary: "bookingSchedulingPolicy"
+        short-summary: "This type represents the set of policies that dictate how bookings can be created in a Booking \
+Calendar."
         long-summary: |
-            Usage: --scheduling-policy time-slot-interval=XX minimum-lead-time=XX maximum-advance=XX \
-send-confirmations-to-owner=XX allow-staff-selection=XX
+            Usage: --scheduling-policy allow-staff-selection=XX maximum-advance=XX minimum-lead-time=XX \
+send-confirmations-to-owner=XX time-slot-interval=XX
 
-            time-slot-interval: Duration of each time slot.
-            minimum-lead-time: Minimum lead time for bookings and cancellations.
-            maximum-advance: Maximum number of days in advance that a booking can be made.
-            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
             allow-staff-selection: Allow customers to choose a specific person for the booking.
+            maximum-advance: Maximum number of days in advance that a booking can be made.
+            minimum-lead-time: Minimum lead time for bookings and cancellations.
+            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
+            time-slot-interval: Duration of each time slot.
       - name: --default-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --default-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --default-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --default-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --default-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --default-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
 """
 
 helps['bookings create-staff-member'] = """
@@ -430,15 +438,6 @@ helps['bookings update-appointment'] = """
     type: command
     short-summary: "Update the navigation property appointments in bookingBusinesses"
     parameters:
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
       - name: --end
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -448,14 +447,6 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --reminders
-        long-summary: |
-            Usage: --reminders offset=XX recipients=XX message=XX
-
-            offset: How much time before an appointment the reminder should be sent.
-            message: Message to send.
-
-            Multiple actions can be specified by using more than one --reminders argument.
       - name: --invoice-date
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -465,67 +456,75 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
+      - name: --reminders
+        long-summary: |
+            Usage: --reminders message=XX offset=XX recipients=XX
+
+            message: Message to send.
+            offset: How much time before an appointment the reminder should be sent.
+
+            Multiple actions can be specified by using more than one --reminders argument.
+      - name: --start
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
       - name: --service-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --service-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
       - name: --customer-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --customer-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
 """
 
 helps['bookings update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in bookingBusinesses"
     parameters:
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
       - name: --end
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -535,14 +534,6 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --reminders
-        long-summary: |
-            Usage: --reminders offset=XX recipients=XX message=XX
-
-            offset: How much time before an appointment the reminder should be sent.
-            message: Message to send.
-
-            Multiple actions can be specified by using more than one --reminders argument.
       - name: --invoice-date
         short-summary: "dateTimeTimeZone"
         long-summary: |
@@ -552,52 +543,69 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
+      - name: --reminders
+        long-summary: |
+            Usage: --reminders message=XX offset=XX recipients=XX
+
+            message: Message to send.
+            offset: How much time before an appointment the reminder should be sent.
+
+            Multiple actions can be specified by using more than one --reminders argument.
+      - name: --start
+        short-summary: "dateTimeTimeZone"
+        long-summary: |
+            Usage: --start date-time=XX time-zone=XX
+
+            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
+2017-08-29T04:00:00.0000000).
+            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
+values.
       - name: --service-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --service-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
       - name: --customer-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --customer-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
 """
 
 helps['bookings update-customer'] = """
@@ -612,46 +620,47 @@ helps['bookings update-service'] = """
       - name: --default-reminders
         short-summary: "The default reminders set in an appointment of this service."
         long-summary: |
-            Usage: --default-reminders offset=XX recipients=XX message=XX
+            Usage: --default-reminders message=XX offset=XX recipients=XX
 
-            offset: How much time before an appointment the reminder should be sent.
             message: Message to send.
+            offset: How much time before an appointment the reminder should be sent.
 
             Multiple actions can be specified by using more than one --default-reminders argument.
       - name: --scheduling-policy
-        short-summary: "bookingSchedulingPolicy"
+        short-summary: "This type represents the set of policies that dictate how bookings can be created in a Booking \
+Calendar."
         long-summary: |
-            Usage: --scheduling-policy time-slot-interval=XX minimum-lead-time=XX maximum-advance=XX \
-send-confirmations-to-owner=XX allow-staff-selection=XX
+            Usage: --scheduling-policy allow-staff-selection=XX maximum-advance=XX minimum-lead-time=XX \
+send-confirmations-to-owner=XX time-slot-interval=XX
 
-            time-slot-interval: Duration of each time slot.
-            minimum-lead-time: Minimum lead time for bookings and cancellations.
-            maximum-advance: Maximum number of days in advance that a booking can be made.
-            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
             allow-staff-selection: Allow customers to choose a specific person for the booking.
+            maximum-advance: Maximum number of days in advance that a booking can be made.
+            minimum-lead-time: Minimum lead time for bookings and cancellations.
+            send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
+            time-slot-interval: Duration of each time slot.
       - name: --default-location-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --default-location-address type=XX post-office-box=XX street=XX city=XX state=XX \
-country-or-region=XX postal-code=XX
+            Usage: --default-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
+street=XX type=XX
 
-            street: The street.
             city: The city.
-            state: The state.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
+            state: The state.
+            street: The street.
       - name: --default-location-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --default-location-coordinates altitude=XX latitude=XX longitude=XX accuracy=XX \
-altitude-accuracy=XX
+            Usage: --default-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+longitude=XX
 
-            altitude: The altitude of the location.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
+            altitude: The altitude of the location.
             altitude-accuracy: The accuracy of the altitude.
+            latitude: The latitude of the location.
+            longitude: The longitude of the location.
 """
 
 helps['bookings update-staff-member'] = """
