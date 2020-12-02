@@ -71,9 +71,13 @@ class CloudManager:
 
         # throw an error if a user attempts to delete a user defined cloud
         if current_cloud and name == current_cloud['name']:
-            raise CLIError(f'The cloud "{name}" could not be deleted because it is a current cloud')
+            raise CLIError(f'''The cloud "{name}" could not be deleted because it is a current cloud
 
-        # throw an error if the cloud does not exit
+To see the current cloud run mg cloud show-current
+To change to a different cloud run mg cloud select
+''')
+
+        # throw an error if the cloud is not a user defined cloud
         if name not in self.profile['user_defined_clouds']:
             raise CLIError(f'The cloud "{name}" is not a user defined cloud')
 
