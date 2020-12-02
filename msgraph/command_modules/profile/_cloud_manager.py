@@ -6,6 +6,7 @@
 
 from msgraph.cli import read_profile, write_profile
 from msgraph.cli.core.constants import DEFAULT_CLOUDS
+from msgraph.cli.core.exceptions import CLIError
 
 
 class CloudManager:
@@ -61,6 +62,15 @@ class CloudManager:
 
     def delete_cloud(self, name: str):
         result = []
+        current_cloud = self.profile.get('cloud', None)
+
+        # throw an error if a user attempts to delete a user defined cloud
+        if current_cloud and name == current_cloud['name']:
+            raise CLIError(f'The cloud "{name}" could not be deleted because it is a current cloud')
+
+        # throw an error if the cloud does not exit
+        if name not in self.profile['user_defined_clouds']:
+            raise CLIError(f'The cloud "{name}" is not a user defined cloud')
 
         for cloud in self.profile['user_defined_clouds']:
             if name not in cloud.keys():
