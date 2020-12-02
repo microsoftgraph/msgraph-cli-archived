@@ -53,7 +53,9 @@ class CloudManager:
 
                 updated = True
                 self.profile['user_defined_clouds'] = user_defined_clouds
-                write_profile(self.profile, error_msg='An error occured while updating the cloud')
+                write_profile(
+                    self.profile,
+                    error_msg=f'An error occured while updating  the "{cloud_name}" cloud')
 
                 # No need to keep looking for the cloud
                 break
@@ -77,7 +79,7 @@ class CloudManager:
                 result.append(cloud)
 
         self.profile['user_defined_clouds'] = result
-        write_profile(self.profile, error_msg='An error occured while deleting the cloud')
+        write_profile(self.profile, error_msg=f'An error occured while deleting the "{name}" cloud')
 
     def set_current_cloud(self, name: str):
         self.profile['cloud'] = self.get_clouds().get(name)
