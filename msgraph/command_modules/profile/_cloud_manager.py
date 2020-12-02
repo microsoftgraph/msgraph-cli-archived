@@ -69,7 +69,7 @@ class CloudManager:
         result = []
         current_cloud = self.profile.get('cloud', None)
 
-        # throw an error if a user attempts to delete a user defined cloud
+        # throw an error if a user attempts to delete a current cloud
         if current_cloud and name == current_cloud['name']:
             raise CLIError(f'''The cloud "{name}" could not be deleted because it is a current cloud
 
