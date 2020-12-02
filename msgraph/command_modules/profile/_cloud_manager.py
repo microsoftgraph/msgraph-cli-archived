@@ -30,7 +30,7 @@ class CloudManager:
         except KeyError:
             self.profile['user_defined_clouds'] = [entry]
 
-        write_profile(self.profile)
+        write_profile(self.profile, 'An error occured while creating the cloud.')
 
     def get_current_cloud(self) -> dict:
         return self.profile.get('cloud', None)
@@ -53,7 +53,7 @@ class CloudManager:
 
                 updated = True
                 self.profile['user_defined_clouds'] = user_defined_clouds
-                write_profile(self.profile)
+                write_profile(self.profile, error_msg='An error occured while updating the cloud')
 
                 # No need to keep looking for the cloud
                 break
@@ -77,8 +77,11 @@ class CloudManager:
                 result.append(cloud)
 
         self.profile['user_defined_clouds'] = result
-        write_profile(self.profile)
+        write_profile(self.profile, error_msg='An error occured while deleting the cloud')
 
     def set_current_cloud(self, name: str):
         self.profile['cloud'] = self.get_clouds().get(name)
-        write_profile(self.profile)
+        write_profile(
+            self.profile,
+            error_msg=
+            'An error occured while setting the selected cloud, the CLI will use the PUBLIC cloud')
