@@ -6,9 +6,13 @@
 
 from msgraph.cli import read_profile, write_profile
 from msgraph.cli.core.constants import DEFAULT_CLOUDS
+from msgraph.cli.core.exceptions import CLIError
 
 
 class CloudManager:
+    '''This class adds support for managing MicrosoftGraph and user defined clouds
+    List of supported Microsoft Graph clouds: https://docs.microsoft.com/en-us/graph/deployments
+    '''
     def __init__(self):
         self.profile = read_profile()
 
@@ -29,7 +33,7 @@ class CloudManager:
         except KeyError:
             self.profile['user_defined_clouds'] = [entry]
 
-        write_profile(self.profile)
+        write_profile(self.profile, 'An error occured while creating the cloud.')
 
     def get_current_cloud(self) -> dict:
         return self.profile.get('cloud', None)
@@ -52,7 +56,9 @@ class CloudManager:
 
                 updated = True
                 self.profile['user_defined_clouds'] = user_defined_clouds
-                write_profile(self.profile)
+                write_profile(
+                    self.profile,
+                    error_msg=f'An error occured while updating  the "{cloud_name}" cloud')
 
                 # No need to keep looking for the cloud
                 break
@@ -61,14 +67,30 @@ class CloudManager:
 
     def delete_cloud(self, name: str):
         result = []
+        current_cloud = self.profile.get('cloud', None)
+
+        # throw an error if a user attempts to delete a current cloud
+        if current_cloud and name == current_cloud['name']:
+            raise CLIError(f'''The cloud "{name}" could not be deleted because it is a current cloud
+
+To see the current cloud run mg cloud show-current
+To change to a different cloud run mg cloud select
+''')
+
+        # throw an error if the cloud is not a user defined cloud
+        if name not in self.profile['user_defined_clouds']:
+            raise CLIError(f'The cloud "{name}" is not a user defined cloud')
 
         for cloud in self.profile['user_defined_clouds']:
             if name not in cloud.keys():
                 result.append(cloud)
 
         self.profile['user_defined_clouds'] = result
-        write_profile(self.profile)
+        write_profile(self.profile, error_msg=f'An error occured while deleting the "{name}" cloud')
 
     def set_current_cloud(self, name: str):
         self.profile['cloud'] = self.get_clouds().get(name)
-        write_profile(self.profile)
+        write_profile(
+            self.profile,
+            error_msg=
+            'An error occured while setting the selected cloud, the CLI will use the PUBLIC cloud')

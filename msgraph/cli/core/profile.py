@@ -16,9 +16,11 @@ def read_profile() -> dict:
         return {}
 
 
-def write_profile(profile: dict):
+def write_profile(profile: dict, error_msg: str):
+    #TODO: Parameterize the error message
+
     try:
         with open(PROFILE_LOCATION, 'w') as file:
             file.write(json.dumps(profile))
     except IOError as ex:
-        raise CLIException('Selected cloud was not set, CLI will use the PublicCLoud') from ex
+        raise CLIException(error_msg) from ex
