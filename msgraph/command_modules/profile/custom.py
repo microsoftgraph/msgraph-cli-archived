@@ -85,7 +85,7 @@ def select_version():
     selected_version = supported_versions[selected]
 
     profile.update({'version': selected_version})
-    write_profile(profile)
+    write_profile(profile, error_msg='An error occured while setting the selected version')
 
     print(f'Version {selected_version} selected')
 
