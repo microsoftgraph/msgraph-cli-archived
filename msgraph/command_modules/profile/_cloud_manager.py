@@ -78,7 +78,7 @@ To change to a different cloud run mg cloud select
 ''')
 
         # throw an error if the cloud is not a user defined cloud
-        if name not in self.profile['user_defined_clouds']:
+        if name in self.profile['user_defined_clouds']:
             raise CLIError(f'The cloud "{name}" is not a user defined cloud')
 
         for cloud in self.profile['user_defined_clouds']:
