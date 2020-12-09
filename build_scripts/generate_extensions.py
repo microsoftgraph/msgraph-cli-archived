@@ -3,21 +3,16 @@ import sys
 from os import path
 import subprocess
 
-VERSION = 'v1_0'
 
-if len(sys.argv) > 1 and sys.argv[1] == 'beta':
-    VERSION = 'beta'
-
-
-def generate_extension_from_open_api_description():
-    open_api_descriptions = get_open_api_descriptions()
+def generate_extension_from_open_api_description(version='v1_0'):
+    open_api_descriptions = get_open_api_descriptions(version)
 
     for item in open_api_descriptions:
         file_name, file_path = item
         file_name = remove_file_extension_and_group(file_name)
 
         # Config files are used to modify generated extensions
-        generate_az_config_for(file_name)
+        generate_az_config_for(file_name, version)
         generate_cli_config_for(file_name)
         generate_python_config_for(file_name)
 
@@ -26,7 +21,7 @@ def generate_extension_from_open_api_description():
             '--az',
             '--v3',
             f'''--input-file:{file_path}''',
-            f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{VERSION}''',
+            f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
             r'''--use=@autorest/python@5.1.0-preview.4''',
             r'''--use=@autorest/modelerfour@4.15.421''',
             r'''--use=@autorest/az@1.5.1''',
@@ -34,10 +29,10 @@ def generate_extension_from_open_api_description():
                        shell=True)
 
 
-def get_open_api_descriptions():
+def get_open_api_descriptions(version: str):
     result = []
 
-    open_api_dir = path.join(os.getcwd(), os.pardir, 'open-api-docs', VERSION)
+    open_api_dir = path.join(os.getcwd(), os.pardir, 'open-api-docs', version)
     open_api_files = os.listdir(open_api_dir)
 
     for file in open_api_files:
@@ -65,7 +60,7 @@ cli:
     write_to('readme.cli.md', config)
 
 
-def generate_az_config_for(file_name):
+def generate_az_config_for(file_name, version):
     config = f"""
 # CLI
 
@@ -73,14 +68,14 @@ These settings apply only when `--az` is specified on the command line.
 
 ``` yaml $(az)
 az:
-  extensions: {file_name}_{VERSION}
+  extensions: {file_name}_{version}
   package-name: azure-mgmt-{file_name}
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
   client-base-url-bound: false
 
-az-output-folder: $(azure-cli-extension-folder)/{file_name}_{VERSION}
-python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{VERSION}/vendored_sdks/{file_name}"
+az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
+python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
 cli-core-lib: msgraph.cli.core
 
 directive:
@@ -136,4 +131,5 @@ def write_to(file, config):
         f.write(config)
 
 
-generate_extension_from_open_api_description()
+generate_extension_from_open_api_description(version='v1_0')
+generate_extension_from_open_api_description(version='beta')

@@ -6,17 +6,12 @@ import subprocess
 import sys
 from os import path
 
-VERSION = 'v1_0'
 
-if len(sys.argv) > 1 and sys.argv[1] == 'beta':
-    VERSION = 'beta'
+def install_extension(version='v1.0'):
+    extensions_directory = path.join(os.getcwd(), os.pardir, 'msgraph-cli-extensions', f'{version}')
+    path_to_manifest = path.join(os.getcwd(), os.pardir, 'msgraph', 'cli', 'core',
+                                 f'{version}_installed_extensions.py')
 
-path_to_extensions = path.join(os.getcwd(), os.pardir, 'msgraph-cli-extensions', f'{VERSION}')
-path_to_manifest = path.join(os.getcwd(), os.pardir, 'msgraph', 'cli', 'core',
-                             f'{VERSION}_installed_extensions.py')
-
-
-def install_extension(extensions_directory=path_to_extensions):
     extensions = os.listdir(extensions_directory)
 
     manifest = open(path_to_manifest, 'w+')
@@ -34,7 +29,7 @@ def install_extension(extensions_directory=path_to_extensions):
         try:
             subprocess.check_call([
                 sys.executable, '-m', 'pip', 'install',
-                path.join(path_to_extensions, extension, '.')
+                path.join(extensions_directory, extension, '.')
             ])
         except Exception as error:
             print(error)
@@ -47,4 +42,5 @@ def add_extension_to_manifest(manifest, extension):
     manifest.write(f''' 'azext_{extension}',''' + '\n')
 
 
-install_extension()
+install_extension(version='v1_0')
+install_extension(version='beta')

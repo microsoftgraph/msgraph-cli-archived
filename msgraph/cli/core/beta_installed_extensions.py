@@ -1,5 +1,4 @@
-installed_extensions = [ 'azext_analytics_beta',
- 'azext_bookings_beta',
+installed_extensions = [ 'azext_bookings_beta',
  'azext_calendar_beta',
  'azext_changenotifications_beta',
  'azext_cloudcommunications_beta',
