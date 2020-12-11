@@ -13,9 +13,8 @@ from msgraph.cli.core.profile import write_profile
 
 mg_cli = get_default_cli()
 
+
 # Check if a profile exists, if not create one
-
-
 def create_profile_if_none_exists():
     has_profile = path.exists(PROFILE_LOCATION)
 
