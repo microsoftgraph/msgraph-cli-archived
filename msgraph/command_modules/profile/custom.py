@@ -88,13 +88,9 @@ def select_version():
 
 def show_profile():
     profile = read_profile()
-
-    if len(profile) == 0:
-        profile = {'cloud': DEFAULT_CLOUDS.get('PUBLIC'), 'version': 'v1.0'}
-    else:
-        # remove user_defined_clouds from the profile local variable.
-        # The user just wants to see the cloud and version information.
-        profile.pop('user_defined_clouds')
+    # remove user_defined_clouds from the profile local variable.
+    # The user wants to see just the cloud and version information.
+    profile.pop('user_defined_clouds')
 
     return profile
 
