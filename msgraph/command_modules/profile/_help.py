@@ -4,6 +4,7 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 from knack.help_files import helps
+
 helps['profile select-version'] = """
 type: command
 short-summary: Select a graph-version from supported versions.

@@ -55,3 +55,5 @@ DEFAULT_CLOUDS = {
         'azure_ad_endpoint': 'https://login.chinacloudapi.cn'
     }
 }
+
+DEFAULT_PROFILE = {'cloud': DEFAULT_CLOUDS['PUBLIC'], 'version': 'v1.0', 'user_defined_clouds': []}
