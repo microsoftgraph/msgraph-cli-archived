@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Update APT packages
 RUN apt-get update
 RUN apt-get install -y libssl-dev libffi-dev python3-dev debhelper zlib1g-dev wget dh-python python3 python3-setuptools python3-pip \
-unzip
+        unzip
 
 # Download Python source code
 ARG python_version="3.6.10"
@@ -28,6 +28,9 @@ RUN pip install wheel
 
 COPY . .
 
+RUN chmod u+x ./build_scripts/debian/build.sh && \
+        chmod u+x ./build_scripts/debian/prepare.sh
+
 RUN mkdir -p ./bin/pypi && \
         BUILD_STAGINGDIRECTORY=/msgraph-cli/bin/pypi ./build_scripts/debian/build.sh && \
         if [ -d ./privates ]; then find ./privates -name '*.whl' | xargs pip install; fi && \
@@ -42,10 +45,4 @@ RUN mkdir -p ./debian && \
         dpkg-buildpackage -us -uc && \
         cp /msgraph-cli_${cli_version}-${cli_version_revision}_all.deb /msgraph-cli_all.deb
 
-FROM $base_image AS execution-env
-
-COPY /msgraph-cli_all.deb .
-COPY --from=build-env /msgraph-cli_all.deb /msgraph-cli_all.deb
-
-RUN dpkg -i /msgraph-cli_all.deb && \
-        rm /msgraph-cli_all.deb
+RUN dpkg -i /msgraph-cli_all.deb

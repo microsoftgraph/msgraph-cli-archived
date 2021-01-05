@@ -16,11 +16,12 @@ you can run the following commands:
 
 ``` bash
 docker run --name debian microsoft/msgraph-cli:ubuntu-builder
-docker cp debian:/msgraph-cli_all.deb ./debian/out
+docker cp debian:/msgraph-cli_all.deb .
 ```
 
 
 Run the commands below in a linux environment like wsl if you're on windows.
+
 Verification
 ------------
 

@@ -7,7 +7,9 @@ from knack.cli import logger
 from knack.util import CLIError
 
 from msgraph.cli.core.authentication import Authentication
+from msgraph.cli.core.profile import read_profile
 from msgraph.core import GraphSession
+from msgraph.cli.core.constants import DEFAULT_BASE_URL
 
 
 def resolve_client_arg_name(operation, kwargs):
@@ -36,8 +38,24 @@ def resolve_client_arg_name(operation, kwargs):
 
 def get_mgmt_service_client(cli_ctx, client_type, **kwargs):
 
-    credential = Authentication().get_credential()
+    auth = Authentication()
+    record = auth.get_auth_record()
+    credential = auth.get_credential(auth_record=record)
     graph_session = GraphSession(credential=credential)
 
-    client = client_type({}, session=graph_session)
+    base_url = _get_base_url()
+    client = client_type({}, session=graph_session, base_url=base_url)
     return client
+
+
+def _get_base_url():
+    return _get_endpoint() + '/' + _get_version()
+
+
+def _get_endpoint():
+    cloud = read_profile().get('cloud', DEFAULT_BASE_URL)
+    return cloud.get('graph_endpoint')
+
+
+def _get_version():
+    return read_profile().get('version', 'v1.0')
