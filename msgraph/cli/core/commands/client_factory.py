@@ -53,13 +53,8 @@ def _get_base_url():
 
 
 def _get_endpoint():
-    result = None
     cloud = read_profile().get('cloud', DEFAULT_BASE_URL)
-
-    if cloud:
-        return cloud.get('graph_endpoint')
-
-    return cloud
+    return cloud.get('graph_endpoint')
 
 
 def _get_version():

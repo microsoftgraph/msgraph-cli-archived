@@ -14,10 +14,6 @@ from ._cloud_manager import CloudManager
 cloud_manager = CloudManager()
 
 
-def current_cloud():
-    return cloud_manager.get_current_cloud() or DEFAULT_CLOUDS['PUBLIC']
-
-
 def delete_cloud(name: str):
     cloud_manager.delete_cloud(name)
     print(f'Cloud "{name}" deleted successfully')
@@ -90,9 +86,13 @@ def select_version():
     print(f'Version {selected_version} selected')
 
 
-def show_version():
-    version = read_profile().get('version', 'v1.0')
-    print(f'Graph Version: {version}')
+def show_profile():
+    profile = read_profile()
+    # remove user_defined_clouds from the profile local variable.
+    # The user wants to see just the cloud and version information.
+    profile.pop('user_defined_clouds')
+
+    return profile
 
 
 def _validate(url: str):

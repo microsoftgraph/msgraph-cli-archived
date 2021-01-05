@@ -4,27 +4,23 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 from knack.help_files import helps
-helps['graph-version select'] = """
+
+helps['profile select-version'] = """
 type: command
 short-summary: Select a graph-version from supported versions.
 """
 
-helps['graph-version show-current'] = """
-type: command
-short-summary: Show current graph-version
-"""
-
-helps['cloud select'] = """
+helps['profile select-cloud'] = """
 type: command
 short-summary: Select a cloud from supported clouds.
 """
 
-helps['cloud show-current'] = """
+helps['profile show-profile'] = """
 type: command
-short-summary: Show current cloud
+short-summary: Show profile information
 """
 
-helps['cloud delete'] = """
+helps['profile delete-cloud'] = """
 type: command
 short-summary: Deletes a user defined cloud
 parameters:
@@ -37,7 +33,7 @@ examples:
       mg cloud delete --name CUSTOM_CLOUD
 """
 
-helps['cloud add'] = """
+helps['profile add-cloud'] = """
 type: command
 short-summary: Add a custom cloud
 parameters:
@@ -56,7 +52,7 @@ examples:
       mg cloud add --name CUSTOM_CLOUD --endpoint https://graph.microsoft.com --authority https://graph.microsoftonline.com
 """
 
-helps['cloud update'] = """
+helps['profile update-cloud'] = """
 type: command
 short-summary: update a user defined cloud
 parameters:
