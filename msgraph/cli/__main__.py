@@ -5,10 +5,8 @@
 # --------------------------------------------------------------------------
 
 import sys
-import json
 from os import path
 
-from knack.cli import logger
 from colorama import init, Fore
 
 from msgraph.cli.core import get_default_cli
@@ -26,10 +24,10 @@ def create_profile_if_none_exists():
     if not has_profile:
         write_profile(DEFAULT_PROFILE, error_msg='An error occured while creating your profile')
         # Let the user know we have created a default profile for them
-        show_profile_msg()
+        show_default_profile_msg()
 
 
-def show_profile_msg():
+def show_default_profile_msg():
     msg = f'''
 You're using the default profile
 
