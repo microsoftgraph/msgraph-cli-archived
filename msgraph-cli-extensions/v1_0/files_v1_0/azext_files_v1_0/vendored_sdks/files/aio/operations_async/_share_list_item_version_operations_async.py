@@ -43,7 +43,6 @@ class ShareListItemVersionOperations:
     async def get_field(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         list_item_version_id: str,
         select: Optional[List[str]] = None,
         expand: Optional[List[str]] = None,
@@ -55,8 +54,6 @@ class ShareListItemVersionOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param list_item_version_id: key: id of listItemVersion.
         :type list_item_version_id: str
         :param select: Select properties to be returned.
@@ -77,7 +74,6 @@ class ShareListItemVersionOperations:
         url = self.get_field.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'listItemVersion-id': self._serialize.url("list_item_version_id", list_item_version_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -109,12 +105,11 @@ class ShareListItemVersionOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_field.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/versions/{listItemVersion-id}/fields'}  # type: ignore
+    get_field.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions/{listItemVersion-id}/fields'}  # type: ignore
 
     async def update_field(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         list_item_version_id: str,
         id: Optional[str] = None,
         **kwargs
@@ -125,8 +120,6 @@ class ShareListItemVersionOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param list_item_version_id: key: id of listItemVersion.
         :type list_item_version_id: str
         :param id: Read-only.
@@ -148,7 +141,6 @@ class ShareListItemVersionOperations:
         url = self.update_field.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'listItemVersion-id': self._serialize.url("list_item_version_id", list_item_version_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -177,12 +169,11 @@ class ShareListItemVersionOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_field.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/versions/{listItemVersion-id}/fields'}  # type: ignore
+    update_field.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions/{listItemVersion-id}/fields'}  # type: ignore
 
     async def delete_field(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         list_item_version_id: str,
         if_match: Optional[str] = None,
         **kwargs
@@ -193,8 +184,6 @@ class ShareListItemVersionOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param list_item_version_id: key: id of listItemVersion.
         :type list_item_version_id: str
         :param if_match: ETag.
@@ -213,7 +202,6 @@ class ShareListItemVersionOperations:
         url = self.delete_field.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'listItemVersion-id': self._serialize.url("list_item_version_id", list_item_version_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -239,12 +227,11 @@ class ShareListItemVersionOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_field.metadata = {'url': '/shares/{sharedDriveItem-id}/list/items/{listItem-id}/versions/{listItemVersion-id}/fields'}  # type: ignore
+    delete_field.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions/{listItemVersion-id}/fields'}  # type: ignore
 
     async def restore_version(
         self,
         shared_drive_item_id: str,
-        list_item_id: str,
         list_item_version_id: str,
         **kwargs
     ) -> None:
@@ -254,8 +241,6 @@ class ShareListItemVersionOperations:
 
         :param shared_drive_item_id: key: id of sharedDriveItem.
         :type shared_drive_item_id: str
-        :param list_item_id: key: id of listItem.
-        :type list_item_id: str
         :param list_item_version_id: key: id of listItemVersion.
         :type list_item_version_id: str
         :keyword callable cls: A custom type or function that will be passed the direct response
@@ -272,7 +257,6 @@ class ShareListItemVersionOperations:
         url = self.restore_version.metadata['url']  # type: ignore
         path_format_arguments = {
             'sharedDriveItem-id': self._serialize.url("shared_drive_item_id", shared_drive_item_id, 'str'),
-            'listItem-id': self._serialize.url("list_item_id", list_item_id, 'str'),
             'listItemVersion-id': self._serialize.url("list_item_version_id", list_item_version_id, 'str'),
         }
         url = self._client.format_url(url, **path_format_arguments)
@@ -283,6 +267,21 @@ class ShareListItemVersionOperations:
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
+
+        request = self._client.post(url, query_parameters, header_parameters)
+        pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
+        response = pipeline_response.http_response
+
+        if response.status_code not in [204]:
+            map_error(status_code=response.status_code, response=response, error_map=error_map)
+            error = self._deserialize(models.OdataError, response)
+            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+
+        if cls:
+            return cls(pipeline_response, None, {})
+
+    restore_version.metadata = {'url': '/shares/{sharedDriveItem-id}/listItem/versions/{listItemVersion-id}/microsoft.graph.restoreVersion'}  # type: ignore
+eters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         request = self._client.post(url, query_parameters, header_parameters)
         pipeline_response = await self._client._pipeline.run(request, stream=False, **kwargs)
