@@ -40,6 +40,53 @@ stages:
             cd build_scripts/windows/scripts
             build.cmd
 
+      - task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@1
+        displayName: 'ESRP DLL CodeSigning (Microsoft.Graph.Core)'
+        inputs:
+          ConnectedServiceName: 'microsoftgraph ESRP CodeSign DLL and NuGet (AKV)'
+          FolderPath: 'build_scripts/windows/out/'
+          Pattern: '*.msi'
+          signConfigType: inlineSignParams
+          inlineOperation: |
+            [
+              {
+                  "keyCode": "CP-230012",
+                  "operationSetCode": "SigntoolSign",
+                  "parameters": [
+                      {
+                          "parameterName": "OpusName",
+                          "parameterValue": "Microsoft"
+                      },
+                      {
+                          "parameterName": "OpusInfo",
+                          "parameterValue": "http://www.microsoft.com"
+                      },
+                      {
+                          "parameterName": "FileDigest",
+                          "parameterValue": "/fd \"SHA256\""
+                      },
+                      {
+                          "parameterName": "PageHash",
+                          "parameterValue": "/NPH"
+                      },
+                      {
+                          "parameterName": "TimeStamp",
+                          "parameterValue": "/tr \"http://rfc3161.gtm.corp.microsoft.com/TSS/HttpTspServer\" /td sha256"
+                      }
+                  ],
+                  "toolName": "sign",
+                  "toolVersion": "1.0"
+              },
+              {
+                  "keyCode": "CP-230012",
+                  "operationSetCode": "SigntoolVerify",
+                  "parameters": [],
+                  "toolName": "sign",
+                  "toolVersion": "1.0"
+              }
+            ]
+          SessionTimeout: 20
+
       - task: PublishPipelineArtifact@1
         displayName: 'Publish msgraph-cli artifact'
         inputs:
