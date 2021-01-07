@@ -8,7 +8,7 @@ This project is still in its early phases, but we are building not only on the w
 
 **Windows**
 
-Download the .msi package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases)
+Download with winget, `winget install microsoft.msgraphcli` or download directly from [releases](https://github.com/microsoftgraph/msgraph-cli/releases).
 
 **Linux**
 
