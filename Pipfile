@@ -9,6 +9,7 @@ pylint = "*"
 wheel = "*"
 homebrew-pypi-poet = "*"
 jinja2 = "*"
+mock = "*"
 
 [packages]
 argcomplete = "~=1.8"
@@ -31,6 +32,7 @@ pyOpenSSL = ">=17.1.0"
 msal-extensions = "==0.2.2"
 azure-identity = "==1.4.0b7"
 portalocker = ">=1.6"
+zipp = {path = "."}
 
 [requires]
 python_version = "3.8"

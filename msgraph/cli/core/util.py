@@ -1,9 +1,7 @@
-from knack.log import get_logger
-from knack.util import CLIError, to_snake_case
-import logging
 import json
 import base64
 from knack.log import get_logger
+from knack.cli import CLIError
 
 logger = get_logger(__name__)
 
