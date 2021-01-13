@@ -1,9 +1,11 @@
 import json
+
 from msgraph.cli.core.exceptions import CLIException
+from msgraph.cli.core.constants import PROFILE_LOCATION
 
 
 class ProfileProvider:
-    def __init__(profile_location: string):
+    def __init__(self, profile_location=PROFILE_LOCATION):
         self.profile_location = profile_location
 
     def read_profile(self) -> dict:

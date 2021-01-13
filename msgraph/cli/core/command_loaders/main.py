@@ -4,16 +4,18 @@
 # --------------------------------------------------------------------------------------------
 
 import pkgutil
-from knack.cli import logger
-from importlib import import_module
 from collections import OrderedDict
+from importlib import import_module
+
+from knack.cli import logger
 from knack.arguments import ignore_type
 from knack import CLICommandsLoader
 
-from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
-from msgraph.cli.core.profile import read_profile
+from msgraph.cli.core.commands._util import _load_module_command_loader, \
+    _load_extension_command_loader
+from msgraph.cli.core.profile import ProfileProvider
 
-version = read_profile().get('version', 'v1.0')
+version = ProfileProvider().read_profile().get('version', 'v1.0')
 
 if version == 'v1.0':
     from msgraph.cli.core.v1_0_installed_extensions import installed_extensions
