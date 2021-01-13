@@ -4,7 +4,6 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from msgraph.cli import read_profile, write_profile
 from msgraph.cli.core.constants import DEFAULT_CLOUDS
 from msgraph.cli.core.exceptions import CLIError
 
@@ -13,19 +12,21 @@ class CloudManager:
     '''This class adds support for managing MicrosoftGraph and user defined clouds
     List of supported Microsoft Graph clouds: https://docs.microsoft.com/en-us/graph/deployments
     '''
-    def __init__(self):
-        self.profile = read_profile()
+    def __init__(self, profile_provider):
+        self.profile_provider = profile_provider
+        self.profile = self.profile_provider.read_profile()
 
     def get_clouds(self) -> dict:
         user_defined_clouds = self.profile.get('user_defined_clouds', {})
-        supported_clouds = DEFAULT_CLOUDS
+        supported_clouds = DEFAULT_CLOUDS.copy()
 
         for cloud in user_defined_clouds:
             supported_clouds.update(cloud)
         return supported_clouds
 
-    def create_cloud(self, cloud_name, cloud_endpoints):
-        entry = {cloud_name: cloud_endpoints}
+    def create_cloud(self, cloud_name, cloud_props):
+        cloud_props['name'] = cloud_name
+        entry = {cloud_name: cloud_props}
 
         try:
             user_defined_clouds = self.profile['user_defined_clouds']
@@ -33,7 +34,8 @@ class CloudManager:
         except KeyError:
             self.profile['user_defined_clouds'] = [entry]
 
-        write_profile(self.profile, 'An error occured while creating the cloud.')
+        self.profile_provider.write_profile(self.profile,
+                                            'An error occured while creating the cloud.')
 
     def get_current_cloud(self) -> dict:
         return self.profile.get('cloud', None)
@@ -56,7 +58,7 @@ class CloudManager:
 
                 updated = True
                 self.profile['user_defined_clouds'] = user_defined_clouds
-                write_profile(
+                self.profile_provider.write_profile(
                     self.profile,
                     error_msg=f'An error occured while updating  the "{cloud_name}" cloud')
 
@@ -77,8 +79,12 @@ To see the current cloud run mg cloud show-current
 To change to a different cloud run mg cloud select
 ''')
 
+        user_defined_names = []
+        for cloud in self.profile['user_defined_clouds']:
+            user_defined_names.append(list(cloud.keys())[0])
+
         # throw an error if the cloud is not a user defined cloud
-        if name not in self.profile['user_defined_clouds'] or name in DEFAULT_CLOUDS.keys():
+        if name not in user_defined_names or name in DEFAULT_CLOUDS.keys():
             raise CLIError(f'The cloud "{name}" is not a user defined cloud')
 
         for cloud in self.profile['user_defined_clouds']:
@@ -86,11 +92,12 @@ To change to a different cloud run mg cloud select
                 result.append(cloud)
 
         self.profile['user_defined_clouds'] = result
-        write_profile(self.profile, error_msg=f'An error occured while deleting the "{name}" cloud')
+        self.profile_provider.write_profile(
+            self.profile, error_msg=f'An error occured while deleting the "{name}" cloud')
 
     def set_current_cloud(self, name: str):
         self.profile['cloud'] = self.get_clouds().get(name)
-        write_profile(
+        self.profile_provider.write_profile(
             self.profile,
             error_msg=
             'An error occured while setting the selected cloud, the CLI will use the PUBLIC cloud')
