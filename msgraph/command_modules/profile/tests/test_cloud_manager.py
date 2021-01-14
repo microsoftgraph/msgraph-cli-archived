@@ -8,7 +8,7 @@ from msgraph.cli.core.profile import ProfileProvider
 from msgraph.cli.core.constants import DEFAULT_CLOUDS, DEFAULT_PROFILE
 from msgraph.cli.core.exceptions import CLIError
 
-TEST_PROFILE_LOCATION = path.join(Path.home(), '.mg', 'test-profile.json')
+TEST_PROFILE_LOCATION = 'test-profile.json'
 TEST_CLOUD = {
     'graph_endpoint': 'https://graph.microsoft.com',
     'azure_ad_endpoint': 'https://microsoftonline.com'
