@@ -20,14 +20,12 @@ stages:
 
       - script: |
           python -m pip install --upgrade pip
-          pip install wheel
-          pip install pipenv
-          pipenv shell
-          pipenv install pytest
+          pip install wheel, pipenv
+          python -m pipenv lock -r > requirements.txt
+          pip install requirements.txt
         displayName: 'Upgrade pip and install dependencies'
 
       - script: |
-          pipenv shell
           pytest
         displayName: 'Test'
 
@@ -112,14 +110,12 @@ stages:
 
       - script: |
           python -m pip install --upgrade pip
-          pip install wheel
-          pip install pipenv
-          pipenv --python 3.7
-          pipenv install pytest
+          pip install wheel, pipenv
+          python -m pipenv lock -r > requirements.txt
+          pip install requirements.txt
         displayName: 'Upgrade pip and install wheel'
 
       - script: |
-          pipenv shell
           pytest
         displayName: 'Test'
 
