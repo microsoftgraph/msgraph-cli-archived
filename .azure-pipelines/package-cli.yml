@@ -1,12 +1,5 @@
 name: msgraph_cli_$(Build.BuildId)
 
-trigger:
-  branches:
-    include:
-      - main
-
-pr: none
-
 stages:
 - stage: BuildPackages
   displayName: 'Build Packages'
@@ -28,9 +21,16 @@ stages:
       - script: |
           python -m pip install --upgrade pip
           pip install wheel
-        displayName: 'Upgrade pip and install wheel'
+          pip install pipenv
+          pipenv install
+        displayName: 'Upgrade pip and install dependencies'
+
+      - script: |
+          pytest
+        displayName: 'Test'
 
       - task: CmdLine@2
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
         displayName: 'Build msgraph-cli'
         inputs:
           script: |
@@ -41,6 +41,7 @@ stages:
             build.cmd
 
       - task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@1
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
         displayName: 'ESRP DLL CodeSigning (Microsoft.Graph.Core)'
         inputs:
           ConnectedServiceName: 'microsoftgraph ESRP CodeSign DLL and NuGet (AKV)'
@@ -88,6 +89,7 @@ stages:
           SessionTimeout: 20
 
       - task: PublishPipelineArtifact@1
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
         displayName: 'Publish msgraph-cli artifact'
         inputs:
           TargetPath: 'build_scripts/windows/out/'
@@ -102,14 +104,20 @@ stages:
         matrix:
           Python37:
             python.version: '3.7'
-    steps: 
+    steps:
       - task: UsePythonVersion@0
         displayName: 'Use Python $(python.version)'
 
       - script: |
           python -m pip install --upgrade pip
           pip install wheel
-        displayName: 'Upgrade pip and install wheel'        
+          pip install pipenv
+          pipenv install
+        displayName: 'Upgrade pip and install wheel'
+
+      - script: |
+          pytest
+        displayName: 'Test'
 
       - bash: |
           docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
@@ -119,8 +127,10 @@ stages:
 
           docker cp debian:/msgraph-cli_all.deb ./debian/out/
         displayName: 'Build docker image'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 
       - task: PublishPipelineArtifact@1
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
         displayName: 'Publish msgraph-cli debian artifact'
         inputs:
           TargetPath: 'debian/out'
@@ -132,6 +142,7 @@ stages:
 - stage: ReleaseToGithub
   jobs:
     - job: ReleaseToGithub
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
       displayName: "Release to GitHub"
       pool:
         vmImage: 'ubuntu-18.04'
@@ -147,7 +158,7 @@ stages:
             echo "Showing msgraph/cli"
             ls $(Pipeline.Workspace)/msgraph_msi
           displayName: 'Directory structure'
-    
+
         - task: GitHubRelease@0
           inputs:
             gitHubConnection: 'ddyett'
@@ -164,6 +175,7 @@ stages:
 - stage: BuildHomebrewFormula
   jobs:
     - job: BuildHomebrewFormula
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
       displayName: "Generate HomebrewFormula"
       pool:
         vmImage: 'ubuntu-18.04'
@@ -177,7 +189,7 @@ stages:
 
         - bash: |
             python -m pip install --upgrade pip
-            pip install -r build_scripts/homebrew/requirements.txt 
+            pip install -r build_scripts/homebrew/requirements.txt
             pip install .
           displayName: 'Upgrade pip and install dependencies'
 
