@@ -36,6 +36,3 @@ azure-identity = "==1.4.0b7"
 portalocker = ">=1.6"
 zipp = {path = "."}
 pytest = "*"
-
-[requires]
-python_version = "3.7"
