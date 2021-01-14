@@ -22,7 +22,7 @@ stages:
           python -m pip install --upgrade pip
           pip install wheel pipenv
           python -m pipenv lock -r > requirements.txt
-          pip install requirements.txt
+          pip install -r requirements.txt
         displayName: 'Upgrade pip and install dependencies'
 
       - script: |
@@ -112,7 +112,7 @@ stages:
           python -m pip install --upgrade pip
           pip install wheel pipenv
           python -m pipenv lock -r > requirements.txt
-          pip install requirements.txt
+          pip install -r requirements.txt
         displayName: 'Upgrade pip and install wheel'
 
       - script: |
