@@ -22,7 +22,7 @@ class ProfileProvider:
 
     def write_profile(self, profile: dict, error_msg: str):
         try:
-            with open(self.profile_location, 'w') as file:
+            with open(self.profile_location, 'w+') as file:
                 file.write(json.dumps(profile))
         except IOError as ex:
             raise CLIException(error_msg) from ex

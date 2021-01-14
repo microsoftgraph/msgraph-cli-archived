@@ -11,6 +11,7 @@ homebrew-pypi-poet = "*"
 jinja2 = "*"
 mock = "*"
 pytest = "*"
+mock-open = "*"
 
 [packages]
 argcomplete = "~=1.8"
