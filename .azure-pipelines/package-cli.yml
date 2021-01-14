@@ -22,10 +22,12 @@ stages:
           python -m pip install --upgrade pip
           pip install wheel
           pip install pipenv
+          pipenv shell
           pipenv install
         displayName: 'Upgrade pip and install dependencies'
 
       - script: |
+          pipenv shell
           pytest
         displayName: 'Test'
 
@@ -112,10 +114,12 @@ stages:
           python -m pip install --upgrade pip
           pip install wheel
           pip install pipenv
+          pipenv shell
           pipenv install
         displayName: 'Upgrade pip and install wheel'
 
       - script: |
+          pipenv shell
           pytest
         displayName: 'Test'
 
