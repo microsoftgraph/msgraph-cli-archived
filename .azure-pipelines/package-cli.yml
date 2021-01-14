@@ -23,7 +23,7 @@ stages:
           pip install wheel
           pip install pipenv
           pipenv shell
-          pipenv install --dev
+          pipenv install pytest
         displayName: 'Upgrade pip and install dependencies'
 
       - script: |
@@ -114,8 +114,8 @@ stages:
           python -m pip install --upgrade pip
           pip install wheel
           pip install pipenv
-          pipenv shell
-          pipenv install --dev
+          pipenv --python 3.7
+          pipenv install pytest
         displayName: 'Upgrade pip and install wheel'
 
       - script: |
