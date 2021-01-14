@@ -23,7 +23,7 @@ stages:
           pip install wheel
           pip install pipenv
           pipenv shell
-          pipenv install
+          pipenv install --dev
         displayName: 'Upgrade pip and install dependencies'
 
       - script: |
@@ -115,7 +115,7 @@ stages:
           pip install wheel
           pip install pipenv
           pipenv shell
-          pipenv install
+          pipenv install --dev
         displayName: 'Upgrade pip and install wheel'
 
       - script: |
