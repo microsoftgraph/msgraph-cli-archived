@@ -10,6 +10,7 @@ wheel = "*"
 homebrew-pypi-poet = "*"
 jinja2 = "*"
 mock = "*"
+pytest = "*"
 
 [packages]
 argcomplete = "~=1.8"
@@ -33,6 +34,7 @@ msal-extensions = "==0.2.2"
 azure-identity = "==1.4.0b7"
 portalocker = ">=1.6"
 zipp = {path = "."}
+pytest = "*"
 
 [requires]
 python_version = "3.8"

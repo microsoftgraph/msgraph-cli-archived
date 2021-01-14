@@ -60,7 +60,3 @@ class TestCloudManager(unittest.TestCase):
                 self.cloud_manager.delete_cloud('PUBLIC')
             except Exception as error:
                 self.assertEqual(error, 'The cloud "PUBLIC" is not a user defined cloud')
-
-
-if __name__ == '__main__':
-    unittest.main()

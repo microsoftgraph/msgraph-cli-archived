@@ -36,7 +36,3 @@ class TestValidators(unittest.TestCase):
         data = "{'~d': '~/haha'}"
         res = validate_file_or_dict(data)
         self.assertEqual(res['~d'], '~/haha')
-
-
-if __name__ == '__main__':
-    unittest.main()

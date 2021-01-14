@@ -5,13 +5,13 @@
 
 # pylint: disable=line-too-long
 
-import unittest
+from unittest import TestCase
 import tempfile
 
 from msgraph.cli.core.util import get_file_json, shell_safe_json_parse
 
 
-class TestUtils(unittest.TestCase):
+class TestUtils(TestCase):
     def test_load_json_from_file(self):
         _, pathname = tempfile.mkstemp()
 
@@ -54,7 +54,3 @@ class TestUtils(unittest.TestCase):
 
         self.assertEqual(len(failed_strings), 0,
                          'The following patterns failed: {}'.format(failed_strings))
-
-
-if __name__ == '__main__':
-    unittest.main()
