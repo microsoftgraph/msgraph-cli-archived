@@ -110,9 +110,8 @@ stages:
 
       - script: |
           python -m pip install --upgrade pip
-          sudo apt install -y pipenv
-          pip install wheel
-          python -m pipenv lock -r > requirements.txt
+          sudo pip install wheel pipenv
+          pipenv lock -r > requirements.txt
           pip install -r requirements.txt
         displayName: 'Upgrade pip and install dependencies'
 
