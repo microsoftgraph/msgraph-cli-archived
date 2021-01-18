@@ -3,6 +3,8 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
+import sys
+import os
 import argparse
 import base64
 import inspect
@@ -137,3 +139,40 @@ def _merge_kwargs(patch_kwargs, base_kwargs, supported_kwargs=None):
     if unrecognized_kwargs:
         raise TypeError('unrecognized kwargs: {}'.format(unrecognized_kwargs))
     return merged_kwargs
+
+
+def _expand_file_prefixed_files(args):
+    def _load_file(path):
+        if path == '-':
+            content = sys.stdin.read()
+        else:
+            content = read_file_content(os.path.expanduser(path), allow_binary=True)
+
+        return content.rstrip(os.linesep)
+
+    def _maybe_load_file(arg):
+        ix = arg.find('@')
+        if ix == -1:  # no @ found
+            return arg
+
+        poss_file = arg[ix + 1:]
+        if not poss_file:  # if nothing after @ then it can't be a file
+            return arg
+        if ix == 0:
+            try:
+                return _load_file(poss_file)
+            except IOError:
+                logger.debug("Failed to load '%s', assume not a file", arg)
+                return arg
+
+        # if @ not at the start it can't be a file
+        return arg
+
+    def _expand_file_prefix(arg):
+        arg_split = arg.split('=', 1)
+        try:
+            return '='.join([arg_split[0], _maybe_load_file(arg_split[1])])
+        except IndexError:
+            return _maybe_load_file(arg_split[0])
+
+    return list([_expand_file_prefix(arg) for arg in args])

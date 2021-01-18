@@ -12,7 +12,7 @@ class DummyCli(MgCLI):
         import os
 
         from msgraph.cli.core.command_loaders import MainCommandsLoader
-        from msgraph.cli.core.invocation import CommandInvoker
+        from msgraph.cli.core.invocation import GraphCliCommandInvoker
         from msgraph.cli.core.help._help import GraphCliHelp
 
         from knack.completion import ARGCOMPLETE_ENV_NAME
@@ -21,7 +21,7 @@ class DummyCli(MgCLI):
                                        commands_loader_cls=commands_loader_cls
                                        or MainCommandsLoader,
                                        help_cls=GraphCliHelp,
-                                       invocation_cls=CommandInvoker)
+                                       invocation_cls=GraphCliCommandInvoker)
 
         self.data['headers'] = {
         }  # the x-ms-client-request-id is generated before a command is to execute
