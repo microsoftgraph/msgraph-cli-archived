@@ -17,18 +17,18 @@ from msgraph.cli.core.tests.mock import MockCli
 class TestApplication(unittest.TestCase):
     def test_client_request_id_is_not_assigned_when_application_is_created(self):
         cli = MockCli()
-        self.assertNotIn('x-ms-client-request-id', cli.data['headers'])
+        self.assertNotIn('client-request-id', cli.data['headers'])
 
     def test_client_request_id_is_refreshed_correctly(self):
         cli = MockCli()
         cli.refresh_request_id()
-        self.assertIn('x-ms-client-request-id', cli.data['headers'])
+        self.assertIn('client-request-id', cli.data['headers'])
 
-        old_id = cli.data['headers']['x-ms-client-request-id']
+        old_id = cli.data['headers']['client-request-id']
 
         cli.refresh_request_id()
-        self.assertIn('x-ms-client-request-id', cli.data['headers'])
-        self.assertNotEqual(old_id, cli.data['headers']['x-ms-client-request-id'])
+        self.assertIn('client-request-id', cli.data['headers'])
+        self.assertNotEqual(old_id, cli.data['headers']['client-request-id'])
 
     def test_client_request_id_is_refreshed_after_execution(self):
         def _handler(args):
@@ -43,11 +43,11 @@ class TestApplication(unittest.TestCase):
         cli = MockCli(commands_loader_cls=TestCommandsLoader)
 
         cli.invoke(['test'])
-        self.assertIn('x-ms-client-request-id', cli.data['headers'])
-        old_id = cli.data['headers']['x-ms-client-request-id']
+        self.assertIn('client-request-id', cli.data['headers'])
+        old_id = cli.data['headers']['client-request-id']
         cli.invoke(['test'])
-        self.assertIn('x-ms-client-request-id', cli.data['headers'])
-        self.assertNotEqual(old_id, cli.data['headers']['x-ms-client-request-id'])
+        self.assertIn('client-request-id', cli.data['headers'])
+        self.assertNotEqual(old_id, cli.data['headers']['client-request-id'])
 
     def test_application_register_and_call_handlers(self):
         handler_called = [False]

@@ -22,12 +22,12 @@ class MgCLI(CLI):
         super().__init__(**kwargs)
 
     def refresh_request_id(self):
-        """Assign a new random GUID as x-ms-client-request-id
+        """Assign a new random GUID as client-request-id
         The method must be invoked before each command execution in order to ensure
         unique client-side request ID is generated.
         """
         import uuid
-        self.data['headers'] = {'x-ms-client-request-id': str(uuid.uuid1())}
+        self.data['headers'] = {'client-request-id': str(uuid.uuid1())}
 
     def get_cli_version(self):
         #TODO: Read version from environment variable
