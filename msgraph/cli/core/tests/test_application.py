@@ -11,8 +11,6 @@ from knack.util import CLIError
 
 from msgraph.cli.core import AzCommandsLoader
 from msgraph.cli.core.commands import GraphCliCommand
-from msgraph.cli.core.invocation import GraphCliCommandInvoker
-from msgraph.cli.core.commands.validators import IterateAction
 from msgraph.cli.core.tests.mock import MockCli
 
 

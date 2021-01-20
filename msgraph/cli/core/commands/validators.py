@@ -11,15 +11,6 @@ class IterateValue(list):
     pass  # pylint: disable=unnecessary-pass
 
 
-class IterateAction(argparse.Action):  # pylint: disable=too-few-public-methods
-    """Action used to collect argument values in an IterateValue list
-    The application will loop through each value in the IterateValue
-    and execeute the associated handler for each
-    """
-    def __call__(self, parser, namespace, values, option_string=None):
-        setattr(namespace, self.dest, IterateValue(values))
-
-
 def validate_file_or_dict(string):
     import os
     string = os.path.expanduser(string)
