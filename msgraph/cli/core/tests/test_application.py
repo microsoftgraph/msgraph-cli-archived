@@ -13,16 +13,16 @@ from msgraph.cli.core import AzCommandsLoader
 from msgraph.cli.core.commands import GraphCliCommand
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
 from msgraph.cli.core.commands.validators import IterateAction
-from msgraph.cli.core.mock.mock import DummyCli
+from msgraph.cli.core.tests.mock import MockCli
 
 
 class TestApplication(unittest.TestCase):
     def test_client_request_id_is_not_assigned_when_application_is_created(self):
-        cli = DummyCli()
+        cli = MockCli()
         self.assertNotIn('x-ms-client-request-id', cli.data['headers'])
 
     def test_client_request_id_is_refreshed_correctly(self):
-        cli = DummyCli()
+        cli = MockCli()
         cli.refresh_request_id()
         self.assertIn('x-ms-client-request-id', cli.data['headers'])
 
@@ -42,7 +42,7 @@ class TestApplication(unittest.TestCase):
                 self.command_table = {'test': GraphCliCommand(self, 'test', _handler)}
                 return self.command_table
 
-        cli = DummyCli(commands_loader_cls=TestCommandsLoader)
+        cli = MockCli(commands_loader_cls=TestCommandsLoader)
 
         cli.invoke(['test'])
         self.assertIn('x-ms-client-request-id', cli.data['headers'])
@@ -60,7 +60,7 @@ class TestApplication(unittest.TestCase):
         def other_handler(*args, **kwargs):
             self.assertEqual(kwargs['args'], 'secret sauce')
 
-        cli = DummyCli()
+        cli = MockCli()
 
         cli.raise_event('was_handler_called', args=handler_called)
         self.assertFalse(handler_called[0],
