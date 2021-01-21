@@ -13,6 +13,7 @@ from msgraph.cli.core.commands.parameters import GraphArgumentContext
 from msgraph.cli.core.help._help import GraphCliHelp
 from msgraph.cli.core.constants import EXCLUDED_PARAMS
 from msgraph.cli.core.command_loaders import MainCommandsLoader, ExtensionCommandsLoader
+from msgraph.cli.core.mglogging import MgCliLogging
 
 __version__ = '1.0.0'
 
@@ -36,12 +37,11 @@ class MgCLI(CLI):
 
 # This is the entry point into the Knack CLI framework.
 def get_default_cli():
-    return MgCLI(
-        cli_name='mg',
-        commands_loader_cls=MainCommandsLoader,
-        invocation_cls=GraphCliCommandInvoker,
-        help_cls=GraphCliHelp,
-    )
+    return MgCLI(cli_name='mg',
+                 commands_loader_cls=MainCommandsLoader,
+                 invocation_cls=GraphCliCommandInvoker,
+                 help_cls=GraphCliHelp,
+                 logging_cls=MgCliLogging)
 
 
 # Generated extensions expect the CommandLoader class to have the name AzCommandLoader
