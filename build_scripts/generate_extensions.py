@@ -76,11 +76,11 @@ az:
 
 az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
-cli-core-lib: msgraph.cli.core
+cli-core-lib: msgraph.cli.core 
 
 directive:
     - where:
-          group: ^{file_name}(.*)
+          group: {file_name}_{version}
       set:
           group: {file_name}
 
