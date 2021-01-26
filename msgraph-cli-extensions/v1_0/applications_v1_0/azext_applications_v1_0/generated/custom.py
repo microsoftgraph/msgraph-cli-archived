@@ -10,59 +10,59 @@
 # pylint: disable=too-many-lines
 
 
-def applications_delete(client,
-                        application_id,
-                        if_match=None):
+def applications_application_application_delete(client,
+                                                application_id,
+                                                if_match=None):
     return client.delete_application(application_id=application_id,
                                      if_match=if_match)
 
 
-def applications_create_application(client,
-                                    body):
+def applications_application_application_create_application(client,
+                                                            body):
     return client.create_application(body=body)
 
 
-def applications_get_application(client,
-                                 application_id,
-                                 select=None,
-                                 expand=None):
+def applications_application_application_get_application(client,
+                                                         application_id,
+                                                         select=None,
+                                                         expand=None):
     return client.get_application(application_id=application_id,
                                   select=select,
                                   expand=expand)
 
 
-def applications_get_logo(client,
-                          application_id):
+def applications_application_application_get_logo(client,
+                                                  application_id):
     return client.get_logo(application_id=application_id)
 
 
-def applications_list_application(client,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
+def applications_application_application_list_application(client,
+                                                          orderby=None,
+                                                          select=None,
+                                                          expand=None):
     return client.list_application(orderby=orderby,
                                    select=select,
                                    expand=expand)
 
 
-def applications_set_logo(client,
-                          application_id,
-                          data):
+def applications_application_application_set_logo(client,
+                                                  application_id,
+                                                  data):
     return client.set_logo(application_id=application_id,
                            data=data)
 
 
-def applications_update_application(client,
-                                    application_id,
-                                    body):
+def applications_application_application_update_application(client,
+                                                            application_id,
+                                                            body):
     return client.update_application(application_id=application_id,
                                      body=body)
 
 
-def applications_delete(client,
-                        application_id,
-                        extension_property_id=None,
-                        if_match=None):
+def applications_application_delete(client,
+                                    application_id,
+                                    extension_property_id=None,
+                                    if_match=None):
     if application_id is not None and extension_property_id is not None:
         return client.delete_extension_property(application_id=application_id,
                                                 extension_property_id=extension_property_id,
@@ -71,47 +71,47 @@ def applications_delete(client,
                                                   if_match=if_match)
 
 
-def applications_add_key(client,
-                         application_id,
-                         key_credential=None,
-                         password_credential=None,
-                         proof=None):
+def applications_application_add_key(client,
+                                     application_id,
+                                     key_credential=None,
+                                     password_credential=None,
+                                     proof=None):
     return client.add_key(application_id=application_id,
                           key_credential=key_credential,
                           password_credential=password_credential,
                           proof=proof)
 
 
-def applications_add_password(client,
-                              application_id,
-                              password_credential=None):
+def applications_application_add_password(client,
+                                          application_id,
+                                          password_credential=None):
     return client.add_password(application_id=application_id,
                                password_credential=password_credential)
 
 
-def applications_check_member_group(client,
-                                    application_id,
-                                    group_ids=None):
+def applications_application_check_member_group(client,
+                                                application_id,
+                                                group_ids=None):
     return client.check_member_group(application_id=application_id,
                                      group_ids=group_ids)
 
 
-def applications_check_member_object(client,
-                                     application_id,
-                                     ids=None):
+def applications_application_check_member_object(client,
+                                                 application_id,
+                                                 ids=None):
     return client.check_member_object(application_id=application_id,
                                       ids=ids)
 
 
-def applications_create_extension_property(client,
-                                           application_id,
-                                           id_=None,
-                                           deleted_date_time=None,
-                                           app_display_name=None,
-                                           data_type=None,
-                                           is_synced_from_on_premises=None,
-                                           name=None,
-                                           target_objects=None):
+def applications_application_create_extension_property(client,
+                                                       application_id,
+                                                       id_=None,
+                                                       deleted_date_time=None,
+                                                       app_display_name=None,
+                                                       data_type=None,
+                                                       is_synced_from_on_premises=None,
+                                                       name=None,
+                                                       target_objects=None):
     return client.create_extension_property(application_id=application_id,
                                             id=id_,
                                             deleted_date_time=deleted_date_time,
@@ -122,216 +122,216 @@ def applications_create_extension_property(client,
                                             target_objects=target_objects)
 
 
-def applications_create_ref_home_realm_discovery_policy(client,
-                                                        application_id,
-                                                        body):
+def applications_application_create_ref_home_realm_discovery_policy(client,
+                                                                    application_id,
+                                                                    body):
     return client.create_ref_home_realm_discovery_policy(application_id=application_id,
                                                          body=body)
 
 
-def applications_create_ref_owner(client,
-                                  application_id,
-                                  body):
+def applications_application_create_ref_owner(client,
+                                              application_id,
+                                              body):
     return client.create_ref_owner(application_id=application_id,
                                    body=body)
 
 
-def applications_create_ref_token_issuance_policy(client,
-                                                  application_id,
-                                                  body):
+def applications_application_create_ref_token_issuance_policy(client,
+                                                              application_id,
+                                                              body):
     return client.create_ref_token_issuance_policy(application_id=application_id,
                                                    body=body)
 
 
-def applications_create_ref_token_lifetime_policy(client,
-                                                  application_id,
-                                                  body):
+def applications_application_create_ref_token_lifetime_policy(client,
+                                                              application_id,
+                                                              body):
     return client.create_ref_token_lifetime_policy(application_id=application_id,
                                                    body=body)
 
 
-def applications_delta(client):
+def applications_application_delta(client):
     return client.delta()
 
 
-def applications_get_available_extension_property(client,
-                                                  is_synced_from_on_premises=None):
+def applications_application_get_available_extension_property(client,
+                                                              is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
     return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
 
 
-def applications_get_by_id(client,
-                           ids=None,
-                           types=None):
+def applications_application_get_by_id(client,
+                                       ids=None,
+                                       types=None):
     return client.get_by_id(ids=ids,
                             types=types)
 
 
-def applications_get_created_on_behalf_of(client,
-                                          application_id,
-                                          select=None,
-                                          expand=None):
+def applications_application_get_created_on_behalf_of(client,
+                                                      application_id,
+                                                      select=None,
+                                                      expand=None):
     return client.get_created_on_behalf_of(application_id=application_id,
                                            select=select,
                                            expand=expand)
 
 
-def applications_get_extension_property(client,
-                                        application_id,
-                                        extension_property_id,
-                                        select=None,
-                                        expand=None):
+def applications_application_get_extension_property(client,
+                                                    application_id,
+                                                    extension_property_id,
+                                                    select=None,
+                                                    expand=None):
     return client.get_extension_property(application_id=application_id,
                                          extension_property_id=extension_property_id,
                                          select=select,
                                          expand=expand)
 
 
-def applications_get_member_group(client,
-                                  application_id,
-                                  security_enabled_only=None):
+def applications_application_get_member_group(client,
+                                              application_id,
+                                              security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
     return client.get_member_group(application_id=application_id,
                                    security_enabled_only=security_enabled_only)
 
 
-def applications_get_member_object(client,
-                                   application_id,
-                                   security_enabled_only=None):
+def applications_application_get_member_object(client,
+                                               application_id,
+                                               security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
     return client.get_member_object(application_id=application_id,
                                     security_enabled_only=security_enabled_only)
 
 
-def applications_get_ref_created_on_behalf_of(client,
-                                              application_id):
+def applications_application_get_ref_created_on_behalf_of(client,
+                                                          application_id):
     return client.get_ref_created_on_behalf_of(application_id=application_id)
 
 
-def applications_list_extension_property(client,
-                                         application_id,
-                                         orderby=None,
-                                         select=None,
-                                         expand=None):
+def applications_application_list_extension_property(client,
+                                                     application_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
     return client.list_extension_property(application_id=application_id,
                                           orderby=orderby,
                                           select=select,
                                           expand=expand)
 
 
-def applications_list_home_realm_discovery_policy(client,
-                                                  application_id,
-                                                  orderby=None,
-                                                  select=None,
-                                                  expand=None):
+def applications_application_list_home_realm_discovery_policy(client,
+                                                              application_id,
+                                                              orderby=None,
+                                                              select=None,
+                                                              expand=None):
     return client.list_home_realm_discovery_policy(application_id=application_id,
                                                    orderby=orderby,
                                                    select=select,
                                                    expand=expand)
 
 
-def applications_list_owner(client,
-                            application_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
+def applications_application_list_owner(client,
+                                        application_id,
+                                        orderby=None,
+                                        select=None,
+                                        expand=None):
     return client.list_owner(application_id=application_id,
                              orderby=orderby,
                              select=select,
                              expand=expand)
 
 
-def applications_list_ref_home_realm_discovery_policy(client,
-                                                      application_id,
-                                                      orderby=None):
+def applications_application_list_ref_home_realm_discovery_policy(client,
+                                                                  application_id,
+                                                                  orderby=None):
     return client.list_ref_home_realm_discovery_policy(application_id=application_id,
                                                        orderby=orderby)
 
 
-def applications_list_ref_owner(client,
-                                application_id,
-                                orderby=None):
+def applications_application_list_ref_owner(client,
+                                            application_id,
+                                            orderby=None):
     return client.list_ref_owner(application_id=application_id,
                                  orderby=orderby)
 
 
-def applications_list_ref_token_issuance_policy(client,
-                                                application_id,
-                                                orderby=None):
+def applications_application_list_ref_token_issuance_policy(client,
+                                                            application_id,
+                                                            orderby=None):
     return client.list_ref_token_issuance_policy(application_id=application_id,
                                                  orderby=orderby)
 
 
-def applications_list_ref_token_lifetime_policy(client,
-                                                application_id,
-                                                orderby=None):
+def applications_application_list_ref_token_lifetime_policy(client,
+                                                            application_id,
+                                                            orderby=None):
     return client.list_ref_token_lifetime_policy(application_id=application_id,
                                                  orderby=orderby)
 
 
-def applications_list_token_issuance_policy(client,
-                                            application_id,
-                                            orderby=None,
-                                            select=None,
-                                            expand=None):
+def applications_application_list_token_issuance_policy(client,
+                                                        application_id,
+                                                        orderby=None,
+                                                        select=None,
+                                                        expand=None):
     return client.list_token_issuance_policy(application_id=application_id,
                                              orderby=orderby,
                                              select=select,
                                              expand=expand)
 
 
-def applications_list_token_lifetime_policy(client,
-                                            application_id,
-                                            orderby=None,
-                                            select=None,
-                                            expand=None):
+def applications_application_list_token_lifetime_policy(client,
+                                                        application_id,
+                                                        orderby=None,
+                                                        select=None,
+                                                        expand=None):
     return client.list_token_lifetime_policy(application_id=application_id,
                                              orderby=orderby,
                                              select=select,
                                              expand=expand)
 
 
-def applications_remove_key(client,
-                            application_id,
-                            key_id=None,
-                            proof=None):
+def applications_application_remove_key(client,
+                                        application_id,
+                                        key_id=None,
+                                        proof=None):
     return client.remove_key(application_id=application_id,
                              key_id=key_id,
                              proof=proof)
 
 
-def applications_remove_password(client,
-                                 application_id,
-                                 key_id=None):
+def applications_application_remove_password(client,
+                                             application_id,
+                                             key_id=None):
     return client.remove_password(application_id=application_id,
                                   key_id=key_id)
 
 
-def applications_restore(client,
-                         application_id):
+def applications_application_restore(client,
+                                     application_id):
     return client.restore(application_id=application_id)
 
 
-def applications_set_ref_created_on_behalf_of(client,
-                                              application_id,
-                                              body):
+def applications_application_set_ref_created_on_behalf_of(client,
+                                                          application_id,
+                                                          body):
     return client.set_ref_created_on_behalf_of(application_id=application_id,
                                                body=body)
 
 
-def applications_update_extension_property(client,
-                                           application_id,
-                                           extension_property_id,
-                                           id_=None,
-                                           deleted_date_time=None,
-                                           app_display_name=None,
-                                           data_type=None,
-                                           is_synced_from_on_premises=None,
-                                           name=None,
-                                           target_objects=None):
+def applications_application_update_extension_property(client,
+                                                       application_id,
+                                                       extension_property_id,
+                                                       id_=None,
+                                                       deleted_date_time=None,
+                                                       app_display_name=None,
+                                                       data_type=None,
+                                                       is_synced_from_on_premises=None,
+                                                       name=None,
+                                                       target_objects=None):
     return client.update_extension_property(application_id=application_id,
                                             extension_property_id=extension_property_id,
                                             id=id_,
@@ -343,37 +343,37 @@ def applications_update_extension_property(client,
                                             target_objects=target_objects)
 
 
-def applications_validate_property(client,
-                                   entity_type=None,
-                                   display_name=None,
-                                   mail_nickname=None,
-                                   on_behalf_of_user_id=None):
+def applications_application_validate_property(client,
+                                               entity_type=None,
+                                               display_name=None,
+                                               mail_nickname=None,
+                                               on_behalf_of_user_id=None):
     return client.validate_property(entity_type=entity_type,
                                     display_name=display_name,
                                     mail_nickname=mail_nickname,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def applications_delete(client,
-                        group_id,
-                        app_role_assignment_id,
-                        if_match=None):
+def applications_group_delete(client,
+                              group_id,
+                              app_role_assignment_id,
+                              if_match=None):
     return client.delete_app_role_assignment(group_id=group_id,
                                              app_role_assignment_id=app_role_assignment_id,
                                              if_match=if_match)
 
 
-def applications_create_app_role_assignment(client,
-                                            group_id,
-                                            id_=None,
-                                            deleted_date_time=None,
-                                            app_role_id=None,
-                                            created_date_time=None,
-                                            principal_display_name=None,
-                                            principal_id=None,
-                                            principal_type=None,
-                                            resource_display_name=None,
-                                            resource_id=None):
+def applications_group_create_app_role_assignment(client,
+                                                  group_id,
+                                                  id_=None,
+                                                  deleted_date_time=None,
+                                                  app_role_id=None,
+                                                  created_date_time=None,
+                                                  principal_display_name=None,
+                                                  principal_id=None,
+                                                  principal_type=None,
+                                                  resource_display_name=None,
+                                                  resource_id=None):
     return client.create_app_role_assignment(group_id=group_id,
                                              id=id_,
                                              deleted_date_time=deleted_date_time,
@@ -386,40 +386,40 @@ def applications_create_app_role_assignment(client,
                                              resource_id=resource_id)
 
 
-def applications_get_app_role_assignment(client,
-                                         group_id,
-                                         app_role_assignment_id,
-                                         select=None,
-                                         expand=None):
+def applications_group_get_app_role_assignment(client,
+                                               group_id,
+                                               app_role_assignment_id,
+                                               select=None,
+                                               expand=None):
     return client.get_app_role_assignment(group_id=group_id,
                                           app_role_assignment_id=app_role_assignment_id,
                                           select=select,
                                           expand=expand)
 
 
-def applications_list_app_role_assignment(client,
-                                          group_id,
-                                          orderby=None,
-                                          select=None,
-                                          expand=None):
+def applications_group_list_app_role_assignment(client,
+                                                group_id,
+                                                orderby=None,
+                                                select=None,
+                                                expand=None):
     return client.list_app_role_assignment(group_id=group_id,
                                            orderby=orderby,
                                            select=select,
                                            expand=expand)
 
 
-def applications_update_app_role_assignment(client,
-                                            group_id,
-                                            app_role_assignment_id,
-                                            id_=None,
-                                            deleted_date_time=None,
-                                            app_role_id=None,
-                                            created_date_time=None,
-                                            principal_display_name=None,
-                                            principal_id=None,
-                                            principal_type=None,
-                                            resource_display_name=None,
-                                            resource_id=None):
+def applications_group_update_app_role_assignment(client,
+                                                  group_id,
+                                                  app_role_assignment_id,
+                                                  id_=None,
+                                                  deleted_date_time=None,
+                                                  app_role_id=None,
+                                                  created_date_time=None,
+                                                  principal_display_name=None,
+                                                  principal_id=None,
+                                                  principal_type=None,
+                                                  resource_display_name=None,
+                                                  resource_id=None):
     return client.update_app_role_assignment(group_id=group_id,
                                              app_role_assignment_id=app_role_assignment_id,
                                              id=id_,
@@ -433,48 +433,48 @@ def applications_update_app_role_assignment(client,
                                              resource_id=resource_id)
 
 
-def applications_delete(client,
-                        service_principal_id,
-                        if_match=None):
+def applications_service_principal_service_principal_delete(client,
+                                                            service_principal_id,
+                                                            if_match=None):
     return client.delete_service_principal(service_principal_id=service_principal_id,
                                            if_match=if_match)
 
 
-def applications_create_service_principal(client,
-                                          body):
+def applications_service_principal_service_principal_create_service_principal(client,
+                                                                              body):
     return client.create_service_principal(body=body)
 
 
-def applications_get_service_principal(client,
-                                       service_principal_id,
-                                       select=None,
-                                       expand=None):
+def applications_service_principal_service_principal_get_service_principal(client,
+                                                                           service_principal_id,
+                                                                           select=None,
+                                                                           expand=None):
     return client.get_service_principal(service_principal_id=service_principal_id,
                                         select=select,
                                         expand=expand)
 
 
-def applications_list_service_principal(client,
-                                        orderby=None,
-                                        select=None,
-                                        expand=None):
+def applications_service_principal_service_principal_list_service_principal(client,
+                                                                            orderby=None,
+                                                                            select=None,
+                                                                            expand=None):
     return client.list_service_principal(orderby=orderby,
                                          select=select,
                                          expand=expand)
 
 
-def applications_update_service_principal(client,
-                                          service_principal_id,
-                                          body):
+def applications_service_principal_service_principal_update_service_principal(client,
+                                                                              service_principal_id,
+                                                                              body):
     return client.update_service_principal(service_principal_id=service_principal_id,
                                            body=body)
 
 
-def applications_delete(client,
-                        service_principal_id,
-                        app_role_assignment_id=None,
-                        if_match=None,
-                        endpoint_id=None):
+def applications_service_principal_delete(client,
+                                          service_principal_id,
+                                          app_role_assignment_id=None,
+                                          if_match=None,
+                                          endpoint_id=None):
     if service_principal_id is not None and app_role_assignment_id is not None:
         return client.delete_app_role_assigned_to(service_principal_id=service_principal_id,
                                                   app_role_assignment_id=app_role_assignment_id,
@@ -488,49 +488,49 @@ def applications_delete(client,
                                   if_match=if_match)
 
 
-def applications_add_key(client,
-                         service_principal_id,
-                         key_credential=None,
-                         password_credential=None,
-                         proof=None):
+def applications_service_principal_add_key(client,
+                                           service_principal_id,
+                                           key_credential=None,
+                                           password_credential=None,
+                                           proof=None):
     return client.add_key(service_principal_id=service_principal_id,
                           key_credential=key_credential,
                           password_credential=password_credential,
                           proof=proof)
 
 
-def applications_add_password(client,
-                              service_principal_id,
-                              password_credential=None):
+def applications_service_principal_add_password(client,
+                                                service_principal_id,
+                                                password_credential=None):
     return client.add_password(service_principal_id=service_principal_id,
                                password_credential=password_credential)
 
 
-def applications_check_member_group(client,
-                                    service_principal_id,
-                                    group_ids=None):
+def applications_service_principal_check_member_group(client,
+                                                      service_principal_id,
+                                                      group_ids=None):
     return client.check_member_group(service_principal_id=service_principal_id,
                                      group_ids=group_ids)
 
 
-def applications_check_member_object(client,
-                                     service_principal_id,
-                                     ids=None):
+def applications_service_principal_check_member_object(client,
+                                                       service_principal_id,
+                                                       ids=None):
     return client.check_member_object(service_principal_id=service_principal_id,
                                       ids=ids)
 
 
-def applications_create_app_role_assigned_to(client,
-                                             service_principal_id,
-                                             id_=None,
-                                             deleted_date_time=None,
-                                             app_role_id=None,
-                                             created_date_time=None,
-                                             principal_display_name=None,
-                                             principal_id=None,
-                                             principal_type=None,
-                                             resource_display_name=None,
-                                             resource_id=None):
+def applications_service_principal_create_app_role_assigned_to(client,
+                                                               service_principal_id,
+                                                               id_=None,
+                                                               deleted_date_time=None,
+                                                               app_role_id=None,
+                                                               created_date_time=None,
+                                                               principal_display_name=None,
+                                                               principal_id=None,
+                                                               principal_type=None,
+                                                               resource_display_name=None,
+                                                               resource_id=None):
     return client.create_app_role_assigned_to(service_principal_id=service_principal_id,
                                               id=id_,
                                               deleted_date_time=deleted_date_time,
@@ -543,17 +543,17 @@ def applications_create_app_role_assigned_to(client,
                                               resource_id=resource_id)
 
 
-def applications_create_app_role_assignment(client,
-                                            service_principal_id,
-                                            id_=None,
-                                            deleted_date_time=None,
-                                            app_role_id=None,
-                                            created_date_time=None,
-                                            principal_display_name=None,
-                                            principal_id=None,
-                                            principal_type=None,
-                                            resource_display_name=None,
-                                            resource_id=None):
+def applications_service_principal_create_app_role_assignment(client,
+                                                              service_principal_id,
+                                                              id_=None,
+                                                              deleted_date_time=None,
+                                                              app_role_id=None,
+                                                              created_date_time=None,
+                                                              principal_display_name=None,
+                                                              principal_id=None,
+                                                              principal_type=None,
+                                                              resource_display_name=None,
+                                                              resource_id=None):
     return client.create_app_role_assignment(service_principal_id=service_principal_id,
                                              id=id_,
                                              deleted_date_time=deleted_date_time,
@@ -566,15 +566,15 @@ def applications_create_app_role_assignment(client,
                                              resource_id=resource_id)
 
 
-def applications_create_endpoint(client,
-                                 service_principal_id,
-                                 id_=None,
-                                 deleted_date_time=None,
-                                 capability=None,
-                                 provider_id=None,
-                                 provider_name=None,
-                                 provider_resource_id=None,
-                                 uri=None):
+def applications_service_principal_create_endpoint(client,
+                                                   service_principal_id,
+                                                   id_=None,
+                                                   deleted_date_time=None,
+                                                   capability=None,
+                                                   provider_id=None,
+                                                   provider_name=None,
+                                                   provider_resource_id=None,
+                                                   uri=None):
     return client.create_endpoint(service_principal_id=service_principal_id,
                                   id=id_,
                                   deleted_date_time=deleted_date_time,
@@ -585,391 +585,391 @@ def applications_create_endpoint(client,
                                   uri=uri)
 
 
-def applications_create_ref_claim_mapping_policy(client,
-                                                 service_principal_id,
-                                                 body):
+def applications_service_principal_create_ref_claim_mapping_policy(client,
+                                                                   service_principal_id,
+                                                                   body):
     return client.create_ref_claim_mapping_policy(service_principal_id=service_principal_id,
                                                   body=body)
 
 
-def applications_create_ref_created_object(client,
-                                           service_principal_id,
-                                           body):
+def applications_service_principal_create_ref_created_object(client,
+                                                             service_principal_id,
+                                                             body):
     return client.create_ref_created_object(service_principal_id=service_principal_id,
                                             body=body)
 
 
-def applications_create_ref_home_realm_discovery_policy(client,
-                                                        service_principal_id,
-                                                        body):
+def applications_service_principal_create_ref_home_realm_discovery_policy(client,
+                                                                          service_principal_id,
+                                                                          body):
     return client.create_ref_home_realm_discovery_policy(service_principal_id=service_principal_id,
                                                          body=body)
 
 
-def applications_create_ref_member_of(client,
-                                      service_principal_id,
-                                      body):
+def applications_service_principal_create_ref_member_of(client,
+                                                        service_principal_id,
+                                                        body):
     return client.create_ref_member_of(service_principal_id=service_principal_id,
                                        body=body)
 
 
-def applications_create_ref_oauth2_permission_grant(client,
-                                                    service_principal_id,
-                                                    body):
+def applications_service_principal_create_ref_oauth2_permission_grant(client,
+                                                                      service_principal_id,
+                                                                      body):
     return client.create_ref_oauth2_permission_grant(service_principal_id=service_principal_id,
                                                      body=body)
 
 
-def applications_create_ref_owned_object(client,
-                                         service_principal_id,
-                                         body):
+def applications_service_principal_create_ref_owned_object(client,
+                                                           service_principal_id,
+                                                           body):
     return client.create_ref_owned_object(service_principal_id=service_principal_id,
                                           body=body)
 
 
-def applications_create_ref_owner(client,
-                                  service_principal_id,
-                                  body):
+def applications_service_principal_create_ref_owner(client,
+                                                    service_principal_id,
+                                                    body):
     return client.create_ref_owner(service_principal_id=service_principal_id,
                                    body=body)
 
 
-def applications_create_ref_token_issuance_policy(client,
-                                                  service_principal_id,
-                                                  body):
+def applications_service_principal_create_ref_token_issuance_policy(client,
+                                                                    service_principal_id,
+                                                                    body):
     return client.create_ref_token_issuance_policy(service_principal_id=service_principal_id,
                                                    body=body)
 
 
-def applications_create_ref_token_lifetime_policy(client,
-                                                  service_principal_id,
-                                                  body):
+def applications_service_principal_create_ref_token_lifetime_policy(client,
+                                                                    service_principal_id,
+                                                                    body):
     return client.create_ref_token_lifetime_policy(service_principal_id=service_principal_id,
                                                    body=body)
 
 
-def applications_create_ref_transitive_member_of(client,
-                                                 service_principal_id,
-                                                 body):
+def applications_service_principal_create_ref_transitive_member_of(client,
+                                                                   service_principal_id,
+                                                                   body):
     return client.create_ref_transitive_member_of(service_principal_id=service_principal_id,
                                                   body=body)
 
 
-def applications_delta(client):
+def applications_service_principal_delta(client):
     return client.delta()
 
 
-def applications_get_app_role_assigned_to(client,
-                                          service_principal_id,
-                                          app_role_assignment_id,
-                                          select=None,
-                                          expand=None):
+def applications_service_principal_get_app_role_assigned_to(client,
+                                                            service_principal_id,
+                                                            app_role_assignment_id,
+                                                            select=None,
+                                                            expand=None):
     return client.get_app_role_assigned_to(service_principal_id=service_principal_id,
                                            app_role_assignment_id=app_role_assignment_id,
                                            select=select,
                                            expand=expand)
 
 
-def applications_get_app_role_assignment(client,
-                                         service_principal_id,
-                                         app_role_assignment_id,
-                                         select=None,
-                                         expand=None):
+def applications_service_principal_get_app_role_assignment(client,
+                                                           service_principal_id,
+                                                           app_role_assignment_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_app_role_assignment(service_principal_id=service_principal_id,
                                           app_role_assignment_id=app_role_assignment_id,
                                           select=select,
                                           expand=expand)
 
 
-def applications_get_available_extension_property(client,
-                                                  is_synced_from_on_premises=None):
+def applications_service_principal_get_available_extension_property(client,
+                                                                    is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
     return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
 
 
-def applications_get_by_id(client,
-                           ids=None,
-                           types=None):
+def applications_service_principal_get_by_id(client,
+                                             ids=None,
+                                             types=None):
     return client.get_by_id(ids=ids,
                             types=types)
 
 
-def applications_get_endpoint(client,
-                              service_principal_id,
-                              endpoint_id,
-                              select=None,
-                              expand=None):
+def applications_service_principal_get_endpoint(client,
+                                                service_principal_id,
+                                                endpoint_id,
+                                                select=None,
+                                                expand=None):
     return client.get_endpoint(service_principal_id=service_principal_id,
                                endpoint_id=endpoint_id,
                                select=select,
                                expand=expand)
 
 
-def applications_get_member_group(client,
-                                  service_principal_id,
-                                  security_enabled_only=None):
+def applications_service_principal_get_member_group(client,
+                                                    service_principal_id,
+                                                    security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
     return client.get_member_group(service_principal_id=service_principal_id,
                                    security_enabled_only=security_enabled_only)
 
 
-def applications_get_member_object(client,
-                                   service_principal_id,
-                                   security_enabled_only=None):
+def applications_service_principal_get_member_object(client,
+                                                     service_principal_id,
+                                                     security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
     return client.get_member_object(service_principal_id=service_principal_id,
                                     security_enabled_only=security_enabled_only)
 
 
-def applications_list_app_role_assigned_to(client,
-                                           service_principal_id,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
+def applications_service_principal_list_app_role_assigned_to(client,
+                                                             service_principal_id,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
     return client.list_app_role_assigned_to(service_principal_id=service_principal_id,
                                             orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def applications_list_app_role_assignment(client,
-                                          service_principal_id,
-                                          orderby=None,
-                                          select=None,
-                                          expand=None):
+def applications_service_principal_list_app_role_assignment(client,
+                                                            service_principal_id,
+                                                            orderby=None,
+                                                            select=None,
+                                                            expand=None):
     return client.list_app_role_assignment(service_principal_id=service_principal_id,
                                            orderby=orderby,
                                            select=select,
                                            expand=expand)
 
 
-def applications_list_claim_mapping_policy(client,
-                                           service_principal_id,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
+def applications_service_principal_list_claim_mapping_policy(client,
+                                                             service_principal_id,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
     return client.list_claim_mapping_policy(service_principal_id=service_principal_id,
                                             orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def applications_list_created_object(client,
-                                     service_principal_id,
-                                     orderby=None,
-                                     select=None,
-                                     expand=None):
+def applications_service_principal_list_created_object(client,
+                                                       service_principal_id,
+                                                       orderby=None,
+                                                       select=None,
+                                                       expand=None):
     return client.list_created_object(service_principal_id=service_principal_id,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
 
 
-def applications_list_endpoint(client,
-                               service_principal_id,
-                               orderby=None,
-                               select=None,
-                               expand=None):
+def applications_service_principal_list_endpoint(client,
+                                                 service_principal_id,
+                                                 orderby=None,
+                                                 select=None,
+                                                 expand=None):
     return client.list_endpoint(service_principal_id=service_principal_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def applications_list_home_realm_discovery_policy(client,
-                                                  service_principal_id,
-                                                  orderby=None,
-                                                  select=None,
-                                                  expand=None):
+def applications_service_principal_list_home_realm_discovery_policy(client,
+                                                                    service_principal_id,
+                                                                    orderby=None,
+                                                                    select=None,
+                                                                    expand=None):
     return client.list_home_realm_discovery_policy(service_principal_id=service_principal_id,
                                                    orderby=orderby,
                                                    select=select,
                                                    expand=expand)
 
 
-def applications_list_member_of(client,
-                                service_principal_id,
-                                orderby=None,
-                                select=None,
-                                expand=None):
+def applications_service_principal_list_member_of(client,
+                                                  service_principal_id,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
     return client.list_member_of(service_principal_id=service_principal_id,
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
 
 
-def applications_list_oauth2_permission_grant(client,
-                                              service_principal_id,
-                                              orderby=None,
-                                              select=None,
-                                              expand=None):
+def applications_service_principal_list_oauth2_permission_grant(client,
+                                                                service_principal_id,
+                                                                orderby=None,
+                                                                select=None,
+                                                                expand=None):
     return client.list_oauth2_permission_grant(service_principal_id=service_principal_id,
                                                orderby=orderby,
                                                select=select,
                                                expand=expand)
 
 
-def applications_list_owned_object(client,
-                                   service_principal_id,
-                                   orderby=None,
-                                   select=None,
-                                   expand=None):
+def applications_service_principal_list_owned_object(client,
+                                                     service_principal_id,
+                                                     orderby=None,
+                                                     select=None,
+                                                     expand=None):
     return client.list_owned_object(service_principal_id=service_principal_id,
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
 
 
-def applications_list_owner(client,
-                            service_principal_id,
-                            orderby=None,
-                            select=None,
-                            expand=None):
+def applications_service_principal_list_owner(client,
+                                              service_principal_id,
+                                              orderby=None,
+                                              select=None,
+                                              expand=None):
     return client.list_owner(service_principal_id=service_principal_id,
                              orderby=orderby,
                              select=select,
                              expand=expand)
 
 
-def applications_list_ref_claim_mapping_policy(client,
-                                               service_principal_id,
-                                               orderby=None):
+def applications_service_principal_list_ref_claim_mapping_policy(client,
+                                                                 service_principal_id,
+                                                                 orderby=None):
     return client.list_ref_claim_mapping_policy(service_principal_id=service_principal_id,
                                                 orderby=orderby)
 
 
-def applications_list_ref_created_object(client,
-                                         service_principal_id,
-                                         orderby=None):
+def applications_service_principal_list_ref_created_object(client,
+                                                           service_principal_id,
+                                                           orderby=None):
     return client.list_ref_created_object(service_principal_id=service_principal_id,
                                           orderby=orderby)
 
 
-def applications_list_ref_home_realm_discovery_policy(client,
-                                                      service_principal_id,
-                                                      orderby=None):
+def applications_service_principal_list_ref_home_realm_discovery_policy(client,
+                                                                        service_principal_id,
+                                                                        orderby=None):
     return client.list_ref_home_realm_discovery_policy(service_principal_id=service_principal_id,
                                                        orderby=orderby)
 
 
-def applications_list_ref_member_of(client,
-                                    service_principal_id,
-                                    orderby=None):
+def applications_service_principal_list_ref_member_of(client,
+                                                      service_principal_id,
+                                                      orderby=None):
     return client.list_ref_member_of(service_principal_id=service_principal_id,
                                      orderby=orderby)
 
 
-def applications_list_ref_oauth2_permission_grant(client,
-                                                  service_principal_id,
-                                                  orderby=None):
+def applications_service_principal_list_ref_oauth2_permission_grant(client,
+                                                                    service_principal_id,
+                                                                    orderby=None):
     return client.list_ref_oauth2_permission_grant(service_principal_id=service_principal_id,
                                                    orderby=orderby)
 
 
-def applications_list_ref_owned_object(client,
-                                       service_principal_id,
-                                       orderby=None):
+def applications_service_principal_list_ref_owned_object(client,
+                                                         service_principal_id,
+                                                         orderby=None):
     return client.list_ref_owned_object(service_principal_id=service_principal_id,
                                         orderby=orderby)
 
 
-def applications_list_ref_owner(client,
-                                service_principal_id,
-                                orderby=None):
+def applications_service_principal_list_ref_owner(client,
+                                                  service_principal_id,
+                                                  orderby=None):
     return client.list_ref_owner(service_principal_id=service_principal_id,
                                  orderby=orderby)
 
 
-def applications_list_ref_token_issuance_policy(client,
-                                                service_principal_id,
-                                                orderby=None):
+def applications_service_principal_list_ref_token_issuance_policy(client,
+                                                                  service_principal_id,
+                                                                  orderby=None):
     return client.list_ref_token_issuance_policy(service_principal_id=service_principal_id,
                                                  orderby=orderby)
 
 
-def applications_list_ref_token_lifetime_policy(client,
-                                                service_principal_id,
-                                                orderby=None):
+def applications_service_principal_list_ref_token_lifetime_policy(client,
+                                                                  service_principal_id,
+                                                                  orderby=None):
     return client.list_ref_token_lifetime_policy(service_principal_id=service_principal_id,
                                                  orderby=orderby)
 
 
-def applications_list_ref_transitive_member_of(client,
-                                               service_principal_id,
-                                               orderby=None):
+def applications_service_principal_list_ref_transitive_member_of(client,
+                                                                 service_principal_id,
+                                                                 orderby=None):
     return client.list_ref_transitive_member_of(service_principal_id=service_principal_id,
                                                 orderby=orderby)
 
 
-def applications_list_token_issuance_policy(client,
-                                            service_principal_id,
-                                            orderby=None,
-                                            select=None,
-                                            expand=None):
+def applications_service_principal_list_token_issuance_policy(client,
+                                                              service_principal_id,
+                                                              orderby=None,
+                                                              select=None,
+                                                              expand=None):
     return client.list_token_issuance_policy(service_principal_id=service_principal_id,
                                              orderby=orderby,
                                              select=select,
                                              expand=expand)
 
 
-def applications_list_token_lifetime_policy(client,
-                                            service_principal_id,
-                                            orderby=None,
-                                            select=None,
-                                            expand=None):
+def applications_service_principal_list_token_lifetime_policy(client,
+                                                              service_principal_id,
+                                                              orderby=None,
+                                                              select=None,
+                                                              expand=None):
     return client.list_token_lifetime_policy(service_principal_id=service_principal_id,
                                              orderby=orderby,
                                              select=select,
                                              expand=expand)
 
 
-def applications_list_transitive_member_of(client,
-                                           service_principal_id,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
+def applications_service_principal_list_transitive_member_of(client,
+                                                             service_principal_id,
+                                                             orderby=None,
+                                                             select=None,
+                                                             expand=None):
     return client.list_transitive_member_of(service_principal_id=service_principal_id,
                                             orderby=orderby,
                                             select=select,
                                             expand=expand)
 
 
-def applications_remove_key(client,
-                            service_principal_id,
-                            key_id=None,
-                            proof=None):
+def applications_service_principal_remove_key(client,
+                                              service_principal_id,
+                                              key_id=None,
+                                              proof=None):
     return client.remove_key(service_principal_id=service_principal_id,
                              key_id=key_id,
                              proof=proof)
 
 
-def applications_remove_password(client,
-                                 service_principal_id,
-                                 key_id=None):
+def applications_service_principal_remove_password(client,
+                                                   service_principal_id,
+                                                   key_id=None):
     return client.remove_password(service_principal_id=service_principal_id,
                                   key_id=key_id)
 
 
-def applications_restore(client,
-                         service_principal_id):
+def applications_service_principal_restore(client,
+                                           service_principal_id):
     return client.restore(service_principal_id=service_principal_id)
 
 
-def applications_update_app_role_assigned_to(client,
-                                             service_principal_id,
-                                             app_role_assignment_id,
-                                             id_=None,
-                                             deleted_date_time=None,
-                                             app_role_id=None,
-                                             created_date_time=None,
-                                             principal_display_name=None,
-                                             principal_id=None,
-                                             principal_type=None,
-                                             resource_display_name=None,
-                                             resource_id=None):
+def applications_service_principal_update_app_role_assigned_to(client,
+                                                               service_principal_id,
+                                                               app_role_assignment_id,
+                                                               id_=None,
+                                                               deleted_date_time=None,
+                                                               app_role_id=None,
+                                                               created_date_time=None,
+                                                               principal_display_name=None,
+                                                               principal_id=None,
+                                                               principal_type=None,
+                                                               resource_display_name=None,
+                                                               resource_id=None):
     return client.update_app_role_assigned_to(service_principal_id=service_principal_id,
                                               app_role_assignment_id=app_role_assignment_id,
                                               id=id_,
@@ -983,18 +983,18 @@ def applications_update_app_role_assigned_to(client,
                                               resource_id=resource_id)
 
 
-def applications_update_app_role_assignment(client,
-                                            service_principal_id,
-                                            app_role_assignment_id,
-                                            id_=None,
-                                            deleted_date_time=None,
-                                            app_role_id=None,
-                                            created_date_time=None,
-                                            principal_display_name=None,
-                                            principal_id=None,
-                                            principal_type=None,
-                                            resource_display_name=None,
-                                            resource_id=None):
+def applications_service_principal_update_app_role_assignment(client,
+                                                              service_principal_id,
+                                                              app_role_assignment_id,
+                                                              id_=None,
+                                                              deleted_date_time=None,
+                                                              app_role_id=None,
+                                                              created_date_time=None,
+                                                              principal_display_name=None,
+                                                              principal_id=None,
+                                                              principal_type=None,
+                                                              resource_display_name=None,
+                                                              resource_id=None):
     return client.update_app_role_assignment(service_principal_id=service_principal_id,
                                              app_role_assignment_id=app_role_assignment_id,
                                              id=id_,
@@ -1008,16 +1008,16 @@ def applications_update_app_role_assignment(client,
                                              resource_id=resource_id)
 
 
-def applications_update_endpoint(client,
-                                 service_principal_id,
-                                 endpoint_id,
-                                 id_=None,
-                                 deleted_date_time=None,
-                                 capability=None,
-                                 provider_id=None,
-                                 provider_name=None,
-                                 provider_resource_id=None,
-                                 uri=None):
+def applications_service_principal_update_endpoint(client,
+                                                   service_principal_id,
+                                                   endpoint_id,
+                                                   id_=None,
+                                                   deleted_date_time=None,
+                                                   capability=None,
+                                                   provider_id=None,
+                                                   provider_name=None,
+                                                   provider_resource_id=None,
+                                                   uri=None):
     return client.update_endpoint(service_principal_id=service_principal_id,
                                   endpoint_id=endpoint_id,
                                   id=id_,
@@ -1029,37 +1029,37 @@ def applications_update_endpoint(client,
                                   uri=uri)
 
 
-def applications_validate_property(client,
-                                   entity_type=None,
-                                   display_name=None,
-                                   mail_nickname=None,
-                                   on_behalf_of_user_id=None):
+def applications_service_principal_validate_property(client,
+                                                     entity_type=None,
+                                                     display_name=None,
+                                                     mail_nickname=None,
+                                                     on_behalf_of_user_id=None):
     return client.validate_property(entity_type=entity_type,
                                     display_name=display_name,
                                     mail_nickname=mail_nickname,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def applications_delete(client,
-                        user_id,
-                        app_role_assignment_id,
-                        if_match=None):
+def applications_user_delete(client,
+                             user_id,
+                             app_role_assignment_id,
+                             if_match=None):
     return client.delete_app_role_assignment(user_id=user_id,
                                              app_role_assignment_id=app_role_assignment_id,
                                              if_match=if_match)
 
 
-def applications_create_app_role_assignment(client,
-                                            user_id,
-                                            id_=None,
-                                            deleted_date_time=None,
-                                            app_role_id=None,
-                                            created_date_time=None,
-                                            principal_display_name=None,
-                                            principal_id=None,
-                                            principal_type=None,
-                                            resource_display_name=None,
-                                            resource_id=None):
+def applications_user_create_app_role_assignment(client,
+                                                 user_id,
+                                                 id_=None,
+                                                 deleted_date_time=None,
+                                                 app_role_id=None,
+                                                 created_date_time=None,
+                                                 principal_display_name=None,
+                                                 principal_id=None,
+                                                 principal_type=None,
+                                                 resource_display_name=None,
+                                                 resource_id=None):
     return client.create_app_role_assignment(user_id=user_id,
                                              id=id_,
                                              deleted_date_time=deleted_date_time,
@@ -1072,40 +1072,40 @@ def applications_create_app_role_assignment(client,
                                              resource_id=resource_id)
 
 
-def applications_get_app_role_assignment(client,
-                                         user_id,
-                                         app_role_assignment_id,
-                                         select=None,
-                                         expand=None):
+def applications_user_get_app_role_assignment(client,
+                                              user_id,
+                                              app_role_assignment_id,
+                                              select=None,
+                                              expand=None):
     return client.get_app_role_assignment(user_id=user_id,
                                           app_role_assignment_id=app_role_assignment_id,
                                           select=select,
                                           expand=expand)
 
 
-def applications_list_app_role_assignment(client,
-                                          user_id,
-                                          orderby=None,
-                                          select=None,
-                                          expand=None):
+def applications_user_list_app_role_assignment(client,
+                                               user_id,
+                                               orderby=None,
+                                               select=None,
+                                               expand=None):
     return client.list_app_role_assignment(user_id=user_id,
                                            orderby=orderby,
                                            select=select,
                                            expand=expand)
 
 
-def applications_update_app_role_assignment(client,
-                                            user_id,
-                                            app_role_assignment_id,
-                                            id_=None,
-                                            deleted_date_time=None,
-                                            app_role_id=None,
-                                            created_date_time=None,
-                                            principal_display_name=None,
-                                            principal_id=None,
-                                            principal_type=None,
-                                            resource_display_name=None,
-                                            resource_id=None):
+def applications_user_update_app_role_assignment(client,
+                                                 user_id,
+                                                 app_role_assignment_id,
+                                                 id_=None,
+                                                 deleted_date_time=None,
+                                                 app_role_id=None,
+                                                 created_date_time=None,
+                                                 principal_display_name=None,
+                                                 principal_id=None,
+                                                 principal_type=None,
+                                                 resource_display_name=None,
+                                                 resource_id=None):
     return client.update_app_role_assignment(user_id=user_id,
                                              app_role_assignment_id=app_role_assignment_id,
                                              id=id_,

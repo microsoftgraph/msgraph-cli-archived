@@ -12,57 +12,57 @@
 from knack.help_files import helps
 
 
-helps['applications'] = """
+helps['applications application-application'] = """
     type: group
-    short-summary: applications
+    short-summary: applications application-application
 """
 
-helps['applications delete'] = """
+helps['applications application-application delete'] = """
     type: command
     short-summary: "Delete entity from applications"
 """
 
-helps['applications create-application'] = """
+helps['applications application-application create-application'] = """
     type: command
     short-summary: "Add new entity to applications"
 """
 
-helps['applications get-application'] = """
+helps['applications application-application get-application'] = """
     type: command
     short-summary: "Get entity from applications by key"
 """
 
-helps['applications get-logo'] = """
+helps['applications application-application get-logo'] = """
     type: command
     short-summary: "Get media content for application from applications"
 """
 
-helps['applications list-application'] = """
+helps['applications application-application list-application'] = """
     type: command
     short-summary: "Get entities from applications"
 """
 
-helps['applications set-logo'] = """
+helps['applications application-application set-logo'] = """
     type: command
     short-summary: "Update media content for application in applications"
 """
 
-helps['applications update-application'] = """
+helps['applications application-application update-application'] = """
     type: command
     short-summary: "Update entity in applications"
 """
 
-helps['applications'] = """
+helps['applications application'] = """
     type: group
-    short-summary: applications
+    short-summary: applications application
 """
 
-helps['applications delete'] = """
+helps['applications application delete'] = """
     type: command
     short-summary: "Delete ref of navigation property createdOnBehalfOf for applications"
 """
 
-helps['applications add-key'] = """
+helps['applications application add-key'] = """
     type: command
     short-summary: "Invoke action addKey"
     parameters:
@@ -104,7 +104,7 @@ and time information using ISO 8601 format and is always in UTC time. For exampl
 look like this: '2014-01-01T00:00:00Z'. Optional.
 """
 
-helps['applications add-password'] = """
+helps['applications application add-password'] = """
     type: command
     short-summary: "Invoke action addPassword"
     parameters:
@@ -128,227 +128,227 @@ and time information using ISO 8601 format and is always in UTC time. For exampl
 look like this: '2014-01-01T00:00:00Z'. Optional.
 """
 
-helps['applications check-member-group'] = """
+helps['applications application check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['applications check-member-object'] = """
+helps['applications application check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['applications create-extension-property'] = """
+helps['applications application create-extension-property'] = """
     type: command
     short-summary: "Create new navigation property to extensionProperties for applications"
 """
 
-helps['applications create-ref-home-realm-discovery-policy'] = """
+helps['applications application create-ref-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to homeRealmDiscoveryPolicies for applications"
 """
 
-helps['applications create-ref-owner'] = """
+helps['applications application create-ref-owner'] = """
     type: command
     short-summary: "Create new navigation property ref to owners for applications"
 """
 
-helps['applications create-ref-token-issuance-policy'] = """
+helps['applications application create-ref-token-issuance-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to tokenIssuancePolicies for applications"
 """
 
-helps['applications create-ref-token-lifetime-policy'] = """
+helps['applications application create-ref-token-lifetime-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to tokenLifetimePolicies for applications"
 """
 
-helps['applications delta'] = """
+helps['applications application delta'] = """
     type: command
     short-summary: "Invoke function delta"
 """
 
-helps['applications get-available-extension-property'] = """
+helps['applications application get-available-extension-property'] = """
     type: command
     short-summary: "Invoke action getAvailableExtensionProperties"
 """
 
-helps['applications get-by-id'] = """
+helps['applications application get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['applications get-created-on-behalf-of'] = """
+helps['applications application get-created-on-behalf-of'] = """
     type: command
     short-summary: "Get createdOnBehalfOf from applications"
 """
 
-helps['applications get-extension-property'] = """
+helps['applications application get-extension-property'] = """
     type: command
     short-summary: "Get extensionProperties from applications"
 """
 
-helps['applications get-member-group'] = """
+helps['applications application get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['applications get-member-object'] = """
+helps['applications application get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['applications get-ref-created-on-behalf-of'] = """
+helps['applications application get-ref-created-on-behalf-of'] = """
     type: command
     short-summary: "Get ref of createdOnBehalfOf from applications"
 """
 
-helps['applications list-extension-property'] = """
+helps['applications application list-extension-property'] = """
     type: command
     short-summary: "Get extensionProperties from applications"
 """
 
-helps['applications list-home-realm-discovery-policy'] = """
+helps['applications application list-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Get homeRealmDiscoveryPolicies from applications"
 """
 
-helps['applications list-owner'] = """
+helps['applications application list-owner'] = """
     type: command
     short-summary: "Get owners from applications"
 """
 
-helps['applications list-ref-home-realm-discovery-policy'] = """
+helps['applications application list-ref-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Get ref of homeRealmDiscoveryPolicies from applications"
 """
 
-helps['applications list-ref-owner'] = """
+helps['applications application list-ref-owner'] = """
     type: command
     short-summary: "Get ref of owners from applications"
 """
 
-helps['applications list-ref-token-issuance-policy'] = """
+helps['applications application list-ref-token-issuance-policy'] = """
     type: command
     short-summary: "Get ref of tokenIssuancePolicies from applications"
 """
 
-helps['applications list-ref-token-lifetime-policy'] = """
+helps['applications application list-ref-token-lifetime-policy'] = """
     type: command
     short-summary: "Get ref of tokenLifetimePolicies from applications"
 """
 
-helps['applications list-token-issuance-policy'] = """
+helps['applications application list-token-issuance-policy'] = """
     type: command
     short-summary: "Get tokenIssuancePolicies from applications"
 """
 
-helps['applications list-token-lifetime-policy'] = """
+helps['applications application list-token-lifetime-policy'] = """
     type: command
     short-summary: "Get tokenLifetimePolicies from applications"
 """
 
-helps['applications remove-key'] = """
+helps['applications application remove-key'] = """
     type: command
     short-summary: "Invoke action removeKey"
 """
 
-helps['applications remove-password'] = """
+helps['applications application remove-password'] = """
     type: command
     short-summary: "Invoke action removePassword"
 """
 
-helps['applications restore'] = """
+helps['applications application restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['applications set-ref-created-on-behalf-of'] = """
+helps['applications application set-ref-created-on-behalf-of'] = """
     type: command
     short-summary: "Update the ref of navigation property createdOnBehalfOf in applications"
 """
 
-helps['applications update-extension-property'] = """
+helps['applications application update-extension-property'] = """
     type: command
     short-summary: "Update the navigation property extensionProperties in applications"
 """
 
-helps['applications validate-property'] = """
+helps['applications application validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['applications'] = """
+helps['applications group'] = """
     type: group
-    short-summary: applications
+    short-summary: applications group
 """
 
-helps['applications delete'] = """
+helps['applications group delete'] = """
     type: command
     short-summary: "Delete navigation property appRoleAssignments for groups"
 """
 
-helps['applications create-app-role-assignment'] = """
+helps['applications group create-app-role-assignment'] = """
     type: command
     short-summary: "Create new navigation property to appRoleAssignments for groups"
 """
 
-helps['applications get-app-role-assignment'] = """
+helps['applications group get-app-role-assignment'] = """
     type: command
     short-summary: "Get appRoleAssignments from groups"
 """
 
-helps['applications list-app-role-assignment'] = """
+helps['applications group list-app-role-assignment'] = """
     type: command
     short-summary: "Get appRoleAssignments from groups"
 """
 
-helps['applications update-app-role-assignment'] = """
+helps['applications group update-app-role-assignment'] = """
     type: command
     short-summary: "Update the navigation property appRoleAssignments in groups"
 """
 
-helps['applications'] = """
+helps['applications service-principal-service-principal'] = """
     type: group
-    short-summary: applications
+    short-summary: applications service-principal-service-principal
 """
 
-helps['applications delete'] = """
+helps['applications service-principal-service-principal delete'] = """
     type: command
     short-summary: "Delete entity from servicePrincipals"
 """
 
-helps['applications create-service-principal'] = """
+helps['applications service-principal-service-principal create-service-principal'] = """
     type: command
     short-summary: "Add new entity to servicePrincipals"
 """
 
-helps['applications get-service-principal'] = """
+helps['applications service-principal-service-principal get-service-principal'] = """
     type: command
     short-summary: "Get entity from servicePrincipals by key"
 """
 
-helps['applications list-service-principal'] = """
+helps['applications service-principal-service-principal list-service-principal'] = """
     type: command
     short-summary: "Get entities from servicePrincipals"
 """
 
-helps['applications update-service-principal'] = """
+helps['applications service-principal-service-principal update-service-principal'] = """
     type: command
     short-summary: "Update entity in servicePrincipals"
 """
 
-helps['applications'] = """
+helps['applications service-principal'] = """
     type: group
-    short-summary: applications
+    short-summary: applications service-principal
 """
 
-helps['applications delete'] = """
+helps['applications service-principal delete'] = """
     type: command
     short-summary: "Delete navigation property endpoints for servicePrincipals"
 """
 
-helps['applications add-key'] = """
+helps['applications service-principal add-key'] = """
     type: command
     short-summary: "Invoke action addKey"
     parameters:
@@ -390,7 +390,7 @@ and time information using ISO 8601 format and is always in UTC time. For exampl
 look like this: '2014-01-01T00:00:00Z'. Optional.
 """
 
-helps['applications add-password'] = """
+helps['applications service-principal add-password'] = """
     type: command
     short-summary: "Invoke action addPassword"
     parameters:
@@ -414,297 +414,297 @@ and time information using ISO 8601 format and is always in UTC time. For exampl
 look like this: '2014-01-01T00:00:00Z'. Optional.
 """
 
-helps['applications check-member-group'] = """
+helps['applications service-principal check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups"
 """
 
-helps['applications check-member-object'] = """
+helps['applications service-principal check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects"
 """
 
-helps['applications create-app-role-assigned-to'] = """
+helps['applications service-principal create-app-role-assigned-to'] = """
     type: command
     short-summary: "Create new navigation property to appRoleAssignedTo for servicePrincipals"
 """
 
-helps['applications create-app-role-assignment'] = """
+helps['applications service-principal create-app-role-assignment'] = """
     type: command
     short-summary: "Create new navigation property to appRoleAssignments for servicePrincipals"
 """
 
-helps['applications create-endpoint'] = """
+helps['applications service-principal create-endpoint'] = """
     type: command
     short-summary: "Create new navigation property to endpoints for servicePrincipals"
 """
 
-helps['applications create-ref-claim-mapping-policy'] = """
+helps['applications service-principal create-ref-claim-mapping-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to claimsMappingPolicies for servicePrincipals"
 """
 
-helps['applications create-ref-created-object'] = """
+helps['applications service-principal create-ref-created-object'] = """
     type: command
     short-summary: "Create new navigation property ref to createdObjects for servicePrincipals"
 """
 
-helps['applications create-ref-home-realm-discovery-policy'] = """
+helps['applications service-principal create-ref-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to homeRealmDiscoveryPolicies for servicePrincipals"
 """
 
-helps['applications create-ref-member-of'] = """
+helps['applications service-principal create-ref-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to memberOf for servicePrincipals"
 """
 
-helps['applications create-ref-oauth2-permission-grant'] = """
+helps['applications service-principal create-ref-oauth2-permission-grant'] = """
     type: command
     short-summary: "Create new navigation property ref to oauth2PermissionGrants for servicePrincipals"
 """
 
-helps['applications create-ref-owned-object'] = """
+helps['applications service-principal create-ref-owned-object'] = """
     type: command
     short-summary: "Create new navigation property ref to ownedObjects for servicePrincipals"
 """
 
-helps['applications create-ref-owner'] = """
+helps['applications service-principal create-ref-owner'] = """
     type: command
     short-summary: "Create new navigation property ref to owners for servicePrincipals"
 """
 
-helps['applications create-ref-token-issuance-policy'] = """
+helps['applications service-principal create-ref-token-issuance-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to tokenIssuancePolicies for servicePrincipals"
 """
 
-helps['applications create-ref-token-lifetime-policy'] = """
+helps['applications service-principal create-ref-token-lifetime-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to tokenLifetimePolicies for servicePrincipals"
 """
 
-helps['applications create-ref-transitive-member-of'] = """
+helps['applications service-principal create-ref-transitive-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to transitiveMemberOf for servicePrincipals"
 """
 
-helps['applications delta'] = """
+helps['applications service-principal delta'] = """
     type: command
     short-summary: "Invoke function delta"
 """
 
-helps['applications get-app-role-assigned-to'] = """
+helps['applications service-principal get-app-role-assigned-to'] = """
     type: command
     short-summary: "Get appRoleAssignedTo from servicePrincipals"
 """
 
-helps['applications get-app-role-assignment'] = """
+helps['applications service-principal get-app-role-assignment'] = """
     type: command
     short-summary: "Get appRoleAssignments from servicePrincipals"
 """
 
-helps['applications get-available-extension-property'] = """
+helps['applications service-principal get-available-extension-property'] = """
     type: command
     short-summary: "Invoke action getAvailableExtensionProperties"
 """
 
-helps['applications get-by-id'] = """
+helps['applications service-principal get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds"
 """
 
-helps['applications get-endpoint'] = """
+helps['applications service-principal get-endpoint'] = """
     type: command
     short-summary: "Get endpoints from servicePrincipals"
 """
 
-helps['applications get-member-group'] = """
+helps['applications service-principal get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups"
 """
 
-helps['applications get-member-object'] = """
+helps['applications service-principal get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects"
 """
 
-helps['applications list-app-role-assigned-to'] = """
+helps['applications service-principal list-app-role-assigned-to'] = """
     type: command
     short-summary: "Get appRoleAssignedTo from servicePrincipals"
 """
 
-helps['applications list-app-role-assignment'] = """
+helps['applications service-principal list-app-role-assignment'] = """
     type: command
     short-summary: "Get appRoleAssignments from servicePrincipals"
 """
 
-helps['applications list-claim-mapping-policy'] = """
+helps['applications service-principal list-claim-mapping-policy'] = """
     type: command
     short-summary: "Get claimsMappingPolicies from servicePrincipals"
 """
 
-helps['applications list-created-object'] = """
+helps['applications service-principal list-created-object'] = """
     type: command
     short-summary: "Get createdObjects from servicePrincipals"
 """
 
-helps['applications list-endpoint'] = """
+helps['applications service-principal list-endpoint'] = """
     type: command
     short-summary: "Get endpoints from servicePrincipals"
 """
 
-helps['applications list-home-realm-discovery-policy'] = """
+helps['applications service-principal list-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Get homeRealmDiscoveryPolicies from servicePrincipals"
 """
 
-helps['applications list-member-of'] = """
+helps['applications service-principal list-member-of'] = """
     type: command
     short-summary: "Get memberOf from servicePrincipals"
 """
 
-helps['applications list-oauth2-permission-grant'] = """
+helps['applications service-principal list-oauth2-permission-grant'] = """
     type: command
     short-summary: "Get oauth2PermissionGrants from servicePrincipals"
 """
 
-helps['applications list-owned-object'] = """
+helps['applications service-principal list-owned-object'] = """
     type: command
     short-summary: "Get ownedObjects from servicePrincipals"
 """
 
-helps['applications list-owner'] = """
+helps['applications service-principal list-owner'] = """
     type: command
     short-summary: "Get owners from servicePrincipals"
 """
 
-helps['applications list-ref-claim-mapping-policy'] = """
+helps['applications service-principal list-ref-claim-mapping-policy'] = """
     type: command
     short-summary: "Get ref of claimsMappingPolicies from servicePrincipals"
 """
 
-helps['applications list-ref-created-object'] = """
+helps['applications service-principal list-ref-created-object'] = """
     type: command
     short-summary: "Get ref of createdObjects from servicePrincipals"
 """
 
-helps['applications list-ref-home-realm-discovery-policy'] = """
+helps['applications service-principal list-ref-home-realm-discovery-policy'] = """
     type: command
     short-summary: "Get ref of homeRealmDiscoveryPolicies from servicePrincipals"
 """
 
-helps['applications list-ref-member-of'] = """
+helps['applications service-principal list-ref-member-of'] = """
     type: command
     short-summary: "Get ref of memberOf from servicePrincipals"
 """
 
-helps['applications list-ref-oauth2-permission-grant'] = """
+helps['applications service-principal list-ref-oauth2-permission-grant'] = """
     type: command
     short-summary: "Get ref of oauth2PermissionGrants from servicePrincipals"
 """
 
-helps['applications list-ref-owned-object'] = """
+helps['applications service-principal list-ref-owned-object'] = """
     type: command
     short-summary: "Get ref of ownedObjects from servicePrincipals"
 """
 
-helps['applications list-ref-owner'] = """
+helps['applications service-principal list-ref-owner'] = """
     type: command
     short-summary: "Get ref of owners from servicePrincipals"
 """
 
-helps['applications list-ref-token-issuance-policy'] = """
+helps['applications service-principal list-ref-token-issuance-policy'] = """
     type: command
     short-summary: "Get ref of tokenIssuancePolicies from servicePrincipals"
 """
 
-helps['applications list-ref-token-lifetime-policy'] = """
+helps['applications service-principal list-ref-token-lifetime-policy'] = """
     type: command
     short-summary: "Get ref of tokenLifetimePolicies from servicePrincipals"
 """
 
-helps['applications list-ref-transitive-member-of'] = """
+helps['applications service-principal list-ref-transitive-member-of'] = """
     type: command
     short-summary: "Get ref of transitiveMemberOf from servicePrincipals"
 """
 
-helps['applications list-token-issuance-policy'] = """
+helps['applications service-principal list-token-issuance-policy'] = """
     type: command
     short-summary: "Get tokenIssuancePolicies from servicePrincipals"
 """
 
-helps['applications list-token-lifetime-policy'] = """
+helps['applications service-principal list-token-lifetime-policy'] = """
     type: command
     short-summary: "Get tokenLifetimePolicies from servicePrincipals"
 """
 
-helps['applications list-transitive-member-of'] = """
+helps['applications service-principal list-transitive-member-of'] = """
     type: command
     short-summary: "Get transitiveMemberOf from servicePrincipals"
 """
 
-helps['applications remove-key'] = """
+helps['applications service-principal remove-key'] = """
     type: command
     short-summary: "Invoke action removeKey"
 """
 
-helps['applications remove-password'] = """
+helps['applications service-principal remove-password'] = """
     type: command
     short-summary: "Invoke action removePassword"
 """
 
-helps['applications restore'] = """
+helps['applications service-principal restore'] = """
     type: command
     short-summary: "Invoke action restore"
 """
 
-helps['applications update-app-role-assigned-to'] = """
+helps['applications service-principal update-app-role-assigned-to'] = """
     type: command
     short-summary: "Update the navigation property appRoleAssignedTo in servicePrincipals"
 """
 
-helps['applications update-app-role-assignment'] = """
+helps['applications service-principal update-app-role-assignment'] = """
     type: command
     short-summary: "Update the navigation property appRoleAssignments in servicePrincipals"
 """
 
-helps['applications update-endpoint'] = """
+helps['applications service-principal update-endpoint'] = """
     type: command
     short-summary: "Update the navigation property endpoints in servicePrincipals"
 """
 
-helps['applications validate-property'] = """
+helps['applications service-principal validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties"
 """
 
-helps['applications'] = """
+helps['applications user'] = """
     type: group
-    short-summary: applications
+    short-summary: applications user
 """
 
-helps['applications delete'] = """
+helps['applications user delete'] = """
     type: command
     short-summary: "Delete navigation property appRoleAssignments for users"
 """
 
-helps['applications create-app-role-assignment'] = """
+helps['applications user create-app-role-assignment'] = """
     type: command
     short-summary: "Create new navigation property to appRoleAssignments for users"
 """
 
-helps['applications get-app-role-assignment'] = """
+helps['applications user get-app-role-assignment'] = """
     type: command
     short-summary: "Get appRoleAssignments from users"
 """
 
-helps['applications list-app-role-assignment'] = """
+helps['applications user list-app-role-assignment'] = """
     type: command
     short-summary: "Get appRoleAssignments from users"
 """
 
-helps['applications update-app-role-assignment'] = """
+helps['applications user update-app-role-assignment'] = """
     type: command
     short-summary: "Update the navigation property appRoleAssignments in users"
 """

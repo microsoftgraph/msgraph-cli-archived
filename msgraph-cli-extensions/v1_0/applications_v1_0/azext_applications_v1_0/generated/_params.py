@@ -20,59 +20,59 @@ from azext_applications_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('applications delete') as c:
+    with self.argument_context('applications application-application delete') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('applications create-application') as c:
+    with self.argument_context('applications application-application create-application') as c:
         c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
 
-    with self.argument_context('applications get-application') as c:
+    with self.argument_context('applications application-application get-application') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications get-logo') as c:
+    with self.argument_context('applications application-application get-logo') as c:
         c.argument('application_id', type=str, help='key: id of application')
 
-    with self.argument_context('applications list-application') as c:
+    with self.argument_context('applications application-application list-application') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications set-logo') as c:
+    with self.argument_context('applications application-application set-logo') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('data', help='New media content.')
 
-    with self.argument_context('applications update-application') as c:
+    with self.argument_context('applications application-application update-application') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications delete') as c:
+    with self.argument_context('applications application delete') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('extension_property_id', type=str, help='key: id of extensionProperty')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('applications add-key') as c:
+    with self.argument_context('applications application add-key') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('key_credential', action=AddKeyCredential, nargs='*', help='keyCredential')
         c.argument('password_credential', action=AddPasswordCredential, nargs='*', help='passwordCredential')
         c.argument('proof', type=str, help='')
 
-    with self.argument_context('applications add-password') as c:
+    with self.argument_context('applications application add-password') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('password_credential', action=AddPasswordCredential, nargs='*', help='passwordCredential')
 
-    with self.argument_context('applications check-member-group') as c:
+    with self.argument_context('applications application check-member-group') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('applications check-member-object') as c:
+    with self.argument_context('applications application check-member-object') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('applications create-extension-property') as c:
+    with self.argument_context('applications application create-extension-property') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -88,119 +88,119 @@ def load_arguments(self, _):
         c.argument('target_objects', nargs='*', help='Following values are supported. Not nullable. '
                    'UserGroupOrganizationDeviceApplication')
 
-    with self.argument_context('applications create-ref-home-realm-discovery-policy') as c:
+    with self.argument_context('applications application create-ref-home-realm-discovery-policy') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-owner') as c:
+    with self.argument_context('applications application create-ref-owner') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-token-issuance-policy') as c:
+    with self.argument_context('applications application create-ref-token-issuance-policy') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-token-lifetime-policy') as c:
+    with self.argument_context('applications application create-ref-token-lifetime-policy') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications get-available-extension-property') as c:
+    with self.argument_context('applications application get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('applications get-by-id') as c:
+    with self.argument_context('applications application get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('applications get-created-on-behalf-of') as c:
+    with self.argument_context('applications application get-created-on-behalf-of') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications get-extension-property') as c:
+    with self.argument_context('applications application get-extension-property') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('extension_property_id', type=str, help='key: id of extensionProperty')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications get-member-group') as c:
+    with self.argument_context('applications application get-member-group') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('applications get-member-object') as c:
+    with self.argument_context('applications application get-member-object') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('applications get-ref-created-on-behalf-of') as c:
+    with self.argument_context('applications application get-ref-created-on-behalf-of') as c:
         c.argument('application_id', type=str, help='key: id of application')
 
-    with self.argument_context('applications list-extension-property') as c:
-        c.argument('application_id', type=str, help='key: id of application')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('applications list-home-realm-discovery-policy') as c:
+    with self.argument_context('applications application list-extension-property') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-owner') as c:
+    with self.argument_context('applications application list-home-realm-discovery-policy') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-ref-home-realm-discovery-policy') as c:
-        c.argument('application_id', type=str, help='key: id of application')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('applications list-ref-owner') as c:
-        c.argument('application_id', type=str, help='key: id of application')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('applications list-ref-token-issuance-policy') as c:
-        c.argument('application_id', type=str, help='key: id of application')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('applications list-ref-token-lifetime-policy') as c:
-        c.argument('application_id', type=str, help='key: id of application')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-
-    with self.argument_context('applications list-token-issuance-policy') as c:
+    with self.argument_context('applications application list-owner') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-token-lifetime-policy') as c:
+    with self.argument_context('applications application list-ref-home-realm-discovery-policy') as c:
+        c.argument('application_id', type=str, help='key: id of application')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('applications application list-ref-owner') as c:
+        c.argument('application_id', type=str, help='key: id of application')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('applications application list-ref-token-issuance-policy') as c:
+        c.argument('application_id', type=str, help='key: id of application')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('applications application list-ref-token-lifetime-policy') as c:
+        c.argument('application_id', type=str, help='key: id of application')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+
+    with self.argument_context('applications application list-token-issuance-policy') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications remove-key') as c:
+    with self.argument_context('applications application list-token-lifetime-policy') as c:
+        c.argument('application_id', type=str, help='key: id of application')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('applications application remove-key') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('key_id', help='')
         c.argument('proof', type=str, help='')
 
-    with self.argument_context('applications remove-password') as c:
+    with self.argument_context('applications application remove-password') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('key_id', help='')
 
-    with self.argument_context('applications restore') as c:
+    with self.argument_context('applications application restore') as c:
         c.argument('application_id', type=str, help='key: id of application')
 
-    with self.argument_context('applications set-ref-created-on-behalf-of') as c:
+    with self.argument_context('applications application set-ref-created-on-behalf-of') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications update-extension-property') as c:
+    with self.argument_context('applications application update-extension-property') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('extension_property_id', type=str, help='key: id of extensionProperty')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -217,18 +217,18 @@ def load_arguments(self, _):
         c.argument('target_objects', nargs='*', help='Following values are supported. Not nullable. '
                    'UserGroupOrganizationDeviceApplication')
 
-    with self.argument_context('applications validate-property') as c:
+    with self.argument_context('applications application validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('applications delete') as c:
+    with self.argument_context('applications group delete') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('applications create-app-role-assignment') as c:
+    with self.argument_context('applications group create-app-role-assignment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -249,19 +249,19 @@ def load_arguments(self, _):
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
 
-    with self.argument_context('applications get-app-role-assignment') as c:
+    with self.argument_context('applications group get-app-role-assignment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-app-role-assignment') as c:
+    with self.argument_context('applications group list-app-role-assignment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications update-app-role-assignment') as c:
+    with self.argument_context('applications group update-app-role-assignment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -283,53 +283,53 @@ def load_arguments(self, _):
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
 
-    with self.argument_context('applications delete') as c:
+    with self.argument_context('applications service-principal-service-principal delete') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('applications create-service-principal') as c:
+    with self.argument_context('applications service-principal-service-principal create-service-principal') as c:
         c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
 
-    with self.argument_context('applications get-service-principal') as c:
+    with self.argument_context('applications service-principal-service-principal get-service-principal') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-service-principal') as c:
+    with self.argument_context('applications service-principal-service-principal list-service-principal') as c:
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications update-service-principal') as c:
+    with self.argument_context('applications service-principal-service-principal update-service-principal') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications delete') as c:
+    with self.argument_context('applications service-principal delete') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('if_match', type=str, help='ETag')
         c.argument('endpoint_id', type=str, help='key: id of endpoint')
 
-    with self.argument_context('applications add-key') as c:
+    with self.argument_context('applications service-principal add-key') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('key_credential', action=AddKeyCredential, nargs='*', help='keyCredential')
         c.argument('password_credential', action=AddPasswordCredential, nargs='*', help='passwordCredential')
         c.argument('proof', type=str, help='')
 
-    with self.argument_context('applications add-password') as c:
+    with self.argument_context('applications service-principal add-password') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('password_credential', action=AddPasswordCredential, nargs='*', help='passwordCredential')
 
-    with self.argument_context('applications check-member-group') as c:
+    with self.argument_context('applications service-principal check-member-group') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('group_ids', nargs='*', help='')
 
-    with self.argument_context('applications check-member-object') as c:
+    with self.argument_context('applications service-principal check-member-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('ids', nargs='*', help='')
 
-    with self.argument_context('applications create-app-role-assigned-to') as c:
+    with self.argument_context('applications service-principal create-app-role-assigned-to') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -350,7 +350,7 @@ def load_arguments(self, _):
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
 
-    with self.argument_context('applications create-app-role-assignment') as c:
+    with self.argument_context('applications service-principal create-app-role-assignment') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -371,7 +371,7 @@ def load_arguments(self, _):
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
 
-    with self.argument_context('applications create-endpoint') as c:
+    with self.argument_context('applications service-principal create-endpoint') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -384,242 +384,220 @@ def load_arguments(self, _):
                    'for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.')
         c.argument('uri', type=str, help='URL of the published resource. Not nullable. Read-only.')
 
-    with self.argument_context('applications create-ref-claim-mapping-policy') as c:
+    with self.argument_context('applications service-principal create-ref-claim-mapping-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-created-object') as c:
+    with self.argument_context('applications service-principal create-ref-created-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-home-realm-discovery-policy') as c:
+    with self.argument_context('applications service-principal create-ref-home-realm-discovery-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-member-of') as c:
+    with self.argument_context('applications service-principal create-ref-member-of') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-oauth2-permission-grant') as c:
+    with self.argument_context('applications service-principal create-ref-oauth2-permission-grant') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-owned-object') as c:
+    with self.argument_context('applications service-principal create-ref-owned-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-owner') as c:
+    with self.argument_context('applications service-principal create-ref-owner') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-token-issuance-policy') as c:
+    with self.argument_context('applications service-principal create-ref-token-issuance-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-token-lifetime-policy') as c:
+    with self.argument_context('applications service-principal create-ref-token-lifetime-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications create-ref-transitive-member-of') as c:
+    with self.argument_context('applications service-principal create-ref-transitive-member-of') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('applications get-app-role-assigned-to') as c:
+    with self.argument_context('applications service-principal get-app-role-assigned-to') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications get-app-role-assignment') as c:
+    with self.argument_context('applications service-principal get-app-role-assignment') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications get-available-extension-property') as c:
+    with self.argument_context('applications service-principal get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('applications get-by-id') as c:
+    with self.argument_context('applications service-principal get-by-id') as c:
         c.argument('ids', nargs='*', help='')
         c.argument('types', nargs='*', help='')
 
-    with self.argument_context('applications get-endpoint') as c:
+    with self.argument_context('applications service-principal get-endpoint') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('endpoint_id', type=str, help='key: id of endpoint')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications get-member-group') as c:
+    with self.argument_context('applications service-principal get-member-group') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('applications get-member-object') as c:
+    with self.argument_context('applications service-principal get-member-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('security_enabled_only', arg_type=get_three_state_flag(), help='')
 
-    with self.argument_context('applications list-app-role-assigned-to') as c:
+    with self.argument_context('applications service-principal list-app-role-assigned-to') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-app-role-assignment') as c:
+    with self.argument_context('applications service-principal list-app-role-assignment') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-claim-mapping-policy') as c:
+    with self.argument_context('applications service-principal list-claim-mapping-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-created-object') as c:
+    with self.argument_context('applications service-principal list-created-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-endpoint') as c:
+    with self.argument_context('applications service-principal list-endpoint') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-home-realm-discovery-policy') as c:
+    with self.argument_context('applications service-principal list-home-realm-discovery-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-member-of') as c:
+    with self.argument_context('applications service-principal list-member-of') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-oauth2-permission-grant') as c:
+    with self.argument_context('applications service-principal list-oauth2-permission-grant') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-owned-object') as c:
+    with self.argument_context('applications service-principal list-owned-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-owner') as c:
+    with self.argument_context('applications service-principal list-owner') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-ref-claim-mapping-policy') as c:
+    with self.argument_context('applications service-principal list-ref-claim-mapping-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-created-object') as c:
+    with self.argument_context('applications service-principal list-ref-created-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-home-realm-discovery-policy') as c:
+    with self.argument_context('applications service-principal list-ref-home-realm-discovery-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-member-of') as c:
+    with self.argument_context('applications service-principal list-ref-member-of') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-oauth2-permission-grant') as c:
+    with self.argument_context('applications service-principal list-ref-oauth2-permission-grant') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-owned-object') as c:
+    with self.argument_context('applications service-principal list-ref-owned-object') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-owner') as c:
+    with self.argument_context('applications service-principal list-ref-owner') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-token-issuance-policy') as c:
+    with self.argument_context('applications service-principal list-ref-token-issuance-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-token-lifetime-policy') as c:
+    with self.argument_context('applications service-principal list-ref-token-lifetime-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-ref-transitive-member-of') as c:
+    with self.argument_context('applications service-principal list-ref-transitive-member-of') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
 
-    with self.argument_context('applications list-token-issuance-policy') as c:
-        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('applications list-token-lifetime-policy') as c:
+    with self.argument_context('applications service-principal list-token-issuance-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-transitive-member-of') as c:
+    with self.argument_context('applications service-principal list-token-lifetime-policy') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications remove-key') as c:
+    with self.argument_context('applications service-principal list-transitive-member-of') as c:
+        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
+        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('select', nargs='*', help='Select properties to be returned')
+        c.argument('expand', nargs='*', help='Expand related entities')
+
+    with self.argument_context('applications service-principal remove-key') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('key_id', help='')
         c.argument('proof', type=str, help='')
 
-    with self.argument_context('applications remove-password') as c:
+    with self.argument_context('applications service-principal remove-password') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('key_id', help='')
 
-    with self.argument_context('applications restore') as c:
+    with self.argument_context('applications service-principal restore') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
 
-    with self.argument_context('applications update-app-role-assigned-to') as c:
-        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
-        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('deleted_date_time', help='')
-        c.argument('app_role_id', help='The identifier (id) for the app role which is assigned to the principal. This '
-                   'app role must be exposed in the appRoles property on the resource application\'s service principal '
-                   '(resourceId). If the resource application has not declared any app roles, a default app role ID of '
-                   '00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to '
-                   'the resource app without any specific app roles. Required on create. Does not support $filter.')
-        c.argument('created_date_time', help='')
-        c.argument('principal_display_name', type=str, help='The display name of the user, group, or service principal '
-                   'that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).')
-        c.argument('principal_id', help='The unique identifier (id) for the user, group or service principal being '
-                   'granted the app role. Required on create. Does not support $filter.')
-        c.argument('principal_type', type=str, help='The type of the assigned principal. This can either be \'User\', '
-                   '\'Group\' or \'ServicePrincipal\'. Read-only. Does not support $filter.')
-        c.argument('resource_display_name', type=str, help='The display name of the resource app\'s service principal '
-                   'to which the assignment is made. Does not support $filter.')
-        c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
-                   'assignment is made. Required on create. Supports $filter (eq only).')
-
-    with self.argument_context('applications update-app-role-assignment') as c:
+    with self.argument_context('applications service-principal update-app-role-assigned-to') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -641,7 +619,29 @@ def load_arguments(self, _):
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
 
-    with self.argument_context('applications update-endpoint') as c:
+    with self.argument_context('applications service-principal update-app-role-assignment') as c:
+        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
+        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('app_role_id', help='The identifier (id) for the app role which is assigned to the principal. This '
+                   'app role must be exposed in the appRoles property on the resource application\'s service principal '
+                   '(resourceId). If the resource application has not declared any app roles, a default app role ID of '
+                   '00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to '
+                   'the resource app without any specific app roles. Required on create. Does not support $filter.')
+        c.argument('created_date_time', help='')
+        c.argument('principal_display_name', type=str, help='The display name of the user, group, or service principal '
+                   'that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).')
+        c.argument('principal_id', help='The unique identifier (id) for the user, group or service principal being '
+                   'granted the app role. Required on create. Does not support $filter.')
+        c.argument('principal_type', type=str, help='The type of the assigned principal. This can either be \'User\', '
+                   '\'Group\' or \'ServicePrincipal\'. Read-only. Does not support $filter.')
+        c.argument('resource_display_name', type=str, help='The display name of the resource app\'s service principal '
+                   'to which the assignment is made. Does not support $filter.')
+        c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
+                   'assignment is made. Required on create. Supports $filter (eq only).')
+
+    with self.argument_context('applications service-principal update-endpoint') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('endpoint_id', type=str, help='key: id of endpoint')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -655,18 +655,18 @@ def load_arguments(self, _):
                    'for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.')
         c.argument('uri', type=str, help='URL of the published resource. Not nullable. Read-only.')
 
-    with self.argument_context('applications validate-property') as c:
+    with self.argument_context('applications service-principal validate-property') as c:
         c.argument('entity_type', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('applications delete') as c:
+    with self.argument_context('applications user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('applications create-app-role-assignment') as c:
+    with self.argument_context('applications user create-app-role-assignment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -687,19 +687,19 @@ def load_arguments(self, _):
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
 
-    with self.argument_context('applications get-app-role-assignment') as c:
+    with self.argument_context('applications user get-app-role-assignment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications list-app-role-assignment') as c:
+    with self.argument_context('applications user list-app-role-assignment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('orderby', nargs='*', help='Order items by property values')
         c.argument('select', nargs='*', help='Select properties to be returned')
         c.argument('expand', nargs='*', help='Expand related entities')
 
-    with self.argument_context('applications update-app-role-assignment') as c:
+    with self.argument_context('applications user update-app-role-assignment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
