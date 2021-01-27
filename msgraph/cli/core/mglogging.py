@@ -37,7 +37,7 @@ _CMD_LOG_LINE_PREFIX = "CMD-LOG-LINE-BEGIN"
 
 
 class MgCliLogging(CLILogging):
-    _COMMAND_METADATA_LOGGER = 'az_command_data_logger'
+    _COMMAND_METADATA_LOGGER = 'mg_command_data_logger'
 
     def __init__(self, name, cli_ctx=None):
         super(MgCliLogging, self).__init__(name, cli_ctx)
