@@ -10,11 +10,52 @@
 # pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 
-from msgraph.cli.core.commands.parameters import get_three_state_flag
+from msgraph.cli.core.commands.parameters import (
+    tags_type,
+    get_three_state_flag
+)
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_applications_v1_0.action import (
+    AddApplicationsApplicationAddIns,
+    AddApplicationsApplicationAppRoles,
+    AddInfo,
+    AddApplicationsApplicationKeyCredentials,
+    AddParentalControlSettings,
+    AddApplicationsApplicationPasswordCredentials,
+    AddPublicClient,
+    AddRequiredResourceAccess,
+    AddCreatedOnBehalfOf,
+    AddExtensionProperties,
+    AddApplicationsApplicationHomeRealmDiscoveryPolicies,
+    AddApplicationsApplicationOwners,
+    AddApplicationsApplicationTokenIssuancePolicies,
+    AddApplicationsApplicationTokenLifetimePolicies,
+    AddWebImplicitGrantSettings,
+    AddOptionalClaimsAccessToken,
+    AddOptionalClaimsIdToken,
+    AddOptionalClaimsSaml2token,
+    AddApiOauth2permissionScopes,
+    AddApiPreAuthorizedApplications,
     AddKeyCredential,
-    AddPasswordCredential
+    AddPasswordCredential,
+    AddServiceprincipalsServiceprincipalAddIns,
+    AddServiceprincipalsServiceprincipalAppRoles,
+    AddServiceprincipalsServiceprincipalKeyCredentials,
+    AddOauth2PermissionScopes,
+    AddServiceprincipalsServiceprincipalPasswordCredentials,
+    AddAppRoleAssignedTo,
+    AddAppRoleAssignments,
+    AddClaimsMappingPolicies,
+    AddCreatedObjects,
+    AddEndpoints,
+    AddServiceprincipalsServiceprincipalHomeRealmDiscoveryPolicies,
+    AddMemberOf,
+    AddOauth2PermissionGrants,
+    AddOwnedObjects,
+    AddServiceprincipalsServiceprincipalOwners,
+    AddServiceprincipalsServiceprincipalTokenIssuancePolicies,
+    AddServiceprincipalsServiceprincipalTokenLifetimePolicies,
+    AddTransitiveMemberOf
 )
 
 
@@ -25,7 +66,117 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications application-application create-application') as c:
-        c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('add_ins', action=AddApplicationsApplicationAddIns, nargs='*', help='Defines custom behavior that a '
+                   'consuming service can use to call an app in specific contexts. For example, applications that can '
+                   'render file streams may set the addIns property for its \'FileHandler\' functionality. This will '
+                   'let services like Microsoft 365 call the application in the context of a document the user is '
+                   'working on.')
+        c.argument('app_id', type=str, help='The unique identifier for the application that is assigned to an '
+                   'application by Azure AD. Not nullable. Read-only.')
+        c.argument('application_template_id', type=str, help='')
+        c.argument('app_roles', action=AddApplicationsApplicationAppRoles, nargs='*', help='The collection of roles '
+                   'the application declares. With app role assignments, these roles can be assigned to users, groups, '
+                   'or other applications\' service principals. Not nullable.')
+        c.argument('created_date_time', help='The date and time the application was registered. Read-only.')
+        c.argument('description', type=str, help='')
+        c.argument('display_name', type=str, help='The display name for the application.')
+        c.argument('group_membership_claims', type=str, help='Configures the groups claim issued in a user or OAuth '
+                   '2.0 access token that the application expects. To set this attribute, use one of the following '
+                   'valid string values:NoneSecurityGroup: For security groups and Azure AD rolesAll: This will get '
+                   'all of the security groups, distribution groups, and Azure AD directory roles that the signed-in '
+                   'user is a member of')
+        c.argument('identifier_uris', nargs='*', help='The URIs that identify the application within its Azure AD '
+                   'tenant, or within a verified custom domain if the application is multi-tenant. For more '
+                   'information see Application Objects and Service Principal Objects. The any operator is required '
+                   'for filter expressions on multi-valued properties. Not nullable.')
+        c.argument('info', action=AddInfo, nargs='*', help='informationalUrl')
+        c.argument('is_device_only_auth_supported', arg_type=get_three_state_flag(), help='')
+        c.argument('is_fallback_public_client', arg_type=get_three_state_flag(), help='Specifies the fallback '
+                   'application type as public client, such as an installed application running on a mobile device. '
+                   'The default value is false which means the fallback application type is confidential client such '
+                   'as web app. There are certain scenarios where Azure AD cannot determine the client application '
+                   'type (e.g. ROPC flow where it is configured without specifying a redirect URI). In those cases '
+                   'Azure AD will interpret the application type based on the value of this property.')
+        c.argument('key_credentials', action=AddApplicationsApplicationKeyCredentials, nargs='*', help='The collection '
+                   'of key credentials associated with the application Not nullable.')
+        c.argument('logo', help='The main logo for the application. Not nullable.')
+        c.argument('notes', type=str, help='')
+        c.argument('oauth2_require_post_response', arg_type=get_three_state_flag(), help='')
+        c.argument('parental_control_settings', action=AddParentalControlSettings, nargs='*', help=''
+                   'parentalControlSettings')
+        c.argument('password_credentials', action=AddApplicationsApplicationPasswordCredentials, nargs='*', help='The '
+                   'collection of password credentials associated with the application. Not nullable.')
+        c.argument('public_client', action=AddPublicClient, nargs='*', help='publicClientApplication')
+        c.argument('publisher_domain', type=str, help='The verified publisher domain for the application. Read-only.')
+        c.argument('required_resource_access', action=AddRequiredResourceAccess, nargs='*', help='Specifies resources '
+                   'that this application requires access to and the set of OAuth permission scopes and application '
+                   'roles that it needs under each of those resources. This pre-configuration of required resource '
+                   'access drives the consent experience. Not nullable.')
+        c.argument('sign_in_audience', type=str, help='Specifies the Microsoft accounts that are supported for the '
+                   'current application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school '
+                   'account in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a '
+                   'Microsoft work or school account in any organization’s Azure AD tenant '
+                   '(multi-tenant)AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a '
+                   'work or school account in any organization’s Azure AD tenant.')
+        c.argument('tags', tags_type)
+        c.argument('token_encryption_key_id', help='Specifies the keyId of a public key from the keyCredentials '
+                   'collection. When configured, Azure AD encrypts all the tokens it emits by using the key this '
+                   'property points to. The application code that receives the encrypted token must use the matching '
+                   'private key to decrypt the token before it can be used for the signed-in user.')
+        c.argument('created_on_behalf_of', action=AddCreatedOnBehalfOf, nargs='*', help='Represents an Azure Active '
+                   'Directory object. The directoryObject type is the base type for many other directory entity types.')
+        c.argument('extension_properties', action=AddExtensionProperties, nargs='*', help='Read-only. Nullable.')
+        c.argument('home_realm_discovery_policies', action=AddApplicationsApplicationHomeRealmDiscoveryPolicies,
+                   nargs='*', help='')
+        c.argument('owners', action=AddApplicationsApplicationOwners, nargs='*', help='Directory objects that are '
+                   'owners of the application. The owners are a set of non-admin users who are allowed to modify this '
+                   'object. Requires version 2013-11-08 or newer. Read-only. Nullable.')
+        c.argument('token_issuance_policies', action=AddApplicationsApplicationTokenIssuancePolicies, nargs='*', help=''
+                   '')
+        c.argument('token_lifetime_policies', action=AddApplicationsApplicationTokenLifetimePolicies, nargs='*', help=''
+                   '')
+        c.argument('web_home_page_url', type=str, help='Home page or landing page of the application.')
+        c.argument('web_implicit_grant_settings', action=AddWebImplicitGrantSettings, nargs='*', help=''
+                   'implicitGrantSettings')
+        c.argument('web_logout_url', type=str, help='Specifies the URL that will be used by Microsoft\'s authorization '
+                   'service to logout an user using front-channel, back-channel or SAML logout protocols.')
+        c.argument('web_redirect_uris', nargs='*', help='Specifies the URLs where user tokens are sent for sign-in, or '
+                   'the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.')
+        c.argument('optional_claims_access_token', action=AddOptionalClaimsAccessToken, nargs='*', help='The optional '
+                   'claims returned in the JWT access token.')
+        c.argument('optional_claims_id_token', action=AddOptionalClaimsIdToken, nargs='*', help='The optional claims '
+                   'returned in the JWT ID token.')
+        c.argument('optional_claims_saml2token', action=AddOptionalClaimsSaml2token, nargs='*', help='The optional '
+                   'claims returned in the SAML token.')
+        c.argument('api_accept_mapped_claims', arg_type=get_three_state_flag(), help='When true, allows an application '
+                   'to use claims mapping without specifying a custom signing key.')
+        c.argument('api_known_client_applications', nargs='*', help='Used for bundling consent if you have a solution '
+                   'that contains two parts: a client app and a custom web API app. If you set the appID of the client '
+                   'app to this value, the user only consents once to the client app. Azure AD knows that consenting '
+                   'to the client means implicitly consenting to the web API and automatically provisions service '
+                   'principals for both APIs at the same time. Both the client and the web API app must be registered '
+                   'in the same tenant.')
+        c.argument('api_oauth2permission_scopes', action=AddApiOauth2permissionScopes, nargs='*', help='The definition '
+                   'of the delegated permissions exposed by the web API represented by this application registration. '
+                   'These delegated permissions may be requested by a client application, and may be granted by users '
+                   'or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 '
+                   'scopes.')
+        c.argument('api_pre_authorized_applications', action=AddApiPreAuthorizedApplications, nargs='*', help='Lists '
+                   'the client applications that are pre-authorized with the specified delegated permissions to access '
+                   'this application\'s APIs. Users are not required to consent to any pre-authorized application (for '
+                   'the permissions specified). However, any additional permissions not listed in '
+                   'preAuthorizedApplications (requested through incremental consent for example) will require user '
+                   'consent.')
+        c.argument('api_requested_access_token_version', type=int, help='Specifies the access token version expected '
+                   'by this resource. This changes the version and format of the JWT produced independent of the '
+                   'endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen '
+                   'by the client and only impacts the version of id_tokens. Resources need to explicitly configure '
+                   'requestedAccessTokenVersion to indicate the supported access token format.  Possible values for '
+                   'requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which '
+                   'corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as '
+                   'AzureADandPersonalMicrosoftAccount, the value for this property must be 2')
 
     with self.argument_context('applications application-application get-application') as c:
         c.argument('application_id', type=str, help='key: id of application')
@@ -46,8 +197,117 @@ def load_arguments(self, _):
 
     with self.argument_context('applications application-application update-application') as c:
         c.argument('application_id', type=str, help='key: id of application')
-        c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('add_ins', action=AddApplicationsApplicationAddIns, nargs='*', help='Defines custom behavior that a '
+                   'consuming service can use to call an app in specific contexts. For example, applications that can '
+                   'render file streams may set the addIns property for its \'FileHandler\' functionality. This will '
+                   'let services like Microsoft 365 call the application in the context of a document the user is '
+                   'working on.')
+        c.argument('app_id', type=str, help='The unique identifier for the application that is assigned to an '
+                   'application by Azure AD. Not nullable. Read-only.')
+        c.argument('application_template_id', type=str, help='')
+        c.argument('app_roles', action=AddApplicationsApplicationAppRoles, nargs='*', help='The collection of roles '
+                   'the application declares. With app role assignments, these roles can be assigned to users, groups, '
+                   'or other applications\' service principals. Not nullable.')
+        c.argument('created_date_time', help='The date and time the application was registered. Read-only.')
+        c.argument('description', type=str, help='')
+        c.argument('display_name', type=str, help='The display name for the application.')
+        c.argument('group_membership_claims', type=str, help='Configures the groups claim issued in a user or OAuth '
+                   '2.0 access token that the application expects. To set this attribute, use one of the following '
+                   'valid string values:NoneSecurityGroup: For security groups and Azure AD rolesAll: This will get '
+                   'all of the security groups, distribution groups, and Azure AD directory roles that the signed-in '
+                   'user is a member of')
+        c.argument('identifier_uris', nargs='*', help='The URIs that identify the application within its Azure AD '
+                   'tenant, or within a verified custom domain if the application is multi-tenant. For more '
+                   'information see Application Objects and Service Principal Objects. The any operator is required '
+                   'for filter expressions on multi-valued properties. Not nullable.')
+        c.argument('info', action=AddInfo, nargs='*', help='informationalUrl')
+        c.argument('is_device_only_auth_supported', arg_type=get_three_state_flag(), help='')
+        c.argument('is_fallback_public_client', arg_type=get_three_state_flag(), help='Specifies the fallback '
+                   'application type as public client, such as an installed application running on a mobile device. '
+                   'The default value is false which means the fallback application type is confidential client such '
+                   'as web app. There are certain scenarios where Azure AD cannot determine the client application '
+                   'type (e.g. ROPC flow where it is configured without specifying a redirect URI). In those cases '
+                   'Azure AD will interpret the application type based on the value of this property.')
+        c.argument('key_credentials', action=AddApplicationsApplicationKeyCredentials, nargs='*', help='The collection '
+                   'of key credentials associated with the application Not nullable.')
+        c.argument('logo', help='The main logo for the application. Not nullable.')
+        c.argument('notes', type=str, help='')
+        c.argument('oauth2_require_post_response', arg_type=get_three_state_flag(), help='')
+        c.argument('parental_control_settings', action=AddParentalControlSettings, nargs='*', help=''
+                   'parentalControlSettings')
+        c.argument('password_credentials', action=AddApplicationsApplicationPasswordCredentials, nargs='*', help='The '
+                   'collection of password credentials associated with the application. Not nullable.')
+        c.argument('public_client', action=AddPublicClient, nargs='*', help='publicClientApplication')
+        c.argument('publisher_domain', type=str, help='The verified publisher domain for the application. Read-only.')
+        c.argument('required_resource_access', action=AddRequiredResourceAccess, nargs='*', help='Specifies resources '
+                   'that this application requires access to and the set of OAuth permission scopes and application '
+                   'roles that it needs under each of those resources. This pre-configuration of required resource '
+                   'access drives the consent experience. Not nullable.')
+        c.argument('sign_in_audience', type=str, help='Specifies the Microsoft accounts that are supported for the '
+                   'current application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school '
+                   'account in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a '
+                   'Microsoft work or school account in any organization’s Azure AD tenant '
+                   '(multi-tenant)AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a '
+                   'work or school account in any organization’s Azure AD tenant.')
+        c.argument('tags', tags_type)
+        c.argument('token_encryption_key_id', help='Specifies the keyId of a public key from the keyCredentials '
+                   'collection. When configured, Azure AD encrypts all the tokens it emits by using the key this '
+                   'property points to. The application code that receives the encrypted token must use the matching '
+                   'private key to decrypt the token before it can be used for the signed-in user.')
+        c.argument('created_on_behalf_of', action=AddCreatedOnBehalfOf, nargs='*', help='Represents an Azure Active '
+                   'Directory object. The directoryObject type is the base type for many other directory entity types.')
+        c.argument('extension_properties', action=AddExtensionProperties, nargs='*', help='Read-only. Nullable.')
+        c.argument('home_realm_discovery_policies', action=AddApplicationsApplicationHomeRealmDiscoveryPolicies,
+                   nargs='*', help='')
+        c.argument('owners', action=AddApplicationsApplicationOwners, nargs='*', help='Directory objects that are '
+                   'owners of the application. The owners are a set of non-admin users who are allowed to modify this '
+                   'object. Requires version 2013-11-08 or newer. Read-only. Nullable.')
+        c.argument('token_issuance_policies', action=AddApplicationsApplicationTokenIssuancePolicies, nargs='*', help=''
+                   '')
+        c.argument('token_lifetime_policies', action=AddApplicationsApplicationTokenLifetimePolicies, nargs='*', help=''
+                   '')
+        c.argument('web_home_page_url', type=str, help='Home page or landing page of the application.')
+        c.argument('web_implicit_grant_settings', action=AddWebImplicitGrantSettings, nargs='*', help=''
+                   'implicitGrantSettings')
+        c.argument('web_logout_url', type=str, help='Specifies the URL that will be used by Microsoft\'s authorization '
+                   'service to logout an user using front-channel, back-channel or SAML logout protocols.')
+        c.argument('web_redirect_uris', nargs='*', help='Specifies the URLs where user tokens are sent for sign-in, or '
+                   'the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.')
+        c.argument('optional_claims_access_token', action=AddOptionalClaimsAccessToken, nargs='*', help='The optional '
+                   'claims returned in the JWT access token.')
+        c.argument('optional_claims_id_token', action=AddOptionalClaimsIdToken, nargs='*', help='The optional claims '
+                   'returned in the JWT ID token.')
+        c.argument('optional_claims_saml2token', action=AddOptionalClaimsSaml2token, nargs='*', help='The optional '
+                   'claims returned in the SAML token.')
+        c.argument('api_accept_mapped_claims', arg_type=get_three_state_flag(), help='When true, allows an application '
+                   'to use claims mapping without specifying a custom signing key.')
+        c.argument('api_known_client_applications', nargs='*', help='Used for bundling consent if you have a solution '
+                   'that contains two parts: a client app and a custom web API app. If you set the appID of the client '
+                   'app to this value, the user only consents once to the client app. Azure AD knows that consenting '
+                   'to the client means implicitly consenting to the web API and automatically provisions service '
+                   'principals for both APIs at the same time. Both the client and the web API app must be registered '
+                   'in the same tenant.')
+        c.argument('api_oauth2permission_scopes', action=AddApiOauth2permissionScopes, nargs='*', help='The definition '
+                   'of the delegated permissions exposed by the web API represented by this application registration. '
+                   'These delegated permissions may be requested by a client application, and may be granted by users '
+                   'or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 '
+                   'scopes.')
+        c.argument('api_pre_authorized_applications', action=AddApiPreAuthorizedApplications, nargs='*', help='Lists '
+                   'the client applications that are pre-authorized with the specified delegated permissions to access '
+                   'this application\'s APIs. Users are not required to consent to any pre-authorized application (for '
+                   'the permissions specified). However, any additional permissions not listed in '
+                   'preAuthorizedApplications (requested through incremental consent for example) will require user '
+                   'consent.')
+        c.argument('api_requested_access_token_version', type=int, help='Specifies the access token version expected '
+                   'by this resource. This changes the version and format of the JWT produced independent of the '
+                   'endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen '
+                   'by the client and only impacts the version of id_tokens. Resources need to explicitly configure '
+                   'requestedAccessTokenVersion to indicate the supported access token format.  Possible values for '
+                   'requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which '
+                   'corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as '
+                   'AzureADandPersonalMicrosoftAccount, the value for this property must be 2')
 
     with self.argument_context('applications application delete') as c:
         c.argument('application_id', type=str, help='key: id of application')
@@ -288,7 +548,108 @@ def load_arguments(self, _):
         c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications service-principal-service-principal create-service-principal') as c:
-        c.argument('body', type=validate_file_or_dict, help='New entity Expected value: json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the service principal account is '
+                   'enabled; otherwise, false.')
+        c.argument('add_ins', action=AddServiceprincipalsServiceprincipalAddIns, nargs='*', help='Defines custom '
+                   'behavior that a consuming service can use to call an app in specific contexts. For example, '
+                   'applications that can render file streams may set the addIns property for its \'FileHandler\' '
+                   'functionality. This will let services like Microsoft 365 call the application in the context of a '
+                   'document the user is working on.')
+        c.argument('alternative_names', nargs='*', help='Used to retrieve service principals by subscription, identify '
+                   'resource group and full resource ids for managed identities.')
+        c.argument('app_description', type=str, help='')
+        c.argument('app_display_name', type=str, help='The display name exposed by the associated application.')
+        c.argument('app_id', type=str, help='The unique identifier for the associated application (its appId '
+                   'property).')
+        c.argument('application_template_id', type=str, help='Unique identifier of the applicationTemplate that the '
+                   'servicePrincipal was created from. Read-only.')
+        c.argument('app_owner_organization_id', help='Contains the tenant id where the application is registered. This '
+                   'is applicable only to service principals backed by applications.')
+        c.argument('app_role_assignment_required', arg_type=get_three_state_flag(), help='Specifies whether users or '
+                   'other service principals need to be granted an app role assignment for this service principal '
+                   'before users can sign in or apps can get tokens. The default value is false. Not nullable.')
+        c.argument('app_roles', action=AddServiceprincipalsServiceprincipalAppRoles, nargs='*', help='The roles '
+                   'exposed by the application which this service principal represents. For more information see the '
+                   'appRoles property definition on the application entity. Not nullable.')
+        c.argument('description', type=str, help='')
+        c.argument('display_name', type=str, help='The display name for the service principal.')
+        c.argument('homepage', type=str, help='Home page or landing page of the application.')
+        c.argument('info', action=AddInfo, nargs='*', help='informationalUrl')
+        c.argument('key_credentials', action=AddServiceprincipalsServiceprincipalKeyCredentials, nargs='*', help='The '
+                   'collection of key credentials associated with the service principal. Not nullable.')
+        c.argument('login_url', type=str, help='Specifies the URL where the service provider redirects the user to '
+                   'Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or '
+                   'the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications '
+                   'configured with SAML-based single sign-on. The user launches the application from Microsoft 365, '
+                   'the Azure AD My Apps, or the Azure AD SSO URL.')
+        c.argument('logout_url', type=str, help='Specifies the URL that will be used by Microsoft\'s authorization '
+                   'service to logout an user using OpenId Connect front-channel, back-channel or SAML logout '
+                   'protocols.')
+        c.argument('notes', type=str, help='')
+        c.argument('notification_email_addresses', nargs='*', help='Specifies the list of email addresses where Azure '
+                   'AD sends a notification when the active certificate is near the expiration date. This is only for '
+                   'the certificates used to sign the SAML token issued for Azure AD Gallery applications.')
+        c.argument('oauth2_permission_scopes', action=AddOauth2PermissionScopes, nargs='*', help='The delegated '
+                   'permissions exposed by the application. For more information see the oauth2PermissionScopes '
+                   'property on the application entity\'s api property. Not nullable.')
+        c.argument('password_credentials', action=AddServiceprincipalsServiceprincipalPasswordCredentials, nargs='*',
+                   help='The collection of password credentials associated with the service principal. Not nullable.')
+        c.argument('preferred_single_sign_on_mode', type=str, help='Specifies the single sign-on mode configured for '
+                   'this application. Azure AD uses the preferred single sign-on mode to launch the application from '
+                   'Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, external, and '
+                   'oidc.')
+        c.argument('preferred_token_signing_key_thumbprint', type=str, help='')
+        c.argument('reply_urls', nargs='*', help='The URLs that user tokens are sent to for sign in with the '
+                   'associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens '
+                   'are sent to for the associated application. Not nullable.')
+        c.argument('service_principal_names', nargs='*', help='Contains the list of identifiersUris, copied over from '
+                   'the associated application. Additional values can be added to hybrid applications. These values '
+                   'can be used to identify the permissions exposed by this app within Azure AD. For example,Client '
+                   'apps can specify a resource URI which is based on the values of this property to acquire an access '
+                   'token, which is the URI returned in the \'aud\' claim.The any operator is required for filter '
+                   'expressions on multi-valued properties. Not nullable.')
+        c.argument('service_principal_type', type=str, help='Identifies if the service principal represents an '
+                   'application or a managed identity. This is set by Azure AD internally. For a service principal '
+                   'that represents an application this is set as Application. For a service principal that represent '
+                   'a managed identity this is set as ManagedIdentity.')
+        c.argument('tags', tags_type)
+        c.argument('token_encryption_key_id', help='Specifies the keyId of a public key from the keyCredentials '
+                   'collection. When configured, Azure AD issues tokens for this application encrypted using the key '
+                   'specified by this property. The application code that receives the encrypted token must use the '
+                   'matching private key to decrypt the token before it can be used for the signed-in user.')
+        c.argument('app_role_assigned_to', action=AddAppRoleAssignedTo, nargs='*', help='Principals (users, groups, '
+                   'and service principals) that are assigned to this service principal. Read-only.')
+        c.argument('app_role_assignments', action=AddAppRoleAssignments, nargs='*', help='Applications that this '
+                   'service principal is assigned to. Read-only. Nullable.')
+        c.argument('claims_mapping_policies', action=AddClaimsMappingPolicies, nargs='*', help='The '
+                   'claimsMappingPolicies assigned to this service principal.')
+        c.argument('created_objects', action=AddCreatedObjects, nargs='*', help='Directory objects created by this '
+                   'service principal. Read-only. Nullable.')
+        c.argument('endpoints', action=AddEndpoints, nargs='*', help='Endpoints available for discovery. Services like '
+                   'Sharepoint populate this property with a tenant specific SharePoint endpoints that other '
+                   'applications can discover and use in their experiences.')
+        c.argument('home_realm_discovery_policies',
+                   action=AddServiceprincipalsServiceprincipalHomeRealmDiscoveryPolicies, nargs='*', help='The '
+                   'homeRealmDiscoveryPolicies assigned to this service principal.')
+        c.argument('member_of', action=AddMemberOf, nargs='*', help='Roles that this service principal is a member of. '
+                   'HTTP Methods: GET Read-only. Nullable.')
+        c.argument('oauth2_permission_grants', action=AddOauth2PermissionGrants, nargs='*', help='Delegated permission '
+                   'grants authorizing this service principal to access an API on behalf of a signed-in user. '
+                   'Read-only. Nullable.')
+        c.argument('owned_objects', action=AddOwnedObjects, nargs='*', help='Directory objects that are owned by this '
+                   'service principal. Read-only. Nullable.')
+        c.argument('owners', action=AddServiceprincipalsServiceprincipalOwners, nargs='*', help='Directory objects '
+                   'that are owners of this servicePrincipal. The owners are a set of non-admin users or '
+                   'servicePrincipals who are allowed to modify this object. Read-only. Nullable.')
+        c.argument('token_issuance_policies', action=AddServiceprincipalsServiceprincipalTokenIssuancePolicies, nargs=''
+                   '*', help='The tokenIssuancePolicies assigned to this service principal.')
+        c.argument('token_lifetime_policies', action=AddServiceprincipalsServiceprincipalTokenLifetimePolicies, nargs=''
+                   '*', help='The tokenLifetimePolicies assigned to this service principal.')
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='*', help='')
+        c.argument('saml_single_sign_on_settings_relay_state', type=str, help='The relative URI the service provider '
+                   'would redirect to after completion of the single sign-on flow.')
 
     with self.argument_context('applications service-principal-service-principal get-service-principal') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
@@ -302,8 +663,108 @@ def load_arguments(self, _):
 
     with self.argument_context('applications service-principal-service-principal update-service-principal') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
-        c.argument('body', type=validate_file_or_dict, help='New property values Expected value: '
-                   'json-string/@json-file.')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the service principal account is '
+                   'enabled; otherwise, false.')
+        c.argument('add_ins', action=AddServiceprincipalsServiceprincipalAddIns, nargs='*', help='Defines custom '
+                   'behavior that a consuming service can use to call an app in specific contexts. For example, '
+                   'applications that can render file streams may set the addIns property for its \'FileHandler\' '
+                   'functionality. This will let services like Microsoft 365 call the application in the context of a '
+                   'document the user is working on.')
+        c.argument('alternative_names', nargs='*', help='Used to retrieve service principals by subscription, identify '
+                   'resource group and full resource ids for managed identities.')
+        c.argument('app_description', type=str, help='')
+        c.argument('app_display_name', type=str, help='The display name exposed by the associated application.')
+        c.argument('app_id', type=str, help='The unique identifier for the associated application (its appId '
+                   'property).')
+        c.argument('application_template_id', type=str, help='Unique identifier of the applicationTemplate that the '
+                   'servicePrincipal was created from. Read-only.')
+        c.argument('app_owner_organization_id', help='Contains the tenant id where the application is registered. This '
+                   'is applicable only to service principals backed by applications.')
+        c.argument('app_role_assignment_required', arg_type=get_three_state_flag(), help='Specifies whether users or '
+                   'other service principals need to be granted an app role assignment for this service principal '
+                   'before users can sign in or apps can get tokens. The default value is false. Not nullable.')
+        c.argument('app_roles', action=AddServiceprincipalsServiceprincipalAppRoles, nargs='*', help='The roles '
+                   'exposed by the application which this service principal represents. For more information see the '
+                   'appRoles property definition on the application entity. Not nullable.')
+        c.argument('description', type=str, help='')
+        c.argument('display_name', type=str, help='The display name for the service principal.')
+        c.argument('homepage', type=str, help='Home page or landing page of the application.')
+        c.argument('info', action=AddInfo, nargs='*', help='informationalUrl')
+        c.argument('key_credentials', action=AddServiceprincipalsServiceprincipalKeyCredentials, nargs='*', help='The '
+                   'collection of key credentials associated with the service principal. Not nullable.')
+        c.argument('login_url', type=str, help='Specifies the URL where the service provider redirects the user to '
+                   'Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or '
+                   'the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications '
+                   'configured with SAML-based single sign-on. The user launches the application from Microsoft 365, '
+                   'the Azure AD My Apps, or the Azure AD SSO URL.')
+        c.argument('logout_url', type=str, help='Specifies the URL that will be used by Microsoft\'s authorization '
+                   'service to logout an user using OpenId Connect front-channel, back-channel or SAML logout '
+                   'protocols.')
+        c.argument('notes', type=str, help='')
+        c.argument('notification_email_addresses', nargs='*', help='Specifies the list of email addresses where Azure '
+                   'AD sends a notification when the active certificate is near the expiration date. This is only for '
+                   'the certificates used to sign the SAML token issued for Azure AD Gallery applications.')
+        c.argument('oauth2_permission_scopes', action=AddOauth2PermissionScopes, nargs='*', help='The delegated '
+                   'permissions exposed by the application. For more information see the oauth2PermissionScopes '
+                   'property on the application entity\'s api property. Not nullable.')
+        c.argument('password_credentials', action=AddServiceprincipalsServiceprincipalPasswordCredentials, nargs='*',
+                   help='The collection of password credentials associated with the service principal. Not nullable.')
+        c.argument('preferred_single_sign_on_mode', type=str, help='Specifies the single sign-on mode configured for '
+                   'this application. Azure AD uses the preferred single sign-on mode to launch the application from '
+                   'Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, external, and '
+                   'oidc.')
+        c.argument('preferred_token_signing_key_thumbprint', type=str, help='')
+        c.argument('reply_urls', nargs='*', help='The URLs that user tokens are sent to for sign in with the '
+                   'associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens '
+                   'are sent to for the associated application. Not nullable.')
+        c.argument('service_principal_names', nargs='*', help='Contains the list of identifiersUris, copied over from '
+                   'the associated application. Additional values can be added to hybrid applications. These values '
+                   'can be used to identify the permissions exposed by this app within Azure AD. For example,Client '
+                   'apps can specify a resource URI which is based on the values of this property to acquire an access '
+                   'token, which is the URI returned in the \'aud\' claim.The any operator is required for filter '
+                   'expressions on multi-valued properties. Not nullable.')
+        c.argument('service_principal_type', type=str, help='Identifies if the service principal represents an '
+                   'application or a managed identity. This is set by Azure AD internally. For a service principal '
+                   'that represents an application this is set as Application. For a service principal that represent '
+                   'a managed identity this is set as ManagedIdentity.')
+        c.argument('tags', tags_type)
+        c.argument('token_encryption_key_id', help='Specifies the keyId of a public key from the keyCredentials '
+                   'collection. When configured, Azure AD issues tokens for this application encrypted using the key '
+                   'specified by this property. The application code that receives the encrypted token must use the '
+                   'matching private key to decrypt the token before it can be used for the signed-in user.')
+        c.argument('app_role_assigned_to', action=AddAppRoleAssignedTo, nargs='*', help='Principals (users, groups, '
+                   'and service principals) that are assigned to this service principal. Read-only.')
+        c.argument('app_role_assignments', action=AddAppRoleAssignments, nargs='*', help='Applications that this '
+                   'service principal is assigned to. Read-only. Nullable.')
+        c.argument('claims_mapping_policies', action=AddClaimsMappingPolicies, nargs='*', help='The '
+                   'claimsMappingPolicies assigned to this service principal.')
+        c.argument('created_objects', action=AddCreatedObjects, nargs='*', help='Directory objects created by this '
+                   'service principal. Read-only. Nullable.')
+        c.argument('endpoints', action=AddEndpoints, nargs='*', help='Endpoints available for discovery. Services like '
+                   'Sharepoint populate this property with a tenant specific SharePoint endpoints that other '
+                   'applications can discover and use in their experiences.')
+        c.argument('home_realm_discovery_policies',
+                   action=AddServiceprincipalsServiceprincipalHomeRealmDiscoveryPolicies, nargs='*', help='The '
+                   'homeRealmDiscoveryPolicies assigned to this service principal.')
+        c.argument('member_of', action=AddMemberOf, nargs='*', help='Roles that this service principal is a member of. '
+                   'HTTP Methods: GET Read-only. Nullable.')
+        c.argument('oauth2_permission_grants', action=AddOauth2PermissionGrants, nargs='*', help='Delegated permission '
+                   'grants authorizing this service principal to access an API on behalf of a signed-in user. '
+                   'Read-only. Nullable.')
+        c.argument('owned_objects', action=AddOwnedObjects, nargs='*', help='Directory objects that are owned by this '
+                   'service principal. Read-only. Nullable.')
+        c.argument('owners', action=AddServiceprincipalsServiceprincipalOwners, nargs='*', help='Directory objects '
+                   'that are owners of this servicePrincipal. The owners are a set of non-admin users or '
+                   'servicePrincipals who are allowed to modify this object. Read-only. Nullable.')
+        c.argument('token_issuance_policies', action=AddServiceprincipalsServiceprincipalTokenIssuancePolicies, nargs=''
+                   '*', help='The tokenIssuancePolicies assigned to this service principal.')
+        c.argument('token_lifetime_policies', action=AddServiceprincipalsServiceprincipalTokenLifetimePolicies, nargs=''
+                   '*', help='The tokenLifetimePolicies assigned to this service principal.')
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='*', help='')
+        c.argument('saml_single_sign_on_settings_relay_state', type=str, help='The relative URI the service provider '
+                   'would redirect to after completion of the single sign-on flow.')
 
     with self.argument_context('applications service-principal delete') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')

@@ -55,6 +55,12 @@ These settings don't need to apply `--cli` on the command line.
 ``` yaml $(cli)
 cli:
   cli-name: {file_name}
+
+  flatten:
+    cli-flatten-set-enabled: true
+    cli-flatten-payload: true
+    cli-flatten-payload-max-prop: 256
+    cli-flatten-payload-max-level: 1
 ```
     """
     write_to('readme.cli.md', config)
@@ -88,7 +94,7 @@ modelerfour:
     lenient-model-deduplication: true
     group-parameters: true
     flatten-models: true
-    flatten-payloads: true 
+    flatten-payloads: true
 ```
   """
     write_to('readme.az.md', config)
