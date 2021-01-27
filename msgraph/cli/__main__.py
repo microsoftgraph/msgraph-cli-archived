@@ -11,7 +11,7 @@ from colorama import init, Fore
 
 from msgraph.cli.core import get_default_cli
 from msgraph.cli.core.constants import DEFAULT_PROFILE, PROFILE_LOCATION
-from msgraph.cli.core.profile import write_profile
+from msgraph.cli.core.profile import ProfileProvider
 
 mg_cli = get_default_cli()
 init(autoreset=True)
@@ -22,7 +22,10 @@ def create_profile_if_none_exists():
     has_profile = path.exists(PROFILE_LOCATION)
 
     if not has_profile:
-        write_profile(DEFAULT_PROFILE, error_msg='An error occured while creating your profile')
+        profile_provider = ProfileProvider()
+
+        profile_provider.write_profile(DEFAULT_PROFILE,
+                                       error_msg='An error occured while creating your profile')
         # Let the user know we have created a default profile for them
         show_default_profile_msg()
 

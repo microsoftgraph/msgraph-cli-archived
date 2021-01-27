@@ -61,6 +61,7 @@ def _expand_file_prefixed_files(args):
 
 
 def _pre_command_table_create(cli_ctx, args):
+    cli_ctx.refresh_request_id()
     return _expand_file_prefixed_files(args)
 
 
@@ -77,11 +78,14 @@ def _is_paged(obj):
 
 class GraphCliCommandInvoker(CommandInvoker):
     def execute(self, args):
+        # TODO: Can't simply be invoked as an event because args are transformed
+        args = _pre_command_table_create(self.cli_ctx, args)
         self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_CREATE, args=args)
         self.commands_loader.load_command_table(args)
         self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE,
                                  load_cmd_tbl_func=self.commands_loader.load_command_table,
                                  args=args)
+
         command = self._rudimentary_get_command(args)
         self.cli_ctx.invocation.data['command_string'] = command
         try:

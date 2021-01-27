@@ -7,11 +7,11 @@
 Update the _help.py file after changing the signature or behavior of functions in this file
 '''
 from knack.prompting import prompt_choice_list
-from msgraph.cli.core.constants import DEFAULT_CLOUDS
-from msgraph.cli.core.profile import read_profile, write_profile
+from msgraph.cli.core.profile import ProfileProvider
 from ._cloud_manager import CloudManager
 
-cloud_manager = CloudManager()
+profile_provider = ProfileProvider()
+cloud_manager = CloudManager(profile_provider)
 
 
 def delete_cloud(name: str):
@@ -75,19 +75,20 @@ def update_cloud(cloud: str, name=None, graph_endpoint=None, azure_ad_endpoint=N
 
 def select_version():
     supported_versions = ['v1.0', 'beta']
-    profile = read_profile()
+    profile = profile_provider.read_profile()
 
     selected = prompt_choice_list('Select graph version', supported_versions)
     selected_version = supported_versions[selected]
 
     profile.update({'version': selected_version})
-    write_profile(profile, error_msg='An error occured while setting the selected version')
+    profile_provider.write_profile(profile,
+                                   error_msg='An error occured while setting the selected version')
 
     print(f'Version {selected_version} selected')
 
 
 def show_profile():
-    profile = read_profile()
+    profile = profile_provider.read_profile()
     # remove user_defined_clouds from the profile local variable.
     # The user wants to see just the cloud and version information.
     profile.pop('user_defined_clouds')

@@ -8,7 +8,7 @@ from azure.identity import InteractiveBrowserCredential, AuthenticationRecord
 
 from msgraph.cli.core.constants import AUTH_RECORD_LOCATION, DEFAULT_CLIENT_ID, DEFAULT_AUTHORITY
 from msgraph.cli.core.exceptions import CLIException
-from msgraph.cli.core.profile import read_profile
+from msgraph.cli.core.profile import ProfileProvider
 
 
 class Authentication:
@@ -46,7 +46,7 @@ class Authentication:
         ValueError
             If PyGObject is not installed in the host Linux OS.
         '''
-        profile = read_profile()
+        profile = ProfileProvider().read_profile()
         user_cloud = profile.get('cloud', None)
         cloud_authority = user_cloud.get('azure_ad_endpoint', None)
 
