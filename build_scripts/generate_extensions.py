@@ -57,9 +57,13 @@ cli:
   cli-name: {file_name}
 
   flatten:
+    # enable flattening
     cli-flatten-set-enabled: true
+    # flatten payloads
     cli-flatten-payload: true
+    # max properties allowed for flattening. Don't flatten if properties exceed set count.
     cli-flatten-payload-max-prop: 256
+    # max depth of flatten
     cli-flatten-payload-max-level: 1
 ```
     """
