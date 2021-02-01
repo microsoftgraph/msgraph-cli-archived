@@ -1,3 +1,10 @@
+# ------------------------------------
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+# ------------------------------------
+
+# This file is extracted from azure-cli with changes made to make it work for msgraph-cli
+
 from __future__ import print_function
 import argparse
 
