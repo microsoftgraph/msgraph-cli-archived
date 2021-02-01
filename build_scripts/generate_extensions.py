@@ -62,6 +62,8 @@ cli:
     # flatten payloads
     cli-flatten-payload: true
     # max properties allowed for flattening. Don't flatten if properties exceed set count.
+    # Using 256 so that most of the payloads get flattened, payloads with more than 256 properties
+    # won't be flattened
     cli-flatten-payload-max-prop: 256
     # max depth of flatten
     cli-flatten-payload-max-level: 1
