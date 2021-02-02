@@ -95,6 +95,10 @@ directive:
           group: {file_name}_{version}
       set:
           group: {file_name}
+    - where:
+          group: application-application
+      set:
+          group: application
 
 modelerfour:
     lenient-model-deduplication: true
