@@ -90,15 +90,33 @@ az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
 cli-core-lib: msgraph.cli.core 
 
+# File names are in plural for example applications while group names are singular. 
+# file_name[:-1] removes the s from the file name
 directive:
     - where:
           group: {file_name}_{version}
       set:
           group: {file_name}
     - where:
-          group: application-application
+          group: {file_name[:-1]}-{file_name[:-1]}
       set:
-          group: application
+          group: {file_name[:-1]}
+    - where:
+          command: create-{file_name[:-1]}
+      set:
+          command: create
+    - where:
+          command: get-{file_name[:-1]}
+      set:
+          command: get
+    - where:
+          command: list-{file_name[:-1]}
+      set:
+          command: list
+    - where:
+          command: update-{file_name[:-1]}
+      set:
+          command: update
 
 modelerfour:
     lenient-model-deduplication: true
